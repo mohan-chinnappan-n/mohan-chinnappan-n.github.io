@@ -9,11 +9,60 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/navbar-green.css">
 </head>
 <body>
 
  <div class="container">
-   <h3>Home Page</h3>
+
+
+   <nav class="navbar navbar-default" role="navigation">
+     <!-- Brand and toggle get grouped for better mobile display -->
+     <div class="navbar-header">
+       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
+       <a class="navbar-brand" href="javascript:void(0)">TensorFlow and Keras</a>
+     </div>
+
+     <!-- Collect the nav links, forms, and other content for toggling -->
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       <ul class="nav navbar-nav">
+         <li class="active"><a href="javascript:void(0)">Home</a></li>
+
+         <li class="dropdown">
+           <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Options<b class="caret"></b></a>
+           <ul class="dropdown-menu">
+             <li><a href="tf.html">TensorFlow</a></li>
+             <li><a href="keras.html">Keras</a></li>
+             <li class="divider"></li>
+             <li><a href="dl.html">Deep Learning</a></li>
+           </ul>
+         </li>
+       </ul>
+
+       <div class="inner-addon right-addon navbar-form navbar-right">
+         <i class="glyphicon glyphicon-search"></i>
+         <input type="text" class="form-control" placeholder="Search" />
+       </div>
+
+       <ul class="nav navbar-nav navbar-right">
+         <li class="dropdown ">
+           <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+           <ul class="dropdown-menu">
+             <li><a href="javascript:void(0)">Help Topics</a></li>
+             <li class="divider"></li>
+             <li><a href="javascript:void(0)">About</a></li>
+           </ul>
+         </li>
+       </ul>
+     </div>
+     <!-- /.navbar-collapse -->
+   </nav>
+   <h3>Home</h3>
  </div>
 
 </body>
