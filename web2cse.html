@@ -1,0 +1,61 @@
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<div class='container'>
+
+  <h2>Web to Case Form</h2>
+  <form  role="form" action="https://www.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+
+    <input type=hidden name="orgid" value="00D41000000ednC">
+    <input type=hidden name="retURL" value="https://mohan-chinnappan-n.github.io">
+
+    <!--  ----------------------------------------------------------------------  -->
+    <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+    <!--  these lines if you wish to test in debug mode.                          -->
+    <!--  <input type="hidden" name="debug" value=1>                              -->
+    <!--  <input type="hidden" name="debugEmail"                                  -->
+    <!--  value="mohan.chinnappan.n@gmail.com">                                   -->
+    <!--  ----------------------------------------------------------------------  -->
+
+    <div class="form-group">
+      <label for="name">* Contact Name</label>
+      <input required class="form-control" id="name" maxlength="80" name="name" size="20" type="text" />
+    </div>
+    <div class="form-group">
+      <label for="email">* Email</label>
+      <input required class="form-control" id="email" maxlength="80" name="email" size="20" type="text" />
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input class="form-control" id="phone" maxlength="40" name="phone" size="20" type="text" />
+    </div>
+    <div class="form-group">
+      <label for="subject">* Subject</label>
+      <input required class="form-control" id="subject" maxlength="80" name="subject" size="20" type="text" />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" name="description"></textarea>
+    </div>
+    <div class="form-group">
+      <input type="submit" class='btn btn-primary' name="submit">
+    </div>
+
+  </form>
+</div>
+
