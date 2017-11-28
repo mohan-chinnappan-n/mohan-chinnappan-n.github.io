@@ -38,7 +38,21 @@
 
   <style>
     .reveal .slide-number {
-      font-size: 0.6em;
+      font-size: 0.5em;
+    }
+
+    .simg {
+      border-radius: 10px;
+      border: 1px;
+    }
+
+    .reveal section ul li,
+    .reveal section p {
+      font-size: .8em !important;
+    }
+
+    .reveal section pre code {
+      font-size: 0.7em !important;
     }
   </style>
 
@@ -64,16 +78,6 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="javascript:void(0)">Home</a></li>
-
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Options<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="tf.html">TensorFlow</a></li>
-            <li><a href="keras.html">Keras</a></li>
-            <li class="divider"></li>
-            <li><a href="dl.html">Papers</a></li>
-          </ul>
-        </li>
       </ul>
 
       <div class="inner-addon right-addon navbar-form navbar-right">
@@ -94,45 +98,264 @@
     </div>
     <!-- /.navbar-collapse -->
   </nav>
-<!--
+  <!--
   <div class="container" ng-controller='MainCtrl'>
     <div marked src="'pevents.md'"></div>
   </div>
 -->
 
 
-		<div class="reveal">
+  <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section id="home">
-					  <h3>Salesforce Platform Events</h3>
-				</section>
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section id="home">
+        <h4>Platform Events Architecture</h4>
+        <img style='border-radius:10px;border:1px;' src='./img/pe/pe-1.png' alt="Platform Architecture Architecture" />
+      </section>
 
-        <section data-markdown>
-        	<textarea data-template>
+      <section>
+        <h4>Platform Events Components</h4>
+        <ul>
+          <li>Provides an event-driven messaging architecture to enable apps to communicate inside and outside of Salesforce</li>
+          <li> Consists of event producers, event consumers, and channels (Event Bus)</li>
+          <li>Publishers and subscribers communicate with each other through events </li>
+          <li>One or more subscribers can listen to the same event and carry out actions</li>
+        </ul>
+      </section>
+
+      <section><h4>Sliding Window</h4>
+        <img style='border-radius:10px;border:0px;' class='simg' src='./img/pe/pe-2.png' alt="Platform Events" />
+        <p>Sliding window is 24 hours (now, may change)</p>
+      </section>
+
+      <section>
+        <h4>Event Object Types</h4>
+        <ol>
+          <li>Standard Events</li>
+          <ul>
+            <li>Login Failures</li>
+            <li>Security events</li>
+          </ul>
+          <li>Change Events
+            <ul>
+              <li>Change Data Capture (create, update, delete)</li>
+              <li>Example: Sync Heroku Postgres data with Org data</li>
+            </ul>
+
+          </li>
+          <li>Custom Events
+            <ul>
+              <li><code>sObject</code> - write-only entity</li>
+              <li>Suffix:<code> __e</code></li>
+            </ul>
+
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h4>Sample Event Object </h4>
+        <p><code>Notification</code> with custom field: <code>Message</code></p>
+        <img src='./img/pe/pe-event-object.png.png' height="480" style='border-radius:10px;border:0px;' alt="" />
+      </section>
+
+      <section>
+        <h4>Event object - special kind of entity.</h4>
+        <ul>
+          <li>It is different from Standard and Custom objects. </li>
+          <li>An event message is an instance of a platform event, similar to how a record is an instance of a standard/custom object
+          </li>
+          <li> Update or delete event records not allowed</li>
+          <li> Can’t view event records in the Salesforce UI and don’t have page layouts</li>
+          <li>Deleting a platform event definition will result in permanent deletion</li>
+          <li> You create permissions for platform events</li>
+          <li> You can grant permissions to users in profiles or in permission sets</li>
+
+        </ul>
+      </section>
+
+      <section>
+        <h4>Event object - special kind of entity - contd.</h4>
+        <ul>
+          <li>Not processed within database transactions in the Force.com platform, so publishing platform events can’t be rolled back.</li>
+          <li>
+            The <code>allOrNoneHeade</code>r API header is ignored when publishing platform events through the API.</li>
+          <li>The Apex <code>setSavepoint()</code> and <code>rollback()</code> Database methods aren’t supported with platform events.</li>
+          <li> DML limits and other Apex governor limits apply for publishing platform events </li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Custom field types supported</h4>
+        <ul>
+          <li>Checkbox </li>
+          <li>Date </li>
+          <li>Date/Time </li>
+          <li>Number </li>
+          <li>Text </li>
+          <li>Text Area (Long)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h4><code>ReplayId</code> System Field</h4>
+        <ul>
+          <li>Identifies a platform event record </li>
+          <li>Used to get stored events that are within the retention window</li>
+          <li>The subscribed CometD client can retrieve past events using the <code>ReplayId</code> field</li>
+          <li><code>ReplayId</code> is guaranteed to be higher than the <code>ReplayId</code> of the previous event, but not necessarily contiguous for consecutive events</li>
+          <li>The <code>ReplayId</code> is unique for the org and the channel (Event Bus)</li>
+        </ul>
+      </section>
+
+      <section>
+         <h4>Publishing Event Message with Apex</h4>
+          <pre>
+           // Call method to publish events (pubEvents)
+           List<Database.SaveResult> results = EventBus.publish(pubEvents);
+       </pre>
+
+      </section>
+
+      <section>
+         <h4>Publishing Event Message with API</h4>
+          <p>POST to the Endpoint: <code>/services/data/v41.0/sobjects/Event_Name__e/</code>
+          <br/>In our case,  <code>Event_Name__e</code> is <code>Notification__e</code></p>
+          <p>Sample request payload:</p>
+          <pre>
+            { "Message__c" : "Power Off" }
+          </pre>
+
+      </section>
+
+      <section>
+         <h4>Subscribe to Event Message with Process Builder</h4>
+         <img style='border-radius:10px;border:0px;'  class='simg' src='./img/pe/pe-pb-subscribe.png' alt="Subscribe to Event Message with Process Builder" />
+
+
+      </section>
+
+      <section>
+         <h4>Subscribe to Event Message with Process Builder - contd.</h4>
+         <img style='border-radius:10px;border:0px;' class='simg' src='./img/pe/pe-pb-subscribe-2.png' alt="Subscribe to Event Message with Process Builder" />
+      </section>
+
+      <section>
+         <h4>Subscribe to Event Message with Process Builder - contd.</h4>
+         <img style='border-radius:10px;border:0px;'  class='simg' src='./img/pe/pe-pb-subscribe-3.png' alt="Subscribe to Event Message with Process Builder" />
+      </section>
+
+
+      <section>
+         <h4>Subscribe to Event Message with Process Builder - contd.</h4>
+         <img style='border-radius:10px;border:0px;'  class='simg' src='./img/pe/pe-pb-subscribe-4.png' alt="Subscribe to Event Message with Process Builder" />
+      </section>
+
+
+      <section>
+         <h4>Subscribe to Event Message with Process Builder - contd.</h4>
+         <img style='border-radius:10px;border:0px;'   class='simg' src='./img/pe/pe-pb-subscribe-5.png' alt="Subscribe to Event Message with Process Builder" />
+      </section>
+
+      <section>
+         <h4>Subscribe to Event Message with Process Builder - contd.</h4>
+         <img style='border-radius:10px;border:0px;' width="500"  class='simg' src='./img/pe/pe-pb-subscribe-6.png' alt="Subscribe to Event Message with Process Builder" />
+      </section>
+
+
+      <section>
+         <h4>Subscribe Event Message with cometD</h4>
+          <p>Channel Name: <code>/event/Event_Name__e/</code>
+          <p>cometD Endpoint: <code>/cometd/41.0</code>
+          <p>Sample response payload:</p>
+          <pre>
+            { "data": {
+                  "schema": "dffQ2QLzDNHqwB8_sHMxdA",
+                  "payload": {
+                    "CreatedDate": "2017-26-11T18:31:40Z",
+                    "CreatedById": "005D0000001cSZs",
+                    "Message__c": "Power Off"
+                  },
+                  "event": { "replayId": 2 }
+                },
+                "channel": "/event/Notification__e"
+              }
+          </pre>
+
+      </section>
+
+
+      <section>
+        <h4>About CometD </h4>
+        <p>Implemention of Bayeux protocol</li>
+        <p>Supported Methods</p>
+        <ul>
+          <li><code>connect</code>
+          <li><code>disconnect</code></li>
+          <li><code>handshake</code></li>
+          <li><code>handshake</code></li>
+          <li><code>subscribe</code></li>
+          <li><code>unsubscribe</code></li>
+
+        </ul>
+      </section>
+
+      <section>
+        <h4>Bayeux</h4>
+        <ul>
+          <li>Protocol for transporting asynchronous messages </li>
+          <li>Primarily over web protocols such as HTTP and WebSocket
+          <li>With low latency between a web server and web clients</li>
+          <li>Supports responsive bidirectional interactions between web client and the web server using AJAX</li>
+
+        </ul>
+      </section>
+
+
+      <section>
+        <h4>References</h4>
+        <ul>
+         <li><a href="https://docs.cometd.org/current/reference/#_bayeux">Bayeux Protocol Specification 1.0</a></li>
+          <li><a href="https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/BayeauxProtocolAndCometD.htm">
+            Bayeux Protocol, CometD, and Long Polling</a>
+          </li>
+        </ul>
+      </section>
+
+
+
+
+
+
+
+
+
+
+      <section data-markdown>
+        <textarea data-template>
 ### Page title
 - one
 - two
 
 A paragraph with some text and a [link](http://salesforce.com).
         	</textarea>
-       </section>
+      </section>
 
-       <section>
-    			<section>Vertical Slide 1</section>
-    			<section>Vertical Slide 2</section>
-	    	</section>
+      <section>
+        <section>Vertical Slide 1</section>
+        <section>Vertical Slide 2</section>
+      </section>
 
-        <section>
-					<h3>Speaker View</h3>
+      <section>
+        <h3>Speaker View</h3>
 
-				</section>
+      </section>
 
-       
 
-      </div>
+
     </div>
+  </div>
 
 
 
@@ -145,73 +368,137 @@ A paragraph with some text and a [link](http://salesforce.com).
 
 
     // Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
 
-        //width: 960,
-        //	height: 700,
+      //width: 960,
+      //	height: 700,
 
-        // Display presentation control arrows
-        	controls: true,
+      // Display presentation control arrows
+      controls: true,
 
-        	// Help the user learn the controls by providing hints, for example by
-        	// bouncing the down arrow when they first encounter a vertical slide
-        	controlsTutorial: true,
+      // Help the user learn the controls by providing hints, for example by
+      // bouncing the down arrow when they first encounter a vertical slide
+      controlsTutorial: true,
 
-        	// Determines where controls appear, "edges" or "bottom-right"
-        	controlsLayout: 'edges',
+      // Determines where controls appear, "edges" or "bottom-right"
+      controlsLayout: 'edges',
 
-        	// Visibility rule for backwards navigation arrows; "faded", "hidden"
-        	// or "visible"
-        	controlsBackArrows: 'faded',
-          // Display a presentation progress bar
-    	progress: true,
+      // Visibility rule for backwards navigation arrows; "faded", "hidden"
+      // or "visible"
+      controlsBackArrows: 'faded',
+      // Display a presentation progress bar
+      progress: true,
 
-    	// Set default timing of 2 minutes per slide
-    	defaultTiming: 120,
+      // Set default timing of 2 minutes per slide
+      defaultTiming: 120,
 
       // Enable keyboard shortcuts for navigation
-	keyboard: true,
+      keyboard: true,
 
 
-				history: true,
-				center: true,
-				slideNumber: true,
+      history: true,
+      center: true,
+      slideNumber: true,
 
-        embedded: true,
+      embedded: true,
 
-				transition: 'convex', // none/fade/slide/convex/concave/zoom
+      transition: 'convex', // none/fade/slide/convex/concave/zoom
 
-				menu: {
-					markers: true,
-					openSlideNumber: true,
-					themes: [
-						{ name: 'Black', theme: '../reveal.js/css/theme/black.css' },
-						{ name: 'White', theme: '../reveal.js/css/theme/white.css' },
-						{ name: 'League', theme: '../reveal.js/css/theme/league.css' },
-						{ name: 'Sky', theme: '../reveal.js/css/theme/sky.css' },
-						{ name: 'Beige', theme: '../reveal.js/css/theme/beige.css' },
-						{ name: 'Simple', theme: '../reveal.js/css/theme/simple.css' },
-						{ name: 'Serif', theme: '../reveal.js/css/theme/serif.css' },
-						{ name: 'Blood', theme: '../reveal.js/css/theme/blood.css' },
-						{ name: 'Night', theme: '../reveal.js/css/theme/night.css' },
-						{ name: 'Moon', theme: '../reveal.js/css/theme/moon.css' },
-						{ name: 'Solarized', theme: '../reveal.js/css/theme/solarized.css' }
-			       ],
-			        custom: [ ]
-				},
+      menu: {
+        markers: true,
+        openSlideNumber: true,
+        themes: [{
+            name: 'Black',
+            theme: '../reveal.js/css/theme/black.css'
+          },
+          {
+            name: 'White',
+            theme: '../reveal.js/css/theme/white.css'
+          },
+          {
+            name: 'League',
+            theme: '../reveal.js/css/theme/league.css'
+          },
+          {
+            name: 'Sky',
+            theme: '../reveal.js/css/theme/sky.css'
+          },
+          {
+            name: 'Beige',
+            theme: '../reveal.js/css/theme/beige.css'
+          },
+          {
+            name: 'Simple',
+            theme: '../reveal.js/css/theme/simple.css'
+          },
+          {
+            name: 'Serif',
+            theme: '../reveal.js/css/theme/serif.css'
+          },
+          {
+            name: 'Blood',
+            theme: '../reveal.js/css/theme/blood.css'
+          },
+          {
+            name: 'Night',
+            theme: '../reveal.js/css/theme/night.css'
+          },
+          {
+            name: 'Moon',
+            theme: '../reveal.js/css/theme/moon.css'
+          },
+          {
+            name: 'Solarized',
+            theme: '../reveal.js/css/theme/solarized.css'
+          }
+        ],
+        custom: []
+      },
 
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: '../reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: '../reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '../reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: '../reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: '../reveal.js/plugin/zoom-js/zoom.js', async: true },
-					{ src: '../reveal.js/plugin/notes/notes.js', async: true },
-					{ src: '../reveal.js/plugin/reveal.js-menu/menu.js', async: true }
-				]
-			});
+      // Optional reveal.js plugins
+      dependencies: [{
+          src: '../reveal.js/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          condition: function() {
+            return !!document.querySelector('pre code');
+          },
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: '../reveal.js/plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/reveal.js-menu/menu.js',
+          async: true
+        }
+      ]
+    });
 
 
 
