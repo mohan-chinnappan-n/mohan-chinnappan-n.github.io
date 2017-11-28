@@ -116,8 +116,8 @@
         <ul>
           <li>Capture every change in the system</li>
           <li>Send those changes to the subscribers</li>
-          <li>Event channel <code>/event/ChangeEvents</code> will be automatically set for the customers </li>
-          <li>Event channel <code>/event/ENTITYChangeEvents</code> will be set for changes for the ENTITY</li>
+          <li>Event channel <code>/data/ChangeEvents</code> will be automatically set for the customers </li>
+          <li>Event channel <code>/data/ENTITYChangeEvents</code> will be set for changes for the ENTITY</li>
           <li>Events will be delivered in order</li>
           <li>All sObject(soon) will be supported</li>
           <li>Addition event info:<br/> date/time, tx-id, operation(create,update,delete, undelete)</li>
@@ -128,8 +128,8 @@
    <section>
       <h4>Change Data Event  </h4>
       <img height="300" src="./img/cdc/cdc-payload-1.png" alt="change data event">
-      <p>Event channel:  <code>/event/ChangeEvents</code> is for ALL change events</p>
-      <p>Virtual Event channel:  <code>/event/AccountChangeEvents</code> is for the change events for Account object</p>
+      <p>Event channel:  <code>/data/ChangeEvents</code> is for ALL change events</p>
+      <p>Virtual Event channel:  <code>/data/AccountChangeEvents</code> is for the change events for Account object</p>
 
    </section>
 
@@ -143,11 +143,27 @@
        </ul>
    </section>
 
+   <section>
+      <h4>Demo:Synchronize Data to Postgres With Change Data Capture</h4>
+      <img src="img/cdc/cdc-1.gif" alt="CDC Postgres demo"/>
+  </section>
+
      <section>
         <h4>Video:Change Data Capture: Data Synchronization in the Cloud</h4>
           <iframe height="450" width="800" data-src="https://www.youtube.com/embed/v_hQyUZzLsA?autoplay=0"></iframe>
     </section>
 
+    <section>
+       <h4>Video:Synchronize Data to Postgres With Change Data Capture</h4>
+         <iframe height="450" width="800" data-src="https://www.youtube.com/embed/60cl_WoyDto?autoplay=0"></iframe>
+   </section>
+
+   <section>
+     <h3>References</h4>
+       <ul>
+         <li><a target="_blank" href='https://avro.apache.org/docs/current/'>Apache Avro data serialization system</a></li>
+       </ul>
+   </section>
 
 
 
