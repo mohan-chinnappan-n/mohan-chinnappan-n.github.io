@@ -1,0 +1,74 @@
+<aura:component implements="flexipage:availableForAllPageTypes"
+                controller="NotificationCtrl"
+                access="global">
+
+    <!--
+         flexipage:availableForAllPageTypes makes it availabe for Lightning Console app
+
+    -->
+
+    <!-- let us load the cometd.js  from Static Resources named: cometd
+         and call onCometdLoaded in the client-side controller after comted.js got loaded
+   -->
+
+    <ltng:require scripts="{!$Resource.mohansun__cometd}" afterScriptsLoaded="{!c.onCometdLoaded}"/>
+    <!-- sessionId via server-sider Apex @AuraEnabled controller method -->
+    <aura:attribute name="sessionId" type="String"/>
+    <!-- cometd client instance -->
+    <aura:attribute name="cometd" type="Object"/>
+    <!-- the cometd subscriptions to the platform events -->
+    <aura:attribute name="cometdSubscriptions" type="Object[]"/>
+
+    <aura:attribute name="notifications" type="Object[]"/>
+    <aura:attribute name="isMuted" type="Boolean" default="false"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <aura:registerEvent name="toastEvent" type="force:showToast"/>
+    <!--
+   force:showToast  is std lightning event
+    -->
+
+
+    <div class="container">
+
+        <!-- header goes here -->
+        <div class="slds-p-around--x-small slds-border-bottom slds-theme--shade">
+            <span class="slds-badge">
+                {!v.notifications.length}
+            </span>
+            <div>
+                <lightning:buttonIcon onclick="{!c.onClear}"
+                                      iconName="utility:delete"
+                                      title="Clear Notifications"
+                                      alternativeText="Clear Notifications"
+                                      variant="border-filled"/>
+                <lightning:buttonIcon onclick="{!c.onToggleMute}"
+                                      iconName="{!v.isMuted ? 'utility:volume_off' : 'utility:volume_high'}"
+                                      title="{!v.isMuted ? 'Unmute notifications' : 'Mute notifications'}"
+                                      alternativeText="Toggle mute" variant="border-filled"/>
+
+            </div>
+
+
+
+        </div>
+
+        <!-- Notification list goes here -->
+        <div class="slds-container--fluid slds-scrollable--y content">
+            <aura:iteration items="{!v.notifications}" var="notification">
+                <div class="slds-p-around--small slds-border--top">
+                    <div class="slds-grid slds-gird--align-spread slds-has-flexi-truncate">
+                        <p>{!notification.message}</p>
+
+                    </div>
+                </div>
+
+            </aura:iteration>
+
+        </div>
+
+    </div>
+
+
+</aura:component>
