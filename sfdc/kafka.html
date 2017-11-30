@@ -199,6 +199,53 @@
 
        </section>
 
+       <section>
+         <h4>Stream Processing  - past and future data</h4>
+        <img height="200" src="img/kafka/kafka-apis.png" alt="">
+         <ul>
+           <li> Enterprise messaging system allows processing <b>future</b> messages that will arrive after you subscribe</li>
+           <li>A distributed file system like HDFS allows storing static files for <b>batch processing</b> -  Allows storing and processing historical data from the past</li>
+           <li> With Kafka by combining storage and low-latency subscriptions, streaming applications can treat both past and future data the same way </li>
+        </ul>
+
+       </section>
+
+       <section>
+         <h4>Kafka uses Apache ZooKeeper</h4>
+           <p>ZooKeeper is Centralized service for maintaining: </p>
+           <ul>
+             <li>Configuration information</li>
+             <li>Naming</li>
+             <li>Providing distributed synchronization and group services</li>
+
+           </ul>
+        </section>
+
+
+
+        <section>
+          <h4>Setup - Starting ZooKeeper Server</h4>
+              <img  src="img/kafka/kafka-zookeepr-config.png" alt="kafka-zookeepr-config">
+              <img  src="img/kafka/kafka-zookeeper-starting.png" alt="zookeeper start server">
+        </section>
+
+
+        <section>
+          <h4>Setup -  Kafka Server Config</h4>
+              <img height="500" src="img/kafka/kafka-server-config.png" alt="kafka-server-config">
+        </section>
+
+        <section>
+          <h4>Setup -  Kafka Server Starting</h4>
+              <img  src="img/kafka/kafka-start-server.png" alt="Kafka start server">
+              <img  src="img/kafka/kafka-start-server-2.png" alt="Kafka start server">
+        </section>
+
+        <section>
+          <h4>Simple Demo</h4>
+              <p>Producer on left and Consumer on right</p>
+              <img height="450" src="img/kafka/kafka-1.gif" alt="Kafka Demo">
+        </section>
 
 
 
