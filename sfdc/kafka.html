@@ -113,13 +113,35 @@
       <section id="home">
         <h4>{{appName}}</h4>
 
-       
+        <ul>
+          <li>Messaging System </li>
+          <li>Storage System</li>
+          <li>Stream Processing System</li>
+        </ul>
        </section>
 
+       <section>
+         <img height="180" src="img/kafka/kafka-arch-1.png" alt="kafka arch">
+         <ul>
+           <li>Best of two models: queuing and publish-subscribe </li>
+           <li><b>Strength of queuing</b> : allowing to divide up the processing of data over multiple consumer instances scale the processing </li>
+           <li><b>Weakness of queuing</b> : Not a multi-subscriber. Once one process reads the data it's gone</li>
+           <li><b>Strength of pub-sub</b>:  Allows to broadcast data to multiple processes</li>
+           <li><b>Strength of pub-sub</b>: Has no way of scaling processing: Every message goes to every subscriber</li>
 
 
+         </ul>
+       </section>
 
-
+       <section>
+         <h4>Best of both worlds</h4>
+         <ul>
+           <li>The consumer group concept in Kafka helps to acheive this</li>
+           <li>As in queuing:  consumer group feature allows to divide up processing over a collection of processes :  members of the consumer group</li>
+           <li>As in pub-sub: Kafka broadcasts messages to multiple consumer groups</li>
+           <li>With this Kafka can scale processing and also multi-subscriber</li>
+         </ul>
+       </section>
 
 
 

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app" ng-controller="MainCtrl">
+<html lang="en" ng-app="app">
 
 <head>
   <meta charset="UTF-8">
-  <title>{{appName}}</title>
+  <title>Salesforce  DX</title>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -71,7 +71,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="javascript:void(0)">{{appName}}</a>
+      <a class="navbar-brand" href="javascript:void(0)">Salesforce  DX</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -111,17 +111,12 @@
     <div class="slides">
 
       <section id="home">
-        <h4>{{appName}}</h4>
+        <h4>Salesforce DX</h4>
 
-       
+        <ul>
+          <li>Coming soon...</li>
+        </ul>
        </section>
-
-
-
-
-
-
-
 
 
 
@@ -285,7 +280,6 @@
     var GSCOPE;
     app.controller('MainCtrl', function($scope, $http, $timeout) {
       GSCOPE = $scope; // debugging purposes
-      $scope.appName="Apache Kafka";
 
 
 
