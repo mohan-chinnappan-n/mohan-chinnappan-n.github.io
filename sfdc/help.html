@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en" ng-app="app" ng-controller="MainCtrl">
 
 <head>
   <meta charset="UTF-8">
-  <title>Salesforce  DX</title>
+  <title>{{appName}}</title>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -71,7 +71,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="javascript:void(0)">Salesforce  DX</a>
+      <a class="navbar-brand" href="javascript:void(0)">{{appName}}</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -80,7 +80,7 @@
         <li class="active"><a href="javascript:void(0)">Home</a></li>
       </ul>
       <ul class="nav navbar-nav">
-        <li><a href="../index.html">Main</a></li>
+        <li ><a href="../index.html">Main</a></li>
       </ul>
 
       <div class="inner-addon right-addon navbar-form navbar-right">
@@ -92,7 +92,7 @@
         <li class="dropdown ">
           <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
           <ul class="dropdown-menu">
-              <li><a href="./help.html">Help Topics</a></li>
+            <li><a href="javascript:void(0)">Help Topics</a></li>
           </ul>
         </li>
       </ul>
@@ -112,12 +112,16 @@
     <div class="slides">
 
       <section id="home">
-        <h4>Salesforce DX</h4>
-
-        <ul>
-          <li>Coming soon...</li>
-        </ul>
+        <h4> Slides {{appName}}</h4>
+         <img height="500" src="img/slides-help.png" alt="slides help">
        </section>
+
+
+
+
+
+
+
 
 
 
@@ -281,6 +285,7 @@
     var GSCOPE;
     app.controller('MainCtrl', function($scope, $http, $timeout) {
       GSCOPE = $scope; // debugging purposes
+      $scope.appName="Help";
 
 
 
