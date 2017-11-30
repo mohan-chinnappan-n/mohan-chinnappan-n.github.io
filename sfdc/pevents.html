@@ -179,7 +179,7 @@
       </section>
 
       <section>
-        <h4>Event object - special kind of entity.</h4>
+        <h4>Event object - special kind of entity</h4>
         <ul>
           <li>It is different from Standard and Custom objects. </li>
           <li>An event message is an instance of a platform event, similar to how a record is an instance of a standard/custom object
@@ -198,7 +198,7 @@
         <ul>
           <li>Not processed within database transactions in the Force.com platform, so publishing platform events can’t be rolled back.</li>
           <li>
-            The <code>allOrNoneHeade</code>r API header is ignored when publishing platform events through the API.</li>
+            The <code>allOrNoneHeader</code> API header is ignored when publishing platform events through the API.</li>
           <li>The Apex <code>setSavepoint()</code> and <code>rollback()</code> Database methods aren’t supported with platform events.</li>
           <li> DML limits and other Apex governor limits apply for publishing platform events </li>
         </ul>
@@ -224,6 +224,7 @@
           <li>The subscribed CometD client can retrieve past events using the <code>ReplayId</code> field</li>
           <li><code>ReplayId</code> is guaranteed to be higher than the <code>ReplayId</code> of the previous event, but not necessarily contiguous for consecutive events</li>
           <li>The <code>ReplayId</code> is unique for the org and the channel (Event Bus)</li>
+          <li>Similar to Kafka's offset</li>
         </ul>
       </section>
 
