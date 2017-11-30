@@ -124,6 +124,7 @@
        </section>
 
        <section>
+         <h4>Architecture</h4>
          <img height="180" src="img/kafka/kafka-arch-1.png" alt="kafka arch">
          <ul>
            <li>Best of two models: queuing and publish-subscribe </li>
@@ -143,8 +144,61 @@
            <li>As in queuing:  consumer group feature allows to divide up processing over a collection of processes :  members of the consumer group</li>
            <li>As in pub-sub: Kafka broadcasts messages to multiple consumer groups</li>
            <li>With this Kafka can scale processing and also multi-subscriber</li>
+           <li>Supports parallel consumption with the partition</li>
          </ul>
        </section>
+
+       <section>
+         <h4> Parallel consumption</h4>
+         <div class='row'>
+           <div class='col-lg-6'>
+             <img height="200" src="img/kafka/kafka-arch-1.png" alt="log anatomy">
+           </div>
+           <div class='col-lg-6'>
+             <img height="200" src="img/kafka/log_anatomy.png" alt="log anatomy">
+           </div>
+        </div>
+
+         <ul>
+          <li>Assigning the partitions in the topic to the consumers in the consumer group </li>
+          <li>So each partition is consumed by exactly one consumer in the consumer group. </li>
+          <li>Number of consumer instances in a consumer group  = Number of partitions </li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Storage System</h4>
+         <ul>
+           <li>Data written to Kafka is written to disk and replicated for fault-tolerance</li>
+           <li>Producers to wait on acknowledgement so that a write isn't considered complete until it is fully replicated a</li>
+           <li>Special purpose distributed filesystem dedicated to:
+               <table class='table table-bordered'>
+                 <tr><th>high-performance</th>
+                   <th>low-latency commit log storage</th>
+                   <th>replication</th>
+                   <th>propagation</th>
+                </tr></table>
+              </li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Stream Processing</h4>
+         <ul>
+           <li>Takes continual streams of data from input topics</li>
+           <li> Performs some processing on this input</li>
+           <li> Produces continual streams of data to output topics<hr/></li>
+           <li> Example: retail application takes in <b>input</b> streams of sales and shipments
+             and <b>output</b> a stream of reorder and price adjustments computed off this data<hr/></li>
+           <li> Uses the producer and consumer APIs for input</li>
+           <li> Has stateful storage</li>
+           <li> Uses the consumer group mechanism for fault tolerance among the stream processor instances</li>
+
+
+        </ul>
+
+       </section>
+
 
 
 
