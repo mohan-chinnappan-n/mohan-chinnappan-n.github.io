@@ -128,7 +128,7 @@ var textarea = $('textarea[name="editorta"]').hide();
 var editor = ace.edit("editor");
 editor.setTheme("ace/theme/monokai");
 editor.getSession().setMode("ace/mode/xml");
-editor.getSession().setValue(textarea.val());
+editor.getSession().setValue(textarea.val().trim());
 
 editor.getSession().on('change', function(){
     textarea.val(editor.getSession().getValue());
