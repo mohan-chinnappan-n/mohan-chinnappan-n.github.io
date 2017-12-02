@@ -134,8 +134,10 @@
                 <hr/>
               </li>
               <ul>
-                <li>IdP (Identity Provider, in our case it is : Axiom): Name (<b>Issuer</b>) and Certificate - We want the SAML assertion provided by the IdP to be signed with that Cert. Salesforce needs public key to read that assertion. This way Salesforce will know it
-                  is coming from the trusted IdP.
+                <li>IdP (Identity Provider, in our case it is : Axiom): Name (<b>Issuer</b>) and Certificate -
+                  We want the SAML assertion provided by the IdP to be signed with that Cert. Salesforce needs public key to read that assertion. This way Salesforce will know it
+                  is coming from the trusted IdP. <br/>
+                  Issuer: in case it is: https://axiomsso.herokuapp.com/
                   <hr/>
                 </li>
                 <li>Entity-ID: This the Salesforce URL with custom domain: in our case it is :
@@ -199,7 +201,7 @@
           <li>Create Testing SAML Assertion (response) using Axoim:
             <ul>
               <li>Provide Username OR Federated ID:	in our case it is <code>joesimple@mohansun.org</code></li>
-              <li>Issuer: in our case: <code>http://axiomsso.herokuapp.com</code></li>
+              <li>Issuer: in our case: <code>https://axiomsso.herokuapp.com</code></li>
               <li>Recipient URL: in our case, our org so it is: <code>https://mohansun-lx1-dev-ed.my.salesforce.com?so=00Df40000003eOA</code></li>
               <li>Entity-ID: This the Salesforce URL with custom domain: in our case it is :
                 <code>https://mohansun-lx1-dev-ed.my.salesforce.com</code>
