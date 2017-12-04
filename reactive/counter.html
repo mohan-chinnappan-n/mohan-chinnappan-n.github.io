@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!--
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.js"></script>
+  <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shThemeDefault.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCore.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shCore.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shAutoloader.js"></script>>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushJScript.js"></script>
+
+  <title>Redux - Counter Example</title>
+</head>
+
+<body>
+  <div class="container">
+    <h4>Redux - Counter Example </h4>
+    <hr/>
+
+    <button class='btn btn-info' href="#principles" data-target="#principles" data-toggle="collapse">Three principles</button>
+    <div id='principles' class='collapse'>
+      <ol class='list-group'>
+        <li class='list-group-item'><b>Single source of truth</b>
+          <br/> The state of your whole application is stored in an object tree within a single store.
+        </li>
+        <li class='list-group-item'><b>State is Read-Only</b>
+          <br/> The only way to change the state is to emit an action, an object describing what happened.
+        </li>
+        <li class='list-group-item'><b>Changes are made with pure functions</b>
+          <br/> To specify how the state tree is transformed by actions, you write pure reducers.
+        </li>
+      </ol>
+    </div>
+    <hr/> Counter: <span id="counterValue"></span>
+
+    <button class="btn btn-success" id="increment">+</button>
+    <button class="btn btn-warning" id="decrement">-</button>
+
+    <button class="btn btn-info" id="incrementIfOdd"> + if odd</button>
+    <button class="btn btn-danger" id="incrementAsync"> + async</button>
+
+    <hr/>
+
+
+    <div id="accordion" role="tablist">
+      <div class="card">
+        <div class="card-header" role="tab" id="headingOne">
+          <h5 class="mb-0">
+        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Redux Store
+        </a>
+      </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+            <pre id="store" class="brush:js ">
+        // reducer function - pure function - principle #3
+        function counter(state, action) {
+          if (typeof state === 'undefined') {
+            return 0
+          }
+          switch (action.type) {
+            case 'INCREMENT':
+              return state + 1
+            case 'DECREMENT':
+              return state - 1
+            default:
+              return state
+          }
+        }
+        // create redux store - single source of truth - principle #1
+        var store = Redux.createStore(counter)
+      </pre>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" role="tab" id="headingTwo">
+          <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          UI Rendering
+        </a>
+      </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div class="card-body">
+            <pre id="rendering" class="brush:js ">
+          // get UI element to render
+          var valueEl = document.getElementById('counterValue')
+
+          function render() {
+            valueEl.innerHTML = store.getState().toString()
+          }
+
+          // initial rendering (will render 0)
+          render();
+          // store subscribes to render(), so for every action, it will call this render()
+          store.subscribe(render)
+
+        </pre>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" role="tab" id="headingThree">
+          <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Button Click Event Listeners
+        </a>
+      </h5>
+        </div>
+        <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+          <div class="card-body">
+            <pre id="events" class="brush:js ">
+          // buttons click event listeners
+
+          document.getElementById('increment')
+            .addEventListener('click', () => {
+              // emit action - principle #2
+              store.dispatch({
+                type: 'INCREMENT'
+              })
+            })
+          document.getElementById('decrement')
+            .addEventListener('click', () => {
+              store.dispatch({
+                type: 'DECREMENT'
+              })
+            })
+
+          document.getElementById('incrementIfOdd')
+            .addEventListener('click', () => {
+              if (store.getState() % 2 !== 0) {
+                store.dispatch({
+                  type: 'INCREMENT'
+                })
+              }
+            })
+
+          const TIMEOUT_PERIOD = 1000;
+
+          document.getElementById('incrementAsync')
+            .addEventListener('click', () => {
+              setTimeout(function() {
+                store.dispatch({
+                  type: 'INCREMENT'
+                })
+              }, TIMEOUT_PERIOD)
+
+            })
+
+        </pre> </div>
+        </div>
+      </div>
+    </div>
+
+    <br/>
+    <h5>References</h5>
+    <ol class="list-group">
+      <li class="list-group-item"><a target="_blank" href="https://redux.js.org/docs/introduction/ThreePrinciples.html">Three Principles - Dan Abramov
+</a>
+      </li>
+    </ol>
+
+  </div>
+
+  <script>
+    SyntaxHighlighter.all()
+
+    // reducer function - pure function
+    function counter(state, action) {
+      if (typeof state === 'undefined') {
+        return 0
+      }
+      switch (action.type) {
+        case 'INCREMENT':
+          return state + 1
+        case 'DECREMENT':
+          return state - 1
+        default:
+          return state
+      }
+    }
+    // create redux store
+    var store = Redux.createStore(counter)
+
+    // get UI element to render
+    var valueEl = document.getElementById('counterValue')
+
+    function render() {
+      valueEl.innerHTML = store.getState().toString()
+    }
+
+    // initial rendering (will render 0)
+    render();
+
+    // buttons click event listeners
+    store.subscribe(render)
+    document.getElementById('increment')
+      .addEventListener('click', () => {
+        store.dispatch({
+          type: 'INCREMENT'
+        })
+      })
+    document.getElementById('decrement')
+      .addEventListener('click', () => {
+        store.dispatch({
+          type: 'DECREMENT'
+        })
+      })
+
+    document.getElementById('incrementIfOdd')
+      .addEventListener('click', () => {
+        if (store.getState() % 2 !== 0) {
+          store.dispatch({
+            type: 'INCREMENT'
+          })
+        }
+      })
+
+    const TIMEOUT_PERIOD = 1000;
+
+    document.getElementById('incrementAsync')
+      .addEventListener('click', () => {
+        setTimeout(function() {
+          store.dispatch({
+            type: 'INCREMENT'
+          })
+        }, TIMEOUT_PERIOD)
+
+      })
+  </script>
+
+</body>
+
+</html>
