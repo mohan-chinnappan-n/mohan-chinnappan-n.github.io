@@ -150,8 +150,8 @@
         <ol>
           <li>Standard Events</li>
           <ul>
-            <li>Login Failures</li>
-            <li>Security events</li>
+            <li>AssetTokenEvent</li>
+            <li>OrgLifecycleNotification</li>
           </ul>
           <li>Change Events
             <ul>
@@ -162,10 +162,8 @@
           </li>
           <li>Custom Events
             <ul>
-              <li><code>sObject</code> - write-only entity</li>
-              <li>Suffix:<code> __e</code></li>
+              <li>Entities with suffix:<code> __e</code> </li>
             </ul>
-
           </li>
         </ol>
       </section>
@@ -185,7 +183,9 @@
           <li> Update or delete event records not allowed</li>
           <li> Can’t view event records in the Salesforce UI and don’t have page layouts</li>
           <li>Deleting a platform event definition will result in permanent deletion</li>
-          <li> You create permissions for platform events</li>
+          <ul>
+            <li>Event definition and all events in the topic are deleted</li>
+          </ul>
           <li> You can grant permissions to users in profiles or in permission sets</li>
 
         </ul>
@@ -194,7 +194,7 @@
       <section>
         <h4>Event object - special kind of entity - contd.</h4>
         <ul>
-          <li>Not processed within database transactions in the Force.com platform, so publishing platform events can’t be rolled back.</li>
+          <li>Events are in their own transaction. So if you publish from apex, it cannot be rolled back, but the publish is a transaction</li>
           <li>
             The <code>allOrNoneHeader</code> API header is ignored when publishing platform events through the API.</li>
           <li>The Apex <code>setSavepoint()</code> and <code>rollback()</code> Database methods aren’t supported with platform events.</li>
@@ -220,7 +220,6 @@
           <li>Identifies a platform event record </li>
           <li>Used to get stored events that are within the retention window</li>
           <li>The subscribed CometD client can retrieve past events using the <code>ReplayId</code> field</li>
-          <li><code>ReplayId</code> is guaranteed to be higher than the <code>ReplayId</code> of the previous event, but not necessarily contiguous for consecutive events</li>
           <li>The <code>ReplayId</code> is unique for the org and the channel (Event Bus)</li>
           <li>Similar to Kafka's offset</li>
         </ul>
