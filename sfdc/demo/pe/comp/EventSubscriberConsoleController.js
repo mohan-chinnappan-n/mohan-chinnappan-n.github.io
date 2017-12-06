@@ -24,7 +24,7 @@
          component.set('v.notifications',[]);
 
          // disconnect cometd connection when leaving page
-         window.addEventListener('unload', function(event){
+         window.addEventListener('unload', function(evt){
              helper.disconnectCometd(component)
          })
 
