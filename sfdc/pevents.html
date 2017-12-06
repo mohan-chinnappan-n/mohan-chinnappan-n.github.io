@@ -134,9 +134,17 @@
         <h4>Platform Events Components</h4>
         <ul>
           <li>Provides an event-driven messaging architecture to enable apps to communicate inside and outside of Salesforce</li>
-          <li> Consists of event producers, event consumers, and channels (Event Bus)</li>
+          <li> Consists of event producers, event consumers, and channel (Event Bus)</li>
           <li>Publishers and subscribers communicate with each other through events </li>
           <li>One or more subscribers can listen to the same event and carry out actions</li>
+        </ul>
+      </section>
+
+      <section>
+         <h4>Quiz - 1</h4>
+        <ul>
+
+          <li>Channel and Event Bus are the same thing?</li>
         </ul>
       </section>
 
@@ -150,13 +158,14 @@
         <ol>
           <li>Standard Events</li>
           <ul>
-            <li>AssetTokenEvent</li>
+            <li>AssetTokenEvent (Represents an event associated with an asset token, such as token issuance and registration of a connected device as an Asset)</li>
             <li>OrgLifecycleNotification</li>
           </ul>
           <li>Change Events
             <ul>
               <li>Change Data Capture (create, update, delete)</li>
               <li>Example: Sync Heroku Postgres data with Org data</li>
+              <li><a target="_blank" href="./cdc.html">Notes about Change Data Capture</a>
             </ul>
 
           </li>
@@ -170,7 +179,12 @@
 
       <section>
         <h4>Sample Event Object </h4>
-        <p><code>Notification</code> with custom field: <code>Message</code></p>
+        <p><code>Notification</code> with custom field: <code>Message</code>
+          <button class='btn btn-success'  title='Click to view the image in full page'><a target="_blank" href='./img/pe/pe-event-object.png.png'><i class="glyphicon glyphicon-fullscreen"></i></a></button>
+
+
+        </p>
+
         <img src='./img/pe/pe-event-object.png.png' height="480" style='border-radius:10px;border:0px;' alt="" />
       </section>
 
@@ -203,6 +217,13 @@
       </section>
 
       <section>
+        <h4>Quiz - 2</h4>
+        <ul>
+          <li>Can we view event records in the Salesforce UI ?</li>
+        </ul>
+      </section>
+
+      <section>
         <h4>Custom field types supported</h4>
         <ul>
           <li>Checkbox </li>
@@ -214,6 +235,14 @@
         </ul>
       </section>
 
+
+      <section>
+        <h4>Quiz - 3</h4>
+        <ul>
+          <li>Field type <b>Checkbox</b> is supported for Event Object?</li>
+        </ul>
+      </section>
+
       <section>
         <h4><code>ReplayId</code> System Field</h4>
         <ul>
@@ -221,7 +250,9 @@
           <li>Used to get stored events that are within the retention window</li>
           <li>The subscribed CometD client can retrieve past events using the <code>ReplayId</code> field</li>
           <li>The <code>ReplayId</code> is unique for the org and the channel (Event Bus)</li>
-          <li>Similar to Kafka's offset</li>
+          <li>Similar to Kafka's <code>offset</code></li>
+          <li><a target="_blank"
+            href='./kafka.html'>Notes about Apache Kafka</a>
         </ul>
       </section>
 
@@ -248,7 +279,6 @@
       <section>
          <h4>Publishing Event Message with API - Demo</h4>
          <img style='border-radius:10px;border:0px;'  class='simg' src='./img/pe/publish-event.png' alt="Publish  Event  with API" />
-         <p><code>id</code> in the above image is <code>ReplayId</code></p>
          <img style='border-radius:10px;border:0px;' height="80"  class='simg' src='./img/pe/event-pub-payload.png' alt="Event payload" />
 
 
