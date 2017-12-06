@@ -125,9 +125,9 @@
           <li>Capture every change in the system</li>
           <li>Send those changes to the subscribers</li>
           <li>Event channel <code>/data/ChangeEvents</code> will be automatically set for the customers </li>
-          <li>Event channel <code>/data/ENTITYChangeEvents</code> will be set for changes for the ENTITY</li>
+          <li>Event channel <code>/data/ENTITYChangeEvent</code> will be set for changes for the ENTITY</li>
           <li>Events will be delivered in order</li>
-          <li>All sObject(soon) will be supported</li>
+          <li>All sObject will be supported over the time</li>
           <li>Addition event info:<br/> date/time, tx-id, operation(create,update,delete, undelete)</li>
         </ul>
        </section>
@@ -137,7 +137,7 @@
       <h4>Change Data Event  </h4>
       <img height="250" src="./img/cdc/cdc-payload-1.png" alt="change data event">
       <p>Event channel:  <code>/data/ChangeEvents</code> is for ALL change events</p>
-      <p>Virtual Event channel:  <code>/data/AccountChangeEvents</code> is for the change events for Account object</p>
+      <p>Virtual Event channel example:  <code>/data/AccountChangeEvent</code> is for the change events for Account object</p>
 
    </section>
 
@@ -145,7 +145,7 @@
       <h4>Change Data Event   - contd </h4>
        <ul>
          <li><code>schema</code> info in the payload help to track the metadata changes</li>
-         <li><code>event.replayId</code> enables to perform replay of that event </li>
+         <li><code>event.replayId</code> enables to perform replay of events after that <code>Id</code> </li>
          <li><code>payload.ChangeEventHeader</code> provides additional info including: changeType, changeOrigin, ObjectId... </li>
 
        </ul>
