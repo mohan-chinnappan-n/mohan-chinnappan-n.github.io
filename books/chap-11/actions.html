@@ -1,0 +1,398 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Actions · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="global-actions.steps.html" />
+    
+    
+    <link rel="prev" href="body.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../chap-1/body.html">
+            
+                <a href="../chap-1/body.html">
+            
+                    
+                    Lightning Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chap-2/body.html">
+            
+                <a href="../chap-2/body.html">
+            
+                    
+                    Classic Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="body.html">
+            
+                <a href="body.html">
+            
+                    
+                    Migration to Lightning
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="actions.html">
+            
+                <a href="actions.html">
+            
+                    
+                    Actions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="global-actions.steps.html">
+            
+                <a href="global-actions.steps.html">
+            
+                    
+                    Global Actions Demo Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="object-specific-actions.steps.html">
+            
+                <a href="object-specific-actions.steps.html">
+            
+                    
+                    Object-Specific Actions Demo Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Actions</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="actions">Actions</h1>
+<h2 id="what-are-actions">What are Actions?</h2>
+<p>Actions offer a fast way to do things like:</p>
+<ul>
+<li>creating records</li>
+<li>logging calls</li>
+<li>sharing files</li>
+</ul>
+<p>Actions are three powerful features:</p>
+<ol>
+<li>shortcut</li>
+<li>page layout - each action comes with its own unique layout that you can customize</li>
+<li>predefined fields - A great way to speed up the process of data entry is to <strong>pre-populate</strong> values for certain fields on an action layout</li>
+</ol>
+<p><img src="img/Global-actions-lx-1.png" alt="Global Actions in Lightning"></p>
+<h3 id="quick-actions-in-salesforce-mobile--at-the-bottom-of-the-screen">Quick actions in Salesforce Mobile <img src="https://res.cloudinary.com/hy4kyit2a/image/upload/doc/trailhead/en-us3ce7965c3c77b9e3908746005eb54e33.png" alt="icon"> at the bottom of the screen</h3>
+<p><img src="https://res.cloudinary.com/hy4kyit2a/image/upload/doc/trailhead/en-us40fb3ab361309237a2e54683a16b9145.png" alt="Actions in Salesforce Mobile App"></p>
+<h2 id="types-of-actions">Types of Actions</h2>
+<ul>
+<li>Global Actions</li>
+<li>Object Specific Actions</li>
+</ul>
+<h2 id="global-actions">Global Actions</h2>
+<p>Global actions let users <strong>create</strong> records, but the new record has no relationship with other records.</p>
+<p>Global actions <strong>can&#x2019;t update</strong> a record.</p>
+<p>Global Actions can be put anywhere actions are supported:</p>
+<ul>
+<li>on record detail pages</li>
+<li>the feed or Chatter groups</li>
+</ul>
+<h3 id="global-publisher-layouts">Global Publisher Layouts</h3>
+<p>The global layout only applies to the <strong>action bar</strong> in places like:</p>
+<ul>
+<li>Feed</li>
+<li>Chatter groups</li>
+<li><p>only on pages that aren&#x2019;t related to a specific object since it is GLOBAL!</p>
+<p>After creating global publisher layouts, you can assign them to different user profiles.</p>
+</li>
+</ul>
+<h4 id="global-action-demo">Global Action Demo</h4>
+<p><a target="_blank" href="img/LX-actions-3.gif">
+<i class="fa fa-arrows-alt" alt="full screen view of the demo"></i>
+</a></p>
+<p><img src="img/LX-actions-3.gif" alt="Global Actions Demo"></p>
+<h2 id="object-specific-actions">Object-specific Actions</h2>
+<p>Object-specific actions let users <strong>create or update</strong> records in the context of a <strong>particular object</strong>.</p>
+<p>Example: An action associated with the <strong>Opportunity</strong> object is only available when a user is looking at an <strong>Opportunity</strong>.</p>
+<p>Object-specific Actions can:</p>
+<ul>
+<li><p>create records that are automatically associated with related information.</p>
+<p>Examples:</p>
+<ul>
+<li>simultaneously create a Contact and associates it with an Account</li>
+<li>create an action (Event) that will appear on the Contact detail page</li>
+</ul>
+</li>
+<li><p>update records</p>
+</li>
+<li>make object-specific actions available to the users by editing object&apos;s page layout.</li>
+</ul>
+<h4 id="object-specific-action-demo">Object-Specific Action Demo</h4>
+<p><a target="_blank" href="img/LX-object-actions-1.gif">
+<i class="fa fa-arrows-alt" alt="full screen view of the demo"></i>
+</a></p>
+<p><img src="img/LX-object-actions-1.gif" alt="Object-Specific Action Demo"></p>
+<h2 id="references">References</h2>
+<ol>
+<li><p><a href="https://trailhead.salesforce.com/modules/salesforce1_mobile_app/units/salesforce1_mobile_app_actions_global" target="_blank">Trailhead - Create Quick Actions</a></p>
+</li>
+<li><p><a href="https://www.salesforce.com/blog/2016/09/is-your-org-ready-for-lightning-experience.html" target="_blank">Is your org ready for LX?</a></p>
+</li>
+<li><p><a href="https://help.salesforce.com/articleView?id=actions_best_practices.htm" target="_blank">Actions Best Practices</a></p>
+</li>
+<li><p><a href="https://trailhead.salesforce.com/en/modules/lex_migration_customization/units/lex_migration_customization_actions" target="_blank">Understand How Actions Work in Lightning Experience </a></p>
+</li>
+</ol>
+<h2 id="videos">Videos</h2>
+<ul>
+<li><p><a href="https://www.salesforce.com/video/300736/" target="_blank">Preparing For Lightning: Replacing URL Hacks With Actions</a></p>
+</li>
+<li><p><a href="https://www.salesforce.com/video/1770959/" target="_blank">Get Rid Of URL Hacks In Lightning Experience</a></p>
+</li>
+</ul>
+<h3 id="actions-in-lightning">Actions in Lightning</h3>
+ <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/jLUx2VzgzMA?autoplay=0 &amp;fs=1" frameborder="0"></iframe>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="body.html" class="navigation navigation-prev " aria-label="Previous page: Migration to Lightning">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="global-actions.steps.html" class="navigation navigation-next " aria-label="Next page: Global Actions Demo Steps">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Actions","level":"1.4.1","depth":2,"next":{"title":"Global Actions Demo Steps","level":"1.4.2","depth":2,"path":"chap-11/global-actions.steps.md","ref":"chap-11/global-actions.steps.md","articles":[]},"previous":{"title":"Migration to Lightning","level":"1.4","depth":1,"path":"chap-11/body.md","ref":"chap-11/body.md","articles":[{"title":"Actions","level":"1.4.1","depth":2,"path":"chap-11/actions.md","ref":"chap-11/actions.md","articles":[]},{"title":"Global Actions Demo Steps","level":"1.4.2","depth":2,"path":"chap-11/global-actions.steps.md","ref":"chap-11/global-actions.steps.md","articles":[]},{"title":"Object-Specific Actions Demo Steps","level":"1.4.3","depth":2,"path":"chap-11/object-specific-actions.steps.md","ref":"chap-11/object-specific-actions.steps.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube"],"pluginsConfig":{"youtube":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-11/actions.md","mtime":"2017-12-27T00:10:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-27T00:11:50.180Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
