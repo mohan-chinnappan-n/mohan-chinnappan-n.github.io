@@ -57,6 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="../ref/ref.html" />
+    
     
     <link rel="prev" href="../chap-11/object-specific-actions.steps.html" />
     
@@ -197,6 +199,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6" data-path="../ref/ref.html">
+            
+                <a href="../ref/ref.html">
+            
+                    
+                    References
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -244,7 +259,141 @@
                                 
                                 <h2 id="aura-ui-framework">Aura UI framework</h2>
 <p>Aura is a UI framework for developing dynamic web apps for mobile and desktop devices, while providing a scalable long-lived lifecycle to support building apps engineered for growth.</p>
-<p> It supports partitioned multi-tier component development that bridges the client and server.</p>
+<p>It supports partitioned multi-tier component development that bridges the client and server.</p>
+<h3 id="create-helloworld-app-with-aura">Create helloWorld app with Aura</h3>
+<h4 id="steps">Steps</h4>
+<ol>
+<li>Follow the instructions at:
+<a href="https://github.com/forcedotcom/aura/blob/master/README.md" target="_blank">Aura repo</a></li>
+</ol>
+<p>Note: Due a bug in Aura install run this:</p>
+<pre><code class="lang-bash"> cp ~/.m2/repository/archetype-catalog.xml ~/.m2/archetype-catalog.xml
+
+ mvn archetype:generate -D archetypeCatalog=<span class="hljs-built_in">local</span> -X
+
+
+ 2. Inputs <span class="hljs-keyword">for</span> this archetype:
+
+Define value <span class="hljs-keyword">for</span> property <span class="hljs-string">&apos;groupId&apos;</span>: : org.mohansun.dev
+Define value <span class="hljs-keyword">for</span> property <span class="hljs-string">&apos;artifactId&apos;</span>: : helloWorld
+Define value <span class="hljs-keyword">for</span> property <span class="hljs-string">&apos;version&apos;</span>:  1.0-SNAPSHOT: :
+Define value <span class="hljs-keyword">for</span> property <span class="hljs-string">&apos;package&apos;</span>:  org.mohansun.dev:
+
+
+
+Confirm properties configuration:
+groupId: org.mohansun.dev
+artifactId: helloWorld
+version: 1.0-SNAPSHOT
+package: org.mohansun.dev
+ Y: : Y
+
+
+3. There is a bug <span class="hljs-keyword">in</span> current code generation <span class="hljs-keyword">in</span> the area of module (experimental) feature. Remove that module folder and its contents
+
+4. Run this app:
+
+
+<span class="hljs-built_in">cd</span> helloWorld
+mvn jetty:run -Djetty.port=9877
+</code></pre>
+<ol>
+<li>You will see the app running at:</li>
+</ol>
+<p><a href="http://localhost:9877/example/helloWorld.app" target="_blank">Aura helloWorld App</a></p>
+<p><img src="img/aura-hellowWorldApp.png" alt="Aura helloWorld app"></p>
+<h4 id="structure-of-aura-app">Structure of Aura app</h4>
+<p><img src="img/aura-app-folder-struct.png" alt="aura-app-folder-struct"></p>
+<h3 id="component-ids">Component ids</h3>
+<p>A component has two types of IDs: a <strong>local ID</strong> and a global ID. You can retrieve a component using its local ID in your JavaScript code.</p>
+<p>Example:</p>
+<pre><code class="lang-xml">
+ <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;button1&quot;</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;button1&quot;</span>/&gt;</span>
+</code></pre>
+<p>Using:
+You can find  the button component by calling:</p>
+<p>cmp.find(&quot;button1&quot;) in your client-side controller, where cmp is a reference to the
+component containing the button.</p>
+<p>To find the local ID for a component in JavaScript, use cmp.getLocalId().</p>
+<p>Note:
+aura:id doesn&apos;t support expressions. You can only assign literal string values to aura:id.</p>
+<p> A <strong>global ID</strong> can be useful to differentiate between multiple instances of a component or for debugging purposes.</p>
+<p>Every component has a unique global Id, which is the generated runtime-unique ID of the component instance.</p>
+<p>To create a unique ID for an HTML element, you can use the globalId as a prefix or suffix for your element. For example:</p>
+<pre><code class="lang-html">
+ <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;{!globalId + &apos;_footer&apos;}&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>To find the global ID for a component in JavaScript, use cmp.getGlobalId().</p>
+<h3 id="expressions">Expressions</h3>
+<pre><code>{!expression}
+</code></pre><p>is the framework&apos;s expression syntax</p>
+<h4 id="example">Example:</h4>
+<pre><code>{!v.whom}
+</code></pre><p> In this case, the expression we are evaluating is <strong>v.whom</strong>. The name of the
+attribute we defined is <strong>whom</strong>, while <strong>v</strong> is the value provider for a component&apos;s attribute set, which represents the <strong>view</strong>.</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:application</span> <span class="hljs-attr">access</span>=<span class="hljs-string">&quot;global&quot;</span> <span class="hljs-attr">useAppcache</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">render</span>=<span class="hljs-string">&quot;client&quot;</span>&gt;</span>
+
+     <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;whom&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;String&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;world&quot;</span>/&gt;</span>
+    Hello {!v.whom}!<span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span>
+
+    <span class="hljs-comment">&lt;!--
+      passing the value of the attribute to the app via parameter:
+      http://localhost:9877/example/helloWorld.app?whom=KEN
+    --&gt;</span>
+
+    hello web, from the Aura sample app
+    <span class="hljs-tag">&lt;<span class="hljs-name">example:textCmp</span> <span class="hljs-attr">text</span>=<span class="hljs-string">&quot;helloWorld&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">example:textCmp</span> <span class="hljs-attr">text</span>=<span class="hljs-string">&quot;from Aura!&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">example:listCmp</span> <span class="hljs-attr">listTitle</span>=<span class="hljs-string">&quot;my list title&quot;</span>/&gt;</span>
+
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:application</span>&gt;</span>
+</code></pre>
+<h4 id="passing-the-value-of-the-attribute-to-the-app-via-parameter">Passing the value of the attribute to the app via parameter</h4>
+<p><img src="img/aura-app-pass-arg.png" alt="aura-app-pass-arg"></p>
+<h3 id="pass-through-variables">Pass through variables</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span>&gt;</span>
+
+   <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;listTitle&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;String&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">access</span>=<span class="hljs-string">&quot;GLOBAL&quot;</span> /&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>{!v.listTitle}<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;red&quot;</span>&gt;</span>I&apos;m red.<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;blue&quot;</span>&gt;</span>I&apos;m blue.<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;green&quot;</span>&gt;</span>I&apos;m green.<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!--
+     {#v.listTitle} is passthrough variable from this component to the child component
+  --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">example:textCmp</span> <span class="hljs-attr">text</span>=<span class="hljs-string">&quot;{#v.listTitle}&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<h3 id="definitions-versus-instances">Definitions versus Instances</h3>
+<p>In object-oriented programming, there&#x2019;s a difference between a class and an instance of that class. Components have a similar concept.</p>
+<p>When you create a .cmp file, you are providing the <strong>definition</strong> (class) of that component. When you put a component tag in a .cmp file or .app file, you are creating a reference to (<strong>instance</strong> of) that component.</p>
+<h4 id="example">Example:</h4>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:application</span> <span class="hljs-attr">access</span>=<span class="hljs-string">&quot;global&quot;</span> <span class="hljs-attr">useAppcache</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">render</span>=<span class="hljs-string">&quot;client&quot;</span>&gt;</span>
+
+     <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;whom&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;String&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;world&quot;</span>/&gt;</span>
+    Hello {!v.whom}!<span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span>
+
+    <span class="hljs-comment">&lt;!--
+      passing the value of the attribute to the app via parameter:
+      http://localhost:9877/example/helloWorld.app?whom=KEN
+    --&gt;</span>
+
+    hello web, from the Aura sample app
+    <span class="hljs-comment">&lt;!-- 2 instances of the component example:textCmp --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">example:textCmp</span> <span class="hljs-attr">text</span>=<span class="hljs-string">&quot;helloWorld&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">example:textCmp</span> <span class="hljs-attr">text</span>=<span class="hljs-string">&quot;from Aura!&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">example:listCmp</span> <span class="hljs-attr">listTitle</span>=<span class="hljs-string">&quot;my list title&quot;</span>/&gt;</span>
+
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:application</span>&gt;</span>
+</code></pre>
 <h3 id="docs">Docs</h3>
 <ol>
 <li><a href="../docs/aura_oss.pdf">Aura Open Source Developer
@@ -282,10 +431,14 @@ Guide</a></li>
 
             
                 
-                <a href="../chap-11/object-specific-actions.steps.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Object-Specific Actions Demo Steps">
+                <a href="../chap-11/object-specific-actions.steps.html" class="navigation navigation-prev " aria-label="Previous page: Object-Specific Actions Demo Steps">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="../ref/ref.html" class="navigation navigation-next " aria-label="Next page: References">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -294,7 +447,7 @@ Guide</a></li>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Aura UI Framework","level":"1.5","depth":1,"previous":{"title":"Object-Specific Actions Demo Steps","level":"1.4.3","depth":2,"path":"chap-11/object-specific-actions.steps.md","ref":"chap-11/object-specific-actions.steps.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"aura/aura.md","mtime":"2017-12-27T01:35:15.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-27T01:40:11.886Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Aura UI Framework","level":"1.5","depth":1,"next":{"title":"References","level":"1.6","depth":1,"path":"ref/ref.md","ref":"ref/ref.md","articles":[]},"previous":{"title":"Object-Specific Actions Demo Steps","level":"1.4.3","depth":2,"path":"chap-11/object-specific-actions.steps.md","ref":"chap-11/object-specific-actions.steps.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube"],"pluginsConfig":{"youtube":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"aura/aura.md","mtime":"2017-12-27T15:35:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-28T01:32:15.556Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -302,10 +455,6 @@ Guide</a></li>
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

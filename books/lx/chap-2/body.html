@@ -199,6 +199,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6" data-path="../ref/ref.html">
+            
+                <a href="../ref/ref.html">
+            
+                    
+                    References
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -245,6 +258,50 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="classic-architecture">Classic Architecture</h1>
+<h2 id="visualforce-logic-lives-on-the-server">Visualforce Logic Lives on the Server</h2>
+<p>When a page request is made, logic in the Apex custom controller often fetches data that binds directly to rendered HTML elements displayed in the browser when the page is returned.</p>
+<p> Apex logic within the controller may also be invoked by AJAX or from other custom JavaScript in the page. In either case, there is only one controller written in Apex, and it runs on the application server.</p>
+<h2 id="lightning-logic-lives-on-both-client-and-server">Lightning Logic Lives on Both Client and Server</h2>
+<p> With Lightning Components, as with other Single Page App (SPA) frameworks, there are more moving parts involved when binding data.</p>
+<p>Developers now have two logic layers to manage:</p>
+<ul>
+<li>a JavaScript client-side controller is required</li>
+<li>Apex server-side controller.</li>
+</ul>
+<p>The <strong>client-side controller</strong> is responsible for handling client-side user actions and events, as well as fetching and binding data to elements in the component&#x2019;s view.</p>
+<p>The <strong>Server-side Apex controller</strong> methods are used for data transport to and from Salesforce, or executing server-side business processes.</p>
+<p>The Client-side event handler functions in a Lightning Component&#x2019;s JavaScript <strong>controller</strong> resource can invoke server-side Apex directly, or can delegate invocation to an intermediate JavaScript function in a helper resource.</p>
+<p>A helper resource is nothing more than a library of additional JavaScript logic in the component bundle.</p>
+<p>The Apex controller class must be specified in the markup of the Component resource in the Lightning Component bundle, and action methods and properties of that Apex class must be annotated with the <code>@AuraEnabled</code> decoration in order to be invoked from client-side JavaScript.<br>Apex action methods decorated in this way may also have their data returned to client-side JavaScript callback functions when server-side processing completes.  </p>
+<h2 id="actions-and-events">Actions and Events</h2>
+<p> Lightning applications are highly dependent upon events, but something has to raise them. It&#x2019;s usually, but not always, <strong>a user action</strong></p>
+<p> <strong>Action</strong>:
+ a user interacting with an element on an HTML page is called an action.</p>
+<p> <strong>Event</strong>:
+ Events can be seen as a notification by the browser regarding that action, and events can be handled by client-side logic written in JavaScript.</p>
+<p> <img src="img/action_event_seq.jpg" alt="Sequence Diagram"></p>
+<h2 id="initializing-components">Initializing Components</h2>
+<p> While actions can raise events, events are not always explicitly raised by actions.</p>
+<p> For example, consider when a component needs to do something, but that process is not explicitly activated by a user interacting with an HTML element in that same component.</p>
+<p> In Lightning, we have the ability for certain events to be implicitly raised when something happens to the component itself. We depend on such events to invoke logic when <strong>initializing</strong> a component.</p>
+<p>  For example, if we want our component to display data when it first appears, we need an event to activate logic to fetch data and set the view to display it.</p>
+<p>  Such load behavior is built into the Visualforce model, and we also have the ability to invoke custom behavior on load of a Visualforce page by utilizing the <strong>action</strong> attribute on the <code>apex:page</code> tag. Using that attribute, a Visualforce developer can bind the page to a server-side Apex controller method that will be invoked implicitly when the page first loads but before it is rendered in the browser.</p>
+<h4 id="action-in-visualforce"><code>action</code> in Visualforce:</h4>
+<p>  <code>action=&quot;{!doAction}&quot;</code> references the <code>doAction()</code> method in the controller.</p>
+<p>  ```</p>
+<h4 id="init-in-lightning-component"><code>init</code> in Lightning Component:</h4>
+<p>  Equivalent behavior in a Lightning Component is accomplished by registering an <code>init</code> event in the component markup, and binding it to a JavaScript handler function in the controller resource.</p>
+<p>  When the component loads, the registered init event is raised, and the controller&#x2019;s event handler function is invoked. That handler function can then further invoke a server-side Apex action method to fetch some data, which is returned to the callback function in the client-side controller. Simply <strong>assigning</strong> returned data values to view elements causes the component&#x2019;s display to <strong>refresh</strong>.</p>
+<p>  <img src="img/init_event_seq.jpg" alt="Sequence Diagram"></p>
+<p>A component can be <strong>instantiated</strong> as a result of selecting a menu navigation item, or perhaps by user clicking on a link in a list.
+The component would need to fire off some server-side Apex logic by this kind of event to fetch some data to display as it initializes.</p>
+<h3 id="batching">Batching</h3>
+<p>Lightning Framework batches its calls to server-side actions resulting in less chatty and more efficient action processing.</p>
+<h2 id="references">References</h2>
+<ol>
+<li><a href="https://developer.salesforce.com/blogs/developer-relations/2015/05/creating-lightning-components-component-based-architecture-2.html" target="_blank">Creating Lightning Components: Action Processing and Binding Data
+</a></li>
+</ol>
 
                                 
                                 </section>
@@ -288,7 +345,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Classic Architecture","level":"1.3","depth":1,"next":{"title":"Migration to Lightning","level":"1.4","depth":1,"path":"chap-11/body.md","ref":"chap-11/body.md","articles":[{"title":"Actions","level":"1.4.1","depth":2,"path":"chap-11/actions.md","ref":"chap-11/actions.md","articles":[]},{"title":"Global Actions Demo Steps","level":"1.4.2","depth":2,"path":"chap-11/global-actions.steps.md","ref":"chap-11/global-actions.steps.md","articles":[]},{"title":"Object-Specific Actions Demo Steps","level":"1.4.3","depth":2,"path":"chap-11/object-specific-actions.steps.md","ref":"chap-11/object-specific-actions.steps.md","articles":[]}]},"previous":{"title":"Lightning Architecture","level":"1.2","depth":1,"path":"chap-1/body.md","ref":"chap-1/body.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-2/body.md","mtime":"2017-12-22T18:11:34.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-27T01:40:11.886Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Classic Architecture","level":"1.3","depth":1,"next":{"title":"Migration to Lightning","level":"1.4","depth":1,"path":"chap-11/body.md","ref":"chap-11/body.md","articles":[{"title":"Actions","level":"1.4.1","depth":2,"path":"chap-11/actions.md","ref":"chap-11/actions.md","articles":[]},{"title":"Global Actions Demo Steps","level":"1.4.2","depth":2,"path":"chap-11/global-actions.steps.md","ref":"chap-11/global-actions.steps.md","articles":[]},{"title":"Object-Specific Actions Demo Steps","level":"1.4.3","depth":2,"path":"chap-11/object-specific-actions.steps.md","ref":"chap-11/object-specific-actions.steps.md","articles":[]}]},"previous":{"title":"Lightning Architecture","level":"1.2","depth":1,"path":"chap-1/body.md","ref":"chap-1/body.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube"],"pluginsConfig":{"youtube":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-2/body.md","mtime":"2017-12-27T23:54:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-28T01:32:15.556Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -296,10 +353,6 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
