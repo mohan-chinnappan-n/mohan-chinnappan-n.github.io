@@ -1,0 +1,694 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>SFDX · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="project-generator.html" />
+    
+    
+    <link rel="prev" href="../aura/aura.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../chap-1/body.html">
+            
+                <a href="../chap-1/body.html">
+            
+                    
+                    Lightning Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chap-2/body.html">
+            
+                <a href="../chap-2/body.html">
+            
+                    
+                    Classic Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../chap-11/body.html">
+            
+                <a href="../chap-11/body.html">
+            
+                    
+                    Migration to Lightning
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../chap-11/actions.html">
+            
+                <a href="../chap-11/actions.html">
+            
+                    
+                    Actions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../chap-11/global-actions.steps.html">
+            
+                <a href="../chap-11/global-actions.steps.html">
+            
+                    
+                    Global Actions Demo Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../chap-11/object-specific-actions.steps.html">
+            
+                <a href="../chap-11/object-specific-actions.steps.html">
+            
+                    
+                    Object-Specific Actions Demo Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../aura/aura.html">
+            
+                <a href="../aura/aura.html">
+            
+                    
+                    Aura UI Framework
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="sfdx.html">
+            
+                <a href="sfdx.html">
+            
+                    
+                    SFDX
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="project-generator.html">
+            
+                <a href="project-generator.html">
+            
+                    
+                    Project Generator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../ref/ref.html">
+            
+                <a href="../ref/ref.html">
+            
+                    
+                    References
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >SFDX</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="salesforce-dx---developer-experience">Salesforce DX - Developer Experience</h1>
+<p><strong>Goal</strong>:
+Provide source-driven development</p>
+<p>With a focus on source-driven development, Salesforce DX makes it easier for developers to build together and deliver continuously using the tools that make them most productive.</p>
+<p>It starts with our core principles:</p>
+<ul>
+<li>Everything is driven from source code (scm - version control - git)<ul>
+<li>Source code and metadata exist outside of the org and provide more agility to develop Salesforce apps in a team environment.</li>
+<li>Instead of the org, your version control system is the source of truth</li>
+</ul>
+</li>
+<li><p>Environments are easily created and disposable (scratch orgs)</p>
+<ul>
+<li>Flexible and configurable scratch orgs that you build for development and automated environments. This new type of org makes it easier to build your apps and packages.</li>
+</ul>
+</li>
+<li><p>Development is organized around team collaboration</p>
+</li>
+<li>Metadata and code are modular</li>
+<li>Development is based on open standards and extensibility</li>
+<li>Processes and tools facilitate continuous delivery (CI/CD)<ul>
+<li>A powerful command-line interface (CLI) removes the complexity of working with your Salesforce org for development, continuous integration, and delivery.</li>
+</ul>
+</li>
+<li>Flexible packaging supports agile distribution model</li>
+</ul>
+<pre><code>$ sfdx --version
+sfdx-cli/6.0.26-3d23012 (darwin-x64) node-v8.6.0
+</code></pre><pre><code>$ sfdx -h
+Usage: sfdx COMMAND
+
+Help topics, type sfdx help TOPIC for more details:
+
+ force    tools for the Salesforce developer
+ plugins  manage plugins
+ update   update CLI
+</code></pre><pre><code>$ sfdx force -h
+Usage: sfdx force: [-v] [--json] [--loglevel &lt;string&gt;] [flags]
+
+Flags:
+ -v, --version        display the Salesforce API version
+ --json               format output as json
+ --loglevel LOGLEVEL  logging level for this command invocation
+                      (error*,trace,debug,info,warn,fatal)
+
+Usage: sfdx force:COMMAND
+
+Help topics, type sfdx help TOPIC for more details:
+
+ force:alias        manage username aliases
+ force:apex         work with Apex code
+ force:auth         authorize an org for use with the Salesforce CLI
+ force:config       configure the Salesforce CLI
+ force:data         manipulate records in your org
+ force:doc          display help for force commands
+ force:lightning    create and test Lightning component bundles
+ force:limits       view your org&#x2019;s limits
+ force:mdapi        retrieve and deploy metadata using Metadata API
+ force:org          manage your Salesforce DX orgs
+ force:package      install and uninstall first- and second-generation packages
+ force:package1     develop first-generation managed and unmanaged packages
+ force:package2     develop second-generation packages
+ force:project      set up a Salesforce DX project
+ force:schema       view standard and custom objects
+ force:source       sync your project with your orgs
+ force:user         perform user-related admin tasks
+ force:visualforce  create and edit Visualforce files
+</code></pre><h4 id="orgs---help">Orgs - help</h4>
+<pre><code>$ sfdx force:org -h
+Usage: sfdx force:org:COMMAND [command-specific-options]
+
+manage your Salesforce DX orgs
+
+sfdx force:org commands: (get help with sfdx help force:org:COMMAND)
+ force:org:create        create a scratch org
+ force:org:delete        mark a scratch org for deletion
+ force:org:display       get org description
+ force:org:list          list all orgs you&#x2019;ve created or authenticated to
+ force:org:open          open an org in your browser
+ force:org:shape:create  create a snapshot of org edition, features, and licenses
+ force:org:shape:delete  delete all org shapes for a target org
+ force:org:shape:list    list all org shapes you&#x2019;ve created
+</code></pre><h4 id="list-orgs---help">List Orgs - help</h4>
+<pre><code> $ sfdx force:org:list -h
+Usage: sfdx force:org:list [--all] [--clean] [-p] [--json] [--loglevel &lt;string&gt;]
+
+list all orgs you&#x2019;ve created or authenticated to
+
+Flags:
+ -p, --noprompt       do not prompt for confirmation
+ --all                include expired, deleted, and unknown-status scratch orgs
+ --clean              remove all local org authorizations for non-active orgs
+ --json               format output as json
+ --loglevel LOGLEVEL  logging level for this command invocation
+                      (error*,trace,debug,info,warn,fatal)
+
+Examples:
+   $ sfdx force:org:list
+   $ sfdx force:org:list --verbose --json
+   $ sfdx force:org:list --verbose --json &gt; tmp/MyOrgList.json
+</code></pre><h4 id="list-orgs">List Orgs</h4>
+<pre><code> $ sfdx force:org:list
+=== Orgs
+  ALIAS   USERNAME                              ORG ID              CONNECTED STATUS
+  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
+          mohan.chinnappan.n.dx1@gmail.com      00Df4000000nn2KEAQ  authDecryptFailed
+          mohan.chinnappan.n23@gmail.com        00Df40000003eOAEAY  Connected
+          mohan.chinnappan.n30@gmail.com        00Df4000000nUtnEAE  authDecryptFailed
+          mohan.chinnappan.n32@gmail.com        00Df4000001TuquEAC  authDecryptFailed
+          mohan.chinnappan.n_devhub@gmail.com   00D1I000001UmBpUAK  authDecryptFailed
+  DebHub  mohan.chinnappan.n2.devhub@gmail.com  00D1I000003nO9oUAE  Connected
+
+
+No active scratch orgs found. Specify --all to see all scratch orgs
+</code></pre><h4 id="list-orgs---json-output">List orgs - JSON output</h4>
+<pre><code class="lang-json">
+
+
+$ sfdx force:org:list --json | jq
+{
+  <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-number">0</span>,
+  <span class="hljs-string">&quot;result&quot;</span>: {
+    <span class="hljs-string">&quot;nonScratchOrgs&quot;</span>: [
+      {
+        <span class="hljs-string">&quot;orgId&quot;</span>: <span class="hljs-string">&quot;00Df4000000nn2KEAQ&quot;</span>,
+        <span class="hljs-string">&quot;accessToken&quot;</span>: <span class="hljs-string">&quot;d7f525ee28c319f861d1dbf3731e745b2534b243fbd19b35967e4f28ab85e5ae84fb29ddb24721d7ff047bc2f80c3c55cbdaedf778f5d528c0e1f785222a204c210d86b2277c3387d62764d5e159575d32c4f106bfb3b95a777b751a99a44f12b9cbea2f0750f0ab21c65d0a4f4350feec87949ff899:50e4a4b306cbc2a19154672ed6d4ecd5&quot;</span>,
+        <span class="hljs-string">&quot;instanceUrl&quot;</span>: <span class="hljs-string">&quot;https://na59.salesforce.com&quot;</span>,
+        <span class="hljs-string">&quot;loginUrl&quot;</span>: <span class="hljs-string">&quot;https://login.salesforce.com&quot;</span>,
+        <span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;mohan.chinnappan.n.dx1@gmail.com&quot;</span>,
+        <span class="hljs-string">&quot;isDevHub&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">&quot;connectedStatus&quot;</span>: <span class="hljs-string">&quot;authDecryptFailed&quot;</span>,
+        <span class="hljs-string">&quot;lastUsed&quot;</span>: <span class="hljs-string">&quot;2017-12-28T16:50:54.000Z&quot;</span>
+      },
+      {
+        <span class="hljs-string">&quot;orgId&quot;</span>: <span class="hljs-string">&quot;00Df40000003eOAEAY&quot;</span>,
+        <span class="hljs-string">&quot;accessToken&quot;</span>: <span class="hljs-string">&quot;0b908eaf1f8f60fe264469be1c82f656fdf18877e315fb849e9821e067485a737b0f12803d61515bcff19a76500e378d7c0f567ad53f0381eec4ab0ed918de22f6bba87f7f8fc481e3b4ad9d3f737ac66082893b11bcb0a9b790f838ee73ddaa678474825b08f89bdba948121c906dd0d5d8d34161cf:a7dfd4816975194de4f7b72dcb968ecc&quot;</span>,
+        <span class="hljs-string">&quot;instanceUrl&quot;</span>: <span class="hljs-string">&quot;https://mohansun-lx1-dev-ed.my.salesforce.com&quot;</span>,
+        <span class="hljs-string">&quot;loginUrl&quot;</span>: <span class="hljs-string">&quot;https://login.salesforce.com&quot;</span>,
+        <span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;mohan.chinnappan.n23@gmail.com&quot;</span>,
+        <span class="hljs-string">&quot;connectedStatus&quot;</span>: <span class="hljs-string">&quot;Connected&quot;</span>,
+        <span class="hljs-string">&quot;lastUsed&quot;</span>: <span class="hljs-string">&quot;2017-12-28T16:50:54.000Z&quot;</span>
+      },
+      {
+        <span class="hljs-string">&quot;orgId&quot;</span>: <span class="hljs-string">&quot;00Df4000000nUtnEAE&quot;</span>,
+        <span class="hljs-string">&quot;accessToken&quot;</span>: <span class="hljs-string">&quot;02b44fc44756e7dfd18b19273a1529fb189aadce7d1a37bf2e7ab9d11da933bde554c32d5413ad185d893f159ecf499a0ba0593806d42c43b5d17ab3fd0223b8727b8e0301cdb59d166120478408ac0cc917248f0ca1efc4b893a7ff3d6bfa104324ff170f6b80710ed19efd031b2049acf3aabed48c:48309d2e17562f3b4f77a39398fff5cc&quot;</span>,
+        <span class="hljs-string">&quot;instanceUrl&quot;</span>: <span class="hljs-string">&quot;https://mohansun-lx2-dev-ed.my.salesforce.com&quot;</span>,
+        <span class="hljs-string">&quot;loginUrl&quot;</span>: <span class="hljs-string">&quot;https://login.salesforce.com&quot;</span>,
+        <span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;mohan.chinnappan.n30@gmail.com&quot;</span>,
+        <span class="hljs-string">&quot;connectedStatus&quot;</span>: <span class="hljs-string">&quot;authDecryptFailed&quot;</span>,
+        <span class="hljs-string">&quot;lastUsed&quot;</span>: <span class="hljs-string">&quot;2017-12-28T16:50:55.000Z&quot;</span>
+      },
+      {
+        <span class="hljs-string">&quot;orgId&quot;</span>: <span class="hljs-string">&quot;00Df4000001TuquEAC&quot;</span>,
+        <span class="hljs-string">&quot;accessToken&quot;</span>: <span class="hljs-string">&quot;ddef552669e581ae8e9b2e40fc9afb5cfa2ea027726bcbe1fb7359e20a92e0d141428924fa1f784fda78f90ae284b291a1ea02aecc4547496acc2a255d9f45b1db6eaf1f7a483d1a3dd28d650a05bb863d3ecddd05d3aa20319320372eca277224a0f89606138c50cd6cc7815bb823ad51dc9b230ee0:9716f6aa36a49b644c3b15a189716ba1&quot;</span>,
+        <span class="hljs-string">&quot;instanceUrl&quot;</span>: <span class="hljs-string">&quot;https://na59.salesforce.com&quot;</span>,
+        <span class="hljs-string">&quot;loginUrl&quot;</span>: <span class="hljs-string">&quot;https://login.salesforce.com&quot;</span>,
+        <span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;mohan.chinnappan.n32@gmail.com&quot;</span>,
+        <span class="hljs-string">&quot;isDevHub&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">&quot;connectedStatus&quot;</span>: <span class="hljs-string">&quot;authDecryptFailed&quot;</span>,
+        <span class="hljs-string">&quot;lastUsed&quot;</span>: <span class="hljs-string">&quot;2017-12-28T16:50:55.000Z&quot;</span>
+      },
+      {
+        <span class="hljs-string">&quot;orgId&quot;</span>: <span class="hljs-string">&quot;00D1I000001UmBpUAK&quot;</span>,
+        <span class="hljs-string">&quot;accessToken&quot;</span>: <span class="hljs-string">&quot;22c54fad3bdca0c54209de95cf738634b6547e250addeffc7909edc6484af3936806dd67ac735b8aa398c1cf30095ca16d670b859596e4a4d87e19eeaa6b2bce52e8c6b3d255775ebffcfb50a62a9a401d330b395a3b2a1538d15e95c8c76e8cfc36f238a4c7e0b402fcb3f3f4f91b8f4f6791b0024c:dd89d22de3b99ffbf1e7f7a99fe2ad3d&quot;</span>,
+        <span class="hljs-string">&quot;instanceUrl&quot;</span>: <span class="hljs-string">&quot;https://na73.salesforce.com&quot;</span>,
+        <span class="hljs-string">&quot;loginUrl&quot;</span>: <span class="hljs-string">&quot;https://login.salesforce.com&quot;</span>,
+        <span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;mohan.chinnappan.n_devhub@gmail.com&quot;</span>,
+        <span class="hljs-string">&quot;isDevHub&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">&quot;connectedStatus&quot;</span>: <span class="hljs-string">&quot;authDecryptFailed&quot;</span>,
+        <span class="hljs-string">&quot;lastUsed&quot;</span>: <span class="hljs-string">&quot;2017-12-28T16:50:54.000Z&quot;</span>
+      },
+      {
+        <span class="hljs-string">&quot;orgId&quot;</span>: <span class="hljs-string">&quot;00D1I000003nO9oUAE&quot;</span>,
+        <span class="hljs-string">&quot;accessToken&quot;</span>: <span class="hljs-string">&quot;be1dabb89d3d02cf7ba6b05cd73769b2589aa1f5f29c9f048f4c4e3f989f1c09ce57bdaf074d109adcc6e4c683aa98716cd3175d92d8c6f164c1a38f9f04eba7c4cba0efea2bd28d7f7c7f062d1773d96a641a8bb61c5416fdbedc57c0cd93c62b009e6fae95e32b8546c8fff951c7ae02a197976831:1a8ef453c1f58c7a56762c56a3c7c8e6&quot;</span>,
+        <span class="hljs-string">&quot;instanceUrl&quot;</span>: <span class="hljs-string">&quot;https://na73.salesforce.com&quot;</span>,
+        <span class="hljs-string">&quot;loginUrl&quot;</span>: <span class="hljs-string">&quot;https://login.salesforce.com&quot;</span>,
+        <span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;mohan.chinnappan.n2.devhub@gmail.com&quot;</span>,
+        <span class="hljs-string">&quot;isDevHub&quot;</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-string">&quot;connectedStatus&quot;</span>: <span class="hljs-string">&quot;Connected&quot;</span>,
+        <span class="hljs-string">&quot;lastUsed&quot;</span>: <span class="hljs-string">&quot;2017-12-28T16:50:54.000Z&quot;</span>,
+        <span class="hljs-string">&quot;alias&quot;</span>: <span class="hljs-string">&quot;DebHub&quot;</span>
+      }
+    ],
+    <span class="hljs-string">&quot;scratchOrgs&quot;</span>: []
+  }
+}
+</code></pre>
+<h4 id="authorize-an-org-for-use-with-the-salesforce-cli">Authorize an org for use with the Salesforce CLI</h4>
+<pre><code>$ sfdx force:auth -h
+Usage: sfdx force:auth:COMMAND [command-specific-options]
+
+authorize an org for use with the Salesforce CLI
+
+sfdx force:auth commands: (get help with sfdx help force:auth:COMMAND)
+ force:auth:jwt:grant      authorize an org using the JWT flow
+ force:auth:sfdxurl:store  authorize an org using an SFDX auth URL
+ force:auth:web:login      authorize an org using the web login flow
+</code></pre><h4 id="authorize-an-org-using-the-web-login-flow">Authorize an org using the web login flow</h4>
+<pre><code>$ sfdx force:auth:web:login -h
+Usage: sfdx force:auth:web:login [-i &lt;string&gt;] [-r &lt;url&gt;] [-d] [-s] [-a &lt;string&gt;] [--json] [--loglevel &lt;string&gt;]
+
+authorize an org using the web login flow
+
+Flags:
+ -i, --clientid CLIENTID         OAuth client ID (sometimes called the consumer
+                                 key)
+ -r, --instanceurl INSTANCEURL   the login URL of the instance the org lives on
+ -a, --setalias SETALIAS         set an alias for the authenticated org
+ -d, --setdefaultdevhubusername  set the authenticated org as the default dev
+                                 hub org for scratch org creation
+ -s, --setdefaultusername        set the authenticated org as the default
+                                 username that all commands run against
+ --json                          format output as json
+ --loglevel LOGLEVEL             logging level for this command invocation
+                                 (error*,trace,debug,info,warn,fatal)
+
+To log in to a sandbox, set --instanceurl to https://test.salesforce.com.
+
+Examples:
+   $ sfdx force:auth:web:login -a TestOrg1
+   $ sfdx force:auth:web:login -i &lt;OAuth client id&gt;
+   $ sfdx force:auth:web:login -r https://test.salesforce.com
+</code></pre><h4 id="web-login">Web login</h4>
+<pre><code>sfdx force:auth:web:login --setdefaultdevhubusername
+Successfully authorized mohan.chinnappan.n2.devhub@gmail.com with org ID 00D1I000003nO9oUAE
+You may now close the browser
+</code></pre><p><img src="img/sfdx-devHub-Login-1.png" alt="devhub login"></p>
+<h4 id="create-a-scratch-org---help">create a scratch org - help</h4>
+<pre><code>
+sfdx force:org:create -h
+Usage: sfdx force:org:create name=value... [-f &lt;filepath&gt;] [-n] [-c] [-i &lt;string&gt;] [-s] [-a &lt;string&gt;] [-w &lt;minutes&gt;] [-d &lt;number&gt;] [-v &lt;string&gt;] [--json] [--loglevel &lt;string&gt;]
+
+create a scratch org
+
+Flags:
+ -i, --clientid CLIENTID                          connected app consumer key
+ -f, --definitionfile DEFINITIONFILE              path to a scratch org
+                                                  definition file
+ -d, --durationdays DURATIONDAYS                  duration of the scratch org
+                                                  (in days) (default:7, min:1,
+                                                  max:30)
+ -c, --noancestors                                do not include
+                                                  second-generation package
+                                                  ancestors in the scratch org
+ -n, --nonamespace                                creates the scratch org with
+                                                  no namespace
+ -a, --setalias SETALIAS                          set an alias for for the
+                                                  created scratch org
+ -s, --setdefaultusername                         set the created org as the
+                                                  default username
+ -v, --targetdevhubusername TARGETDEVHUBUSERNAME  username or alias for the dev
+                                                  hub org; overrides default dev
+                                                  hub org
+ -w, --wait WAIT                                  the streaming client socket
+                                                  timeout (in minutes)
+                                                  (default:6, min:2)
+ --json                                           format output as json
+ --loglevel LOGLEVEL                              logging level for this command
+                                                  invocation
+                                                  (error*,trace,debug,info,warn,fatal)
+
+To set up a connected app for your new scratch org, specify the value that was returned when you created a connected app in your Dev Hub org as --clientid.
+
+Examples:
+   $ sfdx force:org:create -f config/enterprise-scratch-def.json -a TestOrg1
+   $ sfdx force:org:create -a MyDevOrg -s -v me@myhub.org edition=Developer
+   $ sfdx force:org:create -f config/enterprise-scratch-def.json -a OrgWithOverrides username=testuser1@mycompany.org
+</code></pre><h4 id="sample-scratch-org-definition-file-mydevorg100-scratch-defjson">Sample scratch org definition file (myDevOrg_100-scratch-def.json)</h4>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;orgName&quot;</span>: <span class="hljs-string">&quot;mchinnappan Company&quot;</span>,
+    <span class="hljs-string">&quot;edition&quot;</span>: <span class="hljs-string">&quot;Developer&quot;</span>,
+    <span class="hljs-string">&quot;orgPreferences&quot;</span> : {
+        <span class="hljs-string">&quot;enabled&quot;</span>: [<span class="hljs-string">&quot;S1DesktopEnabled&quot;</span>]
+    }
+}
+</code></pre>
+<h4 id="create-scratch-org-mydevorg100">Create scratch org MyDevOrg_100</h4>
+<pre><code>$ sfdx force:org:create -f ./config/myDevOrg_100-scratch-def.json -a MyDevOrg_100
+Successfully created scratch org: 00D5C0000000OTsUAM, username: test-wncfnsrx2mbf@mchinnappan_company.net
+
+----
+
+sfdx force:org:list
+=== Orgs
+     ALIAS   USERNAME                              ORG ID              CONNECTED STATUS
+&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
+             mohan.chinnappan.n.dx1@gmail.com      00Df4000000nn2KEAQ  authDecryptFailed
+             mohan.chinnappan.n23@gmail.com        00Df40000003eOAEAY  Connected
+             mohan.chinnappan.n30@gmail.com        00Df4000000nUtnEAE  authDecryptFailed
+             mohan.chinnappan.n32@gmail.com        00Df4000001TuquEAC  authDecryptFailed
+             mohan.chinnappan.n_devhub@gmail.com   00D1I000001UmBpUAK  authDecryptFailed
+(D)  DebHub  mohan.chinnappan.n2.devhub@gmail.com  00D1I000003nO9oUAE  Connected
+
+
+  ALIAS         SCRATCH ORG NAME     USERNAME                                   ORG ID              EXPIRATION DATE
+  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
+  MyDevOrg_100  mchinnappan Company  test-wncfnsrx2mbf@mchinnappan_company.net  00D5C0000000OTsUAM  2018-01-04
+</code></pre><h4 id="changing-devhub-alias">Changing DevHub alias</h4>
+<pre><code>
+sfdx force:auth:web:login --setdefaultdevhubusername --setalias DevHub
+Successfully authorized mohan.chinnappan.n2.devhub@gmail.com with org ID 00D1I000003nO9oUAE
+You may now close the browser
+~/sfdc/sfdx/book:
+$ sfdx force:org:list
+=== Orgs
+    ALIAS   USERNAME                              ORG ID              CONNECTED STATUS
+&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
+            mohan.chinnappan.n.dx1@gmail.com      00Df4000000nn2KEAQ  authDecryptFailed
+            mohan.chinnappan.n23@gmail.com        00Df40000003eOAEAY  Connected
+            mohan.chinnappan.n30@gmail.com        00Df4000000nUtnEAE  authDecryptFailed
+            mohan.chinnappan.n32@gmail.com        00Df4000001TuquEAC  authDecryptFailed
+            mohan.chinnappan.n_devhub@gmail.com   00D1I000001UmBpUAK  authDecryptFailed
+(D)  DevHub  mohan.chinnappan.n2.devhub@gmail.com  00D1I000003nO9oUAE  Connected
+
+
+ ALIAS         SCRATCH ORG NAME     USERNAME                                   ORG ID              EXPIRATION DATE
+ &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
+ MyDevOrg_100  mchinnappan Company  test-wncfnsrx2mbf@mchinnappan_company.net  00D5C0000000OTsUAM  2018-01-04
+</code></pre><p><img src="img/sfdx-devhub-scratch-orgs.png" alt="scratch orgs list"></p>
+<h2 id="references">References</h2>
+<ol>
+<li><a href="https://developer.salesforce.com/blogs/developer-relations/2017/06/introducing-salesforce-dx-open-beta.html" target="_blank">Introducing the Salesforce DX Open Beta</a></li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../aura/aura.html" class="navigation navigation-prev " aria-label="Previous page: Aura UI Framework">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="project-generator.html" class="navigation navigation-next " aria-label="Next page: Project Generator">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"SFDX","level":"1.6","depth":1,"next":{"title":"Project Generator","level":"1.6.1","depth":2,"path":"sfdx/project-generator.md","ref":"sfdx/project-generator.md","articles":[]},"previous":{"title":"Aura UI Framework","level":"1.5","depth":1,"path":"aura/aura.md","ref":"aura/aura.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube"],"pluginsConfig":{"youtube":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sfdx/sfdx.md","mtime":"2017-12-28T19:22:43.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-31T15:33:22.827Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

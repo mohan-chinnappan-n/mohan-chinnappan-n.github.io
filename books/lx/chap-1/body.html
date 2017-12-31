@@ -199,7 +199,39 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="../ref/ref.html">
+        <li class="chapter " data-level="1.6" data-path="../sfdx/sfdx.html">
+            
+                <a href="../sfdx/sfdx.html">
+            
+                    
+                    SFDX
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../sfdx/project-generator.html">
+            
+                <a href="../sfdx/project-generator.html">
+            
+                    
+                    Project Generator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../ref/ref.html">
             
                 <a href="../ref/ref.html">
             
@@ -397,7 +429,33 @@ The details of a component&apos;s implementation are encapsulated. This allows t
 </ol>
 <p>Components are stored as metadata inside a Salesforce org in the cloud, and are also accessible through the Tooling API.</p>
 <p>Lightning Components are built on top of Aura, the same open-source JavaScript UI framework used by Salesforce1</p>
-<p>In an Single Page Application (SPA), page content is manipulated behind the scenes using client-side JavaScript, creating the appearance of separate pages. Applications that are expected to run on a variety of mobile devices will most benefit from this web-based development approach, because they require alternate display behavior for inconsistent form factors and page transitions that are gesture-based. This approach lies at the heart of Salesforce1 technology.</p>
+<p>In an Single Page Application (SPA), page content is manipulated behind the scenes using client-side JavaScript, creating the appearance of separate pages.</p>
+<p>Applications that are expected to run on a variety of mobile devices will most benefit from this web-based development approach, because they require alternate display behavior for inconsistent form factors and page transitions that are gesture-based. This approach lies at the heart of Salesforce1 technology.</p>
+<p>The heavy adoption of AJAX technology and the growing desire for browser-based applications providing a sophisticated user experience has led to the rapid evolution of SPAs. However, building SPAs is not easy, and requires expert knowledge of HTML, CSS, JavaScript, mobile UI design patterns, security, data serialization, and service oriented architecture (SOA) technologies and best practices. The beauty of the Salesforce1 SPA architecture is that implementation is kept well-hidden, with complexities abstracted away behind a metadata layer. This allows administrators to easily configure their mobile page layouts, navigation, actions, and security to configure the standard Salesforce1 app for their users.</p>
+<h3 id="visualforce-is-suboptimal-for-spas">Visualforce is Suboptimal for SPAs</h3>
+<ol>
+<li><p>The very nature of Visualforce requires the use of an <strong>iframe HTML component</strong>, adding performance overhead.</p>
+</li>
+<li><p>Core frameworks and libraries must be linked to the host Visualforce page, either with an external link, or a link to a file uploaded as a Static Resource.</p>
+</li>
+<li><p>Each framework provides its own particular architectural approach that developers must follow, and while some do promote a more manageable component-based approach well suited for scalable enterprise development, others provide little if any guidance around organizing or scaffolding code modules.</p>
+</li>
+<li><p>Developers must somehow choose which framework or approach is best suited to their purpose, learn how to use it, organize it, and maintain a consistent set of practices so that as their app&#x2019;s complexity grows, the maintenance burden is kept in check, and a robust and organized codebase maintained.</p>
+</li>
+</ol>
+<p>Even the &#x201C;best of the best&#x201D; of these frameworks provide such challenges when building custom SPAs hosted in Visualforce.</p>
+<h3 id="lightning-is-an-spa-framework">Lightning is an SPA Framework</h3>
+<ol>
+<li>An easy-to-use scaffolding pattern is provided for building, organizing, and maintaining the encapsulated HTML, CSS, and JavaScript component resources, all managed using cloud- based Salesforce developer tools.</li>
+<li>Components are stored as metadata inside a Salesforce org in the cloud, and are also accessible through the Tooling API.</li>
+<li>Patterns for inheritance and interface implementation are provided, along with a decoupled event messaging model.</li>
+<li>Components extend the capabilities of the core Salesforce1 framework, and dozens (soon to be hundreds) of pre-built components allow developers to assemble their application from modular building blocks that can be nested into other components, or further extended.</li>
+<li>Components in Lightning are &#x201C;peers&#x201D; of each other, rather than being isolated within <strong>iframes</strong>, which are not used in the framework. This makes integration easy and maintenance rapid by allowing developers to piece together components (both those they have created and those obtained from outside sources), without the need to reinvent the entire transaction model.</li>
+<li>No additional external libraries or frameworks are required, although they may be used with Lightning Components if desired.</li>
+<li>No Visualforce page is required to host Lightning Components. Lightning Components are built on top of Aura, the same open-source JavaScript UI framework used by Salesforce1. The framework was designed to serve up a mobile Salesforce user experience using an underlying component-based architecture. This is the same framework with which developers build their own components.</li>
+<li>Lightning Components can be deployed into any Salesforce org, added into Salesforce1 mobile navigation, assembled into custom Lightning Pages with a drag-and-drop Application Builder, and surfaced a number of ways in Salesforce1. They may also be used to build completely standalone apps, independent of the Salesforce1 app.</li>
+<li>Best of all, components built by Salesforce, other ISV partners, or any developer can be reused and extended by any other developer, providing enormous ability to reuse existing functionality as building blocks for rapid application development.</li>
+</ol>
 <h2 id="events-and-messaging">Events and Messaging</h2>
 <p>In the Lightning Framework, components can be easily added, removed or swapped without the risk of breaking the application.</p>
 <p>They can be built by different teams, or even purchased commercially through the AppExchange for integration in a custom application.</p>
@@ -552,7 +610,7 @@ Component A as a <strong>notifier</strong> emits an event, and Components B and 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lightning Architecture","level":"1.2","depth":1,"next":{"title":"Classic Architecture","level":"1.3","depth":1,"path":"chap-2/body.md","ref":"chap-2/body.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube"],"pluginsConfig":{"youtube":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-1/body.md","mtime":"2017-12-28T01:18:28.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-28T01:32:15.556Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lightning Architecture","level":"1.2","depth":1,"next":{"title":"Classic Architecture","level":"1.3","depth":1,"path":"chap-2/body.md","ref":"chap-2/body.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube"],"pluginsConfig":{"youtube":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-1/body.md","mtime":"2017-12-28T14:56:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-31T15:33:22.827Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
