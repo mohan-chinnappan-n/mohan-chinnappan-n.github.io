@@ -108,7 +108,46 @@
   <div class="container">
     <h3> Notes about interesting topics</h3>
     <h4>Click on top menu items to view the topics</h4>
+    <hr/>
+    <span>
+
+       <div id="quote" style="float: left;">
+
+       </div>
+       <img src="https://mohansun-notes.herokuapp.com/img/gandhi-mahatma-large.jpg" width="40" style="border-radius:35px;float: right;">
+
+     </span>
   </div>
+
+<script>
+
+(function() {
+   const mkgQuotes = [
+      {"q": ""},
+      {"q": "You must be the change you wish to see in the world."},
+      {"q": "Satisfaction lies in the effort, not in the attainment, full effort is full victory."},
+      { "q": "Where there is love there is life." },
+      { "q": "The weak can never forgive. Forgiveness is the attribute of the strong." },
+      { "q": "Strength does not come from physical capacity. It comes from an indomitable will."},
+      { "q": "You must not lose faith in humanity. Humanity is an ocean; if a few drops of the ocean are dirty, the ocean does not become dirty." },
+      { "q": "An ounce of practice is worth more than tons of preaching."},
+      { "q":"Non-violence is the greatest force at the disposal of mankind. It is mightier than the mightiest weapon of destruction devised by the ingenuity of man."},
+
+      {"q": "First they ignore you, then they laugh at you, then they fight you, then you win"}
+
+   ];
+   const START = 1;
+   const STOP = mkgQuotes.length - 1;
+   const author = "Mohandas K Gandhi"
+
+
+   const id = Math.floor((Math.random() * STOP) + START);
+   const quote = mkgQuotes[id].q
+   $('#quote').html(quote + " - " +  author);
+ })();
+
+
+</script>
 
 </body>
 
