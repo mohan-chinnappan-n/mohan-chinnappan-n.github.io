@@ -116,6 +116,12 @@
       </section>
 
       <section>
+        <h4> Flow</h4>
+        <img src='img/saml-flow-sfdc.png' height="550"/>
+
+      </section>
+
+      <section>
         <h4>Step-1</h4>
         <ul>
           <li>Provide Federation ID in the SSO Information section of the User, who will login using SSO <br/> In our case: <code>joesimple@mohansun.org</code> is for our user <code>Joe Simple</code></li>
@@ -137,7 +143,7 @@
                 <li>IdP (Identity Provider, in our case it is : Axiom): Name (<b>Issuer</b>) and Certificate -
                   We want the SAML assertion provided by the IdP to be signed with that Cert. Salesforce needs public key to read that assertion. This way Salesforce will know it
                   is coming from the trusted IdP. <br/>
-                  Issuer: in case it is: <code>https://axiomsso.herokuapp.com</code>
+                  Issuer: in our case it is: <code>https://axiomsso.herokuapp.com</code>
                   <hr/>
                 </li>
                 <li>Entity-ID: This the Salesforce URL with custom domain: in our case it is :
@@ -243,6 +249,9 @@
           <li>
             <a target="_blank" href="https://trailhead.salesforce.com/en/modules/identity_login/units/identity_login_sso">Set Up Single Sign-On for Your Internal Users
           <a></li>
+
+        <li><a target="_blank" href="https://trailhead.salesforce.com/en/modules/identity_basics/units/identity_basics_protocols">Learn the Language of Identity</a>
+        </li>
         </ul>
       </section>
 
