@@ -118,33 +118,36 @@
        </section>
 
        <section>
-         <h4>Best Practices</h4>
+         <h4>Salesforce1</h4>
          <ul>
-           <li> Bunch all database changes together at the end of the flow -  whether those changes are create, update, or delete records.</li>
-
            <li>
-             If the flow commits changes to the database between two screens,
-             don't let users navigate from the later screen to the previous screen.
-              Otherwise, the flow can make duplicate changes to the database
+             <a target="_blank" href="http://resources.docs.salesforce.com/rel1/doc/en-us/static/pdf/SF_S1-Developer_cheatsheet_web.pdf"> Developer
+</a>
+           </li>
+           <li>
+             <a target="_blank" href="http://resources.docs.salesforce.com/rel1/doc/en-us/static/pdf/SF_S1-Admin_cheatsheet_web.pdf">Admin</a>
            </li>
 
-           <li>Cloud Flow Designer  doesn’t save your changes automatically,
-               so it’s up to you to save your work. Save as often as possible</li>
-           <li> If the flow uses branching or other complex logic.
-              Make sure to test as many possibilities as possible before  distributing the flow to the users</li>
+           <li>
+          </ul>
+        </section>
 
+        <section>
+           <h4>Process Automation</h4>
+           <ul>
+             <li>
+             <a target="_blank" href="http://resources.docs.salesforce.com/rel1/doc/en-us/static/pdf/SF_Process_Automation_cheatsheet_web.pdf">Process Automation</a>
+           </li>
          </ul>
        </section>
 
-
-         <section>
-           <h4>Best Practices - Contd.</h4>
-           <ul>
-             <li>Configure Every Fault Path to Send You an Email</li>
-             <li>Customize the Error Message for Running Flow Users </li>
-           </ul>
-
-
+       <section>
+         <h4>Lightning</h4>
+         <ul>
+           <li>
+             <a target="_blank" href="http://resources.docs.salesforce.com/rel1/doc/en-us/static/pdf/SF_LightningComponents_cheatsheet_web.pdf">Lightning Components</a>
+           </li>
+         </ul>
 
        </section>
 
@@ -152,13 +155,8 @@
          <h4>References</h4>
          <ul>
            <li>
-             <a target="_blank" href="https://developer.salesforce.com/docs/atlas.en-us.salesforce_vpm_guide.meta/salesforce_vpm_guide/vpm_intro.htm">Visual Workflow Guide
-</a>
-           </li>
-           <li>
-             <a target="_blank" href="https://resources.docs.salesforce.com/rel1/doc/en-us/static/pdf/SF_Process_Automation_cheatsheet_web.pdf">
-               Process Automation Cheatsheet
-             </a>
+
+             <a target="_blank" href="https://developer.salesforce.com/page/Cheat_Sheets">Cheatsheets</a>
            </li>
          </ul>
        </section>
@@ -332,7 +330,7 @@
     var GSCOPE;
     app.controller('MainCtrl', function($scope, $http, $timeout) {
       GSCOPE = $scope; // debugging purposes
-      $scope.appName="Visual Flow";
+      $scope.appName="Cheatsheets";
 
 
 
