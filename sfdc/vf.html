@@ -117,6 +117,25 @@
 
        </section>
 
+       <section>
+         <h4>Best Practices</h4>
+         <ul>
+           <li> Bunch all database changes together at the end of the flow -  whether those changes are create, update, or delete records.</li>
+
+           <li>
+             If the flow commits changes to the database between two screens,
+             don't let users navigate from the later screen to the previous screen.
+              Otherwise, the flow can make duplicate changes to the database
+           </li>
+
+           <li>Cloud Flow Designer  doesn’t save your changes automatically,
+               so it’s up to you to save your work. Save as often as possible</li>
+           <li> If the flow uses branching or other complex logic.
+              Make sure to test as many possibilities as possible before  distributing the flow to the users</li>
+         </ul>
+
+       </section>
+
 
 
 
