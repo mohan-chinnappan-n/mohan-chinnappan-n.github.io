@@ -113,7 +113,29 @@
 
       <section id="home">
         <h4>{{appName}}</h4>
-       </section>
+      </section>
+
+      <section>
+        <h4>Datasets</h4>
+        <ul>
+          <li>Load is loaded into Datasets
+            <ul>
+              <li>Dataset is a colletion of realted data</li>
+              <li>Data in dataset is stored in a denormalized, but in highly compressed form</li>
+              <li>Dataset can have combined data from different sources, drived(calculated) fields/values and cleaned data
+            </ul>
+          </li>
+
+        </ul>
+
+      </section>
+
+
+
+
+
+
+
 
 
     </div>
@@ -276,7 +298,7 @@
     var GSCOPE;
     app.controller('MainCtrl', function($scope, $http, $timeout) {
       GSCOPE = $scope; // debugging purposes
-      $scope.appName="Help";
+      $scope.appName="Einstein Analytics - Data Integration";
 
 
 

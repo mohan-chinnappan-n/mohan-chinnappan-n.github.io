@@ -134,6 +134,29 @@
          </ul>
        </section>
 
+       <section>
+         <h4>Components</h4>
+         <ul>
+           <li>HDFS - Hadoop Distributed File System
+               <ul>
+                 <li>Runs on top of existing file systems</li>
+                <li>Handles very large file with data-streaming access patterns</li>
+                <li>Designed of sequencial access rater than random access</li>
+                <li>File Blocks are used to store a file or parts of a file
+                    <ul>
+
+                      <li>64 MB - default, 128 MB - recommended</li>
+                      <li>Default Unix block size : 4MB so 1 HDFS.block = n * OS.block </li>
+                      <li>Replicated to multiple nodes to protect against data loss</li>
+
+                    </ul>
+                </li>
+               </ul>
+           </li>
+           <li>MapReduce Engine</li>
+         </ul>
+       </section>
+
 
 
 
