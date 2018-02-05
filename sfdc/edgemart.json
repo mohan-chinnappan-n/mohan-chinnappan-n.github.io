@@ -1,0 +1,43 @@
+{
+  "Extract_Opportunities": {
+    "action": "sfdcDigest",
+    "parameters": {
+      "object": "Opportunity",
+      "fields": [{
+          "name": "Id"
+        },
+        {
+          "name": "Name"
+        },
+        {
+          "name": "Amount"
+        }
+      ]
+    }
+  },
+  "Extract_Final_Sales_Data": {
+    "action": "edgemart",
+    "parameters": {
+      "alias": "myOppty_1_mat"
+    }
+  },
+  "Combine_Opportunities_FinalSales": {
+    "action": "augment",
+    "parameters": {
+      "left": "Extract_Opportunities",
+      "left_key": ["Id"],
+      "relationship": "Opportunity",
+      "right": "Extract_Final_Sales_Data",
+      "right_key": ["ID"],
+      "right_select": ["Materialized"]
+    }
+  },
+  "Register_Opportunity_FinalSales_Dataset": {
+    "action": "sfdcRegister",
+    "parameters": {
+      "alias": "OpportunityVersusFinalSales",
+      "name": "OpporunityVersusFinalSales",
+      "source": "Combine_Opportunities_FinalSales"
+    }
+  }
+}

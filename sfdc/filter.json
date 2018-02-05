@@ -1,0 +1,45 @@
+{
+  "Extract_Opportunities": {
+    "action": "sfdcDigest",
+    "parameters": {
+      "object": "Opportunity",
+      "fields": [{
+          "name": "Id"
+        },
+        {
+          "name": "Name"
+        },
+        {
+          "name": "Amount"
+        },
+        {
+          "name": "StageName"
+        },
+        {
+          "name": "CloseDate"
+        },
+        {
+          "name": "AccountId"
+        },
+        {
+          "name": "OwnerId"
+        }
+      ]
+    }
+  },
+  "Filter_Opportunities": {
+    "action": "filter",
+    "parameters": {
+      "filter": "StageName:EQ:Closed Won",
+      "source": "Extract_Opportunities"
+    }
+  },
+  "Register_My_Won_Oppportunities_Dataset": {
+    "action": "sfdcRegister",
+    "parameters": {
+      "alias": "MyWonOpportunities",
+      "name": "MyWonOpportunities",
+      "source": "Filter_Opportunities"
+    }
+  }
+}
