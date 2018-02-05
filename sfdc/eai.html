@@ -270,62 +270,248 @@
 
               </tr>
 
-              <tr>
-                <td  data-title="Symbol">mm</td>
-
-                <td  data-title="Meaning">Two-digit minute (00–59)</td>
-
-              </tr>
-
-              <tr>
-                <td  data-title="Symbol">ss</td>
-
-                <td  data-title="Meaning">Two-digit seconds (00–59)</td>
-
-              </tr>
-
-              <tr>
-                <td  data-title="Symbol">SSS</td>
-
-                <td  data-title="Meaning">Optional three-digit milliseconds (000–999)</td>
-
-              </tr>
-
-              <tr>
-                <td  data-title="Symbol">‘Z’</td>
-
-                <td  data-title="Meaning">The reference UTC time zone</td>
-
-              </tr>
 
             </tbody>
 
           </table></p>
       </section>
 
+      <section>
+        <h4>Date format - Symobls - contd.</h4>
+        <p>
+          <table class="featureTable sort_table" summary="">
+
+
+            <thead class="thead sorted" align="left">
+              <tr>
+                <th class="featureTableHeader  " id="d582e1368">Symbol</th>
+
+                <th class="featureTableHeader  " id="d582e1371">Meaning</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody class="tbody">
+        <tr>
+          <td  data-title="Symbol">mm</td>
+
+          <td  data-title="Meaning">Two-digit minute (00–59)</td>
+
+        </tr>
+
+        <tr>
+          <td  data-title="Symbol">ss</td>
+
+          <td  data-title="Meaning">Two-digit seconds (00–59)</td>
+
+        </tr>
+
+        <tr>
+          <td  data-title="Symbol">SSS</td>
+
+          <td  data-title="Meaning">Optional three-digit milliseconds (000–999)</td>
+
+        </tr>
+
+        <tr>
+          <td  data-title="Symbol">‘Z’</td>
+
+          <td  data-title="Meaning">The reference UTC time zone</td>
+
+        </tr>
+
+      </tbody>
+
+    </table></p>
+      </section>
+
 
       <section>
         <h4>Fiscal Periods in Analytics</h4>
         <ul>
+          <li>If the calendar and fiscal year differ, you can enable Analytics to generate
+             the fiscal date fields in the dataset in addition to calendar date
+         fields</li>
           <li> If your fiscal year begins in April, set fiscalMonthOffset to '3'.</li>
         </ul>
         <ul>
-          <li><code>isYearEndFiscalYear = true</code></li>
-          <li><img src="https://resources.help.salesforce.com/images/1420169a6d71cfbf3babdeaa76dd6355.png"/></li>
-          <li>isYearEndFiscalYear = false</li>
-          <li><img src="https://resources.help.salesforce.com/images/12d2deb7cc3f8634e8747737396bdfb7.png"/></li>
+          <li> metadata attributes for each date column</li>
         </ul>
 
+      </section>
+
+      <section>
+        <h4>Fiscal Year</h4>
+        <ul>
+          <li>Because the fiscal year can start in one calendar year and end in another calendar year,
+             you must specify which year to use for the fiscal year</li>
+          <li>The
+<code>isYearEndFiscalYear</code>
+ attribute indicates whether the fiscal year is the year in which the fiscal year ends or begins</li>
+
+
+
+        </ul>
+      </section>
+
+
+<section>
+  <h4>Fiscal Year - Contd.</h4>
+  <ul>
+    <li><code>isYearEndFiscalYear = true</code></li>
+    <li>As shown in the following diagram, any dates between 4/1/2015 and
+   3/31/2016 are part of the fiscal year 2016 because the fiscal year ends in 2016.</li>
+    <li><img src="https://resources.help.salesforce.com/images/1420169a6d71cfbf3babdeaa76dd6355.png"/></li>
+
+  </ul>
+</section>
+
+<section>
+  <h4>Fiscal Year - Contd.</h4>
+  <ul>
+  <li> As shown in the following
+   diagram, any dates between 4/1/2015 and 3/31/2016 are part of the fiscal year 2015 because the fiscal year begins in 2015.</li>
+    <li><code>isYearEndFiscalYear = false</code></li>
+   <li><img src="https://resources.help.salesforce.com/images/12d2deb7cc3f8634e8747737396bdfb7.png"/></li>
+
+  </ul>
+</section>
+
+<section>
+  <h4>Week Numbering</h4>
+  <ul>
+    <li>
+      For each date loaded into a dataset, Analytics generates the corresponding week number for the calendar year and, if applicable, fiscal
+      year
+
+    </li>
+    <li> Similar to the SOQL function <code>WEEK_IN_YEAR</code>, week 1</li>
+    <li>Week 1 in Analytics  =  January 1 - January 7.</li>
+
+  </ul>
+</section>
+
+<section>
+  <h4>Week Numbering  - contd</h4>
+
+  <ul>
+    <li> You can configure the week to start on a particular day of the week by setting the <code>firstDayOfWeek</code> attribute</li>
+     <li>if January 1 is a Saturday and you configure the week to start on a Monday as  <code>firstDayOfWeek</code>
+         , then week 1 is January 1 - 2. Week 2 starts on Monday,
+January 3. Week 3 starts January 10, the following Monday.
+</li>
+<li> Notice that week 1 can be a short week to ensure that the subsequent weeks
+start on the specified day of the week.</li>
+</ul>
+</section>
+
+<section>
+  <h4>Einstein Analytics Connector for Excel</h4>
+  <ul>
+    <li>The Salesforce Einstein Analytics Connector for Excel makes it easy to import data from Microsoft Excel 2013 to Analytics</li>
+  </ul>
+</section>
+
+<section>
+  <h4>Inferred Column type</h4>
+  <ul>
+    <li>For external data, Analytics infers metadata about each column of data in the external data file unless you specify different metadata
+attributes in a metadata file</li>
+<li>A metadata file is a JSON file that describes the structure of an external data file</li>
+<li> If no metadata file is provided when
+you upload external data, Analytics treats every column as a <b>dimension</b>
+ and sets the field type to 'Text.' </li>
+ <li>Note: You can’t perform mathematical calculations on dataset columns with a Text field typ</li>
+ <li>After you create a dataset based on an external data file, you can edit the dataset to apply a new metadata file. This enables you to
+change the metadata attributes of each column.</li>
+
+  </ul>
+</section>
+
+<section>
+  <h4>External Data API</h4>
+  <ul>
+    <li>You can use the External Data API to create a single dataset based on external data in the .csv format</li>
+    <li>
+     <img style='border:0px' src="https://developer.salesforce.com/docs/resources/img/en-us/212.0?doc_id=help%2Fimages%2Fbi_connect_data_external_detail_diagram.png&folder=bi_dev_guide_ext_data" alt="">
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h4>Steps in using External API</h4>
+<ul>
+<li>  Prepare your data in CSV format, and then create a metadata file to specify the structure of the data.
+</li><li>  Connect programmatically to your Salesforce organization.
+</li><li>  Configure the upload by inserting a row into the
+  <code>InsightsExternalData</code>
+   object, and then set input values such as the name of the dataset, the format of the data,
+   and the operation to perform on the data.
+
+
+</ul>
+</section>
+
+
+<section>
+  <h4>Steps in using External API - contd.</h4>
+<ul>
+ <li>  Split your data into <b>10-MB</b> chunks, and then upload the chunks to
+   <code>InsightsExternalDataPart</code> objects.
+</li><li> Start the upload by updating the Action field in the InsightsExternalData object.
+</li><li>  Monitor the InsightsExternalData object for status updates, and then verify that the file upload was successful.
+</li>
+
+</ul>
+</section>
+
+      <section>
+        <h4>ETL vs ELT</h4>
+        <img style='border:0px' src="img/ea/ETL.jpg" height="260" alt="ETL">
+
+        <img style='border:0px' src="img/ea/ELT.jpg" height="260" alt="ELT">
       </section>
 
 
       <section>
-        <h4>ETL vs ELT</h4>
-        <img src="img/ea/ETL.jpg" height="280" alt="ETL">
+        <h4>References</h4>
+        <ul>
+          <li>
 
-        <img src="img/ea/ELT.jpg" height="280" alt="ELT">
+            <a target="_blank" href="https://resources.docs.salesforce.com/sfdc/pdf/bi_admin_guide_data_integration_guide.pdf">
+Analytics Data Integration Guide </a>
+          </li>
+        </ul>
+        <p>
+
+        Analytics Best Practices:
+        https://developer.salesforce.com/page/Analytics_Best_Practices
+
+
+        Best Practices for the Einstein Analytics Integration User:
+        https://help.salesforce.com/articleView?id=000240544&type=1
+
+
+        Docs/Links:
+
+        Integration Guide:
+        https://resources.docs.salesforce.com/sfdc/pdf/bi_admin_guide_data_integration_guide.pdf
+
+        Analytics External Data API Developer Guide:
+        https://resources.docs.salesforce.com/212/latest/en-us/sfdc/pdf/bi_dev_guide_ext_data.pdf
+
+        Analyze your data:
+        https://resources.docs.salesforce.com/210/latest/en-us/sfdc/pdf/analytics.pdf
+
+        Einstein Analytics Learning Map:
+        http://www.einsteinanalyticslearningmap.com/
+
+
+        Explore Data and Take Action with Einstein Analytics:
+        https://help.salesforce.com/articleView?id=bi.htm&type=5
+</p>
       </section>
-
 
 
 

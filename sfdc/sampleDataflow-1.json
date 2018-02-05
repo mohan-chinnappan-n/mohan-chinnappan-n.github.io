@@ -1,0 +1,71 @@
+{
+  "Extract_Opportunities": {
+    "action": "sfdcDigest",
+    "parameters": {
+      "object": "Opportunity",
+      "fields": [{
+          "name": "Id"
+        },
+        {
+          "name": "Name"
+        },
+        {
+          "name": "Amount"
+        },
+        {
+          "name": "StageName"
+        },
+        {
+          "name": "CloseDate"
+        },
+        {
+          "name": "AccountId"
+        },
+        {
+          "name": "OwnerId"
+        }
+      ]
+    }
+  },
+  "Extract_AccountDetails": {
+    "action": "sfdcDigest",
+    "parameters": {
+      "object": "Account",
+      "fields": [{
+          "name": "Id"
+        },
+        {
+          "name": "Name"
+        }
+      ]
+    }
+  },
+  "Transform_Augment_OpportunitiesWithAccountDetails": {
+    "action": "augment",
+    "parameters": {
+      "left": "Extract_Opportunities",
+      "left_key": ["AccountId"],
+      "relationship": "OpptyAcct",
+      "right": "Extract_AccountDetails",
+      "right_key": ["Id"],
+      "right_select": [
+        "Name"
+      ]
+    }
+  },
+  "Transform_Filter_Opportunities": {
+    "action": "filter",
+    "parameters": {
+      "filter": "StageName:EQ:Closed Won",
+      "source": "Transform_Augment_OpportunitiesWithAccountDetails"
+    }
+  },
+  "Register_Dataset_WonOpportunities": {
+    "action": "sfdcRegister",
+    "parameters": {
+      "alias": "WonOpportunities",
+      "name": "WonOpportunities",
+      "source": "Transform_Filter_Opportunities"
+    }
+  }
+}

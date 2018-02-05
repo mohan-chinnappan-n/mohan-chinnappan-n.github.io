@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>D3js</title>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
+</head>
+<body>
+  <div class='container'>
+
+      <p>one</p>
+      <p>two</p>
+      <p>three</p>
+
+      <ul>
+         <li>item 1</li>
+         <li>item 2</li>
+         <li>item 3</li>
+      </ul>
+ </div>
+
+  <script type="text/javascript">
+
+    //Elements may be selected using a variety of predicates,
+    // including containment, attribute values, class and ID.
+
+    /*
+        methods for mutating nodes: setting attributes or styles; registering event listeners;
+        adding, removing or sorting nodes; and changing HTML or text content.
+
+    */
+
+    d3.selectAll("p")
+      .style("font-weight", "bold")
+      .style("color", "white")
+      .style("background", "salmon")
+
+    d3.select("body")
+      .style("background", "white")
+
+    //================ Dynamic properties
+    // styles, attributes, and other properties can be specified as functions of data in D3,
+    //  not just simple constants.
+
+    d3.selectAll("p")
+      .style("color", function(d, i) {
+        var val =  Math.random() * 360
+        var hsl = "hsl(" + val + ", 100%,50%)"
+        console.log(hsl, d, i)
+        return hsl
+      })
+
+    d3.selectAll("li")
+        .data ([10,20,30]) // bound data
+        .style("color", function(d, i) {
+          // computed properties
+          console.log(d,i)
+          return i % 2 ? "red" : "blue"
+        })
+        .style("font-size", function(d, i) {
+          // default join-by-index d->i
+          return d +"px"
+        })
+
+    /*
+      Once the data has been bound to the document, you can omit the data operator;
+       D3 will retrieve the previously-bound data.
+       This allows you to recompute properties without rebinding.
+    */
+
+  // updating nodes to modify
+  var lis =
+   d3.select("body")
+      .select("ul")
+      .selectAll("li")
+      // If there are fewer nodes than data, the extra data elements form the enter selection,
+      .data ([10,20,30,40]) // bound data
+      .style("font-size", function(d, i) {
+        // default join-by-index d->i
+        return d +"px"
+      })
+
+   // the entering nodes to add,
+    lis.enter().append("li")
+              .text( function(d){
+                console.log(d)
+                return " I am number: " + d
+              })
+              .style("font-size", function(d){
+                  return d +"px"
+              })
+// exiting nodes to remove.
+lis.exit().remove()
+
+
+// TRANSISTIONS
+d3.select("body")
+  .selectAll("p")
+  .transition()
+  .duration(1750)
+  .style("background-color", "#99ccff")
+
+</script>
+
+
+</body>
+</html>

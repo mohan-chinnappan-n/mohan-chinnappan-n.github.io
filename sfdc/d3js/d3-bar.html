@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>D3js - bar chart</title>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" />
+  <style>
+    .chart div {
+      font: 10px sans-serif;
+      background-color: steelblue;
+      text-align: right;
+      padding: 3px;
+      margin: 1px;
+      color: white;
+    }
+</style>
+
+
+</head>
+<body class='container'>
+   <p>one</p>
+   <p>two</p>
+   <p>three</p>
+
+   <div class="chart"> </div>
+
+  <script type="text/javascript">
+  // ref: https://bost.ocks.org/mike/bar/
+
+  var ps = d3.selectAll("p")
+  ps.append("div")
+    .html(function(d,i) {
+      return "number: " + i
+    })
+
+
+
+
+
+   //charting
+   var data = [4, 8, 15, 16, 23, 42];
+
+
+   /*
+    eliminate the magic number by using a linear scale.
+     D3’s scales specify a mapping from data space (domain) to display space (range):
+   */
+
+  var WIDTH = 840;
+   // scaling function
+   var x = d3.scale.linear()
+    // data space
+    .domain([0, d3.max(data)])
+    // display space
+    .range([0, WIDTH]);
+
+
+
+   d3.select(".chart")
+     // initiate the data join by defining the selection to which we will join data.
+
+     // selection is empty, the returned update and exit selections are also empty,
+     // and we need only handle the enter selection which represents new data for
+     // which there was no existing element.
+     .selectAll("div")
+       //  join the data
+       .data(data)
+     .enter().append("div")
+             .style("width", function(d,i) {
+               return x(d) + "px";
+             })
+            .text(function(d) {
+              return d
+            })
+
+
+
+
+</script>
+
+
+</body>
+</html>
