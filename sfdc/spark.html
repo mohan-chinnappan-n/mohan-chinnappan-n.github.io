@@ -486,7 +486,7 @@ scala> usersDF.select("name", "favorite_color").show()
 <section>
   <h4>Wirting a Dataframe in to Parquet </h4>
 <pre style="font-size:14px;">
-
+// Parquet is a columnar format that is supported by many other data processing systems.
 val peopleDF = spark.read.format("json")
                .load("/Users/mchinnappan/text-docs/people.json")
 peopleDF.select("name", "age")
@@ -549,6 +549,26 @@ scala> sqlPeopleJsonDF.show()
 
 </pre>
 </section>
+<section>
+  <h4>Bucketing, Sorting and Partitioning </h4>
+<pre style="font-size:14px;">
+scala> usersDF.show()
++------+--------------+----------------+
+|  name|favorite_color|favorite_numbers|
++------+--------------+----------------+
+|Alyssa|          null|  [3, 9, 15, 20]|
+|   Ben|           red|              []|
++------+--------------+----------------+
+scala> usersDF.write.partitionBy("favorite_color").saveAsTable("people_partitioned")
+
+$ tree spark-warehouse/
+spark-warehouse/
+└── people_partitioned
+    ├── _SUCCESS
+    ├── favorite_color=__HIVE_DEFAULT_PARTITION__
+    │   └── part-00000-e6dadc4f-24b6-4bee-b764-8bbc7ac2053e.c000.snappy.parquet
+    └── favorite_color=red
+        └── part-00000-e6dadc4f-24b6-4bee-b764-8bbc7ac2053e.c000.snappy.parquet
 
 
 
