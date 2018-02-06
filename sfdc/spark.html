@@ -549,6 +549,31 @@ scala> sqlPeopleJsonDF.show()
 
 </pre>
 </section>
+
+
+<section>
+  <h4>DataFrames with createDataset  </h4>
+<pre style="font-size:14px;">
+// A DataFrame can be created for a JSON dataset represented by
+// a Dataset[String] storing one JSON object per string
+scala> val otherPeopleDataset = spark.createDataset(
+     |   """{"name":"Mohan Chinnappan","address":{"city":"New Found City","state":"NH"}}""" :: Nil)
+otherPeopleDataset: org.apache.spark.sql.Dataset[String] = [value: string]
+
+scala> val otherPeople = spark.read.json(otherPeopleDataset)
+otherPeople: org.apache.spark.sql.DataFrame = [address: struct<city: string, state: string>, name: string]
+
+scala> otherPeople.show()
++-------------------+----------------+
+|            address|            name|
++-------------------+----------------+
+|[New Found City,NH]|Mohan Chinnappan|
++-------------------+----------------+
+</pre>
+</section>
+
+
+
 <section>
   <h4>Bucketing, Sorting and Partitioning </h4>
 <pre style="font-size:14px;">
@@ -572,6 +597,150 @@ spark-warehouse/
     </pre>
     </section>
 
+<section>
+<h4>Bucketing, Sorting and Partitioning - contd. </h4>
+  <pre style="font-size:14px;">
+
+scala> val numBuckets = 10
+numBuckets: Int = 10
+
+scala> usersDF.write.partitionBy("favorite_color")
+             .bucketBy(numBuckets, "name")
+             .saveAsTable("people_partitioned_bucketed")
+18/02/06 16:46:31 WARN HiveExternalCatalog: Persisting bucketed data source table `default`.`people_partitioned_bucketed` into Hive metastore in Spark SQL specific format, which is NOT compatible with Hive.
+
+$ tree spark-warehouse/
+spark-warehouse/
+├── people_partitioned
+│   ├── _SUCCESS
+│   ├── favorite_color=__HIVE_DEFAULT_PARTITION__
+│   │   └── part-00000-e6dadc4f-24b6-4bee-b764-8bbc7ac2053e.c000.snappy.parquet
+│   └── favorite_color=red
+│       └── part-00000-e6dadc4f-24b6-4bee-b764-8bbc7ac2053e.c000.snappy.parquet
+└── people_partitioned_bucketed
+    ├── _SUCCESS
+    ├── favorite_color=__HIVE_DEFAULT_PARTITION__
+    │   └── part-00000-d9ec5ec3-98ea-4bb6-90ed-e370c22fba3e_00004.c000.snappy.parquet
+    └── favorite_color=red
+        └── part-00000-d9ec5ec3-98ea-4bb6-90ed-e370c22fba3e_00008.c000.snappy.parquet
+
+</pre>
+</section>
+
+<section>
+<h4>Bucketing, Sorting and Partitioning - contd. </h4>
+  <pre style="font-size:14px;">
+scala> usersDF.write
+  .partitionBy("favorite_color")
+  .bucketBy(numBuckets, "name")
+  .sortBy("favorite_numbers")
+  .saveAsTable("people_partitioned_bucketed_sorted")
+18/02/06 16:53:20 WARN HiveExternalCatalog: Persisting bucketed data source table `default`.`people_partitioned_bucketed_sorted` into Hive metastore in Spark SQL specific format, which is NOT compatible with Hive.
+
+$ tree spark-warehouse/
+spark-warehouse/
+
+└── people_partitioned_bucketed_sorted
+    ├── _SUCCESS
+    ├── favorite_color=__HIVE_DEFAULT_PARTITION__
+    │   └── part-00000-4d811338-dda7-48ff-882d-cd4dbbf44205_00004.c000.snappy.parquet
+    └── favorite_color=red
+        └── part-00000-4d811338-dda7-48ff-882d-cd4dbbf44205_00008.c000.snappy.parque
+</pre>
+</section>
+
+
+<section>
+  <h4>Schema Merging</h4>
+    <pre style="font-size:14px;">
+// Create a simple DataFrame, store into a partition directory
+val squaresDF = spark.sparkContext.makeRDD(1 to 5).map(i => (i, i * i)).toDF("value", "square")
+squaresDF.write.parquet("data/test_table/key=1")
+scala> squaresDF.show()
++-----+------+
+|value|square|
++-----+------+
+|    1|     1|
+|    2|     4|
+|    3|     9|
+|    4|    16|
+|    5|    25|
++-----+------+
+
+// Create another DataFrame in a new partition directory,
+// adding a new column and dropping an existing column
+val cubesDF = spark.sparkContext.makeRDD(6 to 10).map(i => (i, i * i * i)).toDF("value", "cube")
+cubesDF.write.parquet("data/test_table/key=2")
+
+scala> cubesDF.show()
++-----+----+
+|value|cube|
++-----+----+
+|    6| 216|
+|    7| 343|
+|    8| 512|
+|    9| 729|
+|   10|1000|
++-----+----+
+
+
+
+    </pre>
+</section>
+
+
+<section>
+  <h4>Schema Merging - contd.</h4>
+    <pre style="font-size:14px;">
+
+scala> // Read the partitioned table
+
+scala> val mergedDF = spark.read.option("mergeSchema", "true").parquet("data/test_table")
+mergedDF: org.apache.spark.sql.DataFrame = [value: int, square: int ... 2 more fields]
+
+
+// The final schema consists of all 3 columns in the Parquet files together
+// with the partitioning column appeared in the partition directory paths root
+
+scala> mergedDF.printSchema()
+root
+|-- value: integer (nullable = true)
+|-- square: integer (nullable = true)
+|-- cube: integer (nullable = true)
+|-- key: integer (nullable = true)
+
+
+    </pre>
+</section>
+<section>
+  <h4>Schema Merging - contd.</h4>
+    <pre style="font-size:14px;">
+      $ tree data
+      data
+      └── test_table
+          ├── key=1
+          │   ├── _SUCCESS
+          │   ├── part-00000-1a8f3060-7618-472c-80f3-b0c815201fe1-c000.snappy.parquet
+          │   ├── part-00001-1a8f3060-7618-472c-80f3-b0c815201fe1-c000.snappy.parquet
+          │   ├── part-00002-1a8f3060-7618-472c-80f3-b0c815201fe1-c000.snappy.parquet
+          │   ├── part-00003-1a8f3060-7618-472c-80f3-b0c815201fe1-c000.snappy.parquet
+          │   ├── part-00004-1a8f3060-7618-472c-80f3-b0c815201fe1-c000.snappy.parquet
+          │   ├── part-00005-1a8f3060-7618-472c-80f3-b0c815201fe1-c000.snappy.parquet
+          │   ├── part-00006-1a8f3060-7618-472c-80f3-b0c815201fe1-c000.snappy.parquet
+          │   └── part-00007-1a8f3060-7618-472c-80f3-b0c815201fe1-c000.snappy.parquet
+          └── key=2
+              ├── _SUCCESS
+              ├── part-00000-bc60e4d1-e390-4aba-83a5-8aad324b73f7-c000.snappy.parquet
+              ├── part-00001-bc60e4d1-e390-4aba-83a5-8aad324b73f7-c000.snappy.parquet
+              ├── part-00002-bc60e4d1-e390-4aba-83a5-8aad324b73f7-c000.snappy.parquet
+              ├── part-00003-bc60e4d1-e390-4aba-83a5-8aad324b73f7-c000.snappy.parquet
+              ├── part-00004-bc60e4d1-e390-4aba-83a5-8aad324b73f7-c000.snappy.parquet
+              ├── part-00005-bc60e4d1-e390-4aba-83a5-8aad324b73f7-c000.snappy.parquet
+              ├── part-00006-bc60e4d1-e390-4aba-83a5-8aad324b73f7-c000.snappy.parquet
+              └── part-00007-bc60e4d1-e390-4aba-83a5-8aad324b73f7-c000.snappy.parquet
+
+          </pre>
+      </section>
 
 
 <section>
