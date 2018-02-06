@@ -350,6 +350,8 @@ scala> sqlDF.show()
 | 83| Niklaus Wirth|
 | 63|      Bill Joy|
 +---+--------------+
+
+
 </pre>
 
 </section>
@@ -442,6 +444,111 @@ scala> seventyPlusDF.show()
 </pre>
 </section>
 
+
+<section>
+  <h4>Parquet Data resource </h4>
+<pre style="font-size:14px;">
+
+scala> val usersDF = spark.read.load("/Users/mchinnappan/text-docs/users.parquet")
+usersDF: org.apache.spark.sql.DataFrame = [name: string, favorite_color: string ... 1 more field]
+
+scala> usersDF.show()
++------+--------------+----------------+
+|  name|favorite_color|favorite_numbers|
++------+--------------+----------------+
+|Alyssa|          null|  [3, 9, 15, 20]|
+|   Ben|           red|              []|
++------+--------------+----------------+
+
+scala> usersDF.createOrReplaceTempView("users")
+scala> val uDF =  spark.sql("SELECT * FROM users")
+uDF: org.apache.spark.sql.DataFrame = [name: string, favorite_color: string ... 1 more field]
+
+scala> uDF.show()
++------+--------------+----------------+
+|  name|favorite_color|favorite_numbers|
++------+--------------+----------------+
+|Alyssa|          null|  [3, 9, 15, 20]|
+|   Ben|           red|              []|
++------+--------------+----------------+
+scala> usersDF.select("name", "favorite_color").show()
++------+--------------+
+|  name|favorite_color|
++------+--------------+
+|Alyssa|          null|
+|   Ben|           red|
++------+--------------+
+
+</pre>
+</section>
+
+
+<section>
+  <h4>Wirting a Dataframe in to Parquet </h4>
+<pre style="font-size:14px;">
+
+val peopleDF = spark.read.format("json")
+               .load("/Users/mchinnappan/text-docs/people.json")
+peopleDF.select("name", "age")
+        .write.format("parquet")
+        .save("name_and_age.parquet")
+
+$ tree name_and_age.parquet/
+name_and_age.parquet/
+├── _SUCCESS
+└── part-00000-1a7c7e94-95c4-44ae-895a-b7711c510a30-c000.snappy.parquet
+
+0 directories, 2 files
+</pre>
+</section>
+
+
+<section>
+  <h4>Run SQL on files directly </h4>
+<pre style="font-size:14px;">
+
+
+
+scala> val sqlUsersDF = spark.sql("SELECT * FROM parquet.`/Users/mchinnappan/text-docs/name_and_age.parquet`")
+18/02/06 16:26:04 WARN ObjectStore: Failed to get database parquet, returning NoSuchObjectException
+sqlUsersDF: org.apache.spark.sql.DataFrame = [name: string, age: bigint]
+
+scala> sqlUsersDF.show()
++--------------+---+
+|          name|age|
++--------------+---+
+|  Ken Thompson| 76|
+|Dennis Ritchie| 76|
+| James Gosling| 62|
+| Niklaus Wirth| 83|
+|      Bill Joy| 63|
++--------------+---+
+
+</pre>
+</section>
+
+
+<section>
+  <h4>Run SQL on files directly - Contd. </h4>
+<pre style="font-size:14px;">
+
+scala> val sqlPeopleJsonDF = spark.sql("SELECT * FROM json.`/Users/mchinnappan/text-docs/people.json`")
+18/02/06 16:28:12 WARN ObjectStore: Failed to get database json, returning NoSuchObjectException
+sqlPeopleJsonDF: org.apache.spark.sql.DataFrame = [age: bigint, name: string]
+
+scala> sqlPeopleJsonDF.show()
++---+--------------+
+|age|          name|
++---+--------------+
+| 76|  Ken Thompson|
+| 76|Dennis Ritchie|
+| 62| James Gosling|
+| 83| Niklaus Wirth|
+| 63|      Bill Joy|
++---+--------------+
+
+</pre>
+</section>
 
 
 
