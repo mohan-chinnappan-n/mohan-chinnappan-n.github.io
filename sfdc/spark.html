@@ -289,13 +289,12 @@ scala> df.select($"name", $"age" + 1).show()
 +--------------+---------+
 |          name|(age + 1)|
 +--------------+---------+
-|  Ken Thompson|       76|
-|Dennis Ritchie|       76|
+|  Ken Thompson|       77|
+|Dennis Ritchie|       77|
 | James Gosling|       63|
 | Niklaus Wirth|       84|
 |      Bill Joy|       64|
 +--------------+---------+
-
 scala> // Select people older than 70
 
 scala> df.filter($"age" > 70).show()
