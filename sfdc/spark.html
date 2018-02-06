@@ -54,6 +54,9 @@
     .reveal section pre code {
       font-size: 0.7em !important;
     }
+    pre {
+      font-size: 13px;
+    }
   </style>
 
 
@@ -115,9 +118,289 @@
         <h4>{{appName}}</h4>
        </section>
 
+       <section>
+         <h4>What is Apache Spark?</h4>
+         <ul>
+           <li>Distributed General Purpose, Lightning-fast Cluster Computing Framework with:
+             <ul>
+                <li>In-Memory data processing engine</li>
+                <li>ETL</li>
+                <li>SQL and Dataframes</li>
+                <li>Analytics</li>
+                <li>Machine Learning (MLlib)</li>
+                <li>Graph Processing on large data
+                 <ul>
+                   <li>At Rest (batch)</li>
+                   <li>In Motion (streaming)</li>
+                 </ul>
+                </li>
+             </ul>
+             <img style="border:0px;" height="180" src="https://spark.apache.org/images/spark-stack.png" alt="">
+
+           </li>
+
+
+         </ul>
+       </section>
+
+       <section>
+         <h4>Runs Everywhere</h4>
+         <ul>
+           <li>Hadoop Yarn</li>
+           <li>Apache Mesos</li>
+           <li>Standalone Cluster Mode</li>
+           <li>Cloud</li>
+           <li>EC2</li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Access Diverse Data Source including:</h4>
+         <ul>
+           <li>HDFS</li>
+           <li>Cassnadra</li>
+           <li>HBase</li>
+           <li>Hive</li>
+           <li>Tachyon</li>
+           <li>S3</li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Ease of Use, Apps can be written in</h4>
+         <ul>
+           <li>Has 80 high-level operators that makes to build <b>parallel apps</b> easy using:
+          <ul>
+           <li>Java</li>
+           <li>Scala</li>
+           <li>Python</li>
+           <li>R</li>
+         </li>
+         </ul>
+
+       </section>
+
+       <section>
+         <h4>PI calculation sample code</h4>
+         <pre style="font-size: 13px;">
+$ cat pi.scala
+val NUM_SAMPLES = 100000
+
+val count = sc.parallelize(1 to NUM_SAMPLES).filter { _ =>
+val x = math.random
+val y = math.random
+x*x + y*y < 1
+}.count()
+println(s"Pi is roughly ${4.0 * count / NUM_SAMPLES}")
+
+// running:
+
+scala> :load pi.scala
+Loading pi.scala...
+NUM_SAMPLES: Int = 100000
+count: Long = 78560
+Pi is roughly 3.1424
+
+
+         </pre>
+       </section>
+
+<section>
+  <h4>File chars length example</h4>
+ <pre style="font-size:14px;">
+
+
+scala> val textFile = sc.textFile("/Users/mchinnappan/text-docs/t8.shakespeare.txt")
+textFile: org.apache.spark.rdd.RDD[String] = /Users/mchinnappan/text-docs/t8.shakespeare.txt MapPartitionsRDD[16] at textFile at <console>:24
+
+scala> val lineLengths = textFile.map(s => s.length)
+lineLengths: org.apache.spark.rdd.RDD[Int] = MapPartitionsRDD[17] at map at <console>:26
+
+scala> val totalLength = lineLengths.reduce(_ + _)
+totalLength: Int = 5333743
+ </pre>
+</section>
+
+<section>
+  <h4>Spark Dataframe</h4>
+
+ <pre style="font-size:14px;">
+scala> import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.SparkSession
+
+scala> val spark = SparkSession.builder().appName("Spark SQL").getOrCreate()
+18/02/06 14:55:07 WARN SparkSession$Builder: Using an existing SparkSession; some configuration may not take effect.
+spark: org.apache.spark.sql.SparkSession = org.apache.spark.sql.SparkSession@1a1c308b
+
+scala> import spark.implicits._
+import spark.implicits._
+
+scala> val df = spark.read.json("/Users/mchinnappan/text-docs/people.json")
+df: org.apache.spark.sql.DataFrame = [age: bigint, name: string]
+
+scala> df.show()
++---+--------------+
+|age|          name|
++---+--------------+
+| 76|  Ken Thompson|
+| 76|Dennis Ritchie|
+| 62| James Gosling|
+| 83| Niklaus Wirth|
+| 63|      Bill Joy|
++---+--------------+
+</pre>
+
+</section>
+
+<section>
+  <h4>Spark Dataframe - Contd.</h4>
+
+ <pre style="font-size:14px;">
+
+scala> df.printSchema()
+root
+ |-- age: long (nullable = true)
+ |-- name: string (nullable = true)
+
+
+scala> df.select("name").show()
++--------------+
+|          name|
++--------------+
+|  Ken Thompson|
+|Dennis Ritchie|
+| James Gosling|
+| Niklaus Wirth|
+|      Bill Joy|
++--------------+
+</pre>
+</section>
+
+
+<section>
+  <h4>Spark Dataframe - Contd.</h4>
+
+ <pre style="font-size:14px;">
+
+scala> // Select everybody, but increment the age by 1
+
+scala> df.select($"name", $"age" + 1).show()
++--------------+---------+
+|          name|(age + 1)|
++--------------+---------+
+|  Ken Thompson|       76|
+|Dennis Ritchie|       76|
+| James Gosling|       63|
+| Niklaus Wirth|       84|
+|      Bill Joy|       64|
++--------------+---------+
+
+scala> // Select people older than 70
+
+scala> df.filter($"age" > 70).show()
++---+--------------+
+|age|          name|
++---+--------------+
+| 76|  Ken Thompson|
+| 76|Dennis Ritchie|
+| 83| Niklaus Wirth|
++---+--------------+
+
+
+
+</pre>
+</section>
+
+<section>
+  <h4>Spark Dataframe - Contd.</h4>
+
+ <pre style="font-size:14px;">
+
+   scala> // Count people by age
+
+   scala> df.groupBy("age").count().show()
+   +---+-----+
+   |age|count|
+   +---+-----+
+   | 63|    1|
+   | 83|    1|
+   | 62|    1|
+   | 76|    2|
+   +---+-----+
+ </pre>
+</section>
+
+
+<section>
+  <h4>SQL Query</h4>
+<pre style="font-size:14px;">
+
+scala> // Register the DataFrame as a SQL temporary view
+scala> df.createOrReplaceTempView("people")
+scala> val sqlDF = spark.sql("SELECT * FROM people")
+sqlDF: org.apache.spark.sql.DataFrame = [age: bigint, name: string]
+
+scala> sqlDF.show()
++---+--------------+
+|age|          name|
++---+--------------+
+| 76|  Ken Thompson|
+| 76|Dennis Ritchie|
+| 62| James Gosling|
+| 83| Niklaus Wirth|
+| 63|      Bill Joy|
++---+--------------+
+</pre>
+
+</section>
+
+<section>
+  <h4>Datasets</h4>
+<pre style="font-size:14px;">
+
+
+scala> case class Person(name: String, age: Long)
+defined class Person
+
+scala> val caseClassDS = Seq(Person("Ken Thompson", 76)).toDS()
+caseClassDS: org.apache.spark.sql.Dataset[Person] = [name: string, age: bigint]
+
+scala> caseClassDS.show()
++------------+---+
+|        name|age|
++------------+---+
+|Ken Thompson| 76|
++------------+---+
+  </pre>
+</section>
+
+
+<section>
+  <h4>Datasets - contd.</h4>
+<pre style="font-size:14px;">
+  scala> val jsonPath = "/Users/mchinnappan/text-docs/people.json"
+  jsonPath: String = /Users/mchinnappan/text-docs/people.json
+
+  scala> val peopleDS = spark.read.json(jsonPath).as[Person]
+  peopleDS: org.apache.spark.sql.Dataset[Person] = [age: bigint, name: string]
+
+  scala> peopleDS.show()
+  +---+--------------+
+  |age|          name|
+  +---+--------------+
+  | 76|  Ken Thompson|
+  | 76|Dennis Ritchie|
+  | 62| James Gosling|
+  | 83| Niklaus Wirth|
+  | 63|      Bill Joy|
+  +---+--------------+
+</pre>
+</section>
 
     </div>
   </div>
+
+
 
 
 
