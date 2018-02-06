@@ -116,6 +116,7 @@
 
       <section id="home">
         <h4>{{appName}}</h4>
+        <img style="border:0px;" src="https://spark.apache.org/docs/latest/img/spark-logo-hd.png" alt="">
        </section>
 
        <section>
@@ -396,6 +397,54 @@ scala> caseClassDS.show()
   +---+--------------+
 </pre>
 </section>
+
+
+<section>
+  <h4>RDD to Dataframe </h4>
+<pre style="font-size:14px;">
+
+val peopleDF = spark.sparkContext.textFile("/Users/mchinnappan/text-docs/people.txt")
+    .map(_.split(","))
+    .map(attributes => Person(attributes(0), attributes(1).trim.toInt))
+    .toDF()
+peopleDF: org.apache.spark.sql.DataFrame = [name: string, age: bigint]
+
+scala> peopleDF.show()
++--------------+---+
+|          name|age|
++--------------+---+
+|  Ken Thompson| 76|
+|Dennis Ritchie| 76|
+| James Gosling| 62|
+| Niklaus Wirth| 83|
+|      Bill Joy| 63|
++--------------+---+
+</pre>
+</section>
+
+
+<section>
+  <h4>RDD to Dataframe - SQL </h4>
+<pre style="font-size:14px;">
+
+scala> peopleDF.createOrReplaceTempView("people2")
+
+scala> var seventyPlusDF = spark.sql("SELECT name,age FROM people2 WHERE age BETWEEN 70 AND 90")
+seventyPlusDF: org.apache.spark.sql.DataFrame = [name: string, age: bigint]
+
+scala> seventyPlusDF.show()
++--------------+---+
+|          name|age|
++--------------+---+
+|  Ken Thompson| 76|
+|Dennis Ritchie| 76|
+| Niklaus Wirth| 83|
++--------------+---+
+</pre>
+</section>
+
+
+
 
     </div>
   </div>
