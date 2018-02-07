@@ -780,26 +780,18 @@ scala> jdbcDF.show()
 <section>
   <h4>DataFrame using JDBC - contd.</h4>
   <pre style="font-size:14px;">
-  </pre>
-</section>
-
 // db
-
 dbname=# \d testtable
  Table "public.testtable"
  Column | Type | Modifiers
 --------+------+-----------
  name   | text |
-
-
  dbname=# table testtable;                                                                                                                                                     name
 ----------
  testname
 (1 row)
-
+scala> import java.util.Properties
 import java.util.Properties
-
-val connectionProperties = new Properties()
 scala> val connectionProperties = new Properties()
 connectionProperties: java.util.Properties = {}
 
