@@ -1,0 +1,31 @@
+{
+  "Extract_oppty1": {
+    "action": "edgemart",
+    "parameters": {
+      "alias": "SF_Opportunity"
+    }
+  },
+  "Extract_oppty2": {
+    "action": "edgemart",
+    "parameters": {
+      "alias": "SF_Opportunity"
+    }
+  },
+  "Append_Opptys": {
+    "action": "append",
+    "parameters": {
+      "sources": [
+        "Extract_oppty1",
+        "Extract_oppty2"
+      ]
+    }
+  },
+  "Register_DoubleOppty": {
+    "action": "sfdcRegister",
+    "parameters": {
+      "alias": "DoubleOppty",
+      "name": "DoubleOppty",
+      "source": "Append_Opptys"
+    }
+  }
+}
