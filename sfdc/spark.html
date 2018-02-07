@@ -856,6 +856,79 @@ scala> jdbcDF2.show()
   </ul>
 </section>
 
+<section>
+  <h4>Spark Application </h4>
+  <ul>
+    <li>Spark Application
+    <ul>
+      <li>Driver Program
+         <ul>
+           <li>Runs user's <code>main</code> function
+            <ul>
+           <li>Executes various parallel opertaions on a cluster</li>
+           <li>Cluster has many nodes</li>
+           <li>RDD (resilient distributed dataset) is a collections of
+             elements partitioned across the nodes (so <b>distributed</b>) of the cluster </li>
+           </li>
+            </ul>
+         </ul>
+      </li>
+    </ul>
+    </li>
+    <div style="font-size:14px;">
+    The Driver sends Tasks to the empty slots on the Executors when work has to be done:
+  </div>
+</ul>
+  <img style="border:0px;" src="https://spark.apache.org/docs/latest/img/cluster-overview.png" alt="">
+</section>
+
+
+<section>
+  <h4>RDD (resilient distributed dataset) </h4>
+  <ul>
+    <li> Created by starting with a file in the Hadoop file system
+         or an existing Scala collection in the driver program, and transforming</li>
+    <li>Users may also ask Spark to persist an RDD in <b>memory</b>,
+      allowing it to be reused efficiently across parallel operations</li>
+    <li>RDDs automatically recover from node failures (so <b>resilient</b> )</li>
+  </ul>
+
+</section>
+
+<section>
+  <h4>Shared Variables</h4>
+  <ul>
+    <li>Shared Variables can be used in the parallel operations
+    </li>
+    <li>Default
+      <ul>
+        <li>Spark runs a <b>function</b> in parallel as set-of-tasks on different nodes</li>
+        <li>Spark ships a copy of each variable used in the <b>function</b> to each task</li>
+      </ul>
+
+    </li>
+    <li>If a variable needs to be shared across the tasks or between set-of-tasks
+    and driver-program</li>
+    <li>Two types of shared Variables
+      <ol>
+        <li>Broadcast variables - to cache a value in memory on all nodes</li>
+        <li>Accumulators - variables that are only <b>added</b> to - counters and sums </li>
+      </ol>
+
+      </li>
+  </ul>
+</section>
+
+<section>
+  <h4>DataFrame and SparkSQL</h4>
+  <ul>
+    <li>analyzing the query</li>
+    <li>   building up a plan</li>
+    <li>    comparing them </li>
+    <li>    finally executing it</li>
+  </ul>
+  <img style="border:0px;" src="https://training.databricks.com/databricks_guide/gentle_introduction/query-plan-generation.png" alt="">
+</section>
 
 <section>
   <h4>References</h4>
@@ -875,6 +948,11 @@ scala> jdbcDF2.show()
     <a target="_blank"  href="https://spark.apache.org/docs/latest/ml-guide.html">
       Machine Learning Library (MLlib) Guide
     </a>
+    </li>
+    <li>
+<a target="_blank" href="https://www.youtube.com/watch?v=49Hr5xZyTEA">Introduction to AmpLab Spark Internals
+</a>
+
     </li>
   </ul>
 </section>
