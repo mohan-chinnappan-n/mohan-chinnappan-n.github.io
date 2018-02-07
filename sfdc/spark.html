@@ -743,6 +743,88 @@ root
       </section>
 
 
+
+<section>
+  <h4>DataFrame using JDBC</h4>
+  <pre style="font-size:14px;">
+// start the shell
+// $ spark-shell --driver-class-path postgresql-9.4-1201-jdbc41.jar --jars postgresql-9.4-1201-jdbc41.jar
+scala> var jdbcDF = spark.read.format("jdbc")
+                    .option("url", "jdbc:postgresql:dbname")
+                    .option("dbtable","zipcodes")
+                    .option("user", "postgres")
+                    .option("password","password-here")
+                    .load()
+jdbcDF: org.apache.spark.sql.DataFrame = [zipcode: string, city: string ... 3 more fields]
+
+scala> jdbcDF.show()
++-------+------------------+-----+--------+---------+
+|zipcode|              city|state|latitude|longitude|
++-------+------------------+-----+--------+---------+
+|  00705|          AIBONITO|   PR|   18.14|   -66.26|
+|  00610|            ANASCO|   PR|   18.28|   -67.14|
+|  00612|           ARECIBO|   PR|   18.45|   -66.73|
+|  00601|          ADJUNTAS|   PR|   18.16|   -66.72|
+|  00602|            AGUADA|   PR|   18.38|   -67.18|
+|  00603|         AGUADILLA|   PR|   18.43|   -67.15|
+|  00703|      AGUAS BUENAS|   PR|   18.25|    -66.1|
+|  00704|           AGUIRRE|   PR|   17.96|   -66.22|
+|  07675|          WESTWOOD|   NJ|   40.98|   -74.03|
+|  07677|    WOODCLIFF LAKE|   NJ|   41.02|   -74.05|
+|  07885|           WHARTON|   NJ|   40.89|   -74.58|
+|  07981|          WHIPPANY|   NJ|   40.82|   -74.41|
+|  07999|          WHIPPANY|   NJ|   40.82|   -74.41|
+</pre>
+</section>
+
+<section>
+  <h4>DataFrame using JDBC - contd.</h4>
+  <pre style="font-size:14px;">
+  </pre>
+</section>
+
+// db
+
+dbname=# \d testtable
+ Table "public.testtable"
+ Column | Type | Modifiers
+--------+------+-----------
+ name   | text |
+
+
+ dbname=# table testtable;                                                                                                                                                     name
+----------
+ testname
+(1 row)
+
+import java.util.Properties
+
+val connectionProperties = new Properties()
+scala> val connectionProperties = new Properties()
+connectionProperties: java.util.Properties = {}
+
+scala> connectionProperties.put("user", "postgres")
+res4: Object = null
+
+scala> connectionProperties.put("password", "pwd")
+res5: Object = null
+
+scala> val jdbcDF2 = spark.read
+          .jdbc("jdbc:postgresql:dbname", "testtable", connectionProperties)
+jdbcDF2: org.apache.spark.sql.DataFrame = [name: string]
+
+
+scala> jdbcDF2.show()
++--------+
+|    name|
++--------+
+|testname|
++--------+
+</pre>
+</section>
+
+
+
 <section>
   <h4>References</h4>
   <ul>
