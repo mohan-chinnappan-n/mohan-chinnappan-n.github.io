@@ -2,7 +2,7 @@
   "Extract_oppty1": {
     "action": "edgemart",
     "parameters": {
-      "alias": "SF_Opportunity"
+      "alias": "DoubleOppty"
     }
   },
   "Extract_oppty2": {
@@ -32,7 +32,7 @@
   "Extract_DoubleOppty": {
     "action": "edgemart",
     "parameters": {
-      "alias": "SF_Opportunity"
+      "alias": "DoubleOppty"
     }
   },
 

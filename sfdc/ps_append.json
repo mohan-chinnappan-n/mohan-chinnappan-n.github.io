@@ -1,0 +1,34 @@
+{
+  "Extract_ps_all": {
+    "action": "edgemart",
+    "parameters": {
+      "alias": "ps_all"
+    }
+
+  },
+  "Extract_ps_inc": {
+    "action": "edgemart",
+    "parameters": {
+      "alias": "ps_inc"
+    }
+  },
+  "Append_ps": {
+    "action": "append",
+    "parameters": {
+      "sources": [
+        "Extract_ps_all",
+        "Extract_ps_inc"
+      ]
+    }
+  },
+  "Register_Updated_ps_all": {
+    "action": "sfdcRegister",
+    "parameters": {
+      "alias": "ps_all",
+      "name": "ps_all",
+      "source": "Append_ps"
+    }
+  }
+
+
+}

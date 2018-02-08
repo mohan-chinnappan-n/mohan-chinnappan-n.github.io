@@ -176,6 +176,8 @@ $ cat Oppty-1_err.csv
 Error,ID,Name,Amount,Closedate,Stage
 Amount is not a valid number value {null} : null,006f4000002E1k5AAC,Stardollar-7000,null,09/30/17,Qualification
 
+
+
         </pre>
       </section>
 
@@ -509,6 +511,95 @@ File {/tmp/output.csv} has Charset {ISO-8859-2}, Confidence: {45%}
       <i class="glyphicon glyphicon-fullscreen"></i></a></button>
     <img style="border:0px" height="450" src="img/ea/ea-du-append-1.gif" alt="">
 </section>
+
+<section>
+  <h4>Append Use Case</h4>
+  <ul>
+    <li>PS (process status) data <b>ps_all</b> needs to updated frequently (daily) by
+      the input <b>ps_inc</b> </li>
+    <li>Inputs:
+    <ol>
+      <li>ps_all.csv - startup data</li>
+      <li>ps_d1.csv - day-1 data</li>
+      <li>ps_d2.csv - day-2 data</li>
+    </ol>
+    </li>
+    <li> Operation needed:
+    <ol>
+     <li>   <code>append(ps_all, ps_d1) => ps_all</code></li>
+     <li>   <code>append(ps_all, ps_d2) => ps_all</code></li>
+     <li>...</li>
+    </ol>
+
+
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h4>Steps</h4>
+  <ol>
+    <li> Load CSV: ps_all.csv into dataset <b>ps_all</b> </li>
+    <li> Load CSV: ps_d1.csv into dataset <b>ps_d1</b> </li>
+    <li> Schedule the Dataflow to run right after daily Load of csv (ps_d<b>n</b>.csv) is completed.
+    </li>
+  </ol>
+
+</section>
+
+<section>
+  <h4>Datafiles</h4>
+    <img style="border:0px;"  height="100" src="img/ea/datafiles.png" alt="">
+    <img style="border:0px;" height="350" src="img/ea/datafile-contents.png" alt="">
+
+</section>
+
+<section>
+  <h4>Load ps_all.csv</h4>
+  <img style="border:0px;" src="img/ea/ps_all_load.png" alt="">
+</section>
+
+<section>
+  <h4>Load ps_d1.csv</h4>
+  <img style="border:0px;" src="img/ea/ps_d1_load.png" alt="">
+</section>
+
+<section>
+  <h4>Run Dataflow</h4>
+  <img style="border:0px;" src="img/ea/ps_append_dataflow.png" alt="">
+</section>
+
+<section>
+  <h4> Status - After first run</h4>
+  <img style="border:0px;" src="img/ea/append_1.png" alt="">
+</section>
+
+<section>
+  <h4>Datasets - after first run</h4>
+  <img style="border:0px;" src="img/ea/append_1.png" alt="">
+</section>
+
+
+
+<section>
+  <h4>Next day - Load ps_d2.csv</h4>
+  <img style="border:0px;" src="img/ea/ps_d2.png" alt="">
+</section>
+
+
+<section>
+  <h4>Run Dataflow - Daily Run after ps_d2.csv load</h4>
+    <img style="border:0px;" src="img/ea/append_4.png" alt="">
+
+</section>
+
+<section>
+  <h4>After Run Dataflow - Datasets updated</h4>
+    <img style="border:0px;" src="img/ea/append_5.png" alt="">
+
+</section>
+
+
 
 <section>
   <h4>References</h4>

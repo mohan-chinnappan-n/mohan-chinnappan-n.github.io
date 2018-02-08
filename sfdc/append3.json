@@ -2,7 +2,7 @@
   "Extract_oppty1": {
     "action": "edgemart",
     "parameters": {
-      "alias": "SF_Opportunity"
+      "alias": "DoubleOppty"
     }
   },
   "Extract_oppty2": {
@@ -27,32 +27,7 @@
       "name": "DoubleOppty",
       "source": "Append_Opptys"
     }
-  },
-
-  "Extract_DoubleOppty": {
-    "action": "edgemart",
-    "parameters": {
-      "alias": "SF_Opportunity"
-    }
-  },
-
-  "Filter_Opptys_Final": {
-    "action": "filter",
-    "parameters": {
-      "filter":  "Amount:R:0:10000000",
-      "source": "Extract_DoubleOppty"
-
-    }
-  },
-
-
-  "Register_DoubleOppty_Final": {
-    "action": "sfdcRegister",
-    "parameters": {
-      "alias": "DoubleOppty",
-      "name": "DoubleOppty",
-      "source": "Filter_Opptys_Final"
-    }
   }
+
 
 }
