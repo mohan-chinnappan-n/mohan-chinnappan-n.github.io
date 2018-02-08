@@ -566,7 +566,7 @@ File {/tmp/output.csv} has Charset {ISO-8859-2}, Confidence: {45%}
 
 <section>
   <h4>Run Dataflow</h4>
-  <a  style="font-size:14px;padding:10px" class='btn btn-success' target="_blank" 
+  <a  style="font-size:14px;padding:10px" class='btn btn-success' target="_blank"
       href="https://github.com/mohan-chinnappan-n/mohan-chinnappan-n.github.io/blob/master/sfdc/ps_append.json">Dataflow file</a>
 
   <img style="border:0px;" height="400" src="img/ea/ps_append_dataflow.png" alt="">
@@ -601,6 +601,37 @@ File {/tmp/output.csv} has Charset {ISO-8859-2}, Confidence: {45%}
     <img style="border:0px;" src="img/ea/append_5.png" alt="">
 
 </section>
+
+<section>
+  <h4>Append in single step via command line</h4>
+
+  <button class='btn btn-success'  title='Click to view the demo in full page'>
+    <a target="_blank" href='img/ea/ea-du-append-cmdline.gif'>
+      <i class="glyphicon glyphicon-fullscreen"></i></a></button>
+    <img style="border:0px" height="400" src="img/ea/ea-du-append-cmdline.gif" alt="">
+    <pre style="font-size:12px;">
+
+$ java -jar datasetutils-37.0.4-SNAPSHOT.jar --server false --action load --dataset ps_all --operation <b>Append</b>  --inputFile file.csv
+    </pre>
+
+
+</section>
+
+<section>
+  <h4>Dataset before append</h4>
+    <img style="border:0px;" src="img/ea/before-append.png" alt="">
+
+</section>
+
+
+
+<section>
+  <h4>Dataset after append</h4>
+    <img style="border:0px;" src="img/ea/after-append.png" alt="">
+
+</section>
+
+
 
 
 <section>
