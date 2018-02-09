@@ -631,6 +631,90 @@ $ java -jar datasetutils-37.0.4-SNAPSHOT.jar --server false --action load --data
 
 </section>
 
+<section>
+  <h4>Upsert Operation</h4>
+  <ul>
+    <li>First operation Overwrite</li>
+  </ul>
+<pre style="font-size:13px;">
+
+  java -jar datasetutils-37.0.4-SNAPSHOT.jar --server false --action load --dataset fruits \
+              --operation Overwrite --u username \
+              --inputFile /Users/mchinnappan/Downloads/fruits.csv
+
+</pre>
+<pre style="font-size:13px;">
+# fruits.csv
+Id	Name	Qty
+1	Apple	100
+2	Mango	22
+3	Peach	11
+4	Apricot	78
+5	Cherry	45
+6	Banana	23
+7	Jackfruit	22
+8	Pear	62
+9	Plum	21
+</pre>
+
+
+<pre style="font-size:13px;">
+# make sure that for Name column in fruits_schema.json has:
+  "isUniqueId" : true,
+# set
+
+</section>
+
+<section>
+  <h4>Upsert - 1</h4>
+
+   <pre style="font-size:12px;">
+# fruits_update.csv
+Id	Name	Qty
+31	Strawberry	96
+# make sure that for Name column in fruits_update_schema.json has:
+  "isUniqueId" : true,
+# set
+# command
+java -jar datasetutils-37.0.4-SNAPSHOT.jar --server false --action load --dataset fruits \
+      --operation Upsert --u username \
+      --inputFile /Users/mchinnappan/Downloads/fruits_update.csv
+  </pre>
+  <img style="border:0px;" height="250" src="img/ea/upsert-1-flow.png" alt="">
+  <img style="border:0px;"  src="img/ea/upsert-1-dataset.png" alt="">
+
+</section>
+
+<section>
+<h4>Upsert - 1 - contd.</h4>
+  <img style="border:0px;"  src="img/ea/upsert-1-r.png" alt="">
+</section>
+
+<section>
+  <h4>Upsert - 2</h4>
+
+   <pre style="font-size:12px;">
+# fruits_update.csv
+Id,Name,Qty
+31,Strawberry,201
+99,Orange,10
+# command
+java -jar datasetutils-37.0.4-SNAPSHOT.jar --server false --action load --dataset fruits \
+      --operation Upsert --u username \
+      --inputFile /Users/mchinnappan/Downloads/fruits_update.csv
+  </pre>
+  <img style="border:0px;" height="250" src="img/ea/upsert-2-flow.png" alt="">
+  <img style="border:0px;"  src="img/ea/upsert-2-dataset.png" alt="">
+
+
+</section>
+
+
+<section>
+<h4>Upsert - 2 - contd.</h4>
+  <img style="border:0px;"  src="img/ea/upsert-2-r.png" alt="">
+</section>
+
 
 
 

@@ -931,6 +931,170 @@ scala> jdbcDF2.show()
 </section>
 
 <section>
+  <h4>Internals </h4>
+  <img style="border:0px;" src="img/spark/spark-internals.png" alt="">
+</section>
+
+
+
+<section>
+  <h4>Internals - contd</h4>
+  <ul>
+    <li>Operators (map, join, filter, groupBy...)</li>
+    <li>Block manager (simple key-value store acts as a cache)</li>
+    <li>Accumulators</li>
+    <li>Scheduler</li>
+    <li>Networking (serialization, plugin hadoop serialization lib,...)</li>
+    <li>Broadcast (Broadcast on cluster, BitTorrent, optional )</li>
+    <li>Interpreter (Scala)</li>
+    <li>Backends
+    <ul>
+      <li>Hadoop I/O</li>
+      <li>Mesos I/O</li>
+      <li>Standalone Backend - has mini-cluster manager</li>
+    </ul>
+  </ul>
+</section>
+
+<section>
+  <h4>Spark Components</h4>
+  <img height="450" style="border:0px;" src="img/spark/spark-componets.png" alt="">
+</section>
+
+<section>
+    <h4>Spark Components - contd.</h4>
+  <ul style="font-size:30px;">
+    <li>User program
+      <ul>
+      <li>Create SparkContext
+          <ul>
+            <li>Acts as client for Spark</li>
+            <li> Also acts as <b>master</b> for the application. Spark has one master for the job</li>
+            <li>Connects to the cluster and does the scheduling . If it crashes only your job is lost</li>
+            <li>So there is no single Master which knows every applications</li>
+
+
+          </ul>
+      </li>
+      <li>Create RDD</li>
+      <li>Apply operators (map, filter...)</li>
+    </li>
+      </ul>
+
+    </li>
+    <li>Spark Client
+       <ul>
+         <li>RDD graph</li>
+         <li>Scheduler - talks to workers via cluster manager
+             <ul>
+               <li>DAG Scheduler</li>
+               <li>Task Scheduler</li>
+             </ul>
+         </li>
+         <li>Block Tracker - tracks what is in memory or disk on each node</li>
+         <li>Shuffle Tracker - coordinates shuffle operations like - GroupBy </li>
+       </ul>
+    </li>
+    <li>Cluster manager</li>
+    <li>Spark Worker - Receives tasks, Runs inside its thread-pool and it can serve blocks to other nodes.
+      Tasks themselves can talk to HDFS, HBase... via block manager<br/>
+      Multiple Workers, each worker can talk to others via block manager, fetch blocks from each otherr
+
+       <ul>
+         <li>Task Threads</li>
+         <li>Block Manager (key-value store)</li>
+       </ul>
+    </li>
+  </ul>
+</section>
+
+
+
+<section>
+  <h4>Example Job</h4>
+  <img height="450" style="border:0px;" src="img/spark/example-job.png" alt="">
+</section>
+
+
+
+<section>
+  <h4>RDD graph</h4>
+  <img height="450" style="border:0px;" src="img/spark/rdd-graph.png" alt="">
+</section>
+
+
+<section>
+  <h4>RDD graph - contd.</h4>
+  <ul>
+    <li>
+       Graph of java objects (which depend on each other) is built when we perform operations (like map, filter, groupBy)
+    </li>
+    <li>In earlier diagram, file: and errors: are subclass of RDD
+    <li>RDD - stored in memory or disk in nodes - in our example, we are asking to store in memory</li>
+    <li> We run at the partition-level </li>
+    <li>Each dataset is composed of multiple parttions. Each partition may be sitting differnt nodes.
+        Some partitions may be sitting on multiple machines (replication)
+    </li>
+
+  </ul>
+
+</section>
+
+<section>
+  <h4>RDD graph - contd..</h4>
+
+  <ul>
+    <li>System knows the partition details
+       <ul>
+         <li>example: For filter operation, say 4 partitions are involved for the RDD getting filtered,
+           filter is applied on each of these 4 partitions </li>
+          <li>tasks launching:
+              <ul>
+                <li>System tried to pipeline together as many operations possible</li>
+                <li>In case: read the file, filter and do the count</li>
+                <li>One task (as task1) will be lanuched to read partition-1, filter on it and return the count</li>
+                <li>Another task (as task2) will be lanuched to read partition-2, filter on it and return the count</li>
+              </ul>
+
+
+
+          </li>
+       </ul>
+    </li>
+  </ul>
+</section>
+
+
+<section>
+  <h4>Data locality</h4>
+  <ul>
+    <li>First Run: data not in cache, so use HadoopRDD's locality prefs (from HDFS)</li>
+    <li>Second Run: FilteredRDD is in the cache, so use its locations(in memory)</li>
+    <li>If something falls out of cache, go back to HDFS</li>
+  </ul>
+</section>
+
+
+<section>
+  <h4>schedulingProcess</h4>
+  <img height="450" style="border:0px;" src="img/spark/schedulingProcess.png" alt="">
+</section>
+
+
+<section>
+  <h4>Life a job in Spark</h4>
+  <ul>
+    <li>Stage: set of tasks</li>
+    <li>Earlier diagram shows 3 stages, each stage contains set of taks to do</li>
+    <li>Boundary of a stage: where there is a shuffle.
+      Example: We need to finish all the Map tasks before we start reduce tasks</li>
+  </ul>
+</section>
+
+
+
+
+<section>
   <h4>References</h4>
   <ul>
     <li>
@@ -956,6 +1120,18 @@ scala> jdbcDF2.show()
     </li>
   </ul>
 </section>
+
+<section>
+  <h4>Key terms</h4>
+  <ul>
+    <li><b>RDD -  Represents an immutable,  partitioned collection of elements that can be operated on in parallel.</li>
+    <li>
+      <a href="https://github.com/apache/spark/blob/master/core/src/main/scala/org/apache/spark/rdd/RDD.scala">RDD.scala</a>
+    </li>
+  </ul>
+</section>
+
+
 
 
 
