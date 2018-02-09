@@ -405,6 +405,179 @@ test-irkcftkmuyzr@example.com  Geolocation
 
 </pre>
 
+<pre style="font-size:11px;padding:5px;">Now local project is out-of-date with the scratch org, since we did some changes using UI.
+Let us see how we can <b>Pull</b> these changes  into local project folder (geolocation)?
+</pre>
+
+</section>
+
+<section>
+  <h4>Pull command</h4>
+<pre style="font-size:11px;padding:5px;">
+
+$ <b>sfdx force:source:pull -h</b>
+Usage: sfdx force:source:pull [-w <minutes>] [-f] [-u <string>] [--json] [--loglevel <string>]
+
+pull source from the scratch org to the project
+
+Flags:
+-f, --forceoverwrite                 ignore conflict warnings and overwrite changes to the project
+-u, --targetusername TARGETUSERNAME  username or alias for the target org; overrides default target org
+-w, --wait WAIT                      wait time for command to finish in minutes (default: 33) (default:33, min:1)
+--json                               format output as json
+--loglevel LOGLEVEL                  logging level for this command invocation (error*,trace,debug,info,warn,fatal)
+
+If the command detects a conflict, it displays the conflicts but does not complete the process. After reviewing the conflict, rerun the command with the --forceoverwrite parameter.
+
+</pre>
+
+<pre style="font-size:11px;padding:5px;">
+
+$ <b>sfdx force:source:pull</b>
+=== Pulled Source
+STATE  FULL NAME                               TYPE           PROJECT PATH
+─────  ──────────────────────────────────────  ─────────────  ─────────────────────────────────────────────────────────────────────────────────────
+Add    <b>Account.Location__c</b>                    <b>CustomField</b>    force-app/main/default/objects/Account/fields/Location__c.field-meta.xml
+Add    Account-Account Layout                  Layout         force-app/main/default/layouts/Account-Account Layout.layout-meta.xml
+Add    Account-Account %28Support%29 Layout    Layout         force-app/main/default/layouts/Account-Account %28Support%29 Layout.layout-meta.xml
+Add    Account-Account %28Sales%29 Layout      Layout         force-app/main/default/layouts/Account-Account %28Sales%29 Layout.layout-meta.xml
+Add    Account-Account %28Marketing%29 Layout  Layout         force-app/main/default/layouts/Account-Account %28Marketing%29 Layout.layout-meta.xml
+Add    <b>Geolocation</b>                           <b>PermissionSet</b>   force-app/main/default/permissionsets/Geolocation.permissionset-meta.xml
+
+</pre>
+</section>
+
+<section>
+  <h4>Version Control</h4>
+  <pre style="font-size:11px;padding:5px;">
+
+$ git init
+$ git add -A
+$ git commit -m 'Add custom object Account.location and permission set Geolocation'
+
+  </pre>
+</section>
+
+<section>
+  <h4>Add Some Data via UI</h4>
+  <img style="border:0px" src="img/dx/newAccounts.png" alt="">
+</section>
+
+<section>
+  <h4>Export Scratch Org to local folder</h4>
+
+  <pre style="font-size:11px;padding:5px;">
+
+$ <b>sfdx force:data:tree:export -h</b>
+Usage: sfdx force:data:tree:export -q <string> [-p] [-x <string>] [-d <directory>] [-u <string>] [--json] [--loglevel <string>]
+
+export data from an org into sObject tree format for force:data:tree:import consumption
+
+Flags:
+-d, --outputdir OUTPUTDIR            directory to store files
+-p, --plan                           generate mulitple sobject tree files and a plan definition file for aggregated import
+-x, --prefix PREFIX                  prefix of generated files
+-q, --query QUERY                    (required) soql query, or filepath of file containing a soql query, to retrieve records
+-u, --targetusername TARGETUSERNAME  username or alias for the target org; overrides default target org
+--json                               format output as json
+--loglevel LOGLEVEL                  logging level for this command invocation (error*,trace,debug,info,warn,fatal)
+
+Generates JSON files for use with the force:data:tree:import command.
+
+Examples:
+$ sfdx force:data:tree:export -q "SELECT Id, Name, (SELECT Name, Address__c FROM Properties__r) FROM Broker__c"
+$ sfdx force:data:tree:export -q <path to file containing soql query> -x export-demo -d /tmp/sfdx-out -p
+
+</pre>
+<pre style="font-size:11px;padding:5px;">
+
+$ mkdir data
+$ sfdx force:data:tree:export \
+ -q "SELECT Name, Location__Latitude__s, Location__Longitude__s FROM Account WHERE Location__Latitude__s != NULL AND Location__Longitude__s != NULL" -d ./data
+Wrote 3 records to <b>data/Account.json</b>
+</pre>
+
+</section>
+
+<section>
+  <h4>Exported Data</h4>
+
+<pre style="font-size:11px;padding:5px;">
+
+$ cat data/Account.json | jq
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "AccountRef1"
+      },
+      "Name": "Marriott Marquis",
+      "Location__Latitude__s": 37.785143,
+      "Location__Longitude__s": -122.403405
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "AccountRef2"
+      },
+      "Name": "Hilton Union Square",
+      "Location__Latitude__s": 37.786164,
+      "Location__Longitude__s": -122.410137
+    },
+    {
+      "attributes": {
+        "type": "Account",
+        "referenceId": "AccountRef3"
+      },
+      "Name": "Hyatt",
+      "Location__Latitude__s": 37.794157,
+      "Location__Longitude__s": -122.396311
+    }
+  ]
+}
+</pre>
+</section>
+
+
+<section>
+  <h4>Import data into Scratch Org from Local Folder</h4>
+<pre style="font-size:11px;padding:5px;">
+
+$ <b>sfdx force:data:tree:import -h</b>
+Usage: sfdx force:data:tree:import (-f <filepath>... | -p <filepath>) [-c <string>] [--confighelp] [-u <string>] [--json] [--loglevel <string>]
+
+<b>import data into an org using SObject Tree Save API</b>
+
+Flags:
+-c, --contenttype CONTENTTYPE            if data file extension is not .json, provide content type (applies to all files)
+-p, --plan PLAN                          path to plan to insert multiple data files that have master-detail relationships
+-f, --sobjecttreefiles SOBJECTTREEFILES  comma-delimited, ordered paths of json files containing collection of record trees to insert
+-u, --targetusername TARGETUSERNAME      username or alias for the target org; overrides default target org
+--confighelp                             display schema information for the --plan configuration file to stdout; if you use this option, all other options except --json are ignored
+--json                                   format output as json
+--loglevel LOGLEVEL                      logging level for this command invocation (error*,trace,debug,info,warn,fatal)
+
+To generate JSON files for use with force:data:tree:import, run "sfdx force:data:tree:export".
+
+Examples:
+To import records as individual files, first run the export commands:
+$ sfdx force:data:tree:export -q "SELECT Id, Name FROM Account"
+$ sfdx force:data:tree:export -q "SELECT Id, LastName, FirstName FROM Contact"
+Then run the import command:
+$ sfdx force:data:tree:import -f Contact.json,Account.json -u me@my.org
+
+To import multiple data files as part of a plan, first run the export command with the -p | --plan flag:
+$ sfdx force:data:tree:export -p -q "SELECT Id, Name, (SELECT Id, LastName, FirstName FROM Contacts) FROM Account"
+Then run the import command, supplying a filepath value for the -p | --plan parameter:
+$ sfdx force:data:tree:import -p Account-Contact-plan.json -u me@my.org
+
+----
+
+In our case: Importing into our Scratch Org:
+
+$ <b>sfdx force:data:tree:<i>import</i> -f data/Account.json</b>
+  </pre>
 </section>
 
  <section>
