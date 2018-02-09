@@ -113,11 +113,313 @@
 
       <section id="home">
         <h4>Salesforce DX</h4>
-
-        <ul>
-          <li>Coming soon...</li>
-        </ul>
+        <img style="border:0px;" src="https://developer.salesforce.com/resources2/devcenter/section-n5-img-osd.png" alt="">
        </section>
+
+       <section>
+         <h4>Goals</h4>
+         <ul>
+           <li>Source-Driven way to manage and develop apps on Force.com platform
+              <ul>
+                <li>Source code and metadata exist outside of the Salesforce Org</li>
+                <li>Version Control System is source of truth</li>
+              </ul>
+           </li>
+
+           <li>Team Collaboration</li>
+           <li>Agile</li>
+           <li>CLI (command-line-interface) to support Continuous Integration (CI) and Delviery (CD)</li>
+
+          <li>Open and Prescriptive Developer Experience</li>
+          <li>  Rapid Testing and Development</li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Dev Hub</h4>
+         <ul>
+           <li>Comprises Objects with Permission that allow admins to control level-of-access available to a user and org</li>
+           <li>Provides ability to create and manage scratch orgs</li>
+           <li>You can choose an org to function as your Dev Hub</li>
+           <li>
+             <a target="_blank" href="https://developer.salesforce.com/promotions/orgs/dx-signup">Sign up for Dev Hub 30-day Trial Org</a>
+           </li>
+
+
+
+         </ul>
+         <div style="font-size:15px;">Login into DevHub:</div>
+         <img height="200" style="border:0px;" src="img/dx/devHub-1.png" alt="">
+       </section>
+
+       <section>
+         <h4>Install  CLI (command-line-interface)</h4>
+         <ul>
+           <li> <a href="https://sfdc.co/sfdx_cli_osx">macOS</a> </li>
+          <li> <a href="https://sfdc.co/sfdx_cli_win64">Windows 64-bit</a> </li>
+           <li> <a href="https://sfdc.co/sfdx_cli_linux">Ubuntu 64-bit</a> </li>
+         </ul>
+         <pre style="font-size:15px;">
+$ sfdx --version
+$ sfdx update
+sfdx-cli: Updating CLI... already on latest version: 6.1.19-4341549
+sfdx-cli: Updating plugins... done
+         </pre>
+
+       </section>
+
+       <section>
+         <h4>Login to Dev Hub via CLI</h4>
+<pre style="font-size:13px;">
+$ sfdx force:auth:web:login  -h
+Usage: sfdx force:auth:web:login [-i <string>] [-r <url>] [-d] [-s] [-a <string>] [--json] [--loglevel <string>]
+
+authorize an org using the web login flow
+
+Flags:
+ -i, --clientid CLIENTID         OAuth client ID (sometimes called the consumer key)
+ -r, --instanceurl INSTANCEURL   the login URL of the instance the org lives on
+ -a, --setalias SETALIAS         set an alias for the authenticated org
+ -d, --setdefaultdevhubusername  set the authenticated org as the default dev hub org for scratch org creation
+ -s, --setdefaultusername        set the authenticated org as the default username that all commands run against
+ --json                          format output as json
+ --loglevel LOGLEVEL             logging level for this command invocation (error*,trace,debug,info,warn,fatal)
+
+To log in to a sandbox, set --instanceurl to https://test.salesforce.com.
+
+Examples:
+   $ sfdx force:auth:web:login -a TestOrg1
+   $ sfdx force:auth:web:login -i <OAuth client id>
+   $ sfdx force:auth:web:login -r https://test.salesforce.com
+</pre>
+
+<pre style="font-size:13px;">
+  $ sfdx force:auth:web:login -d -a DevHub
+  Successfully authorized username with org ID orgid
+</pre>
+
+
+</section>
+
+<section>
+  <h4>Login to Dev Hub via CLI - contd.</h4>
+<img height="400" style="border:0px;" src="img/dx/devHub-allowAccess.png" alt="">
+  <pre style="font-size:13px;">
+You may now close the browser
+   </pre>
+</section>
+
+
+<section>
+  <h4>List the orgs with CLI</h4>
+  <pre style="font-size:13px;">
+$ sfdx force:org:list
+=== Orgs
+     ALIAS   USERNAME                              ORG ID              CONNECTED STATUS
+───  ──────  ────────────────────────────────────  ──────────────────  ─────────────────
+(D)  DevHub  mohan.chinnappan.n_dh_1@gmail.com     00D6A000001LbwLUAS  Connected
+
+   </pre>
+</section>
+
+
+<section>
+  <h4>Create a Salesforce DX Project</h4>
+  <pre style="font-size:11px;padding:5px;">
+$ <b>sfdx force:project:create -n geolocation</b>
+target dir = /Users/mchinnappan/sfdx
+   create geolocation/sfdx-project.json
+   create geolocation/README.md
+   create geolocation/.forceignore
+   create geolocation/config/project-scratch-def.json
+$ ls
+geolocation	sfdx-simple
+~/sfdx:
+$ <b>tree geolocation/</b>
+geolocation/
+├── README.md
+├── config
+│   └── project-scratch-def.json <b>- config for scratch org</b>
+├── force-app <b>- folder containing source code of the project</b>
+│   └── main
+│       └── default
+│           └── aura
+└── sfdx-project.json <b> - has project info, path to source, clases, metadata, namespace, api-version</b>
+
+5 directories, 3 files
+$ <b>cat geolocation/config/project-scratch-def.json</b>
+{
+    "orgName": "mchinnappan Company",
+    "edition": "Developer",
+    "orgPreferences" : {
+        "enabled": ["S1DesktopEnabled"]
+    }
+}
+
+$ <b>cat geolocation/sfdx-project.json</b>
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true
+    }
+  ],
+  "namespace": "",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "41.0"
+}
+
+  </pre>
+</section>
+
+
+
+     <section>
+       <h4>Scratch Org</h4>
+       <ul>
+         <li>Temporary Salesforce environments where you do the bulk of your development work in  source-driven development paradigm (SFDX)
+         </li>
+
+          <li>You can :
+            <ul>
+            <li> Push the source and metadata to a scratch org</li>
+            <li>Pull any changes you make in the scratch org back to your local project</li>
+            <li>Sync this project with your VCS (version control system) repo</li>
+          </ul>
+        </li>
+
+       </ul>
+     </section>
+
+     <section>
+       <h4>Create Scratch Org</h4>
+        <pre style="font-size:11px;padding:5px;">
+$ <b>sfdx force:org:create -h</b>
+Usage: sfdx force:org:create name=value... [-f <filepath>] [-n] [-c] [-i <string>] [-s] [-a <string>] [-w <minutes>] [-d <number>] [-v <string>] [--json] [--loglevel <string>]
+create a scratch org
+Flags:
+-i, --clientid CLIENTID                          connected app consumer key
+-f, --definitionfile DEFINITIONFILE              path to a scratch org definition file
+-d, --durationdays DURATIONDAYS                  duration of the scratch org (in days) (default:7, min:1, max:30)
+-c, --noancestors                                do not include second-generation package ancestors in the scratch org
+-n, --nonamespace                                creates the scratch org with no namespace
+-a, --setalias SETALIAS                          set an alias for for the created scratch org
+-s, --setdefaultusername                         <b>set the created org as the default org for this project</b>
+-v, --targetdevhubusername TARGETDEVHUBUSERNAME  username or alias for the dev hub org; overrides default dev hub org
+-w, --wait WAIT                                  the streaming client socket timeout (in minutes) (default:6, min:2)
+--json                                           format output as json
+--loglevel LOGLEVEL                              logging level for this command invocation (error*,trace,debug,info,warn,fatal)
+To set up a connected app for your new scratch org, specify the value that was returned when you created a connected app in your Dev Hub org as --clientid.
+Examples:
+$ sfdx force:org:create -f config/enterprise-scratch-def.json -a TestOrg1
+$ sfdx force:org:create -a MyDevOrg -s -v me@myhub.org edition=Developer
+$ sfdx force:org:create -f config/enterprise-scratch-def.json -a OrgWithOverrides username=testuser1@mycompany.org
+#----
+$ cd geolocation/
+$ <b>sfdx force:org:create -s -f config/project-scratch-def.json -a geolocationAppScratch1</b>
+Successfully created scratch org: 00DR00000001xNfMAI, username: test-irkcftkmuyzr@example.com
+#----
+$ <b>sfdx force:org:list</b>
+=== Orgs
+     ALIAS   USERNAME                              ORG ID              CONNECTED STATUS
+───  ──────  ────────────────────────────────────  ──────────────────  ─────────────────
+(D)  DevHub  mohan.chinnappan.n_dh_1@gmail.com     00D6A000001LbwLUAS  Connected
+     ALIAS                   SCRATCH ORG NAME     USERNAME                       ORG ID              EXPIRATION DATE
+───  ──────────────────────  ───────────────────  ─────────────────────────────  ──────────────────  ───────────────
+(U)  geolocationAppScratch1  mchinnappan Company  <b>test-irkcftkmuyzr@example.com</b>  <b>00DR00000001xNfMAI</b>  2018-02-16
+</pre>
+     </section>
+
+<section>
+  <h4>Open the created scratch org</h4>
+<pre style="font-size:11px;padding:5px;">
+
+$ sfdx force:org:open -h
+Usage: sfdx force:org:open [-p <string>] [-r] [-u <string>] [--json] [--loglevel <string>]
+open an org in your browser
+
+Flags:
+-p, --path PATH                      navigation URL path
+-u, --targetusername TARGETUSERNAME  username or alias for the target org; overrides default target org
+-r, --urlonly                        display navigation URL, but don’t launch browser
+--json                               format output as json
+--loglevel LOGLEVEL                  logging level for this command invocation (error*,trace,debug,info,warn,fatal)
+
+<b>Opens your default scratch org, or another org that you specify.</b>
+
+To open a specific page, specify the portion of the URL after "yourInstance.salesforce.com/" as --path.
+For example, specify "--path one/one.app" to open Lightning Experience, or specify "--path /apex/YourPage"
+to open a Visualforce page.
+
+To generate a URL but not launch your browser, specify --urlonly.
+
+Examples:
+$ sfdx force:org:open
+$ sfdx force:org:open -u me@my.org
+$ sfdx force:org:open -u MyTestOrg1
+$ sfdx force:org:open -r -p one/one.app
+#----
+$ sfdx force:org:open
+Access org <b>00DR00000001xNfMAI</b> as user <b>test-irkcftkmuyzr@example.com</b> with
+the following URL: https://java-enterprise-1064-dev-ed.cs2.my.salesforce.com/secur/frontdoor.jsp?sid=00DR00000001xNf!AQgAQM5.0dDRj.rFldgd6qTLG8qPSRuWuxCvrljFEjcatDhElIZ33_tx8tLwkt3IZ8QZiDGK44i3kbRPymejTlY.R.t1xdeP
+
+
+  </pre>
+</section>
+
+<section>
+  <h4>Create a Permission Set</h4>
+  <ul>
+    <li>Create Permission Set <b>Geolocation</b> for Account.Location</li>
+    <img style="border:0px;" height="400" src="img/dx/dx-act-permset-1.gif" alt="">
+  </ul>
+</section>
+
+<section>
+  <h4>Assign Permission Set to users using  CLI</h4>
+  <pre style="font-size:11px;padding:5px;">
+$ <b>sfdx force:user:permset:assign -h</b>
+Usage: sfdx force:user:permset:assign -n <string> [-o <string>...] [-u <string>] [--json] [--loglevel <string>]
+assign a permission set to one or more users of an org
+
+Flags:
+-o, --onbehalfof ONBEHALFOF          comma-separated list of usernames or aliases to assign the permission set to
+-n, --permsetname PERMSETNAME        (required) the name of the permission set to assign
+-u, --targetusername TARGETUSERNAME  username or alias for the target org; overrides default target org
+--json                               format output as json
+--loglevel LOGLEVEL                  logging level for this command invocation (error*,trace,debug,info,warn,fatal)
+
+Defaults to the defaultusername.
+Examples:
+$ sfdx force:user:permset:assign -n DreamHouse
+$ sfdx force:user:permset:assign -n DreamHouse -u me@my.org
+$ sfdx force:user:permset:assign -n DreamHouse -o user1@my.org,user2,user3
+</pre>
+
+<pre style="font-size:11px;padding:5px;">
+$ <b>sfdx force:user:permset:assign -n Geolocation</b>
+=== Permsets Assigned
+USERNAME                       PERMISSION SET ASSIGNMENT
+─────────────────────────────  ─────────────────────────
+test-irkcftkmuyzr@example.com  Geolocation
+
+</pre>
+
+</section>
+
+ <section>
+   <h4>References</h4>
+   <ul>
+     <li>
+     <a target="_blank" href="https://trailhead.salesforce.com/en/modules/sfdx_app_dev/units/sfdx_app_dev_setup_dx">Set up Salesforce DX</a>
+
+     </li>
+     <li>
+       <a  target="_blank"  href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_enable_devhub.htm">Enable Dev Hub in Your Org
+</a>
+     </li>
+   </ul>
+ </section>
 
 
 
