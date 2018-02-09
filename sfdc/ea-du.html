@@ -639,7 +639,7 @@ $ java -jar datasetutils-37.0.4-SNAPSHOT.jar --server false --action load --data
 <pre style="font-size:13px;">
 
   java -jar datasetutils-37.0.4-SNAPSHOT.jar --server false --action load --dataset fruits \
-              --operation Overwrite --u username \
+              --operation <b>Overwrite</b> --u username \
               --inputFile /Users/mchinnappan/Downloads/fruits.csv
 
 </pre>
@@ -660,7 +660,7 @@ Id,Name,Qty
 
 <pre style="font-size:13px;">
 # make sure that for Name column in fruits_schema.json has:
-  "isUniqueId" : true,
+  <b>"isUniqueId" : true,</b>
 # set
 
 </section>
@@ -673,11 +673,11 @@ Id,Name,Qty
 Id,Name,Qty
 31,Strawberry,96
 # make sure that for Name column in fruits_update_schema.json has:
-  "isUniqueId" : true,
+  <b>"isUniqueId" : true,</b>
 # set
 # command
 java -jar datasetutils-37.0.4-SNAPSHOT.jar --server false --action load --dataset fruits \
-      --operation Upsert --u username \
+      --operation <b>Upsert</b> --u username \
       --inputFile /Users/mchinnappan/Downloads/fruits_update.csv
   </pre>
   <img style="border:0px;" height="250" src="img/ea/upsert-1-flow.png" alt="">
@@ -700,7 +700,7 @@ Id,Name,Qty
 99,Orange,10
 # command
 java -jar datasetutils-37.0.4-SNAPSHOT.jar --server false --action load --dataset fruits \
-      --operation Upsert --u username \
+      --operation <b>Upsert</b> --u username \
       --inputFile /Users/mchinnappan/Downloads/fruits_update.csv
   </pre>
   <img style="border:0px;" height="250" src="img/ea/upsert-2-flow.png" alt="">
