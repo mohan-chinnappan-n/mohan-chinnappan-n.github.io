@@ -1049,7 +1049,7 @@ $ cat force-app/main/default/aura/AccountsLoaded/AccountsLoaded.evt
   <aura:attribute name="accounts" Type="Account[]"></aura:attribute>
 </aura:event>
 </code>
-
+# Register the event AccountsLoaded in AccountList component
 $ cat force-app/main/default/aura/AccountList/AccountList.cmp
 <code>
 <aura:component controller="AccountCtrl">
@@ -1071,7 +1071,7 @@ $ cat force-app/main/default/aura/AccountList/AccountList.cmp
 
 
 <section>
-  <h4>Add Event firing in doInit()</h4>
+  <h4>Add Event firing in doInit() in AccountList Controller</h4>
   <pre style="font-size:15px;padding:5px;">
     $ cat force-app/main/default/aura/AccountList/AccountListController.js
 <code>
@@ -1082,7 +1082,7 @@ $ cat force-app/main/default/aura/AccountList/AccountList.cmp
           component.set("v.accounts", a.getReturnValue());
           var event = $A.get("e.c:AccountsLoaded");
           event.setParams({"accounts": a.getReturnValue()});
-          event.fire();
+            event.fire();
         });
         $A.enqueueAction(action);
     }
@@ -1091,6 +1091,184 @@ $ cat force-app/main/default/aura/AccountList/AccountList.cmp
 
   </pre>
 </section>
+
+<section>
+  <h4>Event Handling Declaration in AccountMap </h4>
+  <img style="border:0px;" height="500" src="img/dx/evt-handing-AccountMap.png" alt="">
+
+</section>
+
+
+<section>
+  <h4>Event Handling Action in AccountMap Controller </h4>
+  <img style="border:0px;" height="500" src="img/dx/evt-handler-action.png" alt="">
+
+</section>
+
+<section>
+  <h4>Push these Event related updates to the Scratch org</h4>
+  <pre style="font-size:12px;padding:5px;">
+
+$ <b>sfdx force:source:push</b>
+=== Pushed Source
+STATE    FULL NAME                             TYPE                  PROJECT PATH
+───────  ────────────────────────────────────  ────────────────────  ──────────────────────────────────────────────────────────────────────
+Add      AccountsLoaded/AccountsLoaded.evt     AuraDefinitionBundle  force-app/main/default/aura/AccountsLoaded/AccountsLoaded.evt
+Add      AccountsLoaded/AccountsLoaded.evt     AuraDefinitionBundle  force-app/main/default/aura/AccountsLoaded/AccountsLoaded.evt-meta.xml
+Changed  AccountList/AccountList.cmp           AuraDefinitionBundle  force-app/main/default/aura/AccountList/AccountList.cmp
+Changed  AccountList/AccountListController.js  AuraDefinitionBundle  force-app/main/default/aura/AccountList/AccountListController.js
+Changed  AccountMap/AccountMap.cmp             AuraDefinitionBundle  force-app/main/default/aura/AccountMap/AccountMap.cmp
+Changed  AccountMap/AccountMapController.js    AuraDefinitionBundle  force-app/main/default/aura/AccountMap/AccountMapController.js
+  </pre>
+<pre style="font-size:12px;padding:5px;">
+  # Open the org
+  $ sfdx force:org:open
+</pre>
+</section>
+
+
+<section>
+  <h4> View AccountMap Update Showing the Markers in the Map </h4>
+  <img style="border:0px;" height="500" src="img/dx/accountMap-update-1.png" alt="">
+
+</section>
+
+<section>
+  <h4>Create a Test Scratch Org</h4>
+  <ul>
+    <li>Use a Test Scratch Org to perform end-to-end testing of the development work done
+      so far on the Development Scratch Org: geolocationAppScratch1</li>
+   <li>
+     <pre style="font-size:12px;padding:5px;">
+$ <b>sfdx force:org:create -f config/project-scratch-def.json -a geolocationTestScratch1</b>
+Successfully created scratch org: 00D560000004foREAQ, username: test-huvk8zzifavh@example.com
+     </pre>
+     <pre style="font-size:12px;padding:5px;">
+    $ sfdx force:org:list
+=== Orgs
+     ALIAS   USERNAME                              ORG ID              CONNECTED STATUS
+───  ──────  ────────────────────────────────────  ──────────────────  ─────────────────
+(D)  DevHub  mohan.chinnappan.n_dh_1@gmail.com     00D6A000001LbwLUAS  Connected
+     ALIAS                    SCRATCH ORG NAME     USERNAME                       ORG ID              EXPIRATION DATE
+───  ───────────────────────  ───────────────────  ─────────────────────────────  ──────────────────  ───────────────
+(U)  geolocationAppScratch1   mchinnappan Company  test-irkcftkmuyzr@example.com  00DR00000001xNfMAI  2018-02-16
+     <b>geolocationTestScratch1</b>  mchinnappan Company  test-huvk8zzifavh@example.com  00D560000004foREAQ  2018-02-17
+
+  </pre>
+   </li>
+  </ul>
+</section>
+
+<section>
+  <h4>Push code/metadata to the newly created Test Scratch Org</h4>
+
+   <pre style="font-size:12px;padding:5px;">
+$ <b>sfdx force:source:push -u geolocationTestScratch1</b>
+    === Pushed Source
+STATE  FULL NAME                                     TYPE                  PROJECT PATH
+─────  ────────────────────────────────────────────  ────────────────────  ─────────────────────────────────────────────────────────────────────────────────────
+Add    AccountList/AccountList.auradoc               AuraDefinitionBundle  force-app/main/default/aura/AccountList/AccountList.auradoc
+Add    AccountList/AccountList.cmp                   AuraDefinitionBundle  force-app/main/default/aura/AccountList/AccountList.cmp
+Add    AccountList/AccountList.cmp                   AuraDefinitionBundle  force-app/main/default/aura/AccountList/AccountList.cmp-meta.xml
+Add    AccountList/AccountList.css                   AuraDefinitionBundle  force-app/main/default/aura/AccountList/AccountList.css
+Add    AccountList/AccountList.design                AuraDefinitionBundle  force-app/main/default/aura/AccountList/AccountList.design
+Add    AccountList/AccountList.svg                   AuraDefinitionBundle  force-app/main/default/aura/AccountList/AccountList.svg
+Add    AccountList/AccountListController.js          AuraDefinitionBundle  force-app/main/default/aura/AccountList/AccountListController.js
+Add    AccountList/AccountListHelper.js              AuraDefinitionBundle  force-app/main/default/aura/AccountList/AccountListHelper.js
+Add    AccountList/AccountListRenderer.js            AuraDefinitionBundle  force-app/main/default/aura/AccountList/AccountListRenderer.js
+Add    AccountListItem/AccountListItem.auradoc       AuraDefinitionBundle  force-app/main/default/aura/AccountListItem/AccountListItem.auradoc
+Add    AccountListItem/AccountListItem.cmp           AuraDefinitionBundle  force-app/main/default/aura/AccountListItem/AccountListItem.cmp
+Add    AccountListItem/AccountListItem.cmp           AuraDefinitionBundle  force-app/main/default/aura/AccountListItem/AccountListItem.cmp-meta.xml
+Add    AccountListItem/AccountListItem.css           AuraDefinitionBundle  force-app/main/default/aura/AccountListItem/AccountListItem.css
+Add    AccountListItem/AccountListItem.design        AuraDefinitionBundle  force-app/main/default/aura/AccountListItem/AccountListItem.design
+Add    AccountListItem/AccountListItem.svg           AuraDefinitionBundle  force-app/main/default/aura/AccountListItem/AccountListItem.svg
+Add    AccountListItem/AccountListItemController.js  AuraDefinitionBundle  force-app/main/default/aura/AccountListItem/AccountListItemController.js
+Add    AccountListItem/AccountListItemHelper.js      AuraDefinitionBundle  force-app/main/default/aura/AccountListItem/AccountListItemHelper.js
+Add    AccountListItem/AccountListItemRenderer.js    AuraDefinitionBundle  force-app/main/default/aura/AccountListItem/AccountListItemRenderer.js
+Add    AccountLocator/AccountLocator.auradoc         AuraDefinitionBundle  force-app/main/default/aura/AccountLocator/AccountLocator.auradoc
+Add    AccountLocator/AccountLocator.cmp             AuraDefinitionBundle  force-app/main/default/aura/AccountLocator/AccountLocator.cmp
+Add    AccountLocator/AccountLocator.cmp             AuraDefinitionBundle  force-app/main/default/aura/AccountLocator/AccountLocator.cmp-meta.xml
+Add    AccountLocator/AccountLocator.css             AuraDefinitionBundle  force-app/main/default/aura/AccountLocator/AccountLocator.css
+Add    AccountLocator/AccountLocator.design          AuraDefinitionBundle  force-app/main/default/aura/AccountLocator/AccountLocator.design
+Add    AccountLocator/AccountLocator.svg             AuraDefinitionBundle  force-app/main/default/aura/AccountLocator/AccountLocator.svg
+Add    AccountLocator/AccountLocatorController.js    AuraDefinitionBundle  force-app/main/default/aura/AccountLocator/AccountLocatorController.js
+Add    AccountLocator/AccountLocatorHelper.js        AuraDefinitionBundle  force-app/main/default/aura/AccountLocator/AccountLocatorHelper.js
+Add    AccountLocator/AccountLocatorRenderer.js      AuraDefinitionBundle  force-app/main/default/aura/AccountLocator/AccountLocatorRenderer.js
+Add    AccountMap/AccountMap.auradoc                 AuraDefinitionBundle  force-app/main/default/aura/AccountMap/AccountMap.auradoc
+Add    AccountMap/AccountMap.cmp                     AuraDefinitionBundle  force-app/main/default/aura/AccountMap/AccountMap.cmp
+Add    AccountMap/AccountMap.cmp                     AuraDefinitionBundle  force-app/main/default/aura/AccountMap/AccountMap.cmp-meta.xml
+Add    AccountMap/AccountMap.css                     AuraDefinitionBundle  force-app/main/default/aura/AccountMap/AccountMap.css
+Add    AccountMap/AccountMap.design                  AuraDefinitionBundle  force-app/main/default/aura/AccountMap/AccountMap.design
+Add    AccountMap/AccountMap.svg                     AuraDefinitionBundle  force-app/main/default/aura/AccountMap/AccountMap.svg
+Add    AccountMap/AccountMapController.js            AuraDefinitionBundle  force-app/main/default/aura/AccountMap/AccountMapController.js
+Add    AccountMap/AccountMapHelper.js                AuraDefinitionBundle  force-app/main/default/aura/AccountMap/AccountMapHelper.js
+Add    AccountMap/AccountMapRenderer.js              AuraDefinitionBundle  force-app/main/default/aura/AccountMap/AccountMapRenderer.js
+Add    AccountsLoaded/AccountsLoaded.evt             AuraDefinitionBundle  force-app/main/default/aura/AccountsLoaded/AccountsLoaded.evt
+Add    AccountsLoaded/AccountsLoaded.evt             AuraDefinitionBundle  force-app/main/default/aura/AccountsLoaded/AccountsLoaded.evt-meta.xml
+Add    AccountCtrl                                   ApexClass             force-app/main/default/classes/AccountCtrl.cls
+Add    AccountCtrl                                   ApexClass             force-app/main/default/classes/AccountCtrl.cls-meta.xml
+Add    Account-Account %28Marketing%29 Layout        Layout                force-app/main/default/layouts/Account-Account %28Marketing%29 Layout.layout-meta.xml
+Add    Account-Account %28Sales%29 Layout            Layout                force-app/main/default/layouts/Account-Account %28Sales%29 Layout.layout-meta.xml
+Add    Account-Account %28Support%29 Layout          Layout                force-app/main/default/layouts/Account-Account %28Support%29 Layout.layout-meta.xml
+Add    Account-Account Layout                        Layout                force-app/main/default/layouts/Account-Account Layout.layout-meta.xml
+Add    Account.Location__c                           CustomField           force-app/main/default/objects/Account/fields/Location__c.field-meta.xml
+Add    Geolocation                                   PermissionSet         force-app/main/default/permissionsets/Geolocation.permissionset-meta.xml
+Add    Admin                                         Profile               force-app/main/default/profiles/Admin.profile-meta.xml
+Add    Custom%3A Marketing Profile                   Profile               force-app/main/default/profiles/Custom%3A Marketing Profile.profile-meta.xml
+Add    Custom%3A Sales Profile                       Profile               force-app/main/default/profiles/Custom%3A Sales Profile.profile-meta.xml
+Add    Custom%3A Support Profile                     Profile               force-app/main/default/profiles/Custom%3A Support Profile.profile-meta.xml
+Add    leaflet                                       StaticResource        force-app/main/default/staticresources/leaflet/images/layers-2x.png
+Add    leaflet                                       StaticResource        force-app/main/default/staticresources/leaflet/images/layers.png
+Add    leaflet                                       StaticResource        force-app/main/default/staticresources/leaflet/images/marker-icon-2x.png
+Add    leaflet                                       StaticResource        force-app/main/default/staticresources/leaflet/images/marker-icon.png
+Add    leaflet                                       StaticResource        force-app/main/default/staticresources/leaflet/images/marker-shadow.png
+Add    leaflet                                       StaticResource        force-app/main/default/staticresources/leaflet/leaflet-src.js
+Add    leaflet                                       StaticResource        force-app/main/default/staticresources/leaflet/leaflet-src.js.map
+Add    leaflet                                       StaticResource        force-app/main/default/staticresources/leaflet/leaflet.css
+Add    leaflet                                       StaticResource        force-app/main/default/staticresources/leaflet/leaflet.js
+Add    leaflet                                       StaticResource        force-app/main/default/staticresources/leaflet/leaflet.js.map
+Add    leaflet                                       StaticResource        force-app/main/default/staticresources/leaflet.resource-meta.xml
+Add    Account_Locator                               CustomTab             force-app/main/default/tabs/Account_Locator.tab-meta.xml
+
+
+  </pre>
+</section>
+
+<section>
+  <h4>Assign the permset : Geolocation to Test Scratch org</h4>
+ <pre style="font-size:12px;padding:5px;">
+$ <b>sfdx force:user:permset:assign -n Geolocation -u geolocationTestScratch1</b>
+=== Permsets Assigned
+USERNAME                       PERMISSION SET ASSIGNMENT
+─────────────────────────────  ─────────────────────────
+test-huvk8zzifavh@example.com  Geolocation
+  </pre>
+
+<pre style="font-size:12px;padding:5px;">
+# Import data into Test Scratch org
+$ <b>sfdx force:data:tree:import -f data/Account.json -u geolocationTestScratch1</b>
+=== Import Results
+REFERENCE ID  TYPE     ID
+────────────  ───────  ──────────────────
+AccountRef1   Account  0015600000AHhFxAAL
+AccountRef2   Account  0015600000AHhFyAAL
+AccountRef3   Account  0015600000AHhFzAAL
+</pre>
+
+<pre style="font-size:12px;padding:5px;">
+# Open up the Test Scratch Org
+$ sfdx force:org:open -u geolocationTestScratch1
+</pre>
+
+</section>
+
+<section>
+  <h4>Geolocation Component in Test Scratch Org</h4>
+  <img style="border:0px;" height="500" src="img/dx/test-scrath-org-view.png" alt="">
+</section>
+
+
+
 
 <section>
   <h4>References</h4>
