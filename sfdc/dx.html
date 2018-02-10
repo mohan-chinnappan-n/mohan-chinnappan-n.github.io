@@ -944,7 +944,7 @@ $ cat force-app/main/default/aura/AccountLocator/AccountLocator.cmp
 <aura:component implements="force:appHostable">
   <div>
     <div>AccountMap goes here</div>
-    <div> <c:AccountList/></div>
+    <div> <c:AccountList></c:AccountList></div>
   </div>
 </aura:component>
 </code>
@@ -991,9 +991,9 @@ $ sfdx force:lightning:component:create -n AccountMap -d force-app/main/default/
 $ cat force-app/main/default/aura/AccountMap/AccountMap.cmp
 <code>
 <aura:component>
-  <aura:attribute name="map" type="Object"/>
+  <aura:attribute name="map" type="Object"></aura:attribute>
   <ltng:require styles="/resource/leaflet/leaflet.css" scripts="/resource/leaflet/leaflet.js"
-      afterScriptsLoaded="{!c.jsLoaded}" />
+      afterScriptsLoaded="{!c.jsLoaded}" ></ltng:require>
   <div id="map"></div>
 </aura:component>
 </code>
@@ -1034,6 +1034,64 @@ $ sfdx force:source:push
   <h4>AccountLocator Component with Map in Place</h4>
   <img style="border:0px;" height="450" src="img/dx/geolocation-map-1.png" alt="">
 </section>
+
+
+<section>
+  <h4>Create Event - AccountsLoaded - using CLI</h4>
+  <pre style="font-size:13px;padding:5px;">
+$ sfdx force:lightning:event:create -n AccountsLoaded -d force-app/main/default/aura
+ target dir = /Users/mchinnappan/sfdx/geolocation/force-app/main/default/aura
+create AccountsLoaded/AccountsLoaded.evt
+create AccountsLoaded/AccountsLoaded.evt-meta.xml
+$ cat force-app/main/default/aura/AccountsLoaded/AccountsLoaded.evt
+<code>
+<aura:event type="APPLICATION">
+  <aura:attribute name="accounts" Type="Account[]"></aura:attribute>
+</aura:event>
+</code>
+
+$ cat force-app/main/default/aura/AccountList/AccountList.cmp
+<code>
+<aura:component controller="AccountCtrl">
+    <aura:registerEvent name="accountsLoaded" type="c:AccountsLoaded"></aura:registerEvent>
+    <aura:attribute name="accounts" type="Account[]"></aura:attribute>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" ></aura:handler>
+    <ul>
+        <aura:iteration items="{!v.accounts}" var="account">
+            <c:AccountListItem account="{!account}"></c:AccountListItem>
+        </aura:iteration>
+    </ul>
+</aura:component>
+</code>
+
+  </pre>
+
+</section>
+
+
+
+<section>
+  <h4>Add Event firing in doInit()</h4>
+  <pre style="font-size:15px;padding:5px;">
+    $ cat force-app/main/default/aura/AccountList/AccountListController.js
+<code>
+({
+    doInit : function(component, event) {
+        var action = component.get("c.findAll");
+        action.setCallback(this, function(a) {
+          component.set("v.accounts", a.getReturnValue());
+          var event = $A.get("e.c:AccountsLoaded");
+          event.setParams({"accounts": a.getReturnValue()});
+          event.fire();
+        });
+        $A.enqueueAction(action);
+    }
+})
+</code>
+
+  </pre>
+</section>
+
 <section>
   <h4>References</h4>
   <ul>
@@ -1047,6 +1105,9 @@ $ sfdx force:source:push
     </li>
   </ul>
 </section>
+
+
+
 
 
     </div>
