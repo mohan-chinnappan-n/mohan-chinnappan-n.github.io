@@ -580,20 +580,473 @@ $ <b>sfdx force:data:tree:<i>import</i> -f data/Account.json</b>
   </pre>
 </section>
 
- <section>
-   <h4>References</h4>
-   <ul>
-     <li>
-     <a target="_blank" href="https://trailhead.salesforce.com/en/modules/sfdx_app_dev/units/sfdx_app_dev_setup_dx">Set up Salesforce DX</a>
 
-     </li>
-     <li>
-       <a  target="_blank"  href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_enable_devhub.htm">Enable Dev Hub in Your Org
-</a>
-     </li>
-   </ul>
+
+ <section>
+   <h4>Creating Apex Class using CLI</h4>
+<pre style="font-size:11px;padding:5px;">
+
+$ <b>sfdx force:apex:class:create -h</b>
+Usage: sfdx force:apex:class:create -n <string> [-t <string>] [-d <string>] [-a <string>] [--json] [--loglevel <string>]
+<b>create an Apex class</b>
+Flags:
+-a, --apiversion APIVERSION  API version number (41.0*,40.0)
+-n, --classname CLASSNAME    (required) name of the generated Apex class
+-d, --outputdir OUTPUTDIR    folder for saving the created files
+-t, --template TEMPLATE      template to use for file creation (DefaultApexClass*,ApexException,ApexUnitTest,InboundEmailService)
+--json                       JSON output
+--loglevel LOGLEVEL          logging level for this command invocation (error*,trace,debug,info,warn,fatal)
+
+If not supplied, the apiversion, template, and outputdir use default values.
+The outputdir can be an absolute path or relative to the current working directory.
+Examples:
+$ sfdx force:apex:class:create -n MyClass
+$ sfdx force:apex:class:create -n MyClass -d classes
+</pre>
+
+<pre style="font-size:11px;padding:5px;">
+$ <b>sfdx force:apex:class:create -n AccountCtrl -d force-app/main/default/classes</b>
+target dir = /Users/mchinnappan/sfdx/geolocation/force-app/main/default/classes
+create AccountCtrl.cls
+create AccountCtrl.cls-meta.xml
+</pre>
+
+<pre style="font-size:11px;padding:5px;">
+$ <b>tree force-app/main/default/classes/</b>
+force-app/main/default/classes/
+├── AccountCtrl.cls
+└── AccountCtrl.cls-meta.xml
+</pre>
+
+<pre style="font-size:11px;padding:5px;">
+$ <b>cat force-app/main/default/classes/AccountCtrl.cls</b>
+public with sharing class AccountCtrl {
+  public AccountCtrl() {
+
+  }
+}
+</pre>
  </section>
 
+<section>
+  <h4>AccountCtrl - Modified</h4>
+  <pre style="font-size:18px;padding:5px;">
+$ <b>cat force-app/main/default/classes/AccountCtrl.cls</b>
+<code>
+public with sharing class AccountCtrl {
+   @AuraEnabled
+   public static List<Account> findAll() {
+      return [SELECT Id, Name, Location__Latitude__s, Location__Longitude__s FROM Account
+            WHERE Location__Latitude__s != NULL AND Location__Longitude__s != NULL
+            LIMIT 50];
+   }
+}
+</code>
+</pre>
+
+
+</section>
+
+
+<section>
+  <h4>Pushing Code to Org from Local Project Folder</h4>
+
+  <pre style="font-size:11px;padding:5px;">
+
+$ <b>sfdx force:source:push -h</b>
+Usage: sfdx force:source:push [-f] [-g] [-w <minutes>] [-u <string>] [--json] [--loglevel <string>]
+
+push source to an org from the project
+
+Flags:
+-f, --forceoverwrite                 ignore conflict warnings and overwrite changes to scratch org
+-g, --ignorewarnings                 deploy changes even if warnings are generated
+-u, --targetusername TARGETUSERNAME  username or alias for the target org; overrides default target org
+-w, --wait WAIT                      wait time for command to finish in minutes (default: 33) (default:33, min:1)
+--json                               format output as json
+--loglevel LOGLEVEL                  logging level for this command invocation (error*,trace,debug,info,warn,fatal)
+
+If the command detects a conflict, it displays the conflicts but does not complete the process. After reviewing the conflict, rerun the command with the --forceoverwrite parameter.
+
+
+  </pre>
+
+  <pre style="font-size:11px;padding:5px;">
+
+$ <b>sfdx force:source:push</b>
+=== Pushed Source
+STATE  FULL NAME    TYPE       PROJECT PATH
+─────  ───────────  ─────────  ───────────────────────────────────────────────────────
+Add    AccountCtrl  ApexClass  force-app/main/default/classes/AccountCtrl.cls
+Add    AccountCtrl  ApexClass  force-app/main/default/classes/AccountCtrl.cls-meta.xml
+
+  </pre>
+</section>
+
+<section>
+  <h4>Pushing Code to Org from Local Project Folder - contd.</h4>
+<img style="border:0px;" height="400" src="img/dx/AccountCtrl.png" alt="">
+</section>
+
+<section>
+  <h4>Create Lightning Component using CLI</h4>
+
+  <pre style="font-size:11px;padding:5px;">
+$ <b>sfdx force:lightning:component:create -h</b>
+Usage: sfdx force:lightning:component:create -n <string> [-t <string>] [-d <string>] [-a <string>] [--json] [--loglevel <string>]
+create a Lightning component
+Flags:
+-a, --apiversion APIVERSION        API version number (41.0*,40.0)
+-n, --componentname COMPONENTNAME  (required) name of the generated Lightning component
+-d, --outputdir OUTPUTDIR          folder for saving the created files
+-t, --template TEMPLATE            template to use for file creation (DefaultLightningCmp*)
+--json                             JSON output
+--loglevel LOGLEVEL                logging level for this command invocation (error*,trace,debug,info,warn,fatal)
+If not supplied, the apiversion, template, and outputdir use default values.
+The outputdir can be an absolute path or relative to the current working directory.
+Examples:
+$ sfdx force:lightning:component:create -n mycomponent
+$ sfdx force:lightning:component:create -n mycomponent -d lightning
+  </pre>
+
+  <pre style="font-size:11px;padding:5px;">
+$ <b>sfdx force:lightning:component:create -n AccountLocator -d force-app/main/default/aura</b>
+target dir = /Users/mchinnappan/sfdx/geolocation/force-app/main/default/aura
+create AccountLocator/AccountLocator.cmp
+create AccountLocator/AccountLocator.cmp-meta.xml
+create AccountLocator/AccountLocatorController.js
+create AccountLocator/AccountLocatorHelper.js
+create AccountLocator/AccountLocator.css
+create AccountLocator/AccountLocatorRenderer.js
+create AccountLocator/AccountLocator.svg
+create AccountLocator/AccountLocator.auradoc
+create AccountLocator/AccountLocator.design
+
+$ <b>tree force-app/main/default/aura/</b>
+force-app/main/default/aura/
+└── <b>AccountLocator</b>
+  ├── AccountLocator.auradoc
+  ├── AccountLocator.cmp
+  ├── AccountLocator.cmp-meta.xml
+  ├── AccountLocator.css
+  ├── AccountLocator.design
+  ├── AccountLocator.svg
+  ├── AccountLocatorController.js
+  ├── AccountLocatorHelper.js
+  └── AccountLocatorRenderer.js
+  </pre>
+</section>
+
+<section>
+  <h4>Create Lightning Component using CLI - contd.</h4>
+  <pre style="font-size:13px;padding:5px;">
+
+$ cat force-app/main/default/aura/AccountLocator/AccountLocator.cmp
+
+<code><aura:component>
+
+</aura:component>
+</code>
+
+$ cat force-app/main/default/aura/AccountLocator/AccountLocatorController.js
+<code>
+({
+    myAction : function(component, event, helper) {
+
+    }
+})
+</code>
+
+$ cat force-app/main/default/aura/AccountLocator/AccountLocatorHelper.js
+<code>
+({
+    helperMethod : function() {
+
+    }
+})
+</code>
+
+  </pre>
+</section>
+
+<section>
+  <h4>Update the generated component and stylesheet </h4>
+
+  <pre style="font-size:14px;padding:5px;">
+$ cat force-app/main/default/aura/AccountLocator/AccountLocator.cmp
+<code>
+<aura:component implements="force:appHostable">
+  <div>
+    <div>AccountMap goes here</div>
+    <div>AccountList goes here</div>
+  </div>
+</aura:component>
+</code>
+
+$ cat force-app/main/default/aura/AccountLocator/AccountLocator.css
+<code>
+.THIS {
+  position:absolute;
+  height: 100%;
+  width: 100%;
+  background: #FFFFFF;
+}
+
+.THIS>div {
+  height: 50%;
+}
+</code>
+
+</section>
+
+<section>
+  <h4>Push the generated component artifacts into Org</h4>
+  <pre style="font-size:14px;padding:5px;">
+    $ sfdx force:source:push
+    === Pushed Source
+    STATE  FULL NAME                                   TYPE                  PROJECT PATH
+    ─────  ──────────────────────────────────────────  ────────────────────  ──────────────────────────────────────────────────────────────────────
+    Add    AccountLocator/AccountLocator.auradoc       AuraDefinitionBundle  force-app/main/default/aura/AccountLocator/AccountLocator.auradoc
+    Add    AccountLocator/AccountLocator.cmp           AuraDefinitionBundle  force-app/main/default/aura/AccountLocator/AccountLocator.cmp
+    Add    AccountLocator/AccountLocator.cmp           AuraDefinitionBundle  force-app/main/default/aura/AccountLocator/AccountLocator.cmp-meta.xml
+    Add    AccountLocator/AccountLocator.css           AuraDefinitionBundle  force-app/main/default/aura/AccountLocator/AccountLocator.css
+    Add    AccountLocator/AccountLocator.design        AuraDefinitionBundle  force-app/main/default/aura/AccountLocator/AccountLocator.design
+    Add    AccountLocator/AccountLocator.svg           AuraDefinitionBundle  force-app/main/default/aura/AccountLocator/AccountLocator.svg
+    Add    AccountLocator/AccountLocatorController.js  AuraDefinitionBundle  force-app/main/default/aura/AccountLocator/AccountLocatorController.js
+    Add    AccountLocator/AccountLocatorHelper.js      AuraDefinitionBundle  force-app/main/default/aura/AccountLocator/AccountLocatorHelper.js
+    Add    AccountLocator/AccountLocatorRenderer.js    AuraDefinitionBundle  force-app/main/default/aura/AccountLocator/AccountLocatorRenderer.js
+
+  </pre>
+</section>
+
+<section>
+  <h4>Create Tab for the component</h4>
+  <div  style="font-size:14px;padding:5px;">View the Lightning Component in Scratch Org</div>
+
+  <img style="border:0px" height="200" src="img/dx/lx-cmp-tab.png" alt="">
+  <img style="border:0px" height="250" src="img/dx/lx-cmp-app-lanncher.png" alt="">
+  <img style="border:0px" height="150" src="img/dx/lx-cmp-view-1.png" alt="">
+
+</section>
+
+<section>
+  <h4>Pull Tab creation updates to Project Local Folder</h4>
+
+ <pre style="font-size:14px;padding:5px;">
+
+$ <b>sfdx force:source:pull</b>
+=== Pulled Source
+STATE  FULL NAME                    TYPE       PROJECT PATH
+─────  ───────────────────────────  ─────────  ────────────────────────────────────────────────────────────────────────────
+Add    Account_Locator              <b>CustomTab</b>  force-app/main/default/tabs/Account_Locator.tab-meta.xml
+Add    Custom%3A Support Profile    Profile    force-app/main/default/profiles/Custom%3A Support Profile.profile-meta.xml
+Add    Custom%3A Sales Profile      Profile    force-app/main/default/profiles/Custom%3A Sales Profile.profile-meta.xml
+Add    Custom%3A Marketing Profile  Profile    force-app/main/default/profiles/Custom%3A Marketing Profile.profile-meta.xml
+Add    Admin                        Profile    force-app/main/default/profiles/Admin.profile-meta.xml
+
+ </pre>
+
+</section>
+
+<section>
+  <h4>Create AccountListItem component using CLI</h4>
+
+ <pre style="font-size:14px;padding:5px;">
+
+$ <b>sfdx force:lightning:component:create -n AccountListItem -d force-app/main/default/aura</b>
+# update the component to:
+$ cat force-app/main/default/aura/AccountListItem/AccountListItem.cmp
+<code>
+<aura:component>
+   <aura:attribute name="account" type="Account"/>
+   <li><a>{!v.account.Name}</a></li>
+</aura:component>
+
+</code>
+# update stylesheet to:
+$ cat force-app/main/default/aura/AccountListItem/AccountListItem.css
+<code>
+.THIS { border-bottom: solid 1px #DDDDDD; }
+.THIS a { display: block; padding: 20px; color: inherit; }
+.THIS a:active { background-color: #E8F4FB; }
+</code>
+
+</pre>
+
+</section>
+
+
+
+<section>
+  <h4>Create AccountList component using CLI</h4>
+
+ <pre style="font-size:10px;padding:5px;">
+
+$ <b>sfdx force:lightning:component:create -n AccountList -d force-app/main/default/aura</b>
+
+</pre>
+ <pre style="font-size:14px;padding:5px;">
+ # update the component to:
+ $ cat force-app/main/default/aura/AccountList/AccountList.cmp
+ <code>
+ <aura:component controller="AccountCtrl">
+    <aura:attribute name="accounts" type="Account[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <ul>
+        <aura:iteration items="{!v.accounts}" var="account">
+            <c:AccountListItem account="{!account}"/>
+        </aura:iteration>
+    </ul>
+</aura:component>
+ </code>
+ # update AccountListController.js to:
+$ cat force-app/main/default/aura/AccountList/AccountListController.js
+<code>
+({
+  doInit : function(component, event) {
+      var action = component.get("c.findAll");
+      action.setCallback(this, function(a) {
+        component.set("v.accounts", a.getReturnValue());
+      });
+      $A.enqueueAction(action);
+  }
+})
+</code>
+
+
+</pre>
+</section>
+
+<section>
+  <h4>AccountList stylesheet update:</h4>
+   <pre style="font-size:14px;padding:5px;">
+
+
+      # update stylesheet to:
+      $ cat force-app/main/default/aura/AccountListItem/AccountList.css
+      <code>
+        .THIS {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            background: #FFFFFF;
+             height: 100%;
+        }
+      </code>
+  </pre>
+</section>
+
+<section>
+  <h4>AccountLocator Component update:</h4>
+   <pre style="font-size:15px;padding:5px;">
+$ cat force-app/main/default/aura/AccountLocator/AccountLocator.cmp
+<code>
+<aura:component implements="force:appHostable">
+  <div>
+    <div>AccountMap goes here</div>
+    <div> <c:AccountList/></div>
+  </div>
+</aura:component>
+</code>
+</pre>
+</section>
+
+<section>
+  <h4>Push code from Local Project folder to Org</h4>
+     <pre style="font-size:15px;padding:5px;">
+    $ sfdx force:source:push
+  </pre>
+
+  <img style="border:0px" height="400" src="img/dx/lx-cmp-update-2.png" alt="">
+</section>
+
+<section>
+  <h4>Install Leaflet JS lib  in Static Resources</h4>
+  <img style="border:0px;" height="300" src="img/dx/leaflet-static-install.png " alt="">
+ <pre style="font-size:10px;padding:5px;">
+# pull the static resouces into Local Project folder
+$ sfdx force:source:pull
+=== Pulled Source
+STATE    FULL NAME  TYPE            PROJECT PATH
+───────  ─────────  ──────────────  ────────────────────────────────────────────────────────────────────────
+Add      leaflet    StaticResource  force-app/main/default/staticresources/leaflet.resource-meta.xml
+Changed  leaflet    StaticResource  force-app/main/default/staticresources/leaflet/images/layers-2x.png
+Changed  leaflet    StaticResource  force-app/main/default/staticresources/leaflet/images/layers.png
+Changed  leaflet    StaticResource  force-app/main/default/staticresources/leaflet/images/marker-icon-2x.png
+Changed  leaflet    StaticResource  force-app/main/default/staticresources/leaflet/images/marker-icon.png
+Changed  leaflet    StaticResource  force-app/main/default/staticresources/leaflet/images/marker-shadow.png
+Changed  leaflet    StaticResource  force-app/main/default/staticresources/leaflet/leaflet-src.js
+Changed  leaflet    StaticResource  force-app/main/default/staticresources/leaflet/leaflet-src.js.map
+Changed  leaflet    StaticResource  force-app/main/default/staticresources/leaflet/leaflet.css
+Changed  leaflet    StaticResource  force-app/main/default/staticresources/leaflet/leaflet.js
+Changed  leaflet    StaticResource  force-app/main/default/staticresources/leaflet/leaflet.js.map
+  </pre>
+</section>
+
+<section>
+  <h4>Create AccountMap Component using CLI</h4>
+<pre style="font-size:11px;padding:5px;">
+$ sfdx force:lightning:component:create -n AccountMap -d force-app/main/default/aura
+# Update AccountMap Component as:
+$ cat force-app/main/default/aura/AccountMap/AccountMap.cmp
+<code>
+<aura:component>
+  <aura:attribute name="map" type="Object"/>
+  <ltng:require styles="/resource/leaflet/leaflet.css" scripts="/resource/leaflet/leaflet.js"
+      afterScriptsLoaded="{!c.jsLoaded}" />
+  <div id="map"></div>
+</aura:component>
+</code>
+# update AccountMapController.js as:
+$ cat force-app/main/default/aura/AccountMap/AccountMapController.js
+<code data-trim data-noescape>
+({
+   jsLoaded: function(component, event, helper) {
+      var map = L.map('map', {zoomControl: false}).setView([37.784173, -122.401557], 14);
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+        {
+              attribution: 'Tiles © Esri'
+        }).addTo(map);
+      component.set("v.map", map);
+  }
+})
+</code>
+$ cat force-app/main/default/aura/AccountMap/AccountMap.css
+<code> .THIS { width: 100%; height: 100%; } </code>
+$ cat force-app/main/default/aura/AccountLocator/AccountLocator.cmp
+<code>
+<aura:component implements="force:appHostable">
+  <div>
+    <div><c:AccountMap/></div>
+    <div><c:AccountList/></div>
+  </div>
+</aura:component>
+</code>
+# Push to Scratch org from Local Project Folder
+$ sfdx force:source:push
+
+
+  </pre>
+</section>
+
+
+<section>
+  <h4>AccountLocator Component with Map in Place</h4>
+  <img style="border:0px;" height="450" src="img/dx/geolocation-map-1.png" alt="">
+</section>
+<section>
+  <h4>References</h4>
+  <ul>
+    <li>
+    <a target="_blank" href="https://trailhead.salesforce.com/en/modules/sfdx_app_dev/units/sfdx_app_dev_setup_dx">Set up Salesforce DX</a>
+
+    </li>
+    <li>
+      <a  target="_blank"  href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_enable_devhub.htm">Enable Dev Hub in Your Org
+</a>
+    </li>
+  </ul>
+</section>
 
 
     </div>
