@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="MainCtrl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{appName}}</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/navbar-green.css">
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/data-markdown.user.js"></script>
+
+
+  <script src="../bower_components/marked/marked.min.js"></script>
+  <script src="../bower_components/angular-marked/dist/angular-marked.js"></script>
+
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../reveal.js/css/theme/white.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+    		<![endif]-->
+
+  <style>
+    .reveal .slide-number {
+      font-size: 0.5em;
+    }
+
+    .simg {
+      border-radius: 10px;
+      border: 1px;
+    }
+
+    .reveal section ul li,
+    .reveal section p {
+      font-size: .8em !important;
+    }
+
+    .reveal section pre code {
+      font-size: 0.7em !important;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">{{appName}}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+      <div class="inner-addon right-addon navbar-form navbar-right">
+        <i class="glyphicon glyphicon-search"></i>
+        <input type="text" class="form-control" placeholder="Search" />
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown ">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="./help.html">Help Topics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <!--
+  <div class="container" ng-controller='MainCtrl'>
+    <div marked src="'pevents.md'"></div>
+  </div>
+-->
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section id="home">
+        <h4>{{appName}}</h4>
+       </section>
+
+       <section>
+         <h4>What is AWS</h4 >
+         <ul>
+           <li>Cloud Service Provider (Infrastructure as a Service - IaaS)</li>
+           <li>Storage (S3)</li>
+           <li>Computing (EC2)</li>
+           <li>Databases (RDS)</li>
+           <li>Netwroking</li>
+           <li>Security</li>
+           <li>Virtualization</li>
+           <li>Developer Tools</li>
+           <li>Analytics</li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Benefits of Cloud Services</h4>
+         <ul>
+           <li>Sharing</li>
+           <li>Backups</li>
+           <li>High Availablity</li>
+           <li>Fault Tolerant</li>
+           <li>Provision as needed - Scalablity</li>
+           <li>Pay as you go</li>
+           <li>Elasticity - grow or shring as needed</li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Computing (EC2) - Elastic Cloud Computing</h4>
+         <ul>
+           <li>EC2 Instance
+              <ul>
+                <li>CPU</li>
+                <li>OS</li>
+                <li>Memory</li>
+                <li>Local Storage</li>
+                <li>Network Card</li>
+                <li>Firewall</li>
+              </ul>
+           </li>
+           <li>Common Use - Web Hosting</li>
+
+         </ul>
+       </section>
+
+       <section>
+         <h4>Databases (RDS) - Relational Database Service</h4>
+         <ul>
+           <li>Web service that makes it easier to set up, operate, and scale a relational database in the cloud</li>
+           <li>Each DB Instance runs DB Engine</li>
+           <li> Supports the MySQL, MariaDB, PostgreSQL, Oracle, and Microsoft SQL Server DB engines.</li>
+           <li>Network Time Protocol (NTP) to synchronize the time on DB Instances</li>
+         </ul>
+         <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html">References</a>
+       </section>
+
+       <section>
+         <h4>Storage (S3) - Simple Storage Service</h4>
+         <ul>
+           <li>Object storage built to store and retrieve any amount of data from anywher</li>
+           <li>Comprehensive security and compliance capabilities that meet even the most stringent regulatory requirements </li>
+           <li>Query-in-place functionality: analytics directly on your data at rest in S3 -  without moving the data into a separate analytics system </li>
+           <li>Amazon Athena (uses Presto) is an interactive query service that makes it easy to analyze data in  S3 using standard SQL</li>
+           <li>Uses machine learning to automatically discover, classify, and protect sensitive data in AWS</li>
+           <li> Formats: CSV, JSON, ORC, Avro, and Parquet</li>
+          <li>Security standards: PCI-DSS, HIPAA/HITECH, FedRAMP, EU Data Protection Directive, and FISMA </li>
+         </ul>
+       </section>
+       <section>
+         <h4>Data Formats</h4>
+         <ul>
+           <li>OCR - self-describing type-aware columnar file format designed for Hadoop workloads</li>
+           <li>Avro is a data serialization system which relies on schemas</li>
+           <li>Parquet is a columnar storage format available to any project in the Hadoop ecosystem</li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Presto: https://prestodb.io</h4>
+         <ul>
+           <li>Presto is an open-source distributed SQL query engine optimized for low-latency, ad-hoc analysis of data</li>
+           <li>It supports the ANSI SQL standard, including complex queries, aggregations, joins, and window functions</li>
+           <li>It can process data from multiple data sources including the Hadoop Distributed File System (HDFS) and Amazon S3.</li>
+         </ul>
+       </section>
+
+
+       <section>
+         <h4>Amazon Redshift - Data warehouse</h4>
+         <ul>
+           <li> Fast, fully managed <b>data warehouse</b> that makes it simple and cost-effective to analyze
+                all your data using <b>standard SQL</b> and your existing Business Intelligence (BI) tools.</li>
+
+            <li>Loadup the cluster and connect a BI tool </li>
+            <li>
+            Uses -  Columnar storage on high-performance local disks, and massively parallel query execution
+          </li>
+          <li>Monitoring and Backup </li>
+          <li> Under $1,000 / TB / Year </li>
+
+         </ul>
+         <a target="_blank" href="https://youtu.be/AUvn49gey8Y">Amazon Redshift </a>
+       </section>
+
+       <section>
+         <h4>BI tools supported with Redshift</h4>
+         <ul>
+           <li>Jaspersoft</li>
+           <li>Microstrategy</li>
+           <li>Hitachi Pentaho</li>
+           <li>Tableau</li>
+           <li>Business Objects</li>
+           <li>IBM Cognos</li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Redshift Architecture</h4>
+          <ul>
+            <li>Amazon Redshift is based on PostgreSQL 8.0.2</li>
+            <li>PostgreSQL + MPP (- massive parallel processing - scale it horizontally upto 128 compute nodes)
+              + Columnar Storage Engine
+              + OLAP ( online analytic processing) </li>
+          </ul>
+         <img height="400" src="img/aws/redshit-psql.png"/>
+       </section>
+
+       <section>
+         <h4>Redshift Architecture</h4>
+         <img height="400" src="img/aws/redshift-arch2.png"/>
+       </section>
+
+       <section>
+         <h4>Redshift Architecture</h4>
+         <img height="400" src="img/aws/redshit-1.png"/>
+       </section>
+
+
+
+       <section>
+         <h4>Columnar Database</h4>
+         <ul>
+           <li>Optimized for reading and writing <b>columns</b> of data as opposed to <b>rows</b> of data </li>
+           <li>Important factor in analytic query performance</li>
+           <li>Drastically reduces the overall disk I/O requirements </li>
+         </ul>
+         <a target="_blank" href="https://docs.aws.amazon.com/redshift/latest/dg/c_columnar_storage_disk_mem_mgmnt.html">Columnar Storage</a>
+       </section>
+
+
+
+       <section>
+         <h4>Amazon Elastic Block Store (EBS)</h4>
+         <ul>
+           <li>Provides persistent block storage volumes for use with Amazon EC2 instances </li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>VPC - Virtual Private Cloud</h4>
+         <ul>
+           <li>Lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources
+              in a virtual network that you define</li>
+          <li>
+
+            You have complete control over your virtual networking environment - including selection of your own IP address range
+          </li>
+          <li> creation of subnets, and configuration of route tables and network gateways.</li>
+          <li> You can use both IPv4 and IPv6 in your VPC for secure and easy access to resources and applications</li>
+          </li>
+         </ul>
+       </section>
+
+
+    </div>
+  </div>
+
+
+
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
+
+
+  <script>
+    'use strict';
+
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+      //width: 960,
+      //	height: 700,
+
+      // Display presentation control arrows
+      controls: true,
+
+      // Help the user learn the controls by providing hints, for example by
+      // bouncing the down arrow when they first encounter a vertical slide
+      controlsTutorial: true,
+
+      // Determines where controls appear, "edges" or "bottom-right"
+      controlsLayout: 'edges',
+
+      // Visibility rule for backwards navigation arrows; "faded", "hidden"
+      // or "visible"
+      controlsBackArrows: 'faded',
+      // Display a presentation progress bar
+      progress: true,
+
+      // Set default timing of 2 minutes per slide
+      defaultTiming: 120,
+
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
+
+
+      history: true,
+      center: true,
+      slideNumber: true,
+
+      embedded: true,
+
+      transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+      menu: {
+        markers: true,
+        openSlideNumber: true,
+        themes: [{
+            name: 'Black',
+            theme: '../reveal.js/css/theme/black.css'
+          },
+          {
+            name: 'White',
+            theme: '../reveal.js/css/theme/white.css'
+          },
+          {
+            name: 'League',
+            theme: '../reveal.js/css/theme/league.css'
+          },
+          {
+            name: 'Sky',
+            theme: '../reveal.js/css/theme/sky.css'
+          },
+          {
+            name: 'Beige',
+            theme: '../reveal.js/css/theme/beige.css'
+          },
+          {
+            name: 'Simple',
+            theme: '../reveal.js/css/theme/simple.css'
+          },
+          {
+            name: 'Serif',
+            theme: '../reveal.js/css/theme/serif.css'
+          },
+          {
+            name: 'Blood',
+            theme: '../reveal.js/css/theme/blood.css'
+          },
+          {
+            name: 'Night',
+            theme: '../reveal.js/css/theme/night.css'
+          },
+          {
+            name: 'Moon',
+            theme: '../reveal.js/css/theme/moon.css'
+          },
+          {
+            name: 'Solarized',
+            theme: '../reveal.js/css/theme/solarized.css'
+          }
+        ],
+        custom: []
+      },
+
+      // Optional reveal.js plugins
+      dependencies: [{
+          src: '../reveal.js/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          condition: function() {
+            return !!document.querySelector('pre code');
+          },
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: '../reveal.js/plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/reveal.js-menu/menu.js',
+          async: true
+        }
+      ]
+    });
+
+
+
+    var app = angular.module('app', [
+      'hc.marked'
+    ]);
+    app.config(['markedProvider', function(markedProvider) {
+      markedProvider.setOptions({
+        gfm: true
+      });
+    }]);
+
+    var GSCOPE;
+    app.controller('MainCtrl', function($scope, $http, $timeout) {
+      GSCOPE = $scope; // debugging purposes
+      $scope.appName="AWS";
+
+
+
+    })
+  </script>
+</body>
+
+</html>
