@@ -292,6 +292,58 @@ $ <b>cat geolocation/sfdx-project.json</b>
      </section>
 
      <section>
+       <h4>Scratch Org Limits</h4>
+       <ul>
+         <li> A scratch org expires in 7 days unless you set a duration when you create it (max: 30 days)</li>
+         <li>200 MB for data, 50 MB for files</li>
+       </ul>
+       <img style="border:0px;" src="img/dx/sorg-limits.png" alt="">
+     </section>
+
+     <section>
+       <h4>List Active and Daily Scratch Orgs</h4>
+       <pre style="font-size:12px;">
+
+$ <b>sfdx force:limits:api:display -u DevHub</b>
+NAME                                   REMAINING  MAXIMUM
+─────────────────────────────────────  ─────────  ─────────
+ActiveScratchOrgs                      18         20
+ConcurrentAsyncGetReportInstances      200        200
+ConcurrentSyncReportRuns               20         20
+DailyApiRequests                       14998      15000
+DailyAsyncApexExecutions               250000     250000
+DailyBulkApiRequests                   10000      10000
+DailyDurableGenericStreamingApiEvents  10000      10000
+DailyDurableStreamingApiEvents         10000      10000
+DailyGenericStreamingApiEvents         10000      10000
+DailyScratchOrgs                       40         40
+DailyStreamingApiEvents                10000      10000
+DailyWorkflowEmails                    150        150
+DataStorageMB                          1073       1073
+DurableStreamingApiConcurrentClients   20         20
+FileStorageMB                          1073       1073
+HourlyAsyncReportRuns                  1200       1200
+HourlyDashboardRefreshes               200        200
+HourlyDashboardResults                 5000       5000
+HourlyDashboardStatuses                999999999  999999999
+HourlyODataCallout                     10000      10000
+HourlySyncReportRuns                   500        500
+HourlyTimeBasedWorkflow                50         50
+MassEmail                              10         10
+PermissionSets                         1500       1500
+SingleEmail                            15         15
+StreamingApiConcurrentClients          20         20
+       </pre>
+     </section>
+
+     <section>
+       <h4>Scratch Org Parameters</h4>
+       <img style="border:0px;"  height="500" src="img/dx/edit-sorg.png" alt="">
+     </section>
+
+     </section>
+
+     <section>
        <h4>Create Scratch Org</h4>
         <pre style="font-size:11px;padding:5px;">
 $ <b>sfdx force:org:create -h</b>
@@ -1275,6 +1327,31 @@ $ sfdx force:org:open -u geolocationTestScratch1
 <section>
   <h4>Inline CodeScan</h4>
   <img height="500" src="img/dx/vsc-pmd-extn-4.png" alt="">
+</section>
+
+<section>
+  <h4>Extending SFDX - plugins</h4>
+  <pre>
+
+
+$ <b>sfdx plugins</b>
+mc-sfdx-code-generator 0.0.1 (link)
+
+$ <b>sfdx mc:code:gen -h </b>
+Usage: sfdx mc:code:gen
+
+create source from a template
+
+Flags:
+ -n, --name NAME            (required) file or bundle name
+ -d, --outputdir OUTPUTDIR  (required) folder for saving the created files
+ -t, --template TEMPLATE    (required) code template name
+ -v, --vars VARS            variables required by the template
+
+help text for mc:code:gen
+  </pre>
+
+
 </section>
 
 

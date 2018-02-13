@@ -183,8 +183,9 @@
 
        <section>
          <h4>PI calculation sample code</h4>
-         <pre style="font-size: 13px;">
+         <pre style="font-size: 16px;">
 $ cat pi.scala
+<code>
 val NUM_SAMPLES = 100000
 
 val count = sc.parallelize(1 to NUM_SAMPLES).filter { _ =>
@@ -193,7 +194,7 @@ val y = math.random
 x*x + y*y < 1
 }.count()
 println(s"Pi is roughly ${4.0 * count / NUM_SAMPLES}")
-
+</code>
 // running:
 
 scala> :load pi.scala
@@ -208,9 +209,8 @@ Pi is roughly 3.1424
 
 <section>
   <h4>File chars length example</h4>
- <pre style="font-size:14px;">
-
-
+ <pre style="font-size:18px;">
+   <code>
 scala> val textFile = sc.textFile("/Users/mchinnappan/text-docs/t8.shakespeare.txt")
 textFile: org.apache.spark.rdd.RDD[String] = /Users/mchinnappan/text-docs/t8.shakespeare.txt MapPartitionsRDD[16] at textFile at <console>:24
 
@@ -219,13 +219,15 @@ lineLengths: org.apache.spark.rdd.RDD[Int] = MapPartitionsRDD[17] at map at <con
 
 scala> val totalLength = lineLengths.reduce(_ + _)
 totalLength: Int = 5333743
+</code>
  </pre>
 </section>
 
 <section>
   <h4>Spark Dataframe</h4>
 
- <pre style="font-size:14px;">
+ <pre style="font-size:16px;">
+  <code>
 scala> import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.SparkSession
 
@@ -249,6 +251,7 @@ scala> df.show()
 | 83| Niklaus Wirth|
 | 63|      Bill Joy|
 +---+--------------+
+</code>
 </pre>
 
 </section>
@@ -256,14 +259,13 @@ scala> df.show()
 <section>
   <h4>Spark Dataframe - Contd.</h4>
 
- <pre style="font-size:14px;">
+ <pre style="font-size:16px;">
 
+<code>
 scala> df.printSchema()
 root
  |-- age: long (nullable = true)
  |-- name: string (nullable = true)
-
-
 scala> df.select("name").show()
 +--------------+
 |          name|
@@ -274,6 +276,7 @@ scala> df.select("name").show()
 | Niklaus Wirth|
 |      Bill Joy|
 +--------------+
+</code>
 </pre>
 </section>
 
