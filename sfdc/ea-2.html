@@ -144,6 +144,46 @@
       </section>
 
       <section>
+        <h4>Date</h4>
+        <ul>
+          <li> Can be represented as a day, month, year, and, optionally, time. You can group, filter, and perform math on dates.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Replication</h4>
+        <ul style="font-size:30px;">
+          <li>Use to extract data from its source and load it into intermediate unregistered datasets</li>
+          <li>These replicated datasets are available for use in dataflows and dataset recipes. </li>
+          <li> Decouples the extract of <b>Salesforce data</b> from your dataflows, letting you run it on a separate schedule</li>
+          <li> Extracts <b>Salesforce data</b> incrementally by default, meaning that <b>only data that’s changed gets extracted</b></li>
+          <li>Benefits
+             <ul>
+               <li>optimizes your dataflows by extracting your <b>Salesforce data in a separate job ahead of time</b></li>
+               <li>comes with a <b>host of connectors</b> that let you connect to external data and replicate it,
+                  ready for use in your dataflows and recipes.
+</li>
+             </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Analytics Connectors</h4>
+        <img style="border:0px;" height="250" src="https://resources.help.salesforce.com/images/bdd0046783d6ba61d7dcb7f089af9203.png" alt="">
+        <ul style="font-size:20px">
+          <li>Use a connector to create a connection to a data source, such as another Salesforce org or an Amazon Redshift data warehouse.
+             Then use that connection to replicate all the objects that you need from the source.
+            <hr/> You can then prepare the data in these replications, using a dataset recipe or a dataflow, to create your final dataset.
+            <hr/>
+            The Salesforce Local Connector is the default connector.
+            If you’re currently using replication for objects in your local Salesforce org, you are already using this connector.
+          </li>
+        </ul>
+        <a style="font-size:25px" href="https://help.salesforce.com/articleView?id=bi_integrate_connectors.htm&type=5">Reference</a>
+      </section>
+
+      <section>
         <h4>Dataset Recipe</h4>
         <ul>
           <li>A dataset recipe is a user-interface tool that lets you take data from your existing datasets and replications,
@@ -169,7 +209,11 @@
           <hr/>
            When you run a recipe, it applies the transformations and outputs the results to a new target dataset.
           <hr/>
-          You can schedule a recipe to run on a recurring basis to keep your target dataset up to date.</li>
+          You can schedule a recipe to run on a recurring basis to keep your target dataset up to date.
+          <hr/>
+          This new dataset can then be used as a standalone dataset for exploration or dashboard creation, or used in your dataflows or other recipes.
+        </li>
+
       </ul>
       </section>
 
