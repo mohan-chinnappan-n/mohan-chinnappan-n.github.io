@@ -406,6 +406,55 @@ Notice that the number changes <b>from</b> showing the total value for all sales
   <img height="500" style="border:0px;" src="img/ea2/using-saql.png" alt="">
 </section>
 
+<section>
+  <h4>Null Handling</h4>
+  <ul style="font-size:30px;">
+    <li>EA can use data from Salesforce or from an external data source.
+      <br/>
+       To prevent data quality issues,
+        EA will disregard any fields in Salesforce (or columns in external data) that are entirely null.
+      </li>
+      <li>For Salesforce data: Use the defaultValue override in the dataflow definition.
+      <pre style="font-size:15px;">
+        {
+   "Extract_Opportunities": {
+      "action": "sfdcDigest",
+      "parameters": {
+         "object": "Opportunity",
+         "fields": [
+            { "name": "Id" },
+            { "name": "Name" },
+            {
+               "name": "Amount",
+               <b>"defaultValue":0,</b>
+               "precision":18,
+               "scale":2
+            },
+            ...
+      </pre>
+        </li>
+      <li>For external data columns: Use the defaultValue override in the metadata schema.</li>
+  </ul>
+</section>
+
+<section>
+  <h4>Null Handling - contd.</h4>
+<ul style="font-size:33px;">
+  <li>
+    Null measure handling is important because it affects the results of certain calculations.
+    Without null measure handling (when no default value is specified), Analytics replaces <b>blanks</b> in your data with <b>zeros</b>,
+     and <b>you can’t specify nulls as default values</b> in your dataflows
+  </li>
+  <li>Replacing blank values with zeros can be problematic for a number of reasons - calculating <b>average, minimum</b> will have issues</li>
+</ul>
+<img src="https://resources.help.salesforce.com/images/031a1726ffd7f3fa1aa70370e0d7960f.png" alt="">
+<img src="https://resources.help.salesforce.com/images/98faf09eaa1b85ae7eb498294071ff05.png" alt="">
+
+ <a style="font-size:20px;" href="https://help.salesforce.com/articleView?id=bi_integrate_null_measures.htm&type=5">Reference</a>
+
+
+</section>
+
 
 
 
