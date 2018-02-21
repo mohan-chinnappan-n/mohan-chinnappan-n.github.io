@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="MainCtrl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{appName}}</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/navbar-green.css">
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/data-markdown.user.js"></script>
+
+
+  <script src="../bower_components/marked/marked.min.js"></script>
+  <script src="../bower_components/angular-marked/dist/angular-marked.js"></script>
+
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../reveal.js/css/theme/white.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+    		<![endif]-->
+
+  <style>
+    .reveal .slide-number {
+      font-size: 0.5em;
+    }
+
+    .simg {
+      border-radius: 10px;
+      border: 1px;
+    }
+
+    .reveal section ul li,
+    .reveal section p {
+      font-size: .8em !important;
+    }
+
+    .reveal section pre code {
+      font-size: 0.7em !important;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">{{appName}}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+      <div class="inner-addon right-addon navbar-form navbar-right">
+        <i class="glyphicon glyphicon-search"></i>
+        <input type="text" class="form-control" placeholder="Search" />
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown ">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="./help.html">Help Topics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <!--
+  <div class="container" ng-controller='MainCtrl'>
+    <div marked src="'pevents.md'"></div>
+  </div>
+-->
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section id="home">
+        <h4>{{appName}}</h4>
+       </section>
+
+      <section>
+        <h4>Key Concepts</h4>
+      </section>
+
+      <section>
+        <h4>Visualization</h4>
+        <ul>
+          <li>
+            Commonly a chart or graph, such as a bar chart, donut chart,
+            timeline, or heat map.
+            It can also be data in tabular form, such as a comparison table or pivot table.
+            Every visualization has an underlying <b>query</b>, which is how Analytics retrieves information from the <b>source data</b>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Measure</h4>
+         <ul>
+          <li>
+            Quantitative value, like revenue and exchange rate.
+             You can do math on measures, such as calculating the total revenue and minimum exchange rate.<br/>
+             A measure is typically aggregated in some way, which means that it’s displayed with some math already applied to it.
+             For example, when you first view a dataset, you often see a simple aggregation such as the <b>count of the number of rows</b>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Dataset Recipe</h4>
+        <ul>
+          <li>A dataset recipe is a user-interface tool that lets you take data from your existing datasets and replications,
+            prepare it, and output the results to a new dataset.</li>
+        </ul>
+        <img style="border:0px;" height="300" src="https://resources.help.salesforce.com/images/a9832e1113286b27f553b45a4ce483f3.png" alt="">
+      </section>
+
+       <section>
+      <h4>Dataset Recipe - contd.</h4>
+      <ul style="font-size:30px;">
+        <li>
+           Use a recipe to
+            <ul>
+              <li>combine data from multiple datasets or replications</li>
+              <li>bucket the data</li>
+              <li>add formula fields</li>
+              <li>cleanse the data by transforming field values</li>
+              <li> remove fields and filter rows that you don’t need, before you create the target dataset.</li>
+            </ul>
+        </li>
+        <li>A dataset recipe is simply a <b>saved set of transformations, or steps, that you want to perform on a specific source dataset or replication</b>.
+          <hr/>
+           When you run a recipe, it applies the transformations and outputs the results to a new target dataset.
+          <hr/>
+          You can schedule a recipe to run on a recurring basis to keep your target dataset up to date.</li>
+      </ul>
+      </section>
+
+
+
+      <section>
+        <h4>Dimension</h4>
+        <ul>
+          <li>
+            A dimension is a qualitative value, like region, product name, and model number.
+             Dimensions are handy for grouping and filtering your data.
+             Unlike measures, <b>you can’t perform math on dimensions</b>.
+             Like measures, dimensions also have names (region) and values (northeast).
+            Time is usually considered a dimension rather than a measure.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Dashboard</h4>
+        <ul style="font-size:35px;">
+          <li>Collection of widgets (performance indicators, charts, tables, filters, and images) that work together to tell a data story from multiple angles</li>
+          <li>
+            When you <b>share Analytics data</b> via a <b>dashboard</b>,
+            you’re setting up your audience members to do some exploring of their own,
+            without turning them <b>loose on the whole dataset</b>.
+          </li>
+          <li>
+            A dataset can contain vast amounts of data. Some of that data is relevant to specific questions
+            that your audience has; some of that data is <b>irrelevant noise</b>.
+            Data that’s <b>critical</b> to one set of questions is sometimes noise in relation to another set of questions.
+          </li>
+          <li>Dashboard is for carrying on a conversation based on one or more datasets that matter to your company</li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Key Elements of Dashboard</h4>
+
+        <img height="500" src="img/ea/dashboard-1.png" alt="">
+      </section>
+
+      <section>
+        <h4>Selection-Based Filters</h4>
+          <ul style="font-size:35px;">
+          <li>
+A selection-based filter lets you apply whatever filters you wish while viewing the dashboard.
+For example, set the minimum and maximum values in a range widget to make the dashboard show the amounts that fall within that range.
+<hr/>
+These types of filters are often tied to each other so that you can <b>progressively drill deeper</b>.
+ For example, use one filter to look at <b>sales</b> of a product. Then use the next to filter sales by <b>region</b>.
+ Finally, use another to filter sales by <b>account</b>.
+ The dashboard shows the results based on all <b>three</b> filters.
+ There are different types of selection-based filter widgets: date, list, range, and toggle.</li>
+        </ul>
+      </section>
+
+<section>
+  <h4>Key Performance Indicators (KPI)</h4>
+  <ul>
+    <li>
+Some information is best measured by <b> a single number</b>, also known a key performance indicator (KPI).
+Some number elements can be filtered based on selections in charts and filters.
+<hr/>
+For example, in a bar chart that shows individual salespeople’s pipelines, click a bar to focus on a particular person’s pipeline.
+Notice that the number changes <b>from</b> showing the total value for all salespeople <b>to</b>
+ show the value for the selected person.</li>
+  </ul>
+</section>
+
+<section>
+  <h4>Charts</h4>
+  <ul>
+    <li>A rich variety of <b>charts</b> shows you data from multiple angles.
+      Many parts of a chart are <b>interactive</b>.
+      <hr/>
+       For example, click a bar in a bar chart and watch what happens.
+       Clicking a bar filters the query that the bar chart represents.
+      Your revision changes other values in this chart, values in other charts, and number displays.</li>
+  </ul>
+</section>
+
+<section>
+  <h4>Tables</h4>
+  <ul>
+    <li>
+      A table provides the record-level details.
+      <hr/>
+       For example, a chart can show you a performance summary for each region,
+       but the table can show you the opportunity-specific details. You can sort tables to show the top and bottom records.
+      You can also create calculated columns (derived columns) in tables to compute values based on existing data.
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h4>Ask your data question - using explorer</h4>
+  <img style="border:0px;" height="500" src="img/ea2/explorer.png" alt="">
+
+</section>
+
+
+<section>
+  <h4>Ask your data question - using explorer - query</h4>
+  <ul style="font-size:30px;">
+    <li>
+    Use the left panel [1] of the explorer to create your query.
+    </li>
+    <li>You can perform calculations (referred to as <b>measures</b>), like sum of amount or average case duration</li>
+    <li>To break down the measure across different areas, <b>group it</b> by descriptive fields (known as dimensions), like region or owner. </li>
+    <li>To find the top or bottom performers, sort the measure in descending or ascending order.</li>
+    <li>Apply <b>filters</b> to focus on a subset of the results.</li>
+  </ul>
+</section>
+
+<section>
+  <h4>Visual representation of the query results</h4>
+    <ul style="font-size:30px;">
+    <li>The middle explorer panel [2] shows a visual representation of the query results.
+      You can display the results as a chart or table.
+      <hr/>
+       When in <b>chart mode</b>, you can choose which chart type to use.
+       <hr/>
+       When in <b>table mode</b> you can display the dataset records as a values table or
+
+        create calculated fields and display them in a compare table.</li>
+  </ul>
+</section>
+
+<section>
+  <h4>Visualization properties</h4>
+  <ul style="font-size:30px;">
+    <li>The right explorer panel [3] shows the visualization properties—configure them to modify the appearance of the chart or table.
+  <hr/>
+   For instance, you can remove the legend, change the axis scale, or add a title.</li>
+  </ul>
+</section>
+
+<section>
+  <h4>Using SAQL for advanced query</h4>
+  <img height="500" style="border:0px;" src="img/ea2/using-saql.png" alt="">
+</section>
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
+
+
+  <script>
+    'use strict';
+
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+      //width: 960,
+      //	height: 700,
+
+      // Display presentation control arrows
+      controls: true,
+
+      // Help the user learn the controls by providing hints, for example by
+      // bouncing the down arrow when they first encounter a vertical slide
+      controlsTutorial: true,
+
+      // Determines where controls appear, "edges" or "bottom-right"
+      controlsLayout: 'edges',
+
+      // Visibility rule for backwards navigation arrows; "faded", "hidden"
+      // or "visible"
+      controlsBackArrows: 'faded',
+      // Display a presentation progress bar
+      progress: true,
+
+      // Set default timing of 2 minutes per slide
+      defaultTiming: 120,
+
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
+
+
+      history: true,
+      center: true,
+      slideNumber: true,
+
+      embedded: true,
+
+      transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+      menu: {
+        markers: true,
+        openSlideNumber: true,
+        themes: [{
+            name: 'Black',
+            theme: '../reveal.js/css/theme/black.css'
+          },
+          {
+            name: 'White',
+            theme: '../reveal.js/css/theme/white.css'
+          },
+          {
+            name: 'League',
+            theme: '../reveal.js/css/theme/league.css'
+          },
+          {
+            name: 'Sky',
+            theme: '../reveal.js/css/theme/sky.css'
+          },
+          {
+            name: 'Beige',
+            theme: '../reveal.js/css/theme/beige.css'
+          },
+          {
+            name: 'Simple',
+            theme: '../reveal.js/css/theme/simple.css'
+          },
+          {
+            name: 'Serif',
+            theme: '../reveal.js/css/theme/serif.css'
+          },
+          {
+            name: 'Blood',
+            theme: '../reveal.js/css/theme/blood.css'
+          },
+          {
+            name: 'Night',
+            theme: '../reveal.js/css/theme/night.css'
+          },
+          {
+            name: 'Moon',
+            theme: '../reveal.js/css/theme/moon.css'
+          },
+          {
+            name: 'Solarized',
+            theme: '../reveal.js/css/theme/solarized.css'
+          }
+        ],
+        custom: []
+      },
+
+      // Optional reveal.js plugins
+      dependencies: [{
+          src: '../reveal.js/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          condition: function() {
+            return !!document.querySelector('pre code');
+          },
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: '../reveal.js/plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/reveal.js-menu/menu.js',
+          async: true
+        }
+      ]
+    });
+
+
+
+    var app = angular.module('app', [
+      'hc.marked'
+    ]);
+    app.config(['markedProvider', function(markedProvider) {
+      markedProvider.setOptions({
+        gfm: true
+      });
+    }]);
+
+    var GSCOPE;
+    app.controller('MainCtrl', function($scope, $http, $timeout) {
+      GSCOPE = $scope; // debugging purposes
+      $scope.appName="Einstein Analytics";
+
+
+
+    })
+  </script>
+</body>
+
+</html>
