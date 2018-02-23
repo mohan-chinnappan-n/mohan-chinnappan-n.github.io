@@ -818,6 +818,78 @@ scala> jdbcDF2.show()
 </pre>
 </section>
 
+
+<section>
+  <h4>Pivot</h4>
+
+  <pre style="font-size:15px;padding:10px;">
+var df = spark.read.json("/Users/mchinnappan/farming/fruitStock.json")
+df.show()
++----------+-------+---+
+|      date|  fruit| id|
++----------+-------+---+
+|2018-01-01|  Apple| 1f|
+|2018-01-02|  Apple| 2f|
+|2018-02-01|   Pear| 3f|
+|2018-03-01|  Mango| 4f|
+|2018-04-01|   Pear| 5f|
+|2018-05-01|Apricot| 6f|
+|2018-06-01|  Peach| 7f|
+|2018-06-01|  Apple| 8f|
++----------+-------+---+
+scala> val result = df.withColumn("date", date_format(col("date"), "MMM yyyy"))
+                      .groupBy("fruit")
+                      .pivot("date")
+                      .agg(countDistinct("id").alias("count")).na.fill(0)
+scala> result.show()
++-------+--------+--------+--------+--------+--------+--------+
+|  fruit|Apr 2018|Feb 2018|Jan 2018|Jun 2018|Mar 2018|May 2018|
++-------+--------+--------+--------+--------+--------+--------+
+|  Peach|       0|       0|       0|       1|       0|       0|
+|   Pear|       1|       1|       0|       0|       0|       0|
+|  Mango|       0|       0|       0|       0|       1|       0|
+|Apricot|       0|       0|       0|       0|       0|       1|
+|  Apple|       0|       0|       2|       1|       0|       0|
++-------+--------+--------+--------+--------+--------+--------+
+
+# ref: https://databricks.com/session/pivoting-data-with-sparksql
+
+  </pre>
+</section>
+
+<section>
+  <h4>Stack</h4>
+  <pre style="font-size:15px;padding:10px;">
+val df = Seq(
+             ("G",Some(4),2,None),
+             ("H",None   ,4,Some(5))
+            )
+         .toDF("A","X","Y", "Z")
+df.show()
++---+----+---+----+
+|  A|   X|  Y|   Z|
++---+----+---+----+
+|  G|   4|  2|null|
+|  H|null|  4|   5|
++---+----+---+----+
+
+df.select($"A", expr("stack(3, 'X', X, 'Y', Y, 'Z', Z) as (B, C)"))
+  .where("C is not null").show
+
++---+---+---+
+|  A|  B|  C|
++---+---+---+
+|  G|  X|  4|
+|  G|  Y|  2|
+|  H|  Y|  4|
+|  H|  Z|  5|
++---+---+---+
+
+# Ref: https://svds.com/pivoting-data-in-sparksql/
+
+  </pre>
+</section>
+
 <section>
   <h4>Structured Streaming</h4>
   <img style="border:0px;" src="https://spark.apache.org/docs/latest/img/structured-streaming-stream-as-a-table.png" alt="">
