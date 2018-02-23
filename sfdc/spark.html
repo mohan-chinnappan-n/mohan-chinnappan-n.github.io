@@ -823,7 +823,7 @@ scala> jdbcDF2.show()
   <h4>Pivot</h4>
 
   <pre style="font-size:15px;padding:10px;">
-var df = spark.read.json("/Users/mchinnappan/farming/fruitStock.json")
+var df = spark.read.json("/tmp/farming/fruitStock.json")
 df.show()
 +----------+-------+---+
 |      date|  fruit| id|
@@ -856,6 +856,79 @@ scala> result.show()
 
   </pre>
 </section>
+
+<section>
+  <h4>Pivot - contd.</h4>
+    <pre style="font-size:15px;padding:10px;">
+val ratings_raw = sc.textFile("/Users/mchinnappan/farming/ml-1m/ratings.dat")
+case class Rating(user:Int, movie:Int, rating: Int)
+val ratings = ratings_raw.map(_.split("::").map(_.toInt)).map(r => Rating(r(0),r(1),r(2))).toDF
+scala> ratings.show
++----+-----+------+
+|user|movie|rating|
++----+-----+------+
+|   1| 1193|     5|
+|   1|  661|     3|
+|   1|  914|     3|
+|   1| 3408|     4|
+|   1| 2355|     5|
+|   1| 1197|     3|
+|   1| 1287|     5|
+|   1| 2804|     5|
+|   1|  594|     4|
+...
+
+val users_raw = sc.textFile("/Users/mchinnappan/farming/ml-1m/users.dat")
+case class User(user:Int, gender:String, age: Int)
+val users = users_raw.map(_.split("::")).map( u => User(u(0).toInt, u(1), u(2)toInt)).toDF
+scala> users.show
++----+------+---+
+|user|gender|age|
++----+------+---+
+|   1|     F|  1|
+|   2|     M| 56|
+|   3|     M| 25|
+|   4|     M| 45|
+|   5|     M| 25|
+|   6|     F| 50|
+...
+
+
+
+    </pre>
+</section>
+
+<section>
+  <h4>Pivot - contd..</h4>
+    <pre style="font-size:15px;padding:10px;">
+      val sample_users = users.where( expr("gender = 'F' or ( rand() * 5 < 2)"))
+      scala> sample_users.groupBy("gender").count().show()
+      +------+-----+
+      |gender|count|
+      +------+-----+
+      |     F| 1709|
+      |     M| 1691|
+
+      # 100 most popular movies
+      scala> val popular = ratings.groupBy("movie").count().orderBy($"count".desc).limit(100)
+      scala> popular.show()
+      +-----+-----+
+      |movie|count|
+      +-----+-----+
+      | 2858| 3428|
+      |  260| 2991|
+      | 1196| 2990|
+    </pre>
+
+
+</section>
+
+
+<section>
+<h4>Pivot - contd...</h4>
+<img style="border:0px;" src="img/spark/pivot-spark.png" alt="">
+</section>
+
 
 <section>
   <h4>Stack</h4>
