@@ -407,6 +407,12 @@ Notice that the number changes <b>from</b> showing the total value for all sales
 </section>
 
 <section>
+  <h4>Computed Columns</h4>
+  <img  height="500" style="border:0px;" src="img/ea2/ea-computed-cols.gif" alt="">
+</section>
+
+
+<section>
   <h4>Null Handling</h4>
   <ul style="font-size:30px;">
     <li>EA can use data from Salesforce or from an external data source.
@@ -457,6 +463,123 @@ Notice that the number changes <b>from</b> showing the total value for all sales
 <a style="font-size:20px;" href="https://help.salesforce.com/articleView?id=bi_integrate_null_measures.htm&type=5">Reference</a>
 
 </section>
+
+<section>
+  <h4>Dashboard JSON</h4>
+ <ul>
+   <li>Easy way: using designer</li>
+   <li>JSON defines the components of the dashboard and how they interact</li>
+   <li>TJSON consists of properties that define layouts, pages, widgets, and steps.</li>
+   <li>Customization: Editing Dashboard JSON files
+    <ul>
+      <li>
+        Manually set up bindings to override the default faceting behavior
+        & specify the relationships between the steps that aren’t bound by default.
+      </li>
+      <li>Set Query Limits</li>
+      <li>Specify columns for a values table</li>
+      <li>Specify a SAQL query </li>
+      <li>Populate a filter selector with a specified list of <b>static values</b> instead of from a query</li>
+      <li>Set up layouts for mobile devices for a dashboard</li>
+
+    </ul>
+   </li>
+
+ </ul>
+
+
+
+
+</section>
+
+
+<section>
+  <h4>Dashboard JSON - contd.</h4>
+  <img style="border:0px;" src="img/ea2/ea2-dashboard-3.png" alt="">
+</section>
+
+<section>
+  <h4>Dashboard JSON - contd..</h4>
+  <img style="border:0px;" src="img/ea2/ea2-dashborad-json.png" alt="">
+</section>
+
+<section>
+  <h4>Dashboard JSON high level properties</h4>
+  <ul style="font-size:30px;">
+    <li>label - name of the dashboard</li>
+    <li>mobileDisabled - can be accessed in the mobile app</li>
+    <li>description</li>
+    <li>state</li>
+    <li>datasets - specifies all datasets used by steps in the dashboard. </li>
+
+  </ul>
+  <pre style="font-size:10px;">
+
+    "label": "Fruits Summary",
+    "mobileDisabled": false,
+
+    "state": {
+        "dataSourceLinks": [],
+        ...
+        "steps": {
+
+        }
+    }
+
+    datasets": [
+        {
+            "id": "0Fb1N000000LZYbSAO",
+            "label": "fruitStock",
+            "name": "fruitStock",
+            "url": "/services/data/v42.0/wave/datasets/0Fb1N000000LZYbSAO"
+        },
+        {
+            "id": "0Fb1N000000LZYgSAO",
+            "label": "fruitPrice",
+            "name": "fruitPrice",
+            "url": "/services/data/v42.0/wave/datasets/0Fb1N000000LZYgSAO"
+        },
+        {
+            "id": "0Fb1N000000LZYlSAO",
+            "label": "fruitPriceStock",
+            "name": "fruitPriceStock",
+            "url": "/services/data/v42.0/wave/datasets/0Fb1N000000LZYlSAO"
+        }
+    ]
+
+  </pre>
+</section>
+
+<section>
+  <h4>datasourceLinks properties</h4>
+  <ul>
+    <li>fields - Array of datasources in the connection</li>
+    <li>label - Label for data source connection</li>
+    <li>name - API name for the data source connection</li>
+
+  </ul>
+</section>
+
+<section>
+  <h4>gridLayouts</h4>
+
+  <ul>
+    <li>The gridLayouts section defines all layouts built for the dashboard.</li>
+  </ul>
+  <ol>
+    <li>name - name of the layout</li>
+    <li>maxWidth - max width in pixels that dashboard can use</li>
+    <li>numColumns - number of columns in the designer grid for this layout</li>
+    <li>pages - name  and id of the page</li>
+    <li>rowHeight - height of each row</li>
+    <li>selectors - device </li>
+    <li>style</li>
+
+  </ol>
+</section>
+
+
+
 
 
 
