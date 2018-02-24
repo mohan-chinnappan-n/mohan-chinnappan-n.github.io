@@ -2,7 +2,7 @@
 
 var margin = {top: 20, right: 120, bottom: 20, left:100},
     width = 950 - margin.right - margin.left,
-    height = 800 - margin.top - margin.bottom;
+    height = 900 - margin.top - margin.bottom;
 
 var i = 0,
     duration = 750,
@@ -63,7 +63,7 @@ function update(source) {
           .on("click", function (d) {
               $('.hyper').attr('style', 'font-weight:normal');
               d3.select(this).attr('style', 'font-weight:bold');
-         
+
           })
     ;
 
@@ -73,7 +73,7 @@ function update(source) {
       .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
 
   nodeUpdate.select("circle")
-      .attr("r", 10)
+      .attr("r", 8)
       .style("fill", function(d) { return d._children ? "#ccff99" : "#fff"; });
 
   nodeUpdate.select("text")
