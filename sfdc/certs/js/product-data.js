@@ -74,13 +74,39 @@ var treeData = [
         "_children": [
         { "name": "Heroku",
                  "_children": [
-                        { "name": "Heroku Platform"},
-                        {"name": "Heroku Enterprise"},
+                        { "name": "Heroku Platform",
+                        "_children": [
+                           {"name": "Heroku Runtime"},
+                           {"name": "Heroku Developer Experience (DX)"},
+                           {"name": "Data Services and Ecosystem"},
+                           {"name": "Heroku Operational Experience (OpEx)"}
+
+
+                        ]
+
+                        },
+                        {"name": "Heroku Enterprise",
+                          "_children": [
+                             {"name": "Heroku Private Spaces"}
+                          ]
+
+                        },
                         {"name": "Heroku Connect"},
                         {"name": "Heroku Postgres"},
                         {"name": "Heroku Redis"},
                         {"name": "Apache Kafka on Heroku"},
-                        {"name": "Heroku Elements"},
+                        {"name": "Heroku Elements",
+
+                        "_children": [
+                           {"name": "Heroku Add-ons"},
+                           {"name": "Heroku Buttons"},
+                           {"name": "Heroku Buildpacks"}
+
+
+                        ]
+
+
+                        },
                         {"name": "Heroku Teams"}
                 ]
         },

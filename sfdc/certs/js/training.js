@@ -1,9 +1,9 @@
 // training.js
-var HEIGHT = 1200;
+var HEIGHT = 950;
 var WIDHT = 1200;
 var DEPTH = 180;
 
-var margin = {top: 20, right: 120, bottom: 20, left:20},
+var margin = {top: 20, right: 120, bottom: 20, left:10},
     width = WIDHT - margin.right - margin.left,
     height = HEIGHT - margin.top - margin.bottom;
 
@@ -56,7 +56,7 @@ function update(source) {
 
   nodeEnter.append("text")
       .attr("x", function(d) { return d.children || d._children ? -20 : 20; })
-      .attr("dy", ".60em")
+      .attr("dy", ".30em")
       .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
       .text(function(d) { return d.name; })
       .style("fill-opacity", 1e-6)
