@@ -60,7 +60,7 @@ var treeData = [
         { "name": "Customer Self-Service"},
         { "name": "Partner Relationship Management"}
         ]
-      },
+    },
 
 
      { "name": "Collaboration",
@@ -68,6 +68,8 @@ var treeData = [
         { "name": "Quip"},
         ]
       },
+
+
 
 
      { "name": "Platform",
@@ -116,7 +118,14 @@ var treeData = [
         { "name": "AppExchange"},
         { "name": "Communities"},
         { "name": "IoT"},
-        { "name": "myTrialhead"},
+        { "name": "Training",
+           "_children": [
+           { "name": "Trailhead"},
+           { "name": "myTrailhead"},
+
+           ]
+         },
+
 
 
 
