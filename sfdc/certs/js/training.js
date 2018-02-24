@@ -1,8 +1,11 @@
 // training.js
+var HEIGHT = 1200;
+var WIDHT = 1200;
+var DEPTH = 180;
 
-var margin = {top: 20, right: 120, bottom: 20, left:100},
-    width = 950 - margin.right - margin.left,
-    height = 900 - margin.top - margin.bottom;
+var margin = {top: 20, right: 120, bottom: 20, left:20},
+    width = WIDHT - margin.right - margin.left,
+    height = HEIGHT - margin.top - margin.bottom;
 
 var i = 0,
     duration = 750,
@@ -26,18 +29,18 @@ root.y0 = 0;
 
 update(root);
 
-d3.select(self.frameElement).style("height", "800px");
+d3.select(self.frameElement).style("height",  HEIGHT + "px");
 
+// update
 function update(source) {
-
   // Compute the new tree layout.
   var nodes = tree.nodes(root).reverse(),
       links = tree.links(nodes);
 
   // Normalize for fixed-depth.
-  nodes.forEach(function(d) { d.y = d.depth * 180; });
+  nodes.forEach(function(d) { d.y = d.depth * DEPTH; });
 
-  // Update the nodesâ€¦
+  // Update the nodes
   var node = svg.selectAll("g.node")
       .data(nodes, function(d) { return d.id || (d.id = ++i); });
 
@@ -52,8 +55,8 @@ function update(source) {
       .style("fill", function(d) { return d._children ? "#ccff99" : "#fff"; });
 
   nodeEnter.append("text")
-      .attr("x", function(d) { return d.children || d._children ? -13 : 13; })
-      .attr("dy", ".35em")
+      .attr("x", function(d) { return d.children || d._children ? -20 : 20; })
+      .attr("dy", ".60em")
       .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
       .text(function(d) { return d.name; })
       .style("fill-opacity", 1e-6)
@@ -73,7 +76,7 @@ function update(source) {
       .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
 
   nodeUpdate.select("circle")
-      .attr("r", 8)
+      .attr("r", 6)
       .style("fill", function(d) { return d._children ? "#ccff99" : "#fff"; });
 
   nodeUpdate.select("text")
@@ -91,7 +94,7 @@ function update(source) {
   nodeExit.select("text")
       .style("fill-opacity", 1e-6);
 
-  // Update the linksâ€¦
+  // Update the links¦
   var link = svg.selectAll("path.link")
       .data(links, function(d) { return d.target.id; });
 

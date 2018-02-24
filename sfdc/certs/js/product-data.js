@@ -5,7 +5,7 @@ var treeData = [
     "children": [
 
       { "name": "Sales Cloud",
-        "children": [
+        "_children": [
           { "name": "Salesforce CPQ" },
           { "name": "Sales Cloud Einstein" },
           {"name": "Pardot"},
@@ -20,7 +20,7 @@ var treeData = [
 
 
      { "name": "Service Cloud",
-        "children": [
+        "_children": [
           { "name": "Field Service Lightning" },
           { "name": "Sales Cloud Einstein" },
           { "name": "Customer Self-Service" },
@@ -34,7 +34,7 @@ var treeData = [
       },
 
      { "name": "Marketing Cloud",
-        "children": [
+        "_children": [
         { "name": "Journey Builder"},
         { "name": "Email Studio"},
         { "name": "Data Management Platform"},
@@ -48,7 +48,7 @@ var treeData = [
 
 
      { "name": "Commerce Cloud",
-        "children": [
+        "_children": [
         { "name": "Cloud Digital"},
         { "name": "Order Management"},
         { "name": "Endless Aisle"},
@@ -56,7 +56,7 @@ var treeData = [
       },
 
      { "name": "Community Cloud",
-        "children": [
+        "_children": [
         { "name": "Customer Self-Service"},
         { "name": "Partner Relationship Management"}
         ]
@@ -64,15 +64,26 @@ var treeData = [
 
 
      { "name": "Collaboration",
-        "children": [
+        "_children": [
         { "name": "Quip"},
         ]
       },
 
 
      { "name": "Platform",
-        "children": [
-        { "name": "Heroku Enterprise"},
+        "_children": [
+        { "name": "Heroku",
+                 "_children": [
+                        { "name": "Heroku Platform"},
+                        {"name": "Heroku Enterprise"},
+                        {"name": "Heroku Connect"},
+                        {"name": "Heroku Postgres"},
+                        {"name": "Heroku Redis"},
+                        {"name": "Apache Kafka on Heroku"},
+                        {"name": "Heroku Elements"},
+                        {"name": "Heroku Teams"}
+                ]
+        },
         { "name": "Shield"},
         { "name": "Identity"},
         { "name": "Connect"},
@@ -87,7 +98,7 @@ var treeData = [
 
 
         { "name": "Environments",
-            "children": [ { "name": "Sandbox"}, {"name": "Scratch Orgs"} ]
+            "_children": [ { "name": "Sandbox"}, {"name": "Scratch Orgs"} ]
 
       },
 
