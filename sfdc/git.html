@@ -117,10 +117,155 @@
 
       <section>
         <h4>Git Branching</h4>
-      </section>
+        <div class="row" style="font-size:30px;">
+          <div class="col-lg-6">
+            <div class="row" style="font-size:30px;">
+                 <img style="border:0px;" src="img/git/git-branching-1.svg" alt="">
+           </div>
+           </div>
+          <div class="col-lg-6">
+        <ul style="font-size:25px;"
+        <ul>
+          <li>Branching is a feature available in most modern version control systems (VCS) </li>
+          <li>In Git, branches are a part of your everyday development process</li>
+          <li>Effectively a pointer to a snapshot of your changes</li>
+          <li>When you want to add a new feature or fix a bug—no matter how big or how small—you
+             spawn a new branch to encapsulate your changes</li>
+          <li>This makes it harder for unstable code to get merged into the main code base,
+               and it gives you the chance to clean up your work before <b>merging</b> it into the main branch.</li>
+        </ul>
+
     </div>
   </div>
+</section>
 
+<section>
+  <h4>Branch details</h4>
+  <ul style="font-size:30px;">
+    <li>A branch represents an independent line of development.
+      Branches serve as an abstraction for the edit/stage/commit process</li>
+<li>Way to request a brand new working directory, staging area, and project history</li>
+<li>New commits are recorded in the history for the current branch, which results in a fork in the history of the project</li>
+<li>git branch command lets you create, list, rename, and delete branches</li>
+  </ul>
+  <pre style="font-size:20px;">
+    # List all the branches
+    $ git branch
+    * master
+    # Create new branch
+    $ git branch <branch_name>
+    # Delete a branch - prevents you from deleting the branch
+    #  if it has unmerged changes
+    $ git branch -d <branch_name>
+    # Force delete the specified branch
+    $ git branch -D <branch_name>
+    # Rename Branch
+    $ git branch -m  <branch_name_new>
+    # List all remote branches
+    $ git branch -a
+
+
+  </pre>
+</section>
+
+
+<section>
+  <h4>Creating Branches</h4>
+  <div class="row" style="font-size:30px;">
+    <div class="col-lg-6">
+      <div class="row" style="font-size:30px;">
+           <img style="border:0px;" src="img/git/git-branch-create-1.svg" alt="">
+           <pre style="font-size:15px;">
+
+ $ git branch
+ * master
+ $ git branch crazy-expriment
+ $ git branch
+   crazy-expriment
+ * master
+ $ git checkout crazy-experiment
+ Switched to branch 'crazy-experiment'
+           </pre>
+     </div>
+     </div>
+    <div class="col-lg-6">
+  <ul style="font-size:25px;">
+    <li>When you create a branch, all Git needs to do is create a new pointer -
+      this doesn’t change the repository in any other way</li>
+    <li>
+      <pre>git branch crazy-experiment</pre>
+      <img style="border:0px;" src="img/git/git-branch-create-2.svg" alt="">
+    </li>
+    <li>To start adding commits to it, you need to select it with git checkout,</li>
+
+  <ul>
+
+  </ul>
+
+</div>
+</div>
+</section>
+
+<section>
+  <h4>Git - Distributed VCS</h4>
+  <ul>
+    <li> Distributed version control systems give developers flexibility and freedom by
+      providing every collaborator with a copy of the entire repository at any time, including all branches
+      (lines of work) and commits (saved points in history) on a developer's local machine.</li>
+
+  </ul>
+</section>
+
+
+<section>
+  <h4>Git - Key terms</h4>
+  <ul style="font-size:30px;">
+   <li><b>Repositories</b>: A collection of source files used to compile your project</li>
+   <li>Commits: A snapshot of your project as it existed at a specific point in time.
+     You create commits as you work on your project to indicate points when you added and removed discrete units of work
+   </li>
+   <li><b>Branch</b>: A series of commits that represent the changes in your project over time.
+      Every repository has a default branch, which contains the production-ready version of your code.
+       Create additional branches when you’re working on new features, fixing bugs, or making other changes to your project.
+     These branches keep your experimental code separate from your tested production code.
+   </li>
+    <li><b>Merge</b>: The combined history of two or more branches. Most of the time, you’ll merge your <b>feature branch</b> into
+       the <b>default</b> or deployed branch of the repository in order to move the features into production.
+     </li>
+
+     <li><b>Tag</b>: A pointer to a specific commit, which provides a persistent reference to an event.
+       Typically, tags are used with semantic versioning to represent points when your application was released - v1.1</li>
+  </ul>
+</section>
+
+<section>
+<h4>GitHub Collaboration Features </h4>
+<ul style="font-size:30px;">
+  <li>GitHub serves as a <b>remote</b>, giving developers an accessible source of truth for their shared work</li>
+  <li><b>Issues</b>: Have general discussions about your project, make plans for new features, and discuss bugs.
+    An issue is only a discussion, no actual changes to code take place here.</li>
+  <li><b>Pull requests</b>: A pull request is a package of commits you’re requesting to be merged into the default branch.
+     A pull request provides a place to discuss the changes you’re proposing and invite other team members
+      to comment and complete code reviews. <br/>
+    Pull requests also help you see the result of automated tests and many other cool integrations</li>
+</ul>
+</section>
+
+
+
+<section>
+  <h4>How Git Stores Data </h4>
+</section>
+
+
+<section>
+  <h4>References</h4>
+  <ul>
+    <li>
+      <a target="_blank" href="https://www.atlassian.com/git/tutorials/using-branches">Git Branch</a>
+    </li>
+  </ul>
+</section>
 
 
   <script src="../reveal.js/lib/js/head.min.js"></script>
