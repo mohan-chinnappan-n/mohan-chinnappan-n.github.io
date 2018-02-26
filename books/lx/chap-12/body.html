@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../aura/aura.html" />
+    <link rel="next" href="LockerService.html" />
     
     
     <link rel="prev" href="../chap-11/redirect-vf.steps.html" />
@@ -222,6 +222,51 @@
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="LockerService.html">
+            
+                <a href="LockerService.html">
+            
+                    
+                    LockerService
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="lx-container.html">
+            
+                <a href="lx-container.html">
+            
+                    
+                    Lightning Container Component
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="postMessage.html">
+            
+                <a href="postMessage.html">
+            
+                    
+                    window.postMessage
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -408,92 +453,10 @@ and also it&#x2019;s tightly integrated with the platform.</p>
 <li>Without the right level of isolation, a vulnerability in one component can provide access to sensitive data in other components and jeopardize the security of the entire system</li>
 <li>Each component you use can become an application is an attack vector</li>
 </ul>
-<h3 id="lockerservice">LockerService</h3>
-<ul>
-<li>Primary and preferred isolation mechanism for the Lightning Component Framework.</li>
-<li>LockerService wraps standard objects like:<ul>
-<li><strong>window</strong>, <strong>document</strong>, and <strong>element</strong> inside a secure version of these objects:<ul>
-<li><strong>SecureWindow</strong>, <strong>SecureDocument</strong> and <strong>SecureElement</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Provides controlled access to APIs and regions of the DOM</li>
-<li>When components are loaded, they are provided with the secure wrappers (secureWindow and secureDocument) in lieu of the standard objects (window and document)</li>
-<li>When a component invokes a method on the document or window object, the secure wrapper can apply appropriate security restrictions</li>
-</ul>
-<h4 id="access----namespace-based-access-control-mechanism">Access -  namespace-based access control mechanism</h4>
-<p>Access to the DOM of another component will be:</p>
-<ul>
-<li>Granted if the other component is in the same namespace</li>
-<li>Denied if the other component is in a different namespace</li>
-</ul>
-<h4 id="enforcements---industry-best-practices">Enforcements - Industry best practices</h4>
-<p>LockerService enforces :</p>
-<ul>
-<li>JavaScript ES5 strict mode is <strong>automatically</strong> enabled, similar to:<pre><code class="lang-javascript"><span class="hljs-comment">// Whole-script strict mode syntax</span>
-<span class="hljs-meta">&apos;use strict&apos;</span>;
-<span class="hljs-keyword">var</span> v = <span class="hljs-string">&quot;Hi! I&apos;m a strict mode script!&quot;</span>;
-</code></pre>
-</li>
-<li><p>Libraries that do not support strict mode <strong>will not work</strong> with LockerService</p>
-</li>
-<li><p>Content Security Policy (CSP):</p>
-<ul>
-<li>Unsafe-eval and unsafe-inline are disallowed</li>
-<li>Libraries using eval() or inline JavaScript code execution <strong>will not</strong> work with LockerService.</li>
-</ul>
-</li>
-</ul>
-<h3 id="lockerservice-advantages">LockerService advantages</h3>
-<ul>
-<li>No iframe. Components live in the same DOM (better performance)</li>
-<li>Straightforward, natural communication between components</li>
-<li>Cohesive UI</li>
-<li>Eliminates DOM scraping vulnerabilities</li>
-<li>Mitigates the impact of developer mistakes such as the lack of proper escaping</li>
-<li>Cross-site scripting (XSS) and template injection are no longer possible</li>
-<li>Eliminate server-side action invocation/spoofing</li>
-</ul>
-<h3 id="lockerservice-limitations">LockerService Limitations</h3>
-<ul>
-<li>Non-compliant libraries will not work with LockerService</li>
-</ul>
-<h2 id="lightning-container-component-isolation">Lightning Container Component Isolation</h2>
-<ul>
-<li>The HTML Inline Frame Element <strong>iframe</strong> allows you to embed an HTML page in the current HTML page</li>
-<li>The embedded HTML page is loaded in a different DOM (with limited access to the parent DOM) and runs in its own context</li>
-<li>The Lightning Container Component (lightning:container) is a convenience component that wraps an iframe and provides a simple API to communicate between the iframe container and its content</li>
-<li>Can be used to sandbox components or apps built with libraries that don&#x2019;t run with LockerService</li>
-</ul>
-<h3 id="example">Example</h3>
-<p>Use a Lightning Container Component to embed an AngularJS app in a Lightning Component:</p>
-<pre><code class="lang-javascript">
-&lt;aura:component access=<span class="hljs-string">&quot;global&quot;</span> implements=<span class="hljs-string">&quot;flexipage:availableForAllPageTypes&quot;</span>&gt;
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">lightning:container</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;MyAngularApp&quot;</span>
-                         <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;{!$Resource.MyAngularApp + &apos;/index.html&apos;}&quot;</span>
-                         <span class="hljs-attr">onmessage</span>=<span class="hljs-string">&quot;{!c.handleMessage}&quot;</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
-</span></code></pre>
-<p>The Lightning Container Component is <strong>not</strong> an optimal solution for <strong>fine grained</strong> application composition where you would embed multiple iframed AngularJS components on a page.
-In that case, each component would load the AngularJS framework, communication between components would be limited (<strong>postMessage</strong> only), and the UI would be constrained by the boundaries of each iframe.</p>
-<h3 id="lightning-container-component-advantages">Lightning Container Component advantages</h3>
-<ul>
-<li>Native isolation mechanism in the browser</li>
-<li>Support for any third-party library, including ones that are not LockerService compliant (libraries are sandboxed in their own DOM/context)</li>
-<li>OK for coarse-grained apps</li>
-</ul>
-<h3 id="lightning-container-component-disadvantages">Lightning Container Component disadvantages</h3>
-<ul>
-<li>Limited communication mechanism between components (<strong>postMessage</strong>)</li>
-<li>Components are constrained to a rectangle area on the page.<ul>
-<li>Content may be clipped</li>
-<li>Rich interactions like drag-and-drop between components may not work</li>
-</ul>
-</li>
-<li>Heavier/Slower. If there are multiple iframes on a page, each iframe loads its own version of libraries</li>
-<li>Not great for fine-grained app composition</li>
-</ul>
+<h2 id="lockerservice">LockerService</h2>
+<p>LockerService is discussed <a href="LockerService.html">here</a></p>
+<h2 id="lightning-container-component">Lightning Container Component</h2>
+<p> Lightning Container Component is discussed <a href="lx-container.html">here</a></p>
 <h2 id="summary">Summary</h2>
 <p>Before you decide to use a third-party library in a Lightning Component:</p>
 <ul>
@@ -591,7 +554,7 @@ In that case, each component would load the AngularJS framework, communication b
                 </a>
                 
                 
-                <a href="../aura/aura.html" class="navigation navigation-next " aria-label="Next page: Aura UI Framework">
+                <a href="LockerService.html" class="navigation navigation-next " aria-label="Next page: LockerService">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -602,7 +565,7 @@ In that case, each component would load the AngularJS framework, communication b
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Security","level":"1.5","depth":1,"next":{"title":"Aura UI Framework","level":"1.6","depth":1,"path":"aura/aura.md","ref":"aura/aura.md","articles":[]},"previous":{"title":"VF page redirect with field values","level":"1.4.5","depth":2,"path":"chap-11/redirect-vf.steps.md","ref":"chap-11/redirect-vf.steps.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","include-codeblock","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-12/body.md","mtime":"2018-02-26T20:28:36.016Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-26T20:15:41.075Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Security","level":"1.5","depth":1,"next":{"title":"LockerService","level":"1.5.1","depth":2,"path":"chap-12/LockerService.md","ref":"chap-12/LockerService.md","articles":[]},"previous":{"title":"VF page redirect with field values","level":"1.4.5","depth":2,"path":"chap-11/redirect-vf.steps.md","ref":"chap-11/redirect-vf.steps.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","include-codeblock","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-12/body.md","mtime":"2018-02-26T20:39:42.715Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-26T20:15:41.075Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

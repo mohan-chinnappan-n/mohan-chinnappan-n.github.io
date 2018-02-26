@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Performance Best Practices · GitBook</title>
+        <title>window.postMessage · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../sfdx/sfdx.html" />
+    <link rel="next" href="../aura/aura.html" />
     
     
-    <link rel="prev" href="../aura/aura.html" />
+    <link rel="prev" href="lx-container.html" />
     
 
     </head>
@@ -212,9 +212,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../chap-12/body.html">
+        <li class="chapter " data-level="1.5" data-path="body.html">
             
-                <a href="../chap-12/body.html">
+                <a href="body.html">
             
                     
                     Security
@@ -226,9 +226,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../chap-12/LockerService.html">
+        <li class="chapter " data-level="1.5.1" data-path="LockerService.html">
             
-                <a href="../chap-12/LockerService.html">
+                <a href="LockerService.html">
             
                     
                     LockerService
@@ -239,9 +239,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../chap-12/lx-container.html">
+        <li class="chapter " data-level="1.5.2" data-path="lx-container.html">
             
-                <a href="../chap-12/lx-container.html">
+                <a href="lx-container.html">
             
                     
                     Lightning Container Component
@@ -252,9 +252,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="../chap-12/postMessage.html">
+        <li class="chapter active" data-level="1.5.3" data-path="postMessage.html">
             
-                <a href="../chap-12/postMessage.html">
+                <a href="postMessage.html">
             
                     
                     window.postMessage
@@ -283,9 +283,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7" data-path="chap-1.html">
+        <li class="chapter " data-level="1.7" data-path="../perf/chap-1.html">
             
-                <a href="chap-1.html">
+                <a href="../perf/chap-1.html">
             
                     
                     Performance Best Practices
@@ -371,7 +371,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Performance Best Practices</a>
+        <a href=".." >window.postMessage</a>
     </h1>
 </div>
 
@@ -386,7 +386,17 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="performance-best-practices">Performance Best Practices</h1>
+                                <h1 id="about-windowpostmessage">About window.postMessage()</h1>
+<p>The <strong>window.postMessage()</strong> method safely enables <strong>cross-origin communication</strong>.
+Normally, scripts on different pages are allowed to access each other if and only if the pages that executed them are at locations with the same protocol(https).
+window.postMessage() provides a controlled mechanism to circumvent this restriction in a way which is secure when properly used.</p>
+<h3 id="how-it-works">How it works:</h3>
+<p>when called, causes a <em>*MessageEvent</em> to be dispatched at the target window when any pending script that must be executed completes (e.g., remaining event handlers if window.postMessage() is called from an event handler, previously-set pending timeouts, etc.)</p>
+<p>The MessageEvent has the type message, a data property which is set to the value of the first argument provided to window.postMessage(), an origin property corresponding to the origin of the main document in the window calling window.postMessage at the time window.postMessage() was called, and a source property which is the window from which window.postMessage() is called. (Other standard properties of events are present with their expected values.)</p>
+<h4 id="demo-of-windowpostmessage">Demo of window.postMessage()</h4>
+<p><img src="https://raw.githubusercontent.com/mohan-chinnappan-n/openCTI/master/img/opencti-window_postMessage.gif" alt="demo of window.postMessage"></p>
+<p><strong>window.postMessage</strong></p>
+<p><img src="https://github.com/mohan-chinnappan-n/openCTI/raw/master/img/window_postMessage.png" alt="window.postMessage"></p>
 
                                 
                                 </section>
@@ -414,12 +424,12 @@
 
             
                 
-                <a href="../aura/aura.html" class="navigation navigation-prev " aria-label="Previous page: Aura UI Framework">
+                <a href="lx-container.html" class="navigation navigation-prev " aria-label="Previous page: Lightning Container Component">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../sfdx/sfdx.html" class="navigation navigation-next " aria-label="Next page: SFDX">
+                <a href="../aura/aura.html" class="navigation navigation-next " aria-label="Next page: Aura UI Framework">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -430,7 +440,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Performance Best Practices","level":"1.7","depth":1,"next":{"title":"SFDX","level":"1.8","depth":1,"path":"sfdx/sfdx.md","ref":"sfdx/sfdx.md","articles":[{"title":"Project Generator","level":"1.8.1","depth":2,"path":"sfdx/project-generator.md","ref":"sfdx/project-generator.md","articles":[]}]},"previous":{"title":"Aura UI Framework","level":"1.6","depth":1,"path":"aura/aura.md","ref":"aura/aura.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","include-codeblock","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"perf/chap-1.md","mtime":"2018-02-16T04:00:01.900Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-26T20:15:41.075Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"window.postMessage","level":"1.5.3","depth":2,"next":{"title":"Aura UI Framework","level":"1.6","depth":1,"path":"aura/aura.md","ref":"aura/aura.md","articles":[]},"previous":{"title":"Lightning Container Component","level":"1.5.2","depth":2,"path":"chap-12/lx-container.md","ref":"chap-12/lx-container.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","include-codeblock","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-12/postMessage.md","mtime":"2018-02-26T20:35:40.308Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-26T20:15:41.075Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
