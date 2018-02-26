@@ -303,6 +303,52 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="migration-to-lightning">Migration to Lightning</h1>
+<h3 id="javascript-buttons-and-links">JavaScript Buttons and Links</h3>
+<p>JavaScript buttons and links are types of actions in the Salesforce Classic UI that allow you to create inline JavaScript code that can be invoked via a button or link embedded on a record or list page.</p>
+<h3 id="issue---security-challenges">Issue - security challenges</h3>
+<p>Combining untrusted JavaScript from multiple sources and authors together with the application source code, while maintaining trust of the overall application, has significant security challenges.</p>
+<p>On-Click JavaScript buttons have risks that made Salesforce to look for alternatives that you can use for customizing the application.</p>
+<p>Without some safeguards, the components would have access to each other&#x2019;s data, shared access to the window and event structures, and access to any client side API.</p>
+<p>Salesforce <strong>Locker Service</strong> prevents:</p>
+<ul>
+<li>XSS (Cross-site Scripting) and similar security issues</li>
+<li>Unrestricted DOM access</li>
+<li>Calling undocumented/private APIs</li>
+</ul>
+<h3 id="solution">Solution</h3>
+<p>The new approach to JavaScript button functionality in Lightning Experience that is better for everyone.</p>
+<h3 id="typical-use-cases-for-using-javascript-buttons-in-classic">Typical use cases for using JavaScript buttons in Classic</h3>
+<ul>
+<li>Use or manipulate values on a record <strong>before</strong> the save<ul>
+<li><strong>Validate</strong> fields &#x2014; ensure values are populated and/or meet criteria</li>
+<li><strong>Prefill</strong> values based on inputs in other fields</li>
+<li><strong>Redirect</strong> to a Visualforce page based on input values</li>
+<li>Confirmation pop-up screens</li>
+</ul>
+</li>
+<li>Create records w/ pre-populated values</li>
+<li>Trigger flows from Visual Workflow</li>
+<li>Callouts to Salesforce or external API</li>
+<li>3rd party integration</li>
+<li>Mass actions on records in a list</li>
+<li>Feedback pop-up screens for users, directing methods and procedures</li>
+</ul>
+<h3 id="use-cases-for-javascript-buttons-and-alternate-better&#x2013;solutions-in-lightning">Use cases for JavaScript buttons and alternate better&#x2013;solutions in Lightning</h3>
+<p><img src="img/jsButton_usecases.png" alt="JS Button use cases"></p>
+<h1 id="quick-actions">Quick Actions</h1>
+<p>This is covered <a href="actions.html">here</a></p>
+<hr>
+<h4 id="about-xss">About XSS</h4>
+<p>Cross-site Scripting (XSS) refers to client-side code injection attack wherein an attacker can execute malicious scripts (also commonly referred to as a malicious payload) into a legitimate website or web application. XSS is amongst the most rampant of web application vulnerabilities and occurs when a web application makes use of unvalidated or unencoded user input within the output it generates.</p>
+<p>By leveraging XSS, an attacker does not target a victim directly. Instead, an attacker would exploit a vulnerability within a website or web application that the victim would visit, essentially using the vulnerable website as a vehicle to deliver a malicious script to the victim&#x2019;s browser.</p>
+<p>While XSS can be taken advantage of within VBScript, ActiveX and Flash (although now considered legacy or even obsolete), unquestionably, the most widely abused is JavaScript &#x2013; primarily because JavaScript is fundamental to most browsing experiences.</p>
+<h4 id="references">References</h4>
+<ul>
+<li><a href="https://developer.salesforce.com/blogs/developer-relations/2016/09/why-its-time-to-break-up-with-javascript-buttons-and-embrace-lightning.html" target="_blank">JavaScript Buttons, Lightning, and You: A Blog Series
+</a></li>
+<li><a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS" target="_blank">Cross-site Scripting (XSS)</a>)
+-<a href="https://trailhead.salesforce.com/en/modules/secdev_injection_vulnerabilities/units/secdev_inject_cross_site_scripting" target="_blank">Trailhead - Understanding XSS</a></li>
+</ul>
 
                                 
                                 </section>
@@ -346,7 +392,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Migration to Lightning","level":"1.4","depth":1,"next":{"title":"Actions","level":"1.4.1","depth":2,"path":"chap-11/actions.md","ref":"chap-11/actions.md","articles":[]},"previous":{"title":"Classic Architecture","level":"1.3","depth":1,"path":"chap-2/body.md","ref":"chap-2/body.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-11/body.md","mtime":"2017-12-24T05:37:39.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-16T04:02:55.332Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Migration to Lightning","level":"1.4","depth":1,"next":{"title":"Actions","level":"1.4.1","depth":2,"path":"chap-11/actions.md","ref":"chap-11/actions.md","articles":[]},"previous":{"title":"Classic Architecture","level":"1.3","depth":1,"path":"chap-2/body.md","ref":"chap-2/body.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-11/body.md","mtime":"2018-02-26T15:50:42.112Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-26T14:48:32.411Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
