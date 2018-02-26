@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Validate Field Values Demo Steps · GitBook</title>
+        <title>Custom Link · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="redirect-vf.steps.html" />
+    <link rel="next" href="../chap-12/body.html" />
     
     
-    <link rel="prev" href="object-specific-actions.steps.html" />
+    <link rel="prev" href="redirect-vf.steps.html" />
     
 
     </head>
@@ -181,7 +181,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.4" data-path="validate-field-values.steps.html">
+        <li class="chapter " data-level="1.4.4" data-path="validate-field-values.steps.html">
             
                 <a href="validate-field-values.steps.html">
             
@@ -207,7 +207,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.6" data-path="custom-link.html">
+        <li class="chapter active" data-level="1.4.6" data-path="custom-link.html">
             
                 <a href="custom-link.html">
             
@@ -384,7 +384,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Validate Field Values Demo Steps</a>
+        <a href=".." >Custom Link</a>
     </h1>
 </div>
 
@@ -399,43 +399,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="goal-create-object-specific-action-with-name-close-task-to-">Goal: Create Object-Specific Action with name: <strong>Close Task</strong> to :</h2>
-<h3 id="use-case">Use case:</h3>
-<ul>
-<li>Provide users an action for <strong>closing a task</strong> without requiring them to go to a full edit page</li>
-<li>Make sure that the task has a <strong>due date</strong> before it can be closed</li>
-</ul>
-<p>Make sure:</p>
-<ul>
-<li>Some fields (like Task.status) is populated</li>
-</ul>
-<h3 id="steps">Steps:</h3>
-<ol>
-<li>In the object management settings for activities, go to <strong>Task Buttons, Links, and Actions</strong>.</li>
-<li>Create <strong>New Action</strong> with:<ul>
-<li>Action Type: Update a Record</li>
-<li>Label: Close Task</li>
-<li>Success Message: Task is closed!</li>
-</ul>
-</li>
-<li><p>Edit the <strong>Action Layout</strong>:</p>
-<ul>
-<li>Check the required fields</li>
-<li>Make certain fields (Due date) <strong>required</strong></li>
-</ul>
-</li>
-<li><p>Add this in the <strong>Task Page Layout</strong>:</p>
-<ul>
-<li>Add this action <strong>Close Task</strong> from <strong>Mobile &amp; Lightning Actions</strong> section into <strong>Salesforce Mobile and Lightning Experience Actions</strong></li>
-</ul>
-</li>
-<li><p>Test:</p>
-<ul>
-<li>Desktop</li>
-<li>Mobile</li>
-</ul>
-</li>
-</ol>
+                                <h2 id="custom-link-demo">Custom Link demo</h2>
+<p><a target="_blank" href="img/custom-links.gif">
+<i class="fa fa-arrows-alt" alt="full screen view of the demo"></i>
+</a></p>
+<p><img src="img/custom-links.gif" alt="Global Actions Demo"></p>
 
                                 
                                 </section>
@@ -463,12 +431,12 @@
 
             
                 
-                <a href="object-specific-actions.steps.html" class="navigation navigation-prev " aria-label="Previous page: Object-Specific Actions Demo Steps">
+                <a href="redirect-vf.steps.html" class="navigation navigation-prev " aria-label="Previous page: VF page redirect with field values">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="redirect-vf.steps.html" class="navigation navigation-next " aria-label="Next page: VF page redirect with field values">
+                <a href="../chap-12/body.html" class="navigation navigation-next " aria-label="Next page: Security">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -479,7 +447,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Validate Field Values Demo Steps","level":"1.4.4","depth":2,"next":{"title":"VF page redirect with field values","level":"1.4.5","depth":2,"path":"chap-11/redirect-vf.steps.md","ref":"chap-11/redirect-vf.steps.md","articles":[]},"previous":{"title":"Object-Specific Actions Demo Steps","level":"1.4.3","depth":2,"path":"chap-11/object-specific-actions.steps.md","ref":"chap-11/object-specific-actions.steps.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","include-codeblock","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-11/validate-field-values.steps.md","mtime":"2018-02-26T16:58:05.162Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-26T20:15:41.075Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Custom Link","level":"1.4.6","depth":2,"next":{"title":"Security","level":"1.5","depth":1,"path":"chap-12/body.md","ref":"chap-12/body.md","articles":[{"title":"LockerService","level":"1.5.1","depth":2,"path":"chap-12/LockerService.md","ref":"chap-12/LockerService.md","articles":[]},{"title":"Lightning Container Component","level":"1.5.2","depth":2,"path":"chap-12/lx-container.md","ref":"chap-12/lx-container.md","articles":[]},{"title":"window.postMessage","level":"1.5.3","depth":2,"path":"chap-12/postMessage.md","ref":"chap-12/postMessage.md","articles":[]}]},"previous":{"title":"VF page redirect with field values","level":"1.4.5","depth":2,"path":"chap-11/redirect-vf.steps.md","ref":"chap-11/redirect-vf.steps.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","include-codeblock","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"include-codeblock":{"check":false,"edit":false,"fixlang":false,"lang":"","template":"default","theme":"chrome","unindent":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-11/custom-link.md","mtime":"2018-02-26T20:52:31.860Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-26T20:15:41.075Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
