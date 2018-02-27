@@ -594,7 +594,10 @@ Notice that the number changes <b>from</b> showing the total value for all sales
 
 <section>
   <h4> Dashboard - Binding Toggle Steps - contd.</h4>
-    <pre style="font-size:15px;"> column( <b>staticIndustry_1.selection</b>, [\"<b>value</b>\"] ).asObject() </pre>
+    <pre style="font-size:15px;">
+column( <b>staticIndustry_1.selection</b>, [\"<b>value</b>\"] ).asObject()
+column(StaticDTC_1.selection,[\"measure\"]).asObject()}}
+     </pre>
   <button class='btn btn-success'  title='Click to view the image in full page'>
     <a target="_blank" href='./img/ea2/ea-static-binding-3.gif'><i class="glyphicon glyphicon-fullscreen"></i></a></button>
 
