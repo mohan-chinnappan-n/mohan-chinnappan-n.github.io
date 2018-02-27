@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>window.postMessage · GitBook</title>
+        <title>EA Binding Notes  · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../aura/aura.html" />
+    <link rel="next" href="../ref/ref.html" />
     
     
-    <link rel="prev" href="lx-container.html" />
+    <link rel="prev" href="../sfdx/project-generator.html" />
     
 
     </head>
@@ -272,7 +272,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.3" data-path="postMessage.html">
+        <li class="chapter " data-level="2.1.3" data-path="postMessage.html">
             
                 <a href="postMessage.html">
             
@@ -376,7 +376,7 @@
         
         
     
-        <li class="chapter " data-level="6.1" data-path="ea-static-binding.html">
+        <li class="chapter active" data-level="6.1" data-path="ea-static-binding.html">
             
                 <a href="ea-static-binding.html">
             
@@ -439,7 +439,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >window.postMessage</a>
+        <a href=".." >EA Binding Notes </a>
     </h1>
 </div>
 
@@ -454,17 +454,114 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="about-windowpostmessage">About window.postMessage()</h1>
-<p>The <strong>window.postMessage()</strong> method safely enables <strong>cross-origin communication</strong>.
-Normally, scripts on different pages are allowed to access each other if and only if the pages that executed them are at locations with the same protocol(https).
-window.postMessage() provides a controlled mechanism to circumvent this restriction in a way which is secure when properly used.</p>
-<h3 id="how-it-works">How it works:</h3>
-<p>when called, causes a <em>*MessageEvent</em> to be dispatched at the target window when any pending script that must be executed completes (e.g., remaining event handlers if window.postMessage() is called from an event handler, previously-set pending timeouts, etc.)</p>
-<p>The MessageEvent has the type message, a data property which is set to the value of the first argument provided to window.postMessage(), an origin property corresponding to the origin of the main document in the window calling window.postMessage at the time window.postMessage() was called, and a source property which is the window from which window.postMessage() is called. (Other standard properties of events are present with their expected values.)</p>
-<h4 id="demo-of-windowpostmessage">Demo of window.postMessage()</h4>
-<p><img src="https://raw.githubusercontent.com/mohan-chinnappan-n/openCTI/master/img/opencti-window_postMessage.gif" alt="demo of window.postMessage"></p>
-<p><strong>window.postMessage</strong></p>
-<p><img src="https://github.com/mohan-chinnappan-n/openCTI/raw/master/img/window_postMessage.png" alt="window.postMessage"></p>
+                                <h1 id="einstein-analytics---binding-toggle-steps">Einstein Analytics - Binding Toggle Steps</h1>
+<ol>
+<li><p>Create a new blank dashboard</p>
+</li>
+<li><p>Create Step for the chart:</p>
+<ul>
+<li>Add Dataset: DTC Opportunity</li>
+<li>Add Industry as Group - Vertical Axis</li>
+<li>Click Done to finish the step</li>
+<li><p>Drag and drop the step Industry_1 into dashboard</p>
+</li>
+<li><p>Cmd-e or Ctrl-e to view the JSON behind the dashboard</p>
+</li>
+<li>In this step <strong>Industry_1</strong>, locate the <strong>query.groups</strong></li>
+<li>Change <strong>groups</strong> array to have &quot;Account_Type&quot;</li>
+<li><p>Change the <strong>widgets.chart_1.columnMap</strong> object from:</p>
+<pre><code class="lang-javascript">
+<span class="hljs-string">&quot;columnMap&quot;</span>: {
+                 <span class="hljs-string">&quot;trellis&quot;</span>: [],
+                 <span class="hljs-string">&quot;plots&quot;</span>: [
+                     <span class="hljs-string">&quot;count&quot;</span>
+                 ],
+                 <span class="hljs-string">&quot;dimensionAxis&quot;</span>: [
+                     <span class="hljs-string">&quot;Industry&quot;</span>
+                 ]
+             }
+</code></pre>
+<p>to</p>
+<pre><code class="lang-javascript"><span class="hljs-string">&quot;columns&quot;</span>: [],
+</code></pre>
+<ul>
+<li>Click <strong>Done</strong> to view the chart grouped by <strong>Account_Type</strong></li>
+</ul>
+</li>
+<li><p>Create Step Static Step with Custom values</p>
+<ul>
+<li>Click on <strong>Create a Static Step with Custom values</strong></li>
+<li>Display Label: <strong>StaticDTC</strong></li>
+<li>Create 2 Display and Value pairs:<ul>
+<li>Display: <strong>Industry</strong> , Value: <strong>Industry</strong></li>
+<li>Display: <strong>Type</strong> , Value: <strong>Account_Type</strong></li>
+</ul>
+</li>
+<li>Drag a <strong>Toggle</strong> into the dashboard</li>
+<li>Drag and drop the Static.StaticDTC into Toggle in the dashboard</li>
+<li>Select STEP when you are in the Toggle</li>
+<li>Change the Selection Type to : <strong>Single Selection (required)</strong></li>
+<li>Cmd-E or Ctrl-E to view the JSON behind the dashboard</li>
+</ul>
+</li>
+<li><p>Write the binding</p>
+<ul>
+<li>change the <strong> state.steps.Industry_1.query.groups</strong> from:</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>&quot;groups&quot;: [
+                   &quot;Account_Type&quot;
+          ]
+// TO:
+&quot;groups&quot;: [
+            &quot;{{column(StaticDTC_1.selection,[\&quot;value\&quot;]).asObject()}}&quot;
+          ]
+</code></pre><ol>
+<li><p>Save the dashboard and provide a name and app name</p>
+</li>
+<li><p>View the Dashboard and test it for the toggling feature.</p>
+</li>
+</ol>
+<hr>
+<ol>
+<li>We like to show:<ul>
+<li><em>ave(Amount)</em> when Industry is selected</li>
+<li>count(*)  when Type is selected</li>
+</ul>
+</li>
+<li><p>Add a measure column and values in the JSON for the static step</p>
+<ul>
+<li>change the <strong>state.steps.StaticDTC_1</strong> as to add <em>measure</em> column:</li>
+</ul>
+<p>&quot;values&quot;: [</p>
+<pre><code>          {
+              &quot;display&quot;: &quot;Industry&quot;,
+              &quot;value&quot;: &quot;Industry&quot;,
+              &quot;measure&quot;:[&quot;avg&quot;, &quot;Amount&quot;]
+          },
+          {
+              &quot;display&quot;: &quot;Type&quot;,
+              &quot;value&quot;: &quot;Account_Type&quot;,
+              &quot;measure&quot;:[&quot;count&quot;, &quot;*&quot;]
+
+          }
+    ]
+</code></pre></li>
+</ol>
+<ul>
+<li><p>change change the <strong> state.steps.Industry_1.query</strong> to add a measure for sum(Amount):</p>
+<p>&quot;query&quot;: {</p>
+<pre><code> &quot;measures&quot;: &quot;{{column(StaticDTC_1.selection,[\&quot;measure\&quot;]).asObject()}}&quot;,
+ ],
+ &quot;groups&quot;: [
+     &quot;{{column(StaticDTC_1.selection,[\&quot;value\&quot;]).asObject()}}&quot;
+ ]
+     }
+</code></pre></li>
+</ul>
 
                                 
                                 </section>
@@ -492,12 +589,12 @@ window.postMessage() provides a controlled mechanism to circumvent this restrict
 
             
                 
-                <a href="lx-container.html" class="navigation navigation-prev " aria-label="Previous page: Lightning Container Component">
+                <a href="../sfdx/project-generator.html" class="navigation navigation-prev " aria-label="Previous page: Project Generator">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../aura/aura.html" class="navigation navigation-next " aria-label="Next page: Aura UI Framework">
+                <a href="../ref/ref.html" class="navigation navigation-next " aria-label="Next page: References">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -508,7 +605,7 @@ window.postMessage() provides a controlled mechanism to circumvent this restrict
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"window.postMessage","level":"2.1.3","depth":2,"next":{"title":"Aura UI Framework","level":"3.1","depth":1,"path":"aura/aura.md","ref":"aura/aura.md","articles":[]},"previous":{"title":"Lightning Container Component","level":"2.1.2","depth":2,"path":"chap-12/lx-container.md","ref":"chap-12/lx-container.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-12/postMessage.md","mtime":"2018-02-26T20:35:40.308Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-27T02:46:59.712Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"EA Binding Notes ","level":"6.1","depth":1,"next":{"title":"References","level":"7.1","depth":1,"path":"ref/ref.md","ref":"ref/ref.md","articles":[]},"previous":{"title":"Project Generator","level":"5.1.1","depth":2,"path":"sfdx/project-generator.md","ref":"sfdx/project-generator.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-12/ea-static-binding.md","mtime":"2018-02-27T12:28:14.183Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-27T02:46:59.712Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
