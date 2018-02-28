@@ -263,13 +263,79 @@
 
       <section>
         <h4>Conected App Example - iOS app policies</h4>
-        <div class="col-lg-12"> <img style="border:0px;" height="550"    src="img/mobile-s/connected-app-1.png" alt=""> </div>
+
+        <div class="row" style="font-size:30px;">
+          <div class="col-lg-12">
+             <img style="border:0px;"   src="img/mobile-s/connected-app-1.png" alt="">
+           </div>
+
+          </div>
+      </section>
+
+
+
+          <section>
+            <h4>Conected App Example - Notes</h4>
+
+            <div class="row" style="font-size:30px;">
+              <div class="col-lg-5">
+                 <img style="border:0px;"   src="img/mobile-s/connected-app-1.png" alt=""> </div>
+              <div class="col-lg-7">
+            <ul style="font-size:20px;">
+              <li>If we put <b>IP Relaxation</b> as <i>Enforce IP Restrictions</i>: This will make
+              the users to login to Salesforce from designated IP addresses—typically your corporate network or VPN.
+              <hr/>
+              But mobile users often aren’t on your corporate network, which means they need to connect to VPN
+              from their device every time they access the Salesforce app.
+              <hr/>
+              That can be a barrier to mobile adoption, so some organizations relax IP restrictions for mobile users.
+              <hr/>
+              For example, you can specify that mobile users aren’t required to be on VPN
+              as long as they provide a second factor of identification—for example, a verification code from a mobile authenticator app.
+              <hr/>
+              You must balance your company’s security requirements with the need to provide a good mobile user experience.
+
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
       </section>
 
       <section>
         <h4>Conected App Example - oAuth Usage</h4>
         <div class="col-lg-12"> <img style="border:0px;"  height="550"  src="img/mobile-s/connected-app-2.png" alt=""> </div>
       </section>
+
+      </section>
+
+
+      <section>
+        <h4>Refresh Token Policy</h4>
+        <ul style="font-size:30px;">
+          <li>Specifies: How long the user’s token for the Salesforce app is valid?
+              <ul>
+                <li> <b>Immediately expire refresh token</b>: The token is invalid immediately. The user can access the current session, but can’t obtain a new session without reentering credentials.</li>
+                <li><b>Expire refresh token if not used for</b>:
+                   The token expires if it isn’t used in the specified amount of time.
+                </li>
+                <li>
+                  <b>Expire refresh token after</b>:expires the token after a fixed amount of time.
+                  <hr/>For example, if the policy states 30 days, the token expires in a month even if the user is active in the Salesforce app on a daily basis.
+
+                </li>
+              </ul>
+          </li>
+
+        </ul>
+      </section>
+
+      <section>
+        <h4>Mobile Session </h4>
+          <ul style="font-size:30px;">
+          <li>Timeout Value controls how long a mobile session lasts (default: )</li>
+        </ul>
 
       </section>
 

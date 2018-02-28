@@ -605,6 +605,52 @@ column(StaticDTC_1.selection,[\"measure\"]).asObject()}}
 
 </section>
 
+<section>
+  <h4> Dashboard - Binding on KPIs - Use Case</h4>
+    <ul style="font-size:30px;">
+      <li>Dataset <b>fm</b> has records for US Farmers market with a <b>Dimension</b>: "State" </li>
+      <li>To show the Binding example in query, we make following KPS:
+        <ul>
+          <li>Total Farmers Markets in USA - record-count (<b>A</b>), which is KPI: Totals</li>
+          <li>Total Farmers Markets in  CA - record-count (<b>B</b>), which is KPI: CA</li>
+          <li>Total Farmers Markets in  States other than CA - record-count (<b> C = A - B</b>), which is KPI: Others and Others2<hr/></li>
+          <li>This can be done easily with the SAQL for <b>C</b> as:
+            <pre>
+              q = load fm;
+              q = group q by all;
+              q = filter q by 'State' <b>!= \"California\"</b>;
+              q = foreach q generate count() as 'count';
+              -- this let us call as Others2
+            </pre>
+
+
+           </li>
+
+           <li>This can be also be done  with the SAQL for <b>C</b> as:
+             <button class='btn btn-success'  title='Click to view the image in full page'>
+               <a target="_blank" href='./img/ea2/query-binding-kpi.png'><i class="glyphicon glyphicon-fullscreen"></i></a></button>
+               <img  style="border:0px;"  src="img/ea2/query-binding-kpi.png" alt="">
+               <hr/>
+               Next slide shows the Demo of this
+            </li>
+
+        </ul>
+
+
+      </li>
+
+    </ul>
+</section>
+
+<section>
+  <h4> Dashboard - Binding on KPIs - Demo</h4>
+  <button class='btn btn-success'  title='Click to view the image in full page'>
+    <a target="_blank" href='./img/ea2/ea-calc-on-pki.gif'><i class="glyphicon glyphicon-fullscreen"></i></a></button>
+
+  <img style="border:0px;" src="img/ea2/ea-calc-on-pki.gif" alt="">
+
+</section>
+
 
 <section>
   <h4>Embed Analytics Dashboards in Lightning Pages </h4>
