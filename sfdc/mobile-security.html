@@ -120,9 +120,6 @@
          <h4>Goals</h4>
          <div class="row" style="font-size:30px;">
            <div class="col-lg-7">
-             <button style="font-size:10px;" ng-click="showDiv = !showDiv">
-               <span class="glyphicon glyphicon-flash"></span>
-             </button>
               <img style="border:0px;" ng-class="{'vis' : showDiv }"  src="img/mobile-s/mobile-security-1.png" alt=""> </div>
            <div class="col-lg-5">
          <ul style="font-size:30px;">
@@ -231,7 +228,7 @@
               <li>If the mobile-session is expired,  Salesforce app attempts to use the refresh-token to
                  obtain a new access-token so the user doesn’t have to reauthenticate </li>
               <li>Salesforce org Admin can control: how long the refresh-token for the Salesforce app is valid.
-                Admin can evoke a refresh token when:
+                Admin can evoke a refresh-token when:
                 <ul>
                   <li> First time a user uses the app</li>
                   <li>Every time a user uses the app</li>
@@ -332,13 +329,262 @@
       </section>
 
       <section>
-        <h4>Mobile Session </h4>
-          <ul style="font-size:30px;">
-          <li>Timeout Value controls how long a mobile session lasts (default: )</li>
+        <h4>Mobile Session Timout </h4>
+          <ul style="font-size:35px;">
+          <li>Timeout Value controls how long a mobile session lasts.<hr/>
+            Default: timeout value in the <b>user’s profile</b> or <b>org’s Session Settings</b></li>
+          <li>
+            <pre>
+if session_timeout = 2 hrs and refresh_token_expiry = 30 days:
+    Salesforce_App uses refresh_token to renew Session_ID
+    # during this time period, user can stop and restart w/o logging back-in
+    # When refresh-token is expired, user must log back in
+            </pre>
+          </li>
+
+        <li> Two-factor authentication (2FA) enhances your org’s security by requiring a second level of authentication for every user login.
+          When mobile users log in to the Salesforce app for the first time,
+             they are prompted to set up an identity verification method
+             if you haven’t already configured one for them.</li>
+
         </ul>
 
       </section>
 
+      <section>
+        <h4>PIN code enforcement</h4>
+        <ul style="font-size:30px;">
+          <li>
+             Extra layer of data protection by forcing mobile users to set up an app-specific
+             PIN code for the Salesforce app  - so it locks after a period of <b>inactivity</b>
+             <hr/>
+             <b>Reqiure Pin after</b>: 30 minutes : (1, 5, 10, 30,60, 120, 180, 240 minutes)<br/>
+             <b>Pin length</b>: 5 : (4 to 8)
+             <hr/>
+             This policy only requires that the user enter a PIN to continue using the current session
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Mobile Compliance Policies</h4>
+<ul style="font-size:25px;">
+<li>Disable the ability to <b>copy and paste</b> from Salesforce to other mobile apps (DISABLE_EXTERNAL_PASTE)</li>
+<li>Prevent the ability to <b>print</b> from the Salesforce app</li>
+<li>Require the use of a <b>specific mobile email client</b> for Salesforce (FORCE_EMAIL​_CLIENT_TO)</li>
+<li>Disable <b>file sharing</b> from Salesforce to other mobile apps (SHOW_OPEN_IN )</li>
+<li>Remove  call logging from the navigation menu (CALL_HISTORY)</li>
+</ul>
+  <div class="col-lg-12"> <img style="border:0px;"  height="300"  src="img/ea2/custom-attrb-1.png" alt=""> </div>
+  <div class="col-lg-12"> <img style="border:0px;"    src="img/ea2/custom-attrb-2.png" alt=""> </div>
+
+      </section>
+
+
+    <section>
+      <h4>Additional Security Settings</h4>
+      <div class="row" style="font-size:30px;">
+        <div class="col-lg-8">
+           <img style="border:0px;"    src="img/mobile-s/mobile-cache.png" alt=""> </div>
+        <div class="col-lg-4">
+      <ul style="font-size:25px;">
+        <li>Enable or disable the Salesforce mobile browser app </li>
+        <li>Enable for offline access (version 10 and above)
+             <ul>
+               <li>When you enable offline access for the Salesforce app, <b>data is cached securely</b> on the device</li>
+               <li>Users can keep working in the app even if they lose their connection to a Wi-Fi or cellular network </li>
+               <li>Offline access isn’t available in the mobile browser app</li>
+             </ul>
+        </li>
+        <li>Control : users can import contacts into the Salesforce app</li>
+
+      </ul>
+    </div>
+  </div>
+    </section>
+
+    <section>
+      <h4>Additional Security Settings - 2</h4>
+      <div class="row" style="font-size:30px;">
+        <div class="col-lg-8">
+           <img style="border:0px;"    src="img/mobile-s/mobile-browser-app.png" alt=""> </div>
+        <div class="col-lg-4">
+      <ul style="font-size:25px;">
+        <li>Enable or disable the Salesforce mobile browser app </li>
+             <ul>
+               <li>Mobile browser app flavor for Salesforce App is
+               for the users who decide not to install the downloadable app
+               from App Store or Google Play</li>
+               <li>You can control whether users can access the Salesforce mobile browser app when they log in to Salesforce
+                 from a supported mobile browser (default: ON) </li>
+             </ul>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+    </section>
+
+
+
+
+        <section>
+          <h4>Monitor and Manage</h4>
+          <div class="row" style="font-size:30px;">
+            <div class="col-lg-7">
+               <img style="border:0px;"    src="img/mobile-s/app-usage-1.png" alt="">
+                <img style="border:0px;"    src="img/mobile-s/app-block.png" alt="">
+
+               </div>
+            <div class="col-lg-5">
+          <ul style="font-size:25px;">
+          <li><b>User Count</b>: Shows number of users who have run the app
+  <img style="border:0px;"    src="img/mobile-s/app-usage-2.png" alt="">
+          </li>
+          <li>With Salesforce Shield, you can see even more details about the activity of the mobile users in your organization.
+            You can view granular information about individual events or track trends to
+             swiftly identify abnormal behavior and safeguard your company’s data.</li>
+          <li><b>Revoke</b>: You can revoke a particular user by clicking <b>Revoke</b> link</li>
+          <li><b>Block</b> the App: When we block the app and then reenable it, this will  force all mobile users to reenter their credentials. </li>
+
+          </ul>
+        </div>
+      </div>
+        </section>
+
+
+        <section>
+          <h4>Salesforce App with SSO (Single Sign-On) </h4>
+
+          <div class="row" style="font-size:25px;">
+            <div class="col-lg-7">
+               <img style="border:0px;"    src="img/mobile-s/mobile-sso.png" alt="">
+               </div>
+            <div class="col-lg-5">
+          <ol style="font-size:25px;">
+
+<li>A user tries to access a service</li>
+<li>The service provider (SP) sends out a request to the identity provider (IdP) basically asking,
+   “Hey, is it okay if this user accesses my service?” </li>
+<li>The identity provider makes sure that users are who they say they are
+  by checking its (IdP) database and then returning a response saying, “Yes, this user is authorized</li>
+</ol>
+        </div>
+      </div>
+        </section>
+
+      <section>
+        <h4>SSO Links</h4>
+        <ul style="font-size:30px;">
+          <li>
+            <a target="_blank" href="https://help.salesforce.com/articleView?id=000213609&type=1&language=en_US">
+              Salesforce for iOS and Android SSO (Single Sign-On) overview
+
+            </a>
+          </li> Sample IdPs:
+            <ul>
+              <li>Microsoft’s Active Directory Federation Services (ADFS)</li>
+              <li> Ping Identity’s PingFederate</li>
+              <li> open-source Shibboleth</li>
+              <li> ForgeRock’s OpenAM</li>
+            </ul>
+
+        </ul>
+      </section>
+
+      <section>
+        <h4>MDM - Mobile Device Management</h4>
+        <ul style="font-size:30px;">
+          <li>Enforce your company’s security policies on users’ mobile devices across mobile operating systems</li>
+          <li>Maintain and administer all the enterprise mobile apps your employees use</li>
+          <li>Before rolling out the Salesforce mobile app: <hr/>
+            Have a device management (MDM) strategy in place so your company’s
+            data is safe when users access it from phones and tablets </li>
+          <li>Mobile Device Policy
+             <ol>
+               <li>Company-issued</li>
+               <li>BYOD - Bring Your Own Device</li>
+             </ol>
+
+          </li>
+          <li>Device Management Strategy
+            <ol>
+              <li>Use Connected App policies to secure Salesforce App and manage access</li>
+              <li>Implement Salesforce App with MDM solution<hr/>
+                Large companies and businesses with strict security and compliance requirements sometimes
+                 have needs that can’t be met using the connected app policies.
+                They use MDM to help them enforce those requirements.
+              </li>
+            </ol>
+          </li>
+
+        </ul>
+
+      </section>
+
+      <section>
+        <h4>MDM Solutions</h4>
+        <ul style="font-size:30px;">
+          <li>MDM is security software that lets companies <b>monitor, manage, and secure mobile devices</b> that are
+             deployed across multiple mobile operating systems and service providers. </li>
+         <li>Provides end-to-end security:<hr/>
+             Mobile <b>apps</b>, <b>network</b>, <b>data</b>, and the <b>device itself</b> are managed with <b> a single software product</b></li>
+
+        <li>MDM solution features
+          <ul>
+                <li><b>Push apps</b> to users’ devices. You can even configure settings for the apps before deploying them. For example, you can push custom login settings to the Salesforce app.</li>
+                <li>Require <b>VPN</b> for specific apps.</li>
+                <li>Control <b>granular security and compliance settings</b>.
+                  For example, you can require a passcode at the OS level, disable screen capture, or prevent users from taking photos.</li>
+                <li>Use <b>x.509 certificates</b> to either speed up user authentication or as a second factor in the login process.</li>
+                <li>Control <b>content sharing</b> permissions.</li>
+                </ul>
+        </li>
+
+
+        </ul>
+      </section>
+
+      <section>
+        <h4>MDM Solutions - iOS and Android</h4>
+        <ul>
+          <li>iOS
+            <ul>
+              <li>MDM solutions work with the native management framework built into the
+                 operating system. This capability has been available since iOS 7</li>
+            </ul>
+          </li>
+          <li>Android
+             <ul>
+               <li>Android’s device management functionality is available with <b> Android for Work</b>,
+                  which is a program that supports enterprise use of Android devices.
+                   <b>Android for Work</b> has been available since Android 6.</li>
+             </ul>
+          </li>
+          <li>If your company already uses an MDM solution,
+            find out from the  administrator to know about the configuration and deployment of the Salesforce app.</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h4>Deploy the Salesforce App with MDM - Install, Configure, Push </h4>
+        <ol style="font-size:25px;">
+          <li>In your MDM software, <b>install</b> the Salesforce mobile App</li>
+          <li><b>Configure</b> the security and compliance settings for the Salesforce App.<hr/>
+             For example, in some MDM software you can require a VPN connection for Salesforce access.</li>
+          <li>Optionally, configure features specific to the Salesforce app, such as the ability to set up custom login hosts</li>
+          <li><b>Push</b> the Salesforce app to your users</li>
+        </ol>
+
+      </section>
+
+      <section>
+        <h4 style="font-size:30px;">Deploy Salesforce App with MDM software - AirWatch and MobileIron Demo</h4>
+        <iframe width="800" height="500" class="doc_embedded_video" src="//play.vidyard.com/CmwZeyTujF92gujFXfM5q7"
+
+        frameborder="0" allowfullscreen="1" webkitallowfullscreen="1" mozallowfullscreen="1"></iframe>
+      </section>
 
 
 
