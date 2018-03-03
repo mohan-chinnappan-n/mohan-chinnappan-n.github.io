@@ -113,179 +113,125 @@
 
       <section id="home">
         <h4>{{appName}}</h4>
-        <img style="border:0px;" src="img/tb-about.png" height="400" alt="">
-       </section>
-
-
-
-        <section>
-          <h4>Architecture</h4>
-          <div class="row" style="font-size:30px;">
-            <div class="col-lg-9"> <img height="500" style="border:0px;"  src="img/tb-arch-2.png" alt=""> </div>
-            <div class="col-lg-3">
-              <ul style="font-size:25px;">
-                <li><b>Application Server</b>:
-                  When a user opens a view in a client device, that user starts a session on Tableau Server</li>
-                <li><b>VizQL Server</b>:
-
-                  VizQL process  sends queries to the data
-                  source, returning a result set which is rendered as images
-                  and presented to the user.
-                  <hr/> Each VizQL Server has its
-                  own cache that can be shared across multiple users.
-                </li>
-              </ul>
-
-            </div>
-
-        </section>
-
-        <section>
-          <h4>Architecture - contd.</h4>
-          <div class="row" style="font-size:30px;">
-            <div class="col-lg-9"> <img style="border:0px;" height="500"  src="img/tb-arch-2.png" alt=""> </div>
-            <div class="col-lg-3">
-              <ul style="font-size:25px;">
-                <li><b>Data Server</b>:
-                 Maintains metadata from Tableau Desktop, such as calculations, definitions, and groups</li>
-                 <li>Published data source can be base on
-                <ul>
-                 <li>A live connection (cubes are not supported as live connections</li>
-                 <li> A Tableau Data Engine extract</li>
-                </ul>
-                 </li>
-                 <li><b>Gateway/ Load Balancer</b>
-                    Routes requests to other components.
-                    <ul>
-                      <li>Requests that come in from
-the client first hit an external load balancer, if one is configured, or the gateway
-and are routed to the appropriate process</li>
-                    </ol>
-                 </li>
-
-              </ul>
-
-            </div>
-
-        </section>
-
-        <section>
-          <h4>Data Layer Connection Options - Live and Extract </h4>
-          <div class="row" style="font-size:30px;">
-            <div class="col-lg-12"> <img style="border:0px;"  src="img/tb-dc-0.png" alt=""> </div>
-            </div>
-
-        </section>
-
-       <section>
-         <h4>Data Layer Connection Options - Live </h4>
-         <div class="row" style="font-size:30px;">
-           <div class="col-lg-7"> <img style="border:0px;"  src="img/tb-dc-4.png" alt=""> </div>
-           <div class="col-lg-5">
-             <ul style="font-size:30px;">
-               <li>Connection: <b>Live</b>:
-                 <ul>
-                   <li>Use High Performance capability of the source data store and to get near real-time update</li>
-                   <li>Sends dynamic SQL or Multidimensional Expressions (MDX) to backend data store </li>
-
-                   <li>This can result in <b>slow experience</b> depending on the backend data store capability</li>
-                 </ul>
-                </li>
-             </ul>
-           </div>
-
+        <img style="border:0px;" src="tb/hyperimage_v11.jpg" height="400" alt="">
        </section>
 
 
        <section>
-         <h4>Data Layer Connection Options - Extract</h4>
-         <div class="row" style="font-size:30px;">
-           <div class="col-lg-8"> <img style="border:0px;"  src="img/tb-dc-3.png" alt=""> </div>
-           <div class="col-lg-4">
-             <ul style="font-size:30px;">
-
-                <li>
-                  Connection: <b>Extract</b>:
-                  <ul>
-                    <li>Extracts the data into Tableau Data Engine (Memory and Disk)</li>
-                    <li>Takes the Query Load out of the critical backend data store</li>
-                    <li>Selective extract will help the performance</li>
-                    <li>Make sure you have enought diskspace to avoid:
-                      Tableau Data Engine Error 4: There is not enough space on the disk.</li>
-                  </ul>
-                </li>
-             </ul>
-           </div>
-
-       </section>
-
-       <section>
-         <h4>Data Engine Disk Space requirements</h4>
+         <h4>Summary</h4>
          <ul style="font-size:30px;">
-           <li> As much as the square of the final size of the extract: <code> extract_size ** 2</code> </li>
-           <li> Example: 32GB extract may require up to 1024GB (1TB) of disk space to create the extract.</li>
-           <li>References:
-             <ul>
-
-             <li>
-           <a target="_blank" href="http://kb.tableau.com/articles/issue/error-4-not-enough-space-on-disk">Tableau Data Engine Error 4 When Working with Extracts
-</a>
-         </li>
-         <li>
-           <a target="_blank" href="http://kb.tableau.com/articles/HowTo/estimating-disk-space-requirements-for-tableau-server">
-  Estimating Disk Space Requirements for Tableau Server
-</a>
-         </li>
-         <li>
-           <a target="_blank" href="http://onlinehelp.tableau.com/current/pro/desktop/en-us/extracting_data.html">
-             Extract Your Data
-
-           </a>
-         </li>
+           <li>Users with high rates of mission-critical transactions have split their data into two separate systems
+               <ul>
+                 <li>one database for OLTP</li>
+                <li>another data warehouse for OLAP </li>
          </ul>
+       </li>
+       <li>While this allows for decent transaction rates,
+         this separation has many disadvantages:
+         <ul>
+           <li>Data freshness issues due to the delay caused by
+              only <b>periodically</b> initiating the Extract Transform Load(ETL)-data staging </li>
+             <li> Excessive resource consumption due to maintaining <b>two separate information systems</b></li>
+
+          </ul>
+        </li>
+        <li>Hyper achieves both at the same time: unprecedentedly <b>high transaction rates</b> as high as <b>100,000 per second</b>
+           and very fast <b>OLAP query response times</b> on a <b>single system executing both workloads in parallel</b>
+        </li>
+        <li>Better than VoltDB's TPC-C and OLAP query response time better than MonetDB</li>
+        <li>Achieves both at the same time: unprecedentedly high transaction rates as high as 100,000 per second and
+           very fast OLAP query response times on a single system executing both workloads in parallel.
+      </ul>
+
        </section>
 
 
        <section>
-         <h4>Farmers Market Dataset Demo</h4>
-         <div class="row" style="font-size:30px;">
-           <div class="col-lg-12"> <img style="border:0px;" height="500"  src="img/tb-demo-1.gif" alt=""> </div>
-         </div>
+         <h4>How it is done?</h4>
+         <ul style="font-size:30px;">
+           <li>HyPer relies on <b>in-memory data management</b> without the ballast of traditional database systems caused
+             by <b> DBMS-controlled page structures and buffer management</b> </li>
+           <li>SQL table definitions are transformed into <b>simple vector-based virtual memory representations</b> –
+              which constitutes a column oriented physical storage scheme.</li>
+           <li>OLAP query processing is <b>separated</b> from mission-critical OLTP transaction processing using <b>multi-version concurrency control</b></li>
+           <li>Transactions and queries are specified in SQL or a PL/SQL-like scripting language and are efficiently compiled into efficient LLVM assembly code.
+</li>
+<li>HyPer's transaction processing is fully ACID-compliant. Queries are specified in standard SQL-92 plus many extensions from following standard SQL standards.</li>
+
+        </ul>
       </section>
 
-      <section>
-        <h4>Farmers Market Dataset Join Demo</h4>
-        <div class="row" style="font-size:30px;">
-          <div class="col-lg-12"> <img style="border:0px;" height="500"  src="img/tb-demo-join-1.gif" alt=""> </div>
-        </div>
-     </section>
-
 
        <section>
-         <h4>References</h4>
+         <h4>Architecture</h4>
+         <div class="row" style="font-size:30px;">
+           <div class="col-lg-6"> <img style="border:0px;"  height="500" src="img/tb/hyper.png" alt=""> </div>
+           <div class="col-lg-6">
 
-         <ul>
-           <li>
-             <a target="_blank" href="https://www.encorebusiness.com/app/uploads/2016/09/whitepapertableauforenterprise_0.pdf">
-               Tableau for the Enterprise: An Overview for IT
-             </a>
+         <ul style="font-size:27px;">
+           <li>Replacing Tableau Data Engine (TDE) with Hyper DB as Extract Engine</li>
+           <li>Main-memory-based relational DBMS for mixed OLTP and OLAP workloads.</li>
+           <li>All-in-one New-SQL database system that entirely deviates from classical disk-based DBMS architectures by introducing:
+              <ul>
+                <li>Machine code generation for data-centric query processing</li>
+                <li>Multi-version concurrency control, leading to exceptional performance.</li>
+                <li>OLTP performance >=  dedicated transaction processing systems</li>
+                <li>OLAP performance matches with best query processing engines</li>
+                <li>Achieves  OLTP and OLAP performance simultaneously on the same database state</li>
+                <li>SQL table definitions are transformed into simple vector-based virtual memory representations
+                  – which constitutes a column oriented physical storage scheme.</li>
+
+              </ul>
            </li>
-           <li>
-             <a target="_blank" href="https://www.tableau.com/about/blog/2016/9/5-tips-make-your-tableau-server-even-more-performant-58506">
-               5 tips to improve the performance of your Tableau Server
-              </a>
-           </li>
-           <li>
-             <a target="_blank" href="https://www.tableau.com/learn/training">Training Videos</a>
          </ul>
-
+       </div>
+     </div>
        </section>
 
 
 
 
+              <section>
+                <h4>Architecture - Contd.</h4>
+                <div class="row" style="font-size:30px;">
+                  <div class="col-lg-6"> <img style="border:0px;"  height="500" src="img/tb/hyper.png" alt=""> </div>
+                  <div class="col-lg-6">
+
+                <ul style="font-size:27px;">
+                 <li>Transactions and queries are specified in SQL or
+                   a PL/SQL-like scripting language and are efficiently compiled into efficient LLVM assembly code.</li>
+                  <li>OLAP query processing is separated from mission-critical OLTP transaction processing using multi-version concurrency control (MVCC).</li>
+                  <li>Fully ACID-compliant. Queries are specified in SQL-92 plus some extensions from subsequent standards.</li>
+                </ul>
+              </div>
+            </div>
+              </section>
+
+       <section>
+         <h4>LLVM</h4>
+          <ul style="font-size:27px;">
+            <li>The name "LLVM" itself is not an acronym; it is the full name of the project</li>
+            <li>LLVM is a library that is used to construct, optimize and produce intermediate and/or binary machine code.</li>
+            <li>Has support for x86/x86_64 and PPC/PPC64 assembly generation with fast code optimizations aimed for compilation speed</li>
+            <li>
+              <a target="_blank" href="https://gnuu.org/2009/09/18/writing-your-own-toy-compiler/">Writing Your Own Toy Compiler Using Flex, Bison and LLVM</a>
+            </li>
 
 
+       </section>
+
+
+       <section>
+         <h4>TPC-H</h4>
+
+            <img style="border:0px;" height="250"   src="img/tb/tpc-h-1.png" alt="">
+
+          <img style="border:0px;"   height="200" src="img/tb/tpc-h-2.png" alt="">
+        </div>
+      </div>
+
+
+       </section>
 
 
 
@@ -451,7 +397,7 @@ and are routed to the appropriate process</li>
     var GSCOPE;
     app.controller('MainCtrl', function($scope, $http, $timeout) {
       GSCOPE = $scope; // debugging purposes
-      $scope.appName="Tableau";
+      $scope.appName="Hyper DB - Extract Data Engine";
 
 
 
