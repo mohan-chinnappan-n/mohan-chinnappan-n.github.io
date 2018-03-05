@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <link rel="stylesheet" href="../css/navbar-blue.css">
+
+
+
+  <style>
+    .bar1 {
+      fill: steelblue;
+      opacity: 0.5;
+    }
+
+    .bar2 {
+      fill: gray;
+      opacity: 0.5;
+    }
+
+    .bar1:hover {
+      fill: brown;
+    }
+
+    .axis {
+      font: 10px sans-serif;
+    }
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .x.axis path {
+      display: none;
+    }
+  </style>
+
+</head>
+<body>
+
+
+    <nav class="navbar navbar-default" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="javascript:void(0)">Overlay Graph - 2</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#/home">Home</a></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li ><a href="/">Main</a></li>
+        </ul>
+
+
+
+
+      </div>
+      <!-- /.navbar-collapse -->
+    </nav>
+
+  <div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+
+
+  <script>
+  var margin = {
+      top: 20,
+      right: 20,
+      bottom: 30,
+      left: 40
+    },
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+  var timeFormatter = d3.time.format("%Y%m%d %H:%M")
+
+  var x = d3.time.scale()
+    .range([0,width])
+    .domain([timeFormatter.parse("20150621 00:00"), timeFormatter.parse("20150622 00:00")])
+
+  var y = d3.scale.linear()
+    .range([height, 0]);
+
+  var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+  var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+  var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  d3.csv("graph-data.csv", type, function(error, data) {
+
+    y.domain([0, d3.max(data, function(d) {
+      return d.col1;
+    })]);
+
+    svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+    svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Values");
+
+    var g = svg.selectAll(".bars")
+      .data(data)
+      .enter().append("g")
+
+    g.append("rect")
+      .attr("class", "bar1")
+      .attr("x", function(d) {
+        return x(d.startTime1);
+      })
+      .attr("width", function(d,i){
+        return x(d.endTime1) - x(d.startTime1);
+      })
+      .attr("y", function(d) {
+        return y(d.col1);
+      })
+      .attr("height", function(d) {
+        return height - y(d.col1);
+      });
+
+    g.append("rect")
+      .attr("class", "bar2")
+      .attr("x", function(d) {
+        return x(d.startTime2);
+      })
+      .attr("width", function(d,i){
+        return x(d.endTime1) - x(d.startTime1);
+      })
+      .attr("y", function(d) {
+        return y(d.col2);
+      })
+      .attr("height", function(d) {
+        return height - y(d.col2);
+      });
+
+  });
+
+  function type(d) {
+    d.col1 = +d.col1;
+    d.col2 = +d.col2;
+    d.startTime1 = timeFormatter.parse(d.startTime1);
+    d.endTime1 = timeFormatter.parse(d.endTime1);
+    d.startTime2 = timeFormatter.parse(d.startTime2);
+    d.endTime2 = timeFormatter.parse(d.endTime2);
+    return d;
+  }
+  </script>
+</body>
+</html>
