@@ -169,6 +169,12 @@
               <li><a href="https://mohansun-book-tk.herokuapp.com/" target="_blank">திருக்குறள் - Tirukkuṛaḷ</a></li>
           </ul>
         </li>
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Sound<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+              <li><a href="music.html" target="_blank">Music-1</a></li>
+          </ul>
+        </li>
 
 
 
@@ -194,10 +200,12 @@
        <img src="gandhi-mahatma-large.jpg" width="40" style="border-radius:35px;float: right;">
 
      </span>
-     <br/><div id='mp3Name' style="padding-top:80px;"></div>
-     <audio controls>
- <source id="mp3player" src="mp3/amclassical_beethoven_fur_elise.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio>
-  </div>
+     <br/>
+     <br/>
+
+
+</div>
+
 
 <script>
 
@@ -207,7 +215,7 @@
      {"url": "amclassical_twopart_invention_in_eflat.mp3", "name": "Beethoven: Two Part invention in E-Flat" },
       {"url": "amclassical_chopin_prelude_in_c_minor.mp3", "name": "Chopin: Prelude in C minor, Op. 28 No. 20" },
       {"url": "amclassical_piano_sonata_k_310_mvt_1.mp3", "name": "Mozart: Piano Sonata, K. 310, mvt. 1" },
-      {"url": "amclassical_beethoven_fur_elise.mp3.mp3", "name": "Beethoven: Two Part invention in E-Flat" }
+      {"url": "amclassical_beethoven_fur_elise.mp3.mp3", "name": "Beethoven: Fur Elise" }
    ]
    const mkgQuotes = [
       {"q": ""},
@@ -232,14 +240,8 @@
    const quote = mkgQuotes[id].q
    $('#quote').html(quote + " - " +  author);
 
-   const MP3_START = 1;
-   const MP3_STOP = mp3s.length - 1;
-   const mp3Id = Math.floor((Math.random() * MP3_STOP) + MP3_START);
-   const mp3 = "mp3/" + mp3s[mp3Id].url;
-   const mp3Name = mp3s[mp3Id].name;
 
-   $('#mp3player').attr('src',mp3)
-   console.log(mp3)
+
 
 
 
