@@ -181,6 +181,7 @@
                 <li>SQL table definitions are transformed into simple vector-based virtual memory representations
                   – which constitutes a column oriented physical storage scheme.</li>
 
+
               </ul>
            </li>
          </ul>
@@ -201,7 +202,22 @@
                  <li>Transactions and queries are specified in SQL or
                    a PL/SQL-like scripting language and are efficiently compiled into efficient LLVM assembly code.</li>
                   <li>OLAP query processing is separated from mission-critical OLTP transaction processing using multi-version concurrency control (MVCC).</li>
-                  <li>Fully ACID-compliant. Queries are specified in SQL-92 plus some extensions from subsequent standards.</li>
+                  <li>Fully ACID-compliant. Queries are specified in SQL-92 plus some extensions from subsequent standards.
+                  <hr/>
+                </li>
+                  <li>
+                   <a target="_blank" href="tb/mvcc.pdf">
+                     Fast Serializable Multi-Version Concurrency Control for Main-Memory Database Systems
+                   </a>
+                   <hr/>
+                  </li>
+
+                  <li>
+                   <a target="_blank" href="tb/p539-neumann.pdf">
+                     Efficiently Compiling Efficient Query Plans for Modern Hardware
+                   </a>
+                  </li>
+
                 </ul>
               </div>
             </div>
