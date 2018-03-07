@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='mohansun.notes'>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name=" viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Mohan Notes: Hydrogen - Naalai Project</title>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.min.js"></script>
+
+   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.min.js"></script>
+   <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+   <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap.min.js"></script>
+
+   <link rel="stylesheet" href="../css/navbar-green.css"/>
+
+   <script src="./hydrogen-app.js"></script>
+
+</head>
+<body>
+
+  <nav class="navbar navbar-default" role="navigation">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+          <a class="navbar-brand" href="javascript:void(0)">Naalai Project</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+              <li class="active"><a href="javascript:void(0)">Home</a></li>
+          </ul>
+
+          <div class="inner-addon right-addon navbar-form navbar-right">
+              <i class="glyphicon glyphicon-search"></i>
+              <input type="text" class="form-control" placeholder="Search" />
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                  <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="javascript:void(0)">Help Topics</a></li>
+                  </ul>
+              </li>
+          </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+  </nav>
+
+<div class='container' ng-controller='myCtrl'>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Hydrogen production from household waste - Full Cycle </h3>
+      </div>
+      <div class="panel-body">
+      <tabset>
+
+        <tab heading="Goals">
+        <h4> Naalai Project Goals</h4>
+        <ul>
+            <li>Make use of household waste to feed energy requirements of the world. In this process, create a cleaner sustainable environment</li>
+            <li>Create economically viable Hydrogen Fuel project</li>
+            <li>Meet the needs of developed and developing countries in the waste management and energy production areas</li>
+        </ul>
+        <p>Team members</p>
+        <ul> <li>Mohan Chinnappan (mohan.chinnappan.n@gmail.com)</li>
+            <li>Luis Ahumada</li>
+            <li>Kirill Yurchenko</li>
+            <li>Lestin Jackson</li>
+            <li>Partha Narayanan</li>
+            <li>Akhilesh Kumarasamy</li>
+            <li>Sandeep Kumar</li>
+            <li>Srinivasan Thirumalai</li>
+            <li>Somavenkata GopiNathReddy</li>
+            <li>Zahir Hussain</li>
+
+            <li> <b>Add your name by emailing: mohan.chinnappan.n@gmail.com </b></li>
+        </ul>
+
+        <br/><code>This project is copy-lefted. Please spread the  words and contribute to this project!</code>
+
+        <div style='padding-top:3em;' class='row'>
+           <hr/>
+            <div class='col-md-3'>
+            “Be the change that you wish to see in the world.”
+             <br/>
+            -	Mohandas K Gandhi <img src='./img/gandhi-mahatma-large.jpg' width='40' style='border-radius:35px;' />
+            </div>
+
+            <div class='col-md-3'>
+            “You have to dream before your dreams can come true.”
+             <br/>
+            -	 Dr. A.P.J Abdul Kalam  <img src='./img/apj.png' width='40' style='border-radius:35px;' />
+            </div>
+
+
+            <div class='col-md-3'>
+            “Our virtues and our failings are inseparable, like force and matter. When they separate, man is no more.”
+             <br/>
+            -	Nikola Tesla <img src='./img/teslaN.jpg' width='30' style='border-radius:35px;' />
+            </div>
+
+        </div>
+
+        </tab>
+
+        <tab heading="Architecture">
+             <h4> Naalai Project high level architecture</h4>
+              <img src='./img/Naalai-Bin.svg' title='Naali Project'/>
+        </tab>
+        <tab heading="Uses">
+        <img src='./img/hydrogen-car.gif'/>
+        <!--
+          <carousel interval="myInterval">
+                    <slide ng-repeat="slide in slides" active="slide.active">
+                  <img ng-src="{{slide.image}}" style="margin:auto;">
+                  <div class="carousel-caption">
+                    <h4>Slide {{$index}}</h4>
+                    <p>{{slide.text}}</p>
+                  </div>
+                  </slide>
+          </carousel>
+        -->
+        </tab>
+
+        <tab>
+        <tab-heading> <i class="glyphicon glyphicon-bell"></i> Help Needed! </tab-heading>
+        <h4>Help needed in the following areas:</h4>
+        <ul>
+            <li>Naalai Bin (capacity: 12 gallons) : wherein the household waste is stored. This bin is enclosed with a layer of  catalyst (see the Architecture tab for the details).
+            We need to develop a catalyst which provide a good yield of methane gas in 14 days period. Earth-worms can also be used to help this process.
+            Team of university students can take up this project and help us in this regard. Please contact us (mohan.chinnappan.n@gmail.com)
+            </li>
+            <li>Truck inter-connected platform which carries the Naalai bins from homes to Hydrogen generation plant</li>
+            <li>Design of efficient Methane to Hydrogen conversion process and equipment</li>
+         </ul>
+        </tab>
+
+
+        <tab>
+        <tab-heading>  Inspirations </tab-heading>
+        <h3>Artificial Leaf - Prof. Daniel Nocera</h3>
+        <iframe width="1000" height="600"
+src="https://www.youtube.com/embed/J556uXwrjII?autoplay=0">
+</iframe>
+
+<h3>Paper</h3>
+<p><b>Water Splitting-Biosynthetic System with CO Reduction Efficiencies Exceeding Photosynthesis</b> </p>
+<p><a href='docs/artifical-leaf.pdf'>Direct Link</a></p>
+
+
+
+<h3>Search for the Super Battery</h3>
+<p> <b>Program Description</b><br/>
+
+
+We live in an age when technological innovation seems to be limitlessly soaring.
+<br/>But for all the satisfying speed with which our gadgets have improved, many of them share a frustrating weakness: the batteries.
+<br/>Though they have improved in last century, batteries remain finicky, bulky, expensive, toxic, and maddeningly short-lived.
+<br/> The quest is on for a “super battery,” and the stakes in this hunt are much higher than the phone in your pocket.
+<br/>With climate change looming, electric cars and renewable energy sources like wind and solar power could hold keys to a greener future...if we can engineer the perfect battery.
+<br/>Join host <b>David Pogue</b> as he explores the hidden world of energy storage, from the power—and danger—of the lithium-ion batteries we use today, to the bold innovations that could one day charge our world.
+</p>
+
+<iframe width="800" height="800" src="http://player.pbs.org/viralplayer/2365946487/?chapter=1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" seamless allowfullscreen></iframe>
+<iframe width="800" height="800" src="http://player.pbs.org/viralplayer/2365946487/?chapter=2" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" seamless allowfullscreen></iframe>
+<iframe width="800" height="800" src="http://player.pbs.org/viralplayer/2365946487/?chapter=3" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" seamless allowfullscreen></iframe>
+<iframe width="800" height="800" src="http://player.pbs.org/viralplayer/2365946487/?chapter=4" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" seamless allowfullscreen></iframe>
+<iframe width="800" height="800" src="http://player.pbs.org/viralplayer/2365946487/?chapter=5" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" seamless allowfullscreen></iframe>
+<iframe width="800" height="800" src="http://player.pbs.org/viralplayer/2365946487/?chapter=6" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" seamless allowfullscreen></iframe>
+<h3>Flow Battery</h3>
+<iframe width="1000" height="600" src="https://www.youtube.com/embed/WYcMwbiv5s8?autoplay=0">
+</iframe>
+
+ 
+
+      </tab>
+
+
+        </tabset>
+      </div>
+    </div>
+
+</div>
+
+</body>
+</html>
