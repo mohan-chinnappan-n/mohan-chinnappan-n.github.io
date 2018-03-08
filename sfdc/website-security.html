@@ -318,12 +318,153 @@ String query = 'select id from user where isActive='+ var.replaceAll('[^\w]','')
                    <li>Whitelisting:
                        Create a list of all “known good” values that the user is allowed to supply.
                        If the user enters anything else, you reject the response.
- 
+
 
                    </li>
 
                 </ul>
               </section>
+
+              <section>
+                <h4> Cross-Site Request Forgery (CSRF)</h4>
+                <ul style="font-size:30px">
+                  <li>
+                     A <b>malicious application</b> causes a user’s client to perform an unwanted action on <b> a trusted site</b> for which the user is currently authenticated
+                  </li>
+                  <li>
+                     CSRF attacks specifically target <b>state-changing requests</b>,
+                     not theft of data, since the attacker has no way to see the response to the forged request.
+
+                  </li>
+                  <li>By sending a link via email or chat,  an attacker may trick the users of a web application into executing actions of the attacker's choosing. </li>
+                  <li>For a normal user: A successful CSRF attack can force the user to perform state changing requests like transferring funds, changing their email address, and so forth</li>
+                  <li> If the victim is an <b>administrative account</b>, CSRF can compromise the entire web application</li>
+                </ul>
+              </section>
+
+              <section>
+                <h4>Sequence</h4>
+                <ul style="font-size:30px;">
+                  <li>
+                    <img  height="400" style="border:0px;" src="img/web_s/csrf.png" alt="">
+                  </li>
+                  <li>The attacker got the user’s client (the browser) to perform an unwanted actions</li>
+
+                </ul>
+              </section>
+
+              <section>
+                <h4>Prevention - CSRF</h4>
+                  <ul style="font-size:30px;">
+                  <li>CSRF requires the targeted user to visit the <b>attack page</b>
+                     while authenticated with the targeted service, which often requires coordinated deception on the part of the attacker
+                      (this is mostly commonly seen in phishing campaigns).</li>
+                  <li>For this attack to succeed, the attacker had to know the <b>exact name of the parameters and also supply the associated values</b></li>
+                  <li>If you made the token parameter value <b> a random, unique value that changed on every request</b>, this
+                  make it next to impossible for an attacker to guess the current value, preventing the attack  </li>
+                  <li>
+
+                    <ol>
+                      <li>All sensitive state changing requests (anything performing database operations) must include the token.</li>
+                      <li>The token must be unique to the request or user’s session.</li>
+                      <li>The token must be difficult to predict (long and random).</li>
+                      <li>The token must be validated by the server to ensure the request originated by the intended user</li>
+                    </ol>
+                  </li>
+                </ul>
+              </section>
+
+              <section>
+                <h4>Salesforce OOTB CSRF prevention </h4>
+                <img height="400" style="border:0px;" src="img/web_s/csrf-sfdc.png" alt="">
+                <ul style="font-size:25px;">
+                  <li>Platform includes a <b>com.salesforce.visualforce.ViewStateCSRF</b> parameter in the form,
+                     and that <b>token</b> is validated on submission.</li>
+                </ul>
+                <img  style="border:0px;" src="img/web_s/csrf-sfdc-token.png" alt="">
+
+              </section>
+
+              <section>
+                <h4>Additional tips</h4>
+                <ul style="font-size:30px;">
+                  <li>
+                    To make this
+                    <b>com.salesforce.visualforce.ViewStateCSRF</b> paramter kick in:
+
+                   we’ll need to change any outputLink to a commandButton (so the random form parameter will kick in)
+                    so when the user clicks the link, it executes Apex code rather than refreshing the page.
+                  </li>
+                </ul>
+              </section>
+
+              <section>
+                <h4>Clickjacking</h4>
+                <ul style="font-size:30px;">
+                  <li>
+                    On a clickjacked page, the attacker displays some <b> benign content</b> to the user
+                    while it loads <b>another page on top in a transparent layer</b>.
+                    On the clickjacked page, the users think they are clicking buttons corresponding to the bottom layer,
+                     while they are actually performing actions on the <b> hidden page on top</b>.
+
+                  </li>
+                  <li>
+                    <img style="border:0px;" height="400" src="img/web_s/Clickjacking_description.png" alt="">
+                  </li>
+                </ul>
+              </section>
+
+              <section>
+                <h4>Clickjacking - Prevention</h4>
+                <ul style="font-size:30px;">
+                  <li><b>Use Frame-Busting Scripts</b>:
+                   Prevents an attacker from loading your website in an iFrame.
+                    The script attempts to detect if the page is loaded in a frame. If detected, it will prevent the page from loading.
+                    <pre>
+                      <code> if (top != self) top.location = self.location; </code>
+                    </pre>
+                </li>
+                <li><b>Use X-Frame Options</b>: X-FRAME-OPTIONS:
+                  <ul>
+
+                    <li>DENY — Prevents the page from loading in a frame completely.</li>
+                    <li>SAMEORIGIN — Allows framing only if the origin is the same as the content (for example, Salesforce.com versus evilsite.com).</li>
+                    <li>ALLOW-FROM — Enables framing only from a specific URL.</li>
+
+                  </ul>
+                </li>
+                </ul>
+              </section>
+
+
+
+              <section>
+                <h4>Common uses of Clickjacking</h4>
+                <ul style="font-size:30px;mv ">
+
+                <li>Tricking users into enabling their webcam and microphone through Flash (also known as Cursorjacking).</li>
+                <li>Tricking users into making their social networking profile information public.</li>
+                <li>Downloading and running malware, enabling a remote attacker to take control of others’ computers.</li>
+                <li>Making users follow someone on Twitter.</li>
+                <li>Sharing or liking links on Facebook (also known as Likejacking).</li>
+                <li>Clicking Google AdSense ads to generate pay-per-click revenue.</li>
+                <li>Playing YouTube videos to gain views.</li>
+                <li>Following someone on Facebook.</li>
+
+                </ul>
+              </section>
+
+
+              <section>
+                <h4>Using Salesforce Clickjacking Protection</h4>
+                <img height="350" style="border:0px;" src="img/web_s/csrf-sfdc.png" alt="">
+                <ul style="font-size:25px;">
+                  <li>Salesforce leverages both frame-busting scripts and the X-Frame Options header as standard clickjacking protection.</li>
+                  <li>By default all standard Salesforce pages are protected against clickjacking;
+                     however, as a developer you can extend this protection to your custom Visualforce pages. </li>
+                </ul>
+              </section>
+
 
 
        <section>
