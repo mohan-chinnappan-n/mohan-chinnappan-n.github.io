@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Chartist Tests</title>
+    <link rel="stylesheet"
+          href="bower_components/chartist/dist/chartist.min.css">
+  </head>
+  <body>
+
+    <div class="ct-chart ct-perfect-fourth" ></div>
+    <!-- Site content goes here !-->
+    <script src="bower_components/chartist/dist/chartist.min.js"></script>
+
+
+    <script type="text/javascript">
+
+    new Chartist.Bar('.ct-chart', {
+  labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+  series: [
+    [5, 4, 3, 7, 5, 10, 3],
+    [3, 2, 9, 5, 4, 6, 4]
+  ]
+}, {
+  height:500,
+  width:800,
+  seriesBarDistance: 10,
+  reverseData: true,
+  horizontalBars: true,
+  axisY: {
+    offset: 70
+  }
+});
+
+</script>
+  </body>
+</html>

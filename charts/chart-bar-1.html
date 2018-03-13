@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Chartist Tests</title>
+    <link rel="stylesheet"
+          href="bower_components/chartist/dist/chartist.min.css">
+  </head>
+  <body>
+
+    <div class="ct-chart ct-perfect-fourth" ></div>
+    <!-- Site content goes here !-->
+    <script src="bower_components/chartist/dist/chartist.min.js"></script>
+
+
+    <script type="text/javascript">
+
+
+    var data = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    series: [
+      [5, 4, 3, 7, 5, 10, 3, 4, 8, 10, 6, 8],
+      [3, 2, 9, 5, 4, 6, 4, 6, 7, 8, 7, 4]
+    ]
+  };
+
+  var options = {
+    seriesBarDistance: 10,
+    width:800,
+    height:500
+  };
+
+  var responsiveOptions = [
+    ['screen and (max-width: 640px)', {
+      seriesBarDistance: 5,
+      axisX: {
+        labelInterpolationFnc: function (value) {
+          return value[0];
+        }
+      }
+    }]
+  ];
+
+  new Chartist.Bar('.ct-chart', data, options, responsiveOptions);
+    </script>
+  </body>
+</html>
