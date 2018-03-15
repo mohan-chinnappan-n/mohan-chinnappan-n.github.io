@@ -116,128 +116,261 @@
        </section>
 
        <section>
-         <h4>Einstein Sentiment </h4>
+         <h4>Two APIS to interact with Salesforce console apps</h4>
+         <ol style="font-size:30px;">
+           <li> Lightning Console JavaScript API</li>
+           <li> Salesforce Console Integration Toolkit</li>
+         </ol>
          <ul style="font-size:30px;">
-           <li>Helps to classify the tone of any text—from prospect emails and
-             social media posts to customer reviews and message boards—as
-              <ul>
-                <li> positive, negative or neutral</li>
-                 so that companies can quickly gain <b>insight into customer attitudes</b>
-                  and then take <b>appropriate actions</b>
-              </ul>
-             </li>
-              <li>Example:
-              Analyze customer service emails and escalate negative inquires to a supervisor,
-               if they reach a certain threshold
-            </li>
+           <li>Starting with API <b>42.0</b>, Salesforce Console Integration Toolkit, many of the methods used in existing Visualforce
+           pages and 3rd party web-tabs now work in LEX</li>
+           <li>3rd party content  must be whitelisted in CSP <b>Trusted Sites</b> list to be used in LEX</li>
+           <li> Lightning Console JavaScript API has methods for use with <b>utility bar</b> (LEX only)</li>
          </ul>
        </section>
 
-       <section >
-         <h4>Einstein Sentiment - contd.</h4>
-         <img style="border:0px;" height="450" src="img/einstein_platform.png" alt="">
+       <section>
+         <h4>ObjectId differences</h4>
+         <ul style="font-size:30px;">
+           <li>Lightning Console: Methods using
+            <code>objectId</code> return 18-char
+            <b>case-insenstive Record-IDs</b>
+           </li>
+           <li>Salesforce Classic: They    return 15-char
+           <b>case-senstive Record-IDs</b></li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Differences</h4>
+         <ul style="font-size:35px;">
+           <li>Use Lightning Console JavaScript API methods in JS controller of the Lightning Component</li>
+           <li>Visualforce / iframed 3rd party pages can work in both LEX and Classic : Use Salesforce Console Integration Toolkit:
+           <br/>with keeping in mind some of the Salesforce Console Integration Toolkit are <b>not</b> supported in Lightning Console JavaScript API
+          </li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Differences - input syntax</h4>
+         <ul style="font-size:35px;">
+          <li>Methods in Lightning Console JavaScript API takes in JSON Object as argument:
+            <pre>
+           <code>
+
+             workspace.openTab( { url:'#https://salesforce.com',
+                                    focus: true,
+                                    label: 'SFDC'
+                                }
+                              );
+           </code>
+         </pre>
+          </li>
+
+          <li>Salesforce Console Integration Toolkit takes in individual parameters:
+            <pre>
+           <code>
+
+             sforce.console.openPrimaryTabl(null, '#https://salesforce.com',
+                                            false,
+                                            'SFDC',
+                                            openSuccessFunction,
+                                            'SFDCTab'
+                                           );
+           </code>
+         </pre>
+          </li>
+
+
+
+         </ul>
+       </section>
+
+       <section>
+         <h4>Close a specified primary tab or subtab</h4>
+         <code>closeTab()</code>
+          <pre>
+            <code>
+    sforce.console.closeTab(
+     id:String, // id of the Primary Tab or subtab to close
+     (optional) callback: Function // to be called upon completion of the closing tab
+    )
+  </code>
+          </pre>
+
+
+       </section>
+
+
+
+              <section>
+                <h4>Close a specified primary tab or subtab - sample</h4>
+                 <pre>
+<code>
+<apex:page standardController="Account">
+<a href="#" onClick="testCloseTab();return false;">Click to close this tab</a>
+<apex:includeScript value="/support/console/42.0/integration.js"/>
+  <script>
+    function testCloseTab() {
+      sforce.console.getEnclosingTabId(function (result){
+        sforce.console.closeTab(result.id, function(res){
+          // res: {success: boolean, error: string}
+          if (res.error) { alert('Error msg: ' + res.error); }
+        });
+      })
+    }
+  </script>
+  </apex:page>
+
+</code>
+// standardController
+// includeScript
+                 </pre>
+
+
+              </section>
+
+
+
+                <section>
+<h4>openTab() for Lightning Experience</h4>
+  <pre style="font-size:19px;">
+    <code>
+    // component - has a button that, when pressed, opens a tab and sets the tab’s icon to the SLDS emoji icon.
+    <aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+        <force:workspaceAPIAccess aura:id="workspace" />
+        <lightning:button label="Open Tab" onclick="{! c.openTab }" />
+    </aura:component>
+    ({ // controller
+     openTab : function(component, event, helper) {
+        var workspace = component.find("workspace");
+        workspace.openTab({
+          url: '/sObject/001R0000003HgssIAC/view',
+          focus: true,
+          callback : function(error, response) {
+              workspace.focusTab({tabId : response });
+          }
+       });
+     }
+  })
+  </code>
+  </pre>
+
+  </section>
+
+
+
+  <section>
+<h4>openTab() for Lightning Experience</h4>
+<pre style="font-size:19px;">
+<code>
+// component - has a button that, when pressed, opens a tab and sets the tab’s icon to the SLDS emoji icon.
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+<force:workspaceAPIAccess aura:id="workspace" />
+<lightning:button label="Open Tab" onclick="{! c.openTab }" />
+</aura:component>
+({ // controller
+openTab : function(component, event, helper) {
+var workspace = component.find("workspace");
+workspace.openTab({
+url: '/sObject/001R0000003HgssIAC/view',
+focus: true,
+callback : function(error, response) {
+workspace.focusTab({tabId : response });
+}
+});
+}
+})
+</code>
+</pre>
+
+</section>
+
+
+
+
+<section>
+  <h4>setTabIcon() for Lightning Experience</h4>
+    <pre style="font-size:19px;">
+      <code>
+      // component - has a button that, when pressed, opens a tab.
+      <aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+      <force:workspaceAPIAccess aura:id="workspace" />
+      <lightning:button label="Set Focused Tab Icon" onclick="{! c.setFocusedTabIcon }" />
+     </aura:component>
+      ({ // controller
+       setFocusedTabIcon : function(component, event, helper) {
+          var workspace = component.find("workspace");
+          workspace.getFocusedTabInfo({
+            callback : function(error, response) {
+                var focusedTabId = response.tabId;
+                workspace.setTabIcon({tabId : focusedTabId, icon: 'like', iconAlt: 'like' });
+            }
+         });
+       }
+    })
+    </code>
+    </pre>
+
+    </section>
+
+
+
+
+
+
+              <section>
+                <h4>Lightning Events example</h4>
+
+<pre style="font-size:20px;">
+// Use events and handlers in your Lightning components and controllers
+//  to respond to events like workspace tabs opening, closing, or
+//  gaining focus.
+
+// prints a line to the browser’s developer console
+// when a tab is closed
+  <code>
+  // component
+    <aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+        <force:workspaceAPIAccess aura:id="workspace" />
+        <aura:handler event="force:tabClosed" action="{! c.onTabClosed }"/>
+    </aura:component>
+
+  // controller
+  ({
+      onTabclosed : function(component, event, helper) {
+          console.log("Tab closed.");
+      },
+  })
+  </code>
+</pre>
+
+</section>
+
+
+
+
+
+        <section>
+          <h4>Classic methods supported in Lightning Console</h4>
+          <ol style="font-size:25px;">
+            <li> <code>closeTab()</code> <hr/> </li>
+
+            <li> <code>focus<b>PrimaryTab</b>ById()</code> </li>
+            <li> <code>focus<b>Subtab</b>ById()</code> <hr/> </li>
+
+            <li> <code>getEnclosing<b>PrimaryTab</b>Id()</code> </li>
+            <li> <code>getEnclosingTabId()</code> <hr/> </li>
+
+            <li> <code>getFocused<b>PrimaryTab</b>Id()</code> </li>
+            <li> <code>getFocused<b>PrimaryTab</b>ObjectId()</code> <hr/> </li>
+            <li> <code>getFocused<b>Subtab</b>Id()</code> </li>
+            <li> <code>getFocused<b>Subtab</b>ObjectId()</code> </li>
+
+
+          </ol>
+
         </section>
-
-       <section>
-         <h4>Einstein Intent </h4>
-         <ul style="font-size:30px;">
-           <li>Train a model to classify the underlying <b>intent of customer inquiries</b>
-              to
-               escalate service cases and personalize marketing campaigns.
-              <ul>
-                <li> automatically route <b>leads</b></li>
-                <li> <b>escalate</b>   service cases</li>
-                <li>personalize marketing campaigns</li>
-              </ul>
-             </li>
-              <li>Example:
-               Automatically classifies customer reviews on a <b>community site</b> to identify :
-            <ul>
-            <li> which customers are looking  for
-             product  recommendations </li>
-            <li> experiencing shipping  problems </li>
-            <li> proactively provide personalized recommendations </li>
-            <li> tracking details</li>
-          </ul>
-
-            </li>
-         </ul>
-       </section>
-
-       <section>
-         <h4>Sentiment and Intent - Demo</h4>
-          <img style="border:0px;"  src="img/elang.gif" alt="">
-
-       </section>
-
-       <section>
-         <h4>Sentiment and Intent - Demo - contd.</h4>
-          <img style="border:0px;" src="img/elang-2.gif" alt="">
-
-       </section>
-
-       <section>
-         <h4>Einstein Object Detection  </h4>
-         <ul style="font-size:30px;">
-           <li> Helps to integrate advanced computer vision technology into  Salesforce workflows and external applications </li>
-           <li>Train models to recognize multiple unique objects within a single image,
-             as well as the location, size and quantities of those objects.</br>
-             improve customer service, inventory management, and share of shelf analysis
-              <ul>
-                <li>  improve customer service</li>
-                <li> inventory management</li>
-                <li> share of shelf analysis (compare it witn Planogram)</li>
-              </ul>
-             </li>
-              <li>Example:
-               a beverage company can streamline inventory management by :
-            <ul>
-            <li> automatically analyzing photos of retail shelves to count the product
-             product  recommendations </li>
-            <li> understand their share of shelf </li>
-            <li>  calculate and process a new order </li>
-          </ul>
-
-            </li>
-         </ul>
-       </section>
-
-       <section>
-         <h4>References</h4>
-         <ul>
-           <li>
-             <a target="_blank" href="https://www.salesforce.com/blog/2017/06/introducing-einstein-platform-services.html">
-               Einstein Platform
-             </a>
-           </li>
-
-           <li>
-             <a target="_blank"  href="https://developer.salesforce.com/events/webinars/einstein-object-detection">
-               Build Smarter Apps with Einstein Object Detection
-
-             </a>
-           </li>
-
-           <li>
-             <a target="_blank"  href="https://www.youtube.com/watch?v=x-yWWxQvyZo">
-               Build Smarter Apps with Einstein Platform Services Overview)
-
-             </a>
-           </li>
-
-
-           <li>
-             <a target="_blank"  href="https://www.youtube.com/watch?v=qkyt8sjeqi0">
-               Setting Up Einstein Activity Capture for Users (Lightning Experience)
-
-
-             </a>
-           </li>
-
-
-
-         </ul>
-       </section>
 
 
 
@@ -401,7 +534,7 @@
     var GSCOPE;
     app.controller('MainCtrl', function($scope, $http, $timeout) {
       GSCOPE = $scope; // debugging purposes
-      $scope.appName="Einstein Platform Services";
+      $scope.appName="Console";
 
 
 
