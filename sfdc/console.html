@@ -130,6 +130,97 @@
        </section>
 
        <section>
+         <h4>Lightning Console</h4>
+         <div class="row" style="font-size:25px;">
+           <div class="col-lg-10">
+             <img style="border:0px;" src="img/lightningConsole-1.png" alt="">
+
+           </div>
+           <div class="col-lg-2">
+             <ol>
+               <li> navigation bar</li>
+               <li>workspace tabs</li>
+               <li> subtabs</li>
+               <li> recently viewed</li>
+               <li>split view pane</li>
+               <li>details area</li>
+               <li>feed</li>
+               <li>utilities - utility bar</li>
+             </ol>
+           </div>
+
+         </div>
+       </section>
+
+
+       <section>
+         <h4>Lightning Console - Utility Bar</h4>
+         <div class="row" style="font-size:25px;">
+           <div class="col-lg-10">
+             <img style="border:0px;" height="450" src="img/lightningConsole-2.png" alt="">
+
+           </div>
+           <div class="col-lg-2">
+             <ol>
+               <li>The utility bar</li>
+               <li>The Chatter Feed utility</li>
+               <li>A utility label</li>
+               <li>A utility icon</li>
+               <li>The panel header</li>
+               <li>The panel header label</li>
+               <li>The panel header icon</li>
+             </ol>
+           </div>
+
+         </div>
+       </section>
+
+         <section>
+         <h4>workspaceAPI and utilityBarAPI components</h4>
+         <ul>
+            <li>lightning:workspaceAPI:  gives access to the Workspace  API</li>
+           <li>lightning:utilityBarAPI:  gives access to the Utility Bar API</li>
+         </ul>
+         <pre style="font-size:20px;">
+           <code>
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <lightning:workspaceAPI aura:id="workspace" />
+    <lightning:utilityBarAPI aura:id="utilitybar" />
+    <lightning:button label="Open Utility" onclick="{! c.openUtilityBar }"/>
+    <lightning:button label="Open Tab" onclick="{! c.openTab }" />
+</aura:component>
+
+// -------
+({
+    openUtilityBar : function(component, event, helper) {
+        var utilityAPI = component.find("utilitybar");
+        utilityAPI.openUtility();
+    }
+
+    openTab : function(component, event, helper) {
+        var workspaceAPI = component.find("workspace");
+        workspaceAPI.openTab({
+            url: ‘#/sObject/001R0000003HgssIAC/view’,
+            focus: true
+        }).then(function(response) {
+            workspaceAPI.getTabInfo({
+                tabId: response
+            }).then(function(tabInfo) {
+	            console.log(“The recordId for this tab is: “ + tabInfo.recordId);
+            });
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    }
+})
+
+           </code>
+         </pre>
+       </section>
+
+
+       <section>
          <h4>ObjectId differences</h4>
          <ul style="font-size:30px;">
            <li>Lightning Console: Methods using
@@ -260,31 +351,7 @@
 
 
 
-  <section>
-<h4>openTab() for Lightning Experience</h4>
-<pre style="font-size:19px;">
-<code>
-// component - has a button that, when pressed, opens a tab and sets the tab’s icon to the SLDS emoji icon.
-<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
-<force:workspaceAPIAccess aura:id="workspace" />
-<lightning:button label="Open Tab" onclick="{! c.openTab }" />
-</aura:component>
-({ // controller
-openTab : function(component, event, helper) {
-var workspace = component.find("workspace");
-workspace.openTab({
-url: '/sObject/001R0000003HgssIAC/view',
-focus: true,
-callback : function(error, response) {
-workspace.focusTab({tabId : response });
-}
-});
-}
-})
-</code>
-</pre>
 
-</section>
 
 
 
@@ -373,9 +440,23 @@ workspace.focusTab({tabId : response });
         </section>
 
 
+<section>
+  <h4>References</h4>
+  <ul>
+    <li>
+      <a target="_blank" href="https://trailhead.salesforce.com/en/projects/migrate-a-classic-app-to-lightning-experience-with-declarative-tools/steps/create-a-lightning-console-app">
+        Create Lightning Console App
+      </a>
+    </li>
+  </ul>
+</section>
+
 
     </div>
   </div>
+
+
+
 
 
 
@@ -534,7 +615,7 @@ workspace.focusTab({tabId : response });
     var GSCOPE;
     app.controller('MainCtrl', function($scope, $http, $timeout) {
       GSCOPE = $scope; // debugging purposes
-      $scope.appName="Console";
+      $scope.appName="Salesforce Console";
 
 
 
