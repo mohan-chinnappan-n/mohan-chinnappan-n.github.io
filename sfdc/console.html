@@ -113,24 +113,38 @@
 
       <section id="home">
         <h4>{{appName}}</h4>
+        <ul>
+          <li>Lightning console apps allow users to quickly find the information they need,
+            and make edits while <b>viewing multiple records on one screen</b>  .
+          </li>
+          <li>Lightning Console JavaScript API gives the <b>programmatic access to Lightning console apps</b>,
+             so you can fully integrate Lightning console apps with the Lightning framework and
+              extend them to meet your business needs</li>
+        </ul>
        </section>
 
+
        <section>
-         <h4>Two APIS to interact with Salesforce console apps</h4>
-         <ol style="font-size:30px;">
-           <li> Lightning Console JavaScript API</li>
-           <li> Salesforce Console Integration Toolkit</li>
+         <h4> 2 APIs</h4>
+         <ol style="font-size:33px;">
+           <li>Workspace API:
+             provides methods for opening, closing, and getting information about workspace tabs and subtabs.
+             <hr/>
+              can be used in <b>Lightning console apps only</b>.
+            </li>
+          <li>Utility bar API:
+            provides   methods that can be used from Lightning components in the utility bar to
+             open, resize, or minimize a utility.
+             <hr/>
+              can be used in Lightning apps with standard or console navigation
+
+           </li>
          </ol>
-         <ul style="font-size:30px;">
-           <li>Starting with API <b>42.0</b>, Salesforce Console Integration Toolkit, many of the methods used in existing Visualforce
-           pages and 3rd party web-tabs now work in LEX</li>
-           <li>3rd party content  must be whitelisted in CSP <b>Trusted Sites</b> list to be used in LEX</li>
-           <li> Lightning Console JavaScript API has methods for use with <b>utility bar</b> (LEX only)</li>
-         </ul>
        </section>
 
+
        <section>
-         <h4>Lightning Console</h4>
+         <h4>Lightning Console UI</h4>
          <div class="row" style="font-size:25px;">
            <div class="col-lg-10">
              <img style="border:0px;" src="img/lightningConsole-1.png" alt="">
@@ -288,6 +302,22 @@
   <h4>Utility Bar showing the current recordId</h4>
   <img src="img/lightnging-console-ub-1.png" alt="">
 </section>
+
+
+<section>
+  <h4>Two APIS to interact with Salesforce console apps</h4>
+  <ol style="font-size:30px;">
+    <li> Lightning Console JavaScript API</li>
+    <li> Salesforce Console Integration Toolkit</li>
+  </ol>
+  <ul style="font-size:30px;">
+    <li>Starting with API <b>42.0</b>, Salesforce Console Integration Toolkit, many of the methods used in existing Visualforce
+    pages and 3rd party web-tabs now work in LEX</li>
+    <li>3rd party content  must be whitelisted in CSP <b>Trusted Sites</b> list to be used in LEX</li>
+    <li> Lightning Console JavaScript API has methods for use with <b>utility bar</b> (LEX only)</li>
+  </ul>
+</section>
+
 
        <section>
          <h4>ObjectId differences</h4>
@@ -684,7 +714,7 @@
     var GSCOPE;
     app.controller('MainCtrl', function($scope, $http, $timeout) {
       GSCOPE = $scope; // debugging purposes
-      $scope.appName="Salesforce Console";
+      $scope.appName="Lightning Console";
 
 
 
