@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="MainCtrl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{appName}}</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/navbar-green.css">
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/data-markdown.user.js"></script>
+
+
+  <script src="../bower_components/marked/marked.min.js"></script>
+  <script src="../bower_components/angular-marked/dist/angular-marked.js"></script>
+
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../reveal.js/css/theme/white.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+    		<![endif]-->
+
+  <style>
+    .reveal .slide-number {
+      font-size: 0.5em;
+    }
+
+    .simg {
+      border-radius: 10px;
+      border: 1px;
+    }
+
+    .reveal section ul li,
+    .reveal section p {
+      font-size: .8em !important;
+    }
+
+    .reveal section pre code {
+      font-size: 0.7em !important;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">{{appName}}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+      <div class="inner-addon right-addon navbar-form navbar-right">
+        <i class="glyphicon glyphicon-search"></i>
+        <input type="text" class="form-control" placeholder="Search" />
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown ">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="./help.html">Help Topics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <!--
+  <div class="container" ng-controller='MainCtrl'>
+    <div marked src="'pevents.md'"></div>
+  </div>
+-->
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section id="home">
+        <h4>{{appName}}</h4>
+        <ul>
+          <li>Lightning console apps allow users to quickly find the information they need,
+            and make edits while <b>viewing multiple records on one screen</b>  .
+          </li>
+          <li>Lightning Console JavaScript API gives the <b>programmatic access to Lightning console apps</b>,
+             so you can fully integrate Lightning console apps with the Lightning framework and
+              extend them to meet your business needs</li>
+        </ul>
+       </section>
+
+
+       <section>
+         <h4> 2 APIs</h4>
+         <ol style="font-size:33px;">
+           <li>Workspace API:
+             provides methods for opening, closing, and getting information about workspace tabs and subtabs.
+             <hr/>
+              can be used in <b>Lightning console apps only</b>.
+            </li>
+          <li>Utility bar API:
+            provides   methods that can be used from Lightning components in the utility bar to
+             open, resize, or minimize a utility.
+             <hr/>
+              can be used in Lightning apps with standard or console navigation
+
+           </li>
+         </ol>
+       </section>
+
+
+       <section>
+         <h4>Lightning Console UI</h4>
+         <div class="row" style="font-size:25px;">
+           <div class="col-lg-10">
+             <img style="border:0px;" src="img/lightningConsole-1.png" alt="">
+
+           </div>
+           <div class="col-lg-2">
+             <ol>
+               <li> navigation bar</li>
+               <li>workspace tabs</li>
+               <li> subtabs</li>
+               <li> recently viewed</li>
+               <li>split view pane</li>
+               <li>details area</li>
+               <li>feed</li>
+               <li>utilities - utility bar</li>
+             </ol>
+           </div>
+
+         </div>
+       </section>
+
+
+       <section>
+         <h4>Lightning Console - Utility Bar</h4>
+         <div class="row" style="font-size:25px;">
+           <div class="col-lg-10">
+             <img style="border:0px;" height="450" src="img/lightningConsole-2.png" alt="">
+
+           </div>
+           <div class="col-lg-2">
+             <ol>
+               <li>The utility bar</li>
+               <li>The Chatter Feed utility</li>
+               <li>A utility label</li>
+               <li>A utility icon</li>
+               <li>The panel header</li>
+               <li>The panel header label</li>
+               <li>The panel header icon</li>
+             </ol>
+           </div>
+
+         </div>
+       </section>
+
+         <section>
+         <h4>workspaceAPI and utilityBarAPI components</h4>
+         <ul>
+            <li>lightning:workspaceAPI:  gives access to the Workspace  API</li>
+           <li>lightning:utilityBarAPI:  gives access to the Utility Bar API</li>
+         </ul>
+         <pre style="font-size:20px;">
+           <code>
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <lightning:workspaceAPI aura:id="workspace" />
+    <lightning:utilityBarAPI aura:id="utilitybar" />
+    <lightning:button label="Open Utility" onclick="{! c.openUtilityBar }"/>
+    <lightning:button label="Open Tab" onclick="{! c.openTab }" />
+</aura:component>
+
+// -------
+({
+    openUtilityBar : function(component, event, helper) {
+        var utilityAPI = component.find("utilitybar");
+        utilityAPI.openUtility();
+    }
+
+    openTab : function(component, event, helper) {
+        var workspaceAPI = component.find("workspace");
+        workspaceAPI.openTab({
+            url: ‘#/sObject/001R0000003HgssIAC/view’,
+            focus: true
+        }).then(function(response) {
+            workspaceAPI.getTabInfo({
+                tabId: response
+            }).then(function(tabInfo) {
+	            console.log(“The recordId for this tab is: “ + tabInfo.recordId);
+            });
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    }
+})
+
+           </code>
+         </pre>
+       </section>
+
+       <section>
+         <h4> JavaScript Promises </h4>
+         <pre>
+           <code>
+// Methods in the Lightning Console JavaScript API return results using promises
+({
+    focusNewTab : function(component, event, helper) {
+        var workspaceAPI = component.find("workspace");
+        // get the tab ID of the focused tab
+        workspaceAPI.openTab({
+            url: '#/sObject/001R0000003HgssIAC/view',
+            label: 'Global Media'
+        }).then(function(response) {
+            // respsone from the promise
+            // Promises can simplify code that handles
+            //   the success or failure of asynchronous calls
+            workspaceAPI.focusTab({tabId : response});
+       })
+        .catch(function(error) {
+          // Promises can simplify code that
+          //  handles the success or failure of asynchronous calls
+          /*
+            The catch() method returns a promise and
+              accepts a single function parameter that’s called if the promise is rejected.
+              This function has one argument that shows the reason for the rejection.
+              The promise returned by catch() is rejected if the function that is passed
+              in either throws an error or returns a promise that’s rejected.
+               Otherwise, the promise is resolved.
+          */
+            console.log(error);
+        });
+    }
+})
+           </code>
+         </pre>
+       </section>
+
+
+<section>
+  <h4>Using Page Context in the Utility Bar API </h4>
+  <pre>
+    <code>
+   // implements force:hasRecordId and listens for changes to the record being viewed
+   // When this component is added to a utility bar,
+   //  it displays the recordId of the record currently being viewed.
+      <aura:component implements="force:hasRecordId,flexipage:availableForAllPageTypes"
+      access="global">
+          <aura:handler name="change" value="{!v.recordId}" action="{!c.onRecordIdChange}"/>
+          <div>
+                  <p>The current recordId is {!v.recordId}.</p>
+          </div>
+      </aura:component>
+// controller
+({
+    onRecordIdChange : function(component, event, helper) {
+        var newRecordId = component.get("v.recordId");
+        console.log(newRecordId);
+    }
+})
+
+
+    </code>
+  </pre>
+</section>
+
+<section>
+  <h4>Utility Bar showing the current recordId</h4>
+  <img  style="border:0px;" src="img/lightnging-console-ub-1.png" alt="">
+</section>
+
+<section>
+  <h4>Creating Lightning Console App</h4>
+    <img style="border:0px;" src="img/lx-console-1.gif" alt="">
+
+</section>
+
+<section>
+  <h4>Creating Lightning Console App - Utility Bar</h4>
+    <img style="border:0px;" src="img/lx-console-2.gif" alt="">
+
+</section>
+
+
+<section>
+  <h4>Two APIS to interact with Salesforce console apps</h4>
+  <ol style="font-size:30px;">
+    <li> Lightning Console JavaScript API</li>
+    <li> Salesforce Console Integration Toolkit</li>
+  </ol>
+  <ul style="font-size:30px;">
+    <li>Starting with API <b>42.0</b>, Salesforce Console Integration Toolkit, many of the methods used in existing Visualforce
+    pages and 3rd party web-tabs now work in LEX</li>
+    <li>3rd party content  must be whitelisted in CSP <b>Trusted Sites</b> list to be used in LEX</li>
+    <li> Lightning Console JavaScript API has methods for use with <b>utility bar</b> (LEX only)</li>
+  </ul>
+</section>
+
+
+       <section>
+         <h4>ObjectId differences</h4>
+         <ul style="font-size:30px;">
+           <li>Lightning Console: Methods using
+            <code>objectId</code> return 18-char
+            <b>case-insenstive Record-IDs</b>
+           </li>
+           <li>Salesforce Classic: They    return 15-char
+           <b>case-senstive Record-IDs</b></li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Differences</h4>
+         <ul style="font-size:35px;">
+           <li>Use Lightning Console JavaScript API methods in JS controller of the Lightning Component</li>
+           <li>Visualforce / iframed 3rd party pages can work in both LEX and Classic : Use Salesforce Console Integration Toolkit:
+           <br/>with keeping in mind some of the Salesforce Console Integration Toolkit are <b>not</b> supported in Lightning Console JavaScript API
+          </li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Differences - input syntax</h4>
+         <ul style="font-size:35px;">
+          <li>Methods in Lightning Console JavaScript API takes in JSON Object as argument:
+            <pre>
+           <code>
+
+             workspace.openTab( { url:'#https://salesforce.com',
+                                    focus: true,
+                                    label: 'SFDC'
+                                }
+                              );
+           </code>
+         </pre>
+          </li>
+
+          <li>Salesforce Console Integration Toolkit takes in individual parameters:
+            <pre>
+           <code>
+
+             sforce.console.openPrimaryTabl(null, '#https://salesforce.com',
+                                            false,
+                                            'SFDC',
+                                            openSuccessFunction,
+                                            'SFDCTab'
+                                           );
+           </code>
+         </pre>
+          </li>
+
+
+
+         </ul>
+       </section>
+
+       <section>
+         <h4>Close a specified primary tab or subtab</h4>
+         <code>closeTab()</code>
+          <pre>
+            <code>
+    sforce.console.closeTab(
+     id:String, // id of the Primary Tab or subtab to close
+     (optional) callback: Function // to be called upon completion of the closing tab
+    )
+  </code>
+          </pre>
+
+
+       </section>
+
+
+
+              <section>
+                <h4>Close a specified primary tab or subtab - sample</h4>
+                 <pre>
+<code>
+<apex:page standardController="Account">
+<a href="#" onClick="testCloseTab();return false;">Click to close this tab</a>
+<apex:includeScript value="/support/console/42.0/integration.js"/>
+  <script>
+    function testCloseTab() {
+      sforce.console.getEnclosingTabId(function (result){
+        sforce.console.closeTab(result.id, function(res){
+          // res: {success: boolean, error: string}
+          if (res.error) { alert('Error msg: ' + res.error); }
+        });
+      })
+    }
+  </script>
+  </apex:page>
+
+</code>
+// standardController
+// includeScript
+                 </pre>
+
+
+              </section>
+
+
+
+                <section>
+<h4>openTab() for Lightning Experience</h4>
+  <pre style="font-size:19px;">
+    <code>
+    // component - has a button that, when pressed, opens a tab and sets the tab’s icon to the SLDS emoji icon.
+    <aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+        <force:workspaceAPIAccess aura:id="workspace" />
+        <lightning:button label="Open Tab" onclick="{! c.openTab }" />
+    </aura:component>
+    ({ // controller
+     openTab : function(component, event, helper) {
+        var workspace = component.find("workspace");
+        workspace.openTab({
+          url: '/sObject/001R0000003HgssIAC/view',
+          focus: true,
+          callback : function(error, response) {
+              workspace.focusTab({tabId : response });
+          }
+       });
+     }
+  })
+  </code>
+  </pre>
+
+  </section>
+
+
+
+
+
+
+
+
+<section>
+  <h4>setTabIcon() for Lightning Experience</h4>
+    <pre style="font-size:19px;">
+      <code>
+      // component - has a button that, when pressed, opens a tab.
+      <aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+      <force:workspaceAPIAccess aura:id="workspace" />
+      <lightning:button label="Set Focused Tab Icon" onclick="{! c.setFocusedTabIcon }" />
+     </aura:component>
+      ({ // controller
+       setFocusedTabIcon : function(component, event, helper) {
+          var workspace = component.find("workspace");
+          workspace.getFocusedTabInfo({
+            callback : function(error, response) {
+                var focusedTabId = response.tabId;
+                workspace.setTabIcon({tabId : focusedTabId, icon: 'like', iconAlt: 'like' });
+            }
+         });
+       }
+    })
+    </code>
+    </pre>
+
+    </section>
+
+
+
+
+
+
+              <section>
+                <h4>Lightning Events example</h4>
+
+<pre style="font-size:20px;">
+// Use events and handlers in your Lightning components and controllers
+//  to respond to events like workspace tabs opening, closing, or
+//  gaining focus.
+
+// prints a line to the browser’s developer console
+// when a tab is closed
+  <code>
+  // component
+    <aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+        <force:workspaceAPIAccess aura:id="workspace" />
+        <aura:handler event="force:tabClosed" action="{! c.onTabClosed }"/>
+    </aura:component>
+
+  // controller
+  ({
+      onTabclosed : function(component, event, helper) {
+          console.log("Tab closed.");
+      },
+  })
+  </code>
+</pre>
+
+</section>
+
+
+
+
+
+        <section>
+          <h4>Classic methods supported in Lightning Console</h4>
+          <ol style="font-size:25px;">
+            <li> <code>closeTab()</code> <hr/> </li>
+
+            <li> <code>focus<b>PrimaryTab</b>ById()</code> </li>
+            <li> <code>focus<b>Subtab</b>ById()</code> <hr/> </li>
+
+            <li> <code>getEnclosing<b>PrimaryTab</b>Id()</code> </li>
+            <li> <code>getEnclosingTabId()</code> <hr/> </li>
+
+            <li> <code>getFocused<b>PrimaryTab</b>Id()</code> </li>
+            <li> <code>getFocused<b>PrimaryTab</b>ObjectId()</code> <hr/> </li>
+            <li> <code>getFocused<b>Subtab</b>Id()</code> </li>
+            <li> <code>getFocused<b>Subtab</b>ObjectId()</code> </li>
+
+
+          </ol>
+
+        </section>
+
+
+      <section>
+        <h4>Features in Classic console not available in Lightning Console</h4>
+        <ul>
+          <li>Resizeable split view	- In Salesforce Classic, you can adjust the width of a pinned list.
+               In Lightning Experience, you can’t adjust the width of split view.</li>
+          <li>Custom keyboard shortcuts</li>
+          <li>Interaction logs	</li>
+          <li>Dynamic list updates (push notifications)</li>
+          <li>Multi-monitor—pop-out utilities	( multi-monitor components)</li>
+          <li>Region presentation—size	</li>
+
+        </ul>
+        <a target="_blank" href="https://help.salesforce.com/articleView?id=console_lex_feature_parity.htm&type=0">
+          What Features Are Available in Lightning Console Apps?
+      </a>
+
+      </section>
+
+
+<section>
+  <h4>References</h4>
+  <ul>
+    <li>
+      <a href="https://help.salesforce.com/articleView?id=console_lex_feature_parity.htm&type=0">
+        What Features Are Available in Lightning Console Apps?
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://trailhead.salesforce.com/en/projects/migrate-a-classic-app-to-lightning-experience-with-declarative-tools/steps/create-a-lightning-console-app">
+        Create Lightning Console App
+      </a>
+    </li>
+  </ul>
+</section>
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
+
+
+  <script>
+    'use strict';
+
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+      //width: 960,
+      //	height: 700,
+
+      // Display presentation control arrows
+      controls: true,
+
+      // Help the user learn the controls by providing hints, for example by
+      // bouncing the down arrow when they first encounter a vertical slide
+      controlsTutorial: true,
+
+      // Determines where controls appear, "edges" or "bottom-right"
+      controlsLayout: 'edges',
+
+      // Visibility rule for backwards navigation arrows; "faded", "hidden"
+      // or "visible"
+      controlsBackArrows: 'faded',
+      // Display a presentation progress bar
+      progress: true,
+
+      // Set default timing of 2 minutes per slide
+      defaultTiming: 120,
+
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
+
+
+      history: true,
+      center: true,
+      slideNumber: true,
+
+      embedded: true,
+
+      transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+      menu: {
+        markers: true,
+        openSlideNumber: true,
+        themes: [{
+            name: 'Black',
+            theme: '../reveal.js/css/theme/black.css'
+          },
+          {
+            name: 'White',
+            theme: '../reveal.js/css/theme/white.css'
+          },
+          {
+            name: 'League',
+            theme: '../reveal.js/css/theme/league.css'
+          },
+          {
+            name: 'Sky',
+            theme: '../reveal.js/css/theme/sky.css'
+          },
+          {
+            name: 'Beige',
+            theme: '../reveal.js/css/theme/beige.css'
+          },
+          {
+            name: 'Simple',
+            theme: '../reveal.js/css/theme/simple.css'
+          },
+          {
+            name: 'Serif',
+            theme: '../reveal.js/css/theme/serif.css'
+          },
+          {
+            name: 'Blood',
+            theme: '../reveal.js/css/theme/blood.css'
+          },
+          {
+            name: 'Night',
+            theme: '../reveal.js/css/theme/night.css'
+          },
+          {
+            name: 'Moon',
+            theme: '../reveal.js/css/theme/moon.css'
+          },
+          {
+            name: 'Solarized',
+            theme: '../reveal.js/css/theme/solarized.css'
+          }
+        ],
+        custom: []
+      },
+
+      // Optional reveal.js plugins
+      dependencies: [{
+          src: '../reveal.js/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          condition: function() {
+            return !!document.querySelector('pre code');
+          },
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: '../reveal.js/plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/reveal.js-menu/menu.js',
+          async: true
+        }
+      ]
+    });
+
+
+
+    var app = angular.module('app', [
+      'hc.marked'
+    ]);
+    app.config(['markedProvider', function(markedProvider) {
+      markedProvider.setOptions({
+        gfm: true
+      });
+    }]);
+
+    var GSCOPE;
+    app.controller('MainCtrl', function($scope, $http, $timeout) {
+      GSCOPE = $scope; // debugging purposes
+      $scope.appName="Lightning Console";
+
+
+
+    })
+  </script>
+</body>
+
+</html>

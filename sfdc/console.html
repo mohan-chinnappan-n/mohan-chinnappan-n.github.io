@@ -300,125 +300,28 @@
 
 <section>
   <h4>Utility Bar showing the current recordId</h4>
-  <img src="img/lightnging-console-ub-1.png" alt="">
+  <img  style="border:0px;" src="img/lightnging-console-ub-1.png" alt="">
 </section>
-
 
 <section>
-  <h4>Two APIS to interact with Salesforce console apps</h4>
-  <ol style="font-size:30px;">
-    <li> Lightning Console JavaScript API</li>
-    <li> Salesforce Console Integration Toolkit</li>
-  </ol>
-  <ul style="font-size:30px;">
-    <li>Starting with API <b>42.0</b>, Salesforce Console Integration Toolkit, many of the methods used in existing Visualforce
-    pages and 3rd party web-tabs now work in LEX</li>
-    <li>3rd party content  must be whitelisted in CSP <b>Trusted Sites</b> list to be used in LEX</li>
-    <li> Lightning Console JavaScript API has methods for use with <b>utility bar</b> (LEX only)</li>
-  </ul>
+  <h4>Creating Lightning Console App</h4>
+    <img style="border:0px;" src="img/lx-console-1.gif" alt="">
+
+</section>
+
+<section>
+  <h4>Creating Lightning Console App - Utility Bar</h4>
+    <img style="border:0px;" src="img/lx-console-2.gif" alt="">
+
 </section>
 
 
-       <section>
-         <h4>ObjectId differences</h4>
-         <ul style="font-size:30px;">
-           <li>Lightning Console: Methods using
-            <code>objectId</code> return 18-char
-            <b>case-insenstive Record-IDs</b>
-           </li>
-           <li>Salesforce Classic: They    return 15-char
-           <b>case-senstive Record-IDs</b></li>
-         </ul>
-       </section>
-
-       <section>
-         <h4>Differences</h4>
-         <ul style="font-size:35px;">
-           <li>Use Lightning Console JavaScript API methods in JS controller of the Lightning Component</li>
-           <li>Visualforce / iframed 3rd party pages can work in both LEX and Classic : Use Salesforce Console Integration Toolkit:
-           <br/>with keeping in mind some of the Salesforce Console Integration Toolkit are <b>not</b> supported in Lightning Console JavaScript API
-          </li>
-         </ul>
-       </section>
-
-       <section>
-         <h4>Differences - input syntax</h4>
-         <ul style="font-size:35px;">
-          <li>Methods in Lightning Console JavaScript API takes in JSON Object as argument:
-            <pre>
-           <code>
-
-             workspace.openTab( { url:'#https://salesforce.com',
-                                    focus: true,
-                                    label: 'SFDC'
-                                }
-                              );
-           </code>
-         </pre>
-          </li>
-
-          <li>Salesforce Console Integration Toolkit takes in individual parameters:
-            <pre>
-           <code>
-
-             sforce.console.openPrimaryTabl(null, '#https://salesforce.com',
-                                            false,
-                                            'SFDC',
-                                            openSuccessFunction,
-                                            'SFDCTab'
-                                           );
-           </code>
-         </pre>
-          </li>
 
 
 
-         </ul>
-       </section>
-
-       <section>
-         <h4>Close a specified primary tab or subtab</h4>
-         <code>closeTab()</code>
-          <pre>
-            <code>
-    sforce.console.closeTab(
-     id:String, // id of the Primary Tab or subtab to close
-     (optional) callback: Function // to be called upon completion of the closing tab
-    )
-  </code>
-          </pre>
-
-
-       </section>
 
 
 
-              <section>
-                <h4>Close a specified primary tab or subtab - sample</h4>
-                 <pre>
-<code>
-<apex:page standardController="Account">
-<a href="#" onClick="testCloseTab();return false;">Click to close this tab</a>
-<apex:includeScript value="/support/console/42.0/integration.js"/>
-  <script>
-    function testCloseTab() {
-      sforce.console.getEnclosingTabId(function (result){
-        sforce.console.closeTab(result.id, function(res){
-          // res: {success: boolean, error: string}
-          if (res.error) { alert('Error msg: ' + res.error); }
-        });
-      })
-    }
-  </script>
-  </apex:page>
-
-</code>
-// standardController
-// includeScript
-                 </pre>
-
-
-              </section>
 
 
 
@@ -517,31 +420,36 @@
 
 
 
-        <section>
-          <h4>Classic methods supported in Lightning Console</h4>
-          <ol style="font-size:25px;">
-            <li> <code>closeTab()</code> <hr/> </li>
-
-            <li> <code>focus<b>PrimaryTab</b>ById()</code> </li>
-            <li> <code>focus<b>Subtab</b>ById()</code> <hr/> </li>
-
-            <li> <code>getEnclosing<b>PrimaryTab</b>Id()</code> </li>
-            <li> <code>getEnclosingTabId()</code> <hr/> </li>
-
-            <li> <code>getFocused<b>PrimaryTab</b>Id()</code> </li>
-            <li> <code>getFocused<b>PrimaryTab</b>ObjectId()</code> <hr/> </li>
-            <li> <code>getFocused<b>Subtab</b>Id()</code> </li>
-            <li> <code>getFocused<b>Subtab</b>ObjectId()</code> </li>
 
 
-          </ol>
 
-        </section>
+      <section>
+        <h4>Features in Classic console not available in Lightning Console</h4>
+        <ul>
+          <li>Resizeable split view	- In Salesforce Classic, you can adjust the width of a pinned list.
+               In Lightning Experience, you can’t adjust the width of split view.</li>
+          <li>Custom keyboard shortcuts</li>
+          <li>Interaction logs	</li>
+          <li>Dynamic list updates (push notifications)</li>
+          <li>Multi-monitor—pop-out utilities	( multi-monitor components)</li>
+          <li>Region presentation—size	</li>
+
+        </ul>
+        <a target="_blank" href="https://help.salesforce.com/articleView?id=console_lex_feature_parity.htm&type=0">
+          What Features Are Available in Lightning Console Apps?
+      </a>
+
+      </section>
 
 
 <section>
   <h4>References</h4>
   <ul>
+    <li>
+      <a href="https://help.salesforce.com/articleView?id=console_lex_feature_parity.htm&type=0">
+        What Features Are Available in Lightning Console Apps?
+      </a>
+    </li>
     <li>
       <a target="_blank" href="https://trailhead.salesforce.com/en/projects/migrate-a-classic-app-to-lightning-experience-with-declarative-tools/steps/create-a-lightning-console-app">
         Create Lightning Console App
