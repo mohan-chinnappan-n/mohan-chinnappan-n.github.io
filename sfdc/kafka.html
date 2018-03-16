@@ -265,12 +265,63 @@
         </section>
 
         <section>
+          <h4>Advantages of Message based async integration</h4>
+          <img style="border:0px" height="500" src="img/kafka/adv-disadv-1.png" alt="">
+
+        </section>
+
+
+        <section>
+          <h4 style="font-size:30px;">Key Ideas - Data/Journal Logs - programmatic access</h4>
+          <ul style="font-size:30px;">
+            <li> Write-ahead logs or commit logs or transaction logs </li>
+            <li>Logs are heart of many distributed data systems, data integration and real-time application architectures.</li>
+            <li>Append-only, totally-ordered sequence of records ordered by time</li>
+            <li>Records what happened and when.</li>
+            <li>The ordering of records defines a notion of "time" since entries to the left are defined to be older then entries to the right.</li>
+            <li>The log entry number can be thought of as the "timestamp" of the entry.</li>
+            <li>database uses a log to write out information about the records they will be modifying,
+              before applying the changes to all the various data structures it maintains. </li>
+
+            <li>Since the log is immediately persisted it is used as the authoritative source in
+               restoring all other persistent structures in the event of a crash.</li>
+            <li>The use of logs as a mechanism for data subscription seems to have arisen almost by chance -
+            supporting messaging, data flow, and real-time data processing</li>
+            <li>The two problems a log solves: ordering changes and distributing data</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4>Key Ideas - Logs - contd.</h4>
+          <ul style="font-size:30px;">
+
+            <li>If you feed two deterministic pieces of code the same input log, they will produce the same output.</li>
+            <li>You can reduce the problem of making multiple machines all do
+              the same thing to the problem of implementing a distributed consistent log to feed these processes input.</li>
+              <li> Time-stamps that index the log now act as the clock for the state of the replicas</li>
+          </ul>
+        </section>
+
+        <section>
           <h4>References</h4>
 
           <ul>
             <li>
               <a target="_blank" href="https://www.salesforce.com/video/302281/">
                 How We Built Heroku's Real-Time Platform Event Stream
+              </a>
+            </li>
+
+
+            <li>
+              <a target="_blank" href="https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying">
+The Log              </a>
+            </li>
+
+
+            <li>
+              <a target="_blank" href="https://people.eecs.berkeley.edu/~brewer/cs262/SystemR.pdf">
+                A History and Evaluation of System R
               </a>
             </li>
           </ul>
