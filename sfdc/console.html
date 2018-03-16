@@ -219,6 +219,75 @@
          </pre>
        </section>
 
+       <section>
+         <h4> JavaScript Promises </h4>
+         <pre>
+           <code>
+// Methods in the Lightning Console JavaScript API return results using promises
+({
+    focusNewTab : function(component, event, helper) {
+        var workspaceAPI = component.find("workspace");
+        // get the tab ID of the focused tab
+        workspaceAPI.openTab({
+            url: '#/sObject/001R0000003HgssIAC/view',
+            label: 'Global Media'
+        }).then(function(response) {
+            // respsone from the promise
+            // Promises can simplify code that handles
+            //   the success or failure of asynchronous calls
+            workspaceAPI.focusTab({tabId : response});
+       })
+        .catch(function(error) {
+          // Promises can simplify code that
+          //  handles the success or failure of asynchronous calls
+          /*
+            The catch() method returns a promise and
+              accepts a single function parameter that’s called if the promise is rejected.
+              This function has one argument that shows the reason for the rejection.
+              The promise returned by catch() is rejected if the function that is passed
+              in either throws an error or returns a promise that’s rejected.
+               Otherwise, the promise is resolved.
+          */
+            console.log(error);
+        });
+    }
+})
+           </code>
+         </pre>
+       </section>
+
+
+<section>
+  <h4>Using Page Context in the Utility Bar API </h4>
+  <pre>
+    <code>
+   // implements force:hasRecordId and listens for changes to the record being viewed
+   // When this component is added to a utility bar,
+   //  it displays the recordId of the record currently being viewed.
+      <aura:component implements="force:hasRecordId,flexipage:availableForAllPageTypes"
+      access="global">
+          <aura:handler name="change" value="{!v.recordId}" action="{!c.onRecordIdChange}"/>
+          <div>
+                  <p>The current recordId is {!v.recordId}.</p>
+          </div>
+      </aura:component>
+// controller
+({
+    onRecordIdChange : function(component, event, helper) {
+        var newRecordId = component.get("v.recordId");
+        console.log(newRecordId);
+    }
+})
+
+
+    </code>
+  </pre>
+</section>
+
+<section>
+  <h4>Utility Bar showing the current recordId</h4>
+  <img src="img/lightnging-console-ub-1.png" alt="">
+</section>
 
        <section>
          <h4>ObjectId differences</h4>
