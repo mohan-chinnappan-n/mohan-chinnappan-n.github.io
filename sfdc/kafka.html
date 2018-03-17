@@ -182,6 +182,7 @@
          </ul>
        </section>
 
+
        <section>
          <h4>Storage System</h4>
          <ul style="font-size:30px;">
@@ -321,6 +322,109 @@
         </section>
 
         <section>
+          <h4>How Kafka inspired SFDC Platform Events Architecture</h4>
+          <ul>
+            <li> scalability challenges addressed by:
+              <ul>
+                <li>asynchronous</li>
+                <li>event-driven</li>
+              </ul>
+
+            </li>
+            <li>Provide:  time-ordered immutable event stream to our customers. </li>
+          </ul>
+        </section>
+
+        <section>
+          <h4>Data Integration - Then</h4>
+          <ul>
+            <li><b>Data Integration</b> :REST and SOAP APIs</li>
+            <li><b>Business Process Integration</b>: Web Service calls via Apex</li>
+            <li>
+              <b>External Objects: Provide data virtualization and federated query</b> </li>
+            <li>Event-driven architectural patterns:
+                <ul>
+                  <li>Shift towards decoupling services - async interactions - publish/subscribe model </li>
+                  <li> subscription durability </li>
+                </ul>
+              </li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h4> Kafka Key points</h4>
+          <div class='row'>
+            <div class='col-lg-6'>
+              <img style="border:0px;"
+               src="img/kafka/kafka-arch-2.png" alt="log anatomy">
+            </div>
+            <div class='col-lg-6'>
+             <ul style="font-size:23px;">
+               <li>Events are immutable and are stored on disk in a form of a time-ordered log. <br/>
+                    Each message is stored on disk precisely once, regardless of how many subscribers consume it.
+                </li>
+               <li>Publishers always append at the head of the log. Each newly written event is assigned a new offset — 
+                 this is the point when its relative order is established</li>
+               <li>Subscribers can read events at their own pace. If a subscriber has to reconnect,
+                 it can supply the “last seen” offset to resume exactly where it left off <br/>
+                 Tracking of a subscriber position can be the responsibility of the subscriber,
+                 so the broker does not suffer from a state explosion as it services more and more subscribers.<br/>
+                 Offset-based subscription durability ensures, and even dictates, strict order of events.
+                </li>
+               <li>
+                  To conserve resources, the oldest events can be periodically purged.
+               </li>
+               <li>So, a subscriber can miss events if it falls behind for more than the retention period
+               </li>
+             </ul>
+            </div>
+         </div>
+
+        </section>
+
+        <section>
+          <h4 style="font-size:30px;">SFDC - Schema: contents of the message</h4>
+          <h5 style="font-size:20px;">Platform Events combine:  the elegance of a time-ordered event log (Kafka) with the power of Salesforce’s metadata layer</h5>
+          <ul style="font-size:30px;">
+            <li>All participants in the system share a metadata repository </li>
+            <li>Allows publishers and subscribers to evolve completely independently</li>
+            <li>Schema is published in the metadata repository, subscribers can discover the new message type</li>
+            <li>Enables application lifecycle decoupling</li>
+            <li>Events can be defined as custom entities (Objects) and
+                 their custom definitions can be used as a schema for event serialization and consumption by the subscribers.</li>
+             <li>We translate event definitions to Apache Avro so subscribers can consume events
+                in this highly efficient serialization format with libraries in many language environments.</li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h4 style="font-size:30px;">Salesforce Platform Events -
+          Kafka and the Salesforce metadata system
+        </h4>
+          <ul style="font-size:30px;">
+            <li>Events are defined just like custom objects. Subscribers can discover and describe them in the same ways as any other metadata</li>
+            <li>Subscribers can tap into the topics on the platform via:
+                <ul>
+                  <li> Event Apex Triggers</li>
+                  <li> Visual Flow</li>
+                </ul>
+             </li>
+             <li>For external integrations: topics are exposed via the Salesforce Streaming API. </li>
+             <li>Publishers can live within the platform: Lightning, Apex and Visual Flow can send platform events</li>
+             <li>External publishers: can use any form of SObject API (REST API) that can save an SObject </li>
+             <li>Platform Events are first-class Salesforce Objects</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4>SFDC Kafka</h4>
+           <img style="border:0px;" height="500" src="img/kafka/sfdc-kafka-1.png" alt="sfdc kafka">
+        </section>
+
+
+        <section>
           <h4>References</h4>
 
           <ul>
@@ -342,6 +446,12 @@ The Log              </a>
                 A History and Evaluation of System R
               </a>
             </li>
+            <li>
+              <a target="_blank" href="https://engineering.salesforce.com/how-apache-kafka-inspired-our-platform-events-architecture-2f351fe4cf63">
+              How Apache Kafka Inspired Our Platform Events Architecture
+              </a>
+            </li>
+
           </ul>
         </section>
 
