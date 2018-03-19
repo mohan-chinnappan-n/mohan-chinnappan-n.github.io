@@ -601,26 +601,108 @@ implements=&quot;flexipage:availableForRecordHome,force:lightningQuickActionWith
 <p><img src="img/lds-app-builder-4.png" alt="How to use this in Lightning App Builder -4"></p>
 <p><img src="img/lds-app-builder-5.png" alt="How to use this in Lightning App Builder -5"></p>
 <h3 id="saving-a-record">Saving a Record</h3>
+<p>Two cases:</p>
+<ol>
+<li><p>Save changes to an existing record</p>
+<ul>
+<li><code>mode=&quot;EDIT&quot;</code> and use <code>saveRecord</code> on <code>force.recordData</code></li>
+</ul>
+<pre><code class="lang-js">
+handleSaveRecord: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+      <span class="hljs-comment">// saveRecord</span>
+       component.find(<span class="hljs-string">&quot;recordHandler&quot;</span>).saveRecord($A.getCallback(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">saveResult</span>) </span>{
+           <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> If you want a specific behavior(an action or UI behavior) when this action is successful</span>
+           <span class="hljs-comment">// then handle that in a callback (generic logic when record is changed should be handled in recordUpdated event handler)</span>
+           <span class="hljs-keyword">if</span> (saveResult.state === <span class="hljs-string">&quot;SUCCESS&quot;</span> || saveResult.state === <span class="hljs-string">&quot;DRAFT&quot;</span>) {
+               <span class="hljs-comment">// handle component related logic in event handler</span>
+           } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (saveResult.state === <span class="hljs-string">&quot;INCOMPLETE&quot;</span>) {
+               <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;User is offline, device doesn&apos;t support drafts.&quot;</span>);
+           } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (saveResult.state === <span class="hljs-string">&quot;ERROR&quot;</span>) {
+               <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Problem saving record, error: &apos;</span> + <span class="hljs-built_in">JSON</span>.stringify(saveResult.error));
+           } <span class="hljs-keyword">else</span> {
+               <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Unknown problem, state: &apos;</span> + saveResult.state + <span class="hljs-string">&apos;, error: &apos;</span> + <span class="hljs-built_in">JSON</span>.stringify(saveResult.error));
+           }
+       }));
+   }
+</code></pre>
+</li>
+</ol>
+<pre><code class="lang-xml">  &lt;&lt;aura:component implements=&quot;flexipage:availableForRecordHome,force:hasRecordId&quot;&gt;
+
+    &lt;aura:attribute name=&quot;record&quot; type=&quot;Object&quot;/&gt;
+    &lt;aura:attribute name=&quot;simpleRecord&quot; type=&quot;Object&quot;/&gt;
+    &lt;aura:attribute name=&quot;recordError&quot; type=&quot;String&quot;/&gt;
+
+    &lt;force:recordData aura:id=&quot;recordHandler&quot;
+      recordId=&quot;{!v.recordId}&quot;
+      layoutType=&quot;FULL&quot;
+      targetRecord=&quot;{!v.record}&quot;
+      targetFields=&quot;{!v.simpleRecord}&quot;
+      targetError=&quot;{!v.recordError}&quot;
+
+      mode=&quot;EDIT&quot;
+
+      recordUpdated=&quot;{!c.handleRecordUpdated}&quot;
+
+      /&gt;
+
+    &lt;!-- Display a header with details about the record --&gt;
+    &lt;div class=&quot;slds-page-header&quot; role=&quot;banner&quot;&gt;
+        &lt;p class=&quot;slds-text-heading_label&quot;&gt;Edit Record&lt;/p&gt;
+        &lt;h1 class=&quot;slds-page-header__title slds-m-right_small
+            slds-truncate slds-align-left&quot;&gt;{!v.simpleRecord.Name}&lt;/h1&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Display Lightning Data Service errors, if any --&gt;
+    &lt;aura:if isTrue=&quot;{!not(empty(v.recordError))}&quot;&gt;
+        &lt;div class=&quot;recordError&quot;&gt;
+            &lt;ui:message title=&quot;Error&quot; severity=&quot;error&quot; closable=&quot;true&quot;&gt;
+                {!v.recordError}
+            &lt;/ui:message&gt;
+        &lt;/div&gt;
+    &lt;/aura:if&gt;
+
+    &lt;!-- Display an editing form --&gt;
+    &lt;lightning:input aura:id=&quot;recordName&quot; name=&quot;recordName&quot; label=&quot;Name&quot;
+                  value=&quot;{!v.simpleRecord.Name}&quot; required=&quot;true&quot;/&gt;
+
+     &lt;lightning:button label=&quot;Save Record&quot; onclick=&quot;{!c.handleSaveRecord}&quot;
+
+               variant=&quot;brand&quot; class=&quot;slds-m-top_medium&quot;/&gt;
+&lt;/aura:component&gt;
+</code></pre>
+<pre><code class="lang-js">  <span class="hljs-comment">/**
+     * Control the component behavior here when record is changed (via any component)
+     */</span>
+    handleRecordUpdated: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-keyword">var</span> eventParams = event.getParams();
+        <span class="hljs-keyword">if</span>(eventParams.changeType === <span class="hljs-string">&quot;CHANGED&quot;</span>) {
+            <span class="hljs-comment">// get the fields that changed for this record</span>
+            <span class="hljs-keyword">var</span> changedFields = eventParams.changedFields;
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Fields that are changed: &apos;</span> + <span class="hljs-built_in">JSON</span>.stringify(changedFields));
+            <span class="hljs-comment">// record is changed, so refresh the component (or other component logic)</span>
+            <span class="hljs-keyword">var</span> resultsToast = $A.get(<span class="hljs-string">&quot;e.force:showToast&quot;</span>);
+            resultsToast.setParams({
+                <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;Saved&quot;</span>,
+                <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;The record was updated.&quot;</span>
+            });
+            resultsToast.fire();
+
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(eventParams.changeType === <span class="hljs-string">&quot;LOADED&quot;</span>) {
+            <span class="hljs-comment">// record is loaded in the cache</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(eventParams.changeType === <span class="hljs-string">&quot;REMOVED&quot;</span>) {
+            <span class="hljs-comment">// record is deleted and removed from the cache</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(eventParams.changeType === <span class="hljs-string">&quot;ERROR&quot;</span>) {
+            <span class="hljs-comment">// there&#x2019;s an error while loading, saving or deleting the record</span>
+        }
+    }
+</code></pre>
+<ol>
+<li>Create and Save a new record</li>
+</ol>
 <p>To save a record using Lightning Data Service:</p>
 <p> call <code>saveRecord</code> on the <code>force:recordData</code> component,
 and pass in a callback function to be invoked after the save operation completes.</p>
-<pre><code class="lang-js">
-handleSaveRecord: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
-        component.find(<span class="hljs-string">&quot;recordHandler&quot;</span>).saveRecord($A.getCallback(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">saveResult</span>) </span>{
-            <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> If you want a specific behavior(an action or UI behavior) when this action is successful</span>
-            <span class="hljs-comment">// then handle that in a callback (generic logic when record is changed should be handled in recordUpdated event handler)</span>
-            <span class="hljs-keyword">if</span> (saveResult.state === <span class="hljs-string">&quot;SUCCESS&quot;</span> || saveResult.state === <span class="hljs-string">&quot;DRAFT&quot;</span>) {
-                <span class="hljs-comment">// handle component related logic in event handler</span>
-            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (saveResult.state === <span class="hljs-string">&quot;INCOMPLETE&quot;</span>) {
-                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;User is offline, device doesn&apos;t support drafts.&quot;</span>);
-            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (saveResult.state === <span class="hljs-string">&quot;ERROR&quot;</span>) {
-                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Problem saving record, error: &apos;</span> + <span class="hljs-built_in">JSON</span>.stringify(saveResult.error));
-            } <span class="hljs-keyword">else</span> {
-                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Unknown problem, state: &apos;</span> + saveResult.state + <span class="hljs-string">&apos;, error: &apos;</span> + <span class="hljs-built_in">JSON</span>.stringify(saveResult.error));
-            }
-        }));
-    }
-</code></pre>
 
                                 
                                 </section>
@@ -664,7 +746,7 @@ handleSaveRecord: <span class="hljs-function"><span class="hljs-keyword">functio
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lightning Data Service","level":"1.5","depth":1,"next":{"title":"Security","level":"2.1","depth":1,"path":"chap-12/body.md","ref":"chap-12/body.md","articles":[{"title":"LockerService","level":"2.1.1","depth":2,"path":"chap-12/LockerService.md","ref":"chap-12/LockerService.md","articles":[]},{"title":"Lightning Container Component","level":"2.1.2","depth":2,"path":"chap-12/lx-container.md","ref":"chap-12/lx-container.md","articles":[]},{"title":"window.postMessage","level":"2.1.3","depth":2,"path":"chap-12/postMessage.md","ref":"chap-12/postMessage.md","articles":[]}]},"previous":{"title":"Custom Link","level":"1.4.6","depth":2,"path":"chap-11/custom-link.md","ref":"chap-11/custom-link.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-5/body.md","mtime":"2018-03-19T13:25:24.689Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-19T11:58:00.502Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lightning Data Service","level":"1.5","depth":1,"next":{"title":"Security","level":"2.1","depth":1,"path":"chap-12/body.md","ref":"chap-12/body.md","articles":[{"title":"LockerService","level":"2.1.1","depth":2,"path":"chap-12/LockerService.md","ref":"chap-12/LockerService.md","articles":[]},{"title":"Lightning Container Component","level":"2.1.2","depth":2,"path":"chap-12/lx-container.md","ref":"chap-12/lx-container.md","articles":[]},{"title":"window.postMessage","level":"2.1.3","depth":2,"path":"chap-12/postMessage.md","ref":"chap-12/postMessage.md","articles":[]}]},"previous":{"title":"Custom Link","level":"1.4.6","depth":2,"path":"chap-11/custom-link.md","ref":"chap-11/custom-link.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-5/body.md","mtime":"2018-03-19T14:24:53.534Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-19T13:55:17.801Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
