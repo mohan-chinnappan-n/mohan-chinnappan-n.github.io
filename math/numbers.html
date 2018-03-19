@@ -23,6 +23,10 @@
   <!-- Code syntax highlighting -->
   <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
 
+  <script src="https://raw.githubusercontent.com/hakimel/reveal.js/master/plugin/math/math.js">
+
+  </script>
+
   <!-- Printing and PDF exports -->
   <script>
     var link = document.createElement('link');
@@ -117,7 +121,7 @@
 
   <section>
     <h4>Hardy–Ramanujan number - positive cubes</h4>
-    <img height="200;border:0px;" src="img/hardy.jpg" alt="">
+    <img height="200" style="border:0px;border-radius:70px;" src="img/hardy.jpg" alt="">
     <ul style="font-size:35px;">
       <li>I (Prof. Hardy) remember once going to see him (Ramanujan) when he was lying ill at Putney. I had ridden in taxi-cab No. 1729,
      and remarked that the number seemed to be rather a dull one, and that I hoped it was not an unfavourable omen. "No", he replied,
@@ -176,8 +180,83 @@ True</code>
     </ul>
   </section>
 
+
+  <section>
+    <h4>Input-Output Economics - Wassily Leontif</h4>
+    <img src="img/Wassily_Leontief_1973.jpg"  style="border:0px;border-radius:100px;" height="100" alt="">
+    \[\begin{aligned}
+
+  X = inv(I - A) * D
+\end{aligned} \]
+
+<pre style="font-size:15px;">
+  I : Identity Matrix
+  A : The matrix of coefficients
+  D : Final Demand
+  X : Vector of total output
+</pre>
+<img style="border:0px;" src="img/Input-output-problem-def.png" alt="">
+
+  </section>
+
+<section>
+  <h4>Solution: Input-output Model</h4>
+  <pre style="font-size:15px;">
+    <code>
+  import numpy as np
+  from numpy.linalg import inv
+  I = np.identity(3)
+  A = np.matrix ('0 .5 .3; .3 .1 .2; .4 .3 .3' )
+  # in thousands
+  D = np.matrix('20; 15; 18')
+
+  In [32]: I
+  array([[ 1.,  0.,  0.],
+         [ 0.,  1.,  0.],
+         [ 0.,  0.,  1.]])
+
+  In [33]: A
+  matrix([[ 0. ,  0.5,  0.3],
+          [ 0.3,  0.1,  0.2],
+          [ 0.4,  0.3,  0.3]])
+
+  In [34]: D
+  matrix([[20],
+          [15],
+          [18]])
+
+  # in thousands
+  In [35]: inv(I-A)*D
+  matrix([[  85.03448276],
+          [  68.        ],
+          [ 103.44827586]])
+
+
+
+    </code>
+  </pre>
+
+<ul style="font-size:25px;">
+  <li>
+    <a target="_blank" href="https://en.wikipedia.org/wiki/Input%E2%80%93output_model">Wiki: Input–output model
+</a>
+  </li>
+  <li>
+    <a target="_blank" href="https://www.youtube.com/watch?v=6C1MOD_oKwU">Video: Input–output model </a>
+
+  </li>
+</ul>
+    </section>
+
+
+
+
+
+
     </div>
   </div>
+
+
 
 
 
@@ -226,6 +305,11 @@ True</code>
       embedded: true,
 
       transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+      math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full'
+				},
 
       menu: {
         markers: true,
@@ -279,7 +363,10 @@ True</code>
       },
 
       // Optional reveal.js plugins
-      dependencies: [{
+      dependencies: [
+        { src: '../reveal.js/plugin/math/math.js', async: true },
+
+        {
           src: '../reveal.js/lib/js/classList.js',
           condition: function() {
             return !document.body.classList;
