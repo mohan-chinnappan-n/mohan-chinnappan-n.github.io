@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="MainCtrl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{appName}}</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/navbar-green.css">
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/data-markdown.user.js"></script>
+
+
+  <script src="../bower_components/marked/marked.min.js"></script>
+  <script src="../bower_components/angular-marked/dist/angular-marked.js"></script>
+
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../reveal.js/css/theme/white.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+    		<![endif]-->
+
+  <style>
+    .reveal .slide-number {
+      font-size: 0.5em;
+    }
+
+    .simg {
+      border-radius: 10px;
+      border: 1px;
+    }
+
+    .reveal section ul li,
+    .reveal section p {
+      font-size: .8em !important;
+    }
+
+    .reveal section pre code {
+      font-size: 0.7em !important;
+    }
+    .vis { display: none; }
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">{{appName}}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+      <div class="inner-addon right-addon navbar-form navbar-right">
+        <i class="glyphicon glyphicon-search"></i>
+        <input type="text" class="form-control" placeholder="Search" />
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown ">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="./help.html">Help Topics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <!--
+  <div class="container" ng-controller='MainCtrl'>
+    <div marked src="'pevents.md'"></div>
+  </div>
+-->
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section id="home">
+        <h4>{{appName}}</h4>
+       </section>
+
+       <section>
+         <h4>Predictions</h4>
+         <ul style="font-size:30px;">
+           <li>Gartner: predicted that by the end of 2017, market demand for mobile app development services
+             will grow at least <b>5 times faster than </b>internal IT organizations’ <b>capacity</b> to deliver them.</li>
+          <li>Salesforce Platform can help you overcome the challenges to workforce mobility:
+              Help in creating enterprise-grade, secure mobile apps that work across a wide range of mobile devices
+          </li>
+
+          <li>Out of the box, the Salesforce app provides employees with instant access to your company’s CRM data and customizations.</li>
+          <li> Admins can quickly extend it by using point-and-click tools to build custom apps</li>
+          <li> Developers can use the Lightning web development platform to create sophisticated mobile solutions.</li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>mySaleforce features</h4>
+          <ul style="font-size:30px;">
+           <li>Fully branded version of your Salesforce mobile implementation:
+             <ul>
+               <li> app icon </li>
+               <li> app name </li>
+               <li> app colors</li>
+              <li>  app listing in Google Play and the Apple App Store.</li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Steps</h4>
+         <ol style="font-size:30px;">
+            <li>Sign up for the mySalesforce program. Contact your salesforce.com sales rep for more information.</li>
+            <li>Design your branded assets and upload them to Salesforce.</li>
+            <li>Receive a beta version of your app.</li>
+            <li>Thoroughly test the beta.</li>
+            <li>Approve the app and allow Salesforce to submit it to Google and Apple.</li>
+            <li>If your branding changes in the future, you can make an unlimited number of edits with mySalesforce.</li>
+            <li> When Salesforce releases a new version of the mobile app, the updates to your branded app are seamless.</li>
+         </ol>
+       </section>
+
+       <section>
+         <h4>Details</h4>
+         <ul style="font-size:30px;">
+           <li>Your branded app is just a duplicate of the Salesforce app.</li>
+           <li>You’re packaging your Salesforce mobile implementation
+             in a new wrapper, but the underlying functionality is exactly the same</li>
+            <li>
+              Creating your branded app begins with something you already have: the Salesforce app.
+            </li>
+            <li> develop and test any customizations in the Salesforce mobile app</li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Branded Assets</h4>
+         <ul style="font-size:30px;">
+            <li>App Icon:  professional designers can help in desiging visual assets</li>
+            <li>App Name</li>
+            <li>Launch Screen</li>
+            <li>Color Scheme</li>
+            <li>Application Store Listing (Name, Description, Images, Screenshots, Support URL, Marketing URL)</li>
+            <li>Authentication URL</li>
+            <li>Help URL</li>
+
+
+         </ul>
+       </section>
+
+       <section>
+         <h4>Get mySaleforce and Create mySalesforce project</h4>
+         <ul style="font-size:30px;">
+           <li>mySalesforce isn’t available in Salesforce
+             Setup until your organization licenses the feature. Contact your salesforce.com sales rep for more information.</li>
+            <li>  You are limited to one mySalesforce project per organization.</li>
+
+         </ul>
+         <img height="400" src="https://res.cloudinary.com/hy4kyit2a/image/upload/doc/trailhead/en-us16159f99eb322258ea526c684fd0578c.png" alt="">
+       </section>
+
+       <section>
+         <h4>Two Apps - iOS and Android</h4>
+         <img height="400" src="https://res.cloudinary.com/hy4kyit2a/image/upload/doc/trailhead/en-us3b0def96c9a67901f134c22a314e3c92.png" alt="">
+
+       </section>
+
+       <section>
+         <h4>App Info</h4>
+         <img height="500" src="https://res.cloudinary.com/hy4kyit2a/image/upload/doc/trailhead/en-us057e632f80ead5c0e941442d918a27db.png" alt="">
+
+       </section>
+
+       <section>
+         <h4>Step: 1 - Fill In App Information - completed</h4>
+         <img height="300" src="https://res.cloudinary.com/hy4kyit2a/image/upload/doc/trailhead/en-us25ca1bbb3d3a9188afa34274ab6b4f16.png" alt="">
+          <p>Repeat the same steps for the Android version of the app </p>
+       </section>
+
+       <section>
+         <h4>Step-2 : request a managed package for your iOS and Android apps</h4>
+         <ul>
+           <li>This sends a request to Salesforce so we can begin generating the managed package.</li>
+           <li>Salesforce sends you an email when your iOS and Android packages are available and ready to install.</li>
+           <li>A managed package is basically a container that includes the components of a Salesforce application,
+               and it’s a mechanism for installing apps in Salesforce orgs</li>
+            <li>The managed package includes components that help your app run properly.</li>
+         </ul>
+       </section>
+
+       <section>
+           <h4>Step-2 : request a managed package for your iOS and Android apps - Completed</h4>
+         <img height="300" src="https://res.cloudinary.com/hy4kyit2a/image/upload/doc/trailhead/en-usd327ad9be719413215537ec4b6d46e60.png" alt="">
+        <ul style="font-size:30px;">
+          <li>Click Install Package:
+A pop-up window lists the steps to take to install the managed package. It also includes the installation URL for the package.</li>
+        </ul>
+       </section>
+
+       <section>
+         <h4>Next steps</h4>
+         <ul style="font-size:30px;">
+          <li>Click Copy link to copy the installation URL.</li>
+          <li>Log in to your sandbox org.</li>
+          <li>Paste the URL into your browser’s address bar.</li>
+          <li>Follow the on-screen instructions to install the managed package.</li>
+          <li>Log in to your production org and go through the process again.
+             Be sure to do this for all orgs that will run the mySalesforce app</li>
+          <li>First you request a beta of your branded app from Salesforce. We create the beta and submit it to Apple and Google for you.</li>
+          <li>Google and Apple provide beta programs that let your organization
+            thoroughly test your Android and iOS apps before publishing them</li>
+          <li>When the beta is available for testing, Salesforce notifies
+            the Salesforce admin and as well as the person you designated as the official beta tester
+            when you filled out the information about your app</li>
+          <li>Then  beta testers can install the app and see how it looks on an actual mobile device.</li>
+
+         </ul>
+       </section>
+       <section>
+         <h4>Requesting Beta </h4>
+         <img height="400" src="https://res.cloudinary.com/hy4kyit2a/image/upload/doc/trailhead/en-us4215f9c219263c13cbf2c211a96b1bd9.png" alt="">
+        <ul style="font-size:30px;">
+          <ul>
+            <li>This sends a request to Salesforce so we can generate the beta</li>
+          </ul>
+
+       </section>
+
+       <section>
+         <h4>Next Step: Test the App</h4>
+         <ul style="font-size:30px;">
+           <li>The beta tester only needs to review the visual appearance.
+             They don’t need to test the functionality of the app, because it works exactly the same way as the Salesforce mobile app</li>
+            <li>Test the app on different screen sizes. For example, your tester can install the beta on an
+               iPhone® and an iPad® to verify that the branded assets work well across form factors.</li>
+            <li>Verify that the app’s managed package is functioning properly by testing push notifications
+              in your production and sandbox orgs.</li>
+        </ul>
+
+      </section>
+
+      <section>
+        <h4>Next Step: Submit the App</h4>
+         <ul style="font-size:30px;">
+            <li>Salesforce sends the final apps to the App Store and Google Play. </li>
+            <li> It can take anywhere from 1 day to 2 weeks for the store to review and approve your app.
+               During that time, you can’t make any changes to the app.</li>
+
+        </ul>
+        <img height="300" src="https://res.cloudinary.com/hy4kyit2a/image/upload/doc/trailhead/en-usc98ee764fe0da5eae496a6b7a432172f.png" alt="">
+
+      </section>
+
+      <section>
+        <h4>Maintaining The app</h4>
+         <ul style="font-size:30px;">
+          <li>updates that Salesforce initiates
+            <ul>
+              <li>Salesforce releases a new version of the Salesforce mobile app.</li>
+              <li>Apple or Google makes a change to their app submission form.
+                If this happens, Salesforce updates the mySalesforce form to reflect that change and then rolls out a release.</li>
+            </ul>
+
+           </li>
+          <li> updates that your organization initiates:
+              <ul>
+                <li>Visual appearance: If you find adifference between your branded apps and the Salesforce mobile app.
+                   You need to update your branded apps is if they require update on the visual appearance.</li>
+                <li>When you want to edit the visual appearance of an app that’s already live on the application store,
+                   you have to create a new version of it</li>
+              </ul>
+
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Managed Package Maintenance </h4>
+         <ul style="font-size:30px;">
+          <li>Salesforce makes an improvement to a component included in the managed package, like push notifications.</li>
+          <li>You update the connected app name or connected app icon of your branded app, which are part of the managed package. </li>
+          <li>Salesforce automatically creates a new managed package and sends you an email notifying you to upgrade. </li>
+          <li>Be sure to install the new package in each org where the app needs to run—for example, in both sandbox and production.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Create a New Version of an App - Create New Version.</h4>
+        <img height="500" src="  https://res.cloudinary.com/hy4kyit2a/image/upload/doc/trailhead/en-us3000f758d2d74dd0cfe6c81ee3b0d23f.png" alt="">
+
+
+
+      </section>
+
+
+
+       <section>
+         <h4>References</h4>
+         <ul>
+           <li>
+             <a target="_blank" href="https://trailhead.salesforce.com/modules/salesforce1_branded_apps/units/salesforce1_branded_apps_intro">
+               Branded Mobile Apps with mySalesforce
+             </a>
+           </li>
+         </ul>
+       </section>
+
+
+
+
+    </div>
+  </div>
+
+
+
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
+
+
+  <script>
+    'use strict';
+
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+      //width: 960,
+      //	height: 700,
+
+      // Display presentation control arrows
+      controls: true,
+
+      // Help the user learn the controls by providing hints, for example by
+      // bouncing the down arrow when they first encounter a vertical slide
+      controlsTutorial: true,
+
+      // Determines where controls appear, "edges" or "bottom-right"
+      controlsLayout: 'edges',
+
+      // Visibility rule for backwards navigation arrows; "faded", "hidden"
+      // or "visible"
+      controlsBackArrows: 'faded',
+      // Display a presentation progress bar
+      progress: true,
+
+      // Set default timing of 2 minutes per slide
+      defaultTiming: 120,
+
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
+
+
+      history: true,
+      center: true,
+      slideNumber: true,
+
+      embedded: true,
+
+      transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+      menu: {
+        markers: true,
+        openSlideNumber: true,
+        themes: [{
+            name: 'Black',
+            theme: '../reveal.js/css/theme/black.css'
+          },
+          {
+            name: 'White',
+            theme: '../reveal.js/css/theme/white.css'
+          },
+          {
+            name: 'League',
+            theme: '../reveal.js/css/theme/league.css'
+          },
+          {
+            name: 'Sky',
+            theme: '../reveal.js/css/theme/sky.css'
+          },
+          {
+            name: 'Beige',
+            theme: '../reveal.js/css/theme/beige.css'
+          },
+          {
+            name: 'Simple',
+            theme: '../reveal.js/css/theme/simple.css'
+          },
+          {
+            name: 'Serif',
+            theme: '../reveal.js/css/theme/serif.css'
+          },
+          {
+            name: 'Blood',
+            theme: '../reveal.js/css/theme/blood.css'
+          },
+          {
+            name: 'Night',
+            theme: '../reveal.js/css/theme/night.css'
+          },
+          {
+            name: 'Moon',
+            theme: '../reveal.js/css/theme/moon.css'
+          },
+          {
+            name: 'Solarized',
+            theme: '../reveal.js/css/theme/solarized.css'
+          }
+        ],
+        custom: []
+      },
+
+      // Optional reveal.js plugins
+      dependencies: [{
+          src: '../reveal.js/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          condition: function() {
+            return !!document.querySelector('pre code');
+          },
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: '../reveal.js/plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/reveal.js-menu/menu.js',
+          async: true
+        }
+      ]
+    });
+
+
+
+    var app = angular.module('app', [
+      'hc.marked'
+    ]);
+    app.config(['markedProvider', function(markedProvider) {
+      markedProvider.setOptions({
+        gfm: true
+      });
+    }]);
+
+    var GSCOPE;
+    app.controller('MainCtrl', function($scope, $http, $timeout) {
+      GSCOPE = $scope; // debugging purposes
+      $scope.appName="mySalesforce";
+      $scope.showDiv = true;
+
+
+
+    })
+  </script>
+</body>
+
+</html>
