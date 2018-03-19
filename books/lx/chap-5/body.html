@@ -602,31 +602,36 @@ implements=&quot;flexipage:availableForRecordHome,force:lightningQuickActionWith
 <p><img src="img/lds-app-builder-5.png" alt="How to use this in Lightning App Builder -5"></p>
 <h3 id="saving-a-record">Saving a Record</h3>
 <p>Two cases:</p>
-<ol>
-<li><p>Save changes to an existing record</p>
 <ul>
+<li>Save changes to an existing record<ul>
 <li><code>mode=&quot;EDIT&quot;</code> and use <code>saveRecord</code> on <code>force.recordData</code></li>
 </ul>
-<pre><code class="lang-js">
-handleSaveRecord: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
-      <span class="hljs-comment">// saveRecord</span>
-       component.find(<span class="hljs-string">&quot;recordHandler&quot;</span>).saveRecord($A.getCallback(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">saveResult</span>) </span>{
-           <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> If you want a specific behavior(an action or UI behavior) when this action is successful</span>
-           <span class="hljs-comment">// then handle that in a callback (generic logic when record is changed should be handled in recordUpdated event handler)</span>
-           <span class="hljs-keyword">if</span> (saveResult.state === <span class="hljs-string">&quot;SUCCESS&quot;</span> || saveResult.state === <span class="hljs-string">&quot;DRAFT&quot;</span>) {
-               <span class="hljs-comment">// handle component related logic in event handler</span>
-           } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (saveResult.state === <span class="hljs-string">&quot;INCOMPLETE&quot;</span>) {
-               <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;User is offline, device doesn&apos;t support drafts.&quot;</span>);
-           } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (saveResult.state === <span class="hljs-string">&quot;ERROR&quot;</span>) {
-               <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Problem saving record, error: &apos;</span> + <span class="hljs-built_in">JSON</span>.stringify(saveResult.error));
-           } <span class="hljs-keyword">else</span> {
-               <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Unknown problem, state: &apos;</span> + saveResult.state + <span class="hljs-string">&apos;, error: &apos;</span> + <span class="hljs-built_in">JSON</span>.stringify(saveResult.error));
-           }
-       }));
-   }
-</code></pre>
 </li>
-</ol>
+</ul>
+<ul>
+<li>Create and Save a new record</li>
+</ul>
+<p>To save a record using Lightning Data Service:</p>
+<p> call <code>saveRecord</code> on the <code>force:recordData</code> component,
+and pass in a callback function to be invoked after the save operation completes.</p>
+<pre><code class="lang-js">
+  handleSaveRecord: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+         <span class="hljs-comment">// saveRecord</span>
+          component.find(<span class="hljs-string">&quot;recordHandler&quot;</span>).saveRecord($A.getCallback(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">saveResult</span>) </span>{
+              <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> If you want a specific behavior(an action or UI behavior) when this action is successful</span>
+              <span class="hljs-comment">// then handle that in a callback (generic logic when record is changed should be handled in recordUpdated event handler)</span>
+              <span class="hljs-keyword">if</span> (saveResult.state === <span class="hljs-string">&quot;SUCCESS&quot;</span> || saveResult.state === <span class="hljs-string">&quot;DRAFT&quot;</span>) {
+                  <span class="hljs-comment">// handle component related logic in event handler</span>
+              } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (saveResult.state === <span class="hljs-string">&quot;INCOMPLETE&quot;</span>) {
+                  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;User is offline, device doesn&apos;t support drafts.&quot;</span>);
+              } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (saveResult.state === <span class="hljs-string">&quot;ERROR&quot;</span>) {
+                  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Problem saving record, error: &apos;</span> + <span class="hljs-built_in">JSON</span>.stringify(saveResult.error));
+              } <span class="hljs-keyword">else</span> {
+                  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Unknown problem, state: &apos;</span> + saveResult.state + <span class="hljs-string">&apos;, error: &apos;</span> + <span class="hljs-built_in">JSON</span>.stringify(saveResult.error));
+              }
+          }));
+      }
+</code></pre>
 <pre><code class="lang-xml">  &lt;&lt;aura:component implements=&quot;flexipage:availableForRecordHome,force:hasRecordId&quot;&gt;
 
     &lt;aura:attribute name=&quot;record&quot; type=&quot;Object&quot;/&gt;
@@ -697,12 +702,135 @@ handleSaveRecord: <span class="hljs-function"><span class="hljs-keyword">functio
         }
     }
 </code></pre>
-<ol>
-<li>Create and Save a new record</li>
-</ol>
-<p>To save a record using Lightning Data Service:</p>
-<p> call <code>saveRecord</code> on the <code>force:recordData</code> component,
-and pass in a callback function to be invoked after the save operation completes.</p>
+<h3 id="creating-a-record">Creating a Record</h3>
+<ul>
+<li><p>Declare <code>force:recordData</code> without assigning a recordId.</p>
+</li>
+<li><p>Load a record template by calling the <code>getNewRecord</code> function on <code>force:recordData</code></p>
+</li>
+<li><code>`getNewRecord</code> doesn&#x2019;t return a result. It simply prepares an empty record and assigns it to the targetRecord attribute,
+which is used by the contact form in the component&#x2019;s markup.</li>
+</ul>
+<ul>
+<li><p>Apply values to the new record</p>
+</li>
+<li><p>Save the record by calling the <code>saveRecord</code> function on <code>force:recordData</code>.</p>
+</li>
+</ul>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> <span class="hljs-attr">implements</span>=<span class="hljs-string">&quot;flexipage:availableForRecordHome, force:hasRecordId&quot;</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;newContact&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Object&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;simpleNewContact&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Object&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;newContactError&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;String&quot;</span>/&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:handler</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;init&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;{!this}&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;{!c.doInit}&quot;</span>/&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- note there is no recordId: recordId=&quot;{!v.recordId} here --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">force:recordData</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;contactRecordCreator&quot;</span>
+                      <span class="hljs-attr">layoutType</span>=<span class="hljs-string">&quot;FULL&quot;</span>
+                      <span class="hljs-attr">targetRecord</span>=<span class="hljs-string">&quot;{!v.newContact}&quot;</span>
+                      <span class="hljs-attr">targetFields</span>=<span class="hljs-string">&quot;{!v.simpleNewContact}&quot;</span>
+                      <span class="hljs-attr">targetError</span>=<span class="hljs-string">&quot;{!v.newContactError}&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-page-header&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;banner&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-text-heading_label&quot;</span>&gt;</span>Create Contact<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- Display Lightning Data Service errors --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:if</span> <span class="hljs-attr">isTrue</span>=<span class="hljs-string">&quot;{!not(empty(v.newContactError))}&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;recordError&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ui:message</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Error&quot;</span> <span class="hljs-attr">severity</span>=<span class="hljs-string">&quot;error&quot;</span> <span class="hljs-attr">closable</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span>
+                {!v.newContactError}
+            <span class="hljs-tag">&lt;/<span class="hljs-name">ui:message</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">aura:if</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- Display the new contact form --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-form_stacked&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:input</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;contactField&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;firstName&quot;</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;First Name&quot;</span>
+                         <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;{!v.simpleNewContact.FirstName}&quot;</span> <span class="hljs-attr">required</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:input</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;contactField&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;lastname&quot;</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Last Name&quot;</span>
+                      <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;{!v.simpleNewContact.LastName}&quot;</span> <span class="hljs-attr">required</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:input</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;contactField&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;title&quot;</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Title&quot;</span>
+                      <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;{!v.simpleNewContact.Title}&quot;</span> /&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Save contact&quot;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.handleSaveContact}&quot;</span>
+                   <span class="hljs-attr">variant</span>=<span class="hljs-string">&quot;brand&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-m-top_medium&quot;</span>/&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-js">
+({
+    doInit: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-comment">// Prepare a new record from template</span>
+        component.find(<span class="hljs-string">&quot;contactRecordCreator&quot;</span>).getNewRecord(
+
+            <span class="hljs-string">&quot;Contact&quot;</span>, <span class="hljs-comment">// sObject type (objectApiName)</span>
+
+            <span class="hljs-literal">null</span>,      <span class="hljs-comment">// recordTypeId</span>
+            <span class="hljs-comment">// If not specified, the default record type for the object is used,</span>
+            <span class="hljs-comment">// as defined in the user&#x2019;s profile.</span>
+
+            <span class="hljs-literal">false</span>,     <span class="hljs-comment">// skip cache?</span>
+            <span class="hljs-comment">// Whether to load the record template from the server instead of the client-side Lightning Data Service cache.</span>
+            <span class="hljs-comment">// Defaults to false</span>
+
+            <span class="hljs-comment">// callback function invoked after the empty record is created. This function receives no arguments.</span>
+            <span class="hljs-comment">/*
+             The callback passed to getNewRecord() must be wrapped in $A.getCallback()
+              to ensure correct access context when the callback is invoked.
+             If the callback is passed in without being wrapped in $A.getCallback(),
+              any attempt to access private attributes of your component results in access check failures.
+            */</span>
+
+            <span class="hljs-comment">/*
+
+            Even if you&#x2019;re not accessing private attributes,
+              it&#x2019;s a best practice to always wrap the callback function for getNewRecord() in $A.getCallback(). Never mix (contexts), never worry.
+            */</span>
+
+            $A.getCallback(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+                <span class="hljs-keyword">var</span> rec = component.get(<span class="hljs-string">&quot;v.newContact&quot;</span>);
+                <span class="hljs-keyword">var</span> error = component.get(<span class="hljs-string">&quot;v.newContactError&quot;</span>);
+                <span class="hljs-keyword">if</span>(error || (rec === <span class="hljs-literal">null</span>)) {
+                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Error initializing record template: &quot;</span> + error);
+                    <span class="hljs-keyword">return</span>;
+                }
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Record template initialized: &quot;</span> + rec.sobjectType);
+            })
+        );
+    },
+
+    handleSaveContact: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-keyword">if</span>(helper.validateContactForm(component)) {
+            component.set(<span class="hljs-string">&quot;v.simpleNewContact.AccountId&quot;</span>, component.get(<span class="hljs-string">&quot;v.recordId&quot;</span>));
+            component.find(<span class="hljs-string">&quot;contactRecordCreator&quot;</span>).saveRecord(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">saveResult</span>) </span>{
+                <span class="hljs-keyword">if</span> (saveResult.state === <span class="hljs-string">&quot;SUCCESS&quot;</span> || saveResult.state === <span class="hljs-string">&quot;DRAFT&quot;</span>) {
+                    <span class="hljs-comment">// record is saved successfully</span>
+                    <span class="hljs-keyword">var</span> resultsToast = $A.get(<span class="hljs-string">&quot;e.force:showToast&quot;</span>);
+                    resultsToast.setParams({
+                        <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;Saved&quot;</span>,
+                        <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;The record was saved.&quot;</span>
+                    });
+                    resultsToast.fire();
+
+                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (saveResult.state === <span class="hljs-string">&quot;INCOMPLETE&quot;</span>) {
+                    <span class="hljs-comment">// handle the incomplete state</span>
+                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;User is offline, device doesn&apos;t support drafts.&quot;</span>);
+                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (saveResult.state === <span class="hljs-string">&quot;ERROR&quot;</span>) {
+                    <span class="hljs-comment">// handle the error state</span>
+                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Problem saving contact, error: &apos;</span> + <span class="hljs-built_in">JSON</span>.stringify(saveResult.error));
+                } <span class="hljs-keyword">else</span> {
+                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;Unknown problem, state: &apos;</span> + saveResult.state + <span class="hljs-string">&apos;, error: &apos;</span> + <span class="hljs-built_in">JSON</span>.stringify(saveResult.error));
+                }
+            });
+        }
+    }
+})
+</code></pre>
 
                                 
                                 </section>
@@ -746,7 +874,7 @@ and pass in a callback function to be invoked after the save operation completes
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lightning Data Service","level":"1.5","depth":1,"next":{"title":"Security","level":"2.1","depth":1,"path":"chap-12/body.md","ref":"chap-12/body.md","articles":[{"title":"LockerService","level":"2.1.1","depth":2,"path":"chap-12/LockerService.md","ref":"chap-12/LockerService.md","articles":[]},{"title":"Lightning Container Component","level":"2.1.2","depth":2,"path":"chap-12/lx-container.md","ref":"chap-12/lx-container.md","articles":[]},{"title":"window.postMessage","level":"2.1.3","depth":2,"path":"chap-12/postMessage.md","ref":"chap-12/postMessage.md","articles":[]}]},"previous":{"title":"Custom Link","level":"1.4.6","depth":2,"path":"chap-11/custom-link.md","ref":"chap-11/custom-link.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-5/body.md","mtime":"2018-03-19T14:24:53.534Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-19T13:55:17.801Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lightning Data Service","level":"1.5","depth":1,"next":{"title":"Security","level":"2.1","depth":1,"path":"chap-12/body.md","ref":"chap-12/body.md","articles":[{"title":"LockerService","level":"2.1.1","depth":2,"path":"chap-12/LockerService.md","ref":"chap-12/LockerService.md","articles":[]},{"title":"Lightning Container Component","level":"2.1.2","depth":2,"path":"chap-12/lx-container.md","ref":"chap-12/lx-container.md","articles":[]},{"title":"window.postMessage","level":"2.1.3","depth":2,"path":"chap-12/postMessage.md","ref":"chap-12/postMessage.md","articles":[]}]},"previous":{"title":"Custom Link","level":"1.4.6","depth":2,"path":"chap-11/custom-link.md","ref":"chap-11/custom-link.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-5/body.md","mtime":"2018-03-19T15:57:02.475Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-19T14:31:41.266Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
