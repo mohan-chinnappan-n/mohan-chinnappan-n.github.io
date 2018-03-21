@@ -262,8 +262,93 @@
         C:S not allowed, since standard object can't lose the <b>Owner</b> field<br/>
          In addition, you <b>cannot</b> create a master-detail relationship in which the <b>User or Lead</b> objects are the master.<br/>
       </li>
+      <li>When you define a master-detail relationship, the custom object on which you are working is the detail side.
+        Its data can appear as a <b>custom related list</b> on page layouts for the master object.</li>
+    <li>You can create rollup summary fields on the master record to summarize the detail records. </li>
+    <li>The relationship field allows users to click on a lookup icon to select a value from a popup list.
+       The master object is the source of the values in the list.</li>
     </ul>
 </section>
+
+<section>
+  <h4>Many-to-Many -  Notes</h4>
+  <ul style="font-size:30px;">
+    <li>You can use master-detail relationships to model <b>many-to-many</b> relationships between any two objects. </li>
+    <li>A many-to-many relationship allows each record of one object to be linked to multiple records from another object and vice versa.</li>
+    <li>For example, you create a custom object called “Bug” that relates to the standard case object such that a bug could be related to multiple cases
+     and a case could also be related to multiple bugs. </li>
+    <li>To create a many-to-many relationship,  create a custom junction object with two master-detail relationship fields,
+     each linking to the objects you want to relate. <b>M:J:D</b>, Example: <b>Case : Case-Bug : Bug</b> </li>
+  </ul>
+
+</section>
+
+
+
+<section>
+  <h4>Many-to-Many -  Case-to-Bug - Step-1</h4>
+  <ul style="font-size:30px;">
+    <li>Create the Custom Juction Object: BugCaseAssociation</li>
+  </ul>
+  <img src="img/m-m-1.png" alt="">
+</section>
+
+<section>
+  <h4>Many-to-Many -  Case-to-Bug - Step-2</h4>
+  <ul style="font-size:30px;">
+    <li>Create Master-detail Realtionship field  for : BugCaseAssociation object</li>
+  </ul>
+  <img src="img/m-m-2.png" alt="">
+</section>
+
+<section>
+  <h4>Many-to-Many -  Case-to-Bug - Step-3</h4>
+  <ul style="font-size:30px;">
+    <li>Set Master-detail Realtionship field  for : BugCaseAssociation object as <b>Case</b> object</li>
+  </ul>
+  <div class="row">
+
+   <div class="col-lg-6">
+     <img  style="border:0px" height="200" src="img/m-m-3.png" alt="">
+   </div>
+   <div class="col-lg-6">
+    <img  style="border:0px" height="300" src="img/m-m-4.png" alt="">
+   </div>
+  </div>
+</section>
+
+
+<section>
+  <h4>Many-to-Many -  Case-to-Bug - Step-3 - contd.</h4>
+  <img style="border:0px" src="img/m-m-5.png" alt="">
+</section>
+
+<section>
+  <h4 style="font-size:30px;">Many-to-Many -  Case-to-Bug - Step-4</h4>
+  <ul style="font-size:30px;">
+    <li>Set Master-detail Realtionship field  for : BugCaseAssociation object as <b>Bug</b> object</li>
+  </ul>
+  <div class="row">
+
+   <div class="col-lg-6">
+     <img  style="border:0px" height="300" src="img/m-m-6.png" alt="">
+   </div>
+   <div class="col-lg-6">
+    <img  style="border:0px" height="300" src="img/m-m-7.png" alt="">
+   </div>
+  </div>
+</section>
+
+<section>
+  <h4>Many-to-Many -  Case-to-Bug - Step-4 - contd.</h4>
+  <img style="border:0px" src="img/m-m-8.png" alt="">
+</section>
+
+<section>
+  <h4>Many-to-Many -  Case-to-Bug - Schema</h4>
+  <img style="border:0px" src="img/m-m-9.png" alt="">
+</section>
+
 
 
     </div>
