@@ -250,7 +250,8 @@
 
 <section>
   <h4>Master-detail (1:n) Notes</h4>
-    <ul style="font-size:30px;">
+    <ul style="font-size:25px;">
+      <li>The detail object doesn’t work as a stand-alone.</li>
       <li><b>By default</b>, records <b>can’t be reparented</b> in master-detail relationships.
         Administrators can, however, allow child records in master-detail relationships
          on custom objects to be reparented to different parent records by selecting the <b>Allow reparenting
@@ -267,6 +268,8 @@
     <li>You can create rollup summary fields on the master record to summarize the detail records. </li>
     <li>The relationship field allows users to click on a lookup icon to select a value from a popup list.
        The master object is the source of the values in the list.</li>
+    <li>As a best practice, don't exceed 10,000 child records for a master-detail relationship. </li>
+    <li>Each custom object can have up to two master-detail relationships and up to 25 total relationships. </li>
     </ul>
 </section>
 
@@ -349,6 +352,50 @@
   <img style="border:0px" src="img/m-m-9.png" alt="">
 </section>
 
+<section>
+  <h4>Lookup</h4>
+  <ul>
+    <li>Links 2 objects together</li>
+    <li>Similar to Master-detail relationship, except Lookups do not support sharing or roll-up summary fields</li>
+    <li>An Object can link to itself (except: User Object) (hierarchical):
+      Custom Object Bug link to itself - to show how different bugs are releated.</li>
+  </ul>
+</section>
+
+<section>
+  <h4>Lookup example : Account - Contact </h4>
+  <img style="border:0px" src="img/lookup-account-contact-1.png" alt="">
+</section>
+
+<section>
+  <h4>Lookup example : Property - Offer </h4>
+  <img style="border:0px" src="https://res.cloudinary.com/hy4kyit2a/image/upload/doc/trailhead/en-usc2522a70dfde1c538e39b802d8cde60e.png" alt="">
+</section>
+
+
+<section>
+  <h4>Lookup - Notes</h4>
+  <ul style="font-size:30px;">
+    <li>If the lookup field is <b>Required</b> :Make the lookup field required for saving a record, requiring it on the corresponding page layout as well.</li>
+   <li>If the lookup field is <b>Optional</b> :
+      <ul>
+        <li>
+          Clear the value of this field
+        </li>
+        <li>Don’t allow deletion of the lookup record that’s part of a lookup relationship </li>
+        <li>Delete this record also ( can result in a cascade-delete) - to provide  tightly coupling</li>
+        <li>A cascade-delete bypasses security and sharing settings,
+          which means users can delete records when the target lookup record is deleted even if they don’t have access to the records.
+          <br/> To prevent records from being accidentally deleted, cascade-delete is disabled by default.
+          <br> Contact Salesforce to get the cascade-delete option enabled for your organization.</li>
+      </ul>
+   </li>
+   <li>We can use lookup relationships when objects are only related in <b>some cases</b>.
+     <br/> Sometimes a contact is associated with a specific account, but sometimes it’s just a contact.
+     <br/> Objects in lookup relationships usually work as stand-alone objects and have their own tabs in the user interface.
+   </li>
+  </ul>
+</section>
 
 
     </div>
