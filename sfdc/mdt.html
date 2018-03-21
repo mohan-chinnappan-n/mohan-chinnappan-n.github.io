@@ -209,7 +209,61 @@
   </section>
 
 
+<section>
+  <h4>Relationship Among objects - key factors</h4>
+  <ul style="font-size:30px;">
+       <li>handle data deletion</li>
+       <li>record ownership</li>
+       <li>security</li>
+       <li>required fields in page layouts</li>
+  </ul>
+</section>
 
+<section>
+  <h4>Types of Relationships</h4>
+  <table style="font-size:20px;">
+    <tr>
+      <th>Realtionship Type</th>
+      <th>Data deletion</th>
+      <th>Record Ownership</th>
+      <th>Paget layout requirements</th>
+    </tr>
+    <tr>
+      <td>Master-Details (1:n) - parent-child relationship. Master object controls certain behaviors of the detail object</td>
+      <td>When a record of the master object is deleted, its related detail records are also deleted.</td>
+      <td>The <b>Owner</b> field on the detail object is not available
+          <ul>
+            <li><b>Owner</b> field is automatically set to the owner of its associated master record.</li>
+            <li> Custom objects on the detail side of a master-detail relationship cannot have sharing rules
+              , manual sharing, or queues, as these require the <b>Owner</b> field.
+            </li>
+            <li>The detail record <b>inherits</b> the sharing and security settings of its master record. </li>
+          </ul>
+      </td>
+      <td>The master-detail relationship field is required on the page layout of the detail record</td>
+      <td>
+
+      </td>
+    </tr>
+  </table>
+</section>
+
+<section>
+  <h4>Master-detail (1:n) Notes</h4>
+    <ul style="font-size:30px;">
+      <li><b>By default</b>, records <b>can’t be reparented</b> in master-detail relationships.
+        Administrators can, however, allow child records in master-detail relationships
+         on custom objects to be reparented to different parent records by selecting the <b>Allow reparenting
+         option</b> in the master-detail relationship definition.</li>
+      <li>
+        You can define master-detail relationships between custom objects or between a custom object and a standard object.
+        C:C, S:C <br/>
+        However, the standard object cannot be on the detail side of a relationship with a custom object.
+        C:S not allowed, since standard object can't lose the <b>Owner</b> field<br/>
+         In addition, you <b>cannot</b> create a master-detail relationship in which the <b>User or Lead</b> objects are the master.<br/>
+      </li>
+    </ul>
+</section>
 
 
     </div>
