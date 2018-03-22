@@ -253,6 +253,31 @@ q = filter q by 'Closed' == "true";
            <iframe height="450" width="800" data-src="https://www.youtube.com/embed/GdRUGtLNEcA?autoplay=0"></iframe>
        </section>
 
+       <section>
+         <h4>CoGroup</h4>
+         <ul style="font-size:35px;">
+           <li>
+             <b>Cogrouping</b> means that two input streams,
+                called <b>left and right</b> are grouped independently and arranged side by side
+                . Only data that exists in both groups appears in the results.
+                <br/>
+                Example:
+                <pre>
+                  <code>
+    z = cogroup x by (day,origin), y by (day,airport);
+    -- You can’t have the same stream on both sides of a cogroup operation.
+    -- To perform a cogroup operation on one dataset,
+    --  load the same dataset twice so you have two streams.
+    a = load "opportunity";
+    b = load "opportunity";
+    b = cogroup a by ClosedDate, b by CreatedDate;
+    c = foreach b generate sum(a.Amount) as Amount
+                  </code>
+                </pre>
+           </li>
+         </ul>
+       </section>
+
 
        <section>
          <h4>Video: SAQL cogroup  </h4>
