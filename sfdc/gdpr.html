@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="MainCtrl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{appName}}</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/navbar-green.css">
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/data-markdown.user.js"></script>
+
+
+  <script src="../bower_components/marked/marked.min.js"></script>
+  <script src="../bower_components/angular-marked/dist/angular-marked.js"></script>
+
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../reveal.js/css/theme/white.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+    		<![endif]-->
+
+  <style>
+    .reveal .slide-number {
+      font-size: 0.5em;
+    }
+
+    .simg {
+      border-radius: 10px;
+      border: 1px;
+    }
+
+    .reveal section ul li,
+    .reveal section p {
+      font-size: .8em !important;
+    }
+
+    .reveal section pre code {
+      font-size: 0.7em !important;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">{{appName}}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+      <div class="inner-addon right-addon navbar-form navbar-right">
+        <i class="glyphicon glyphicon-search"></i>
+        <input type="text" class="form-control" placeholder="Search" />
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown ">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="./help.html">Help Topics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <!--
+  <div class="container" ng-controller='MainCtrl'>
+    <div marked src="'pevents.md'"></div>
+  </div>
+-->
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section id="home">
+        <h4>{{appName}} -  General Data Protection Regulation</h4>
+        <ul style="font-size:30px;">
+          <li>After four years of preparation and debate the GDPR was finally approved by the EU Parliament on
+             <b> 14 April 2016</b>. Enforcement date: <b>25 May 2018</b></li>
+
+          <li>The EU General Data Protection Regulation (GDPR)
+             replaces the <b>Data Protection Directive 95/46/EC</b>
+          </li>
+          <li>Goals:<br/>
+              <ul>
+                <li> harmonize data privacy laws across Europe</li>
+                <li> protect and empower all EU citizens data privacy</li>
+                <li> reshape the way organizations across the region approach data privacy</li>
+             </ul>
+        </li>
+        </ul>
+       </section>
+
+       <section>
+         <h4>Who does the GDPR affect? </h4>
+         <ul>
+           <li>Organisations located <b>within the EU</b></li>
+           <li>Organisations located <b>outside of the EU</b>, if they offer goods or services to, or monitor the behavior of <b>EU data subjects</b>.</li>
+           <li> All companies processing and holding the<b> personal data of data subjects residing in the European Union</b>, regardless of the company’s location.</li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>What are the penalties for non-compliance? </h4>
+         <ul style="font-size:30px;">
+           <li>Not having sufficient customer consent to process data or violating the core of Privacy by Design concepts</li>
+           <li>Organizations can be fined up to <b>4%</b> of annual global turnover for breaching GDPR or<b> €20 Million</b></li>
+           <li>Tiered approach:
+               <ul>
+                 <li> A company can be fined <b>2%</b> for:
+                        <ul>
+                          <li><b>not having their records in order (article 28)</b>,</li>
+                          <li>     <b>not notifying the supervising authority</b> and
+                                <b>data subject about a breach</b></li>
+                          <li>  or not conducting impact assessment.</li>
+                        </ul>
+                 </li>
+
+               </ul>
+           </li>
+           <li>Data breaches which may pose a risk to individuals must be notified to the DPA within<b> 72 hours and to affected individuals without undue delay</b>. </li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>What constitutes personal data?</h4>
+         <ul style="font-size:30px;">
+           <li>Any information related to a natural person or ‘Data Subject’,
+              that can be used to directly or indirectly identify the person.
+              It can be anything from
+              <ul >
+                  <li>a name</li>
+                  <li>a photo</li>
+                  <li>an email address</li>
+                  <li>bank details</li>
+                  <li>posts on social networking websites</li>
+                  <li>medical information</li>
+                  <li>a computer IP address</li>
+            </ul>
+
+</li>
+    <li>Parental consent will be required to process the personal data of children under
+      the age of 16 for online services; member states
+       may legislate for a lower age of consent but this will not be below the age of 13.</li>
+         </ul>
+       </section>
+
+       <section>
+         <h4> data processor and a data controller</h4>
+         <ul style="font-size:30px;">
+           <li>Data Controller: is the entity that <b>determines</b> the purposes, conditions and means of the processing of personal data</li>
+           <li>Data Processor: is an entity which <b>processes</b> personal data on behalf of the controller.</li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>regulation and a directive</h4>
+         <ul style="font-size:30px;">
+           <li>Regulation: binding legislative act,  must be applied in its entirety across the EU. GDPR is regulation.</li>
+           <li>Directive: legislative act that sets out a goal that all EU countries must achieve.</li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Data Protection Officer (DPO)</h4>
+         <ul style="font-size:36px;">
+           <li>DPOs must be appointed in the case of:
+             <ul>
+               <li>public authorities</li>
+               <li>organizations that engage in large scale
+                    <ul>
+                      <li> systematic monitoring</li>
+                      <li> processing of sensitive personal data (Art. 37)</li>
+                    </ul>
+                </li>
+            </ul>
+
+         </li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Video Salesforce and GDPR</h4>
+
+         </video>
+         <video controls poster="img/video-cover.png"
+
+           src="https://cdn.vidyard.com/videos/1WKJYFJGdqf9cmjh8xfCrA/full_hd.mp4?xjb3p-bYUC5Z-bSco2UNK4ZaRzW-iArjIoWIHLWI09_1AMBuZeKDUu61qFtwYmvN3C2T75hASyLSKroLCzTrJWiPGrzqNpOOUIOtflmT8Vlvgdk"
+          pl>
+
+         </video>
+       </section>
+
+       <section>
+         <h4>Preparing for Compliance with the GDPR </h4>
+         <ul style="font-size:35px;">
+           <li>Compliance with the GDPR requires a partnership
+            <ul>
+              <li><b>Salesforce customers cannot rely solely on Salesforce to make sure they’re in compliance with the GDPR</b>.
+                <br/> Any organization subject to the GDPR can take steps to ensure it is compliant with the law:
+
+                <ul>
+                  <li>Get Buy-in and Build Your Core Team:
+                      Make sure that leadership is aware of the importance of compliance with the GDPR.
+                      <br/>
+                      Achieving compliance requires organizations to commit substantial staff resources and financial investments.
+                      <br>
+                      <b>Leader</b>:  to oversee the initiative and possibly serve as the <b>data protection officer (DPO)</b>.
+                      <br/>
+                      Each department in the company can appoint one or more point people
+                       (from: information security, procurement, legal, human resources, product management, and marketing departments on the team that leads the compliance effort.)
+
+                    </li>
+
+                </ul>
+              </li>
+            </ul>
+           </li>
+         </ul>
+       </section>
+
+
+
+              <section>
+                <h4>Preparing for Compliance with the GDPR - contd. </h4>
+                <ul style="font-size:30px;">
+
+                           <li>Analyze the organization’s <b>existing privacy and security efforts</b> to identify the top areas of focus -
+                              like where the organization <b>stores personal data</b>.
+                              <br/>
+                              Build a <b>data inventory</b> that shows:
+                                for each storage system, which type of data is stored there, where it came from, what it is used for, who has access to it, how it is secured, which third parties it is transferred to, and how long to keep it.
+                             <br/>
+                             Identify all the third parties that the organization either <b>receives personal data from, or transfers personal data</b> to.
+
+                  </li>
+                  <li>Create a <b>register of data processing activities</b>, and identify which activities<b> pose high risks to data privacy</b>. </li>
+                  <li>For each high-risk activity, organizations can carry out a
+                    <b>data protection impact assessment</b> to determine the <b>actions</b>
+                     they need to take to ensure that they’re properly protecting individual privacy rights.</li>
+                </ul>
+              </section>
+
+          <section>
+            <h4 style="font-size:30px;">Establish Controls and Processes - Roadmap of necessary operational and technological changes </h4>
+
+            <ul style="font-size:30px;">
+              <li><b>Privacy notices</b>:
+                 must be provided wherever personal data is collected, including through the use of<b> website cookies and tags</b> </li>
+              <li><b>Usage limitations</b>:
+                Administrative or technological controls can be used to limit the organization’s <b>use of data to the purposes for which it collected the data</b>
+              </li>
+              <li>
+                <b>Security</b>:
+                  Administrative, physical, and technological security measures are necessary to prevent
+                    <b>unauthorized access, use, modification, disclosure, or deletion of personal data</b>.
+              </li>
+
+              <li>
+                <b>Data subject rights</b>:
+                 Mechanisms and procedures are needed to manage
+                 <b>data subject consent preferences</b> and
+                  respond to complaints and requests for access, rectification, restriction, portability, and deletion.
+
+              </li>
+              <li>
+                <b>Vendor management</b>:
+                 Organizations <b>must have contracts</b> with
+                  affiliates, vendors, and other third parties that collect or receive personal data,
+                  including standard contractual clauses or other mechanisms to legalize data transfers outside the EU.
+
+              </li>
+
+
+            </ul>
+          </section>
+
+          <section>
+            <h4 style="font-size:30px;">Establish Controls and Processes - Roadmap of necessary operational and technological changes - contd. </h4>
+
+            <ul style="font-size:30px;">
+
+              <li>
+                <b>Incident response</b>:
+                  Processes must be created to detect and respond to security breaches,
+                  including remediating the breach and notifying all necessary parties.
+              </li>
+
+              <li>
+                <b>Training:</b> Employee and vendor training must be delivered to raise awareness
+                   regarding privacy policies, processes, and requirements, as well as to report concerns and suspicious data activity
+              </li>
+
+              <li>
+                <b>Assessments</b>:
+                Data protection impact assessments must be conducted for <b>each high risk data processing activity</b>.
+
+              </li>
+            </ul>
+          </section>
+
+
+       <section>
+         <h4>Resources</h4>
+         <ul>
+           <li>
+             <a target="_blank" href="https://www.eugdpr.org/eugdpr.org.html">GDPR Portal</a>
+           </li>
+           <li>
+             <a target="_blank" href="https://trailhead.salesforce.com/modules/european-union-privacy-law-basics">Trailhead: European Union Privacy Law Basics
+</a>
+           </li>
+           <li>
+             <a target="_blank"  href="https://www.salesforce.com/gdpr/overview/">
+               Accelerate your journey to GDPR readiness with Salesforce.
+             </a>
+           </li>
+         </ul>
+       </section>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
+
+
+  <script>
+    'use strict';
+
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+      //width: 960,
+      //	height: 700,
+
+      // Display presentation control arrows
+      controls: true,
+
+      // Help the user learn the controls by providing hints, for example by
+      // bouncing the down arrow when they first encounter a vertical slide
+      controlsTutorial: true,
+
+      // Determines where controls appear, "edges" or "bottom-right"
+      controlsLayout: 'edges',
+
+      // Visibility rule for backwards navigation arrows; "faded", "hidden"
+      // or "visible"
+      controlsBackArrows: 'faded',
+      // Display a presentation progress bar
+      progress: true,
+
+      // Set default timing of 2 minutes per slide
+      defaultTiming: 120,
+
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
+
+
+      history: true,
+      center: true,
+      slideNumber: true,
+
+      embedded: true,
+
+      transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+      menu: {
+        markers: true,
+        openSlideNumber: true,
+        themes: [{
+            name: 'Black',
+            theme: '../reveal.js/css/theme/black.css'
+          },
+          {
+            name: 'White',
+            theme: '../reveal.js/css/theme/white.css'
+          },
+          {
+            name: 'League',
+            theme: '../reveal.js/css/theme/league.css'
+          },
+          {
+            name: 'Sky',
+            theme: '../reveal.js/css/theme/sky.css'
+          },
+          {
+            name: 'Beige',
+            theme: '../reveal.js/css/theme/beige.css'
+          },
+          {
+            name: 'Simple',
+            theme: '../reveal.js/css/theme/simple.css'
+          },
+          {
+            name: 'Serif',
+            theme: '../reveal.js/css/theme/serif.css'
+          },
+          {
+            name: 'Blood',
+            theme: '../reveal.js/css/theme/blood.css'
+          },
+          {
+            name: 'Night',
+            theme: '../reveal.js/css/theme/night.css'
+          },
+          {
+            name: 'Moon',
+            theme: '../reveal.js/css/theme/moon.css'
+          },
+          {
+            name: 'Solarized',
+            theme: '../reveal.js/css/theme/solarized.css'
+          }
+        ],
+        custom: []
+      },
+
+      // Optional reveal.js plugins
+      dependencies: [{
+          src: '../reveal.js/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          condition: function() {
+            return !!document.querySelector('pre code');
+          },
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: '../reveal.js/plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/reveal.js-menu/menu.js',
+          async: true
+        }
+      ]
+    });
+
+
+
+    var app = angular.module('app', [
+      'hc.marked'
+    ]);
+    app.config(['markedProvider', function(markedProvider) {
+      markedProvider.setOptions({
+        gfm: true
+      });
+    }]);
+
+    var GSCOPE;
+    app.controller('MainCtrl', function($scope, $http, $timeout) {
+      GSCOPE = $scope; // debugging purposes
+      $scope.appName="GDPR";
+
+
+
+    })
+  </script>
+</body>
+
+</html>

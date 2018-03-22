@@ -156,6 +156,26 @@
 
        </section>
 
+       <section>
+         <h4>Best Practices</h4>
+         <ul>
+           <li>After loading the dataset: <code>result = load dataset;</code>
+           apply filter to the dataset you will be working down  the line:
+         <code>
+           result = filter rows by predicate;
+         </code> </li>
+         <li>Example:
+           <pre>
+           <code>
+q = load "DTC_Opportunity_SAMPLE";
+q = filter q by 'Closed' == "true";
+
+           </code>
+         </pre>
+       </li>
+         </ul>
+       </section>
+
 
        <section>
          <h4>References</h4>
