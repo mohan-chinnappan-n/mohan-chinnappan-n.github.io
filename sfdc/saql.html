@@ -157,10 +157,21 @@
        </section>
 
        <section>
+         <h4 style="font-size:32px;">Special Characters</h4>
+         <ul style="font-size:30px;">
+           <li>
+             <img style="border:0px;" height="520" src="img/saql/saql-spl-chars.png" alt="">
+           </li>
+         </ul>
+       </section>
+
+
+
+       <section>
          <h4>Best Practices</h4>
-         <ul>
+         <ul style="font-size:35px;">
            <li>After loading the dataset: <code>result = load dataset;</code>
-           apply filter to the dataset you will be working down  the line:
+           apply filter to the dataset you will be working down the line, this way, we will be dealing with filtered records :
          <code>
            result = filter rows by predicate;
          </code> </li>
@@ -173,9 +184,29 @@ q = filter q by 'Closed' == "true";
            </code>
          </pre>
        </li>
+       <li>Filter before the projection and filter after projection (post-projection filter)</li>
          </ul>
        </section>
 
+       <section>
+         <h4>Pre-projection filters - AND and OR</h4>
+         <div class="row">
+           <div class="col-lg-6">
+                 <img style="border:0px;"  src="img/saql/saql-AND-filter.png" alt="">
+           </div>
+           <div class="col-lg-6">
+                 <img style="border:0px;"  src="img/saql/saql-OR-filter.png" alt="">
+           </div>
+
+         </div>
+       </section>
+
+
+       <section>
+         <h4>Editing a Column</h4>
+            <img style="border:0px;" height="450" src="img/saql/saql-calculated-col-1.gif" alt="">
+
+       </section>
 
        <section>
          <h4>References</h4>
