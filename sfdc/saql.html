@@ -249,6 +249,35 @@ q = filter q by 'Closed' == "true";
        </section>
 
        <section>
+         <h4>Union</h4>
+         <ul style="font-size:40px;">
+           <li>Combines multiple result sets into one result set. </li>
+           <li>
+             <pre>
+             <code>
+q = load "opportunity";
+q = group q by ('Account.AccountSource', 'Account.BillingCountry');
+q = foreach q generate 'Account.AccountSource' as 'Account.AccountSource',
+    'Account.BillingCountry' as 'Account.BillingCountry', sum('Amount') as 'sum_Amount';
+q = order q by ('Account.AccountSource' asc, 'Account.BillingCountry' asc);
+
+r = load "opportunity";
+r = group r by (  'Account.BillingCountry');
+r = foreach r generate "Total" as 'Account.AccountSource','Account.BillingCountry',
+    sum('Amount') as 'sum_Amount';
+
+-- union  q and r
+
+s = union q,r;
+s = group s by ('Account.AccountSource' , 'Account.BillingCountry' );
+s = foreach s generate 'Account.AccountSource','Account.BillingCountry',sum('sum_Amount') as 'sum_Amount'
+             </code>
+           </pre>
+           </li>
+         </ul>
+       </section>
+
+       <section>
          <h4>Video: SAQL Union  </h4>
            <iframe height="450" width="800" data-src="https://www.youtube.com/embed/GdRUGtLNEcA?autoplay=0"></iframe>
        </section>
