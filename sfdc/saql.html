@@ -325,6 +325,65 @@ s = foreach s generate 'Account.AccountSource','Account.BillingCountry',sum('sum
          </ul>
        </section>
 
+       <section>
+         <h4>Windowing Functions </h4>
+         <ul style="font-size:30px;">
+           <li>To calculate common business cases such as:
+               <ul>
+                 <li>percent of grand total</li>
+                 <li> moving average</li>
+                 <li> year and quarter growth</li>
+                 <li>ranking</li>
+               </ul>
+             </li>
+             <li>Allows  to calculate data for a single group using aggregated data from adjacent groups</li>
+             <li>Aggregates across groups rather than within groups and accepts any valid numerical projection on which to aggregate.</li>
+             <li>Windowing functionality is enabled only for grouped queries</li>
+
+               <pre>
+                 <code>
+q = load "dataset";
+q = group q by (OrderDate_Year, OrderDate_Quarter);
+q = foreach q generate OrderDate_Year as Year, OrderDate_Quarter as Quarter,
+          sum(Sales) as sum_amt,
+          sum(sum(Sales)) over([.. 0] partition by all order by (OrderDate_Year, OrderDate_Quarter)) as r_sum;
+                 </code>
+               </pre>
+             </li>
+         </ul>
+       </section>
+
+
+       <section>
+         <h4>Windowing Functions - Contd.</h4>
+         <ul style="font-size:35px;">
+           <li>Aggregate functions that supports windowing:
+               <ul>
+                <li> avg, sum, min, max, count, median</li>
+                <li>percentile_disc, and percentile_cont</li>
+               </ul>
+           </li>
+
+           <li> Ranking Function: Returns a rank value for each row in a partition. Rank functions supported:
+             <ul>
+               <li>
+                 <ul>
+
+               <li><b>rank()</b>: Assigns rank based on order. Repeats rank when the value is the same, and skips as many on the next non-match.</li>
+               <li><b>dense_rank()</b>: Same as rank() but doesn’t skip values on previous repetitions.</li>
+               <li><b>cume_dist()</b>: Calculates the cumulative distribution (relative position) of the data in the reset group.</li>
+               <li><b>row_number()</b>: Assigns a number incremented by 1 for every row in the reset group.</li>
+
+                 </ul>
+
+               </li>
+             </ul>
+
+            </li>
+
+         </ul>
+       </section>
+
 
        <section>
          <h4>Video: SAQL compare table  </h4>
