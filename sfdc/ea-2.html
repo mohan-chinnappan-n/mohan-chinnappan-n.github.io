@@ -115,9 +115,6 @@
         <h4>{{appName}}</h4>
        </section>
 
-      <section>
-        <h4>Key Concepts</h4>
-      </section>
 
       <section>
         <h4>What Can You Do with Analytics? </h4>
@@ -132,9 +129,9 @@
       </section>
 
       <section>
-        <h4>Einstein Analytics </h4>
-        <h5> data to insights to actions</h5>
-         <ul>
+        <h4>Einstein Analytics Features </h4>
+        <h5 style="font-size:35px;"> data ➜ insights ➜ actions</h5>
+         <ul style="font-size:35px;">
            <li>Native to Salesforce with Mobile support
              <ul>
                <li>Create/Edit objects within</li>
@@ -152,8 +149,34 @@
           </section>
 
           <section>
+            <h4>Einstein Analytics Features - contd.</h4>
+
+            <ul style="font-size:35px;">
+              <li>Get new Insights to every member of your team from your business data using:
+                  <ul>
+                    <li>Analytics</li>
+                  </ul>
+              </li>
+              <li>Business Data (gold mine) from:
+             <ul>
+               <li>Salesforce</li>
+               <li>ERP</li>
+               <li>Data warehouses</li>
+               <li>Log files</li>
+             </ul>
+             can be viewed together to provide insights to improve your business performance and
+              provide 360-degree view of your business.
+
+
+              </li>
+
+              <li>Provides self-service business intelligence to your  teams</li>
+            </ul>
+          </section>
+
+          <section>
             <h4>Empowering Sales Team</h4>
-            <ul>
+            <ul style="font-size:35px;">
               <li>Drive intelligent Sales with:
                      <ul>
                        <li>Einstein Data Discovery</li>
@@ -203,6 +226,35 @@
             </ul>
           </section>
 
+          <section>
+            <h4>Dataset</h4>
+            <ul>
+              <li>Set of Data Sources</li>
+              <li>Can Contain data from single Salesforce object or data from external data sources like Oracle, Postgres or MySQL</li>
+              <li>You can create dataset by combining data from datasets :<br/> <code>ds3 = ds1 + ds2</code></li>
+            </ul>
+
+          </section>
+
+          <section>
+            <h4>Dataset Creation</h4>
+            <ul>
+              <li>Extraction
+                 <ul>
+                   <li>Process of bringing data into Einstein Discovery</li>
+                 </ul>
+              </li>
+              <li>Preparation
+              <ul>
+                <li>Getting that data into a form that’s meaningful to the people exploring it</li>
+                <li> It also includes several data transformation and manipulation features.</li>
+              </ul>
+              </li>
+            </ul>
+          </section>
+
+
+
 
 
 
@@ -220,6 +272,12 @@
           </li>
         </ul>
       </section>
+
+      <section>
+        <h4>Sample Data Visualizations</h4>
+        <img  style='border:0;' src="img/ea2/sample-vizs-1.png" height="500" alt="EA Visualizations list">
+      </section>
+
 
       <section>
         <h4>Measure</h4>
@@ -955,7 +1013,7 @@ column(StaticDTC_1.selection,[\"measure\"]).asObject()}}
     var GSCOPE;
     app.controller('MainCtrl', function($scope, $http, $timeout) {
       GSCOPE = $scope; // debugging purposes
-      $scope.appName="Einstein Analytics";
+      $scope.appName="Einstein Analytics - Beginner";
 
 
 
