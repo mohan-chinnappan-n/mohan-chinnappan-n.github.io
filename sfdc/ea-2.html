@@ -173,6 +173,8 @@
             </ul>
           </section>
 
+          <!--
+
           <section>
             <h4>Empowering Sales Team</h4>
             <ul style="font-size:35px;">
@@ -200,6 +202,7 @@
                  </li>
             </ul>
           </section>
+-->
 
           <section>
             <h4>Analytics Assets</h4>
@@ -566,9 +569,9 @@
       <section>
         <h4>Date Examples</h4>
         <img style="border:0px;" height="300" src="img/ea2/ea-date-examples.png" alt="">
-        <br/>
         <pre style="font-size:20px;">
           <code>
+--  Relative Date Ranges
 a = filter a by date('year', 'month', 'day') in ["1 year ago".."current year"];
 a = filter a by date('year', 'month', 'day') in ["2 quarters ago".."2 quarters ahead"];
 a = filter a by date('year', 'month', 'day') in ["4 months ago".."1 year ahead"];
@@ -577,9 +580,121 @@ a = filter a by date('year', 'month', 'day') in ["2 fiscal_years ago".."current 
         </pre>
         <a target="_blank" style="font-size:30px;"
         href="https://developer.salesforce.com/docs/atlas.en-us.bi_dev_guide_saql.meta/bi_dev_guide_saql/bi_saql_functions_date.htm">
-          Date Doc
+          Date functions Doc
         </a>
       </section>
+
+
+
+      <section>
+        <h4>Date filter Example - 1</h4>
+        <img style="border:0px;" height="300" src="img/ea2/ea-filter-date-0.png" alt="">
+
+      </section>
+      <section>
+        <h4>Date filter Example - 2</h4>
+        <img style="border:0px;" height="300" src="img/ea2/ea-filter-date-2.png" alt="">
+
+      </section>
+
+
+      <section>
+        <h4 style="font-size:30px;">Date generate Example - 1</h4>
+        <img style="border:0px;" height="250" src="img/ea2/ea-generate-date-1.png" alt="">
+<pre style="font-size:15px;">
+  <code>
+q = load "DTC_Opportunity_SAMPLE";
+q = foreach q generate 'Close_Date','Close_Date_Year','Close_Date_Month', 'Close_Date_Day',
+                      (date_diff("day",
+                                       toDate('Close_Date', "yyyy-MM-dd"), now()
+                                )
+                      ) as days_from_now,
+
+                      (date_diff("month",
+                                       toDate('Close_Date', "yyyy-MM-dd"), now()
+                                )
+                      ) as months_from_now;
+q = limit q 2000;
+  </code>
+</pre>
+</section>
+
+      <section>
+        <h4 style="font-size:20px;">generate using Case - simple case expression syntax - Example</h4>
+        <img style="border:0px;" height="300" src="img/ea2/ea-generat-using-case-1.png" alt="">
+        <pre style="font-size:20px;">
+          <code>
+q = load "DTC_Opportunity_SAMPLE";
+q = foreach q generate 'Opportunity_Source',
+       (case 'Opportunity_Source'
+        when "Marketing" then "MKT"
+        else "Other"
+        end)
+       as Category;
+
+          </code>
+        </pre>
+
+    </section>
+
+      <section>
+        <h4 style="font-size:25px;">generate using Case - searched case expression syntax - Example</h4>
+        <img style="border:0px;" height="300" src="img/ea2/ea-generat-using-case-2.png" alt="">
+        <pre style="font-size:20px;">
+          <code>
+    q = load "DTC_Opportunity_SAMPLE";
+    q = foreach q generate 'Opportunity_Source',
+           (case
+            when 'Opportunity_Source' == "Marketing" then "MKTG"
+            else "Other"
+            end)
+           as Category;
+
+          </code>
+        </pre>
+
+
+      </section>
+
+
+      <section>
+        <h4 style="font-size:20px;">More Case Examples - 1 </h4>
+          <img style="border:0px;" height="300" src="img/ea2/ea-generat-using-case-3.png" alt="">
+        <pre style="font-size:15px;">
+          <code>
+-- searched case expression syntax
+q = load "DTC_Opportunity_SAMPLE";
+q = foreach q generate 'Opportunity_Type',
+       (case
+        when 'Opportunity_Type' == "New Business"         then "NEW_BIZ"
+        when 'Opportunity_Type'=="Existing Business"      then "EXT_BIZ"
+        else "Other"
+        end)
+       as 'Biz Cat';
+          </code>
+        </pre>
+  </section>
+
+        <section>
+          <h4 style="font-size:20px;">More Case Examples - 2 </h4>
+  <img style="border:0px;" height="300" src="img/ea2/ea-generat-using-case-4.png" alt="">
+        <pre style="font-size:15px;">
+          <code>
+--  simple case expression syntax
+q = load "DTC_Opportunity_SAMPLE";
+q = foreach q generate 'Opportunity_Type',
+       (case 'Opportunity_Type'
+        when  "New Business"           then "NEW_BIZS"
+        when  "Existing Business"      then "EXT_BIZS"
+        else "Other"
+        end)
+       as 'Biz Cat';
+          </code>
+        </pre>
+      </section>
+
+
+
 
 
       <section>
