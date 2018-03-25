@@ -220,7 +220,7 @@
                    <img height="90" style='border:0;' src="https://res.cloudinary.com/hy4kyit2a/image/upload/doc/trailhead/en-use5b7bae0f33462aaed158a22c54fc629.png" alt="">
                 </div>
                 <div class="col-lg-8">
-                 <b>Lenses</b> -  saved explorations
+                 <b>Lens</b> -  particular view into a dataset’s data. It’s where you do exploratory analysis and visualization.
                 </div>
 
               </div>
@@ -234,15 +234,16 @@
                 <img height="90" style='border:0;' src="https://res.cloudinary.com/hy4kyit2a/image/upload/doc/trailhead/en-usb87e2da904fd5e962422654fba6a8319.png" alt="">
                 </div>
                 <div class="col-lg-8">
-                  <b>Dashboards</b> - curated set of charts, metrics, and tables that gives you an interactive view of your business data
+                  <b>Dashboards</b> - curated set of charts, metrics, and tables based on the data in one or more lenses.
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="col-lg-4">
                 <img height="90" style='border:0;' src="https://res.cloudinary.com/hy4kyit2a/image/upload/doc/trailhead/en-usba525ccf68f57d76369afc5fdbfa47c0.png" alt="">
                 </div>
-                <div class="col-lg-8">
-                   <b>Apps</b> -  purpose-built set of analyses and answers about a specific area of your business
+                <div class="col-lg-8" style="font-size:18px;">
+                   <b>Apps</b> - Contains dashboards, lenses, and datasets in any combination that makes sense for sharing your data analyses with colleagues.
+                   <br/> Apps are like folders. They allow users to organize their data projects : private and shared - control sharing.
                 </div>
 
               </div>
@@ -251,11 +252,179 @@
           </section>
 
           <section>
+            <h4>More terms</h4>
+            <ul style="font-size:30px;">
+              <li> <b>Explorer</b>:  the interface where you explore datasets and lenses</li>
+              <li> <b>Dataflow</b>: a set of instructions that specifies:
+                <ul>
+                 <li>what data to extract from Salesforce objects or external datasets</li>
+                 <li>how to transform the datasets</li>
+                 <li>which datasets to make available for querying</li>
+                 <li>dataflow job processes the logic in a dataflow</li>
+                 </ul>
+              </li>
+
+            </ul>
+          </section>
+
+
+
+            <section>
+              <h4>Dataset Builder</h4>
+              <ul style="font-size:30px;">
+              <li><b>dataset builder</b>: a point-and-click user interface
+                  that allows you to easily select and extract data from related Salesforce objects to create a single dataset.
+                    <img height="400" style='border:0;' src="img/ea2/ea-dataset-creation-1.gif" alt="">
+
+             </li>
+              </ul>
+
+
+            </section>
+
+
+          <section>
+            <h4>Dimension</h4>
+            <ul style="font-size:35px;">
+              <li>
+                <b>Qualitative value</b>, like region, product name, and model number.
+                 Dimensions are handy for grouping and filtering your data.
+                 Unlike measures, <b>you can’t perform math on dimensions</b>.
+                 Like measures, dimensions also have names (region) and values (northeast).
+                Time is usually considered a dimension rather than a measure.<br/>
+                Grouping can be applied on Dimensions.
+
+              </li>
+            </ul>
+          </section>
+
+
+          <section>
+            <h4>Measure</h4>
+            <ul style="font-size:35px;">
+              <li>
+                <b>Quantitative value</b>, like revenue and exchange rate.
+                 You <b>can do math on measures</b>, such as calculating the total revenue and minimum exchange rate.<br/>
+                 A measure is typically <b>aggregated</b> in some way, which means that it’s displayed with some math already applied to it.
+                 For example, when you first view a dataset, you often see a simple aggregation such as the <b>count of the number of rows</b>
+              </li>
+            </ul>
+          </section>
+
+
+
+
+          <section>
+            <h4>Exploration - Lens</h4>
+            <ul style="font-size:30px;">
+              <li>Two main parts of the lens: the <b>query</b> and the <b>visualization</b></li>
+              <li>Query:
+                <ul>
+
+    <li><b>Aggregating</b>: Summarize the data by <b>some measure</b>.
+        For example, the measure could be a <b>count of the rows</b> of data, as in the initial exploration state.<br/>
+         Another common measure is a <b>sum</b>of the amounts.</li>
+    <li><b>Grouping</b>: Group the data by a <b>certain dimension</b>. For example, group by product name or account.</li>
+    <li><b>Filtering</b>: Filter the data to narrow your results. For example, show only opportunities within the fiscal year. <br>
+    Both <b>Dimensions and Measures</b> can be involved in Filtering<hr/></li>
+
+  </li>
+  <li>Groups and filters are optional, whereas <b>aggregation is required</b></li>
+  <li>Regardless of the query you use, there must be at least one measure to have a visualization </li>
+                </ul>
+
+              </li>
+            </ul>
+          </section>
+
+
+          <section>
+            <h4>Parts of Lens</h4>
+            <ul style="font-size:30px;">
+              <li>Dataset</li>
+              <li>Horizontal Axis - Measures and Dimensions:
+
+                 <img style="border:0px;" src="img/ea2/hori-measure-1.png" alt="">
+              </li>
+            </ul>
+
+          </section>
+
+          <section>
+            <h4>Parts of Lens - contd.</h4>
+            <ul style="font-size:30px;">
+              <li>Horizontal Axis - Measures and Dimensions:
+
+                 <img style="border:0px;" src="img/ea2/lens-hori-axis-measure-dim-1.png" alt="">
+              </li>
+            </ul>
+
+          </section>
+
+
+          <section>
+            <h4>Parts of Lens - contd..</h4>
+            <ul style="font-size:30px;">
+              <li>Vertical Axis - Dimensions:
+                 <img style="border:0px;" src="img/ea2/lens-vert-axis-dimension-1.png" alt="">
+              </li>
+            </ul>
+
+          </section>
+
+          <section>
+            <h4>Parts of Lens - contd...</h4>
+            <ul style="font-size:30px;">
+              <li>Filter By - Dimensions and Measures:
+                 <img style="border:0px;" src="img/ea2/lens-filter-by-1.png" alt="">
+              </li>
+            </ul>
+
+          </section>
+
+
+          <section>
+            <h4>Parts of Lens - demo</h4>
+                 <img style="border:0px;" src="img/ea2/ea-basic-lens-1.gif" alt="">
+
+          </section>
+
+
+
+          <section>
+            <h4>Visualization</h4>
+            <ul>
+              <li>
+                Commonly a chart or graph, such as a bar chart, donut chart,
+                timeline, or heat map.
+                It can also be data in tabular form, such as a comparison table or pivot table.
+                Every visualization has an underlying <b>query</b>, which is how Analytics retrieves information from the <b>source data</b>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h4>Sample Data Visualizations</h4>
+            <img  style='border:0;' src="img/ea2/sample-vizs-1.png" height="500" alt="EA Visualizations list">
+          </section>
+
+          <section>
+            <h4>Selecting Right chart</h4>
+            <img  style='border:0;' src="img/ea2/chosing-chart-type.jpg" height="550" alt="EA Visualizations list">
+
+          </section>
+
+
+
+
+
+
+          <section>
             <h4>Dataset</h4>
             <ul>
               <li>Set of Data Sources</li>
-              <li>Can Contain data from single Salesforce object or data from external data sources like Oracle, Postgres or MySQL</li>
-              <li>You can create dataset by combining data from datasets :<br/> <code>ds3 = ds1 + ds2</code></li>
+              <li>Can Contain data from single Salesforce object or data from external data sources like Oracle, Postgres, MySQL...</li>
+              <li>You can create dataset by combining data from datasets.</li>
             </ul>
 
           </section>
@@ -284,23 +453,6 @@
 
 
 
-
-      <section>
-        <h4>Visualization</h4>
-        <ul>
-          <li>
-            Commonly a chart or graph, such as a bar chart, donut chart,
-            timeline, or heat map.
-            It can also be data in tabular form, such as a comparison table or pivot table.
-            Every visualization has an underlying <b>query</b>, which is how Analytics retrieves information from the <b>source data</b>
-          </li>
-        </ul>
-      </section>
-
-      <section>
-        <h4>Sample Data Visualizations</h4>
-        <img  style='border:0;' src="img/ea2/sample-vizs-1.png" height="500" alt="EA Visualizations list">
-      </section>
 
 
       <section>
