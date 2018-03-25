@@ -744,6 +744,43 @@ q = limit q 2000;
 
 
 
+      <section>
+        <h4>Group By - Order By</h4>
+        <pre style="font-size:20px">
+         <code>
+ q = load "DTC_Opportunity_SAMPLE";
+ -- interested in Agriculture and Education only
+ q = filter q by 'Industry' in ["Agriculture", "Education"];
+ q = group q by ('Industry', 'Billing_State_Province');
+ -- projection
+ q = foreach q generate 'Industry' as 'Industry', 'Billing_State_Province' as 'Billing_State_Province', sum('Amount') as 'sum_Amount';
+ -- order the projection
+ q = order q by ('Industry' asc, 'Billing_State_Province' asc);
+ q = limit q 2000;
+         </code>
+
+        </pre>
+
+
+      </section>
+
+
+      <section>
+        <h4>Filter - Group By - Order By - contd.</h4>
+        <img style="border:0px;"src="img/ea2/ea-group-by-order-by-1.png" alt="">
+      </section>
+
+      <section>
+        <h4>Filter - Group By - Order By - contd..</h4>
+        <img style="border:0px;"src="img/ea2/ea-date-funs-case-1-chart-1.png" alt="">
+      </section>
+
+      <section>
+        <h4>Filter - Group By - Order By - contd...</h4>
+        <img style="border:0px;"src="img/ea2/ea-date-funs-case-1-chart-2.png" alt="">
+      </section>
+
+
 
 
       <section>
