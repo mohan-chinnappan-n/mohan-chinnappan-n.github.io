@@ -599,8 +599,7 @@ a = filter a by date('year', 'month', 'day') in ["2 fiscal_years ago".."current 
 
 
       <section>
-        <h4 style="font-size:30px;">Date generate Example - 1</h4>
-        <img style="border:0px;" height="250" src="img/ea2/ea-generate-date-1.png" alt="">
+        <h4 style="font-size:30px;">Date generate Example</h4>
 <pre style="font-size:15px;">
   <code>
 q = load "DTC_Opportunity_SAMPLE";
@@ -619,16 +618,22 @@ q = limit q 2000;
 </pre>
 </section>
 
+
+<section>
+  <h4 style="font-size:30px;">Date generate Example - Contd.</h4>
+  <img style="border:0px;" height="500" src="img/ea2/ea-generate-date-1.png" alt="">
+</section>
+
+
       <section>
         <h4 style="font-size:20px;">generate using Case - simple case expression syntax - Example</h4>
-        <img style="border:0px;" height="300" src="img/ea2/ea-generat-using-case-1.png" alt="">
         <pre style="font-size:20px;">
           <code>
 q = load "DTC_Opportunity_SAMPLE";
 q = foreach q generate 'Opportunity_Source',
        (case 'Opportunity_Source'
-        when "Marketing" then "MKT"
-        else "Other"
+          when "Marketing" then "MKT"
+          else "Other"
         end)
        as Category;
 
@@ -637,16 +642,20 @@ q = foreach q generate 'Opportunity_Source',
 
     </section>
 
+    <section>
+      <h4 style="font-size:20px;">generate using Case - simple case expression syntax - Example</h4>
+      <img style="border:0px;"  src="img/ea2/ea-generat-using-case-1.png" alt="">
+  </section>
+
       <section>
-        <h4 style="font-size:25px;">generate using Case - searched case expression syntax - Example</h4>
-        <img style="border:0px;" height="300" src="img/ea2/ea-generat-using-case-2.png" alt="">
+        <h4 style="font-size:25px;">generate using Case - searched case expression syntax - Example - contd.</h4>
         <pre style="font-size:20px;">
           <code>
     q = load "DTC_Opportunity_SAMPLE";
     q = foreach q generate 'Opportunity_Source',
            (case
-            when 'Opportunity_Source' == "Marketing" then "MKTG"
-            else "Other"
+              when 'Opportunity_Source' == "Marketing" then "MKTG"
+              else "Other"
             end)
            as Category;
 
@@ -654,6 +663,11 @@ q = foreach q generate 'Opportunity_Source',
         </pre>
 
 
+      </section>
+
+      <section>
+        <h4 style="font-size:25px;">generate using Case - searched case expression syntax - Example - contd.</h4>
+        <img style="border:0px;"  src="img/ea2/ea-generat-using-case-2.png" alt="">
       </section>
 
 
@@ -677,20 +691,55 @@ q = foreach q generate 'Opportunity_Type',
 
         <section>
           <h4 style="font-size:20px;">More Case Examples - 2 </h4>
-  <img style="border:0px;" height="300" src="img/ea2/ea-generat-using-case-4.png" alt="">
-        <pre style="font-size:15px;">
+        <pre style="font-size:25px;">
           <code>
 --  simple case expression syntax
 q = load "DTC_Opportunity_SAMPLE";
 q = foreach q generate 'Opportunity_Type',
        (case 'Opportunity_Type'
-        when  "New Business"           then "NEW_BIZS"
-        when  "Existing Business"      then "EXT_BIZS"
-        else "Other"
+           when  "New Business"           then "NEW_BIZS"
+           when  "Existing Business"      then "EXT_BIZS"
+           else  "Other"
         end)
        as 'Biz Cat';
           </code>
         </pre>
+      </section>
+      <section>
+        <h4 style="font-size:20px;">More Case Examples - 2  - contd.</h4>
+    <img style="border:0px;" height="500" src="img/ea2/ea-generat-using-case-4.png" alt="">
+  </section>
+
+      <section>
+        <h4>Date functions and Case Example</h4>
+        <pre style="font-size:15px;">
+          <code>
+q = load "DTC_Opportunity_SAMPLE";
+q = foreach q generate 'Close_Date','Close_Date_Year','Close_Date_Month', 'Close_Date_Day',
+                           toDate('Close_Date',   "yyyy-MM-dd") as cdt,
+                           now() as now,
+                           date_diff("day", toDate('Close_Date',   "yyyy-MM-dd"), now()) as days,
+                           (
+                              case
+                                  when date_diff("day", toDate('Close_Date',   "yyyy-MM-dd"), now() ) <= 30          then "30 Days"
+                                  when date_diff("day", toDate('Close_Date',   "yyyy-MM-dd"), now() )  > 30
+                                       and
+                                       date_diff("day", toDate('Close_Date',   "yyyy-MM-dd"), now() ) <= 60          then "60 Days"
+                                  else "60+ Days"
+                              end
+
+                           ) as days_bucket;
+
+q = filter q by date_diff("day", toDate('Close_Date',   "yyyy-MM-dd"), now()) <= 600;
+q = limit q 2000;
+          </code>
+        </pre>
+      </section>
+
+
+      <section>
+        <h4>Date functions and Case Example - contd.</h4>
+        <img style="border:0px;"src="img/ea2/ea-date-funs-case-1.png" alt="">
       </section>
 
 
