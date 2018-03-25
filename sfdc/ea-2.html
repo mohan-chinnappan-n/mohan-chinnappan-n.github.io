@@ -156,7 +156,7 @@
                     <li>Analytics</li>
                   </ul>
               </li>
-              <li>Business Data (gold mine) from:
+              <li>Business Data  from:
              <ul>
                <li>Salesforce</li>
                <li>ERP</li>
@@ -419,6 +419,10 @@
 
 
 
+
+
+
+
           <section>
             <h4>Dataset</h4>
             <ul>
@@ -429,6 +433,80 @@
 
           </section>
 
+
+
+            <section>
+              <h4>Dataset Creation - Demo</h4>
+              <img  style="border:0px;" src="img/ea2/ea-dataset-creation-1.gif" alt="">
+
+            </section>
+
+    <!--
+            <section>
+              <h4>Recipe</h4>
+                  <img style="border:0px;" height="200" src="https://releasenotes.docs.salesforce.com/en-us/spring17/release-notes/release_notes/images/bi_integrate_dataprep_recipe_diagram.png" alt="">
+              <ul style="font-size:30px;">
+                <li>A dataset recipe is a saved set of transformations, or steps, to perform on a specific source dataset or replication.</li>
+                <li>  When you run a recipe, it applies the transformations and outputs the results to a new target dataset. </li>
+                <li>  You can schedule a recipe to run on a recurring basis to keep your target dataset up to date.</li>
+              </ul>
+            </section>
+      -->
+            <section>
+              <h4>Dataset Recipe</h4>
+              <ul>
+                <li>A dataset recipe is a user-interface tool that lets you take data from your existing datasets and replications,
+                  prepare it, and output the results to a new dataset.</li>
+              </ul>
+              <img style="border:0px;" height="300" src="https://resources.help.salesforce.com/images/a9832e1113286b27f553b45a4ce483f3.png" alt="">
+            </section>
+
+             <section>
+            <h4>Dataset Recipe - contd.</h4>
+            <ul style="font-size:30px;">
+              <li>
+                 Use a recipe to
+                  <ul>
+                    <li>combine data from multiple datasets or replications</li>
+                    <li>bucket the data</li>
+                    <li>add formula fields</li>
+                    <li>cleanse the data by transforming field values</li>
+                    <li> remove fields and filter rows that you don’t need, before you create the target dataset.</li>
+                  </ul>
+              </li>
+              <li>A dataset recipe is simply a <b>saved set of transformations, or steps, that you want to perform on a specific source dataset or replication</b>.
+                <hr/>
+                 When you run a recipe, it applies the transformations and outputs the results to a new target dataset.
+                <hr/>
+                You can schedule a recipe to run on a recurring basis to keep your target dataset up to date.
+                <hr/>
+                This new dataset can then be used as a standalone dataset for exploration or dashboard creation, or used in your dataflows or other recipes.
+              </li>
+
+            </ul>
+            </section>
+
+
+            <section>
+              <h4>Working with Recipe  - Demo</h4>
+              <img  style="border:0px;" src="img/ea2/ea-recipe-1.gif" alt="">
+
+            </section>
+
+
+            <section>
+              <h4>edgemart Transformation</h4>
+              <ul>
+                <li>Gives dataflow access to an <b>existing, registered dataset</b>, which can contain Salesforce data, external
+        data, or a combination of the two. </li>
+        <li> Example: Compare the final-sales-amount against the opportunity-amount to determine
+        if heavy discounts were offered to close deals</li>
+              </ul>
+            </section>
+
+
+
+<!--
           <section>
             <h4>Dataset Creation</h4>
             <ul>
@@ -445,6 +523,7 @@
               </li>
             </ul>
           </section>
+-->
 
 
 
@@ -452,8 +531,7 @@
 
 
 
-
-
+<!--
 
       <section>
         <h4>Measure</h4>
@@ -466,13 +544,43 @@
           </li>
         </ul>
       </section>
+-->
+
+
+
 
       <section>
         <h4>Date</h4>
         <ul>
           <li> Can be represented as a day, month, year, and, optionally, time. You can group, filter, and perform math on dates.</li>
         </ul>
+        <img style="border:0px;" src="img/ea2/ea-date-fields-1.png" alt="">
       </section>
+
+      <section>
+        <h4>Date filtering - Demo</h4>
+        <img style="border:0px;" src="img/ea2/ea-date-fields-1.gif" alt="">
+      </section>
+
+
+      <section>
+        <h4>Date Examples</h4>
+        <img style="border:0px;" height="300" src="img/ea2/ea-date-examples.png" alt="">
+        <br/>
+        <pre style="font-size:20px;">
+          <code>
+a = filter a by date('year', 'month', 'day') in ["1 year ago".."current year"];
+a = filter a by date('year', 'month', 'day') in ["2 quarters ago".."2 quarters ahead"];
+a = filter a by date('year', 'month', 'day') in ["4 months ago".."1 year ahead"];
+a = filter a by date('year', 'month', 'day') in ["2 fiscal_years ago".."current day"];
+          </code>
+        </pre>
+        <a target="_blank" style="font-size:30px;"
+        href="https://developer.salesforce.com/docs/atlas.en-us.bi_dev_guide_saql.meta/bi_dev_guide_saql/bi_saql_functions_date.htm">
+          Date Doc
+        </a>
+      </section>
+
 
       <section>
         <h4>Replication</h4>
@@ -496,6 +604,12 @@
       </section>
 
       <section>
+        <h4>Working with Replication  - Demo</h4>
+        <img  style="border:0px;" src="img/ea2/ea-replication-1.gif" alt="">
+
+      </section>
+
+      <section>
         <h4>Analytics Connectors</h4>
         <img style="border:0px;" height="250" src="https://resources.help.salesforce.com/images/bdd0046783d6ba61d7dcb7f089af9203.png" alt="">
         <ul style="font-size:20px">
@@ -510,39 +624,7 @@
         <a style="font-size:25px" href="https://help.salesforce.com/articleView?id=bi_integrate_connectors.htm&type=5">Reference</a>
       </section>
 
-      <section>
-        <h4>Dataset Recipe</h4>
-        <ul>
-          <li>A dataset recipe is a user-interface tool that lets you take data from your existing datasets and replications,
-            prepare it, and output the results to a new dataset.</li>
-        </ul>
-        <img style="border:0px;" height="300" src="https://resources.help.salesforce.com/images/a9832e1113286b27f553b45a4ce483f3.png" alt="">
-      </section>
 
-       <section>
-      <h4>Dataset Recipe - contd.</h4>
-      <ul style="font-size:30px;">
-        <li>
-           Use a recipe to
-            <ul>
-              <li>combine data from multiple datasets or replications</li>
-              <li>bucket the data</li>
-              <li>add formula fields</li>
-              <li>cleanse the data by transforming field values</li>
-              <li> remove fields and filter rows that you don’t need, before you create the target dataset.</li>
-            </ul>
-        </li>
-        <li>A dataset recipe is simply a <b>saved set of transformations, or steps, that you want to perform on a specific source dataset or replication</b>.
-          <hr/>
-           When you run a recipe, it applies the transformations and outputs the results to a new target dataset.
-          <hr/>
-          You can schedule a recipe to run on a recurring basis to keep your target dataset up to date.
-          <hr/>
-          This new dataset can then be used as a standalone dataset for exploration or dashboard creation, or used in your dataflows or other recipes.
-        </li>
-
-      </ul>
-      </section>
 
 
 
