@@ -1204,7 +1204,12 @@ Notice that the number changes <b>from</b> showing the total value for all sales
 
 <section>
   <h4> Dashboard - Binding Toggle Steps</h4>
-    <pre style="font-size:15px;"> column( <b>staticIndustry_1.selection</b>, [\"<b>value</b>\"] ).asObject() </pre>
+    <pre style="font-size:15px;">
+       //  syntax: column(source, [columnNames...])
+       // example: column(myStep.selection, ["stateName"])
+
+
+       column( <b>staticStep.selection</b>, [\"<b>value</b>\"] ).asObject() </pre>
   <button class='btn btn-success'  title='Click to view the image in full page'>
     <a target="_blank" href='./img/ea2/ea-static-binding-2.gif'><i class="glyphicon glyphicon-fullscreen"></i></a></button>
 
@@ -1223,9 +1228,28 @@ column(StaticDTC_1.selection,[\"measure\"]).asObject()}}
   <button class='btn btn-success'  title='Click to view the image in full page'>
     <a target="_blank" href='./img/ea2/ea-static-binding-3.gif'><i class="glyphicon glyphicon-fullscreen"></i></a></button>
 
-  <img src="img/ea2/ea-static-binding-3.gif" alt="">
+  <img style="border:0px" src="img/ea2/ea-static-binding-3.gif" alt="">
 
 </section>
+
+<section>
+  <h4>Dynamic Reference Line</h4>
+  <div class="row">
+    <div class="col-lg-12">
+      <img style="border:0px" src="img/ea2/ea-refline-dyna-binding-results-from-step-2.png" alt="">
+    </div>
+  </div>
+
+    <div class="row">
+    <div class="col-lg-8">
+      <img style="border:0px" src="img/ea2/ea-refline-dyna-binding-results-from-step.png" alt="">
+    </div>
+    <div class="col-lg-4">
+      <img style="border:0px" src="img/ea2/ea-refline-dyna-binding-results-from-steps.png" alt="">
+    </div>
+  </div>
+</section>
+
 
 <section>
   <h4> Dashboard - Binding on KPIs - Use Case</h4>
@@ -1318,6 +1342,12 @@ column(StaticDTC_1.selection,[\"measure\"]).asObject()}}
   <li>
       <a target="_blank" href="https://www.youtube.com/channel/UCkNDwCEl-BbAsaGSQ7I6Xtg">Let's Play Salesforce</a>
     </li>
+    <li>
+        <a target="_blank"
+        href="https://developer.salesforce.com/docs/atlas.en-us.bi_dev_guide_bindings.meta/bi_dev_guide_bindings/bi_dbjson_bindings.htm">
+        Analytics Bindings Developer Guide</a>
+
+      </li>
 
 
   </ul>
