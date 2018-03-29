@@ -9,6 +9,7 @@
     <script type="text/javascript" src="js/chess.js"> </script>
     <script type="text/javascript" src="js/chessboard-0.3.0.js"> </script>
     <link rel="stylesheet" href="css/chessboard-0.3.0.css">
+      <link rel="stylesheet" href="../css/navbar-green.css">
     <style media="screen">
     .board {
   width: 400px;
@@ -99,10 +100,49 @@ left: 2px;
   </head>
   <body>
     <!-- Used to get images -->
-<base href="http://chessboardjs.com/" />
-<h3 class="board">
-Improved evaluation
-</h3>
+<base href="https://chessboardjs.com/" />
+
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="javascript:void(0)">Chess</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#/home">Home</a></li>
+    </ul>
+    <ul class="nav navbar-nav">
+      <li ><a href="/">Main</a></li>
+    </ul>
+
+    <div class="inner-addon right-addon navbar-form navbar-right">
+      <i class="glyphicon glyphicon-search"></i>
+      <input type="text" class="form-control" placeholder="Search" />
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown ">
+        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="./help.html">Help Topics</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!-- /.navbar-collapse -->
+</nav>
+
+<div class="contaner">
+
+</div>
 <div id="board" class="board"></div>
 <br>
 <div class="info">
@@ -427,5 +467,16 @@ board = ChessBoard('board', cfg);
 
 
 </script>
+<div class="container">
+  <hr/>
+<h5>References</h5>
+<ul style="font-size:15px;">
+  <li>
+
+    <a href="https://medium.freecodecamp.org/simple-chess-ai-step-by-step-1d55a9266977">A step-by-step guide to building a simple chess AI</a>
+
+  </li>
+</ul>
+</div>
   </body>
 </html>
