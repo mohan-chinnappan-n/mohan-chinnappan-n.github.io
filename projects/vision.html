@@ -149,7 +149,7 @@
          <h4>Apple A11 Bionic</h4>
          <div class="row" style="font-size:25px;">
            <div class="col-lg-4">
-              <img style="border:0px; rotate(90deg);" height="400" src="img/440px-Apple_A11.jpg" alt="">
+              <img style="border:0px; ;" height="400" src="img/440px-Apple_A11.jpg" alt="">
            </div>
            <div class="col-lg-8">
          <ul>
@@ -258,10 +258,10 @@
                 <h4 style="font-size:20px;">Raspberry Pi 3 </h4>
                 <div class="row">
                   <div class="col-lg-6">
-                     <img style="border:0px;" src="img/Raspberry-Pi-3-1-1619x1080.jpg" alt="">
+                     <img style="border:0px;transform: rotate(90deg)" src="img/Raspberry-Pi-3-1-1619x1080.jpg" alt="">
                   </div>
                   <div class="col-lg-6">
-                    <img style="border:0px;" src="img/Raspberry-Pi-3-Back-1-1622x1080.jpg" alt="">
+                    <img style="border:0px;transform: rotate(90deg)" src="img/Raspberry-Pi-3-Back-1-1622x1080.jpg" alt="">
                   </div>
 
                 </div>
@@ -308,10 +308,57 @@
                     <li>Upgraded switched Micro USB power source up to 2.5A</li>
                     <li>
                       <a target="_blank" href="https://www.raspberrypi.org/learning/hardware-guide/">Hardware Guide</a>
+
+                    </li>
+
+                       <li>
+                      <a target="_blank" href="https://developer.android.com/things/hardware/raspberrypi.html">Android Things &  Raspberry Pi 3</a>
+
                     </li>
                   </ul>
                 </div>
 
+            </section>
+
+            <section>
+              <h4>Flash Android Things</h4>
+              <pre style="font-size:12px;padding:10px;">
+$ sudo  ./android-things-setup-utility-macos
+Android Things Setup Utility (version 1.0.19)
+============================
+This tool will help you install Android Things on your board and set up Wi-Fi.
+What do you want to do?
+1 - Install Android Things and optionally set up Wi-Fi
+2 - Set up Wi-Fi on an existing Android Things device
+1
+What hardware are you using?
+1 - Raspberry Pi 3
+2 - NXP Pico i.MX7D
+3 - NXP Pico i.MX6UL
+1
+You chose Raspberry Pi 3.
+Setting up required tools...
+Fetching additional configuration...
+Downloading platform tools...
+5.45 MB/5.45 MB
+Unzipping platform tools...
+Finished setting up required tools.
+Raspberry Pi 3
+Do you want to use the default image or a custom image?
+1 - Default image: Used for development purposes. No access to the Android
+Things Console features such as metrics, crash reports, and OTA updates.
+2 - Custom image: Upload your custom image for full device development and
+management with all Android Things Console features.
+1
+Downloading Android Things image...
+314 MB/314 MB
+Unzipping image...
+Downloading Etcher-cli, a tool to flash your SD card...
+20.5 MB/20.5 MB
+Unzipping Etcher-cli...
+Plug the SD card into your computer. Press [Enter] when ready
+
+              </pre>
             </section>
 
 
