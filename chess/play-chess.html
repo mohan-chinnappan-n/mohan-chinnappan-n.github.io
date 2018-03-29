@@ -148,29 +148,56 @@
 
   <div class="row">
 
-    <div class="col-md-6">
+    <div class="col-lg-6">
       <div id="board" class="board"></div>
-      <br>
+      <hr/>
       <div class="info">
-        Search depth:
-        <select id="search-depth">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3" selected>3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
+        <table class="table-bordered table-striped table-hover" style="width:300px;">
+          <tr>
+            <th>Parameter</th>
+            <th>Value</th>
+          </tr>
 
-        <br>
-        <span>Positions evaluated: <span id="position-count"></span></span>
-        <br>
-        <span>Time: <span id="time"></span></span>
-        <br>
-        <span>Positions/s: <span id="positions-per-s"></span> </span>
-        <br>
-        <br>
-        <div id="move-history" class="move-history">
-        </div>
+          <tr>
+            <td>
+                Search depth
+            </td>
+            <td>
+              <select id="search-depth">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3" selected>3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+          </select>
+            </td>
+          </tr>
+          <tr>
+            <td> Positions evaluated </td>
+            <td> <span id="position-count"></span</td>
+          </tr>
+          <tr>
+            <td>Positions evaluated</td>
+            <td><span id="position-count"></span></td>
+          </tr>
+          <tr>
+            <td>Time</td>
+            <td><span id="time"></td>
+          </tr>
+          <tr>
+            <td>
+              Positions
+            </td>
+            <td>
+              <span id="positions-per-s"></span>
+            </td>
+          </tr>
+
+        </table>
+
+
+        <pre id="move-history" class="move-history">
+        </pre>
       </div>
     </div>
     <div class="col-md-6">
@@ -391,7 +418,7 @@
 
       $('#position-count').text(positionCount);
       $('#time').text(moveTime / 1000 + 's');
-      $('#positions-per-s').text(positionsPerS);
+      $('#positions-per-s').text(positionsPerS.toFixed(0));
       return bestMove;
     };
 
