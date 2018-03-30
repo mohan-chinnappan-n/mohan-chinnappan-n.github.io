@@ -149,10 +149,7 @@
 
 
 
-        <section>
-          <h4>How to see Terrain in Google Maps</h4>
-          <img style="border:0px;" src="img/farming/gmaps-terrian-1.png" alt="">
-        </section>
+
 
 
         <section>
@@ -180,6 +177,51 @@
             </iframe>
 
         </section>
+
+        <section>
+          <h4>Terrain Maps</h4>
+        </section>
+
+        <section>
+          <h4>How to see Terrain in Google Maps</h4>
+          <img style="border:0px;" src="img/farming/gmaps-terrian-1.png" alt="">
+        </section>
+
+
+
+
+        <section>
+          <h4 style="font-size:20px;"> Google Earth KML file for seeing US Terrain info from : earthpoint</h4>
+
+          <pre>
+<code> <?xml version="1.0" encoding="UTF-8"?> <kml xmlns="http://www.opengis.net/kml/2.2"
+     xmlns:gx="http://www.google.com/kml/ext/2.2">
+     <NetworkLink><name>Earth Point Topo Map</name>
+       <description>Download in progress. Please wait...</description>
+       <open>0</open>
+       <refreshVisibility>1</refreshVisibility>
+       <Style>
+          <ListStyle><listItemType>checkHideChildren</listItemType></ListStyle>
+          <BalloonStyle><text>$[description]</text> </BalloonStyle>
+        </Style>
+        <Url>
+           <href>http://www.earthpoint.us/Default.ashx?RequestID=946b0d66a4f1469fb39eee62148d5dcb</href>
+            <viewRefreshMode>onStop</viewRefreshMode>
+            <viewRefreshTime>2</viewRefreshTime>
+            <viewBoundScale>1</viewBoundScale>
+            <viewFormat>BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth],[lookatLon],[lookatLat],[lookatRange],[lookatTilt],[lookatHeading],[lookatTerrainAlt],[horizPixels],[vertPixels],[terrainEnabled]
+            </viewFormat>
+            </Url>
+            </NetworkLink>
+            </kml>
+                          </code>
+                           </pre>
+
+        </section>
+
+
+
+
 
 
 
