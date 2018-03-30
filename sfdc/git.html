@@ -438,6 +438,15 @@
 </section>
 
 <section>
+  <h4>Recover from large file &gt; 50 MB issue in GIT</h4>
+  <pre>
+    <code>
+      git filter-branch -f --index-filter 'git rm --cached -f --ignore-unmatch PATH_OF_THE_LARGE_FILE' HEAD
+    </code>
+  </pre>
+</section>
+
+<section>
   <h4>References</h4>
   <ul>
     <li>
