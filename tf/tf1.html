@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tensorflow</title>
+  </head>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+
+  <body>
+
+  <textarea name="name" id ="results" rows="8" cols="80">
+
+
+  </textarea>
+    <script type="text/javascript">
+
+    function updateResults(text) {
+      document.getElementById ("results").textContent += text + "\n";
+    }
+
+
+    const a = tf.tensor1d([1, 2, 3]);
+    const b = tf.scalar(2);
+
+    const result = a.add(b); // a is not modified, result is a new tensor
+    result.data().then(data => {
+      console.log(data);
+      updateResults(data);
+    }
+
+    ); // Float32Array([3, 4, 5]
+
+    // Alternatively you can use a blocking call to get the data.
+    // However this might slow your program down if called repeatedly.
+    console.log(result.dataSync()); // Float32Array([3, 4, 5]
+    updateResults(result.dataSync());
+
+
+
+
+    </script>
+
+  </body>
+</html>
