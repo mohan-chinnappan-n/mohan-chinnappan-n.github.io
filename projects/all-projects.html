@@ -13,6 +13,9 @@
   <script src="../js/angular.min.js"></script>
   <script src="../js/data-markdown.user.js"></script>
 
+  <script src="../node_modules/chart.js/dist/Chart.min.js"></script>
+ <script src="../node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
+
 
   <script src="../bower_components/marked/marked.min.js"></script>
   <script src="../bower_components/angular-marked/dist/angular-marked.js"></script>
@@ -113,36 +116,54 @@
 
       <section id="home">
         <h4>{{appName}}</h4>
+        <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels"
+       </canvas>
+
+
        </section>
 
        <section>
          <h4>Areas</h4>
-         <ul>
-           <li>Healthcare
-                <ul>
-                  <li>  <a target="_blank" href="ai-healthcare.html"> Medical diagnostics</a>
-                    <ul>
-                      <li>Hip and Knee x-rays</li>
-                      <li>
-                         Diabetic Retinopathy (DR)</li>
-                      </li>
-                    </ul>
-                      </li>
-                  <li>Help the Vision Impaired  - <a target="_blank" href="vision.html">Project Vision</a></li>
-                </ul>
-           </li>
-           <li>Engergy and Clean Environment
-              <ul>
-                <li><a target="_blank" href="../about/hydrogen.html">Naalai Project - Waste-to-Energy</a></li>
-              </ul>
-           </li>
-           <li><a target="_blank" href="farming.html">Farming</a>
+         <div class="row">
+           <div class="col-lg-3">
+             <canvas id="doughnut2" class="chart chart-doughnut" chart-data="data" chart-labels="labels">
+            </canvas>
+
+
+           </div>
+           <div class="col-lg-9">
+
              <ul>
-               <li>Using AI in helping Organic Farming</li>
+               <li>Healthcare
+                    <ul>
+                      <li>  <a target="_blank" href="ai-healthcare.html"> Medical diagnostics</a>
+                        <ul>
+                          <li>Hip and Knee x-rays</li>
+                          <li>
+                             Diabetic Retinopathy (DR)</li>
+                          </li>
+                        </ul>
+                          </li>
+                      <li>Help the Vision Impaired  - <a target="_blank" href="vision.html">Project Vision</a></li>
+                    </ul>
+               </li>
+               <li>Engergy and Clean Environment
+                  <ul>
+                    <li><a target="_blank" href="../about/hydrogen.html">Naalai Project - Waste-to-Energy</a></li>
+                  </ul>
+               </li>
+               <li><a target="_blank" href="farming.html">Farming</a>
+                 <ul>
+                   <li>Using AI in helping Organic Farming</li>
+                 </ul>
+
+               </li>
              </ul>
 
-           </li>
-         </ul>
+           </div>
+
+         </div>
+
        </section>
 
 
@@ -299,9 +320,11 @@
     });
 
 
-
+    //Chart.defaults.global.colors =  [ '#ff99cc', '#ffcc99', '#99ffcc', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'];
+    Chart.defaults.global.colors =[ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] ;
     var app = angular.module('app', [
-      'hc.marked'
+      'hc.marked',
+      'chart.js'
     ]);
     app.config(['markedProvider', function(markedProvider) {
       markedProvider.setOptions({
@@ -309,10 +332,15 @@
       });
     }]);
 
+
     var GSCOPE;
     app.controller('MainCtrl', function($scope, $http, $timeout) {
       GSCOPE = $scope; // debugging purposes
       $scope.appName="Current Projects";
+
+     $scope.labels = ["Healthcare", "Energy", "Farming"];
+     $scope.data = [400, 300, 400];
+     //$scope.chart_colors =[ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] ;
 
 
 
