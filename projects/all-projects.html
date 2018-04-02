@@ -143,7 +143,7 @@
 
       <div class="col-lg-6">
           <a target="_blank" href="farming.html">Farming</a>
-          <canvas id="farming" class="chart chart-bar" chart-data="farmingData" chart-labels="farmingLabels" </canvas>
+          <canvas id="farming" class="chart chart-doughnut" chart-data="farmingData" chart-labels="farmingLabels" </canvas>
        </div>
 
         </div>
@@ -187,6 +187,14 @@
 
          </div>
 
+       </section>
+
+       <section>
+         <h4 style="font-size:20px;">Status</h4>
+         <canvas id="line" class="chart chart-bar" chart-data="statusData"
+          chart-labels="statusLabels" chart-series="statusSeries" chart-options="statusOptions"
+          chart-dataset-override="datasetOverride" chart-click="onClick">
+        </canvas>
        </section>
 
 
@@ -369,12 +377,12 @@
      $scope.healthcareLabels = ["Project Vision", "Diabetic Retinopathy (DR)", "Hip and Knee X-rays"];
      $scope.healthcareData = [30, 30, 30];
 
-     $scope.energyLabels = ["Naalai Project"];
-     $scope.energyData = [60];
+     $scope.energyLabels = ["Architecture", "Design", "Prototype"];
+     $scope.energyData = [100, 100,50];
      //$scope.chart_colors =[ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] ;
 
-     $scope.farmingLabels = ["Farming"];
-     $scope.farmingData = [60];
+     $scope.farmingLabels = ["Terrain Map", "Farm Pond", "Prep for Org."];
+     $scope.farmingData = [100,30,30];
 
      $scope.changeTheme = function (){
        alert (Chart.defaults.global.colors === theme1)
@@ -382,6 +390,39 @@
         else Chart.defaults.global.colors = theme1;
 
      }
+
+  $scope.statusLabels = ["January", "June", "Dec"];
+  $scope.statusSeries = ['Healthcare', 'Energy', 'Farming'];
+  $scope.statusData = [
+    [45, 50, 65],
+    [45, 55, 65],
+    [35, 45, 55]
+  ];
+  $scope.onClick = function (points, evt) {
+    console.log(points, evt);
+    //alert(points);
+  };
+  $scope.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
+  $scope.statusOptions = {
+    scales: {
+      yAxes: [
+        {
+          id: 'y-axis-1',
+          type: 'linear',
+          display: true,
+          position: 'left'
+        },
+        {
+          id: 'y-axis-2',
+          type: 'linear',
+          display: true,
+          position: 'right'
+        }
+
+      ]
+    }
+  }
+
 
 
 
