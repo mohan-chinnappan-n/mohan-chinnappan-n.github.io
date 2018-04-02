@@ -115,12 +115,36 @@
     <div class="slides">
 
       <section id="home">
-        <h4>{{appName}}</h4>
-        <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels"
-       </canvas>
+        <h4 style="font-size:25px;">{{appName}}</h4>
+        <div class="row" style="font-size:25px;">
 
+      <div class="col-lg-6">
+          All
+          <canvas id="all" class="chart chart-doughnut" chart-data="data" chart-labels="labels" </canvas>
+       </div>
 
-       </section>
+      <div class="col-lg-6">
+          Healthcare
+          <canvas id="healthcare" class="chart chart-doughnut" chart-data="healthcareData" chart-labels="healthcareLabels" </canvas>
+       </div>
+
+        </div>
+
+        <div class="row" style="font-size:25px;">
+
+      <div class="col-lg-6">
+          Energy
+          <canvas id="energy" class="chart chart-doughnut" chart-data="energyData" chart-labels="energyLabels" </canvas>
+       </div>
+
+      <div class="col-lg-6">
+          Farming
+          <canvas id="farming" class="chart chart-doughnut" chart-data="farmingData" chart-labels="farmingLabels" </canvas>
+       </div>
+
+        </div>
+
+         </section>
 
        <section>
          <h4>Areas</h4>
@@ -340,7 +364,16 @@
 
      $scope.labels = ["Healthcare", "Energy", "Farming"];
      $scope.data = [30, 30, 40];
+
+     $scope.healthcareLabels = ["Project Vision", "Diabetic Retinopathy (DR)", "Hip and Knee X-rays"];
+     $scope.healthcareData = [20, 40, 40];
+
+     $scope.energyLabels = ["Naalai Project"];
+     $scope.energyData = [100];
      //$scope.chart_colors =[ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] ;
+
+     $scope.farmingLabels = ["Farming"];
+     $scope.farmingData = [100];
 
 
 
