@@ -120,12 +120,13 @@
     <div class="row" >
 
       <div class="col-lg-6">
-          All
+          All  | <button class='btn btn-info' style="float:right;" ng-click="changeTheme()">Theme</button>
           <canvas id="all" class="chart chart-doughnut" chart-data="data" chart-labels="labels" </canvas>
        </div>
 
       <div class="col-lg-6">
-          Healthcare
+        <a target="_blank" href="ai-healthcare.html">Healthcare</a> | <a target="_blank" href="vision.html">Vision</a>
+
           <canvas id="healthcare" class="chart chart-bar" chart-data="healthcareData" chart-labels="healthcareLabels" </canvas>
        </div>
 
@@ -133,12 +134,13 @@
         <div class="row">
 
       <div class="col-lg-6">
-          Energy
+
+          <a target="_blank" href="../about/hydrogen.html">Energy</a>
           <canvas id="energy" class="chart chart-bar" chart-data="energyData" chart-labels="energyLabels" </canvas>
        </div>
 
       <div class="col-lg-6">
-          Farming
+          <a target="_blank" href="farming.html">Farming</a>
           <canvas id="farming" class="chart chart-bar" chart-data="farmingData" chart-labels="farmingLabels" </canvas>
        </div>
 
@@ -345,8 +347,10 @@
     });
 
 
-    //Chart.defaults.global.colors =  [ '#ff99cc', '#ffcc99', '#99ffcc', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'];
-    Chart.defaults.global.colors =[ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] ;
+    var theme1 = [ '#ff99cc', '#ffcc99', '#99ffcc', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'];
+    var theme2 =[ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] ;
+    Chart.defaults.global.colors = theme2;
+
     var app = angular.module('app', [
       'hc.marked',
       'chart.js'
@@ -375,6 +379,13 @@
 
      $scope.farmingLabels = ["Farming"];
      $scope.farmingData = [60];
+
+     $scope.changeTheme = function (){
+       alert (Chart.defaults.global.colors === theme1)
+        if  (Chart.defaults.global.colors === theme1) Chart.defaults.global.colors = theme2;
+        else Chart.defaults.global.colors = theme1;
+
+     }
 
 
 
