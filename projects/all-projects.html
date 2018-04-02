@@ -126,21 +126,20 @@
 
       <div class="col-lg-6">
           Healthcare
-          <canvas id="healthcare" class="chart chart-doughnut" chart-data="healthcareData" chart-labels="healthcareLabels" </canvas>
+          <canvas id="healthcare" class="chart chart-bar" chart-data="healthcareData" chart-labels="healthcareLabels" </canvas>
        </div>
 
         </div>
-
-        <div class="row" style="font-size:25px;">
+        <div class="row">
 
       <div class="col-lg-6">
           Energy
-          <canvas id="energy" class="chart chart-doughnut" chart-data="energyData" chart-labels="energyLabels" </canvas>
+          <canvas id="energy" class="chart chart-bar" chart-data="energyData" chart-labels="energyLabels" </canvas>
        </div>
 
       <div class="col-lg-6">
           Farming
-          <canvas id="farming" class="chart chart-doughnut" chart-data="farmingData" chart-labels="farmingLabels" </canvas>
+          <canvas id="farming" class="chart chart-bar" chart-data="farmingData" chart-labels="farmingLabels" </canvas>
        </div>
 
         </div>
@@ -368,14 +367,14 @@
      $scope.data = [30, 30, 40];
 
      $scope.healthcareLabels = ["Project Vision", "Diabetic Retinopathy (DR)", "Hip and Knee X-rays"];
-     $scope.healthcareData = [20, 40, 40];
+     $scope.healthcareData = [30, 30, 30];
 
      $scope.energyLabels = ["Naalai Project"];
-     $scope.energyData = [100];
+     $scope.energyData = [60];
      //$scope.chart_colors =[ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] ;
 
      $scope.farmingLabels = ["Farming"];
-     $scope.farmingData = [100];
+     $scope.farmingData = [60];
 
 
 
