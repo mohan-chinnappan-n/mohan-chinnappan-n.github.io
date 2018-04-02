@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tensorflow</title>
+  </head>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script> -->
+  <script src="js/tfjs@latest"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/navbar-green.css">
+
+
+  <body>
+
+
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="javascript:void(0)">Tensorflow Exeriments</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#/home">Home</a></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li ><a href="/">Main</a></li>
+          </ul>
+
+          <div class="inner-addon right-addon navbar-form navbar-right">
+            <i class="glyphicon glyphicon-search"></i>
+            <input type="text" class="form-control" placeholder="Search" />
+          </div>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown ">
+              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="./help.html">Help Topics</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </nav>
+
+  <pre  id ="results" style="width:300px;"> </pre>
+
+    <script type="text/javascript">
+
+    function updateResults(text) {
+      document.getElementById ("results").textContent += text + "\n";
+    }
+
+
+      // A sequential model is a container which you can add layers to.
+      const model = tf.sequential();
+
+      // Add a dense layer with 1 output unit.
+      model.add(tf.layers.dense({units: 1, inputShape: [1]}));
+
+      // Specify the loss type: meanSquaredError and optimizer: sgd for training.
+      model.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
+
+      // Generate some synthetic data for training.
+      const xs = tf.tensor2d([[1], [2], [3], [4]], [4, 1]);
+      const ys = tf.tensor2d([[1], [3], [5], [7]], [4, 1]);
+
+      // Train the model.
+      await model.fit(xs, ys, {epochs: 500});
+
+      // Ater the training, perform inference.
+      const output = model.predict(tf.tensor2d([[5]], [1, 1]));
+      output.print();
+
+    </script>
+
+  </body>
+</html>

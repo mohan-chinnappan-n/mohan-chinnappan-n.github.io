@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>Tensorflow</title>
   </head>
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
-
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script> -->
+  <script src="js/tfjs@latest"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
@@ -64,7 +64,7 @@
 
 
     const a = tf.tensor1d([1, 2, 3]);
-    const b = tf.scalar(2);
+    const b = tf.scalar(5);
 
     const result = a.add(b); // a is not modified, result is a new tensor
     result.data().then(data => {
