@@ -1,0 +1,507 @@
+
+
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title>Dynamic Annotations in a Visualization Stepper</title>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<style>
+body {
+  font-family: Franklin Gothic Book;
+  font-size: 0.8em;
+}
+h1 {
+  font-family: Franklin Gothic Medium;
+  font-size: 42px;
+  margin:0;
+  color:black;
+}
+
+h2.subtitle {
+  font-family: Franklin Gothic Book;
+  font-size: .8em;
+  padding: 0px;
+  opacity:.7
+  color: #666;
+  color:black;
+}
+
+a.step-link {
+	font-family:Franklin Gothic Medium;
+	text-decoration: none;
+	z-index: 20;
+	display:inline-block;
+	overflow: hidden;
+	border: .5px solid gray;
+	font-family:Verdana;
+	font-size:10.5px;
+ text-decoration: none;
+ border: 1px solid gray;
+  padding: 2px 5px 2px 5px;
+  color: black;
+  opacity:.6;
+  background-color: rgb(240,240,240);
+}
+
+a.step-link:last-child {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3;
+	border-radius: 0px 3px 3px 0px;
+}
+a.step-link:first-child {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3;
+	border-radius: 3px 0px 0px 3px;
+}
+
+a.step-link:hover, a.active {
+  opacity:1;
+    background-color: rgb(230,230,230);
+}
+
+#container{
+  margin: auto;
+  width: 1000px;
+}
+
+#vis-container {
+  position: relative;
+  width: 1000px;
+  height: 1000px;
+  margin-top: 20px;
+
+}
+
+#annotation-steps {
+  position: absolute;
+  z-index: 40;
+}
+
+#vis-nav {
+
+}
+
+#vis-canvas {
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  overflow: hidden;
+  background-color: none;
+}
+
+#tableauBezier1{
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  overflow: hidden;
+  background-color: none;
+}
+
+#vis-bezier {
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  overflow: hidden;
+  z-index: 1000;
+  background-color: none;
+}
+
+.annotation-step {
+  background-color: green;
+  position: absolute;
+  display: none;
+  z-index:1000;
+}
+
+.annotation {
+  position: absolute;
+}
+
+#step0-left-annotation {
+  left: 0px;
+  top: -15px;
+  width: 220px;
+  text-align:left;
+}
+
+#step0-low-annotation {
+  left: 0px;
+  top: 425px;
+  width: 900px;
+  text-align:center;
+}
+
+#step1-left-annotation {
+  left: 280px;
+  top: 35px;
+  width: 240px;
+  text-align:left;
+}
+
+
+#step3-left-annotation {
+  left: 520px;
+  top: 40px;
+  width: 300px;
+
+}
+#step3-annotation {
+  left: 480px;
+  top: 265px;
+  width: 300px;
+  text-align: center;
+}
+.domain {
+	stroke: rgb(210,210,210);
+	}
+
+.curve, .line {
+stroke: black;
+  fill: none;
+  stroke-width: 1px;
+  stroke-opacity: .6;
+}
+.curve {
+  stroke: red;
+  stroke-width: 3px;
+}
+.control {
+  fill: #ccc;
+  stroke: #000;
+  stroke-width: .5px;
+	cursor: move;
+}
+.control.drag, .control:hover {
+	fill: rgb(0,50,100);
+}
+.t, .controltext {
+  font-size: .6em;
+}
+svg {
+  display: inline-block;
+}
+.curve {
+stroke-width: 2px;
+stroke: red;
+stroke-opacity:.8;
+}
+
+.t {
+	font-size: 64px;
+}
+
+</style>
+<body>
+  <div id="container">
+    <div id="vis-nav">
+    <a href="#" id="step0" class="step-link active">Sigmoid Function Animation</a>
+    <a href="#" id="step1" class="step-link">Tableau Implementation</a>
+    <a href="#" id="step2" class="step-link">State Rankings Dataset</a>
+    <a href="#" id="step3" class="step-link">Data + Science Ranking Visualization</a>
+    <a href="#" id="step4" class="step-link">Sankey Diagrams</a><a href="#" id="step5" class="step-link">Node Link Diagrams</a>
+ </div>
+
+    <div id="vis-container">
+		<div id="tableauBezier1"></div>
+
+		<div id="vis-canvas"></div>
+
+		<div class="annotation-step" id="step0-annotation" style="display:block;">
+		  <div class="annotation" id="step0-left-annotation" >
+				<p>The animation below shows a single sigmoid curve using a logistic function.  In the text below, the value of t is shown, a number from -6 to 6 representing how far through the curve the animation is.  This value is what is used to determine the coordinates for intermediary values in Tableau.<div id="vis-nav">
+				<p>To build many visualizations using the sigmoid curve (such as the Sankey Diagram), the X or Y positions are held constant for multiple paths or polygons in the visualization.  For example, rankings can be shown on the Y axis for two years, with smooth curves showing the change in rank.  <b>Drag the control points to the right to see how changes in one dimension effect the curves</b><div id="vis-nav">
+		  </div>
+		</div>
+
+
+
+
+	</div>
+<script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+  <script src="https://public.tableau.com/javascripts/api/tableau-2.2.1.min.js"></script>
+  <script>
+
+  SigmoidAnimation()
+  var laststep = "step0";
+
+	function tableauViz(url,htmlElement) {
+
+		var placeholderDiv = document.getElementById("tableauBezier1");
+
+		var options = {
+			width: placeholderDiv.offsetWidth,
+			height: placeholderDiv.offsetHeight,
+			hideTabs: true,
+			hideToolbar: true,
+			onFirstInteractive: function () {
+			  workbook = viz.getWorkbook();
+			  activeSheet = workbook.getActiveSheet();
+			}
+
+		  };
+
+		  viz = new tableau.Viz(placeholderDiv, url, options);
+
+	}
+
+
+
+	function switchStep(newStep)
+	{
+
+	  d3.selectAll(".step-link").classed("active", false);
+	  d3.select("#" + newStep).classed("active", true);
+
+	  if (newStep=="step0"){
+		SigmoidAnimation()
+	  ;}
+	  else {
+	  	d3.selectAll("#vis-bezier").remove();
+			}
+
+
+	  if (newStep=="step1"){
+			if (laststep!="step2"){
+				d3.selectAll("#tableauBezier1").remove();
+			    d3.selectAll("#vis-container").append("div").attr("id","tableauBezier1");
+
+			tableauViz("https://public.tableau.com/views/TableauUsersGroupSigmoidFunction/SimgoidDash")
+
+
+			;}
+		else {
+
+		;}
+	  }
+
+	  if (newStep=="step2"){
+
+
+	    d3.selectAll("#tableauBezier1").remove();
+		  d3.selectAll("#vis-container").append("div").attr("id","tableauBezier1");
+		  tableauViz("https://public.tableau.com/views/TableauUsersGroupRankingsDataset/RawData")
+			;}
+
+	  if (newStep=="step3"){
+
+
+	    d3.selectAll("#tableauBezier1").remove();
+		  d3.selectAll("#vis-container").append("div").attr("id","tableauBezier1");
+		  tableauViz("https://public.tableau.com/views/TableauUsersGroupDataScienceRankingsVisual/Dashboard2")
+			;}
+
+
+	  if (newStep=="step4"){
+
+
+	    d3.selectAll("#tableauBezier1").remove();
+		  d3.selectAll("#vis-container").append("div").attr("id","tableauBezier1");
+		  tableauViz("https://public.tableau.com/views/SankeyDiagram_5/PolygonicSankey3Steps")
+			;}
+
+
+
+
+	if (newStep=="step5"){
+
+
+	    d3.selectAll("#tableauBezier1").remove();
+		  d3.selectAll("#vis-container").append("div").attr("id","tableauBezier1");
+		  tableauViz("https://public.tableau.com/views/TableauUsersGroupNode-Link/NodeLink3")
+			;}
+
+	laststep = newStep;
+
+	}
+
+	function switchAnnotation(newStep)
+	{
+
+	  d3.selectAll(".annotation-step")
+		.style("display", "none")
+		.style("opacity", 0.0);
+
+	  console.log(newStep + "-annotation")
+
+	  d3.select("#" + newStep + "-annotation")
+		.style("display", "block")
+		.transition().delay(300).duration(2000)
+		  .style("opacity", 1);
+	}
+
+	d3.selectAll("a.step-link").on("click", function(d) {
+	  var clickedStep = d3.select(this).attr("id");
+	  switchStep(clickedStep);
+	  switchAnnotation(clickedStep);
+	  return false;
+	});
+
+
+ function SigmoidAnimation() {
+
+		var w = 1000,
+			h = 1000,
+			t = .5,
+			delta = .01,
+			padding = 0,
+			bezier = {},
+			n = 4,
+			line = d3.line().x(function(d){return d.x;}).y(function(d){return d.y;});
+
+		var lineGenerator = d3.line();
+
+		var points = [
+		  {x: 350, y: 300},
+		  {x: 750,y: 100}
+		];
+
+		var svgBezier = d3.select("#vis-canvas").append("div").attr("id","vis-bezier")
+			.append("svg")
+			.attr("width", w + 2 * padding)
+			.attr("height", h + 2 * padding)
+
+		svgBezier.append("rect").attr("width",w).attr("height",h).attr("fill","white")
+		var vis = svgBezier.attr("transform", "translate(" + padding + "," + padding + ")")
+		var curve = svgBezier.append("g").append("path").attr("class", "curve");
+		var controlPath = svgBezier.append("g");
+		var circles = svgBezier.append("g");
+
+		var PathData = [];
+
+		var lineGenerator = d3.line();
+
+
+		controlPath.append("line").attr("id","controlPath1").attr("x1",points[0].x).attr("x2",points[0].x).attr("y1",20).attr("y2",400).attr("stroke","black").attr("stroke-width",.5)
+		controlPath.append("line").attr("id","controlPath1").attr("x1",points[1].x).attr("x2",points[1].x).attr("y1",20).attr("y2",400).attr("stroke","black").attr("stroke-width",.5)
+
+		circles.selectAll("circle.control")
+			.data(points)
+			.enter()
+			.append("circle")
+			.attr("class", "control")
+			.attr("z-index",10)
+			.attr("r", 7)
+			.attr("cx", x)
+			.attr("cy", y)
+			.call(d3.drag()
+			  .on("start", function(d) {
+				this.__origin__ = [d.x, d.y];
+						d3.select(this).classed("drag", true);
+			  })
+			  .on("drag", function(d) {
+				getSigmoid();
+				//d.x = Math.min(w, Math.max(0, this.__origin__[0] += d3.event.dx));
+				d.y = Math.min(400, Math.max(15, this.__origin__[1] += d3.event.dy));
+				bezier = {};
+				update();
+				vis.selectAll("circle.control")
+				 // .attr("cx", x)
+				  .attr("cy", y);
+			  })
+			  .on("end", function() {
+				delete this.__origin__;
+						d3.select(this).classed("drag", false);
+			  }));
+
+		vis.append("text")
+		  .attr("class", "t")
+		  .attr("x", 100)
+		  .attr("y", 350)
+		  .attr("text-anchor", "middle");
+
+		vis.selectAll("text.controltext")
+			.data(points)
+			.enter()
+			.append("text")
+			.attr("class", "controltext")
+			.attr("x", x)
+			.attr("y", y)
+			.attr("dx", "10px")
+			.attr("dy", "15px")
+			.text(function(d, i) { return "P" + i });
+
+		getSigmoid();
+		update();
+
+		var last = 0;
+		d3.timer(function(elapsed) {
+			t = (t + (elapsed - last) / 5000) % 1;
+			last = elapsed;
+	  		update();
+		});
+
+		function update() {
+		  curve.attr("d", lineGenerator(PathData.slice(0,PathData.length*t)));
+		  vis.selectAll("text.controltext").attr("x", x).attr("y", y);
+
+		  t1 = t*12-6;
+			if (t1<0){color = "red";}
+			else { color = "green";}
+		  vis.selectAll("text.t").attr("fill",color)
+		  .text("t=" + t1.toFixed(1));
+
+		  vis.selectAll(".controlPath1")
+
+
+		}
+
+		controlPath1 = [];
+		controlPath2 = [];
+
+		//function to recreate an array of points for curve path.  Run with drag events to update array.
+		function getSigmoid(){
+
+			x1 = points[0].x;
+			x2 = points[1].x;
+			y1 = points[0].y;
+			y2 = points[1].y;
+
+			controlPath1 = [[x1,100],[x1,500]]
+			controlPath2 = [[x2,100],[x2,500]]
+
+			PathData = [];
+
+			for (z=-6; z<=6; z+=.05) {
+
+				sigmoid = 1/(1+ Math.pow(Math.exp(1),-z ))
+
+				sigmoidX = x1+(x2-x1)*((z+6)/12);
+				sigmoidY = y1 + (y2-y1)*sigmoid;
+
+				PathData.push([sigmoidX,sigmoidY]);
+				;}
+			;}
+
+
+		function interpolate(d, p) {
+		  if (arguments.length < 2) p = t;
+		  var r = [];
+		  for (var i=1; i<d.length; i++) {
+			var d0 = d[i-1], d1 = d[i];
+			r.push({x: d0.x + (d1.x - d0.x) * p, y: d0.y + (d1.y - d0.y) * p});
+		  }
+		  return r;
+		}
+
+		function getLevels(d, t_) {
+		  if (arguments.length < 2) t_ = t;
+		  var x = [points.slice(0, d)];
+		  for (var i=1; i<d; i++) {
+			x.push(interpolate(x[x.length-1], t_));
+		  }
+		  return x;
+		}
+
+		function x(d) {return d.x; }
+		function y(d) {return d.y; }
+
+ ;}
+
+
+
+
+
+
+  </script>
+</body>
