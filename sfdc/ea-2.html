@@ -1394,6 +1394,73 @@ column(StaticDTC_1.selection,[\"measure\"]).asObject()}}
   <img style="border:0px;" src="img/ea2/ea-xmd-json-1.gif" alt="">
 </section>
 
+<section>
+  <h4 style="font-size:30px;"> Change Display Labels for Dataset Fields and Values - contd. </h4>
+   <div class="row">
+     <div class="col-lg-6">
+       <pre style="font-size:15px;">
+         FROM:
+         <code>
+           {
+             "dataset": {},
+             "dates": [],
+             "derivedDimensions": [],
+             "derivedMeasures": [],
+             "dimensions": [
+             ],
+             "measures": [],
+             "organizations": [],
+             "showDetailsDefaultFields": []
+           }
+         </code>
+       </pre>
+       <a style="font-size:20px;" target="_blank" href="https://developer.salesforce.com/docs/atlas.en-us.bi_dev_guide_xmd.meta/bi_dev_guide_xmd/bi_xmd_change_labels.htm">
+         Change Display Labels for Dataset Fields and Values
+
+       </a>
+
+     </div>
+
+     <div class="col-lg-6">
+       <pre style="font-size:15px;">
+         TO:
+         <code>
+           {
+             "dataset": {},
+             "dates": [],
+             "derivedDimensions": [],
+             "derivedMeasures": [],
+             "dimensions": [{
+                 "field": "Stage",
+                 "label": "Stage Name",
+                 "members": [{
+                     "label": "LOST",
+                     "member": "Closed Lost"
+                   },
+                   {
+                     "label": "WON",
+                     "member": "Closed Won"
+                   }
+                 ],
+                 "showInExplorer": true
+               }
+             ],
+             "measures": [],
+             "organizations": [],
+             "showDetailsDefaultFields": []
+           }
+
+         </code>
+       </pre>
+
+     </div>
+
+   </div>
+</section>
+
+
+
+
 
 <section>
   <h4>References</h4>
