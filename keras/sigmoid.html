@@ -461,8 +461,9 @@ stroke-opacity:.8;
 			controlPath2 = [[x2,100],[x2,500]]
 
 			PathData = [];
-
-			for (z=-6; z<=6; z+=.05) {
+      var MIN = -6;
+      var MAX = 6;
+			for (z=MIN; z<=MAX; z+=.05) {
 
 				sigmoid = 1/(1+ Math.pow(Math.exp(1),-z ))
 

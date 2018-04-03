@@ -140,6 +140,34 @@
          </object>
        </section>
 
+       <section>
+         <h4>Actvation Functions - sigmoid and tanh</h4>
+         <img style="border:0px;" height="250" src="img/nn-activation-functions-1.png" alt="">
+         <pre style="font-size:20px;">
+<code>def sigmoid(x): return 1.0 / (1.0 + math.exp(-x))
+print(sigmoid(10))   #0.9999546021312976
+print(sigmoid(-2))   #0.11920292202211755
+print(math.tanh(10)) #0.9999999958776927
+print(math.tanh(-2)) #-0.9640275800758169
+
+
+           </code>
+         </pre>
+       </section>
+
+       <section>
+         <h4>Actvation Functions - ReLU - Rectified Linear Unit</h4>
+         <img style="border:0px;" height="300" src="http://cs231n.github.io/assets/nn1/relu.jpeg" alt="">
+         <pre style="font-size:20px;">
+<code>
+def relu(x): return max(0,x)
+print(relu(100)) #100
+print(relu(-2))  #0
+           </code>
+         </pre>
+       </section>
+
+
 
 
     </div>
