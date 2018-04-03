@@ -142,7 +142,10 @@
 
             <li> InfiniBand technology, which is utilized for Clusterware interconnect traffic, RAC Cache Fusion traffic and for inter-layer transfers</li>
             <li>Support for RDMA (Remote Direct Memory Access) is a direct memory access from the memory of one computer into another computer without involving either’s operating system.</li>
-            <li>iDB ((Intelligent Database protocol) to transfer data between Database Node and Storage Cell Node.</li>
+            <li>iDB (Intelligent Database protocol) to transfer data between Database Node and Storage Cell Node.
+              It is implemented in the database kernel and work as function shipping architecture.
+
+            </li>
          </ul>
        </div>
      </div>
@@ -157,6 +160,107 @@
          </object>
        </section>
 
+       <section>
+         <h4>Function Shipping</h4>
+           <ul style="font-size:30px;">
+           <li>The process of moving logical services to the physical areas of a system where they can be optimally run.</li>
+           <li>Computational logic should be able to easily be shifted onto a client machine
+               as the necessity demands, whether it be a run-time based function for load balancing or
+               a natural part of the system evolution.
+               Functional areas are realigned to minimize the communication traffic generated across subsystems.</li>
+           <li>iDB is built on Reliable Datagram Sockets (RDS v3) protocol and runs over InfiniBand ZDP (Zero-loss Zero-copy Datagram Protocol).</li>
+
+         </ul>
+       </section>
+
+       <section>
+         <h4>iDB</h4>
+         <div class="row">
+           <div class="col-lg-6">
+             <img style="border:0px;" src="img/rdma_copy.png" alt="">
+
+           </div>
+           <div class="col-lg-6">
+             <ul style="font-size:30px;">
+
+               <li>iDB is built on Reliable Datagram Sockets (RDS v3) protocol and runs over InfiniBand ZDP (Zero-loss Zero-copy Datagram Protocol).</li>
+               <li>The objective of ZDP is to eliminate unnessary copying of blocks.</li>
+               <li>RDS is based on Socket API with low overhead, low latency, high bandwidth.</li>
+               <li> Exadata Cell Node can send/receive large transfer using Remote Direct Memory Access (RDMA).</li>
+             </ul>
+
+           </div>
+
+         </div>
+
+       </section>
+
+        <section>
+          <h4>RDS - Reliable Datagram Sockers (v3)</h4>
+          <div class="row">
+            <div class="col-lg-7">
+              <img style="border:0px;" src="img/rds_sdp_stack.png" alt="">
+            </div>
+
+                <div class="col-lg-5">
+                  <ul style="font-size:25px;">
+                    <li>RDS can deliver high available and low overhead of datagrams, which is like UDP but more reliable and zero copy. </li>
+                    <li>It accesses to InfiniBand via the Socket API. RDS v3 supports both RDMA read and write and can allow large data transfer up to 8MB.</li>
+                    <li>Supports the control messages for asynchronous operation for submit and completion notifications.</li>
+                  </ul>
+                </div>
+          </div>
+
+        </section>
+
+        <section>
+          <h4>RDMA - Remote Direct Memory Access</h4>
+          <div class="row">
+            <div class="col-lg-7">
+              <img style="border:0px;" src="img/sdp_stack.png" alt="">
+            </div>
+
+                <div class="col-lg-5">
+            <ul style="font-size:25px;">
+            <li> Direct memory access from the memory of one computer into another computer without involving either’s operating system.</li>
+            <li> The transfer require no work to be done by CPUs, caches, or context switches, and transfers continue in parallel with other system operations. It is quite useful in massively parallel processing environment.
+
+</li>
+          </ul>
+        </div>
+      </div>
+
+        </section>
+        <section>
+          <h4>Sockets Direct Protocol (SDP)</h4>
+          <ul style="font-size:30px;">
+            <li>Deals with stream sockets</li>
+            <li>Provides an RDMA-accelerated alternative to the TCP protocol on IP, at the same time transparent to the application.</li>
+            <li>Allows high-performance zero-copy data transfers via RDMA network fabrics and uses a standard wire protocol over an RDMA fabric to support stream sockets (SOCK_STREAM).</li>
+            <li>Bypasses the OS resident TCP stack for stream connections between any endpoints on the RDMA fabric. </li>
+            <li>Depends on IP drivers for local IP assignments and for IP address resolution for endpoint identifications.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4>GoldenGate</h4>
+          <div class="row">
+            <div class="col-lg-6">
+          <img style="border:0px;"  src="img/logicalarch2.jpg" alt="">
+            </div>
+
+                <div class="col-lg-6">
+            <ul style="font-size:20px;">
+            <li><b>Extract</b> - Extract extracts (captures) a current, static set of data directly from their source objects
+            and keeps  source data synchronized with another set of data.</li>
+            <li><b>Data pump</b> - can perform data filtering, mapping, and conversion, or it can be configured in pass-through mode, where data is passively transferred as-is, without manipulation.</li>
+            <li><b>Replicat</b> - Replicat can apply a static data copy to target objects or route it to a high-speed bulk-load utility.</li>
+            <li><b>Trails or extract files</b> - To support the continuous extraction and replication of database changes, Oracle GoldenGate stores records of the captured changes temporarily on disk in a series of files called a trail. </li>
+            <li><b>Checkpoints</b> -  store the current read and write positions of a process to disk for recovery purposes.</li>
+            <li><b>Manager</b> -  control process of Oracle GoldenGate.</li>
+            <li><b>Collector</b> - runs in the background on the target system when continuous, online change synchronization is active. </li>
+          </ul>
+        </section>
 
     </div>
   </div>
