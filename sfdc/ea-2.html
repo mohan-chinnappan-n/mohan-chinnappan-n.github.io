@@ -922,6 +922,27 @@ q = limit q 2000;
             </section>
 
 
+            <section>
+              <h4 style="font-size:20px;">How to add SOQL step into existing Dashboard - contd.</h4>
+              <img style="border:0px;" src="img/ea2/ea-soql-3.gif" alt="">
+            </section>
+
+            <section>
+              <h4 style="font-size:20px;">How to add SOQL step into existing Dashboard - code</h4>
+              <pre>
+                <code>
+  "soql2": {
+      "type": "soql",
+      "query": "SELECT Name, CloseDate, StageName, Owner.Name, Amount, Account.Name FROM Opportunity ",
+      "strings": ["Name", "CloseDate", "StageName", "Owner.Name", "Account.Name"],
+      "numbers": ["Amount"],
+      "groups": [],
+      "selectMode": "single"
+    }
+                </code>
+              </pre>
+            </section>
+
 
 
       <section>
