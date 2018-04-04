@@ -905,6 +905,23 @@ q = limit q 2000;
               <img style="border:0px;" src="img/ea2/ea-soql-2.gif" alt="">
             </section>
 
+            <section>
+              <h4 style="font-size:20px;">How to add SOQL step into existing Dashboard - code</h4>
+              <pre>
+                <code>
+"soql": {
+    "type": "soql",
+    "query": "SELECT Name, Amount from Opportunity",
+    "strings": ["Name"],
+    "numbers": ["Amount"],
+    "groups": ["Name"],
+    "selectMode": "single"
+   }
+                </code>
+              </pre>
+            </section>
+
+
 
 
       <section>
