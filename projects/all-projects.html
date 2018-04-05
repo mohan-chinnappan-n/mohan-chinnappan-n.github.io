@@ -117,7 +117,36 @@
 
 
   <section id='home'>
-  <h4 style="font-size:25px;">{{appName}} Dashboard</h4>
+  <h4 style="font-size:35px;">{{appName}} - 3 Areas </h4>
+
+  <div class="row">
+      <div class="col-lg-12">
+      <ul>
+        <li>  Improving Healthcare </li>
+        <li>  Waste2Energy</li>
+        <li>Organic Farming</li>
+      </ul>
+        </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12" style="font-size:30px;">
+      <ul>
+        <li>Employ what we know about AI/Deep Learning to these areas.</li>
+        <li>
+            Mobile phone based solutions in these areas with the goal of high-adoption in developing countries to improve the quality of life of the people.
+        </li>
+      </ul>
+
+
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <h4>Dashboard</h4>
+
   <div style="font-size:20px;border:solid #efefef 2px;border-radius:10px; box-shadow: 2px 2px white; background-color:#eef">
     <div class="row" >
 
@@ -152,7 +181,7 @@
 
 
        <section>
-         <h4>Areas</h4>
+         <h4>Links to the Areas</h4>
          <div class="row">
            <div class="col-lg-12" style="border:solid #efefef 2px;border-radius:10px; box-shadow: 5px 5px #fff;padding:20px; background-color:#fff">
 
@@ -190,7 +219,7 @@
        </section>
 
        <section>
-         <h4 style="font-size:20px;">Status</h4>
+         <h4 style="font-size:20px;">Status and Goals</h4>
          <canvas id="line" class="chart chart-bar" chart-data="statusData"
           chart-labels="statusLabels" chart-series="statusSeries" chart-options="statusOptions"
           chart-dataset-override="datasetOverride" chart-click="onClick">
@@ -391,7 +420,7 @@
 
      }
 
-  $scope.statusLabels = ["January", "June", "Dec"];
+  $scope.statusLabels = ["January 08", "June 08", "Dec 08"];
   $scope.statusSeries = ['Healthcare', 'Energy', 'Farming'];
   $scope.statusData = [
     [45, 50, 65],
@@ -402,7 +431,7 @@
     console.log(points, evt);
     //alert(points);
   };
-  $scope.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
+  $scope.datasetOverride = [{ yAxisID: 'y-axis-1' } ];
   $scope.statusOptions = {
     scales: {
       yAxes: [
@@ -411,12 +440,6 @@
           type: 'linear',
           display: true,
           position: 'left'
-        },
-        {
-          id: 'y-axis-2',
-          type: 'linear',
-          display: true,
-          position: 'right'
         }
 
       ]
