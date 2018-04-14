@@ -1,0 +1,57 @@
+<!doctype html>
+<html ng-app="gre" >
+<head>
+  <meta charset="utf-8">
+  <title>GRE Words</title>
+     
+  <link rel="stylesheet" href="style.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/> 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+  <script src="gre.js"></script>
+  <script src="gre-app.js"></script>
+  <style>
+  .ui-autocomplete {
+    max-height: 300px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+  }
+  /* IE 6 doesn't support max-height
+   * we use height instead, but this forces the menu to always be this tall
+   */
+  * html .ui-autocomplete {
+    height: 100px;
+  }
+
+
+   </style> 
+</head>
+
+<body ng-controller="MainCtrl" class='container'>
+<h4>GRE words</h4>
+<!--
+  <h1> Selected date: {{date}}</h1> 
+  <input type="text" ng-model="date" datepicker="true" />
+  
+<div ng-repeat="item in items">
+    <input type="text"  datepicker="true" ng-model="item.name" />
+  </div>
+  
+  <div>{{items || json}}</div>
+  <input type="text" ng-model="auto1" autocomplete="true" />
+  <span>{{auto1.label}}</span>
+  <div>{{auto1}}</div>
+-->
+
+ <div class='row'>
+  <div class='col-lg-4'>  <input placeholder='type few chars for the word' type="text" size="30" style='background:#efe;' ng-model="auto" autocomplete="true" /> </div>
+  <div class='col-lg-6' style='text-transform:capitalize2;font-size:20px;'> {{meaning}} </div>
+ </div>
+
+</body>
+</html>
+
