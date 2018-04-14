@@ -8,7 +8,7 @@ app.controller('MainCtrl', function($scope) {
   $scope.gre = greWords;
   $scope.greWordList = [];
   for (var key in $scope.gre) {
-      $scope.greWordList.push(key) 
+      $scope.greWordList.push(key)
   }
 });
 
@@ -55,17 +55,15 @@ app.directive('autocomplete', function() {
                     response(filteredArray);
                 },
                 select:function (event,ui) {
-                  console.log(ui);
+                  //console.log(ui);
+                  scope.selectedWord = ui.item.value;
                   scope.meaning = scope.gre[ui.item.value];
                   ngModelCtrl.$setViewValue(ui.item);
                   scope.$apply();
                 }
               });
-                
-            
+
+
         }
     }
 });
-
-
-

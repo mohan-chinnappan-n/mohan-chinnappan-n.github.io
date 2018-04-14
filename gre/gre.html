@@ -1,70 +1,111 @@
 <!doctype html>
-<html ng-app="gre" >
+<html ng-app="gre">
+
 <head>
   <meta charset="utf-8">
   <title>GRE Words</title>
-     
-  <link rel="stylesheet" href="style.css">
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+  <link rel="stylesheet" href="../css/navbar-green.css">
+
   <script src="gre.js"></script>
   <script src="gre-app.js"></script>
   <style>
-  .ui-autocomplete {
-    max-height: 300px;
-    overflow-y: auto;
-    /* prevent horizontal scrollbar */
-    overflow-x: hidden;
-  }
-  /* IE 6 doesn't support max-height
+    .ui-autocomplete {
+      max-height: 400px;
+      overflow-y: auto;
+      /* prevent horizontal scrollbar */
+      overflow-x: hidden;
+    }
+    /* IE 6 doesn't support max-height
    * we use height instead, but this forces the menu to always be this tall
    */
-  * html .ui-autocomplete {
-    height: 100px;
-  }
-  input[type=search]::-webkit-search-cancel-button {
-    -webkit-appearance: searchfield-cancel-button;
-    background:#efe;
-    height:30px;
-    border:10px;
-  }
-  .searcher {
-    background:#efe;
-    height:40px;
-    border-radius:10px;
-    padding:4px;
 
-   }
+    * html .ui-autocomplete {
+      height: 100px;
+    }
 
+    input[type=search]::-webkit-search-cancel-button {
+      -webkit-appearance: searchfield-cancel-button;
+      background: #efe;
+      height: 30px;
+      border: 10px;
+    }
 
-   </style> 
+    .searcher {
+      background: #efe;
+      height: 40px;
+      border-radius: 10px;
+      padding: 4px;
+    }
+  </style>
 </head>
 
-<body ng-controller="MainCtrl" class='container'>
-<h4>GRE words</h4>
-<!--
-  <h1> Selected date: {{date}}</h1> 
+<body>
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">GRE Words</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li><a href="/">Main</a></li>
+      </ul>
+
+      <div class="inner-addon right-addon navbar-form navbar-right">
+        <i class="glyphicon glyphicon-search"></i>
+        <input type="text" class="form-control" placeholder="Search" />
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown ">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="./help.html">Help Topics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <div ng-controller="MainCtrl" class='container'>
+    <!--
+  <h1> Selected date: {{date}}</h1>
   <input type="text" ng-model="date" datepicker="true" />
-  
+
 <div ng-repeat="item in items">
     <input type="text"  datepicker="true" ng-model="item.name" />
   </div>
-  
+
   <div>{{items || json}}</div>
   <input type="text" ng-model="auto1" autocomplete="true" />
   <span>{{auto1.label}}</span>
   <div>{{auto1}}</div>
 -->
 
- <div class='row'>
-  <div class='col-lg-4'>  <input class='searcher' placeholder='type few chars for the word' type="search" size="30"  ng-model="auto" autocomplete="true" /> </div>
-  <div class='col-lg-6' style='text-transform:capitalize2;font-size:20px;'> {{meaning}} </div>
- </div>
+    <div class='row'>
+      <div class='col-lg-4'> <input class='searcher' placeholder='type few chars for the word' type="search" size="40" ng-model="auto" autocomplete="true" /> </div>
+      <div class='col-lg-6' ng-show='meaning' style='text-transform:capitalize2;font-size:20px;'><b>
+        <a target="_blank" href="https://www.google.com/search?q={{selectedWord}}">{{selectedWord}}</a></b> : {{meaning}} </div>
+    </div>
+  </div>
 
 </body>
-</html>
 
+</html>
