@@ -57,7 +57,11 @@ app.directive('autocomplete', function() {
                 select:function (event,ui) {
                   //console.log(ui);
                   scope.selectedWord = ui.item.value;
-                  scope.meaning = scope.gre[ui.item.value];
+                  var meaningUsage = scope.gre[ui.item.value].split('|');
+
+                  scope.meaning = meaningUsage[0];
+                  scope.usage = meaningUsage[1];
+                  
                   ngModelCtrl.$setViewValue(ui.item);
                   scope.$apply();
                 }
