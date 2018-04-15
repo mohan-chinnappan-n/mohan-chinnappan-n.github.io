@@ -49,15 +49,16 @@ app.directive('autocomplete', function() {
 
                 source: function(request, response) {
                     var filteredArray = $.map(scope.greWordList, function(item) {
-                        scope.term = request.term;
-                        if( item.toUpperCase().startsWith(request.term.toUpperCase())){ return item; }
-                        else { return null; }
+                        scope.term = null;
+                        if( item.toUpperCase().startsWith(request.term.toUpperCase())){  return item; }
+                        else { scope.term = request.term; return null; }
                     });
                     response(filteredArray);
                     scope.$apply();
                 },
                 select:function (event,ui) {
                   //console.log(ui);
+                  scope.term = null;
                   scope.selectedWord = ui.item.value;
                   var meaningUsage = scope.gre[ui.item.value].split('|');
 
