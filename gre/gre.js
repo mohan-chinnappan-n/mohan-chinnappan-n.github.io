@@ -161,7 +161,7 @@ var greWords = {
 "coddle":"treat with care and tenderness",
 "coerce":"compel to force to make obedient",
 "coeval":"of the same period coexisting",
-"cogent":"strong convincing",
+"cogent":"(of an argument or case) clear, logical, and convincing",
 "cogitate":"think deeply mediate",
 "cognizant":"being fully aware of",
 "colander":"bowl-shaped vessel with many holes used to drain off water",
@@ -1160,5 +1160,18 @@ var greWords = {
 "wince":"show bodily or mental pain",
 "woo":"try to win",
 "writ":"written order",
-"yarn":"tale story fibers for knitting"
-}
+"yarn":"tale story fibers for knitting",
+
+"invigorate": "give strength or energy to | the shower had invigorated her",
+"paranormal" :
+"Denoting events or phenomena such as telekinesis or clairvoyance that are beyond the scope of normal scientific understanding | par·a·nor·mal : a mystic who can prove he has paranormal powers"
+
+,"quasar":
+"A massive and extremely remote celestial object, emitting exceptionally large amounts of energy, and typically having a starlike image in a telescope. It has been suggested that quasars contain massive black holes and may represent a stage in the evolution of some galaxies."
+
+,"contingent": "subject to chance | the contingent nature of the job"
+
+
+
+
+ }

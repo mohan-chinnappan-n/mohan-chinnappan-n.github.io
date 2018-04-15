@@ -10,6 +10,8 @@ app.controller('MainCtrl', function($scope) {
   for (var key in $scope.gre) {
       $scope.greWordList.push(key)
   }
+
+  //$scope.showResources = true;
 });
 
 
