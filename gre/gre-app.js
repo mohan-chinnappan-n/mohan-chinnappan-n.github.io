@@ -49,7 +49,7 @@ app.directive('autocomplete', function() {
 
                 source: function(request, response) {
                     var filteredArray = $.map(scope.greWordList, function(item) {
-                        if( item.startsWith(request.term)){ return item; }
+                        if( item.toUpperCase().startsWith(request.term.toUpperCase())){ return item; }
                         else { return null; }
                     });
                     response(filteredArray);
