@@ -49,10 +49,12 @@ app.directive('autocomplete', function() {
 
                 source: function(request, response) {
                     var filteredArray = $.map(scope.greWordList, function(item) {
+                        scope.term = request.term;
                         if( item.toUpperCase().startsWith(request.term.toUpperCase())){ return item; }
                         else { return null; }
                     });
                     response(filteredArray);
+                    scope.$apply();
                 },
                 select:function (event,ui) {
                   //console.log(ui);
@@ -61,7 +63,7 @@ app.directive('autocomplete', function() {
 
                   scope.meaning = meaningUsage[0];
                   scope.usage = meaningUsage[1];
-                  
+
                   ngModelCtrl.$setViewValue(ui.item);
                   scope.$apply();
                 }
