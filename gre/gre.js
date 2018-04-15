@@ -274,7 +274,7 @@ var greWords = {
 "discreet":"careful/prudent",
 "discrete":"individually distinct",
 "disdain":"look on with contempt",
-"disencumber":"free from encumbrance",
+"disencumber":"free from burden or impediment | dis·en·cum·ber : it would disencumber the world of a plague",
 "disheveled":"untidy",
 "disingenuous":"sophisticated artful trying to deceive cunning",
 "disinter":"dig up from the earth",
@@ -1182,5 +1182,12 @@ var greWords = {
 ,"congruity" : "quality of agreement and appropriateness. When there's congruity, things fit together in a way that makes sense. If a team has congruity, the players work together well, even if they don't win"
 
 ,"surrealist":"an artist or writer who is an exponent of the avant-garde movement in art and literature which sought to release the creative potential of the unconscious mind | the wildest fantasies of the European surrealists and dadaists"
+
+,"banal": "So lacking in originality as to be obvious and boring | songs with banal, repeated words"
+
+,"pejorative": "Expressing contempt or disapproval | pe·jo·ra·tive : permissiveness is used almost universally as a pejorative term"
+
+,"disenchant" : "Free (someone) from illusion; disappoint | dis·en·chant : he may have been disenchanted by the loss of his huge following"
+
 
  }
