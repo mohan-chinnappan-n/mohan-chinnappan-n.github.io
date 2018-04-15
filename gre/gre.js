@@ -835,7 +835,7 @@ var greWords = {
 "propitiatory":"conciliatory appeasing mitigating",
 "propitious":"auspicious presenting favorable circumstances",
 "prosaic":"everyday mundane commonplace trite pedestrian",
-"proscribe":"denounce as dangerous",
+"proscribe":"denounce as dangerous, forbid, especially by law | gambling was proscribed",
 "protracted":"prolonged",
 "provident":"frugal looking to the future",
 "provisional":"of the present time only",
@@ -1171,7 +1171,16 @@ var greWords = {
 
 ,"contingent": "subject to chance | the contingent nature of the job"
 
+,"tout": "Attempt to sell (something), typically by pestering people in an aggressive or bold manner | Jim was touting his wares"
 
+,"refute": "Prove (a statement or theory) to be wrong or false; disprove | These claims have not been convincingly refuted"
 
+,"admonish": "warn or reprimand someone firmly | ad·mon·ish:  she admonished me for appearing at breakfast unshaven"
+
+,"reprimand": "a rebuke, especially an official one | rep·ri·mand: officials were dismissed or reprimanded for poor work"
+
+,"congruity" : "quality of agreement and appropriateness. When there's congruity, things fit together in a way that makes sense. If a team has congruity, the players work together well, even if they don't win"
+
+,"surrealist":"an artist or writer who is an exponent of the avant-garde movement in art and literature which sought to release the creative potential of the unconscious mind | the wildest fantasies of the European surrealists and dadaists"
 
  }
