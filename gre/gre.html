@@ -110,11 +110,15 @@
         </div>
       <div class='col-lg-6' ng-show='meaning || term' style='text-transform:capitalize2;font-size:20px;'><b>
 
-      <h4 ng-hide='meaning'>{{term}}</h4>
+      <h4 ng-hide='meaning'>{{term}}
+        <br/>
+        <a target="_blank" href="https://www.google.com/#q=define+{{term}}">More &raquo;</a>
+      </h4>
         {{selectedWord}}</b>
 
-        <span  ng-show='meaning'> : </span> {{meaning}}
-        <br/><a target="_blank" href="https://www.google.com/#q=define+{{selectedWord}}">More &raquo;</a>
+        <span  ng-show='meaning'> : {{meaning}}
+              <br/><a target="_blank"  href="https://www.google.com/#q=define+{{selectedWord}}">More &raquo;</a>
+        </span>
         <span ng-show="usage">
         <hr/>
 
@@ -123,7 +127,7 @@
         </div>
     </div>
     <hr/>
-  <a target="_blank" href="http://www.mhpracticeplus.com/tests/GRE2016/index.html"> GRE Tests</a>
+  <a  target="_blank" href="http://www.mhpracticeplus.com/tests/GRE2016/index.html"> GRE Tests</a>
   </div>
 
 </body>
