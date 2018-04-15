@@ -110,9 +110,10 @@
         </div>
       <div class='col-lg-6' ng-show='meaning' style='text-transform:capitalize2;font-size:20px;'><b>
 
-        <a target="_blank" href="https://www.google.com/#q=define+{{selectedWord}}">{{selectedWord}}</a></b> : {{meaning}}
+        {{selectedWord}}  : {{meaning}} <br/> <a target="_blank" href="https://www.google.com/#q=define+{{selectedWord}}">More &#187;</a></b>
         <span ng-show="usage">
         <hr/>
+
          <i>"{{usage}}"</i>
        </span>
         </div>
