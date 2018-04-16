@@ -1609,6 +1609,46 @@ column(StaticDTC_1.selection,[\"measure\"]).asObject()}}
     <a style="font-size:25px;" target="_blank" href="https://help.salesforce.com/articleView?id=reports_report_type_guidelines.htm&type=5"> Limits on Report Types </a>
 </section>
 
+<section>
+  <h4 style="font-size:30px;">Migrate Analytics Assets with Change Sets</h4>
+
+  <div class="row">
+    <div class="col-lg-5">
+      <img style="border:0px;" src="https://resources.help.salesforce.com/images/e75cf6a764b152b6e6f770b0f209accc.png" alt="">
+    </div>
+
+    <div class="col-lg-7">
+
+
+  <ul style="font-size:25px;">
+  <li>Use change sets to move customized Analytics assets between orgs that have a deployment connection</li>
+  <li> For example, create an Analytics app containing dashboards, lenses, datasets, dataflows in your Sandbox org, <br/>
+      then migrate the app assets to your production org once testing is complete
+      <a target="_blank" href="https://help.salesforce.com/articleView?id=bi_packaging_migrate.htm">Migrate Analytics Assets with Change Sets</a>
+
+  </li>
+  <li> Note that you must add dependent dataflows manually. That is, if you add a dataset to a change set, the associated dataflows are not automatically picked up.</li>
+  <li>Click View/Add Dependencies to ensure all dependent assets and appropriate permission sets and profile settings are added</li>
+  </ul>
+</div>
+</div>
+
+</section>
+
+
+<section>
+  <h4 style="font-size:30px;">Analytics Migration, Packaging, and Distribution </h4>
+  <ul style="font-size:25px;">
+    <li>Migrate Analytics assets using <b>change sets</b>, bundle them together in <b>managed packages</b>,
+        distribute and track packages through AppExchange and the License Management App,
+         and use the metadata API to manage customizations for your org.
+</li>
+<li>
+  <a target="_blank" href="https://help.salesforce.com/articleView?id=bi_explore_packaging_intro.htm&type=0">Refer</a>
+</li>
+  </ul>
+</section>
+
 
 
 
