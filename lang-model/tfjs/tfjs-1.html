@@ -1,0 +1,81 @@
+<!--
+Copyright 2018 Google LLC. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+==============================================================================
+-->
+
+<!-- This tiny example illustrates how little code is necessary build
+/ train / predict from a model in TensorFlow.js.  Edit the associated
+index.js code and refresh this file in your browser to quickly
+explore the API.
+https://github.com/tensorflow/tfjs-examples/pull/62
+-->
+
+
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.7.0"> </script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </head>
+  <body class="container">
+    <h4>Tiny TFJS example<hr/></h4>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div id="micro_out_div"></div>
+      </div>
+      <div class="col-lg-8">
+        <pre>
+
+          async function myFirstTfjs() {
+            // Create a simple model.
+            const model = tf.sequential();
+            model.add(tf.layers.dense({units: 1, inputShape: [1]}));
+
+            // Prepare the model for training: Specify the loss and the optimizer.
+            model.compile({
+              loss: 'meanSquaredError',
+              optimizer: 'sgd'
+            });
+
+            // Generate some synthetic data for training. (y = 2x - 1)
+            const xs = tf.tensor2d([-1,  0, 1, 2, 3, 4, 5],  [7, 1]);
+            const ys = tf.tensor2d([-3, -1, 1, 3, 5, 7, 9],  [7, 1]);
+
+            // Train the model using the data.
+            await model.fit(xs, ys, {epochs: 500});
+
+            // Use the model to do inference on a data point the model hasn't seen.
+            // Should print approximately 39.
+            document.getElementById('micro_out_div').innerText +=
+                model.predict(tf.tensor2d([50,20,100], [3, 1]));
+          }
+
+          myFirstTfjs();
+
+        </pre>
+
+      </div>
+
+    </div>
+
+    <script src="js/tfjs-1.js"> </script>
+
+  </body>
+</html>
