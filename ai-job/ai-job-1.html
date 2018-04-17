@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="MainCtrl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{appName}}</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/navbar-green.css">
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/data-markdown.user.js"></script>
+
+
+  <script src="../bower_components/marked/marked.min.js"></script>
+  <script src="../bower_components/angular-marked/dist/angular-marked.js"></script>
+
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../reveal.js/css/theme/white.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+    		<![endif]-->
+
+  <style>
+    .reveal .slide-number {
+      font-size: 0.5em;
+    }
+
+    .simg {
+      border-radius: 10px;
+      border: 1px;
+    }
+
+    .reveal section ul li,
+    .reveal section p {
+      font-size: .8em !important;
+    }
+
+    .reveal section pre code {
+      font-size: 0.7em !important;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">{{appName}}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+      <div class="inner-addon right-addon navbar-form navbar-right">
+        <i class="glyphicon glyphicon-search"></i>
+        <input type="text" class="form-control" placeholder="Search" />
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown ">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="./help.html">Help Topics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <!--
+  <div class="container" ng-controller='MainCtrl'>
+    <div marked src="'pevents.md'"></div>
+  </div>
+-->
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section id="home">
+        <h4>{{appName}}</h4>
+       </section>
+
+       <section>
+         <h4>Features</h4>
+         <ul style="font-size:30px;">
+           <li>Understand nuances of job titles, descriptions, skills and preferences</li>
+           <li>Matches job-seekers perferences with the relevant job listings</li>
+           <li>Uses classification and relational AI models</li>
+           <li>Ontologies - occupation ontology  -  encode knowledge about occupations and skills, as well as relational models between these ontologies</li>
+           <li>O*NET Standard Occupational Classification 3 layers:
+             <ol>
+               <li>30 broad job categories (Accounting & Finance, HR, Hostpitality, ...)</li>
+               <li>1,100 occupation families (EM Doctors, DBAs,...)</li>
+               <li> 250,000 specific occupation (Software Engineer, Senior Hardware Enginee) </li>
+             </ol>
+
+
+           </li>
+
+         </ul>
+       </section>
+
+
+         <section>
+           <h4>About O*Net - The Occupational Information Network </h4>
+           <div class="row">
+             <div class="col-lg-6">
+               <img src="img/model.png" alt="">
+
+             </div>
+
+              <div class="col-lg-6">
+                <ul style="font-size:30px;">
+                  <li> The primary source of occupational information</li>
+                  <li>Helps to  facilitate the development and maintenance of a skilled workforce</li>
+                  <li>Has hundreds of standardized and occupation-specific descriptors</li>
+                  <li>Updated by a broad range of workers in each occupation </li>
+                </ul>
+
+              </div>
+
+           </div>
+
+
+       </section>
+
+       <section>
+         <h4>occupation - O*Net Content Model</h4>
+         <div class="row">
+           <div class="col-lg-6">
+             <img src="img/model.png" alt="">
+
+           </div>
+
+            <div class="col-lg-6">
+         <ul style="font-size:30px;">
+           <li>Occupation requires mix of:
+             <ul>
+               <li>knowledge</li>
+               <li>skills</li>
+               <li>abilities</li>
+               <li>activities</li>
+               <li>tasks</li>
+             </ul>
+
+           </li>
+           <li>Provide a standardized, measurable set of variables called <b>descriptors</b> </li>
+        </ul>
+        <ul  style="font-size:20px;">
+           <li>
+             The Content Model was developed using research on job and organizational analysis.<br/>
+             It embodies a view that reflects the character of <b>occupations</b> (via job-oriented descriptors) and<b> people</b>
+              (via <b>worker-oriented</b> descriptors).<br/>
+             The Content Model also allows occupational information to be applied across jobs, sectors, or industries (cross-occupational descriptors)
+             and within occupations (<b>occupational-specific</b> descriptors).<br/>
+             These descriptors are organized into <b>six major domains</b>, which enable the user to focus on areas of information
+             that specify the key attributes and characteristics of workers and occupations.<br/>
+           </li>
+         </ul>
+       </div>
+     </div>
+
+       </section>
+
+       <section>
+         <h4>Content Model Outline</h4>
+         <object style="width: 100%; height: 820px" data="img/ContentModel_DetailedDesc.pdf"
+                 type="application/pdf">
+        </object>
+       </section>
+
+       <section>
+         <h4>Content Model Summary</h4>
+         <object style="width: 100%; height: 820px" data="img/ContentModel_DetailedDesc.pdf"
+                 type="application/pdf">
+        </object>
+       </section>
+
+
+
+       <section>
+         <h4>Content Model Details</h4>
+         <object style="width: 100%; height: 820px" data="img/ContentModel_Summary.pdf"
+                 type="application/pdf">
+        </object>
+       </section>
+
+       <section>
+         <h4>Resources</h4>
+         <ul>
+           <li>
+             <a target="_blank" href="https://www.onetcenter.org/overview.html">O*Net Resource Center</a>
+           </li>
+
+           <li>
+             <a target="_blank" href="https://cloud.google.com/blog/big-data/2016/11/cloud-jobs-api-machine-learning-goes-to-work-on-job-search-and-discovery">
+              Cloud Jobs API: machine learning goes to work on job search and discovery</a>
+           </li>
+
+
+         </ul>
+       </section>
+
+
+    </div>
+  </div>
+
+
+
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
+
+
+  <script>
+    'use strict';
+
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+      //width: 960,
+      //	height: 700,
+
+      // Display presentation control arrows
+      controls: true,
+
+      // Help the user learn the controls by providing hints, for example by
+      // bouncing the down arrow when they first encounter a vertical slide
+      controlsTutorial: true,
+
+      // Determines where controls appear, "edges" or "bottom-right"
+      controlsLayout: 'edges',
+
+      // Visibility rule for backwards navigation arrows; "faded", "hidden"
+      // or "visible"
+      controlsBackArrows: 'faded',
+      // Display a presentation progress bar
+      progress: true,
+
+      // Set default timing of 2 minutes per slide
+      defaultTiming: 120,
+
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
+
+
+      history: true,
+      center: true,
+      slideNumber: true,
+
+      embedded: true,
+
+      transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+      menu: {
+        markers: true,
+        openSlideNumber: true,
+        themes: [{
+            name: 'Black',
+            theme: '../reveal.js/css/theme/black.css'
+          },
+          {
+            name: 'White',
+            theme: '../reveal.js/css/theme/white.css'
+          },
+          {
+            name: 'League',
+            theme: '../reveal.js/css/theme/league.css'
+          },
+          {
+            name: 'Sky',
+            theme: '../reveal.js/css/theme/sky.css'
+          },
+          {
+            name: 'Beige',
+            theme: '../reveal.js/css/theme/beige.css'
+          },
+          {
+            name: 'Simple',
+            theme: '../reveal.js/css/theme/simple.css'
+          },
+          {
+            name: 'Serif',
+            theme: '../reveal.js/css/theme/serif.css'
+          },
+          {
+            name: 'Blood',
+            theme: '../reveal.js/css/theme/blood.css'
+          },
+          {
+            name: 'Night',
+            theme: '../reveal.js/css/theme/night.css'
+          },
+          {
+            name: 'Moon',
+            theme: '../reveal.js/css/theme/moon.css'
+          },
+          {
+            name: 'Solarized',
+            theme: '../reveal.js/css/theme/solarized.css'
+          }
+        ],
+        custom: []
+      },
+
+      // Optional reveal.js plugins
+      dependencies: [{
+          src: '../reveal.js/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          condition: function() {
+            return !!document.querySelector('pre code');
+          },
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: '../reveal.js/plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/reveal.js-menu/menu.js',
+          async: true
+        }
+      ]
+    });
+
+
+
+    var app = angular.module('app', [
+      'hc.marked'
+    ]);
+    app.config(['markedProvider', function(markedProvider) {
+      markedProvider.setOptions({
+        gfm: true
+      });
+    }]);
+
+    var GSCOPE;
+    app.controller('MainCtrl', function($scope, $http, $timeout) {
+      GSCOPE = $scope; // debugging purposes
+      $scope.appName="AI for Job Matching";
+
+
+
+    })
+  </script>
+</body>
+
+</html>
