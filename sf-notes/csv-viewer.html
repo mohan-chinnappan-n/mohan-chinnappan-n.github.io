@@ -18,6 +18,9 @@
             padding: 5px;
             opacity: .9;
         }
+        h4 {
+          text-transform:capitalize;
+        }
 
 
         #csvtable tr:nth-child(odd) { background-color:  #eff0f1; }
@@ -40,11 +43,11 @@
           result[item[0]] = decodeURIComponent(item[1]);
         });
         //console.log(result.f);
-            d3.text(result.f, function(data) {
+            d3.text('img/' + result.f + '.csv', function(data) {
                 var parsedCSV = d3.csv.parseRows(data);
 
                 var container = d3.select("body")
-                    .append("h4").text(result.n)
+                    .append("h4").text(result.f)
                     .append("table").attr('id','csvtable')
 
                     .selectAll("tr")
