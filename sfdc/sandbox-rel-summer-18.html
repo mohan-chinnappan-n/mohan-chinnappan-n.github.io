@@ -141,7 +141,7 @@
 
        <section>
          <h4>{{releaseName}} Calendar</h4>
-         <img style="border:0px"; height="500" src="{{releaseCalImg1}}" alt="">
+         <img style="border:0px;border-radius:10px"; height="500" src="{{releaseCalImg1}}" alt="">
        </section>
 
        <section>
@@ -155,14 +155,14 @@
 
        <section>
          <h4>New Sandbox Options</h4>
-          <img style="border:0px";  src="{{newSandboxOptionsImg1}}" alt="">
+          <img style="border:0px;border-radius:10px";  src="{{newSandboxOptionsImg1}}" alt="">
        </section>
 
 
        <section>
          <h4>Existing Sandbox Options</h4>
            1. Find the Sandbox Location in Production Org (Location Column)
-          <img style="border:0px";  src="{{sandboxLocationImg}}" alt="">
+          <img style="border:0px;border-radius:10px";  src="{{sandboxLocationImg}}" alt="">
        </section>
 
        <section>
@@ -171,13 +171,13 @@
           <button class='btn btn-success'  title='Click to view the demo in full page'>
             <a target="_blank" href='{{refreshActionImg1}}'>
               <i class="glyphicon glyphicon-fullscreen"></i></a></button>
-          <img style="border:0px";  height="450" src="{{refreshActionImg1}}" alt="">
+          <img style="border:0px;border-radius:10px";  height="450" src="{{refreshActionImg1}}" alt="">
        </section>
 
        <section>
          <h4>Reference</h4>
-         <a target="_blank" href="https://www.salesforce.com/blog/2017/12/salesforce-spring-18-sandbox-preview-instructions.html">
-           Salesforce Spring '18 Sandbox Preview Instructions
+         <a target="_blank" href="https://www.salesforce.com/blog/2018/04/summer-18-sandbox-preview.html">
+           Salesforce Summer '18 Sandbox Preview Instructions
          </a>
        </section>
 
@@ -342,15 +342,15 @@
     var GSCOPE;
     app.controller('MainCtrl', function($scope, $http, $timeout) {
       GSCOPE = $scope; // debugging purposes
-      $scope.releaseName = "Spring 18";
+      $scope.releaseName = "Summer 18";
       $scope.appName="Sandboxes and Releases - "  + $scope.releaseName;
-      $scope.previewDate ="Jan-05-2018" ;
-      $scope.previewDates ="Jan-05-2018 and Jan-06-2018" ;
-      $scope.releaseDates = "Feb-09-2018 and Feb-10-2018"
-      $scope.releaseCalImg1 = "https://kapost-files-prod.s3.amazonaws.com/kapost/52f934574e14d3eb0c000856/studio/content/5a211a00d5b71500970003ca/html_bodies/1512118947-42c691a3-e238-48f6-94d5-dcb345e6fbb8/calendar.png"
-      $scope.newSandboxOptionsImg1 = "https://kapost-files-prod.s3.amazonaws.com/kapost/52f934574e14d3eb0c000856/studio/content/5a211a00d5b71500970003ca/html_bodies/1512118848-819a943a-8394-40b7-9876-6eafc5fb5cfc/new.png"
+      $scope.previewDate ="May-04-2018" ;
+      $scope.previewDates ="May-04-2018 and May-05-2018" ;
+      $scope.releaseDates = "Jun-08-2018 and Jun-09-2018"
+      $scope.releaseCalImg1 = "https://kapost-files-prod.s3.amazonaws.com/kapost/52f934574e14d3eb0c000856/studio/content/5abc9aa23aa291008300010b/html_bodies/1522309907-76ced334-abe7-435a-99e8-93f24fed7a99/calendar.png"
+      $scope.newSandboxOptionsImg1 = "https://kapost-files-prod.s3.amazonaws.com/kapost/52f934574e14d3eb0c000856/studio/content/5abc9aa23aa291008300010b/html_bodies/1522309944-da92132f-7a48-412e-a52c-43ff701c38ef/new.png"
       $scope.sandboxLocationImg = "https://kapost-files-prod.s3.amazonaws.com/kapost/52f934574e14d3eb0c000856/studio/content/5a211a00d5b71500970003ca/html_bodies/1512118890-d78f90c3-a3e6-4143-88ea-39aa9de5d19c/listpage.png"
-      $scope.refreshActionImg1="https://kapost-files-prod.s3.amazonaws.com/kapost/52f934574e14d3eb0c000856/studio/content/5a211a00d5b71500970003ca/html_bodies/1512119028-03487b50-4ccb-4397-84d1-69787424200e/existing.png"
+      $scope.refreshActionImg1="https://kapost-files-prod.s3.amazonaws.com/kapost/52f934574e14d3eb0c000856/studio/content/5abc9aa23aa291008300010b/html_bodies/1522310052-6f422786-f068-4ff0-8e38-568cee11ffb6/existing.png"
     })
   </script>
 </body>
