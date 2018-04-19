@@ -178,22 +178,25 @@
        <section>
          <h4>Console Home Tab Notes</h4>
          <ul style="font-size:30px">
-           <li>Url: <b>/home/home.jsp?isdtp=vw"<b></li>
+           <li>Url: <b>/home/home.jsp?isdtp=vw</b></li>
           <li> <b>/home/home.jsp</b> is the url of the Home tab</li>
           <li> The parameter <b>?isdtp=vw</b> indicates to salesforce that the page should be rendered to comply and function within the Console. </li>
            <li> <b>isdtp</b> is short for "Is Desktop", the original name for Console</li>
            <li> <b>vw</b> is short for <b>view</b>, which is the mode in which the page is displayed.<br/>
-              It renders the page without the regular salesforce.com header and left-side pane </li>
+              It renders the page without the regular salesforce.com header and sidebar </li>
+           <li> Possible values:
+           <ul>
+            <li>isdtp=mn : Retains the old SFDC styling without the tabs and sidebar  </li>
+            <li>isdtp=lt : Retains the old SFDC styling without the tabs, sidebar, or header </li>
+            <li>isdtp=vw : The page will be rendered without the tabs and sidebar </li>
+            <li>isdtp=nv : The page will be rendered without the tabs and sidebar, and will accommodate all the buttons in a list view </li>
+
+            </ul>
+           </li>
          </ul>
        </section>
 
-       <section>
-         <h4>Activities</h4>
 
-         <ul>
-           <li>Activities are the <b>events</b> and <b>tasks</b> that sales reps manage in Salesforce.</li>
-         </ul>
-       </section>
 
 
 
