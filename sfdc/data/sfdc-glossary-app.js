@@ -5,12 +5,13 @@ app.controller('MainCtrl', function($scope) {
   GScope = $scope;
   //  $scope.date = '19/03/2013';
   // $scope.items = [{name :"10/09/2013"},{name :"10/09/2013"}];
-  $scope.gre = sfdcWords;
   //console.log(greWords);
-  $scope.greWordList = [];
-  for (var key in $scope.gre) {
-      $scope.greWordList.push(key)
+  $scope.sfdc = Object.assign(sfdcWords, eaWords)
+  $scope.sfdcWordList = [];
+  for (var key in $scope.sfdc) {
+      $scope.sfdcWordList.push(key)
   }
+
 
   //$scope.showResources = true;
 });
@@ -43,15 +44,15 @@ app.directive('autocomplete', function() {
 
                 source2: function (req, res){
                     console.log(req.term);
-                    scope.meaning = scope.gre[req.term];
+                    scope.meaning = scope.sfdc[req.term];
                     console.log(scope.meaning);
                     return scope.meaning;
                },
                minLength:1,
-                source3: scope.greWordList,
+                source3: scope.sfdcWordList,
 
                 source: function(request, response) {
-                    var filteredArray = $.map(scope.greWordList, function(item) {
+                    var filteredArray = $.map(scope.sfdcWordList, function(item) {
                         scope.term = null;
                         if( item.toUpperCase().includes(request.term.toUpperCase())){  return item; }
                         else { scope.term = request.term; return null; }
@@ -63,7 +64,7 @@ app.directive('autocomplete', function() {
                   //console.log(ui);
                   scope.term = null;
                   scope.selectedWord = ui.item.value;
-                  var meaningUsage = scope.gre[ui.item.value].split('|');
+                  var meaningUsage = scope.sfdc[ui.item.value].split('|');
 
                   scope.meaning = meaningUsage[0];
                   scope.usage = meaningUsage[1];
