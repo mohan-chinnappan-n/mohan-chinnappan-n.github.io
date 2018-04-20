@@ -147,13 +147,17 @@
           <li>
             <pre>
               <code>
-  from cryptography.fernet import Fernet
-  key = Fernet.generate_key()
-  cipher_suite = Fernet(key)
-  input_text =b"A really secret message. Not for prying eyes."
-  cipher_text = cipher_suite.encrypt(nput_text)
-  plain_text = cipher_suite.decrypt(cipher_text)
-  input_text == plain_text
+# symmetric encryption
+from cryptography.fernet import Fernet
+key = Fernet.generate_key()
+cipher_suite = Fernet(key)
+input_text =b"A really secret message. Not for prying eyes."
+cipher_text = cipher_suite.encrypt(input_text)
+print (cipher_text)
+# b'gAAAAABa2eJfy1fbnB8V1E1uGMH_UD9hSoRcbhv198Bmj1fBcrRkQRiiXeMewERaCg4DT6IHyEtT6k-84ymezYy_YJlzKQMlIcz9EA5-tki7a52p71tDg5nbYMHbx0eZ_5YIsSwfZVPs'
+plain_text = cipher_suite.decrypt(cipher_text)
+input_text == plain_text
+# True
 
               </code>
             </pre>
