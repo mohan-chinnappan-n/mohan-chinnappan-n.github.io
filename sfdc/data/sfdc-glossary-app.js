@@ -2,7 +2,7 @@
 
 
 
-var app = angular.module('app',  ['ui.utils']);
+var app = angular.module('app',  ['ui.utils', 'chart.js']);
 
 var query = location.search.substr(1);
 var result = {};
@@ -30,7 +30,25 @@ app.controller('MainCtrl', function($scope) {
                               plumbingWords,
                               houseWiringWords,
                               musicWords
-                             )
+                          );
+
+  $scope.sfdcCounts = [
+       Object.keys(sfdcWords).length,
+       Object.keys(eaWords).length,
+       Object.keys(shieldWords).length,
+       Object.keys(dxWords).length,
+       Object.keys(fcWords).length,
+
+       Object.keys(dbWords).length,
+       Object.keys(awsWords).length,
+       Object.keys(farmingWords).length,
+       Object.keys(plumbingWords).length,
+       Object.keys(houseWiringWords).length,
+       Object.keys(musicWords).length,
+
+
+  ]
+
   $scope.sfdcWordList = [];
   $scope.myList = [];
   for (var key in $scope.sfdc) {
@@ -54,6 +72,7 @@ app.controller('MainCtrl', function($scope) {
     if (topic == 'Financial Services Cloud (FSC)') topic = 'FSC';
     $scope.auto = topic + ":";
   }
+
 
 
   //$scope.showResources = true;
