@@ -17,6 +17,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-sanitize.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-utils/0.1.1/angular-ui-utils.min.js"></script>
 
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <link rel="stylesheet" href="../../css/navbar-blue.css">
   <link rel="stylesheet" href="sfdc-glossary.css">
 
@@ -69,8 +71,10 @@
 
  <div ng-controller="MainCtrl" style="margin-left:30px;">
    <div class="row">
-    <div class="col-lg-1"> <h4>Topics:</h4> </div>
-    <div class="col-lg-11">
+    <div class="col-lg-1"> <h4>Topics: </h4> </div>
+    <div class="col-lg-1"> <button class="btn btn-info" ng-click='showGraph=!showGraph'>
+       <i class="fa fa-line-chart"></i></button> </div>
+    <div class="col-lg-10">
      <ul class="inline" >
        <li  class='badge badge-info'
             ng-click='selectTopic(topic)'
@@ -110,11 +114,11 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" ng-show='showGraph'>
       <div class="col-lg-6">
       </div>
-      <div class="col-lg-6" style="border:5px #eff9f9 solid; border-radius:10px;">
-        <h4 style="text-transform:capitalize;text-align:center;">Terms spread</h4>
+      <div class="col-lg-6" style="border:5px #eff9f9 solid; border-radius:10px;margin:10px;">
+        <h4 style="text-transform:capitalize;text-align:center;">Topics Spread</h4>
           <canvas id="doughnut" class="chart chart-doughnut" chart-data="sfdcCounts" chart-labels="topics"> </canvas>
       </div>
 
