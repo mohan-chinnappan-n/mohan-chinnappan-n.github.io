@@ -60,6 +60,14 @@
 
 
  <div ng-controller="MainCtrl" style="margin-left:30px;">
+   <div class="row">
+    <div class="col-lg-1"> <h4>Topics:</h4> </div>
+    <div class="col-lg-11">
+     <ul class="inline" >
+       <li  class='badge badge-info' style='padding:10px;margin:2px;' ng-repeat="topic in topics | unique " > {{topic}}</li>
+     </ul>
+   </div>
+   </div>
     <div class='row'>
       <div class='col-lg-6'>
          <input class='searcher' placeholder='type few chars for the word' type="search" size="99" ng-model="auto" autocomplete="true" />
@@ -91,12 +99,16 @@
         </div>
     </div>
 
+
 </div>
 <script src="sfdc-glossary-2.js"></script>
 <script src="sfdc-glossary-ea.js"></script>
 <script src="sfdc-glossary-shield.js"></script>
 <script src="sfdc-glossary-dx.js"></script>
 <script src="sfdc-glossary-fc.js"></script>
+
+<script src="aws-glossary.js"></script>
+<script src="music.js"></script>
 
 <script src="sfdc-glossary-app.js"></script>
 

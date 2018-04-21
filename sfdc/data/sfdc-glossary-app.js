@@ -14,7 +14,14 @@ query.split("&").forEach(function(part) {
 var GScope;
 app.controller('MainCtrl', function($scope) {
   GScope = $scope;
-  $scope.sfdc = Object.assign(sfdcWords, eaWords, shieldWords, dxWords, fcWords)
+  $scope.topics = ['SFDC', 'Einstein Analytics (EA)', 'Shield', 'SFDX', 'Financial Services Cloud (FSC)',
+                'AWS',
+                 'Music']
+                 ;
+  $scope.sfdc = Object.assign(sfdcWords, eaWords, shieldWords, dxWords, fcWords,
+                              awsWords,
+                              musicWords
+                             )
   $scope.sfdcWordList = [];
   $scope.myList = [];
   for (var key in $scope.sfdc) {
