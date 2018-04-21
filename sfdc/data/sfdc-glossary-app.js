@@ -19,12 +19,14 @@ app.controller('MainCtrl', function($scope) {
                 'AWS',
                 'DB',
                 'Farming',
+                'Plumbing',
                  'Music']
                  ;
   $scope.sfdc = Object.assign(sfdcWords, eaWords, shieldWords, dxWords, fcWords,
                               dbWords,
                               awsWords,
                               farmingWords,
+                              plumbingWords,
                               musicWords
                              )
   $scope.sfdcWordList = [];
