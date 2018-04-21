@@ -1,8 +1,19 @@
 var app = angular.module('app', []);
 
+var query = location.search.substr(1);
+var result = {};
+query.split("&").forEach(function(part) {
+  var item = part.split("=");
+  result[item[0]] = decodeURIComponent(item[1]);
+});
+
+
+
 var GScope;
 app.controller('MainCtrl', function($scope) {
   GScope = $scope;
+
+
   //  $scope.date = '19/03/2013';
   // $scope.items = [{name :"10/09/2013"},{name :"10/09/2013"}];
   //console.log(greWords);
@@ -10,6 +21,10 @@ app.controller('MainCtrl', function($scope) {
   $scope.sfdcWordList = [];
   for (var key in $scope.sfdc) {
       $scope.sfdcWordList.push(key)
+  }
+  if ( result.f ) {
+    $scope.selectedWord = $scope.auto = result.f.charAt(0).toUpperCase() + result.f.slice(1);
+    $scope.meaning = $scope.sfdc[ $scope.auto];
   }
 
 
@@ -43,7 +58,7 @@ app.directive('autocomplete', function() {
              element.autocomplete({
 
                 source2: function (req, res){
-                    console.log(req.term);
+                    //console.log(req.term);
                     scope.meaning = scope.sfdc[req.term];
                     console.log(scope.meaning);
                     return scope.meaning;
