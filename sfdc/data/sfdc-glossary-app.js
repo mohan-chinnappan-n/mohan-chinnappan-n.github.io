@@ -16,10 +16,12 @@ app.controller('MainCtrl', function($scope) {
   GScope = $scope;
   $scope.topics = ['SFDC', 'Einstein Analytics (EA)', 'Shield', 'SFDX', 'Financial Services Cloud (FSC)',
                 'AWS',
+                'Farming',
                  'Music']
                  ;
   $scope.sfdc = Object.assign(sfdcWords, eaWords, shieldWords, dxWords, fcWords,
                               awsWords,
+                              farmingWords,
                               musicWords
                              )
   $scope.sfdcWordList = [];
