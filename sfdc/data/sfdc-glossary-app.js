@@ -47,6 +47,7 @@ app.controller('MainCtrl', function($scope) {
   }
   $scope.selectTopic = function(topic) {
     if (topic == 'Einstein Analytics (EA)') topic = 'EA';
+    if (topic == 'Financial Services Cloud (FSC') topic = 'FSC';
     $scope.auto = topic + ":";
   }
 
