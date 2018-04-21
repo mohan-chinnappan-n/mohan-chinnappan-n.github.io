@@ -26,7 +26,7 @@ var farmingWords = {
 ,"Farming:Arabian":"Horse of the Bedouin, developed anciently on the Arabian peninsula ."
 ,"Farming:asexual reproduction":"Reproduction or propagation that doesn't involve the union of gametes."
 ,"Farming:ass":"Small, long-eared mammal and related to the horse; especially those of African origin that are ancestors of the donkey. Sometimes used as a synonym for donkey, but this is not technically accurate."
-,"Farming:Ayrshire":"A breed of dairy cattle that originated in the County of Ayr in Scotland , prior to 1800. They may be any shade of red or white. The first Ayrshires arrived in America about 1822." 
+,"Farming:Ayrshire":"A breed of dairy cattle that originated in the County of Ayr in Scotland , prior to 1800. They may be any shade of red or white. The first Ayrshires arrived in America about 1822."
 ,"Farming:barrow":"A male hog castrated before sexual maturity."
 ,"Farming:beef cattle breeds commonly raised in the United States " :"Angus, Beefmaster, Belted Galloway, Brahman, Brangus, Charolais, Chianina, Devon, Gelbvieh, Limousin, Lincoln Red, Maine Anjou, Murray Grey, Normande, Piedmontese, Hereford, Red Angus, Salers, Santa Gertrudis, Shorthorn, Simmental, Texas Longhorn, Wagyu"
 ,"Farming:Beefmaster":"A breed developed by systematic crossing of Hereford, Shorthorn and Brahman cattle with traits especially valuable in the harsh environment of South Texas. Genetically, Beefmasters are half English (25% each of Hereford and Shorthorn) and half Brahman. Beefmasters were recognized by the U.S. Department of Agriculture as a pure breed in 1954. The registry is maintained by Beefmaster Breeders United."
@@ -289,5 +289,10 @@ var farmingWords = {
 ,"Farming:Zeony":"Offspring of a zebra and a donkey."
 ,"Farming:Zony":"Offspring of a zebra and a donkey."
 ,"Farming:Zorse":"A term sometimes applied to the offspring of a zebra stallion and a horse mare"
-}
 
+,"Farming:Nammalvar ": "Tamil, Indian green crusader, agricultural scientist, environmental activist, philosopher and organic farming expert celebrated for his works on spreading Ecological farming & Organic farming: இயற்கை தாத்தா "
+,"Farming:Subhash Palekar": "Indian agriculturist who practiced and wrote many books about Zero Budget Natural Farming"
+,"Farming:Masanobu Fukuoka": "Japanese farmer and philosopher celebrated for his natural farming and re-vegetation of desertified lands"
+
+
+}
