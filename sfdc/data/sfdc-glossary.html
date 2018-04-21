@@ -64,7 +64,9 @@
     <div class="col-lg-1"> <h4>Topics:</h4> </div>
     <div class="col-lg-11">
      <ul class="inline" >
-       <li  class='badge badge-info' style='padding:10px;margin:2px;' ng-repeat="topic in topics | unique " > {{topic}}</li>
+       <li  class='badge badge-info'
+       ng-click='selectTopic(topic)'
+        style='padding:10px;margin:2px;' ng-repeat="topic in topics | unique " > {{topic}}</li>
      </ul>
    </div>
    </div>

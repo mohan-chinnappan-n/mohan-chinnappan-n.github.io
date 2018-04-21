@@ -45,6 +45,10 @@ app.controller('MainCtrl', function($scope) {
     if ($scope.auto.label.startsWith('SFDC')) $scope.trialhead= true;
     else  $scope.trialhead= true;
   }
+  $scope.selectTopic = function(topic) {
+    if (topic == 'Einstein Analytics (EA)') topic = 'EA';
+    $scope.auto = topic + ":";
+  }
 
 
   //$scope.showResources = true;
