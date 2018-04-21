@@ -103,5 +103,16 @@ farmingWords = {
 ,"Farming:Weed":" any unwanted plant, especially those that crowd out more desirable plants"
 ,"Farming:Work ethic":" qualities of character believed to be promoted by work"
 ,"Farming:Yield":" the amount of a crop produced in a given time or from a given place"
+,"Farming:Nammalvar": "Nammalvar  was a Tamil, Indian green crusader, agricultural scientist, environmental activist, philosopher and organic farming expert celebrated for his works on spreading Ecological farming & Organic farming"
+,"Farming:Subhash Palekar": "Indian agriculturist who practiced and wrote many books about Zero Budget Natural Farming"
+,"Farming:Masanobu Fukuoka": "Japanese farmer and philosopher celebrated for his natural farming and re-vegetation of desertified lands"
+,"Farming:Masanobu Fukuoka": "Japanese farmer and philosopher celebrated for his natural farming and re-vegetation of desertified lands"
+
+
+
+
+
+
+
 }
 
