@@ -14,6 +14,7 @@ query.split("&").forEach(function(part) {
 var GScope;
 app.controller('MainCtrl', function($scope) {
   GScope = $scope;
+  $scope.trialhead = false;
   $scope.topics = ['SFDC', 'Einstein Analytics (EA)', 'Shield', 'SFDX', 'Financial Services Cloud (FSC)',
                 'AWS',
                 'DB',
@@ -38,6 +39,11 @@ app.controller('MainCtrl', function($scope) {
 
   $scope.fillinItem = function(item) {
     $scope.auto = item;
+  }
+
+  $scope.showTrialhead = function() {
+    if ($scope.auto.label.startsWith('SFDC')) $scope.trialhead= true;
+    else  $scope.trialhead= true;
   }
 
 
@@ -98,6 +104,7 @@ app.directive('autocomplete', function() {
                   scope.usage = meaningUsage[1];
 
                   ngModelCtrl.$setViewValue(ui.item);
+                  //scope.showTrialhead();
                   scope.$apply();
                 }
               });
