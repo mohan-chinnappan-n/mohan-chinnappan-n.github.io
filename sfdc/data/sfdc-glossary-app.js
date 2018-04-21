@@ -10,7 +10,7 @@ query.split("&").forEach(function(part) {
 var GScope;
 app.controller('MainCtrl', function($scope) {
   GScope = $scope;
-  $scope.sfdc = Object.assign(sfdcWords, eaWords, shieldWords)
+  $scope.sfdc = Object.assign(sfdcWords, eaWords, shieldWords, dxWords, fcWords)
   $scope.sfdcWordList = [];
   $scope.myList = [];
   for (var key in $scope.sfdc) {
