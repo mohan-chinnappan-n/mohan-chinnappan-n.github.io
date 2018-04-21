@@ -1,4 +1,8 @@
-var app = angular.module('app', []);
+
+
+
+
+var app = angular.module('app',  ['ui.utils']);
 
 var query = location.search.substr(1);
 var result = {};
