@@ -7,24 +7,22 @@ query.split("&").forEach(function(part) {
   result[item[0]] = decodeURIComponent(item[1]);
 });
 
-
-
 var GScope;
 app.controller('MainCtrl', function($scope) {
   GScope = $scope;
-
-
-  //  $scope.date = '19/03/2013';
-  // $scope.items = [{name :"10/09/2013"},{name :"10/09/2013"}];
-  //console.log(greWords);
-  $scope.sfdc = Object.assign(sfdcWords, eaWords)
+  $scope.sfdc = Object.assign(sfdcWords, eaWords, shieldWords)
   $scope.sfdcWordList = [];
+  $scope.myList = [];
   for (var key in $scope.sfdc) {
       $scope.sfdcWordList.push(key)
   }
   if ( result.f ) {
     $scope.selectedWord = $scope.auto = result.f.charAt(0).toUpperCase() + result.f.slice(1);
     $scope.meaning = $scope.sfdc[ $scope.auto];
+  }
+
+  $scope.fillinItem = function(item) {
+    $scope.auto = item;
   }
 
 
@@ -79,6 +77,7 @@ app.directive('autocomplete', function() {
                   //console.log(ui);
                   scope.term = null;
                   scope.selectedWord = ui.item.value;
+                  scope.myList.push(scope.selectedWord);
                   var meaningUsage = scope.sfdc[ui.item.value].split('|');
 
                   scope.meaning = meaningUsage[0];
