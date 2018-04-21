@@ -1,0 +1,89 @@
+  .ui-autocomplete {
+    max-height: 400px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+  }
+  /* IE 6 doesn't support max-height
+ * we use height instead, but this forces the menu to always be this tall
+ */
+
+   html .ui-autocomplete {
+    height: 500px;
+    background-color:#eff9f9;
+  }
+
+  input[type=search]::-webkit-search-cancel-button {
+    -webkit-appearance: searchfield-cancel-button;
+    background: #eff9f9;
+    height: 30px;
+    border: 10px;
+  }
+
+  .searcher {
+    background: #efe;
+    height: 40px;
+    border-radius: 10px;
+    padding: 4px;
+    margin: 10px;
+  }
+  .ui-helper-hidden-accessible { display:none; }
+
+  ul.list-group.list-group-striped li:nth-of-type(odd){
+  background: white;
+  border-radius: 5px;
+  }
+  ul.list-group.list-group-striped li:nth-of-type(even){
+      background: #eff9f9;
+      border-radius: 5px;
+  }
+  ul.list-group.list-group-hover li:hover{
+      background: #99ccff;
+  }
+
+.badge {
+padding: 4px 10px 4px;
+font-size: 12.025px;
+font-weight: bold;
+white-space: nowrap;
+color: #ffffff;
+background-color: #999999;
+-webkit-border-radius: 9px;
+-moz-border-radius: 9px;
+border-radius: 9px;
+}
+.badge:hover {
+color: #ffffff;
+text-decoration: none;
+cursor: pointer;
+}
+.badge-error {
+background-color: #b94a48;
+}
+.badge-error:hover {
+background-color: #953b39;
+}
+.badge-warning {
+background-color: #f89406;
+}
+.badge-warning:hover {
+background-color: #c67605;
+}
+.badge-success {
+background-color: #468847;
+}
+.badge-success:hover {
+background-color: #356635;
+}
+.badge-info {
+background-color: #3a87ad;
+}
+.badge-info:hover {
+background-color: #2d6987;
+}
+.badge-inverse {
+background-color: #333333;
+}
+.badge-inverse:hover {
+background-color: #1a1a1a;
+}

@@ -58,12 +58,11 @@ app.directive('autocomplete', function() {
                 source2: function (req, res){
                     //console.log(req.term);
                     scope.meaning = scope.sfdc[req.term];
-                    console.log(scope.meaning);
+                    //console.log(scope.meaning);
                     return scope.meaning;
                },
                minLength:1,
                 source3: scope.sfdcWordList,
-
                 source: function(request, response) {
                     var filteredArray = $.map(scope.sfdcWordList, function(item) {
                         scope.term = null;
