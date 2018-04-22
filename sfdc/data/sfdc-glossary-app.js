@@ -1,5 +1,9 @@
+/**
 
+app file
+author: mohan.chinnappan.n
 
+**/
 
 
 var app = angular.module('app',  ['ui.utils', 'chart.js']);
@@ -21,6 +25,8 @@ app.controller('MainCtrl', function($scope) {
                 'Farming',
                 'Plumbing',
                 'HouseWiring',
+
+                 'EN',
                  'Music']
                  ;
   $scope.sfdc = Object.assign(sfdcWords, eaWords, shieldWords, dxWords, fcWords,
@@ -29,6 +35,8 @@ app.controller('MainCtrl', function($scope) {
                               farmingWords,
                               plumbingWords,
                               houseWiringWords,
+
+                              greWords,
                               musicWords
                           );
 
@@ -44,7 +52,10 @@ app.controller('MainCtrl', function($scope) {
        Object.keys(farmingWords).length,
        Object.keys(plumbingWords).length,
        Object.keys(houseWiringWords).length,
+
+       Object.keys(greWords).length,
        Object.keys(musicWords).length,
+
 
 
   ]
@@ -125,6 +136,7 @@ app.directive('autocomplete', function() {
                   //console.log(ui);
                   scope.term = null;
                   scope.selectedWord = ui.item.value;
+                  scope.selectedWord2 = ui.item.value.replace(/:/,' : ');
                   scope.myList.push(scope.selectedWord);
                   var meaningUsage = scope.sfdc[ui.item.value].split('|');
 

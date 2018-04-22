@@ -92,14 +92,16 @@
           style='margin-left:20px; text-transform:capitalize2;font-size:20px;border-radius:10px;background-color:#eff9f9;padding:30px;'><b>
 
       <h4 ng-show='term'>{{term}}
-        <a target="_blank" href="https://www.google.com/search?q=salesforce+{{term}}">Search &raquo;</a>
+        <a target="_blank" href="https://www.google.com/search?q=salesforce+{{term.split(':')[1]}}">Search &raquo;</a>
         <hr/>
       </h4>
-        {{selectedWord}}</b>
+        {{selectedWord2}}</b>
 
         <span  ng-show='meaning'> : {{meaning}}
-              <br/><a
-               target="_blank"  href="https://www.google.com/search?q=salesforce+trailhead+{{selectedWord}}">More Info &raquo;</a>
+              <br/>
+              <a
+               target="_blank"  href="https://www.google.com/search?q=salesforce+trailhead+{{selectedWord.split(':')[1]}}">More Info &raquo;</a>
+               | <a target="_blank"  href="https://www.google.com/search?q=define+{{selectedWord.split(':')[1]}}">Define &raquo;</a>
         </span>
         <span ng-show="usage">
          <i>"{{usage}}"</i>
@@ -142,6 +144,7 @@
 <script src="plumbing.js"></script>
 <script src="res-wiring.js"></script>
 
+<script src="gre.js"></script>
 <script src="music.js"></script>
 
 <script src="sfdc-glossary-app.js"></script>
