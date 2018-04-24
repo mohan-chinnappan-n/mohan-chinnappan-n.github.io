@@ -238,6 +238,58 @@
        </section>
 
        <section>
+         <h4>Use of External Objects</h4>
+         <ul style="font-size:32px;">
+           <li>Data-tiering strategy:
+             <ul>
+               <li>Data is spread across multiple objects and external data stores</li>
+               <li>So no need to bring the data into Salesforce</li>
+               <li>Bring the data into Salesforce on demand from external data store</li>
+               <li>This avoids storing large amount of data in Salesforce and  LDV issues</li>
+
+             </ul>
+           </li>
+           <li>External Objects are similar to Custom objects but they map data that is stored in an external data store</li>
+           <li>External Objects enables users and system to search and interact with the external data in its current state
+           </li>
+           <li>
+             An external data source specifies how to access an external system. </li>
+             <li><b>Salesforce Connect</b> uses external data sources to access data that's stored outside your Salesforce organization.<br/>
+                <b>Files Connect</b> uses external data sources to access <b>third-party content systems</b>.
+
+           </li>
+
+            </ul>
+       </section>
+
+
+       <section>
+         <h4 style="font-size:30px;"> External Objects Lookups</h4>
+         <ul style="font-size:25px;">
+           <li>External objects support standard lookup relationships via 18-char Salesforce RecordID
+              associate related records
+           </li>
+           <li>Data stored outside Saleforce org often does not have those RecordIDs, so we have 2 type of
+           lookup relationship avaiable:
+           <ul>
+             <li><b>External Lookups</b>:
+                Parent is an external object <br/>
+                External lookup links a child (Standard, Custom, another External Object) to <b>parent</b> External object
+             </li>
+             <li><b>Indirect Lookups</b>:
+                 When the external data doesn’t include Salesforce RecordIDs<br/>
+                 Links a <b>child</b> external object to <b>parent</b> (Standard, Custom) object.<br/>
+
+             </li>
+           </ul>
+
+         </li>
+        </ul>
+        <img style="border:0px; border-radius:10xp;" height="380" src="img/ldv/external-obj-table.png" alt="">
+      </section>
+
+
+       <section>
          <h4 style="font-size:30px;">Best Practices for Deployments with Large Data Volumes</h4>
          <object   data="https://resources.docs.salesforce.com/sfdc/pdf/salesforce_large_data_volumes_bp.pdf" type="application/pdf" style="width: 100%; height: 800px;">
 
