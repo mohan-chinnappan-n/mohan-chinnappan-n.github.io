@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="MainCtrl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{appName}}</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/navbar-blue.css">
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/data-markdown.user.js"></script>
+
+
+  <script src="../bower_components/marked/marked.min.js"></script>
+  <script src="../bower_components/angular-marked/dist/angular-marked.js"></script>
+
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../reveal.js/css/theme/white.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+    		<![endif]-->
+
+  <style>
+    .reveal .slide-number {
+      font-size: 0.5em;
+    }
+
+    .simg {
+      border-radius: 10px;
+      border: 1px;
+    }
+
+    .reveal section ul li,
+    .reveal section p {
+      font-size: .8em !important;
+    }
+
+    .reveal section pre code {
+      font-size: 0.7em !important;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">{{appName}}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+      <div class="inner-addon right-addon navbar-form navbar-right">
+        <i class="glyphicon glyphicon-search"></i>
+        <input type="text" class="form-control" placeholder="Search" />
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown ">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="./help.html">Help Topics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <!--
+  <div class="container" ng-controller='MainCtrl'>
+    <div marked src="'pevents.md'"></div>
+  </div>
+-->
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section id="home">
+        <h4>{{appName}}</h4>
+        <ul style="font-size:30px;">
+          <li>Technology Behind Einstein Analytics (EA) Platform -  make very organization smarter!</li>
+
+        </ul>
+        <img style="border:0px;border-radius:10px;" src="https://mohan-chinnappan-n.github.io/sfdc/img/platform/sfdc-arch-1.png" alt="">
+      </section>
+
+      <section>
+        <h4>Einstein Analytics - Platform</h4>
+        <ul>
+          <li>Increase performance and adoption with the Einstein Analytics Platform</li>
+        </ul>
+        <img src="img/platform/sfdc-ea-platform.jpg" height="500"  style="border:0px;border-radius:10px;padding:10px;" alt="">
+
+      </section>
+
+      <section>
+        <h4>Einstein Analytics</h4>
+        <ul>
+          <li>Supercharge customer interactions with Einstein Analytics solutions for every line of business</li>
+        </ul>
+        <img src="img/platform/sfdc-ea-1.jpg" height="500"  style="border:0px;border-radius:10px;padding:10px;" alt="">
+
+      </section>
+
+
+
+
+      <section>
+        <h4>Einstein Analytics - Sales Analytics</h4>
+        <ul>
+          <li>Turn data into smarter sales with Sales Analytics</li>
+        </ul>
+        <img src="img/platform/sfdc-ea-sales.jpg" height="500"  style="border:0px;border-radius:10px;padding:10px;" alt="">
+
+      </section>
+
+      <section>
+        <h4>Einstein Analytics - Service Analytics</h4>
+        <ul>
+          <li>Creates smarter managers, more productive agents, and happier customers</li>
+        </ul>
+        <img src="img/platform/sfdc-ea-service.jpg" height="500"  style="border:0px;border-radius:10px;padding:10px;" alt="">
+
+      </section>
+
+      <section>
+        <h4>Einstein Analytics - B2B Marketing Analytics</h4>
+        <ul>
+          <li>Give your entire team an easy view of complex marketing insights</li>
+        </ul>
+        <img src="img/platform/sfdc-ea-b2bm.jpg" height="500"  style="border:0px;border-radius:10px;padding:10px;" alt="">
+
+      </section>
+
+
+
+      <section>
+        <h4>Executive Summary</h4>
+        <ul style="font-size:30px;">
+          <li>
+            Organizations have an unprecedented opportunity to learn more about their:
+            <ul>
+            <li>Businesses</li>
+            <li>Markets</li>
+            <li>Customers</li>
+          </ul>
+           from the explosion of data being generated from a wealth of sources - from sensors to apps
+          </li>
+          <li><hr/>Need to:
+           <ul>
+             <li>Explore</li>
+             <li>Analyze</li>
+             <li>Gain Insights</li>
+           </ul>
+          from Data</li>
+
+        </ul>
+      </section>
+
+      <section>
+        <h4>Executive summary - contd.</h4>
+        <ul style="font-size:30px;">
+          <li>Non-relational approach to combine  heterogeneous data-forms and types</li>
+          <li>Search-based query engine</li>
+          <li>Simple to use and engaging UI</li>
+          <li>Mobile-friendly exprience</li>
+          <li>Allows explore data in a fast, agile, self-service way <b>without</b>:
+            <ul>
+              <li>dependency on data scientists</li>
+              <li>cumbersome data-warehouse schemas</li>
+              <li>slow and resource-intentsive IT infrastructure</li>
+            </ul> </li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Need for new era of BI</h4>
+        <ul style="font-size:30px;  ">
+          <li>The data revolution has created tremendous demands on business intelligence.
+            In 2013, it was estimated that 90% of the world’s data had been created in the past 12 months</li>
+        </ul>
+        <img style="border:0px;border-radius:10px;" height="400" src="img/ea-wp/ea-data-streams-0.png" alt="">
+      </section>
+
+      <section>
+        <h4 style="font-size:35px;">User challenges in Traditional BI </h4>
+        <div class="row">
+          <div class="col-lg-6">
+            <img style="border:0px;border-radius:10px;" src="img/ea-wp/ea-data-streams.png" alt="">
+
+          </div>
+            <div class="col-lg-6">
+
+        <ul style="font-size:30px;">
+          <li>Reduced <b>agility</b> </li>
+          <li> Users ask a question and then <b> wait weeks or months</b> for an
+answer; if they discover the original question was the wrong one, the schema build-out must <b>start all over again</b>. Legacy
+BI additionally pre-aggregates the data, which limits insights </li>
+<li>A typical BI deployment strikes a balance between <b>anticipated queries and performance</b></li>
+<li><i>Example</i>:  data is typically <b>rolled up</b> to a higher grain to provide acceptable query performance</li>
+<li>Prevents users from  answering second-order or third-order questions</li>
+<li>Users need to go back to IT or use different tooling to answer their questions</li>
+        </ul>
+      </div>
+    </div>
+
+      </section>
+
+
+
+        <section>
+          <h4 style="font-size:35px;">Business challenges in Traditional BI </h4>
+          <div class="row">
+            <div class="col-lg-7">
+              <img style="border:0px;border-radius:10px;"  src="img/ea-wp/ea-classic-bi.png" alt="">
+            </div>
+
+          <div class="col-lg-5">
+
+          <ul style="font-size:30px;">
+           <li>Not match with the speed of business:
+             <ul>
+               <li>Building out a BI schema can take weeks</li>
+               <li>Waiting in queue for getting BI/IT resources available</li>
+               <li>Lost: Business's failure to act rapidly</li>
+             </ul>
+
+           </li>
+           <li>Resource intensive:
+             <ul>
+               <li>Requires team of experts : IT architects, business analysts, data scientists and project managers</li>
+             </ul>
+
+           </li>
+           <li>Not able to exploit data-as-an-asset:
+               <ul>
+                 <li>Current BI warehouses - prohibitive for widespread adoption and usage across the enterprise</li>
+                 <li>End users cannot nimbly engage in data-driven decision-making
+               </ul>
+           </li>
+          </ul>
+        </div>
+      </div>
+
+        </section>
+
+        <section>
+          <h4 style="font-size:35px;">Welcome to Self-service data discovery to users: efficient and valuable!</h4>
+          <div class="row">
+            <div class="col-lg-12">
+              <img style="border:0px;border-radius:10px;"  src="img/ea-wp/ea-oldBI-EA.png" alt="">
+            </div>
+
+        </div>
+
+        </section>
+
+        <section>
+          <h4 style="font-size:30px;">Innovations to fix  Traditional BI issues</h4>
+          <div class="row">
+            <div class="col-lg-8">
+              <img style="border:0px;border-radius:10px;"  src="img/ea-wp/ea-layers.png" alt="">
+            </div>
+
+           <div class="col-lg-4">
+            <ul style="font-size:30px;">
+            <li><b>Salesforce Einstein Analytics</b>: Google-inspired approach to Business Analytics:
+                <ul>
+                  <li>Non-relational store</li>
+                  <li>Search-based query engine</li>
+                  <li>Advanced compression algorithms</li>
+                  <li>Columnar in-memory computing</li>
+                  <li>High-speed visualization engine</li>
+                  <li>Embraces complexity of heterogeneous data and fluidity of questions</li>
+                  <li>Provides end user's proclivity for exploring data with <b>agility</b></li>
+                </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+        </section>
+
+    <section>
+      <h4 style="font-size:30px;">9 Technology Principles for Einstein Analytics Platform</h4>
+      <div class="row">
+        <div class="col-lg-4">
+      <ul class="list-group" style="font-size:20px;">
+        <li class="list-group-item"> <button class="btn btn-info" style="width:250px;" data-toggle="collapse">1. Agility</button> </li>
+        <li class="list-group-item"> <button style="width:250px;" class="btn btn-primary" data-toggle="collapse">2. Search-based exploration</button> </li>
+          <li class="list-group-item"> <button style="width:250px;" class="btn btn-warning" data-toggle="collapse">3. Columnar, in-memory aggregation</li>
+          <li class="list-group-item"> <button style="width:250px;" class="btn btn-danger" data-toggle="collapse">4. Speed</li>
+          <li class="list-group-item"> <button style="width:250px;" class="btn btn-info" data-toggle="collapse">5. Actionability - Actionable Insights</li>
+          <li class="list-group-item"> <button style="width:250px;" class="btn btn-primary" data-toggle="collapse">6. Interactivity</li>
+          <li class="list-group-item"> <button style="width:250px;" class="btn btn-warning" data-toggle="collapse">7. Mobile-first design</li>
+          <li class="list-group-item"> <button style="width:250px;" class="btn btn-danger" data-toggle="collapse">8. Open, scalable cloud platform</li>
+          <li class="list-group-item"> <button style="width:250px;" class="btn btn-info" data-toggle="collapse">9. Security</li>
+      </ul>
+
+        </div>
+        <div class="col-lg-8">
+
+      <ol style="font-size:18px;">
+        <li ><b>Agility</b>
+          <ul>
+            <li>Accomodates any data-structure, type or source</li>
+            <li>Making them available immediately without a lengthy ETL process </li>
+          </ul>
+
+        </li>
+        <li><b>Search-based exploration</b>
+           <ul>
+             <li>Data is searched using an <b>inverted index</b> — similar to the Google search engine — allowing for query results within seconds</li>
+           </ul>
+        </li>
+        <li><b>Columnar, in-memory aggregation</b>
+              <ul>
+                <li>Quantitative data is spun up and queried in a <b>columnar
+store in RAM</b> across Salesforce’s cloud instead of in the
+row structure of a relational database on disk.</li>
+              </ul>
+        </li>
+        <li><b>Speed</b>
+            <ul>
+              <li>Heavy compression, optimization algorithms, parallel processing and other strategies allow sub-second and
+highly efficient queries on extremely large datasets. </li>
+            </ul>
+        </li>
+        <li><b>Actionability - Actionable Insights</b>
+          <ul>
+            <li>Once a user has discovered an <b>insight</b> or made an
+important decision, they can instantly take the next best
+<b>action</b> right from within the EA </li>
+          </ul>
+
+        </li>
+        <li><b>Interactivity</b>
+          <ul>
+            <li>Fast, intuitive, visualization promotes user adoption and
+contextual understanding — bringing true <b>self-service
+analytics</b> to every business user</li>
+          </ul>
+
+        </li>
+        <li><b>Mobile-first design</b></li>
+        <li><b>Open, scalable cloud platform</b>
+          <ul>
+            <li>Easy-to-use APIs, EA's architecture enables deep relationships with third-party tools and complements
+existing BI solutions. </li>
+<li>Deeply integrated with
+Salesforce so you can see your Sales Cloud and Service
+Cloud data like never before, <b>collaborate, and take action
+from within Salesforce</b>.
+</li>
+          </ul>
+
+        </li>
+        <li><b>Security</b>
+          <ul>
+            <li> Inherits Salesforce’s proven, multilayered
+approach to data availability, privacy and security,
+with the additional benefit that data on the Salesforce
+platform need not move outside of Salesforce servers to
+be available for analytics</li>
+          </ul>
+
+        </li>
+      </ol>
+    </div>
+  </div>
+    </section>
+
+    <section>
+      <h4>EA architecture</h4>
+        <img style="border:0px;border-radius:10px;" height="500"   src="img/ea-wp/ea-arch.png" alt="">
+
+    </section>
+
+    <section>
+      <h4 style="font-size:35px;">1. Agility: Ingest, index, and begin analyzing data immediately</h4>
+
+      <div class="row" style="font-size:25px;border:5px #efe solid;border-radius:10px;">
+        <div class="col-lg-4">
+            <i>Traditional: Wallfall approach:<hr/></i>
+          <ul>
+                <li>Gather requirements</li>
+                <li>Figure out relationships</li>
+                <li>Pre-determine the data structure</li>
+                <li>Add a semantic layer to the data</li>
+                <li>Ingest the data</li>
+          </ul>
+
+        </div>
+          <div class="col-lg-8">
+              <i>  EA way - <b>ELT</b> - Extract Load Transform:<hr/></i>
+                  <ul>
+                    <li>Data is extracted,  Loaded, Indexed</li>
+                    <li> Made <b>available immediately</b> for analysis or additional transformations</li>
+                    <li>Enables <b>immediate search and exploration of the raw data</b>, allowing the analytics tool
+to detect patterns and relationships instead of requiring a lengthy data normalization process</li>
+<li> Data is loaded into non-relational store, with a dynamic, <b>horizontally scalable key-value pair approach</b> </li>
+<li> The workflow engine applies small, inline transformations upon ingestion
+— <b>pruning, filtering, partitioning, and augmenting</b> — but largely stores the data in its native form. </li>
+<li>User can gain rapid access to the data, and can immediately
+determine in what ways the data is relevant to user's needs — without weeks or months of investment in
+<b>cleaning up</b> data before exploring it</li>
+<li> Makes self-service data exploration <b>rapid and iterative</b>,
+putting the ability to understand relationships between data in the <b>hands of the end users</b> and allowing enterprises
+to dramatically <b>shorten the path to innovation</b> </li>
+
+                  </ul>
+
+              </ul>
+          </div>
+
+      </div>
+
+
+    </section>
+
+    <section>
+      <h4>2. Search-based exploration</h4>
+      <div class="row">
+        <div class="col-lg-7">
+            <img style="border:0px;border-radius:10px;"   src="img/ea-wp/ea-search-based.png" alt="">
+        </div>
+
+         <div class="col-lg-5">
+      <ul style="font-size:25px;">
+        <li>Process queries of large, heterogeneous datasets in seconds</li>
+        <li>
+          Data is ingested and stored as key-value
+         pairs in a <b>non-relational inverted index</b>, permitting <b>variable
+         numbers of dimensions and attributes</b> for data and the
+         accommodation of text strings and <b>unstructured data</b>, as
+         well as data sets with variable levels of completeness or
+         characterization
+
+        </li>
+        <li>
+          Highly optimized, using techniques:
+          <ul>
+            <li>differential encoding </li>
+            <li>vector encoding</li>
+            <li> incremental encoding</li>
+          </ul>
+        </li>
+        <li> to compress data and make queries on compressed data as fast and efficiently as possible</li>
+      </ul>
+    </div>
+  </div>
+    </section>
+
+
+    <section>
+      <h4>3. Columnar, in-memory aggregation and calculation</h4>
+      <ul style="font-size:30px;">
+        <li>Gain incredible speed by dramatically optimizing the query</li>
+        <li>
+          Queries quantitative data in an <b>in-memory columnar store</b>, rather than against rows and tables
+       on disk, optimizing the size of the dataset and the query
+       process itself, as the engine does not need to process rows of
+       data and can avoid reading columns not related to a query
+        </li>
+      </ul>
+    </section>
+
+
+
+        <section>
+          <h4 style="font-size:35px;">4. Speed :  Get instant answers from free-form navigation and exploration</h4>
+          <ul style="font-size:30px;">
+            <li>Performance of a query depends on a combination of <b>data structure</b> and <b>query strategy</b>, and EA brings both
+together</li>
+            <li>
+              With the <b>inverted index</b>, EA permits datasets equivalent to up to a <b>billion rows to be queried in seconds</b>
+            </li>
+
+            <li>
+
+               Using a variety of compression techniques, the workflow engine that ingests
+and transforms data is able to store it at a <b>significantly
+smaller size</b> than the original source data — at <b>compression
+ratios > 90%</b>.<br/> The specialized compression and the algorithms that operate on a
+compressed data platform perform significantly better on
+modern CPUs, resulting in more efficient computation </li>
+
+<li>
+The  query engine relies on the <b> massively
+parallel processing architecture of Salesforce’s cloud</b> – with
+more than <b>40,000 available processors</b> in the cloud, further
+powering computations at <b>near-instantaneous speed</b><br/>
+However, because of the <b>heavy compression</b>, EA <b>uses as
+few resources as possible</b> to reach answers to queries
+
+</li>
+          </ul>
+        </section>
+
+
+
+        <section>
+          <h4 style="font-size:35px;">5. Actionability: take the next logical step right within </h4>
+          <ul style="font-size:30px;">
+            <li>
+              EA's built-in tools called <b>EA Actions </b>that allow user to quickly go from <b>question
+             to answer</b> to action without logging into a separate solution.
+             <br> Now when the user finds an answer, the user can immediately create a <b>task,
+             update a record, log a call, and more</b> — and all without waiting for legacy technology or
+             data analysts.
+             </li>
+          </ul>
+        </section>
+
+
+
+        <section>
+          <h4 style="font-size:35px;">6. Interactivity: encourage adoption and exploration with a powerful visualization layer</h4>
+          <ul style="font-size:30px;">
+            <li>
+              Visualize data and customize views in ways that are intuitive and interactive and that encourage faceting and exploration
+             </li>
+             <li>
+               Designed with <b>gamification principles</b> in mind, using simple, beautiful graphics that
+immediately <b>engage users and fire up their curiosity to play
+and discover</b>
+
+             </li>
+             <li> Uses SVG graphics within the browser, and uses an <b>animation engine</b>
+                when the graphics shift as users<b> filter and change views</b>, resulting in <b>fast-rendering graphics</b>
+                that connect the relationships between views of data – and demand few resources from the user’s device or the server
+</li>
+<li>
+  Users can easily combine datasets and create custom
+dashboards to <b>explore questions from different angles</b> and
+using different combinations of information.
+
+</li>
+
+          </ul>
+        </section>
+
+
+        <section>
+          <h4 style="font-size:35px;">7. Mobile-first: put information in users’ hands, literally </h4>
+          <ul style="font-size:30px;">
+            <li>
+              Mobile users can visualize and interact with data, run queries, and develop
+  dashboards as rapidly and intuitively as they can on a Desktop,
+  with <b> equally rapid response times</b></li>
+  <li> Salesforce <b>does not leave
+  data locally on mobile devices or laptops</b>, so enterprises do
+  not need to be concerned about <b>data theft</b> when a device or
+  laptop is stolen or lost
+             </li>
+          </ul>
+            <img style="border:0px;border-radius:10px;" height="350"  src="https://mohan-chinnappan-n.github.io/sfdc/img/platform/sfdc-ea-1.jpg" alt="">
+        </section>
+
+        <section>
+          <h4 style="font-size:35px;">8. Open, scalable cloud platform</h4>
+          <div class="row">
+            <div class="col-lg-6">
+                <img style="border:0px;border-radius:10px;"   src="img/ea-wp/ea-native-sfdc.png" alt="">
+            </div>
+            <div class="col-lg-6">
+          <ul style="font-size:25px;">
+            <li> Gain value faster and get more from BI investments </li>
+            <li>Allows flexibility and agility by <b>interfacing easily</b> with third-party tools</li>
+            <li>Enterprises can <b>complement and supplement existing BI solutions</b> and build
+new ones as custom needs arise, so they can derive more value from their existing BI and IT investments</li>
+<li> A complete, <b>rich set of APIs</b> invites third parties and enterprises to
+build their own analytics tools and applications on top of EA
+</li>
+<li><b>Integral part</b> of Salesforce’s Customer Success Platform</li>
+<li>
+  The ability for enterprises to <b>scale up and down</b>
+  in their data analytics usage without investing in hardware
+  and on-site IT resources — as well as high performance and speed
+
+</li>
+<li> Native integration with<b> Salesforce Sales Cloud, Service
+Cloud, App Cloud, and Community Cloud</b> enables enterprises
+to rapidly achieve time to value by layering on additional data
+to begin understanding customers, sales performance, and
+markets on a deeper level with data from any other source
+</li>
+          </ul>
+        </div>
+      </div>
+        </section>
+
+        <section>
+          <h4 style="font-size:35px;">9.Security: trust is inherent with Salesforce’s secure cloud</h4>
+          <div class="row">
+            <div class="col-lg-6">
+              <img style="border:0px;border-radius:10px;" height="350"  src="img/ea-wp/ea-cloud.png" alt="">
+
+
+            </div>
+
+            <div class="col-lg-6">
+          <ul style="font-size:30px;">
+            <li>
+              Salesforce’s world-class privacy program and security infrastructure extends to the EA Platform
+            </li>
+            <li><b> Multi-layered approach</b> to protecting, monitoring, and staying ahead of security challenges</li>
+            <li>
+
+              Salesforce security and privacy measures include a robust
+information <b>security governance model, security coding and
+testing</b> through each layer of development, investment in
+network defense, and comprehensive physical and operational
+security at all Salesforce facilities.
+
+            </li>
+          </ul>
+        </div>
+      </div>
+
+        </section>
+
+
+
+    </div>
+  </div>
+
+
+
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
+
+
+  <script>
+    'use strict';
+
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+      //width: 960,
+      //	height: 700,
+
+      // Display presentation control arrows
+      controls: true,
+
+      // Help the user learn the controls by providing hints, for example by
+      // bouncing the down arrow when they first encounter a vertical slide
+      controlsTutorial: true,
+
+      // Determines where controls appear, "edges" or "bottom-right"
+      controlsLayout: 'edges',
+
+      // Visibility rule for backwards navigation arrows; "faded", "hidden"
+      // or "visible"
+      controlsBackArrows: 'faded',
+      // Display a presentation progress bar
+      progress: true,
+
+      // Set default timing of 2 minutes per slide
+      defaultTiming: 120,
+
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
+
+
+      history: true,
+      center: true,
+      slideNumber: true,
+
+      embedded: true,
+
+      transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+      menu: {
+        markers: true,
+        openSlideNumber: true,
+        themes: [{
+            name: 'Black',
+            theme: '../reveal.js/css/theme/black.css'
+          },
+          {
+            name: 'White',
+            theme: '../reveal.js/css/theme/white.css'
+          },
+          {
+            name: 'League',
+            theme: '../reveal.js/css/theme/league.css'
+          },
+          {
+            name: 'Sky',
+            theme: '../reveal.js/css/theme/sky.css'
+          },
+          {
+            name: 'Beige',
+            theme: '../reveal.js/css/theme/beige.css'
+          },
+          {
+            name: 'Simple',
+            theme: '../reveal.js/css/theme/simple.css'
+          },
+          {
+            name: 'Serif',
+            theme: '../reveal.js/css/theme/serif.css'
+          },
+          {
+            name: 'Blood',
+            theme: '../reveal.js/css/theme/blood.css'
+          },
+          {
+            name: 'Night',
+            theme: '../reveal.js/css/theme/night.css'
+          },
+          {
+            name: 'Moon',
+            theme: '../reveal.js/css/theme/moon.css'
+          },
+          {
+            name: 'Solarized',
+            theme: '../reveal.js/css/theme/solarized.css'
+          }
+        ],
+        custom: []
+      },
+
+      // Optional reveal.js plugins
+      dependencies: [{
+          src: '../reveal.js/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          condition: function() {
+            return !!document.querySelector('pre code');
+          },
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: '../reveal.js/plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/reveal.js-menu/menu.js',
+          async: true
+        }
+      ]
+    });
+
+
+
+    var app = angular.module('app', [
+      'hc.marked'
+    ]);
+    app.config(['markedProvider', function(markedProvider) {
+      markedProvider.setOptions({
+        gfm: true
+      });
+    }]);
+
+    var GSCOPE;
+    app.controller('MainCtrl', function($scope, $http, $timeout) {
+      GSCOPE = $scope; // debugging purposes
+      $scope.appName="Einstein Analytics (EA)";
+
+
+
+    })
+  </script>
+</body>
+
+</html>
