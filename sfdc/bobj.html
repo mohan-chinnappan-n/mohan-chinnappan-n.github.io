@@ -154,8 +154,9 @@
          <ul>
            <li>Defined and deployed by you through the Metadata API
              <ul>
-               <li>Create an object file that contains its definition,
-                 fields, and index, along with a permissionset to define the permissions for each field,
+               <li>Create an <b>object</b> file that contains its definition,
+                 fields, and index, along with a <b>permissionset</b> to define the permissions for each field,
+                 and a <b>package</b> file to define the contents of the <b>object metadata</b>
 
                </li>
                <li>   The fields defined in a big object’s <b>index</b> determine the big object’s <b>identity</b> and its ability to be queried </li>
@@ -174,6 +175,22 @@
            <li>Provide 360° View of the Customer </li>
            <li>Auditing and Tracking - long-term view of your users’ Salesforce usage for analysis or compliance purposes </li>
            <li>Historical Archive  -  historical data for analysis or compliance purposes </li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Querying Big Objects </h4>
+         <ul style="font-size:30px;">
+           <li><b>Subset of standard SOQL</b>: when the query will return a <b>small amount of data</b>,
+              don’t want to wait for the results, or need the results returned immediately for use in Apex.
+
+
+           </li>
+           <li><b>Async SOQ</b>L:
+               Schedules and runs queries asynchronously in the background<br/>
+               Can run multiple queries in the background while monitoring their completion status <br/>
+               Efficient way to process the <b>large amount of data</b> in a big object.
+           </li>
          </ul>
        </section>
 
