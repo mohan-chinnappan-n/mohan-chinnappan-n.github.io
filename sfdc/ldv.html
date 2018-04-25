@@ -151,9 +151,14 @@
                   <li>Record Locking
                     <ul>
                       <li>
-                        Updating a large number of Contacts under the same Account in <b>multiple threads</b></li>
+                        System uses record-level database locking to preserve the integrity of data during the updates
+                      </li>
+                      <li>
+                        Updating a large number of Contacts under the same Account occurs in <b>multiple threads</b></li>
                        <li> For each update, the system (property of Tranactional Database) locks both the <b>Contact</b> being changed and its <b>parent Account</b>
                            to maintain integrity in the database. </li>
+                        <li>This is to prevent  prevent inconsistencies,
+                          such as updating a child record whose parent has just been deleted in another thread </li>
                         <li>Even though each lock is held for a very short time, because all the updates are trying to lock the <b>same Account</b>,
                            there’s a high risk an update will fail because a previous one is still holding the lock on the account.
                         </li>
