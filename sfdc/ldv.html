@@ -162,6 +162,9 @@
                         <li>Even though each lock is held for a very short time, because all the updates are trying to lock the <b>same Account</b>,
                            there’s a high risk an update will fail because a previous one is still holding the lock on the account.
                         </li>
+                        <li>
+                          Customers who are experiencing a small number of locking errors might be able to handle the problem by adding retry logic to their integration code. Customers who experience frequent locking from integrations and mass updates should sequence batches so that the same records are not updated in multiple threads simultaneously.
+
 
 
 
