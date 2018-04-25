@@ -256,6 +256,38 @@
          </ul>
        </section>
 
+       <section>
+         <h4>Outbound Messaging</h4>
+         <div class="row">
+           <div class="col-lg-5">
+             <ul style="font-size:23px;">
+               <li>If the endpoint is unavailable, messages will stay in the queue until sent successfully,
+                  or until they are 24 hours old. After 24 hours, messages are <b>dropped</b> from the queue</li>
+              <li>
+                If a message cannot be delivered, the interval between <b>retries increases exponentially</b>, up to a <b>maximum of 2 hours between retries</b>
+
+              </li>
+              <li>Messages are retried <b>independent of their order in the queue</b>. This may result in messages being delivered <b>out of order</b></li>
+              <li>
+                You cannot build an audit trail using outbound messaging. While each message should be delivered at least once, it may be <b>delivered more than once</b>.
+                Listener client should check the <b>notification IDs</b> delivered in the notification before processing.
+                 Also, it may not be delivered at all if delivery cannot be done within 24 hours
+
+              </li>
+              <li> The source object may change <b>after a notification is queued</b>
+                 but before it is sent, so the endpoint will only receive the <b>latest data</b>, not any intermediate changes.</li>
+
+             </ul>
+
+           </div>
+           <div class="col-lg-7">
+             <img style="border:0px;border-radius:10px;padding:0px;" src="https://developer.salesforce.com/docs/resources/img/en-us/212.0?doc_id=dev_guides%2Fapi%2Fimages%2Foutbound_overview.gif&folder=api" height="500" alt="">
+
+           </div>
+
+         </div>
+       </section>
+
 
 
 
