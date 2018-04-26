@@ -115,6 +115,8 @@
 
 
   <script type="text/javascript">
+  // refer: http://plnkr.co/edit/PL7HvK1FY2ycuOrBbBTA?p=preview
+  // http://embed.plnkr.co/0iY5Qn/
   var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.edit', 'ui.grid.cellNav', 'addressFormatter']);
 
  angular.module('addressFormatter', []).filter('address', function () {
@@ -174,10 +176,19 @@
       $scope.gridOptions.columnDefs = [
         { name: 'fullName', enableCellEdit: true, width: '15%' },
         { name: 'label', displayName: 'Label', width: '15%' },
-        { name: 'type', displayName: 'Type' , type: 'string', width: '10%' },
-        { name: 'length', displayName: 'Length' , type: 'string', width: '8%' },
-        { name: 'precision', displayName: 'Precision' , type: 'string', width: '8%' },
-        { name: 'scale', displayName: 'Scale' , type: 'string', width: '5%' },
+        { name: 'type', displayName: 'Type' , type:'string', width: '10%',
+        cellTemplate: '<select  ng-model="row.entity.type">' +
+                    '<option value="Text">Text</option>' +
+                    '<option value="Number">Number</option>' +
+                    '<option value="Date">Date</option>' +
+                    '<option value="DateTime">DateTime</option>' +
+                    '</select>'
+
+
+         },
+        { name: 'length', displayName: 'Length' , type: 'number', width: '8%' },
+        { name: 'precision', displayName: 'Precision' , type: 'number', width: '8%' },
+        { name: 'scale', displayName: 'Scale' , type: 'number', width: '5%' },
 
         { name: 'required', displayName: 'Required' , type: 'boolean', width: '8%',
         cellTemplate: '<input type="checkbox" ng-model="row.entity.required">'
