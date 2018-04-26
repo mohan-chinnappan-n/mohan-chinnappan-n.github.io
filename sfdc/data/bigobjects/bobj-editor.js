@@ -20,6 +20,7 @@ var app = angular.module('app', ['ngTouch',
 
  'addressFormatter']);
 
+
 angular.module('addressFormatter', []).filter('address', function () {
  return function (input) {
      return input.street + ', ' + input.city + ', ' + input.state + ', ' + input.zip;
@@ -28,6 +29,10 @@ angular.module('addressFormatter', []).filter('address', function () {
 
 app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGridConstants) {
  GScope = $scope;
+
+ $scope.consumeKey = '3MVG9zlTNB8o8BA1OFO2Hhl692YjoPxmPwuvEgolJr5HCOUUMzufXb18pkYPKPnRguMKKJpL2Lw==';
+ $scope.secret = '189652109001009322';
+ $scope.oauthRedirectUrl = 'https://mohan-chinnappan-n.github.io/sfdc/redirect.html';
 
  $scope.objectLabel = 'Rider History';
  $scope.objectAPIName = $scope.objectLabel.replace(/[ ]/g,'_') + '__b';
@@ -46,6 +51,19 @@ app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($sco
    //alert('updateAPIName')
    $scope.indexAPIName = $scope.indexLabel.replace(/[ ]/g,'_') ;
  }
+ $scope.sfdcLogin = function() {
+   alert('sfdcLogin');
+   console.log(jsforce);
+   jsforce.browser.init({ clientId: $scope.consumeKey, redirectUri: $scope.oauthRedirectUrl });
+   jsforce.browser.on('connect', function(conn) {
+     alert('connect')
+      conn.query('SELECT Id, Name FROM Account', function(err, res) {
+       if (err) { return alert(err); }
+
+  });
+});
+ }
+
 
 
 $scope.prepString  = function() {

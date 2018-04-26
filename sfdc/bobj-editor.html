@@ -32,6 +32,8 @@
 
 <script type="text/javascript" src="./data/bigobjects/FileSaver.min.js"> </script>
 <script type="text/javascript" src="./data/bigobjects/jszip.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsforce/1.7.0/jsforce.min.js"></script>
+
 
 
 <style media="screen">
@@ -114,6 +116,7 @@
 <button class='btn btn-info' ng-click="addNewItem()" > Add row at end </button>
 <button class='btn btn-info'   ng-show='gridApi.selection.getSelectedRows().length == 1' ng-click="insertNewItem()" > Insert row above</button>
 <button class='btn btn-danger' ng-show='gridApi.selection.getSelectedRows().length == 1' ng-click="deleteRow()" > Delete </button>
+<button class='btn btn-info'   ng-click="sfdcLogin()" > SFDC Login </button>
 
 
   <h4 style="margin-left:0px;">Index</h4>
