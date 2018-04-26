@@ -1,7 +1,24 @@
+/*
+ author: mohan chinnappan
+ Apr 2018
+*/
 var GScope;
 // refer: http://plnkr.co/edit/PL7HvK1FY2ycuOrBbBTA?p=preview
 // http://embed.plnkr.co/0iY5Qn/
-var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.edit', 'ui.grid.cellNav', 'addressFormatter']);
+var app = angular.module('app', ['ngTouch',
+'ui.grid',
+'ui.grid.edit',
+'ui.grid.cellNav',
+
+'ui.grid.selection',
+'ui.grid.exporter',
+'ui.grid.resizeColumns',
+'ui.grid.pagination',
+
+'ui.grid.importer',
+'ui.grid.autoFitColumns',
+
+ 'addressFormatter']);
 
 angular.module('addressFormatter', []).filter('address', function () {
  return function (input) {
@@ -12,12 +29,24 @@ angular.module('addressFormatter', []).filter('address', function () {
 app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGridConstants) {
  GScope = $scope;
 
- $scope.objectAPIName = 'Rider_History__b';
  $scope.objectLabel = 'Rider History';
- $scope.objectPluralLabel = 'Rider History';
+ $scope.objectAPIName = $scope.objectLabel.replace(/[ ]/g,'_') + '__b';
+ $scope.objectPluralLabel =  $scope.objectLabel;
 
- $scope.indexAPIName = 'Rider_History_Index';
  $scope.indexLabel = 'Rider History Index';
+ $scope.indexAPIName =  $scope.indexLabel.replace(/[ ]/g,'_');
+
+ $scope.updateAPIName = function(){
+   //alert('updateAPIName')
+   $scope.objectAPIName = $scope.objectLabel.replace(/[ ]/g,'_') + '__b';
+   $scope.objectPluralLabel = $scope.objectLabel;
+ }
+
+ $scope.updateIndexAPIName = function(){
+   //alert('updateAPIName')
+   $scope.indexAPIName = $scope.indexLabel.replace(/[ ]/g,'_') ;
+ }
+
 
 $scope.prepString  = function() {
   var gd = $scope.gridOptions.data
@@ -108,7 +137,19 @@ $scope.prepString  = function() {
 
 
 
+ $scope.validateFields = function() {
+   //console.log($scope.objectAPIName)
+  if ($scope.objectAPIName == undefined     || $scope.objectAPIName.length === 0) { alert('Object API Name is required!'); return null; }
+  if ($scope.objectLabel == undefined       || $scope.objectLabel.length === 0)   { alert('Object Label is required!'); return null; }
+  if ($scope.objectPluralLabel == undefined || $scope.objectPluralLabel.length === 0) { alert('Object Plural Label is required!'); return null; }
+
+  if ($scope.indexAPIName == undefined || $scope.indexAPIName.length === 0) { alert('Index API Name is required!'); return null; }
+  if ($scope.indexLabel == undefined   || $scope.indexLabel.length === 0 )  { alert('Index Label is required!'); return null; }
+
+ }
  $scope.createZipFile = function () {
+    var result = $scope.validateFields();
+    if (result === null) return;
     $scope.prepString();
 
     var zip = new JSZip();
@@ -127,50 +168,50 @@ $scope.prepString  = function() {
  }
 
  $scope.gridOptions = {
-   rowHeight: 25,
-   enableHorizontalScrollbar: uiGridConstants.scrollbars.NEVER,
+   //rowHeight: 25
+   //,enableHorizontalScrollbar: uiGridConstants.scrollbars.NEVER,
+   enableColumnAutoFit: true,
+   enableColumnResizing: true,
+   enableFiltering: true,
+
+   enableRowSelection: true,
+   enableColumnMenus: true,
+   enableRowHeaderSelection: true,
+
  };
 
- $scope.storeFile = function( gridRow, gridCol, files ) {
-   // ignore all but the first file, it can only select one anyway
-   // set the filename into this column
-   gridRow.entity.filename = files[0].name;
+ $scope.addNewItem=function() {
+      $scope.gridOptions.data.push( { fullName: 'Test add ', label: 'Test add' });
+    };
 
-   // read the file and set it into a hidden column, which we may do stuff with later
-   var setFile = function(fileContent){
-     gridRow.entity.file = fileContent.currentTarget.result;
-     // put it on scope so we can display it - you'd probably do something else with it
-     $scope.lastFile = fileContent.currentTarget.result;
-     $scope.$apply();
-   };
-   var reader = new FileReader();
-   reader.onload = setFile;
-   reader.readAsText( files[0] );
- };
+    $scope.insertNewItem=function() {
+      var currentSelection = $scope.gridApi.selection.getSelectedRows();
+      //console.log(currentSelection.length);
+      if (currentSelection.length !== 1) {
+        alert('Maker sure that you have selected one row for deletion!')
+        return;
+      }
+      var row = currentSelection[0];
 
- $scope.gridOptions.columnDefs2 = [
-   { name: 'id', enableCellEdit: false, width: '10%' },
-   { name: 'name', displayName: 'Name (editable)', width: '20%' },
-   { name: 'age', displayName: 'Age' , type: 'number', width: '10%' },
-   { name: 'gender', displayName: 'Gender', editableCellTemplate: 'ui-grid/dropdownEditor', width: '20%',
-     cellFilter: 'mapGender', editDropdownValueLabel: 'gender', editDropdownOptionsArray: [
-     { id: 1, gender: 'male' },
-     { id: 2, gender: 'female' }
-   ] },
-   { name: 'registered', displayName: 'Registered' , type: 'date', cellFilter: 'date:"yyyy-MM-dd"', width: '20%' },
-   { name: 'address', displayName: 'Address', type: 'object', cellFilter: 'address', width: '30%' },
-   { name: 'address.city', displayName: 'Address (even rows editable)', width: '20%',
-        cellEditableCondition: function($scope){
-        return $scope.rowRenderIndex%2
-        }
-   },
-   { name: 'isActive', displayName: 'Active', type: 'boolean', width: '10%' },
-   { name: 'pet', displayName: 'Pet', width: '20%', editableCellTemplate: 'ui-grid/dropdownEditor',
-     editDropdownRowEntityOptionsArrayPath: 'foo.bar[0].options', editDropdownIdLabel: 'value'
-   },
-   { name: 'filename', displayName: 'File', width: '20%', editableCellTemplate: 'ui-grid/fileChooserEditor',
-     editFileChooserCallback: $scope.storeFile }
- ];
+      var index = $scope.gridOptions.data.indexOf(row);
+      $scope.gridOptions.data.splice(index, 0,  { fullName: 'Test insert ', label: 'Test insert' });
+    };
+
+
+    $scope.deleteRow=function() {
+      var currentSelection = $scope.gridApi.selection.getSelectedRows();
+      //console.log(currentSelection.length);
+      if (currentSelection.length !== 1) {
+        alert('Maker sure that you have selected one row for deletion!')
+        return;
+      }
+      var row = currentSelection[0];
+      console.log(row)
+      var index = $scope.gridOptions.data.indexOf(row);
+      $scope.gridOptions.data.splice(index,1);
+      //$scope.apply();
+    };
+
 
 
     $scope.gridOptions.columnDefs = [
@@ -238,20 +279,6 @@ $scope.gridOptions.onRegisterApi = function(gridApi){
    .success(function(data) {
      $scope.gridOptions.data = data;
    });
+
+//======
 }])
-
-.filter('boolean', function() {
- var booleanHash = {
-   true: 'true',
-   false: 'false'
- };
-
- return function(input) {
-   if (!input){
-     return '';
-   } else {
-     return genderHash[input];
-   }
- };
-})
-;

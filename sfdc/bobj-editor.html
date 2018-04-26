@@ -19,6 +19,15 @@
   <script src="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.js"></script>
 <link rel="stylesheet" href="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.css">
 
+<script src="ui-grid/release/ui-grid.min.js"></script>
+<script src="ui-grid/release/csv.js"></script>
+<script src="ui-grid/release/pdfmake.js"></script>
+<script src="ui-grid/release/vfs_fonts.js"></script>
+
+<script src="ui-grid/autoFitColumns.js"></script>
+
+
+
 <link rel="stylesheet" href="../css/navbar-blue.css">
 
 <script type="text/javascript" src="./data/bigobjects/FileSaver.min.js"> </script>
@@ -26,7 +35,7 @@
 
 
 <style media="screen">
-  .grid { width: 1200px; height: 300px; }
+  .grid { width: 1400px; height: 400px; }
 </style>
 
 
@@ -77,17 +86,16 @@
     <div class="row">
         <div class="form-group">
       <div class="col-lg-4">
-
-
-        <input type="search" class="form-control" size="50" ng-model="objectAPIName"   placeholder="Enter Big Object API Name">
+        <input type="search" class="form-control" size="50" ng-model="objectLabel"    ng-change='updateAPIName()'
+        required  placeholder="Enter Big Object Label ">
       </div>
 
       <div class="col-lg-4">
-        <input type="search" class="form-control" size="50" ng-model="objectLabel"   placeholder="Enter Big Object Label ">
+        <input type="search" class="form-control" size="50" ng-model="objectAPIName"   readonly required='true' placeholder="Enter Big Object API Name">
       </div>
 
      <div class="col-lg-4">
-        <input type="search" class="form-control" size="50" ng-model="objectPluralLabel"   placeholder="Enter Big Object Plural Label">
+        <input type="search" class="form-control" size="50" ng-model="objectPluralLabel" required  placeholder="Enter Big Object Plural Label">
       </div>
     </form>
 
@@ -96,19 +104,34 @@
   <br>
 
 
-    <div ui-grid="gridOptions" ui-grid-edit ui-grid-cellNav class="grid" style="border-radius:2px;"></div>
+    <div ui-grid="gridOptions" ui-grid-edit ui-grid-cellNav
+      ui-grid-selection
+
+      ui-grid-selection ui-grid-pagination ui-grid-exporter
+        ui-grid-auto-fit-columns ui-grid-resize-columns="true"
+    class="grid" style="border-radius:2px;"></div>
+
+<button class='btn btn-info' ng-click="addNewItem()" > Add row at end </button>
+<button class='btn btn-info'   ng-show='gridApi.selection.getSelectedRows().length == 1' ng-click="insertNewItem()" > Insert row above</button>
+<button class='btn btn-danger' ng-show='gridApi.selection.getSelectedRows().length == 1' ng-click="deleteRow()" > Delete </button>
+
 
   <h4 style="margin-left:0px;">Index</h4>
   <div class="row">
       <div class="form-group">
 
-    <div class="col-lg-4">
-      <input type="search" class="form-control" size="50" ng-model="indexAPIName"   placeholder="Enter Big Object Index Name">
-    </div>
+        <div class="col-lg-4">
+          <input type="search" class="form-control" size="50" ng-model="indexLabel"
+          ng-change='updateIndexAPIName()'   placeholder="Enter Big Object Index Label ">
+        </div>
 
     <div class="col-lg-4">
-      <input type="search" class="form-control" size="50" ng-model="indexLabel"   placeholder="Enter Big Object Index Label ">
+      <input type="search" class="form-control" size="50" readonly ng-model="indexAPIName"
+     placeholder="Enter Big Object Index Name">
+
     </div>
+
+
   </div>
 
   </div>
