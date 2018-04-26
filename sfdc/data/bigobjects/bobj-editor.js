@@ -30,13 +30,15 @@ angular.module('addressFormatter', []).filter('address', function () {
 app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGridConstants) {
  GScope = $scope;
 
+ $scope.apiVersion = 41;
+
  $scope.consumeKey = '3MVG9zlTNB8o8BA1OFO2Hhl692YjoPxmPwuvEgolJr5HCOUUMzufXb18pkYPKPnRguMKKJpL2Lw==';
  $scope.secret = '189652109001009322';
  $scope.oauthRedirectUrl = 'https://mohan-chinnappan-n.github.io/sfdc/redirect.html';
 
  $scope.objectLabel = 'Rider History';
  $scope.objectAPIName = $scope.objectLabel.replace(/[ ]/g,'_') + '__b';
- $scope.objectPluralLabel =  $scope.objectLabel;
+ $scope.objectPluralLabel =  $scope.objectLabel + 's';
 
  $scope.indexLabel = 'Rider History Index';
  $scope.indexAPIName =  $scope.indexLabel.replace(/[ ]/g,'_');
@@ -54,7 +56,7 @@ app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($sco
  $scope.sfdcLogin = function() {
    alert('sfdcLogin');
    console.log(jsforce);
-   jsforce.browser.init({ clientId: $scope.consumeKey, redirectUri: $scope.oauthRedirectUrl });
+   jsforce.browser.init({ clientId: [$scope.consumeKey], redirectUri: [$scope.oauthRedirectUrl] });
    jsforce.browser.on('connect', function(conn) {
      alert('connect')
       conn.query('SELECT Id, Name FROM Account', function(err, res) {
@@ -82,33 +84,34 @@ $scope.prepString  = function() {
     //console.log(field);
     fields +=
     '\n<fields>'
-    +'\n  <fullName>' + field.fullName + '</fullName>'
-    +'\n  <label>' + field.label + '</label>'
-    +'\n  <required>' + field.required + '</required>'
-    +'\n  <type>' + field.type + '</type>'
+    +'\n\t  <fullName>' + field.fullName + '</fullName>'
+    +'\n\t  <label>' + field.label + '</label>'
+    +'\n\t  <required>' + field.required + '</required>'
+    +'\n\t  <type>' + field.type + '</type>'
 
   ;
-  if (field.length !== undefined)    fields += '\n  <length>' + field.length + '</length>'
-  if (field.unique !== undefined)    fields += '\n  <unique>' + field.unique + '</unique>'
-  if (field.scale !== undefined)     fields +='\n  <scale>' + field.scale + '</scale>';
-  if (field.precision !== undefined) fields +='\n  <precision>' + field.precision + '</precision>'
+  if (field.length !== undefined)    fields += '\n\t  <length>' + field.length + '</length>'
+  if (field.unique !== undefined)    fields += '\n\t  <unique>' + field.unique + '</unique>'
+  if (field.scale !== undefined)     fields +='\n\t  <scale>' + field.scale + '</scale>';
+  if (field.precision !== undefined) fields +='\n\t  <precision>' + field.precision + '</precision>'
   fields +=  '\n </fields>';
   //console.log(fields);
 
  //=== indexes
    if (field.indexed) {
      indexes +='\n <fields>\n'
-       + '\n<name>' + field.fullName + '</scale>'
-       + '\n<sortDirection>' + field.indexed + '</sortDirection>'
+       + '\n\t<name>' + field.fullName + '</scale>'
+       + '\n\t<sortDirection>' + field.indexed + '</sortDirection>'
        + '\n</fields>'
        ;
   }
   if (field.readable || field.editable) {
     fieldPermissions +=
   '\n<fieldPermissions>' +
-  '\n<field>' + $scope.objectAPIName + '.' + field.fullName + '</field>'
-   if (field.readable) fieldPermissions += '\n<readable>true</readable>' ;
-   if (field.editable) fieldPermissions += '\n<editable>true</editable>' ;
+  '\n\t<field>' + $scope.objectAPIName + '.' + field.fullName + '</field>'
+   if (field.readable) fieldPermissions += '\n\t<readable>true</readable>' ;
+   if (field.editable) fieldPermissions += '\n\t<editable>true</editable>' ;
+  fieldPermissions += '\n</fieldPermissions>';
  }
 
 });
@@ -124,7 +127,7 @@ $scope.prepString  = function() {
   '        <members>*</members>\n' +
   '        <name>PermissionSet</name>\n' +
   '    </types>\n' +
-  '    <version>41.0</version>\n' +
+  '    <version>' + $scope.apiVersion + '.0' + '</version>\n' +
   '</Package>\n'
   ;
   $scope.fields = fields;
@@ -133,15 +136,15 @@ $scope.prepString  = function() {
   $scope.objectXML =
   '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">\n' +
-  '<deploymentStatus>Deployed</deploymentStatus>\n' +
+  '\t<deploymentStatus>Deployed</deploymentStatus>\n' +
 
-  '<label>'  + $scope.objectLabel + '</label>\n' +
-  '<pluralLabel>' + $scope.objectPluralLabel + '</pluralLabel>\n'
+  '\t<label>'  + $scope.objectLabel + '</label>\n' +
+  '\t<pluralLabel>' + $scope.objectPluralLabel + '</pluralLabel>\n'
 
   + $scope.fields
   + $scope.indexes
-  + '\n</indexes>'
-  +'\n</CustomObject>'
+  + '\n\t</indexes>'
+  +'\n\t</CustomObject>'
   ;
 
   $scope.permissionsetXMl =
@@ -180,7 +183,7 @@ $scope.prepString  = function() {
 
     zip.generateAsync({type:"blob"})
     .then(function(content) {
-        // see FileSaver.js
+        $scope.packageDownloaded = true;
         saveAs(content, $scope.objectAPIName.replace(/__b/,'') + "_package.zip");
     });
  }
