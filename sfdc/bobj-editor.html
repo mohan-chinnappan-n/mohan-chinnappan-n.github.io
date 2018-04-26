@@ -21,6 +21,10 @@
 
 <link rel="stylesheet" href="../css/navbar-blue.css">
 
+<script type="text/javascript" src="./data/bigobjects/FileSaver.min.js"> </script>
+<script type="text/javascript" src="./data/bigobjects/jszip.min.js"></script>
+
+
 <style media="screen">
   .grid { width: 1200px; height: 300px; }
 </style>
@@ -99,7 +103,7 @@
     </div>
   </div>
   <hr/>
-     <button class="btn btn-primary">Create Zip file</button>
+     <button class="btn btn-primary" ng-click='createZipFile()'>Create Zip file</button>
   <span style="display:block;margin-top:300px;">
     <strong>Data Length:</strong> {{ gridOptions.data.length | number }}
     <br>
@@ -126,6 +130,39 @@
  });
 
  app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGridConstants) {
+
+   var packagexml =
+'<?xml version="1.0" encoding="UTF-8"?>\n' +
+'<Package xmlns="http://soap.sforce.com/2006/04/metadata">\n' +
+'    <types>\n' +
+'        <members>*</members>\n' +
+'        <name>CustomObject</name>\n' +
+'    </types>\n' +
+'    <types>\n' +
+'        <members>*</members>\n' +
+'        <name>PermissionSet</name>\n' +
+'    </types>\n' +
+'    <version>41.0</version>\n' +
+'</Package>\n' 
+;
+
+
+   $scope.createZipFile = function () {
+      var zip = new JSZip();
+      zip.file('package.xml', packagexml)
+      var objects = zip.folder("objects");
+      objects.file("Rider_History__b.object", "XML file with Rider_History__b.object contents\n");
+      var permissionsets = zip.folder("permissionsets");
+      permissionsets.file("rider_history.permissionset", "XML file with rider_history contents\n");
+
+
+      zip.generateAsync({type:"blob"})
+      .then(function(content) {
+          // see FileSaver.js
+          saveAs(content, "Rider_History_package.zip");
+      });
+   }
+
    $scope.gridOptions = {
      rowHeight: 25,
      enableHorizontalScrollbar: uiGridConstants.scrollbars.NEVER,
