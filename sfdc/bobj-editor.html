@@ -72,38 +72,48 @@
     <!-- /.navbar-collapse -->
   </nav>
 
-  <div ng-controller="MainCtrl" class="container">
+  <div ng-controller="MainCtrl" style="margin-left:40px;">
     <h4>Big Object</h4>
     <div class="row">
+        <div class="form-group">
       <div class="col-lg-4">
-        <input type="text" size="50" name="" value="Rider_History__b" placeholder="Enter Big Object API Name">
+
+
+        <input type="search" class="form-control" size="50" ng-model="objectAPIName"   placeholder="Enter Big Object API Name">
       </div>
 
       <div class="col-lg-4">
-        <input type="text" size="50" name="" value="Rider History" placeholder="Enter Big Object Label ">
+        <input type="search" class="form-control" size="50" ng-model="objectLabel"   placeholder="Enter Big Object Label ">
       </div>
 
      <div class="col-lg-4">
-        <input type="text" size="50" name="" value="Rider Histories" placeholder="Enter Big Object Plural Label">
+        <input type="search" class="form-control" size="50" ng-model="objectPluralLabel"   placeholder="Enter Big Object Plural Label">
       </div>
+    </form>
 
-    </div>
-
-
-    <div ui-grid="gridOptions" ui-grid-edit ui-grid-cellNav class="grid"></div>
-
-  <div class="row">
-      <h4>Big Object Index</h4>
-    <div class="col-lg-4">
-      <input type="text" size="50" name="" value="Rider_History_Index" placeholder="Enter Big Object Index Name">
-    </div>
-
-    <div class="col-lg-4">
-      <input type="text" size="50" name="" value="Rider History Index" placeholder="Enter Big Object Index Label ">
     </div>
   </div>
-  <hr/>
-     <button class="btn btn-primary" ng-click='createZipFile()'>Create Zip file</button>
+  <br>
+
+
+    <div ui-grid="gridOptions" ui-grid-edit ui-grid-cellNav class="grid" style="border-radius:2px;"></div>
+
+  <h4 style="margin-left:0px;">Index</h4>
+  <div class="row">
+      <div class="form-group">
+
+    <div class="col-lg-4">
+      <input type="search" class="form-control" size="50" ng-model="indexAPIName"   placeholder="Enter Big Object Index Name">
+    </div>
+
+    <div class="col-lg-4">
+      <input type="search" class="form-control" size="50" ng-model="indexLabel"   placeholder="Enter Big Object Index Label ">
+    </div>
+  </div>
+
+  </div>
+  <br/>
+     <button class="btn btn-primary" ng-click='createZipFile()'>Create package Zip file</button>
   <span style="display:block;margin-top:300px;">
     <strong>Data Length:</strong> {{ gridOptions.data.length | number }}
     <br>
@@ -119,6 +129,7 @@
 
 
   <script type="text/javascript">
+  var GScope;
   // refer: http://plnkr.co/edit/PL7HvK1FY2ycuOrBbBTA?p=preview
   // http://embed.plnkr.co/0iY5Qn/
   var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.edit', 'ui.grid.cellNav', 'addressFormatter']);
@@ -130,36 +141,120 @@
  });
 
  app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGridConstants) {
+   GScope = $scope;
 
-   var packagexml =
-'<?xml version="1.0" encoding="UTF-8"?>\n' +
-'<Package xmlns="http://soap.sforce.com/2006/04/metadata">\n' +
-'    <types>\n' +
-'        <members>*</members>\n' +
-'        <name>CustomObject</name>\n' +
-'    </types>\n' +
-'    <types>\n' +
-'        <members>*</members>\n' +
-'        <name>PermissionSet</name>\n' +
-'    </types>\n' +
-'    <version>41.0</version>\n' +
-'</Package>\n' 
-;
+   $scope.objectAPIName = 'Rider_History__b';
+   $scope.objectLabel = 'Rider History';
+   $scope.objectPluralLabel = 'Rider History';
+
+   $scope.indexAPIName = 'Rider_History_Index';
+   $scope.indexLabel = 'Rider History Index';
+
+$scope.prepString  = function() {
+    var gd = $scope.gridOptions.data
+    //console.log(gd);
+
+    var fieldPermissions = "";
+    var indexes = "";
+    indexes +=
+    '\n<indexes>'
+    +'\n  <fullName>' + $scope.indexAPIName + '</fullName>'
+    +'\n  <label>' + $scope.indexLabel + '</label>'
+    var fields = "";
+
+    gd.forEach(function(field){
+      //console.log(field);
+      fields +=
+      '\n<fields>'
+      +'\n  <fullName>' + field.fullName + '</fullName>'
+      +'\n  <label>' + field.label + '</label>'
+      +'\n  <length>' + field.required + '</length>'
+      +'\n  <required>' + field.fullName + '</required>'
+      +'\n  <type>' + field.type + '</type>'
+
+    ;
+
+    if (field.unique !== undefined)    fields += '\n  <unique>' + field.unique + '</unique>'
+    if (field.scale !== undefined)     fields +='\n  <scale>' + field.scale + '</scale>';
+    if (field.precision !== undefined) fields +='\n  <precision>' + field.precision + '</precision>'
+    fields +=  '\n </fields>';
+    //console.log(fields);
+
+   //=== indexes
+     if (field.indexed) {
+       indexes +='\n <fields>\n'
+         + '\n<name>' + field.fullName + '</scale>'
+         + '\n<sortDirection>' + field.indexed + '</sortDirection>'
+         + '\n</fields>'
+         ;
+    }
+    if (field.readable || field.editable) {
+      fieldPermissions +=
+    '\n<fieldPermissions>' +
+    '\n<field>' + $scope.objectAPIName + '.' + field.fullName + '</field>'
+     if (field.readable) fieldPermissions += '\n<readable>true</readable>' ;
+     if (field.editable) fieldPermissions += '\n<editable>true</editable>' ;
+   }
+
+  });
+
+    $scope.packagexml =
+    '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<Package xmlns="http://soap.sforce.com/2006/04/metadata">\n' +
+    '    <types>\n' +
+    '        <members>*</members>\n' +
+    '        <name>CustomObject</name>\n' +
+    '    </types>\n' +
+    '    <types>\n' +
+    '        <members>*</members>\n' +
+    '        <name>PermissionSet</name>\n' +
+    '    </types>\n' +
+    '    <version>41.0</version>\n' +
+    '</Package>\n'
+    ;
+    $scope.fields = fields;
+    $scope.indexes = indexes;
+
+    $scope.objectXML =
+    '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">\n' +
+    '<deploymentStatus>Deployed</deploymentStatus>\n' +
+
+    '<label>'  + $scope.objectLabel + '</label>\n' +
+    '<pluralLabel>' + $scope.objectPluralLabel + '</pluralLabel>\n'
+
+    + $scope.fields
+    + $scope.indexes
+    + '\n</indexes>'
+    +'\n</CustomObject>'
+    ;
+
+    $scope.permissionsetXMl =
+    '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">\n'
+    + fieldPermissions
+    + '\n</PermissionSet>'
+    ;
+
+}
+
 
 
    $scope.createZipFile = function () {
+      $scope.prepString();
+
       var zip = new JSZip();
-      zip.file('package.xml', packagexml)
+      zip.file('package.xml', $scope.packagexml)
       var objects = zip.folder("objects");
-      objects.file("Rider_History__b.object", "XML file with Rider_History__b.object contents\n");
+      objects.file( $scope.objectAPIName + ".object", $scope.objectXML );
       var permissionsets = zip.folder("permissionsets");
-      permissionsets.file("rider_history.permissionset", "XML file with rider_history contents\n");
+      permissionsets.file($scope.objectAPIName.replace(/__b/,'') + ".permissionset",  $scope.permissionsetXMl );
 
 
       zip.generateAsync({type:"blob"})
       .then(function(content) {
           // see FileSaver.js
-          saveAs(content, "Rider_History_package.zip");
+          saveAs(content, $scope.objectAPIName.replace(/__b/,'') + "_package.zip");
       });
    }
 
@@ -273,18 +368,6 @@
 
    $http.get('./data/bigobjects/bigobjectsDef.json')
      .success(function(data) {
-       for(i = 0; i < data.length; i++){
-         data[i].registered = new Date(data[i].registered);
-         data[i].gender = data[i].gender==='male' ? 1 : 2;
-         if (i % 2) {
-           data[i].pet = 'fish'
-           //data[i].foo = {bar: [{baz:a 2, options: [{value: 'fish'}, {value: 'hamster'}]}]}
-         }
-         else {
-           data[i].pet = 'dog'
-           data[i].foo = {bar: [{baz: 2, options: [{value: 'dog'}, {value: 'cat'}]}]}
-         }
-       }
        $scope.gridOptions.data = data;
      });
  }])
