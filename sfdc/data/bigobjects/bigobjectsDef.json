@@ -1,0 +1,85 @@
+[
+    {
+        "fullName": "Start_Location_Lat__c",
+        "label": "Start Location Latitude",
+        "required": false,
+        "type": "Number",
+        "unique": false,
+        "precision": 7,
+        "scale" : 4,
+        "readable": true,
+        "editable": true
+
+    },
+
+    {
+        "fullName": "Start_Location_Long__c",
+        "label": "Start Location Longitude",
+        "required": false,
+        "type": "Number",
+        "unique": false,
+        "precision": 7,
+        "scale" : 4,
+        "readable": true,
+        "editable": true
+
+    },
+    {
+        "fullName": "Start_Time__c",
+        "label": "Start Time",
+        "required": false,
+        "type": "DateTime",
+        "unique": false,
+        "indexed": "DESC"
+
+    },
+    {
+        "fullName": "End_Time__c",
+        "label": "End Time",
+        "required": false,
+        "type": "DateTime",
+        "unique": false,
+        "readable": true,
+        "editable": true
+
+    },
+    {
+        "fullName": "Service_Type__c",
+        "label": "Service Type",
+        "length": 16,
+        "required": false,
+        "type": "Text",
+        "readable": true,
+        "editable": true
+
+    } ,
+
+    {
+        "fullName": "Rider_Account__c",
+        "label": "Rider Account",
+        "length": 16,
+        "required": true,
+        "type": "Text",
+        "indexed": "DESC"
+
+    } ,
+
+    {
+        "fullName": "Rider_Rating__c",
+        "label": "Rider Rating",
+        "required": false,
+        "type": "Number",
+        "precision": 7,
+        "scale" : 4,
+        "unique": false,
+        "readable": true,
+        "editable": true
+
+
+    }
+
+
+
+
+
+]

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-touch.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-animate.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-sanitize.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-utils/0.1.1/angular-ui-utils.min.js"></script>
+
+
+  <script src="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.js"></script>
+<link rel="stylesheet" href="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.css">
+
+<link rel="stylesheet" href="../css/navbar-blue.css">
+
+<style media="screen">
+  .grid { width: 1200px; height: 300px; }
+</style>
+
+
+  <title>Big Object Metadata Editor</title>
+</head>
+<body class="container2">
+
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">Big Object Editor</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+      <div class="inner-addon right-addon navbar-form navbar-right">
+        <i class="glyphicon glyphicon-search"></i>
+        <input type="text" class="form-control" placeholder="Search" />
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown ">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="./help.html">Help Topics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+
+  <div ng-controller="MainCtrl" class="container">
+    <h4>Big Object</h4>
+    <div class="row">
+      <div class="col-lg-4">
+        <input type="text" size="50" name="" value="Rider_History__b" placeholder="Enter Big Object API Name">
+      </div>
+
+      <div class="col-lg-4">
+        <input type="text" size="50" name="" value="Rider History" placeholder="Enter Big Object Label ">
+      </div>
+
+     <div class="col-lg-4">
+        <input type="text" size="50" name="" value="Rider Histories" placeholder="Enter Big Object Plural Label">
+      </div>
+
+    </div>
+
+
+    <div ui-grid="gridOptions" ui-grid-edit ui-grid-cellNav class="grid"></div>
+
+  <div class="row">
+      <h4>Big Object Index</h4>
+    <div class="col-lg-4">
+      <input type="text" size="50" name="" value="Rider_History_Index" placeholder="Enter Big Object Index Name">
+    </div>
+
+    <div class="col-lg-4">
+      <input type="text" size="50" name="" value="Rider History Index" placeholder="Enter Big Object Index Label ">
+    </div>
+  </div>
+  <hr/>
+     <button class="btn btn-primary">Create Zip file</button>
+  <span style="display:block;margin-top:300px;">
+    <strong>Data Length:</strong> {{ gridOptions.data.length | number }}
+    <br>
+    <strong>Last Cell Edited:</strong> {{msg.lastCellEdited}}
+    <br>
+
+    <br>
+    <div><strong>Last file uploaded:</strong></div>
+    <div>{{lastFile}}</div>
+    </div>
+  </span>
+
+
+
+  <script type="text/javascript">
+  var app = angular.module('app', ['ngTouch', 'ui.grid', 'ui.grid.edit', 'ui.grid.cellNav', 'addressFormatter']);
+
+ angular.module('addressFormatter', []).filter('address', function () {
+   return function (input) {
+       return input.street + ', ' + input.city + ', ' + input.state + ', ' + input.zip;
+   };
+ });
+
+ app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGridConstants) {
+   $scope.gridOptions = {
+     rowHeight: 25,
+     enableHorizontalScrollbar: uiGridConstants.scrollbars.NEVER,
+   };
+
+   $scope.storeFile = function( gridRow, gridCol, files ) {
+     // ignore all but the first file, it can only select one anyway
+     // set the filename into this column
+     gridRow.entity.filename = files[0].name;
+
+     // read the file and set it into a hidden column, which we may do stuff with later
+     var setFile = function(fileContent){
+       gridRow.entity.file = fileContent.currentTarget.result;
+       // put it on scope so we can display it - you'd probably do something else with it
+       $scope.lastFile = fileContent.currentTarget.result;
+       $scope.$apply();
+     };
+     var reader = new FileReader();
+     reader.onload = setFile;
+     reader.readAsText( files[0] );
+   };
+
+   $scope.gridOptions.columnDefs2 = [
+     { name: 'id', enableCellEdit: false, width: '10%' },
+     { name: 'name', displayName: 'Name (editable)', width: '20%' },
+     { name: 'age', displayName: 'Age' , type: 'number', width: '10%' },
+     { name: 'gender', displayName: 'Gender', editableCellTemplate: 'ui-grid/dropdownEditor', width: '20%',
+       cellFilter: 'mapGender', editDropdownValueLabel: 'gender', editDropdownOptionsArray: [
+       { id: 1, gender: 'male' },
+       { id: 2, gender: 'female' }
+     ] },
+     { name: 'registered', displayName: 'Registered' , type: 'date', cellFilter: 'date:"yyyy-MM-dd"', width: '20%' },
+     { name: 'address', displayName: 'Address', type: 'object', cellFilter: 'address', width: '30%' },
+     { name: 'address.city', displayName: 'Address (even rows editable)', width: '20%',
+          cellEditableCondition: function($scope){
+          return $scope.rowRenderIndex%2
+          }
+     },
+     { name: 'isActive', displayName: 'Active', type: 'boolean', width: '10%' },
+     { name: 'pet', displayName: 'Pet', width: '20%', editableCellTemplate: 'ui-grid/dropdownEditor',
+       editDropdownRowEntityOptionsArrayPath: 'foo.bar[0].options', editDropdownIdLabel: 'value'
+     },
+     { name: 'filename', displayName: 'File', width: '20%', editableCellTemplate: 'ui-grid/fileChooserEditor',
+       editFileChooserCallback: $scope.storeFile }
+   ];
+
+
+      $scope.gridOptions.columnDefs = [
+        { name: 'fullName', enableCellEdit: true, width: '15%' },
+        { name: 'label', displayName: 'Label', width: '15%' },
+        { name: 'type', displayName: 'Type' , type: 'string', width: '10%' },
+        { name: 'length', displayName: 'Length' , type: 'string', width: '8%' },
+        { name: 'precision', displayName: 'Precision' , type: 'string', width: '8%' },
+        { name: 'scale', displayName: 'Scale' , type: 'string', width: '5%' },
+
+        { name: 'required', displayName: 'Required' , type: 'boolean', width: '8%',
+        cellTemplate: '<input type="checkbox" ng-model="row.entity.required">'
+      },
+
+
+
+        { name: 'unique', displayName: 'Unique' , type: 'boolean', width: '8%',
+          cellTemplate: '<input type="checkbox" ng-model="row.entity.unique">'
+        },
+
+        { name: 'readable', displayName: 'Readable' , type: 'boolean', width: '8%',
+          cellTemplate: '<input type="checkbox" ng-model="row.entity.readable">'
+
+        },
+        { name: 'editable', displayName: 'Editable' , type: 'boolean', width: '8%',
+          cellTemplate: '<input type="checkbox" ng-model="row.entity.editable">'
+
+
+         },
+
+        { name: 'indexed', displayName: 'Indexed' , type: 'string', width: '10%',
+            cellTemplate: '<select  ng-model="row.entity.indexed"><option value="DESC">DESC</option><option value="ASC">ASC</option></select>'
+
+        }
+
+
+
+
+
+
+
+      ];
+
+  $scope.msg = {};
+
+  $scope.gridOptions.onRegisterApi = function(gridApi){
+           //set gridApi on scope
+           $scope.gridApi = gridApi;
+           gridApi.edit.on.afterCellEdit($scope,function(rowEntity, colDef, newValue, oldValue){
+             $scope.msg.lastCellEdited = 'edited row id:' + rowEntity.id + ' Column:' + colDef.name + ' newValue:' + newValue + ' oldValue:' + oldValue ;
+             $scope.$apply();
+           });
+         };
+
+   $http.get('./data/bigobjects/bigobjectsDef.json')
+     .success(function(data) {
+       for(i = 0; i < data.length; i++){
+         data[i].registered = new Date(data[i].registered);
+         data[i].gender = data[i].gender==='male' ? 1 : 2;
+         if (i % 2) {
+           data[i].pet = 'fish'
+           //data[i].foo = {bar: [{baz:a 2, options: [{value: 'fish'}, {value: 'hamster'}]}]}
+         }
+         else {
+           data[i].pet = 'dog'
+           data[i].foo = {bar: [{baz: 2, options: [{value: 'dog'}, {value: 'cat'}]}]}
+         }
+       }
+       $scope.gridOptions.data = data;
+     });
+ }])
+
+ .filter('boolean', function() {
+   var booleanHash = {
+     true: 'true',
+     false: 'false'
+   };
+
+   return function(input) {
+     if (!input){
+       return '';
+     } else {
+       return genderHash[input];
+     }
+   };
+ })
+ ;
+
+
+  </script>
+
+</body>
+</html>
