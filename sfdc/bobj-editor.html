@@ -129,7 +129,7 @@
   <i class="glyphicon glyphicon-list"></i> Insert row above</button>
 <button class='btn btn-danger' ng-show='gridApi.selection.getSelectedRows().length == 1' ng-click="deleteRow()" >
   <i class="glyphicon glyphicon-remove"></i> Delete </button>
-<button class='btn btn-info'   ng-show='packageDownloaded' ng-click="sfdcLogin()" >
+<button class='btn btn-info'   ng-show='packageDownloaded2' ng-click="sfdcLogin()" >
 <i class="glyphicon glyphicon-cloud"></i>
    SFDC Login </button>
 
@@ -156,21 +156,35 @@
   <br/>
      <button class="btn btn-primary" ng-click='createZipFile()'>
        <i class='glyphicon glyphicon-flash'></i> Create package Zip file</button>
-  <span style="display:none;margin-top:300px;">
-    <strong>Data Length:</strong> {{ gridOptions.data.length | number }}
-    <br>
-    <strong>Last Cell Edited:</strong> {{msg.lastCellEdited}}
-    <br>
+        <button class="btn btn-success" name="button" ng-show='packageDownloaded' ng-click='showDeploy = !showDeploy'>How to Deploy</button>
 
-    <br>
-    <div><strong>Last file uploaded:</strong></div>
-    <div>{{lastFile}}</div>
-    </div>
-  </span>
+  <pre ng-show='showDeploy'>
+#----- ANT migration way -----
+$ ant deployBigObjectsZip
+Buildfile: /Users/mchinnappan/sfdc-deploy/work/build.xml
+
+deployBigObjectsZip:
+[sf:deploy] Request for a deploy submitted successfully.
+[sf:deploy] Request ID for the current deploy task: 0Aff400000TdbEECAZ
+[sf:deploy] Waiting for server to finish processing the request...
+[sf:deploy] Request Status: InProgress (0/10)  -- Processing Type: CustomObject
+[sf:deploy] Request Status: Succeeded
+[sf:deploy] Debugging Information:
+[sf:deploy] 38.0 APEX_CODE,FINER;APEX_PROFILING,FINE;CALLOUT,INFO;DB,INFO;SYSTEM,FINEST
+[sf:deploy] 07:15:32.41 (41969757)|CUMULATIVE_PROFILING_BEGIN
+[sf:deploy] 07:15:32.41 (41969757)|CUMULATIVE_PROFILING|No profiling information for SOQL operations
+[sf:deploy] 07:15:32.41 (41969757)|CUMULATIVE_PROFILING|No profiling information for SOSL operations
+[sf:deploy] 07:15:32.41 (41969757)|CUMULATIVE_PROFILING|No profiling information for DML operations
+[sf:deploy] 07:15:32.41 (41969757)|CUMULATIVE_PROFILING|No profiling information for method invocations
+[sf:deploy] 07:15:32.41 (41969757)|CUMULATIVE_PROFILING_END
+[sf:deploy] *********** DEPLOYMENT SUCCEEDED ***********
+[sf:deploy] Finished request 0Aff400000TdbEECAZ successfully.
+
+<img height="200" style="border-radius:10px;" src="img/bigobject-deploy-ant-task.png" alt="">
+</div>
 
 
-
-  <script type="text/javascript" src='./data/bigobjects/bobj-editor.js'>
+  <script type="text/javascript" src='./data/bigobjects/bobj-editor.js?v=13'>
 
   </script>
 

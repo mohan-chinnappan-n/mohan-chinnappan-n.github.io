@@ -27,7 +27,7 @@
     {
         "fullName": "Start_Time__c",
         "label": "Start Time",
-        "required": false,
+        "required": true,
         "type": "DateTime",
         "unique": false,
         "indexed": "DESC"

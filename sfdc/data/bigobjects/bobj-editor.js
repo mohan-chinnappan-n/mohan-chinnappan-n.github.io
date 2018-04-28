@@ -30,7 +30,7 @@ angular.module('addressFormatter', []).filter('address', function () {
 app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGridConstants) {
  GScope = $scope;
 
- $scope.apiVersion = 41;
+ $scope.apiVersion = 42;
 
  $scope.consumeKey = '3MVG9zlTNB8o8BA1OFO2Hhl692YjoPxmPwuvEgolJr5HCOUUMzufXb18pkYPKPnRguMKKJpL2Lw==';
  $scope.secret = '189652109001009322';
@@ -100,7 +100,7 @@ $scope.prepString  = function() {
  //=== indexes
    if (field.indexed) {
      indexes +='\n <fields>\n'
-       + '\n\t<name>' + field.fullName + '</scale>'
+       + '\n\t<name>' + field.fullName + '</name>'
        + '\n\t<sortDirection>' + field.indexed + '</sortDirection>'
        + '\n</fields>'
        ;
@@ -151,6 +151,7 @@ $scope.prepString  = function() {
   '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">\n'
   + fieldPermissions
+  + '\n<label>' + $scope.objectLabel + ' Permission Set</label>\n'
   + '\n</PermissionSet>'
   ;
 
@@ -175,16 +176,23 @@ $scope.prepString  = function() {
 
     var zip = new JSZip();
     zip.file('package.xml', $scope.packagexml)
+
     var objects = zip.folder("objects");
     objects.file( $scope.objectAPIName + ".object", $scope.objectXML );
+    //objects.file('package.xml', $scope.packagexml)
     var permissionsets = zip.folder("permissionsets");
+    //permissionsets.file('package.xml', $scope.packagexml)
+
     permissionsets.file($scope.objectAPIName.replace(/__b/,'') + ".permissionset",  $scope.permissionsetXMl );
+    $scope.packageZipFilename = $scope.objectAPIName.replace(/__b/,'') + "_package.zip";
+
 
 
     zip.generateAsync({type:"blob"})
     .then(function(content) {
         $scope.packageDownloaded = true;
-        saveAs(content, $scope.objectAPIName.replace(/__b/,'') + "_package.zip");
+        //alert('test')
+        saveAs(content, $scope.packageZipFilename);
     });
  }
 
@@ -295,8 +303,7 @@ $scope.gridOptions.onRegisterApi = function(gridApi){
            $scope.$apply();
          });
        };
-
- $http.get('./data/bigobjects/bigobjectsDef.json')
+ $http.get('./data/bigobjects/bigobjectsDef.json?v=10')
    .success(function(data) {
      $scope.gridOptions.data = data;
    });
