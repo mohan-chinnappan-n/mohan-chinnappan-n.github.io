@@ -18,6 +18,8 @@ var app = angular.module('app', ['ngTouch',
 'ui.grid.importer',
 'ui.grid.autoFitColumns',
 
+'ui.select',
+
  'addressFormatter']);
 
 
@@ -247,7 +249,16 @@ $scope.prepString  = function() {
       { name: 'fullName', enableCellEdit: true, width: '15%' },
       { name: 'label', displayName: 'Label', width: '15%' },
       { name: 'type', displayName: 'Type' , type:'string', width: '10%',
-      cellTemplate: '<select  ng-model="row.entity.type">' +
+
+      editableCellTemplate: 'uiSelect',
+      editDropdownOptionsArray: [
+        'Text',
+        'Number',
+        'Date',
+        'DateTime'
+      ],
+
+      cellTemplate2: '<select  ng-model="row.entity.type">' +
                   '<option value="Text">Text</option>' +
                   '<option value="Number">Number</option>' +
                   '<option value="Date">Date</option>' +
@@ -281,7 +292,12 @@ $scope.prepString  = function() {
        },
 
       { name: 'indexed', displayName: 'Indexed' , type: 'string', width: '10%',
-          cellTemplate: '<select  ng-model="row.entity.indexed"><option value="DESC">DESC</option><option value="ASC">ASC</option></select>'
+      editableCellTemplate: 'uiSelect',
+      editDropdownOptionsArray: [
+        'DESC',
+        'ASC'
+      ],
+          cellTemplate2: '<select  ng-model="row.entity.indexed"><option value="DESC">DESC</option><option value="ASC">ASC</option></select>'
 
       }
 
@@ -310,3 +326,19 @@ $scope.gridOptions.onRegisterApi = function(gridApi){
 
 //======
 }])
+. directive('uiSelectWrap', uiSelectWrap);
+
+
+uiSelectWrap.$inject = ['$document', 'uiGridEditConstants'];
+function uiSelectWrap($document, uiGridEditConstants) {
+  return function link($scope, $elm, $attr) {
+    $document.on('click', docClick);
+
+    function docClick(evt) {
+      if ($(evt.target).closest('.ui-select-container').length === 0) {
+        $scope.$emit(uiGridEditConstants.events.END_CELL_EDIT);
+        $document.off('click', docClick);
+      }
+    }
+  };
+}

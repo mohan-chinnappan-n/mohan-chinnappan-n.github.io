@@ -15,6 +15,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-sanitize.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-utils/0.1.1/angular-ui-utils.min.js"></script>
 
+  <link data-require="ui-select@0.11.1" data-semver="0.11.1" rel="stylesheet" href="https://cdn.rawgit.com/angular-ui/ui-select/v0.11.2/dist/select.css" />
+   <script data-require="ui-select@0.11.1" data-semver="0.11.1" src="https://cdn.rawgit.com/angular-ui/ui-select/v0.11.2/dist/select.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
+
+
 
   <script src="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.js"></script>
 <link rel="stylesheet" href="https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.css">
@@ -34,6 +39,8 @@
 <script type="text/javascript" src="./data/bigobjects/jszip.min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jsforce/1.7.0/jsforce.min.js"></script>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+
 
 
 <style media="screen">
@@ -44,6 +51,22 @@
     height: 30px;
     border: 10px;
   }
+
+
+  .ui-grid-cell {
+    overflow: visible;
+    z-index: 99999;
+  }
+
+  .ui-grid-cell, ui-select-wrap {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
 
 </style>
 
@@ -129,8 +152,19 @@
         ui-grid-auto-fit-columns ui-grid-resize-columns="true"
     class="grid" style="border-radius:2px;"></div>
 
+    <script type="text/ng-template" id="uiSelect">
+      <ui-select-wrap>
+        <ui-select ng-model="MODEL_COL_FIELD" theme="selectize" ng-disabled="disabled" append-to-body="true">
+          <ui-select-match placeholder="Choose...">{{ COL_FIELD }}</ui-select-match>
+          <ui-select-choices repeat="item in col.colDef.editDropdownOptionsArray | filter: $select.search">
+            <span>{{ item }}</span>
+          </ui-select-choices>
+        </ui-select>
+      </ui-select-wrap>
+    </script>
+
 <button class='btn btn-info'  ng-click="addNewItem()" >
-<i class="glyphicon glyphicon-pencil"></i>
+<i class="fa fa-plus" aria-hidden="true"></i>
   Add row at end </button>
 <button class='btn btn-info'   ng-show='gridApi.selection.getSelectedRows().length == 1' ng-click="insertNewItem()" >
   <i class="glyphicon glyphicon-list"></i> Insert row above</button>
@@ -162,7 +196,7 @@
   </div>
   <br/>
      <button class="btn btn-primary" ng-click='createZipFile()'>
-       <i class='glyphicon glyphicon-flash'></i> Create package Zip file</button>
+       <i class="fa fa-file-archive-o" aria-hidden="true"></i> Create package Zip file</button>
         <button class="btn btn-success" name="button" ng-show='packageDownloaded' ng-click='showDeploy = !showDeploy'>How to Deploy</button>
 
   <pre ng-show='showDeploy'>
@@ -191,7 +225,7 @@ deployBigObjectsZip:
 </div>
 
 
-  <script type="text/javascript" src='./data/bigobjects/bobj-editor.js?v=13'>
+  <script type="text/javascript" src='./data/bigobjects/bobj-editor.js?v=14'>
 
   </script>
 
