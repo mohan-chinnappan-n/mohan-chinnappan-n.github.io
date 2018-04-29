@@ -20,7 +20,7 @@ var app = angular.module('app', ['ngTouch',
 
 'ui.select',
 
- 'addressFormatter']);
+'addressFormatter']);
 
 
 angular.module('addressFormatter', []).filter('address', function () {
@@ -34,9 +34,6 @@ app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($sco
 
  $scope.apiVersion = 42;
 
- $scope.consumeKey = '3MVG9zlTNB8o8BA1OFO2Hhl692YjoPxmPwuvEgolJr5HCOUUMzufXb18pkYPKPnRguMKKJpL2Lw==';
- $scope.secret = '189652109001009322';
- $scope.oauthRedirectUrl = 'https://mohan-chinnappan-n.github.io/sfdc/redirect.html';
 
  $scope.objectLabel = 'Rider History';
  $scope.objectAPIName = $scope.objectLabel.replace(/[ ]/g,'_') + '__b';
@@ -54,18 +51,6 @@ app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($sco
  $scope.updateIndexAPIName = function(){
    //alert('updateAPIName')
    $scope.indexAPIName = $scope.indexLabel.replace(/[ ]/g,'_') ;
- }
- $scope.sfdcLogin = function() {
-   alert('sfdcLogin');
-   console.log(jsforce);
-   jsforce.browser.init({ clientId: [$scope.consumeKey], redirectUri: [$scope.oauthRedirectUrl] });
-   jsforce.browser.on('connect', function(conn) {
-     alert('connect')
-      conn.query('SELECT Id, Name FROM Account', function(err, res) {
-       if (err) { return alert(err); }
-
-  });
-});
  }
 
 
@@ -249,31 +234,33 @@ $scope.prepString  = function() {
       { name: 'fullName', enableCellEdit: true, width: '15%' },
       { name: 'label', displayName: 'Label', width: '15%' },
       { name: 'type', displayName: 'Type' , type:'string', width: '10%',
+        editableCellTemplate: 'uiSelect',
+        editDropdownOptionsArray: [ 'Text'
+           ,'Number'
+           ,'Date'
+           ,'DateTime'
+           ,'Email'
+           ,'Checkbox'
+           ,'Currency'
+           ,'Percent'
+           ,'Phone'
+           ,'TextArea'
+           ,'URL'
+            ]
+      },
 
-      editableCellTemplate: 'uiSelect',
-      editDropdownOptionsArray: [
-        'Text',
-        'Number',
-        'Date',
-        'DateTime'
-      ],
-
-      cellTemplate2: '<select  ng-model="row.entity.type">' +
-                  '<option value="Text">Text</option>' +
-                  '<option value="Number">Number</option>' +
-                  '<option value="Date">Date</option>' +
-                  '<option value="DateTime">DateTime</option>' +
-                  '</select>'
+      { name: 'indexed', displayName: 'Indexed' , type: 'string', width: '10%',
+        editableCellTemplate: 'uiSelect', editDropdownOptionsArray: [ 'DESC', 'ASC' ]
+      },
 
 
-       },
-      { name: 'length', displayName: 'Length' , type: 'number', width: '8%' },
+      { name: 'required', displayName: 'Required' , type: 'boolean', width: '6%',
+        cellTemplate: '<input type="checkbox" ng-model="row.entity.required">' },
+
+      { name: 'length', displayName: 'Length' , type: 'number', width: '6%' },
       { name: 'precision', displayName: 'Precision' , type: 'number', width: '8%' },
       { name: 'scale', displayName: 'Scale' , type: 'number', width: '5%' },
 
-      { name: 'required', displayName: 'Required' , type: 'boolean', width: '8%',
-      cellTemplate: '<input type="checkbox" ng-model="row.entity.required">'
-    },
 
 
 
@@ -285,21 +272,12 @@ $scope.prepString  = function() {
         cellTemplate: '<input type="checkbox" ng-model="row.entity.readable">'
 
       },
-      { name: 'editable', displayName: 'Editable' , type: 'boolean', width: '8%',
+      { name: 'editable', displayName: 'Editable' , type: 'boolean', width: '6%',
         cellTemplate: '<input type="checkbox" ng-model="row.entity.editable">'
 
 
        },
 
-      { name: 'indexed', displayName: 'Indexed' , type: 'string', width: '10%',
-      editableCellTemplate: 'uiSelect',
-      editDropdownOptionsArray: [
-        'DESC',
-        'ASC'
-      ],
-          cellTemplate2: '<select  ng-model="row.entity.indexed"><option value="DESC">DESC</option><option value="ASC">ASC</option></select>'
-
-      }
 
 
 
@@ -326,9 +304,9 @@ $scope.gridOptions.onRegisterApi = function(gridApi){
 
 //======
 }])
+
+// dropdown support
 . directive('uiSelectWrap', uiSelectWrap);
-
-
 uiSelectWrap.$inject = ['$document', 'uiGridEditConstants'];
 function uiSelectWrap($document, uiGridEditConstants) {
   return function link($scope, $elm, $attr) {
