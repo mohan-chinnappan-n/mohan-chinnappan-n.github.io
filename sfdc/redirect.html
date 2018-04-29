@@ -47,9 +47,8 @@ query.split("&").forEach(function(part) {
 var GScope;
 app.controller('MainCtrl', function($scope) {
   GScope = $scope;
-  if ( result.code ) {
-  $scope.oauthCode = result.code
-}
+  if ( result.code ) { $scope.oauthCode = result.code }
+  if ( result.access_token ) { $scope.oauthToken = result.access_token }
 
 });
 </script>
