@@ -258,7 +258,7 @@ $scope.prepString  = function() {
         cellTemplate: '<input type="checkbox" ng-model="row.entity.required">' },
 
       { name: 'length', displayName: 'Length' , type: 'number', width: '6%' },
-      { name: 'precision', displayName: 'Precision' , type: 'number', width: '8%' },
+      { name: 'precision', displayName: 'Precision' , type: 'number', width: '6%' },
       { name: 'scale', displayName: 'Scale' , type: 'number', width: '5%' },
 
 
