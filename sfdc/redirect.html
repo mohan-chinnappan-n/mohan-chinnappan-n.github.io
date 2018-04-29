@@ -36,9 +36,13 @@
 
 
 <script type="text/javascript">
+// https://mohan-chinnappan-n.github.io/sfdc/redirect.html#access_token=00Df4000002db0k%21ASAAQMzR.QXknxYjM8OJ5zMJlHsIyOnbvLFMxI_l7L81hGIAa2XAXypn76k.rp8bmtYyLYgDGk.R9YoCCiDAjJRTLgUZzIBa&instance_url=https%3A%2F%2Fna59.salesforce.com&id=https%3A%2F%2Flogin.salesforce.com%2Fid%2F00Df4000002db0kEAA%2F005f40000023bQCAAY&issued_at=1525005847644&signature=%2BEb6hSpR5vAFF2DdMERVovvHNp8%2F6UlkNt2bMMN8t04%3D&scope=id+api+chatter_api+custom_permissions+wave_api&token_type=Bearer
 var app = angular.module('app',  []);
 
-var query = location.search.substr(1);
+var query;
+if (location.search)  query = location.search.substr(1);
+if (location.href.indexOf('#') !== -1) query = location.href.split('#')[1]
+
 var result = {};
 query.split("&").forEach(function(part) {
   var item = part.split("=");
