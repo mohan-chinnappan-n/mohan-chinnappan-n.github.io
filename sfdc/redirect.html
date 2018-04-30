@@ -101,9 +101,8 @@
 </div>
 
 <div class="row">
-    <a class="btn btn-info" href="bobj-editor.html">Redirect</a>
   <div class="col-lg-12">
-    <textarea rows='3' cols='140' id='code'>
+    <textarea rows='3' cols='<140></140>' id='code'>
 {{code}}
     </textarea>
     <hr/>
@@ -111,6 +110,7 @@
     <button class="btn btn-primary" ngclipboard data-clipboard-action="copy" data-clipboard-target="#code">
        <i class="glyphicon glyphicon-copy"></i> Cut to clipboard
     </button>
+     <a class="btn btn-info" href="bobj-editor.html">Redirect</a>
  </div>
 </div>
 
@@ -143,8 +143,8 @@ app.controller('MainCtrl', function($scope) {
   if ( result.code ) { $scope.oauthCode = result.code }
   if ( result.access_token ) { $scope.oauthToken = result.access_token }
 
-  $scope.code = "export SFDC_TOKEN='" + $scope.urlParams.access_token + "'\n" +
-                "curl "  +  $scope.urlParams.instance_url + "/services/data/" + $scope.apiVersion + "/ -H 'Authorization: Bearer  $SFDC_TOKEN'"
+  $scope.code = "curl "  +  $scope.urlParams.instance_url + "/services/data/" + $scope.apiVersion + "/\\n -H 'Authorization: Bearer "
+                + $scope.urlParams.access_token + "'"
 
 
 
