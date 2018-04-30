@@ -95,7 +95,7 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <input class="form-control"  placeholder="Enter URI" ng-model='uri'/>
+    <input class="form-control"  placeholder="Enter URI" ng-model='uri' ng-change='updateCode()'/>
     <textarea rows='3' cols='160' id='code'>
 {{code}}
     </textarea>
@@ -114,7 +114,7 @@ var GScope;
 app.controller('MainCtrl', function($scope) {
   GScope = $scope;
   $scope.apiVersion = 'v42.0';
-  $scope.uri = 'metadata';
+  $scope.uri = 'limits';
 
   $scope. cnpListener = function() {
 		 document.getElementById('code').select();
@@ -138,8 +138,12 @@ app.controller('MainCtrl', function($scope) {
   if ( result.code ) { $scope.oauthCode = result.code }
   if ( result.access_token ) { $scope.oauthToken = result.access_token }
 
-  $scope.code = "curl "  +  $scope.urlParams.instance_url + "/services/data/" + $scope.apiVersion + "/" + $scope.uri +  " -H 'Authorization: Bearer "
+  $scope.updateCode = function() {
+      $scope.code = "curl "  +  $scope.urlParams.instance_url + "/services/data/" + $scope.apiVersion + "/" + $scope.uri +  " -H 'Authorization: Bearer "
                 + $scope.urlParams.access_token + "' | jq"
+  }
+
+  $scope.updateCode();
 
 
 
