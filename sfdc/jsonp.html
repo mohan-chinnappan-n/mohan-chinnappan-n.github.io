@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JSONP</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<div id="messages">
+
+</div>
+
+
+<script>
+$(document).ready(function() {
+
+ var access_token = '00Df4000002db0k!ASAAQJP6ANe_AU3sF.dwdVK1nboKr545J86dAV0SGsIeq6kvQ9wLYI9AmqNYehqMSRM0sRyKQ69tF_2aoo5mYPtg7Svayhpv'
+  var headers = {
+    "Authorization": "Bearer " +  access_token,
+    'Content-Type' : 'application/json'
+  };
+    $.ajax({
+        type: 'GET',
+        url: 'https://na59.salesforce.com/services/data/v42.0/',
+        dataType: 'jsonp',
+        headers: headers,
+        jsonpCallback: 'jsonCallback',
+        success: function(response) {
+            var messageList = $('<ul></ul>');
+            $.each(response, function(idx, val) {
+            	messageList.append(
+                    '<li>' +
+                    'Date: ' + val.messageDate + '<br />' +
+                    'Title: ' + val.title + '<br />' +
+                    'Body: ' + val.body + '<br />' +
+                    '</li>'
+               );
+            });
+            $('#messages').html(messageList);
+    	}
+    });
+});
+</script>
+
+
+</body>
+</html>

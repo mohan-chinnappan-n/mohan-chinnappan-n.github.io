@@ -31,6 +31,11 @@
    <p>Token info: {{urlParams.access_token}}</p>
     <p>instance_url info: {{urlParams.instance_url}}</p>
     <a class="btn btn-info" href="bobj-editor.html">Redirect</a>
+
+    <pre>
+      export SFDC_TOKEN='{{urlParams.access_token}}'
+      curl {{urlParams.instance_url}}/services/data/{{apiVersion}}/ -H "Authorization: Bearer $SFDC_TOKEN"
+    </pre>
  </div>
 </div>
 
@@ -42,6 +47,7 @@ var app = angular.module('app',  []);
 var GScope;
 app.controller('MainCtrl', function($scope) {
   GScope = $scope;
+  $scope.apiVersion = 'v42.0';
 
   var query;
   if (location.search)  query = location.search.substr(1);
