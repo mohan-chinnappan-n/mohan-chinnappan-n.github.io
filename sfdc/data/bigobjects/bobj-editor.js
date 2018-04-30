@@ -36,7 +36,7 @@ app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($sco
 
 $scope.CLIENT_ID='3MVG9zlTNB8o8BA0.U1.lKvWEVqJaJd9mstFQeMsjVt61sMuRtDn9E7AFEtPFCZK76XJtxTyY4kDdvvCGIVrd';
 $scope.REDIRECT_URL='https://mohan-chinnappan-n.github.io/sfdc/redirect.html';
-$scope.RESPONSE_TYPE=token;
+$scope.RESPONSE_TYPE="token";
 
 
  $scope.objectLabel = 'Rider History';
