@@ -162,8 +162,9 @@ $scope.restGet = function(url) {
   };
   if (url === undefined) url = $scope.oauth2Parms.instance_url + '/services/data/v' + $scope.apiVersion + '.0/';
 
-  $http.get(url, {
-      headers: headers
+  $http(url, {
+      headers: headers,
+      method: 'JSONP',
     }).then(function(result) {
         console.log(result);
     })
