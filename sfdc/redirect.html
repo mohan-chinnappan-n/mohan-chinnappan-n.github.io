@@ -22,6 +22,10 @@
 
  <link rel="stylesheet" href="../../css/navbar-blue.css">
 
+ <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
+
+
+
 
 </head>
 <body ng-controller="MainCtrl" class="container">
@@ -32,10 +36,10 @@
     <p>instance_url info: {{urlParams.instance_url}}</p>
     <a class="btn btn-info" href="bobj-editor.html">Redirect</a>
 
-    <pre id='code'>
-export SFDC_TOKEN='{{urlParams.access_token}}'
-curl {{urlParams.instance_url}}/services/data/{{apiVersion}}/ -H "Authorization: Bearer $SFDC_TOKEN"
-    </pre>
+    <button class="btn" ngclipboard data-clipboard-text="copy to clipboard">
+     {{code}}
+   </button>
+
     <button class="btn btn-success" ng-click='cnpListener()'>
       <i class="glyphicon glyphicon-copy"></i>
       Copy</button>
@@ -45,7 +49,7 @@ curl {{urlParams.instance_url}}/services/data/{{apiVersion}}/ -H "Authorization:
 
 
 <script type="text/javascript">
-var app = angular.module('app',  []);
+var app = angular.module('app',  ['ngclipboard']);
 
 var GScope;
 app.controller('MainCtrl', function($scope) {
@@ -73,6 +77,11 @@ app.controller('MainCtrl', function($scope) {
 
   if ( result.code ) { $scope.oauthCode = result.code }
   if ( result.access_token ) { $scope.oauthToken = result.access_token }
+
+  $scope.code = "export SFDC_TOKEN='" + $scope.urlParams.access_token + "'\n" +
+                "curl "  +  $scope.urlParams.instance_url + "/services/data/" + $scope.apiVersion + "/ -H Authorization: Bearer  $SFDC_TOKEN"
+
+
 
 });
 </script>
