@@ -25,9 +25,6 @@
  <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
 
 <script type="text/javascript">
-/*! ngclipboard - v2.0.0 - 2018-03-03
-* https://github.com/sachinchoolur/ngclipboard
-* Copyright (c) 2018 Sachin; Licensed MIT */
 (function() {
     'use strict';
     var MODULE_NAME = 'ngclipboard';
@@ -91,13 +88,12 @@
     <p>instance_url info: {{urlParams.instance_url}}</p>
     <a class="btn btn-info" href="bobj-editor.html">Redirect</a>
 
-    <button class="btn" ngclipboard data-clipboard-text="copy to clipboard">
+    <pre id='code'>
      {{code}}
+    </pre>
+    <button class="btn" ngclipboard data-clipboard-target="#code">
    </button>
 
-    <button class="btn btn-success" ng-click='cnpListener()'>
-      <i class="glyphicon glyphicon-copy"></i>
-      Copy</button>
  </div>
 </div>
 
