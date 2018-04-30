@@ -23,6 +23,11 @@
  <link rel="stylesheet" href="../../css/navbar-blue.css">
 
  <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.css" />
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.js"></script>
+
+
  <style media="screen">
  #code {
      background: #272822;
@@ -95,6 +100,17 @@
 
 <div class="row">
   <div class="col-lg-12">
+
+    <ui-select ng-model="selected.value">
+    <ui-select-match>
+        <span ng-bind="$select.selected.name"></span>
+    </ui-select-match>
+    <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+        <span ng-bind="item.name"></span>
+    </ui-select-choices>
+</ui-select>
+
+
     <input class="form-control"  placeholder="Enter URI" ng-model='uri' ng-change='updateCode()'/>
     <textarea rows='3' cols='160' id='code'>
 {{code}}
@@ -109,12 +125,23 @@
 </div>
 
 <script type="text/javascript">
-var app = angular.module('app',  ['ngclipboard']);
+var app = angular.module('app',  ['ngclipboard', 'ui.select', 'ngSanitize']);
 var GScope;
 app.controller('MainCtrl', function($scope) {
   GScope = $scope;
   $scope.apiVersion = 'v42.0';
   $scope.uri = 'limits';
+
+  $scope.itemArray = [
+        {id: 1, name: 'first'},
+        {id: 2, name: 'second'},
+        {id: 3, name: 'third'},
+        {id: 4, name: 'fourth'},
+        {id: 5, name: 'fifth'},
+    ];
+
+    $scope.selected = { value: $scope.itemArray[0] };
+
 
   $scope. cnpListener = function() {
 		 document.getElementById('code').select();
