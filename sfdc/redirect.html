@@ -111,15 +111,17 @@
 </ui-select>
 
 
-    <textarea rows='3' cols='150' id='code' readonly>
+    <textarea rows='3' cols='150' id='code'  ng-readonly="taro"
 {{code}}
     </textarea>
-    <hr/>
 
+    Readonly: <input type="checkbox" ng-model="taro">
+    <hr>
     <button class="btn btn-primary" ngclipboard data-clipboard-action="copy" data-clipboard-target="#code">
        <i class="glyphicon glyphicon-copy"></i> Copy to clipboard
     </button>
      <a class="btn btn-info" href="bobj-editor.html">Redirect</a>
+
  </div>
 </div>
 
