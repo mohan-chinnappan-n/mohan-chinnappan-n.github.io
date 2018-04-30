@@ -158,7 +158,8 @@ $scope.prepString  = function() {
 $scope.restGet = function(url) {
 
   var headers = {
-    "Authorization": "Bearer " + $scope.oauth2Parms.access_token
+    "Authorization": "Bearer " + $scope.oauth2Parms.access_token,
+    'Content-Type: application/json'
   };
   if (url === undefined) url = $scope.oauth2Parms.instance_url + '/services/data/v' + $scope.apiVersion + '.0/';
   console.log(url);
