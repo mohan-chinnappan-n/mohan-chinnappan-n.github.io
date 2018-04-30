@@ -161,6 +161,7 @@ $scope.restGet = function(url) {
     "Authorization": "Bearer " + $scope.oauth2Parms.access_token
   };
   if (url === undefined) url = $scope.oauth2Parms.instance_url + '/services/data/v' + $scope.apiVersion + '.0/';
+  console.log(url);
 
   $http(url, {
       headers: headers,
