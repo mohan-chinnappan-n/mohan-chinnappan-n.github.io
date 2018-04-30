@@ -32,10 +32,13 @@
     <p>instance_url info: {{urlParams.instance_url}}</p>
     <a class="btn btn-info" href="bobj-editor.html">Redirect</a>
 
-    <pre>
+    <pre id='code'>
 export SFDC_TOKEN='{{urlParams.access_token}}'
 curl {{urlParams.instance_url}}/services/data/{{apiVersion}}/ -H "Authorization: Bearer $SFDC_TOKEN"
     </pre>
+    <button class="btn btn-success" ng-click='cnpListener()'>
+      <i class="glyphicon glyphicon-copy"></i>
+      Copy</button>
  </div>
 </div>
 
@@ -48,6 +51,12 @@ var GScope;
 app.controller('MainCtrl', function($scope) {
   GScope = $scope;
   $scope.apiVersion = 'v42.0';
+
+  $scope. cnpListener() {
+		 document.getElementById('code').select();
+     document.execCommand('copy');
+}
+
 
   var query;
   if (location.search)  query = location.search.substr(1);
