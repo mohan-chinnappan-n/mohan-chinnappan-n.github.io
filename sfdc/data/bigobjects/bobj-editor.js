@@ -37,6 +37,11 @@ app.controller('MainCtrl', ['$scope', '$http', 'uiGridConstants', function ($sco
 $scope.CLIENT_ID='3MVG9zlTNB8o8BA0.U1.lKvWEVqJaJd9mstFQeMsjVt61sMuRtDn9E7AFEtPFCZK76XJtxTyY4kDdvvCGIVrd';
 $scope.REDIRECT_URL='https://mohan-chinnappan-n.github.io/sfdc/redirect.html';
 $scope.RESPONSE_TYPE="token";
+if (window.localStorage.urlParams !== undefined) {
+  //alert('test')
+  $scope.oauth2Parms = JSON.parse(window.localStorage.urlParams)
+}
+
 
 
  $scope.objectLabel = 'Rider History';
@@ -148,6 +153,24 @@ $scope.prepString  = function() {
 
 }
 
+
+// rest
+$scope.restGet = function(url) {
+
+  var headers = {
+    "Authorization": "Bearer " + $scope.oauth2Parms.access_token
+  };
+  if (url === undefined) url = $scope.oauth2Parms.instance_url + '/services/data/v' + $scope.apiVersion + '.0/';
+
+  $http.get(url, {
+      headers: headers
+    }).then(function(result) {
+        console.log(result);
+    })
+    .catch(function(err, status) {
+      console.error(' error', err, status);
+    });
+}
 
 
  $scope.validateFields = function() {
