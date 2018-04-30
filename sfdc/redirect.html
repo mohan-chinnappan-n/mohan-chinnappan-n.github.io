@@ -101,7 +101,7 @@
 <div class="row">
   <div class="col-lg-12">
 
-    <ui-select ng-model="selected.value">
+    <ui-select ng-model="selected.value" ng-change="updateCode()">
     <ui-select-match>
         <span ng-bind="$select.selected.name"></span>
     </ui-select-match>
@@ -111,7 +111,6 @@
 </ui-select>
 
 
-    <input class="form-control"  placeholder="Enter URI" ng-model='uri' ng-change='updateCode()'/>
     <textarea rows='3' cols='160' id='code'>
 {{code}}
     </textarea>
@@ -200,7 +199,8 @@ app.controller('MainCtrl', function($scope) {
   if ( result.access_token ) { $scope.oauthToken = result.access_token }
 
   $scope.updateCode = function() {
-      $scope.code = "curl "  +  $scope.urlParams.instance_url + "/services/data/" + $scope.apiVersion + "/" + $scope.uri +  " -H 'Authorization: Bearer "
+      $scope.code = "curl "  +  $scope.urlParams.instance_url + "/services/data/" + $scope.apiVersion + "/" + $scope.selected.value.name
+ +  " -H 'Authorization: Bearer "
                 + $scope.urlParams.access_token + "' | jq"
   }
 
