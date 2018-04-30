@@ -88,11 +88,13 @@
     <p>instance_url info: {{urlParams.instance_url}}</p>
     <a class="btn btn-info" href="bobj-editor.html">Redirect</a>
 
-    <pre id='code'>
+    <textarea id='code'>
      {{code}}
-    </pre>
-    <button class="btn" ngclipboard data-clipboard-target="#code">
-   </button>
+    </textarea>
+
+    <button class="btn" ngclipboard data-clipboard-action="copy" data-clipboard-target="#code">
+      Cut to clipboard
+  </button>
 
  </div>
 </div>
