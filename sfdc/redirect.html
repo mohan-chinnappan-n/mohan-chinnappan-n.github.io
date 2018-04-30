@@ -134,7 +134,7 @@ app.controller('MainCtrl', function($scope) {
   if ( result.access_token ) { $scope.oauthToken = result.access_token }
 
   $scope.code = "export SFDC_TOKEN='" + $scope.urlParams.access_token + "'\n" +
-                "curl "  +  $scope.urlParams.instance_url + "/services/data/" + $scope.apiVersion + "/ -H Authorization: Bearer  $SFDC_TOKEN"
+                "curl "  +  $scope.urlParams.instance_url + "/services/data/" + $scope.apiVersion + "/ -H 'Authorization: Bearer  $SFDC_TOKEN'"
 
 
 
