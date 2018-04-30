@@ -111,7 +111,7 @@
 </ui-select>
 
 
-    <textarea rows='3' cols='160' id='code'>
+    <textarea rows='3' cols='150' id='code' readonly>
 {{code}}
     </textarea>
     <hr/>
@@ -135,42 +135,139 @@ app.controller('MainCtrl', function($scope) {
  {"name":  "tooling", "id": 1}
 ,{"name":  "metadata", "id": 2}
 ,{"name":  "folders", "id": 3}
+
 ,{"name":  "eclair", "id": 4}
+,{"name":  "eclair/geodata", "id": 41}
+,{"name":  "eclair/maps", "id": 42}
+
+
 ,{"name":  "prechatForms", "id": 5}
+
 ,{"name":  "chatter", "id": 6}
+,{"name":  "chatter/extensions", "id": 61}
+,{"name":  "chatter/feeds", "id": 62}
+,{"name":  "chatter/groups", "id": 63
+,{"name":  "chatter/streams", "id": 64}
+,{"name":  "chatter/users", "id": 65}
+
+
+
+
 ,{"name":  "tabs", "id": 7}
+
 ,{"name":  "appMenu", "id": 8}
+,{"name":  "appMenu/AppSwitcher", "id": 81}
+,{"name":  "appMenu/Salesforce1", "id": 82}
+,{"name":  "appMenu/NetworkTabs", "id": 83}
+
+
+
 ,{"name":  "quickActions", "id": 9}
 ,{"name":  "queryAll", "id": 10}
+
 ,{"name":  "commerce", "id": 11}
+,{"name":  "commerce/sale", "id": 111}
+,{"name":  "commerce/sale/order", "id": 1111}
+
 ,{"name":  "wave", "id": 12}
 ,{"name":  "iot", "id": 13}
+
 ,{"name":  "analytics", "id": 14}
-,{"name":  "search", "id": 15}
+,{"name":  "analytics/reports", "id": 141}
+,{"name":  "analytics/reportTypes", "id": 142}
+,{"name":  "analytics/notifications", "id": 143}
+,{"name":  "analytics/filteroperators", "id": 144}
+,{"name":  "analytics/dashboards", "id": 145}
+
+
+
+
+
+,{"name":  "search/?q=FIND+%7BBurlington%7D", "id": 15}
+,{"name":  "search/layout", "id": 151}
+,{"name":  "search/scopeOrder", "id": 152}
+,{"name":  "search/predictSObjects", "id": 153}
+,{"name":  "search/suggestions", "id": 154}
+
+
+
+
 ,{"name":  "identity", "id": 16}
+
 ,{"name":  "composite", "id": 17}
-,{"name":  "parameterizedSearch", "id": 18}
+,{"name":  "composite/tree", "id": 171}
+,{"name":  "composite/batch", "id": 172}
+,{"name":  "composite/sobjects", "id": 172}
+
+
+
+,{"name":  "parameterizedSearch/?q=Acme&sobject=Account&Account.fields=id,name&Account.limit=10", "id": 18}
+
 ,{"name":  "fingerprint", "id": 19}
 ,{"name":  "theme", "id": 20}
 ,{"name":  "nouns", "id": 21}
+
 ,{"name":  "event", "id": 22}
+,{"name":  "event/eventSchema/{ID}", "id": 221}
+,{"name":  "event/custom", "id": 222}
+
 ,{"name":  "serviceTemplates", "id": 23}
 ,{"name":  "recent", "id": 24}
+
 ,{"name":  "connect", "id": 25}
+,{"name":  "connect/canvas", "id": 251}
+,{"name":  "connect/communities", "id": 252}
+,{"name":  "connect/organization", "id": 253}
+
+
+
 ,{"name":  "licensing", "id": 26}
+,{"name":  "licensing/tenants", "id": 261}
+
 ,{"name":  "limits", "id": 27}
+
 ,{"name":  "process", "id": 28}
+,{"name":  "process/approvals", "id": 281}
+,{"name":  "process/rules", "id": 281
+
 ,{"name":  "async-queries", "id": 29}
+
 ,{"name":  "dedupe", "id": 30}
+,{"name":  "dedupe/job-definitions", "id": 301}
+,{"name":  "dedupe/jobs", "id": 302}
+
+
 ,{"name":  "query/?q=SELECT+name+From+Account", "id": 31}
+,{"name":  "queryAll/?q=SELECT+name+From+Account", "id": 311}
+
 ,{"name":  "jobs", "id": 32}
+,{"name":  "jobs/ingest", "id": 321}
+
 ,{"name":  "match", "id": 33}
+,{"name":  "match/DunsRightMatchEngine", "id": 331}
+,{"name":  "match/DatacloudMatchEngine/DatacloudContact", "id": 332}
+,{"name":  "match/DatacloudMatchEngine/DatacloudCompany", "id": 332}
+
+
 ,{"name":  "emailConnect", "id": 34}
 ,{"name":  "compactLayouts", "id": 35}
 ,{"name":  "knowledgeManagement", "id": 36}
+,{"name":  "knowledgeManagement/settings", "id": 361}
+
+
 ,{"name":  "sobjects", "id": 37}
+
 ,{"name":  "actions", "id": 38}
+,{"name":  "actions/standard", "id": 381}
+,{"name":  "actions/custom", "id": 382}
+
+
 ,{"name":  "support", "id": 39}
+,{"name":  "support/prechatForms", "id": 391}
+,{"name":  "support/quickActions", "id": 392}
+
+
+
 ,{"name":  "sobjects/Account/describe/", "id": 40}
     ];
 
