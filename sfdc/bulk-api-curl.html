@@ -169,12 +169,12 @@
       </ui-select>
 
             <textarea rows='3' cols='153' id='code'  ng-readonly="taro"> {{code}} </textarea>
-            <br/>
-            <i class="glyphicon glyphicon-lock"></i> <input type="checkbox" class="form-control" checked ng-model="taro">
-            <hr>
+
+            <label for="taro">  <i class="glyphicon glyphicon-lock"></i></label>
+           <input type="checkbox" class="form-control" id='taro' checked ng-model="taro">
             <input type="text"   class="form-control" ng-change="updateCode()"  ng-model="dataFile">
-            <i class="glyphicon glyphicon-file"></i> <input type="checkbox" class="form-control"  ng-change="updateCode()" checked ng-model="postDatafile">
-            <hr>
+            <label for="postDataFile">  <i class="glyphicon glyphicon-file"></i>/label>
+           <input type="checkbox" id='postDataFile' class="form-control"  ng-change="updateCode()" checked ng-model="postDatafile">
             <button class="btn btn-primary" ngclipboard data-clipboard-action="copy" data-clipboard-target="#code">
                <i class="glyphicon glyphicon-copy"></i> Copy to clipboard
             </button>
@@ -196,6 +196,8 @@ app.controller('MainCtrl', function($scope) {
   $scope.itemArray = [
      {"name":  "job", "id": 1}
     ,{"name":  "job/{jobId}/batch/", "id": 2}
+    ,{"name":  "job/{jobId}/batch/{bathId}", "id": 3}
+
   ];
   $scope.selected = { value: $scope.itemArray[0] };
 
