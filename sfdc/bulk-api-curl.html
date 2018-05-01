@@ -176,7 +176,7 @@
             <br/>
             <i class="glyphicon glyphicon-lock"></i> <input type="checkbox"  checked ng-model="taro">
             <hr>
-            <input type="text"  ng-model="dataFile">
+            <input type="text"   ng-change="updateCode()"  ng-model="dataFile">
             <i class="glyphicon glyphicon-file"></i> <input type="checkbox"  ng-change="updateCode()" checked ng-model="postDatafile">
             <hr>
             <button class="btn btn-primary" ngclipboard data-clipboard-action="copy" data-clipboard-target="#code">
