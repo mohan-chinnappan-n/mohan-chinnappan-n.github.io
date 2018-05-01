@@ -142,13 +142,23 @@
         <div class="row">
           <div class="col-lg-12">
             <ui-select ng-model="selected.value" ng-change="updateCode()">
-            <ui-select-match>
-                <span ng-bind="$select.selected.name"></span>
-            </ui-select-match>
-            <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+              <ui-select-match>
+                  <span ng-bind="$select.selected.name"></span>
+              </ui-select-match>
+              <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
                 <span ng-bind="item.name"></span>
             </ui-select-choices>
+          </ui-select>
+
+          <ui-select ng-model="selectedCT.value" ng-change="updateCode()">
+            <ui-select-match>
+                <span ng-bind="$selectedCT.selected.name"></span>
+            </ui-select-match>
+            <ui-select-choices repeat="itemCT in (itemCTArray | filter: $select.search) track by itemCT.id">
+              <span ng-bind="itemCT.name"></span>
+          </ui-select-choices>
         </ui-select>
+
 
 
             <textarea rows='3' cols='150' id='code'  ng-readonly="taro"> {{code}} </textarea>
@@ -179,15 +189,16 @@ app.controller('MainCtrl', function($scope) {
   $scope.dataFile = 'job.txt';
 
   $scope.itemArray = [
- {"name":  "job", "id": 1}
-,{"name":  "job/{jobId}/batch/", "id": 2}
-    ];
-var index = 0;
-angular.forEach( $scope.itemArray, function(value, key) {
-  $scope.itemArray.id = index++;
-});
+     {"name":  "job", "id": 1}
+    ,{"name":  "job/{jobId}/batch/", "id": 2}
+  ];
+  $scope.selected = { value: $scope.itemArray[0] };
 
-$scope.selected = { value: $scope.itemArray[0] };
+  $scope.itemCTArray = [
+     {"name":  "Content-Type: application/xml; charset=UTF-8", "id": 1}
+    ,{"name":  "Content-Type: text/csv; charset=UTF-8", "id": 2}
+  ];
+  $scope.selectedCT = { value: $scope.itemCTArray[0] };
 
 
   $scope. cnpListener = function() {
