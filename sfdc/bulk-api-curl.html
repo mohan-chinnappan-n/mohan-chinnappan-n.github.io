@@ -219,7 +219,7 @@ if (window.localStorage.urlParams !== undefined) {
       $scope.code = "curl "  +  $scope.oauth2Parms.instance_url + "/services/async/" + $scope.apiVersion + "/" + $scope.selected.value.name
  + "  -H '" +  $scope.selectedCT.value.name + "' "
  +  " -H 'X-SFDC-Session: "
-                + $scope.oauth2Parms.access_token + $scope.dataFileURI + "' | jq"
+                + $scope.oauth2Parms.access_token + "' " +  $scope.dataFileURI + " | jq"
   }
 
   $scope.updateCode();
