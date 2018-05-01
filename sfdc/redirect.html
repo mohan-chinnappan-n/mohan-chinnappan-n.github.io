@@ -96,36 +96,51 @@
 
 </head>
 <body ng-controller="MainCtrl" class="container">
-<hr/>
 
-<div class="row">
-  <div class="col-lg-12">
-
-    <ui-select ng-model="selected.value" ng-change="updateCode()">
-    <ui-select-match>
-        <span ng-bind="$select.selected.name"></span>
-    </ui-select-match>
-    <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
-        <span ng-bind="item.name"></span>
-    </ui-select-choices>
-</ui-select>
+  <ul class="nav nav-tabs">
+      <li class="active"><a href="#data">Data</a></li>
+      <li><a href="#bulk">Bulk</a></li>
+  </ul>
 
 
-    <textarea rows='3' cols='150' id='code'  ng-readonly="taro">
-{{code}}
-    </textarea>
+  <div class="tab-content">
+      <div id="data" class="tab-pane fade in active">
+        <div class="row">
+          <div class="col-lg-12">
+            <ui-select ng-model="selected.value" ng-change="updateCode()">
+            <ui-select-match>
+                <span ng-bind="$select.selected.name"></span>
+            </ui-select-match>
+            <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.id">
+                <span ng-bind="item.name"></span>
+            </ui-select-choices>
+        </ui-select>
 
-    <br/>
-    <i class="glyphicon glyphicon-lock"></i> <input type="checkbox"  checked ng-model="taro">
-    <hr>
-    <button class="btn btn-primary" ngclipboard data-clipboard-action="copy" data-clipboard-target="#code">
-       <i class="glyphicon glyphicon-copy"></i> Copy to clipboard
-    </button>
-     <a class="btn btn-info" href="bobj-editor.html">Redirect</a>
 
- </div>
+            <textarea rows='3' cols='150' id='code'  ng-readonly="taro">
+        {{code}}
+            </textarea>
+
+            <br/>
+            <i class="glyphicon glyphicon-lock"></i> <input type="checkbox"  checked ng-model="taro">
+            <hr>
+            <button class="btn btn-primary" ngclipboard data-clipboard-action="copy" data-clipboard-target="#code">
+               <i class="glyphicon glyphicon-copy"></i> Copy to clipboard
+            </button>
+             <a class="btn btn-info" href="bobj-editor.html">Redirect</a>
+
+         </div>
+        </div>
+    </div>
+
+    <!-- -->
+      <div id="bulk" class="tab-pane">
+        <p>Bulk</p>
+
+      </div>
+
+
 </div>
-
 <script type="text/javascript">
 var app = angular.module('app',  ['ngclipboard', 'ui.select', 'ngSanitize']);
 var GScope;
