@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>OAuth Redirect</title>
+  <title>Bulk API cURL </title>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
@@ -155,6 +155,8 @@
 
             <br/>
             <i class="glyphicon glyphicon-lock"></i> <input type="checkbox"  checked ng-model="taro">
+            <input type="text"  ng-model="dataFile">
+            <i class="glyphicon glyphicon-file"></i> <input type="checkbox"  checked ng-model="postDatafile">
             <hr>
             <button class="btn btn-primary" ngclipboard data-clipboard-action="copy" data-clipboard-target="#code">
                <i class="glyphicon glyphicon-copy"></i> Copy to clipboard
@@ -170,8 +172,10 @@ var app = angular.module('app',  ['ngclipboard', 'ui.select', 'ngSanitize']);
 var GScope;
 app.controller('MainCtrl', function($scope) {
   GScope = $scope;
-  $scope.apiVersion = 'v42.0';
+  $scope.apiVersion = '42.0';
   $scope.uri = 'limits';
+
+  $scope.dataFile = '-d @job.txt';
 
   $scope.itemArray = [
  {"name":  "tooling", "id": 1}
@@ -330,10 +334,14 @@ if (window.localStorage.urlParams !== undefined) {
   //alert('test')
   $scope.oauth2Parms = JSON.parse(window.localStorage.urlParams)
 }
+
   $scope.updateCode = function() {
-      $scope.code = "curl "  +  $scope.oauth2Parms.instance_url + "/services/data/" + $scope.apiVersion + "/" + $scope.selected.value.name
- +  " -H 'Authorization: Bearer "
-                + $scope.oauth2Parms.access_token + "' | jq"
+      if ($scope.dataFile) {
+        $scope.dataFileURI = '-d @' + $scope.dataFile;
+      }
+      $scope.code = "curl "  +  $scope.oauth2Parms.instance_url + "/services/async/" + $scope.apiVersion + "/" + $scope.selected.value.name
+ +  " -H 'X-SFDC-Session: "
+                + $scope.oauth2Parms.access_token + $scope.dataFileURI + "' | jq"
   }
 
   $scope.updateCode();
