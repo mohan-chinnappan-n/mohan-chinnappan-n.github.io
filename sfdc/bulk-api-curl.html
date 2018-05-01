@@ -174,10 +174,10 @@
             <textarea rows='3' cols='150' id='code'  ng-readonly="taro"> {{code}} </textarea>
 
             <br/>
-            <i class="glyphicon glyphicon-lock"></i> <input type="checkbox"  checked ng-model="taro">
+            <i class="glyphicon glyphicon-lock"></i> <input type="checkbox" class="form-control" checked ng-model="taro">
             <hr>
-            <input type="text"   ng-change="updateCode()"  ng-model="dataFile">
-            <i class="glyphicon glyphicon-file"></i> <input type="checkbox"  ng-change="updateCode()" checked ng-model="postDatafile">
+            <input type="text"   class="form-control" ng-change="updateCode()"  ng-model="dataFile">
+            <i class="glyphicon glyphicon-file"></i> <input type="checkbox" class="form-control"  ng-change="updateCode()" checked ng-model="postDatafile">
             <hr>
             <button class="btn btn-primary" ngclipboard data-clipboard-action="copy" data-clipboard-target="#code">
                <i class="glyphicon glyphicon-copy"></i> Copy to clipboard
@@ -235,7 +235,7 @@ if (window.localStorage.urlParams !== undefined) {
       $scope.code = "curl "  +  $scope.oauth2Parms.instance_url + "/services/async/" + $scope.apiVersion + "/" + $scope.selected.value.name
  + "  -H '" +  $scope.selectedCT.value.name + "' "
  +  " -H 'X-SFDC-Session: "
-                + $scope.oauth2Parms.access_token + "' " +  $scope.dataFileURI + " | jq"
+                + $scope.oauth2Parms.access_token + "' " +  $scope.dataFileURI
   }
 
   $scope.updateCode();
