@@ -159,6 +159,16 @@
           </ui-select-choices>
         </ui-select>
 
+        <ui-select ng-model="selectedData.value" ng-change="updateCode()">
+          <ui-select-match>
+              <span ng-bind="$selectedData.selected.name"></span>
+          </ui-select-match>
+          <ui-select-choices repeat="itemData in (itemDataArray | filter: $select.search) track by itemData.id">
+            <span ng-bind="itemData.name"></span>
+        </ui-select-choices>
+      </ui-select>
+
+
 
 
             <textarea rows='3' cols='150' id='code'  ng-readonly="taro"> {{code}} </textarea>
@@ -200,6 +210,13 @@ app.controller('MainCtrl', function($scope) {
   ];
   $scope.selectedCT = { value: $scope.itemCTArray[0] };
 
+  $scope.itemDataArray = [
+     {"name":  "--data ", "id": 1}
+    ,{"name":  "--data-binary ", "id": 2}
+  ];
+  $scope.selectedData = { value: $scope.itemDataArray[0] };
+
+
 
   $scope. cnpListener = function() {
 		 document.getElementById('code').select();
@@ -214,7 +231,7 @@ if (window.localStorage.urlParams !== undefined) {
 
   $scope.updateCode = function() {
       if ($scope.dataFile !== undefined) {
-        $scope.dataFileURI = '-d @' + $scope.dataFile;
+        $scope.dataFileURI = $scope.selectedData.value.name + " @" + $scope.dataFile;
       }
       $scope.code = "curl "  +  $scope.oauth2Parms.instance_url + "/services/async/" + $scope.apiVersion + "/" + $scope.selected.value.name
  + "  -H '" +  $scope.selectedCT.value.name + "' "
