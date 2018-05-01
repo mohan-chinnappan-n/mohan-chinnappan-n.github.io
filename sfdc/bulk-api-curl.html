@@ -326,26 +326,14 @@ $scope.selected = { value: $scope.itemArray[0] };
 }
 
 
-  var query;
-  if (location.search)  query = location.search.substr(1);
-  if (location.href.indexOf('#') !== -1) query = location.href.split('#')[1]
-
-  var result = {};
-  query.split("&").forEach(function(part) {
-    var item = part.split("=");
-    result[item[0]] = decodeURIComponent(item[1]);
-  })
-  $scope.urlParams = result;
-  window.localStorage['urlParams'] = angular.toJson(  $scope.urlParams);
-
-
-  if ( result.code ) { $scope.oauthCode = result.code }
-  if ( result.access_token ) { $scope.oauthToken = result.access_token }
-
+if (window.localStorage.urlParams !== undefined) {
+  //alert('test')
+  $scope.oauth2Parms = JSON.parse(window.localStorage.urlParams)
+}
   $scope.updateCode = function() {
-      $scope.code = "curl "  +  $scope.urlParams.instance_url + "/services/data/" + $scope.apiVersion + "/" + $scope.selected.value.name
+      $scope.code = "curl "  +  $scope.oauth2Parms.instance_url + "/services/data/" + $scope.apiVersion + "/" + $scope.selected.value.name
  +  " -H 'Authorization: Bearer "
-                + $scope.urlParams.access_token + "' | jq"
+                + $scope.oauth2Parms.access_token + "' | jq"
   }
 
   $scope.updateCode();
