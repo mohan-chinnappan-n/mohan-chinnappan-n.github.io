@@ -97,15 +97,12 @@
       </h4>
         {{selectedWord2}}</b>
 
-
-       <div ng-bind-html="trustAsHtml(meaning)"></div>
-
-        <span  ng-show='meaning'
+        <span  ng-show='meaning'> : {{meaning}}
+              <br/>
               <a
                target="_blank"  href="https://www.google.com/search?q=salesforce+trailhead+{{selectedWord.split(':')[1]}}">More Info &raquo;</a>
                | <a target="_blank"  href="https://www.google.com/search?q=define+{{selectedWord.split(':')[1]}}">Define &raquo;</a>
         </span>
-
         <span ng-show="usage">
          <i>"{{usage}}"</i>
        </span>
@@ -141,9 +138,6 @@
 <script src="sfdc-glossary-dx.js"></script>
 <script src="sfdc-glossary-fc.js"></script>
 
-<script src="sfdc-lx.js?v=1"></script>
-
-
 <script src="aws-glossary.js"></script>
 <script src="db.js"></script>
 <script src="farming-2.js"></script>
@@ -153,7 +147,7 @@
 <script src="gre.js"></script>
 <script src="music.js"></script>
 
-<script src="sfdc-glossary-app.js?v=1"></script>
+<script src="sfdc-glossary-app.js"></script>
 
 </body>
 

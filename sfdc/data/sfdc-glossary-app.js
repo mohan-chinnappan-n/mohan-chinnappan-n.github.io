@@ -16,10 +16,18 @@ query.split("&").forEach(function(part) {
 });
 
 var GScope;
-app.controller('MainCtrl', function($scope) {
+app.controller('MainCtrl', function($scope, $sce) {
   GScope = $scope;
   $scope.trialhead = false;
-  $scope.topics = ['SFDC', 'Einstein Analytics (EA)', 'Shield', 'SFDX', 'Financial Services Cloud (FSC)',
+
+  $scope.trustAsHtml = function(string) {
+    return $sce.trustAsHtml(string);
+};
+
+
+  $scope.topics = ['SFDC',
+               'LEX',
+                'Einstein Analytics (EA)', 'Shield', 'SFDX', 'Financial Services Cloud (FSC)',
                 'AWS',
                 'DB',
                 'Farming',
@@ -29,7 +37,10 @@ app.controller('MainCtrl', function($scope) {
                  'EN',
                  'Music']
                  ;
-  $scope.sfdc = Object.assign(sfdcWords, eaWords, shieldWords, dxWords, fcWords,
+  $scope.sfdc = Object.assign(sfdcWords,
+                              lxWords,
+
+                              eaWords, shieldWords, dxWords, fcWords,
                               dbWords,
                               awsWords,
                               farmingWords,
@@ -42,6 +53,8 @@ app.controller('MainCtrl', function($scope) {
 
   $scope.sfdcCounts = [
        Object.keys(sfdcWords).length,
+       Object.keys(lxWords).length,
+
        Object.keys(eaWords).length,
        Object.keys(shieldWords).length,
        Object.keys(dxWords).length,
@@ -138,10 +151,17 @@ app.directive('autocomplete', function() {
                   scope.selectedWord = ui.item.value;
                   scope.selectedWord2 = ui.item.value.replace(/:/,' : ');
                   scope.myList.push(scope.selectedWord);
-                  var meaningUsage = scope.sfdc[ui.item.value].split('|');
-
-                  scope.meaning = meaningUsage[0];
-                  scope.usage = meaningUsage[1];
+                  console.log(typeof scope.sfdc[ui.item.value])
+                  var itemType = typeof( scope.sfdc[ui.item.value] )
+                  if (itemType === 'string') {
+                    var meaningUsage = scope.sfdc[ui.item.value].split('|');
+                    scope.meaning = meaningUsage[0];
+                    scope.usage = meaningUsage[1];
+                  }
+                  else if ( itemType === 'object') {
+                       scope.meaning = scope.sfdc[ui.item.value].join(' <br/> ')
+                       //scope.meaning = $sce.trustAsHtml(scope.meaning);
+                  }
 
                   ngModelCtrl.$setViewValue(ui.item);
                   //scope.showTrialhead();
