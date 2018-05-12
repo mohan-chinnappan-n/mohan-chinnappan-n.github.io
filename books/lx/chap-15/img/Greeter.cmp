@@ -1,0 +1,7 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome"
+                access="global" >
+    
+    <aura:attribute name="greeting" type="String" default="Hello World"/> 
+    <lightning:button label="{!v.greeting}" onclick="{!c.changeGreeting}" />
+    
+</aura:component>
