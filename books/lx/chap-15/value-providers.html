@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Project Generator · GitBook</title>
+        <title>Value Providers · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../chap-12/ea-static-binding.html" />
+    <link rel="next" href="../chap-11/lcc.html" />
     
     
-    <link rel="prev" href="sfdx.html" />
+    <link rel="prev" href="expr.html" />
     
 
     </head>
@@ -304,9 +304,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8" data-path="../chap-15/build-comp.html">
+        <li class="chapter " data-level="1.4.8" data-path="build-comp.html">
             
-                <a href="../chap-15/build-comp.html">
+                <a href="build-comp.html">
             
                     
                     Building components
@@ -318,9 +318,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.8.1" data-path="../chap-15/buttons.html">
+        <li class="chapter " data-level="1.4.8.1" data-path="buttons.html">
             
-                <a href="../chap-15/buttons.html">
+                <a href="buttons.html">
             
                     
                     Playing with buttons
@@ -331,9 +331,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8.2" data-path="../chap-15/expr.html">
+        <li class="chapter " data-level="1.4.8.2" data-path="expr.html">
             
-                <a href="../chap-15/expr.html">
+                <a href="expr.html">
             
                     
                     Expressions
@@ -344,9 +344,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8.3" data-path="../chap-15/value-providers.html">
+        <li class="chapter active" data-level="1.4.8.3" data-path="value-providers.html">
             
-                <a href="../chap-15/value-providers.html">
+                <a href="value-providers.html">
             
                     
                     Value Providers
@@ -505,9 +505,9 @@
         
         
     
-        <li class="chapter " data-level="5.1" data-path="sfdx.html">
+        <li class="chapter " data-level="5.1" data-path="../sfdx/sfdx.html">
             
-                <a href="sfdx.html">
+                <a href="../sfdx/sfdx.html">
             
                     
                     SFDX
@@ -519,9 +519,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="5.1.1" data-path="project-generator.html">
+        <li class="chapter " data-level="5.1.1" data-path="../sfdx/project-generator.html">
             
-                <a href="project-generator.html">
+                <a href="../sfdx/project-generator.html">
             
                     
                     Project Generator
@@ -607,7 +607,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Project Generator</a>
+        <a href=".." >Value Providers</a>
     </h1>
 </div>
 
@@ -622,63 +622,98 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="project-generator-for-sfdx">Project generator for SFDX</h2>
-<h2 id="npm-repo-location">NPM repo location:</h2>
-<p><a href="https://www.npmjs.com/package/generator-sfdx" target="_blank">npm repo</a></p>
-<h3 id="install">Install</h3>
-<pre><code># create a nodejs project
-$ npm init
-# install Yeoman generator for SFDX
-$ npm install generator-sfdx
-</code></pre><h3 id="usage-demo">Usage Demo</h3>
-<pre><code>$ yo sfdx
-</code></pre><p><a target="_blank" href="img/sfdx-yo-4.gif">
-<i class="fa fa-arrows-alt" alt="full screen view of the demo"></i>
-</a></p>
-
-<p><img src="img/sfdx-yo-4.gif" alt="yeoman sfdx gen"></p>
-<h2 id="generated-project-folder-structure">Generated Project folder structure</h2>
-<pre><code>$ tree MyProject/
-MyProject/
-&#x251C;&#x2500;&#x2500; config
-&#x2502;   &#x2514;&#x2500;&#x2500; scratch-org-def.json
-&#x251C;&#x2500;&#x2500; force-app
-&#x2502;   &#x251C;&#x2500;&#x2500; main
-&#x2502;   &#x2502;   &#x2514;&#x2500;&#x2500; default
-&#x2502;   &#x2502;       &#x251C;&#x2500;&#x2500; aura
-&#x2502;   &#x2502;       &#x2502;   &#x2514;&#x2500;&#x2500; ContactApp
-&#x2502;   &#x2502;       &#x2502;       &#x251C;&#x2500;&#x2500; ContactApp.app
-&#x2502;   &#x2502;       &#x2502;       &#x251C;&#x2500;&#x2500; ContactApp.app-meta.xml
-&#x2502;   &#x2502;       &#x2502;       &#x251C;&#x2500;&#x2500; ContactApp.auradoc
-&#x2502;   &#x2502;       &#x2502;       &#x251C;&#x2500;&#x2500; ContactApp.css
-&#x2502;   &#x2502;       &#x2502;       &#x251C;&#x2500;&#x2500; ContactApp.svg
-&#x2502;   &#x2502;       &#x2502;       &#x251C;&#x2500;&#x2500; ContactAppController.js
-&#x2502;   &#x2502;       &#x2502;       &#x251C;&#x2500;&#x2500; ContactAppHelper.js
-&#x2502;   &#x2502;       &#x2502;       &#x2514;&#x2500;&#x2500; ContactAppRenderer.js
-&#x2502;   &#x2502;       &#x251C;&#x2500;&#x2500; classes
-&#x2502;   &#x2502;       &#x2502;   &#x251C;&#x2500;&#x2500; ContactController.cls
-&#x2502;   &#x2502;       &#x2502;   &#x2514;&#x2500;&#x2500; ContactController.cls-meta.xml
-&#x2502;   &#x2502;       &#x251C;&#x2500;&#x2500; pages
-&#x2502;   &#x2502;       &#x2502;   &#x251C;&#x2500;&#x2500; ContactPage.page
-&#x2502;   &#x2502;       &#x2502;   &#x2514;&#x2500;&#x2500; ContactPage.page-meta.xml
-&#x2502;   &#x2502;       &#x2514;&#x2500;&#x2500; tests
-&#x2502;   &#x2514;&#x2500;&#x2500; test
-&#x2502;       &#x2514;&#x2500;&#x2500; default
-&#x2502;           &#x2514;&#x2500;&#x2500; classes
-&#x2502;               &#x251C;&#x2500;&#x2500; ContactControllerTests.cls
-&#x2502;               &#x2514;&#x2500;&#x2500; ContactControllerTests.cls-meta.xml
-&#x2514;&#x2500;&#x2500; sfdx-project.json
-
-12 directories, 16 files
-</code></pre><h2 id="edit-with-vs-code">Edit with VS Code</h2>
-<pre><code>$ cd MyProject
-
-$ code .
-</code></pre><p><img src="img/sfdx-gen-edit-1.png" alt="sfdx-gen-edit-1"></p>
-<h3 id="apex-code-completion">Apex code completion</h3>
-<p><img src="img/sfdx-gen-edit-2.png" alt="sfdx-gen-edit-2"></p>
-<h3 id="apex-pmd-code-scan-extension-for-vs-code">Apex PMD code-scan extension for VS Code</h3>
-<p><img src="img/sfdx-gen-edit-pmd.png" alt="sfdx-gen-edit-pmd"></p>
+                                <h2 id="value-providers">Value Providers</h2>
+<h3 id="for-components">For Components</h3>
+<ul>
+<li><p><strong>v</strong> for view</p>
+<ul>
+<li>A component&#x2019;s attribute set. This value provider enables you to access the value of a component&#x2019;s attribute in the component&#x2019;s markup.<pre><code class="lang-xml">   {!v.greeting}
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p><strong>c</strong> for controller</p>
+<ul>
+<li>A component&#x2019;s controller, which enables you to wire up event handlers and actions for the component<pre><code class="lang-xml">  {!c.getNewGreeting}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="global-value-providers">Global Value Providers</h3>
+<ul>
+<li><p>globalID</p>
+<ul>
+<li>Returns the global ID for a component</li>
+<li>Every component has a unique globalId, which is the generated runtime-unique ID of the component instance.</li>
+</ul>
+</li>
+<li><p>$Browser</p>
+<ul>
+<li>Returns information about the hardware and operating system
+of the browser accessing the application. <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span>&gt;</span>
+{!$Browser.isTablet}
+{!$Browser.isPhone}
+{!$Browser.isAndroid}
+{!$Browser.formFactor}
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+</li>
+<li>client-side controller using $A.get()<pre><code class="lang-js">({
+checkBrowser: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component</span>) </span>{
+  <span class="hljs-keyword">var</span> device = $A.get(<span class="hljs-string">&quot;$Browser.formFactor&quot;</span>);
+  alert(<span class="hljs-string">&quot;You are using a &quot;</span> + device);
+}
+})
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>$Locale</p>
+<ul>
+<li>Returns information about the current user&#x2019;s preferred locale<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span>&gt;</span>
+  {!$Locale.language}
+  {!$Locale.timezone}
+  {!$Locale.numberFormat}
+  {!$Locale.currencyFormat}
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+</li>
+<li>client-side controller using $A.get()</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-js">({
+       checkDevice: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component</span>) </span>{
+            <span class="hljs-keyword">var</span> locale = $A.get(<span class="hljs-string">&quot;$Locale.language&quot;</span>);
+            alert(<span class="hljs-string">&quot;You are using &quot;</span> + locale);
+        }
+})
+</code></pre>
+<ul>
+<li><p>$Resource</p>
+<ul>
+<li><p>lets you reference images, style sheets, and JavaScript code you&#x2019;ve uploaded in static resource</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- Stand-alone static resources --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;{!$Resource.generic_profile_svg}&quot;</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;{!$Resource.yourNamespace__generic_profile_svg}&quot;</span>/&gt;</span>
+  <span class="hljs-comment">&lt;!-- Asset from an archive static resource --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;{!$Resource.SLDSv2 + &apos;/assets/images/avatar1.jpg&apos;}&quot;</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;{!$Resource.yourNamespace__SLDSv2 + &apos;/assets/images/avatar1.jpg&apos;}&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-js">({
+  profileUrl: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component</span>) </span>{
+      <span class="hljs-keyword">var</span> profUrl = $A.get(<span class="hljs-string">&apos;$Resource.SLDSv2&apos;</span>) + <span class="hljs-string">&apos;/assets/images/avatar1.jpg&apos;</span>;
+      alert(<span class="hljs-string">&quot;Profile URL: &quot;</span> + profUrl);
+  }
+})
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -706,12 +741,12 @@ $ code .
 
             
                 
-                <a href="sfdx.html" class="navigation navigation-prev " aria-label="Previous page: SFDX">
+                <a href="expr.html" class="navigation navigation-prev " aria-label="Previous page: Expressions">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../chap-12/ea-static-binding.html" class="navigation navigation-next " aria-label="Next page: EA Binding Notes ">
+                <a href="../chap-11/lcc.html" class="navigation navigation-next " aria-label="Next page: Lightning Configuration Converter">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -722,7 +757,7 @@ $ code .
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Project Generator","level":"5.1.1","depth":2,"next":{"title":"EA Binding Notes ","level":"6.1","depth":1,"path":"chap-12/ea-static-binding.md","ref":"chap-12/ea-static-binding.md","articles":[]},"previous":{"title":"SFDX","level":"5.1","depth":1,"path":"sfdx/sfdx.md","ref":"sfdx/sfdx.md","articles":[{"title":"Project Generator","level":"5.1.1","depth":2,"path":"sfdx/project-generator.md","ref":"sfdx/project-generator.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sfdx/project-generator.md","mtime":"2017-12-31T15:45:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-13T02:04:41.275Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Value Providers","level":"1.4.8.3","depth":3,"next":{"title":"Lightning Configuration Converter","level":"1.4.9","depth":2,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"Expressions","level":"1.4.8.2","depth":3,"path":"chap-15/expr.md","ref":"chap-15/expr.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-15/value-providers.md","mtime":"2018-05-13T02:32:16.865Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-13T02:04:41.275Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

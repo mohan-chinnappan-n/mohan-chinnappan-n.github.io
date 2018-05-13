@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../chap-11/lcc.html" />
+    <link rel="next" href="expr.html" />
     
     
     <link rel="prev" href="build-comp.html" />
@@ -324,6 +324,32 @@
             
                     
                     Playing with buttons
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8.2" data-path="expr.html">
+            
+                <a href="expr.html">
+            
+                    
+                    Expressions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8.3" data-path="value-providers.html">
+            
+                <a href="value-providers.html">
+            
+                    
+                    Value Providers
             
                 </a>
             
@@ -905,7 +931,7 @@
             <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>lightning:buttonGroup<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">lightning:buttonGroup</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Donkey&quot;</span>  <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;donkey&quot;</span>  <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.showLove}&quot;</span>/&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Donkey&quot;</span>  <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;donkey&quot;</span>  <span class="hljs-attr">variant</span>=<span class="hljs-string">&quot;brand&quot;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.showLove}&quot;</span>/&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Donkey-2&quot;</span>  <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;baby-donkey-1&quot;</span>  <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.showLove}&quot;</span>/&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Cow&quot;</span>     <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;cow&quot;</span>     <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.showLove}&quot;</span>/&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Mule&quot;</span>    <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;mule&quot;</span>    <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.showLove}&quot;</span>/&gt;</span>
@@ -913,6 +939,11 @@
                 <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Goat-1&quot;</span>  <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;goat-1&quot;</span>  <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.showLove}&quot;</span>/&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Goat-2&quot;</span>  <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;goat-2&quot;</span>  <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.showLove}&quot;</span>/&gt;</span>
                 <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Peacock&quot;</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;peacock-1&quot;</span>  <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.showLove}&quot;</span>/&gt;</span>
+                 <span class="hljs-tag">&lt;<span class="hljs-name">lightning:buttonIcon</span> <span class="hljs-attr">iconName</span>=<span class="hljs-string">&quot;utility:close&quot;</span> 
+                           <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;donkey&quot;</span>
+                           <span class="hljs-attr">variant</span>=<span class="hljs-string">&quot;brand&quot;</span> 
+                           <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{! c.showLove }&quot;</span>
+                           <span class="hljs-attr">alternativeText</span>=<span class="hljs-string">&quot;Show Donkey please!&quot;</span> /&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:buttonGroup</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
 
@@ -921,12 +952,10 @@
     <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:card</span>&gt;</span>
 
 
-
-
 <span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
 </code></pre>
 <h4 id="code--controller--greetercontrollerjs">Code : Controller:  GreeterController.js</h4>
-<pre><code class="lang-js"><span class="hljs-comment">// Component Controller </span>
+<pre><code class="lang-js"> <span class="hljs-comment">// Component Controller </span>
 <span class="hljs-comment">//  it can have handlers</span>
 <span class="hljs-comment">//  </span>
 <span class="hljs-comment">//  Controller can make use of functions in the Helper</span>
@@ -965,6 +994,9 @@
 
     <span class="hljs-comment">// handles the buttonGroup button onclick event </span>
     showLove: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event</span>) </span>{
+        <span class="hljs-comment">// event.getSource().getLocalId() returns the aura:id of the clicked button.</span>
+        <span class="hljs-comment">// event.getSource().get(&quot;v.name&quot;) returns the name of the clicked button</span>
+        <span class="hljs-comment">//</span>
         <span class="hljs-keyword">var</span> item = event.getSource().getLocalId();
         <span class="hljs-keyword">var</span> type = <span class="hljs-string">&apos;.png&apos;</span>;
         <span class="hljs-keyword">if</span> (item === <span class="hljs-string">&apos;baby-donkey-1&apos;</span>) type = <span class="hljs-string">&apos;.gif&apos;</span>;
@@ -1025,6 +1057,14 @@
 
 })
 </code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">// let us toast it</span>
+        <span class="hljs-keyword">var</span> toastEvent = $A.get(<span class="hljs-string">&quot;e.force:showToast&quot;</span>);
+        toastEvent.setParams({
+            <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;Image shown!&quot;</span>,
+            <span class="hljs-string">&quot;message&quot;</span>: <span class="hljs-string">&quot;Toast from &quot;</span> + item
+        });
+        toastEvent.fire();
+</code></pre>
 
                                 
                                 </section>
@@ -1057,7 +1097,7 @@
                 </a>
                 
                 
-                <a href="../chap-11/lcc.html" class="navigation navigation-next " aria-label="Next page: Lightning Configuration Converter">
+                <a href="expr.html" class="navigation navigation-next " aria-label="Next page: Expressions">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1068,7 +1108,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Playing with buttons","level":"1.4.8.1","depth":3,"next":{"title":"Lightning Configuration Converter","level":"1.4.9","depth":2,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"Building components","level":"1.4.8","depth":2,"path":"chap-15/build-comp.md","ref":"chap-15/build-comp.md","articles":[{"title":"Playing with buttons","level":"1.4.8.1","depth":3,"path":"chap-15/buttons.md","ref":"chap-15/buttons.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-15/buttons.md","mtime":"2018-05-12T22:02:28.075Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-12T12:36:05.808Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Playing with buttons","level":"1.4.8.1","depth":3,"next":{"title":"Expressions","level":"1.4.8.2","depth":3,"path":"chap-15/expr.md","ref":"chap-15/expr.md","articles":[]},"previous":{"title":"Building components","level":"1.4.8","depth":2,"path":"chap-15/build-comp.md","ref":"chap-15/build-comp.md","articles":[{"title":"Playing with buttons","level":"1.4.8.1","depth":3,"path":"chap-15/buttons.md","ref":"chap-15/buttons.md","articles":[]},{"title":"Expressions","level":"1.4.8.2","depth":3,"path":"chap-15/expr.md","ref":"chap-15/expr.md","articles":[]},{"title":"Value Providers","level":"1.4.8.3","depth":3,"path":"chap-15/value-providers.md","ref":"chap-15/value-providers.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-15/buttons.md","mtime":"2018-05-13T01:58:58.497Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-13T02:04:41.275Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
