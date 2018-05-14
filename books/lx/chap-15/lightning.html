@@ -717,9 +717,93 @@
 </code></pre>
 <h2 id="demo">Demo</h2>
 <p><a target="_blank" href="img/lex-component-build-2.gif">
-<i class="fa fa-arrows-alt" alt="full screen view of the demo"></i>
+<i class="fa fa-arrows-alt" title="full screen view of the demo"></i>
 </a></p>
 <p><img src="img/lex-component-build-2.gif" alt="more lightning:*"></p>
+<h2 id="filecard">FileCard</h2>
+<p><img src="img/contentDocument-1.png" alt="ContentDocument"></p>
+<pre><code class="lang-xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:fileCard</span> <span class="hljs-attr">fileId</span>=<span class="hljs-string">&quot;069f4000002B4BEAA0&quot;</span>/&gt;</span>
+</code></pre>
+<h2 id="dynamicicon">dynamicIcon</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>dynamicIcon: ellie, eq, score, strength, trend, and waffle<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    ellie: <span class="hljs-tag">&lt;<span class="hljs-name">lightning:dynamicIcon</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;ellie&quot;</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;ellie&quot;</span> 
+                                  <span class="hljs-attr">alternativeText</span>=<span class="hljs-string">&quot;Your calculation is running.&quot;</span> 
+                                  <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.handleDynaicIcon}&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+    eq: <span class="hljs-tag">&lt;<span class="hljs-name">lightning:dynamicIcon</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;eq&quot;</span>  <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;eq&quot;</span> 
+                               <span class="hljs-attr">alternativeText</span>=<span class="hljs-string">&quot;Your calculation is running.&quot;</span> 
+                               <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.handleDynaicIcon}&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+    score: <span class="hljs-tag">&lt;<span class="hljs-name">lightning:dynamicIcon</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;score&quot;</span>  <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;score&quot;</span> 
+                                  <span class="hljs-attr">alternativeText</span>=<span class="hljs-string">&quot;Your calculation is running.&quot;</span> 
+                                  <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.handleDynaicIcon}&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+    trend: <span class="hljs-tag">&lt;<span class="hljs-name">lightning:dynamicIcon</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;trend&quot;</span>  <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;trend&quot;</span> <span class="hljs-attr">option</span>=<span class="hljs-string">&quot;up&quot;</span> 
+                                  <span class="hljs-attr">alternativeText</span>=<span class="hljs-string">&quot;Your calculation is running.&quot;</span> 
+                                  <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.handleDynaicIcon}&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+    strength: <span class="hljs-tag">&lt;<span class="hljs-name">lightning:dynamicIcon</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;strength&quot;</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;strength&quot;</span> <span class="hljs-attr">option</span>=<span class="hljs-string">&quot;-3&quot;</span>
+                                     <span class="hljs-attr">alternativeText</span>=<span class="hljs-string">&quot;Your calculation is running.&quot;</span> 
+                                     <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.handleDynaicIcon}&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+    waffle: <span class="hljs-tag">&lt;<span class="hljs-name">lightning:dynamicIcon</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;waffle&quot;</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;waffle&quot;</span> 
+                                   <span class="hljs-attr">alternativeText</span>=<span class="hljs-string">&quot;Your calculation is running.&quot;</span> 
+                                   <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.handleDynaicIcon}&quot;</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+</code></pre>
+<h2 id="click-to-dial">Click to Dial</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Click to Dial<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!--
+
+value:String:    The phone number.    
+recordId:    String:    The Salesforce record Id that&apos;s associated with the phone number.    
+params:    String:Comma-separated list of parameters to pass to the third-party phone system.
+
+--&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">lightning:clickToDial</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;14155555551&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Click to dial this number&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:clickToDial</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;14155555552&quot;</span> <span class="hljs-attr">recordId</span>=<span class="hljs-string">&quot;5003000000D9duF&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:clickToDial</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;14155555553&quot;</span> <span class="hljs-attr">recordId</span>=<span class="hljs-string">&quot;5003000000D8cuI&quot;</span> <span class="hljs-attr">params</span>=<span class="hljs-string">&quot;accountSid=xxx, sourceId=xxx, apiVersion=123&quot;</span>/&gt;</span>
+</code></pre>
+<h2 id="combobox">combobox</h2>
+<pre><code class="lang-xml">
+
+   <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>combobox<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;cbstatusOptions&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;List&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;[]&quot;</span>/&gt;</span>
+    <span class="hljs-comment">&lt;!-- see cmpInit --&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:combobox</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;cbselectItem&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;status&quot;</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Status&quot;</span>
+                        <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Choose Status&quot;</span>
+                        <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;new&quot;</span>
+                        <span class="hljs-attr">onchange</span>=<span class="hljs-string">&quot;{!c.handleCBOptionSelected}&quot;</span>
+                        <span class="hljs-attr">options</span>=<span class="hljs-string">&quot;{!v.cbstatusOptions}&quot;</span>/&gt;</span>
+</code></pre>
+<pre><code class="lang-js">
+    <span class="hljs-comment">// Combobox</span>
+
+    loadCBOptions: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-keyword">var</span> options = [
+            { value: <span class="hljs-string">&quot;new&quot;</span>, label: <span class="hljs-string">&quot;New&quot;</span> },
+            { value: <span class="hljs-string">&quot;in-progress&quot;</span>, label: <span class="hljs-string">&quot;In Progress&quot;</span> },
+            { value: <span class="hljs-string">&quot;finished&quot;</span>, label: <span class="hljs-string">&quot;Finished&quot;</span> }
+        ];
+        component.set(<span class="hljs-string">&quot;v.cbstatusOptions&quot;</span>, options);
+    },
+    handleCBOptionSelected: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">cmp, event</span>) </span>{
+        <span class="hljs-comment">// Get the string of the &quot;value&quot; attribute on the selected option</span>
+        <span class="hljs-keyword">var</span> selectedOptionValue = event.getParam(<span class="hljs-string">&quot;value&quot;</span>);
+        alert(<span class="hljs-string">&quot;Option selected with value: &apos;&quot;</span> + selectedOptionValue + <span class="hljs-string">&quot;&apos;&quot;</span>);
+    },
+
+    <span class="hljs-comment">// inside cmpInit</span>
+    <span class="hljs-comment">// for combobox</span>
+    <span class="hljs-keyword">var</span> options = [
+        { value: <span class="hljs-string">&quot;new&quot;</span>, label: <span class="hljs-string">&quot;New&quot;</span> },
+        { value: <span class="hljs-string">&quot;in-progress&quot;</span>, label: <span class="hljs-string">&quot;In Progress&quot;</span> },
+        { value: <span class="hljs-string">&quot;finished&quot;</span>, label: <span class="hljs-string">&quot;Finished&quot;</span> }
+    ];
+    cmp.set(<span class="hljs-string">&quot;v.cbstatusOptions&quot;</span>, options);
+</code></pre>
+<h2 id="demo">Demo</h2>
+<p><a target="_blank" href="img/lex-component-build-3.gif">
+<i class="fa fa-arrows-alt" title="full screen view of the demo"></i>
+</a></p>
+<p><img src="img/lex-component-build-3.gif" alt="more lightning:*"></p>
 
                                 
                                 </section>
@@ -763,7 +847,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"More lightning:*","level":"1.4.8.4","depth":3,"next":{"title":"Lightning Configuration Converter","level":"1.4.9","depth":2,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"Value Providers","level":"1.4.8.3","depth":3,"path":"chap-15/value-providers.md","ref":"chap-15/value-providers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-15/lightning.md","mtime":"2018-05-14T17:03:40.781Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-14T10:23:17.824Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"More lightning:*","level":"1.4.8.4","depth":3,"next":{"title":"Lightning Configuration Converter","level":"1.4.9","depth":2,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"Value Providers","level":"1.4.8.3","depth":3,"path":"chap-15/value-providers.md","ref":"chap-15/value-providers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-15/lightning.md","mtime":"2018-05-14T23:22:39.880Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-14T10:23:17.824Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
