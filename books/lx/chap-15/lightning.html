@@ -867,7 +867,304 @@ cmp.set(<span class="hljs-string">&quot;v.dlbrequiredOptions&quot;</span>, dlbre
 <i class="fa fa-arrows-alt" title="full screen view of the demo"></i>
 </a></p>
 <p><img src="img/lex-component-build-5a.gif" alt="more lightning:*"></p>
+<h2 id="formattedemail">formattedEmail</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>formattedEmail<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:formattedEmail</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;gn@nammalvar.org&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
 
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:formattedEmail</span> 
+                              <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;gn@nammalvar.org&quot;</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Send us your feedback on this method&quot;</span> /&gt;</span>
+</code></pre>
+<h2 id="formattedlocation">formattedLocation</h2>
+<pre><code class="lang-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:formattedLocation</span>
+    <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Location in lat and lng&quot;</span> <span class="hljs-attr">latitude</span>=<span class="hljs-string">&quot;37.7938460&quot;</span> <span class="hljs-attr">longitude</span>=<span class="hljs-string">&quot;-122.3948370&quot;</span>/&gt;</span>
+</code></pre>
+<h2 id="formattedname">formattedName</h2>
+<pre><code class="lang-xml"> <span class="hljs-tag">&lt;<span class="hljs-name">lightning:formattedName</span>
+        <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;myname&quot;</span>
+        <span class="hljs-attr">firstName</span>=<span class="hljs-string">&quot;G&quot;</span>
+        <span class="hljs-attr">middleName</span>=<span class="hljs-string">&quot;F&quot;</span>
+        <span class="hljs-attr">lastName</span>=<span class="hljs-string">&quot;Namalvar&quot;</span>
+        <span class="hljs-attr">informalName</span>=<span class="hljs-string">&quot;Namalvar&quot;</span>
+        <span class="hljs-attr">suffix</span>=<span class="hljs-string">&quot;The First&quot;</span>
+        <span class="hljs-attr">salutation</span>=<span class="hljs-string">&quot;Mr.&quot;</span>
+    /&gt;</span>
+</code></pre>
+<h2 id="formattednumber">formattedNumber</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>formattedNumber<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">lightning:formattedNumber</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Currency Value&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;5000&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;currency&quot;</span> <span class="hljs-attr">currencyCode</span>=<span class="hljs-string">&quot;USD&quot;</span> /&gt;</span>
+</code></pre>
+<h2 id="formattedphone">formattedPhone</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>formattedPhone<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">lightning:formattedPhone</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;4253334444&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">lightning:formattedPhone</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">lightning:formattedPhone</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;14253335555&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">lightning:formattedPhone</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<h2 id="formattedrichtext">formattedRichText</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>formattedRichText<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;richtext&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;String&quot;</span>/&gt;</span>
+    <span class="hljs-comment">&lt;!-- Rich text editor and formatted output --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:inputRichText</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;{!v.richtext}&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:formattedRichText</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;{!v.richtext}&quot;</span> /&gt;</span>
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">//init</span>
+ <span class="hljs-comment">// richtext</span>
+        <span class="hljs-keyword">var</span> img=<span class="hljs-string">&quot;&lt;img src=&apos;https://raw.githubusercontent.com/mohan-chinnappan-n/lex-book-code-samples/master/Greeter-2/img/nammallvar-1.png&apos;/&gt;&quot;</span>
+        <span class="hljs-keyword">var</span> wikiText =
+            <span class="hljs-string">&quot;G. Nammalvar ( Tamil : &#xB95;&#xBCB;. &#xBA8;&#xBAE;&#xBCD;&#xBAE;&#xBBE;&#xBB4;&#xBCD;&#xBB5;&#xBBE;&#xBB0;&#xBCD;, 6 April 1938 &#x2013; 30 December 2013) was a Tamil, Indian green crusader, agricultural scientist, environmental activist, philosopher and organic farming expert celebrated for his works on spreading Ecological farming &amp; Organic farming. He led the protest against the methane gas project started by Great Eastern Energy Corporation proposed in the Cauvery delta region of Tamilnadu. He trained hundreds of youths as trainers and helped many farmers to be master trainers. Nammalvar was the author of several Tamil and English books on natural farming, pesticides &amp; fertilizers and was featured in magazines &amp; television programs.&quot;</span>
+         <span class="hljs-keyword">var</span> rte = <span class="hljs-string">&quot;&lt;h1 style=\&quot;color:#99ccff;\&quot;&gt;G. Nammalvar  - The Agricultural scientist&lt;/h1&gt; &lt;p&gt;&quot;</span> + wikiText + <span class="hljs-string">&quot;&lt;/p&gt;&quot;</span> + img;
+        cmp.set(<span class="hljs-string">&quot;v.richtext&quot;</span>, rte);
+</code></pre>
+<h2 id="formattedtext-formattedtime-formattedurl-helptext">formattedText, formattedTime, formattedUrl, helpText</h2>
+<p> <hr>
+    </p><h4 id="formattedtext-formattedtime-formattedurl-helptext">formattedText, formattedTime, formattedUrl, helpText</h4>
+    <lightning:formattedtext linkify="true" value="I like salesforce.com and trailhead.salesforce.com."><br>    <hr>
+    <lightning:formattedtime value="22:12:30.999Z">
+    <hr>
+    <lightning:formattedurl value="www.salesforce.com"><p></p>
+ <lightning:helptext content="For Salesforce login email address will be your login name">
+
+
+<h2 id="progressbar">Progressbar</h2>
+<pre><code class="lang-js"><span class="hljs-comment">// init</span>
+  <span class="hljs-comment">// progressbar</span>
+        <span class="hljs-keyword">var</span> interval = setInterval($A.getCallback(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">var</span> progress = cmp.get(<span class="hljs-string">&apos;v.progress&apos;</span>);
+            cmp.set(<span class="hljs-string">&apos;v.progress&apos;</span>, progress === <span class="hljs-number">100</span> ? clearInterval(interval) : progress + <span class="hljs-number">1</span>);
+        }), <span class="hljs-number">200</span>);
+</code></pre>
+<pre><code class="lang-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Progress Bar<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;progress&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Integer&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;0&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:progressBar</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;{!v.progress}&quot;</span>/&gt;</span>
+</code></pre>
+<h2 id="progress-indicator">Progress Indicator</h2>
+<pre><code class="lang-xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Progress Indicator<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:progressIndicator</span> <span class="hljs-attr">currentStep</span>=<span class="hljs-string">&quot;step2&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:progressStep</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Prepare the land&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;step1&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:progressStep</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Prepare Panchagavya&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;step2&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:progressStep</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Prepare Seeds&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;step3&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:progressIndicator</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:progressIndicator</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;path&quot;</span> <span class="hljs-attr">currentStep</span>=<span class="hljs-string">&quot;step2&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:progressStep</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Prepare the land&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;step1&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:progressStep</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Prepare Panchagavya&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;step2&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:progressStep</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Prepare Seeds&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;step3&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:progressIndicator</span>&gt;</span>
+</code></pre>
+<h2 id="select">Select</h2>
+<pre><code class="lang-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Select a Product<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;products&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;String[]&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;Oates,Rice,Raaghi&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:select</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;select&quot;</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Select a Product&quot;</span> <span class="hljs-attr">required</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">messageWhenValueMissing</span>=<span class="hljs-string">&quot;Did you forget to select a product?&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>-- None --<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">aura:iteration</span> <span class="hljs-attr">items</span>=<span class="hljs-string">&quot;{!v.products}&quot;</span> <span class="hljs-attr">var</span>=<span class="hljs-string">&quot;product&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;{!product}&quot;</span> <span class="hljs-attr">text</span>=<span class="hljs-string">&quot;{!product}&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">aura:iteration</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:select</span>&gt;</span>
+</code></pre>
+<h2 id="slider">Slider</h2>
+<pre><code class="lang-xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Slider<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;sliderValue&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;10&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Integer&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:slider</span> <span class="hljs-attr">step</span>=<span class="hljs-string">&quot;10&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;{!v.sliderValue}&quot;</span> <span class="hljs-attr">onchange</span>=<span class="hljs-string">&quot;{! c.handleSliderRangeChange }&quot;</span>/&gt;</span>
+</code></pre>
+<pre><code class="lang-js">  <span class="hljs-comment">// slider change</span>
+     handleSliderRangeChange: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">cmp, event</span>) </span>{
+        <span class="hljs-keyword">var</span> detail = cmp.set(<span class="hljs-string">&quot;v.sliderValue&quot;</span>, event.getParam(<span class="hljs-string">&quot;value&quot;</span>));
+    }
+</code></pre>
+<h2 id="spinner">Spinner</h2>
+<pre><code class="lang-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Spinner<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Toggle Spinner&quot;</span> <span class="hljs-attr">variant</span>=<span class="hljs-string">&quot;brand&quot;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.toggleSpinner}&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;exampleHolder&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:spinner</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;mySpinner&quot;</span> <span class="hljs-attr">variant</span>=<span class="hljs-string">&quot;brand&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;large&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span>
+</code></pre>
+<h2 id="tabset">Tabset</h2>
+<pre><code class="lang-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Tabset<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:tabset</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:tab</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">aura:set</span> <span class="hljs-attr">attribute</span>=<span class="hljs-string">&quot;label&quot;</span>&gt;</span>
+                Farming
+                <span class="hljs-tag">&lt;<span class="hljs-name">lightning:icon</span> <span class="hljs-attr">iconName</span>=<span class="hljs-string">&quot;utility:favorite &quot;</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">aura:set</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Discuss about Farming<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:tab</span>&gt;</span>
+           <span class="hljs-tag">&lt;<span class="hljs-name">lightning:tab</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">aura:set</span> <span class="hljs-attr">attribute</span>=<span class="hljs-string">&quot;label&quot;</span>&gt;</span>
+                Weaving
+                <span class="hljs-tag">&lt;<span class="hljs-name">lightning:icon</span> <span class="hljs-attr">iconName</span>=<span class="hljs-string">&quot;utility:chat&quot;</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">aura:set</span>&gt;</span>
+                   <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Discuss about Weaving <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:tab</span>&gt;</span>
+           <span class="hljs-tag">&lt;<span class="hljs-name">lightning:tab</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">aura:set</span> <span class="hljs-attr">attribute</span>=<span class="hljs-string">&quot;label&quot;</span>&gt;</span>
+                Electrical Wiring
+                <span class="hljs-tag">&lt;<span class="hljs-name">lightning:icon</span> <span class="hljs-attr">iconName</span>=<span class="hljs-string">&quot;utility:knowledge_base &quot;</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">aura:set</span>&gt;</span>
+               <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Discuss about Electrical Wiring<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:tab</span>&gt;</span>
+           <span class="hljs-tag">&lt;<span class="hljs-name">lightning:tab</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">aura:set</span> <span class="hljs-attr">attribute</span>=<span class="hljs-string">&quot;label&quot;</span>&gt;</span>
+                Plumbing
+                <span class="hljs-tag">&lt;<span class="hljs-name">lightning:icon</span> <span class="hljs-attr">iconName</span>=<span class="hljs-string">&quot;utility:hierarchy  &quot;</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">aura:set</span>&gt;</span>
+                 <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Discuss about Plumbing <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:tab</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:tabset</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">lightning:tabset</span> <span class="hljs-attr">variant</span>=<span class="hljs-string">&quot;scoped&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:tab</span> <span class="hljs-attr">onactive</span>=<span class="hljs-string">&quot;{! c.handleActiveTab }&quot;</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Farming&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;farming&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:tab</span> <span class="hljs-attr">onactive</span>=<span class="hljs-string">&quot;{! c.handleActiveTab }&quot;</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Plumbing&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;plumbing&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">lightning:tabset</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">// controller</span>
+handleActiveTab: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">cmp, event, helper</span>) </span>{
+        helper.lazyLoadTabs(cmp, event);
+    }
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">// helper</span>
+
+    lazyLoadTabs: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">cmp, event</span>) </span>{
+        <span class="hljs-keyword">var</span> tab = event.getSource();
+        <span class="hljs-keyword">switch</span> (tab.get(<span class="hljs-string">&apos;v.id&apos;</span>)) {
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;farming&apos;</span> :
+                <span class="hljs-keyword">this</span>.injectComponent(<span class="hljs-string">&apos;gw19:Farming&apos;</span>, tab);
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;plumbing&apos;</span> :
+                <span class="hljs-keyword">this</span>.injectComponent(<span class="hljs-string">&apos;gw19:Plumbing&apos;</span>, tab);
+                <span class="hljs-keyword">break</span>;
+        }
+    },
+    injectComponent: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">name, target</span>) </span>{
+        $A.createComponent(name, {
+        }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">contentComponent, status, error</span>) </span>{
+            <span class="hljs-keyword">if</span> (status === <span class="hljs-string">&quot;SUCCESS&quot;</span>) {
+                target.set(<span class="hljs-string">&apos;v.body&apos;</span>, contentComponent);
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(error);
+            }
+        });
+    }
+</code></pre>
+<h2 id="farming-component">Farming component</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>FARMING Component<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span>
+        A farm is an area of land that is devoted primarily to agricultural processes with the primary objective of producing food 
+        and other crops; it is the basic facility in food production.
+        The name is used for specialised units such as arable farms, vegetable farms,
+        fruit farms, dairy, pig and poultry farms, and land used for the production of natural fibres, biofuel
+        and other commodities. It includes ranches, feedlots, orchards, plantations 
+        and estates, smallholdings and hobby farms, and includes the farmhouse and agricultural buildings
+        as well as the land. 
+        In modern times the term has been extended so as to include such industrial operations 
+        as wind farms and fish farms, both of which can operate on land or sea.
+    <span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<h2 id="plumbing-component">Plumbing component</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>PLUMBING Component<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span>
+
+        A complex arrangement of rigid steel piping and stop valves regulate flow to various parts of the building
+        Plumbing is any system that conveys fluids for a wide range of applications. 
+        Plumbing uses pipes, valves, plumbing fixtures, tanks, and other apparatuses to convey fluids.
+        Heating and cooling (HVAC), waste removal, and potable water delivery are among the most common uses for plumbing, 
+        but it is not limited to these applications.
+        The word derives from the Latin for lead, plumbum, 
+        as the first effective pipes used in the Roman era were lead pipes.
+    <span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<h2 id="dyanmic-tab-creation">Dyanmic tab creation</h2>
+<pre><code class="lang-xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Dynamic tab creation <span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;moretabs&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Aura.Component[]&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:tabset</span> <span class="hljs-attr">variant</span>=<span class="hljs-string">&quot;scoped&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:tab</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Farming&quot;</span>&gt;</span>
+               Farming is the best profession! All other professions just follow the Farming
+        <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:tab</span>&gt;</span>
+        {!v.moretabs}
+    <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:tabset</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- Click button to create a new tab --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Add tab&quot;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.addDynaTab}&quot;</span>/&gt;</span>
+</code></pre>
+<h2 id="weaving-component">Weaving Component</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> &gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Weaving Component<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>    
+    <span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span>
+        Weaving is a method of textile production in which two distinct sets of yarns or threads are interlaced at right angles to 
+        form a fabric or cloth. Other methods are knitting, crocheting, felting, and braiding or plaiting. 
+        The longitudinal threads are called the warp and the lateral threads are the weft or filling. 
+        (Weft or is an old English word meaning &quot;that which is woven&quot;)
+        The method in which these threads are inter-woven affects the characteristics of the cloth.
+        Cloth is usually woven on a loom, a device that holds the warp threads in place while filling threads are woven through them. 
+        A fabric band which meets this definition of cloth (warp threads with a weft thread winding between) 
+        can also be made using other methods, including tablet weaving, back-strap, or other techniques without looms.
+
+        The way the warp and filling threads interlace with each other is called the weave. 
+        The majority of woven products are created with one of three basic weaves: plain weave, satin weave, 
+        or twill. Woven cloth can be plain (in one colour or a simple pattern), or can be woven in decorative or
+        artistic design.
+    <span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-js">
+<span class="hljs-comment">// controller</span>
+   <span class="hljs-comment">// dyna tab</span>
+    addDynaTab: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event</span>) </span>{
+        $A.createComponent(<span class="hljs-string">&quot;lightning:tab&quot;</span>, {
+            <span class="hljs-string">&quot;label&quot;</span>: <span class="hljs-string">&quot;Weaving&quot;</span>,
+            <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;weaving&quot;</span>,
+            <span class="hljs-string">&quot;onactive&quot;</span>: component.getReference(<span class="hljs-string">&quot;c.addContent&quot;</span>)
+        }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newTab, status, error</span>) </span>{
+            <span class="hljs-keyword">if</span> (status === <span class="hljs-string">&quot;SUCCESS&quot;</span>) {
+                <span class="hljs-keyword">var</span> body = component.get(<span class="hljs-string">&quot;v.moretabs&quot;</span>);
+                component.set(<span class="hljs-string">&quot;v.moretabs&quot;</span>, newTab);
+            } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(error);
+            }
+        });
+    },
+    addContent : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event</span>) </span>{
+        <span class="hljs-keyword">var</span> tab = event.getSource();
+        <span class="hljs-keyword">switch</span> (tab.get(<span class="hljs-string">&apos;v.id&apos;</span>)){
+            <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;weaving&apos;</span>:
+                <span class="hljs-comment">// Display a badge in the tab content.</span>
+                <span class="hljs-comment">// You can replace lightning:badge with a custom component.</span>
+                <span class="hljs-comment">// here we use gw19:Weaving component</span>
+                $A.createComponent(<span class="hljs-string">&quot;gw19:Weaving&quot;</span>, {
+                    <span class="hljs-string">&quot;label&quot;</span>: <span class="hljs-string">&quot;Weaving&quot;</span>
+                }, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">newContent, status, error</span>) </span>{
+                    <span class="hljs-keyword">if</span> (status === <span class="hljs-string">&quot;SUCCESS&quot;</span>) {
+                        tab.set(<span class="hljs-string">&apos;v.body&apos;</span>, newContent);
+                    } <span class="hljs-keyword">else</span> {
+                        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(error);
+                    }
+                });
+                <span class="hljs-keyword">break</span>;
+        }
+    }
+</code></pre>
+<h2 id="demos">Demos</h2>
+<p><a target="_blank" href="img/lex-component-build-6.gif">
+<i class="fa fa-arrows-alt" title="full screen view of the demo"></i>
+</a></p>
+<p><img src="img/lex-component-build-6.gif" alt="more lightning:*"></p>
+</lightning:helptext></lightning:formattedurl></lightning:formattedtime></lightning:formattedtext>
                                 
                                 </section>
                             
@@ -910,7 +1207,7 @@ cmp.set(<span class="hljs-string">&quot;v.dlbrequiredOptions&quot;</span>, dlbre
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"More lightning:*","level":"1.4.8.4","depth":3,"next":{"title":"Lightning Configuration Converter","level":"1.4.9","depth":2,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"Value Providers","level":"1.4.8.3","depth":3,"path":"chap-15/value-providers.md","ref":"chap-15/value-providers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-15/lightning.md","mtime":"2018-05-15T01:07:56.565Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-14T23:51:53.235Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"More lightning:*","level":"1.4.8.4","depth":3,"next":{"title":"Lightning Configuration Converter","level":"1.4.9","depth":2,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"Value Providers","level":"1.4.8.3","depth":3,"path":"chap-15/value-providers.md","ref":"chap-15/value-providers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-15/lightning.md","mtime":"2018-05-15T03:27:49.361Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-14T23:51:53.235Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
