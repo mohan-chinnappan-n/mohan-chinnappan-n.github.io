@@ -1164,6 +1164,291 @@ handleActiveTab: <span class="hljs-function"><span class="hljs-keyword">function
 <i class="fa fa-arrows-alt" title="full screen view of the demo"></i>
 </a></p>
 <p><img src="img/lex-component-build-6.gif" alt="more lightning:*"></p>
+<h2 id="textarea">Textarea</h2>
+<pre><code class="lang-xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Textarea<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:textarea</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;myTextArea&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;initial value&quot;</span> 
+    <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;What are you thinking about?&quot;</span> <span class="hljs-attr">onchange</span>=<span class="hljs-string">&quot;{!c.taCountLength}&quot;</span> /&gt;</span>
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">// controller</span>
+<span class="hljs-comment">// Textarea</span>
+    taCountLength : <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">cmp, event, helper</span>) </span>{
+          <span class="hljs-comment">//var changeValue = event.getParam(&quot;value&quot;);</span>
+          <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Changed!&quot;</span>);
+    }
+</code></pre>
+<h2 id="tile">Tile</h2>
+<pre><code class="lang-xml">
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>Tile<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:tile</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Salesforce UX&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/path/to/somewhere&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">aura:set</span> <span class="hljs-attr">attribute</span>=<span class="hljs-string">&quot;media&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">lightning:icon</span> <span class="hljs-attr">iconName</span>=<span class="hljs-string">&quot;standard:groups&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">aura:set</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dl</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-dl_horizontal&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-dl_horizontal__label&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-truncate&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Company&quot;</span>&gt;</span>Company:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-dl_horizontal__detail slds-tile__meta&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-truncate&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Salesforce&quot;</span>&gt;</span>Salesforce<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-dl_horizontal__label&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-truncate&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Email&quot;</span>&gt;</span>Email:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-dl_horizontal__detail slds-tile__meta&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-truncate&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;salesforce-ux@salesforce.com&quot;</span>&gt;</span>salesforce-ux@salesforce.com<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:tile</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:tile</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Salesforce Trailhead&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/path/to/somewhere&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">aura:set</span> <span class="hljs-attr">attribute</span>=<span class="hljs-string">&quot;media&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">lightning:icon</span> <span class="hljs-attr">iconName</span>=<span class="hljs-string">&quot;standard:groups&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">aura:set</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">dl</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-dl_horizontal&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-dl_horizontal__label&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-truncate&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Company&quot;</span>&gt;</span>Company:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-dl_horizontal__detail slds-tile__meta&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-truncate&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Salesforce&quot;</span>&gt;</span>Salesforce Trailhead<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-dl_horizontal__label&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-truncate&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Email&quot;</span>&gt;</span>Email:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-dl_horizontal__detail slds-tile__meta&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-truncate&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;salesforce-ux@salesforce.com&quot;</span>&gt;</span>salesforce-th@salesforce.com<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:tile</span>&gt;</span>
+</code></pre>
+<pre><code>## Tress
+
+```xml
+
+
+&lt;aura:attribute name=&quot;treeitems&quot; type=&quot;Object&quot;/&gt;
+&lt;lightning:tree items=&quot;{! v.treeitems }&quot; header=&quot;Roles&quot;/&gt;
+
+```
+```js
+
+//init
+
+var items = [{
+        &quot;label&quot;: &quot;Western Sales Director&quot;,
+        &quot;name&quot;: &quot;1&quot;,
+        &quot;expanded&quot;: true,
+        &quot;items&quot;: [{
+            &quot;label&quot;: &quot;Western Sales Manager&quot;,
+            &quot;name&quot;: &quot;2&quot;,
+            &quot;expanded&quot;: true,
+            &quot;items&quot; :[{
+                &quot;label&quot;: &quot;CA Sales Rep&quot;,
+                &quot;name&quot;: &quot;3&quot;,
+                &quot;expanded&quot;: true,
+                &quot;items&quot; : []
+            },{
+                &quot;label&quot;: &quot;OR Sales Rep&quot;,
+                &quot;name&quot;: &quot;4&quot;,
+                &quot;expanded&quot;: true,
+                &quot;items&quot; : []
+            }]
+        }]
+    }, {
+        &quot;label&quot;: &quot;Eastern Sales Director&quot;,
+        &quot;name&quot;: &quot;5&quot;,
+        &quot;expanded&quot;: false,
+        &quot;items&quot;: [{
+            &quot;label&quot;: &quot;Easter Sales Manager&quot;,
+            &quot;name&quot;: &quot;6&quot;,
+            &quot;expanded&quot;: true,
+            &quot;items&quot; :[{
+                &quot;label&quot;: &quot;NY Sales Rep&quot;,
+                &quot;name&quot;: &quot;7&quot;,
+                &quot;expanded&quot;: true,
+                &quot;items&quot; : []
+            }, {
+                &quot;label&quot;: &quot;MA Sales Rep&quot;,
+                &quot;name&quot;: &quot;8&quot;,
+                &quot;expanded&quot;: true,
+                &quot;items&quot; : []
+            }]
+        }]
+    }];
+    cmp.set(&apos;v.treeitems&apos;, items)
+</code></pre><pre><code>
+```js
+
+// handler for tree select
+handleTreeSelect: function (cmp, event, helper) {
+        //return name of selected tree item
+        var myName = event.getParam(&apos;name&apos;);
+        alert(&quot;You selected: &quot; + myName);
+    }
+</code></pre><h2 id="treegrid">TreeGrid</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>TreeGrid<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Expand all&quot;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.expandAllTreeRows}&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;gridColumns&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;List&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;gridData&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Object&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;gridExpandedRows&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Object&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:treeGrid</span>
+        <span class="hljs-attr">columns</span>=<span class="hljs-string">&quot;{! v.gridColumns }&quot;</span>
+        <span class="hljs-attr">data</span>=<span class="hljs-string">&quot;{! v.gridData }&quot;</span>
+        <span class="hljs-attr">expandedRows</span>=<span class="hljs-string">&quot;{! v.gridExpandedRows }&quot;</span>
+        <span class="hljs-attr">keyField</span>=<span class="hljs-string">&quot;name&quot;</span>
+        <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;mytreegrid&quot;</span>
+    /&gt;</span>
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">// init</span>
+<span class="hljs-keyword">var</span> columns = [
+            {
+                type: <span class="hljs-string">&apos;text&apos;</span>,
+                fieldName: <span class="hljs-string">&apos;accountName&apos;</span>,
+                label: <span class="hljs-string">&apos;Account Name&apos;</span>
+            },
+            {
+                type: <span class="hljs-string">&apos;number&apos;</span>,
+                fieldName: <span class="hljs-string">&apos;employees&apos;</span>,
+                label: <span class="hljs-string">&apos;Employees&apos;</span>
+            },
+            {
+                type: <span class="hljs-string">&apos;phone&apos;</span>,
+                fieldName: <span class="hljs-string">&apos;phone&apos;</span>,
+                label: <span class="hljs-string">&apos;Phone Number&apos;</span>
+            },
+            {
+                type: <span class="hljs-string">&apos;url&apos;</span>,
+                fieldName: <span class="hljs-string">&apos;accountOwner&apos;</span>,
+                label: <span class="hljs-string">&apos;Account Owner&apos;</span>,
+                typeAttributes: {
+                    label: { fieldName: <span class="hljs-string">&apos;accountOwnerName&apos;</span> }
+                }
+            }
+        ];
+        cmp.set(<span class="hljs-string">&apos;v.gridColumns&apos;</span>, columns);
+        <span class="hljs-keyword">var</span> nestedData = [
+            {
+                <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;123555&quot;</span>,
+                <span class="hljs-string">&quot;accountName&quot;</span>: <span class="hljs-string">&quot;Rewis Inc&quot;</span>,
+                <span class="hljs-string">&quot;employees&quot;</span>: <span class="hljs-number">3100</span>,
+                <span class="hljs-string">&quot;phone&quot;</span>: <span class="hljs-string">&quot;837-555-1212&quot;</span>,
+                <span class="hljs-string">&quot;accountOwner&quot;</span>: <span class="hljs-string">&quot;http://sfdc.co/jane-doe&quot;</span>,
+                <span class="hljs-string">&quot;accountOwnerName&quot;</span>: <span class="hljs-string">&quot;Jane Doe&quot;</span>
+            },
+            {
+                <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;123556&quot;</span>,
+                <span class="hljs-string">&quot;accountName&quot;</span>: <span class="hljs-string">&quot;Acme Corporation&quot;</span>,
+                <span class="hljs-string">&quot;employees&quot;</span>: <span class="hljs-number">10000</span>,
+                <span class="hljs-string">&quot;phone&quot;</span>: <span class="hljs-string">&quot;837-555-1212&quot;</span>,
+                <span class="hljs-string">&quot;accountOwner&quot;</span>: <span class="hljs-string">&quot;http://sfdc.co/john-doe&quot;</span>,
+                <span class="hljs-string">&quot;accountOwnerName&quot;</span>: <span class="hljs-string">&quot;John Doe&quot;</span>,
+                <span class="hljs-string">&quot;_children&quot;</span>: [
+                    {
+                        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;123556-A&quot;</span>,
+                        <span class="hljs-string">&quot;accountName&quot;</span>: <span class="hljs-string">&quot;Acme Corporation (Bay Area)&quot;</span>,
+                        <span class="hljs-string">&quot;employees&quot;</span>: <span class="hljs-number">3000</span>,
+                        <span class="hljs-string">&quot;phone&quot;</span>: <span class="hljs-string">&quot;837-555-1212&quot;</span>,
+                        <span class="hljs-string">&quot;accountOwner&quot;</span>: <span class="hljs-string">&quot;http://sfdc.co/john-doe&quot;</span>,
+                        <span class="hljs-string">&quot;accountOwnerName&quot;</span>: <span class="hljs-string">&quot;John Doe&quot;</span>,
+                        <span class="hljs-string">&quot;_children&quot;</span>: [
+                            {
+                                <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;123556-A-A&quot;</span>,
+                                <span class="hljs-string">&quot;accountName&quot;</span>: <span class="hljs-string">&quot;Acme Corporation (Oakland)&quot;</span>,
+                                <span class="hljs-string">&quot;employees&quot;</span>: <span class="hljs-number">745</span>,
+                                <span class="hljs-string">&quot;phone&quot;</span>: <span class="hljs-string">&quot;837-555-1212&quot;</span>,
+                                <span class="hljs-string">&quot;accountOwner&quot;</span>: <span class="hljs-string">&quot;http://sfdc.co/john-doe&quot;</span>,
+                                <span class="hljs-string">&quot;accountOwnerName&quot;</span>: <span class="hljs-string">&quot;John Doe&quot;</span>
+                            },
+                            {
+                                <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;123556-A-B&quot;</span>,
+                                <span class="hljs-string">&quot;accountName&quot;</span>: <span class="hljs-string">&quot;Acme Corporation (San Francisco)&quot;</span>,
+                                <span class="hljs-string">&quot;employees&quot;</span>: <span class="hljs-number">578</span>,
+                                <span class="hljs-string">&quot;phone&quot;</span>: <span class="hljs-string">&quot;837-555-1212&quot;</span>,
+                                <span class="hljs-string">&quot;accountOwner&quot;</span>: <span class="hljs-string">&quot;http://sfdc.co/jane-doe&quot;</span>,
+                                <span class="hljs-string">&quot;accountOwnerName&quot;</span>: <span class="hljs-string">&quot;Jane Doe&quot;</span>
+                            }
+                        ]
+                    }
+                ]
+            },
+        ];
+        cmp.set(<span class="hljs-string">&apos;v.gridData&apos;</span>, nestedData);
+        <span class="hljs-keyword">var</span> expandedRows = [<span class="hljs-string">&quot;123556&quot;</span>];
+        cmp.set(<span class="hljs-string">&apos;v.gridExpandedRows&apos;</span>, expandedRows)
+</code></pre>
+<pre><code class="lang-js"> <span class="hljs-comment">// controller</span>
+
+
+expandAllTreeRows: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">cmp, event</span>) </span>{
+        <span class="hljs-keyword">var</span> tree = cmp.find(<span class="hljs-string">&apos;mytreegrid&apos;</span>);
+        tree.expandAll();
+    }
+</code></pre>
+<h2 id="account-tree-grid">Account Tree Grid</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> <span class="hljs-attr">controller</span>=<span class="hljs-string">&quot;AccountController&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:handler</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;init&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;{!this}&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;{!c.doInit}&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;gridColumns&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;List&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;gridData&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Object&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:treeGrid</span> <span class="hljs-attr">columns</span>=<span class="hljs-string">&quot;{! v.gridColumns }&quot;</span>
+        <span class="hljs-attr">data</span>=<span class="hljs-string">&quot;{! v.gridData }&quot;</span>
+        <span class="hljs-attr">keyField</span>=<span class="hljs-string">&quot;Id&quot;</span>
+        <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;myaccounttree&quot;</span>
+    /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">//helper</span>
+({
+    getAcctContacts : <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">cmp</span>) </span>{
+        <span class="hljs-comment">// get the data from the backend server controller</span>
+        <span class="hljs-keyword">var</span> action = cmp.get(<span class="hljs-string">&quot;c.getAccountContacts&quot;</span>);
+        action.setCallback(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{
+            <span class="hljs-keyword">var</span> state = response.getState();
+
+            <span class="hljs-keyword">if</span> (state === <span class="hljs-string">&quot;SUCCESS&quot;</span>) {
+                <span class="hljs-keyword">var</span> data = response.getReturnValue();
+                <span class="hljs-built_in">console</span>.log(data);
+                <span class="hljs-comment">//Change &quot;Contacts&quot; key to &quot;_children&quot;</span>
+                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i&lt;data.length;i++) {
+                    data[i]._children = data[i][<span class="hljs-string">&apos;Contacts&apos;</span>];
+                    <span class="hljs-keyword">delete</span> data[i].Contacts; 
+
+                }
+                cmp.set(<span class="hljs-string">&apos;v.gridData&apos;</span>, data);
+            }
+            <span class="hljs-comment">// error handling when state is &quot;INCOMPLETE&quot; or &quot;ERROR&quot;</span>
+         });
+         $A.enqueueAction(action);
+    }
+})
+</code></pre>
+<p> <img src="img/lex-treegrid-data-server-1.png" alt="data from server"></p>
+<pre><code class="lang-js"><span class="hljs-comment">//controller</span>
+({
+    doInit: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">cmp, event, helper</span>) </span>{
+        cmp.set(<span class="hljs-string">&apos;v.gridColumns&apos;</span>, [
+            {label: <span class="hljs-string">&apos;Account Name&apos;</span>, fieldName: <span class="hljs-string">&apos;Name&apos;</span>, type: <span class="hljs-string">&apos;text&apos;</span>},
+            {label: <span class="hljs-string">&apos;Phone&apos;</span>, fieldName: <span class="hljs-string">&apos;Phone&apos;</span>, type: <span class="hljs-string">&apos;phone&apos;</span>},
+            ]);
+        helper.getAcctContacts(cmp);
+    }
+})
+</code></pre>
+<pre><code class="lang-java"><span class="hljs-comment">// server side controller</span>
+
+<span class="hljs-keyword">public</span> with sharing <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AccountController</span> </span>{
+    <span class="hljs-meta">@AuraEnabled</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> List&lt;Account&gt; <span class="hljs-title">getAccountContacts</span><span class="hljs-params">()</span></span>{
+        List&lt;Account&gt; accountcontacts =
+            [SELECT Id, Name, Phone, (SELECT Contact.Name, Phone FROM contacts) FROM Account]; 
+
+        <span class="hljs-keyword">return</span> accountcontacts;
+    }
+}
+</code></pre>
+<h2 id="demo">Demo</h2>
+<p><a target="_blank" href="img/lex-component-build-7.gif">
+<i class="fa fa-arrows-alt" title="full screen view of the demo"></i>
+</a></p>
+<p><img src="img/lex-component-build-7.gif" alt="more lightning:*"></p>
 </lightning:helptext></lightning:formattedurl></lightning:formattedtime></lightning:formattedtext>
                                 
                                 </section>
@@ -1207,7 +1492,7 @@ handleActiveTab: <span class="hljs-function"><span class="hljs-keyword">function
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"More lightning:*","level":"1.4.8.4","depth":3,"next":{"title":"Lightning Configuration Converter","level":"1.4.9","depth":2,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"Value Providers","level":"1.4.8.3","depth":3,"path":"chap-15/value-providers.md","ref":"chap-15/value-providers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-15/lightning.md","mtime":"2018-05-15T03:27:49.361Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-14T23:51:53.235Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"More lightning:*","level":"1.4.8.4","depth":3,"next":{"title":"Lightning Configuration Converter","level":"1.4.9","depth":2,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"Value Providers","level":"1.4.8.3","depth":3,"path":"chap-15/value-providers.md","ref":"chap-15/value-providers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-15/lightning.md","mtime":"2018-05-15T04:23:33.390Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-14T23:51:53.235Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
