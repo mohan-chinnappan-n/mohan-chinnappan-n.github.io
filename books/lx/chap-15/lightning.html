@@ -804,6 +804,69 @@ params:    String:Comma-separated list of parameters to pass to the third-party 
 <i class="fa fa-arrows-alt" title="full screen view of the demo"></i>
 </a></p>
 <p><img src="img/lex-component-build-3.gif" alt="more lightning:*"></p>
+<h2 id="duallistbox">dualListbox</h2>
+<pre><code class="lang-xml">
+
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span> dualListbox <span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;dlblistOptions&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;List&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;[]&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;dlbdefaultOptions&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;List&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;[]&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;dlbrequiredOptions&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;List&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;[]&quot;</span>/&gt;</span>
+        <span class="hljs-comment">&lt;!-- see cmpInit --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:dualListbox</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;dlbselectOptions&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;Select Trades Needed&quot;</span>  <span class="hljs-attr">label</span>= &quot;<span class="hljs-attr">Select</span> <span class="hljs-attr">Trades</span> <span class="hljs-attr">Needed</span>&quot; 
+                           <span class="hljs-attr">sourceLabel</span>=<span class="hljs-string">&quot;Available Trades&quot;</span> 
+                           <span class="hljs-attr">selectedLabel</span>=<span class="hljs-string">&quot;Selected Trades&quot;</span> 
+                           <span class="hljs-attr">options</span>=<span class="hljs-string">&quot;{! v.dlblistOptions }&quot;</span>
+                           <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;{! v.dlbdefaultOptions }&quot;</span>
+                           <span class="hljs-attr">requiredOptions</span>=<span class="hljs-string">&quot;{! v.dlbrequiredOptions }&quot;</span>
+                           <span class="hljs-attr">onchange</span>=<span class="hljs-string">&quot;{! c.dlbhandleChange }&quot;</span>/&gt;</span>
+</code></pre>
+<pre><code class="lang-js"> <span class="hljs-comment">/** Client-Side Controller **/</span>
+ <span class="hljs-comment">// init</span>
+<span class="hljs-comment">// dualListbox</span>
+
+<span class="hljs-keyword">var</span> dlboptions = [
+    { value: <span class="hljs-string">&quot;Farming&quot;</span>, label: <span class="hljs-string">&quot;Framing&quot;</span> },
+    { value: <span class="hljs-string">&quot;Carpentry&quot;</span>, label: <span class="hljs-string">&quot;Carpentry&quot;</span> },
+    { value: <span class="hljs-string">&quot;Plumbing&quot;</span>, label: <span class="hljs-string">&quot;Plumbing&quot;</span> },
+    { value: <span class="hljs-string">&quot;Music&quot;</span>, label: <span class="hljs-string">&quot;Music&quot;</span> },
+    { value: <span class="hljs-string">&quot;Cooking&quot;</span>, label: <span class="hljs-string">&quot;Cooking&quot;</span> },
+    { value: <span class="hljs-string">&quot;Electrical Wiring&quot;</span>, label: <span class="hljs-string">&quot;Electrical Wiring&quot;</span> },
+    { value: <span class="hljs-string">&quot;Weaving&quot;</span>, label: <span class="hljs-string">&quot;Weaving&quot;</span> },
+    { value: <span class="hljs-string">&quot;Painting&quot;</span>, label: <span class="hljs-string">&quot;Painting&quot;</span> },
+];
+
+<span class="hljs-keyword">var</span> dlbvalues = [<span class="hljs-string">&quot;Weaving&quot;</span>, <span class="hljs-string">&quot;Carpentry&quot;</span>, <span class="hljs-string">&quot;Plumbing&quot;</span>];
+<span class="hljs-keyword">var</span> dlbrequired = [<span class="hljs-string">&quot;Farming&quot;</span>, <span class="hljs-string">&quot;Carpentry&quot;</span>];
+
+cmp.set(<span class="hljs-string">&quot;v.dlblistOptions&quot;</span>, dlboptions);
+
+cmp.set(<span class="hljs-string">&quot;v.dlbdefaultOptions&quot;</span>, dlbvalues);
+cmp.set(<span class="hljs-string">&quot;v.dlbrequiredOptions&quot;</span>, dlbrequired);
+
+<span class="hljs-comment">//======= end init</span>
+
+    <span class="hljs-comment">// dualListbox</span>
+    dlbhandleChange: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">cmp, event</span>) </span>{
+        <span class="hljs-comment">// Get the list of the &quot;value&quot; attribute on all the selected options</span>
+        <span class="hljs-keyword">var</span> selectedOptionsList = event.getParam(<span class="hljs-string">&quot;value&quot;</span>);
+        alert(<span class="hljs-string">&quot;Options selected: &apos;&quot;</span> + selectedOptionsList + <span class="hljs-string">&quot;&apos;&quot;</span>);
+    },
+
+})
+</code></pre>
+<h2 id="demos">Demos</h2>
+<p><a target="_blank" href="img/lex-component-build-5.gif">
+<i class="fa fa-arrows-alt" title="full screen view of the demo"></i>
+</a></p>
+<p><img src="img/lex-component-build-5.gif" alt="more lightning:*"></p>
+<p><hr>
+<a target="_blank" href="img/lex-component-build-5a.gif">
+<i class="fa fa-arrows-alt" title="full screen view of the demo"></i>
+</a></p>
+<p><img src="img/lex-component-build-5a.gif" alt="more lightning:*"></p>
 
                                 
                                 </section>
@@ -847,7 +910,7 @@ params:    String:Comma-separated list of parameters to pass to the third-party 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"More lightning:*","level":"1.4.8.4","depth":3,"next":{"title":"Lightning Configuration Converter","level":"1.4.9","depth":2,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"Value Providers","level":"1.4.8.3","depth":3,"path":"chap-15/value-providers.md","ref":"chap-15/value-providers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-15/lightning.md","mtime":"2018-05-14T23:51:10.184Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-14T23:51:53.235Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"More lightning:*","level":"1.4.8.4","depth":3,"next":{"title":"Lightning Configuration Converter","level":"1.4.9","depth":2,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"Value Providers","level":"1.4.8.3","depth":3,"path":"chap-15/value-providers.md","ref":"chap-15/value-providers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-15/lightning.md","mtime":"2018-05-15T01:07:56.565Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-14T23:51:53.235Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
