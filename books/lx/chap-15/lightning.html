@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../chap-11/lcc.html" />
+    <link rel="next" href="../chap-20/test-automation.html" />
     
     
     <link rel="prev" href="value-providers.html" />
@@ -375,7 +375,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.9" data-path="../chap-11/lcc.html">
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../chap-20/test-automation.html">
+            
+                <a href="../chap-20/test-automation.html">
+            
+                    
+                    Test Automation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../chap-11/lcc.html">
             
                 <a href="../chap-11/lcc.html">
             
@@ -388,12 +406,7 @@
             
         </li>
     
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5" data-path="../chap-5/body.html">
+        <li class="chapter " data-level="1.7" data-path="../chap-5/body.html">
             
                 <a href="../chap-5/body.html">
             
@@ -1449,6 +1462,29 @@ expandAllTreeRows: <span class="hljs-function"><span class="hljs-keyword">functi
 <i class="fa fa-arrows-alt" title="full screen view of the demo"></i>
 </a></p>
 <p><img src="img/lex-component-build-7.gif" alt="more lightning:*"></p>
+<h2 id="utilitybarapi">utilityBarAPI</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>utilityBarAPI -- needs one.app to run<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">lightning:utilityBarAPI</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;utilitybar&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Set Utility Icon&quot;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{! c.setUtilityIcon }&quot;</span> /&gt;</span>
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">// controller</span>
+setUtilityIcon : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-keyword">var</span> utilityAPI = component.find(<span class="hljs-string">&quot;utilitybar&quot;</span>);
+        utilityAPI.setUtilityIcon({icon: <span class="hljs-string">&apos;insert_tag_field&apos;</span>});
+    }
+</code></pre>
+<h2 id="verticalnavigation">verticalNavigation</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>verticalNavigation<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">lightning:verticalNavigation</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">lightning:verticalNavigationSection</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Reports&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">lightning:verticalNavigationItem</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Recent&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;recent&quot;</span> /&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">lightning:verticalNavigationItem</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Created by Me&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;created&quot;</span> /&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">lightning:verticalNavigationItem</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Private Reports&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;private&quot;</span> /&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">lightning:verticalNavigationItem</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Public Reports&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;public&quot;</span> /&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">lightning:verticalNavigationItem</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;All Reports&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;all&quot;</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:verticalNavigationSection</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:verticalNavigation</span>&gt;</span>
+</code></pre>
 </lightning:helptext></lightning:formattedurl></lightning:formattedtime></lightning:formattedtext>
                                 
                                 </section>
@@ -1481,7 +1517,7 @@ expandAllTreeRows: <span class="hljs-function"><span class="hljs-keyword">functi
                 </a>
                 
                 
-                <a href="../chap-11/lcc.html" class="navigation navigation-next " aria-label="Next page: Lightning Configuration Converter">
+                <a href="../chap-20/test-automation.html" class="navigation navigation-next " aria-label="Next page: Test Automation">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1492,7 +1528,7 @@ expandAllTreeRows: <span class="hljs-function"><span class="hljs-keyword">functi
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"More lightning:*","level":"1.4.8.4","depth":3,"next":{"title":"Lightning Configuration Converter","level":"1.4.9","depth":2,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"Value Providers","level":"1.4.8.3","depth":3,"path":"chap-15/value-providers.md","ref":"chap-15/value-providers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-15/lightning.md","mtime":"2018-05-15T04:23:33.390Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-14T23:51:53.235Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"More lightning:*","level":"1.4.8.4","depth":3,"next":{"title":"Test Automation","level":"1.5","depth":1,"path":"chap-20/test-automation.md","ref":"chap-20/test-automation.md","articles":[]},"previous":{"title":"Value Providers","level":"1.4.8.3","depth":3,"path":"chap-15/value-providers.md","ref":"chap-15/value-providers.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-15/lightning.md","mtime":"2018-05-15T16:44:18.101Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-14T23:51:53.235Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Value Providers · GitBook</title>
+        <title>Test Automation · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="lightning.html" />
+    <link rel="next" href="../chap-11/lcc.html" />
     
     
-    <link rel="prev" href="expr.html" />
+    <link rel="prev" href="../chap-15/lightning.html" />
     
 
     </head>
@@ -304,9 +304,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8" data-path="build-comp.html">
+        <li class="chapter " data-level="1.4.8" data-path="../chap-15/build-comp.html">
             
-                <a href="build-comp.html">
+                <a href="../chap-15/build-comp.html">
             
                     
                     Building components
@@ -318,9 +318,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.8.1" data-path="buttons.html">
+        <li class="chapter " data-level="1.4.8.1" data-path="../chap-15/buttons.html">
             
-                <a href="buttons.html">
+                <a href="../chap-15/buttons.html">
             
                     
                     Playing with buttons
@@ -331,9 +331,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8.2" data-path="expr.html">
+        <li class="chapter " data-level="1.4.8.2" data-path="../chap-15/expr.html">
             
-                <a href="expr.html">
+                <a href="../chap-15/expr.html">
             
                     
                     Expressions
@@ -344,9 +344,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.8.3" data-path="value-providers.html">
+        <li class="chapter " data-level="1.4.8.3" data-path="../chap-15/value-providers.html">
             
-                <a href="value-providers.html">
+                <a href="../chap-15/value-providers.html">
             
                     
                     Value Providers
@@ -357,9 +357,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8.4" data-path="lightning.html">
+        <li class="chapter " data-level="1.4.8.4" data-path="../chap-15/lightning.html">
             
-                <a href="lightning.html">
+                <a href="../chap-15/lightning.html">
             
                     
                     More lightning:*
@@ -380,9 +380,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../chap-20/test-automation.html">
+        <li class="chapter active" data-level="1.5" data-path="test-automation.html">
             
-                <a href="../chap-20/test-automation.html">
+                <a href="test-automation.html">
             
                     
                     Test Automation
@@ -633,7 +633,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Value Providers</a>
+        <a href=".." >Test Automation</a>
     </h1>
 </div>
 
@@ -648,98 +648,71 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="value-providers">Value Providers</h2>
-<h3 id="for-components">For Components</h3>
+                                <h2 id="test-automation---lightning-testing-service-lts">Test Automation - Lightning Testing Service (LTS)</h2>
 <ul>
-<li><p><strong>v</strong> for view</p>
-<ul>
-<li>A component&#x2019;s attribute set. This value provider enables you to access the value of a component&#x2019;s attribute in the component&#x2019;s markup.<pre><code class="lang-xml">   {!v.greeting}
-</code></pre>
-</li>
+<li>Refer:
+<a href="https://github.com/mohan-chinnappan-n/lex-book-code-samples-dx" target="_blank">Lex Book Code Samples DX with LTS</a></li>
 </ul>
-</li>
-<li><p><strong>c</strong> for controller</p>
+<p>The Lightning Testing Service, or <strong>LTS</strong>, is a set of <strong>tools and services</strong> that let you create test suites for your Lightning components using standard JavaScript test frameworks, such as Jasmine and Mocha.</p>
+<p>Automated tests are the best way to achieve predictable, repeatable assessments of the quality of your custom code.</p>
+<p> Writing automated tests for your custom components gives you confidence that they work as designed, and allows you to evaluate the impact of changes, such as refactoring, or of new versions of Salesforce or third-party JavaScript libraries.</p>
+<h3 id="import-note">Import NOTE:</h3>
 <ul>
-<li>A component&#x2019;s controller, which enables you to wire up event handlers and actions for the component<pre><code class="lang-xml">  {!c.getNewGreeting}
+<li>Don&#x2019;t run tests in your production org. </li>
+<li>The LTS doesn&#x2019;t provide an isolated test context or transaction wrapper.</li>
+<li>DML operations you perform in <strong>your tests won&#x2019;t be rolled back at the end of the test</strong>.</li>
+<li>We recommend that you run your LTS test suites <strong>only in scratch orgs</strong>, using data provided by the test suite itself.</li>
+</ul>
+<h2 id="jasmine-or-mocha">Jasmine or Mocha</h2>
+<p> The LTS supports testing with standard JavaScript test frameworks. We provide easy-to-use wrappers for using Jasmine and Mocha.</p>
+<h2 id="installing-lts">Installing LTS</h2>
+<p>Installing the LTS is a one line command in the Salesforce DX CLI.
+The LTS  provides utilities specific to the Lightning Component framework, which let you test behavior specific to Lightning components.</p>
+<pre><code class="lang-bash">$ sfdx update
+
+$ sfdx --version
+sfdx-cli/6.15.0-ded9afdffb (darwin-x64) node-v8.9.4
 </code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="global-value-providers">Global Value Providers</h3>
+<pre><code class="lang-js"><span class="hljs-comment">/**
+ * Jasmine: This is a &apos;hello world&apos; Jasmine test spec
+ */</span>
+describe(<span class="hljs-string">&quot;A simple passing test&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    it(<span class="hljs-string">&quot;checks that true is always true&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        expect(<span class="hljs-literal">true</span>).toBe(<span class="hljs-literal">true</span>);
+    });
+});
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">/**
+ * Mocha: This is a &apos;hello world&apos; Mocha test 
+ */</span>
+<span class="hljs-keyword">var</span> assert = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;assert&apos;</span>);
+describe(<span class="hljs-string">&apos;Test the nature of truth&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    describe(<span class="hljs-string">&apos;A simple passing test&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        it(<span class="hljs-string">&apos;checks that true is always true&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            assert.equal(<span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>);
+        });
+    });
+});
+</code></pre>
+<h3 id="sfdx-links">SFDX links</h3>
+<table class="slds-text-body_regular" data-aura-rendered-by="698:0"><tr data-aura-rendered-by="699:0"><td class="iconColumn" data-aura-rendered-by="700:0"><span class="slds-icon_container slds-icon_container--circle slds-icon-action-check" data-aura-rendered-by="703:0"><span data-aura-rendered-by="706:0" class="lightningPrimitiveIcon" data-aura-class="lightningPrimitiveIcon"><svg class="slds-icon slds-icon--small" focusable="false" aria-hidden="true" data-key="check">
+<use xlink:href="/_slds/icons/action-sprite/svg/symbols.svg?cache=8.2.0#check"/>
+</svg></span><!--render facet: 707:0--></span></td><td data-aura-rendered-by="708:0">Take the <a href="https://trailhead.salesforce.com/trails/sfdx_get_started" data-aura-rendered-by="710:0" target="_blank">Getting Started with Salesforce DX</a> Trail</td></tr><tr data-aura-rendered-by="713:0"><td class="iconColumn" data-aura-rendered-by="714:0"><span class="slds-icon_container slds-icon_container--circle slds-icon-action-check" data-aura-rendered-by="717:0"><span data-aura-rendered-by="720:0" class="lightningPrimitiveIcon" data-aura-class="lightningPrimitiveIcon"><svg class="slds-icon slds-icon--small" focusable="false" aria-hidden="true" data-key="check">
+<use xlink:href="/_slds/icons/action-sprite/svg/symbols.svg?cache=8.2.0#check"/>
+</svg></span><!--render facet: 721:0--></span></td><td data-aura-rendered-by="722:0">Download the <a href="https://developer.salesforce.com/tools/sfdxcli" data-aura-rendered-by="724:0" target="_blank">Salesforce CLI</a></td></tr><tr data-aura-rendered-by="726:0"><td class="iconColumn" data-aura-rendered-by="727:0"><span class="slds-icon_container slds-icon_container--circle slds-icon-action-check" data-aura-rendered-by="730:0"><span data-aura-rendered-by="733:0" class="lightningPrimitiveIcon" data-aura-class="lightningPrimitiveIcon"><svg class="slds-icon slds-icon--small" focusable="false" aria-hidden="true" data-key="check">
+<use xlink:href="/_slds/icons/action-sprite/svg/symbols.svg?cache=8.2.0#check"/>
+</svg></span><!--render facet: 734:0--></span></td><td data-aura-rendered-by="735:0">Play with the <a href="https://github.com/forcedotcom/sfdx-dreamhouse" data-aura-rendered-by="737:0" target="_blank">Dreamhouse sample application</a></td></tr><tr data-aura-rendered-by="739:0"><td class="iconColumn" data-aura-rendered-by="740:0"><span class="slds-icon_container slds-icon_container--circle slds-icon-action-check" data-aura-rendered-by="743:0"><span data-aura-rendered-by="746:0" class="lightningPrimitiveIcon" data-aura-class="lightningPrimitiveIcon"><svg class="slds-icon slds-icon--small" focusable="false" aria-hidden="true" data-key="check">
+<use xlink:href="/_slds/icons/action-sprite/svg/symbols.svg?cache=8.2.0#check"/>
+</svg></span><!--render facet: 747:0--></span></td><td data-aura-rendered-by="748:0">Join the <a href="https://success.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F9f40000007OVX" data-aura-rendered-by="750:0" target="_blank">Salesforce DX Trailblazer community</a></td></tr><tr data-aura-rendered-by="752:0"><td class="iconColumn" data-aura-rendered-by="753:0"><span class="slds-icon_container slds-icon_container--circle slds-icon-action-check" data-aura-rendered-by="756:0"><span data-aura-rendered-by="759:0" class="lightningPrimitiveIcon" data-aura-class="lightningPrimitiveIcon"><svg class="slds-icon slds-icon--small" focusable="false" aria-hidden="true" data-key="check">
+<use xlink:href="/_slds/icons/action-sprite/svg/symbols.svg?cache=8.2.0#check"/>
+</svg></span><!--render facet: 760:0--></span></td><td data-aura-rendered-by="761:0">Watch <a href="https://www.youtube.com/playlist?list=PLJC5QQjmffkTxVuCSYXTsqzcfFmYH44Lu" data-aura-rendered-by="763:0" target="_blank">some videos</a> about Salesforce DX</td></tr></table>
+
+
+<h2 id="references">References</h2>
 <ul>
-<li><p>globalID</p>
-<ul>
-<li>Returns the global ID for a component</li>
-<li>Every component has a unique globalId, which is the generated runtime-unique ID of the component instance.</li>
-</ul>
-</li>
-<li><p>$Browser</p>
-<ul>
-<li>Returns information about the hardware and operating system
-of the browser accessing the application. <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span>&gt;</span>
-{!$Browser.isTablet}
-{!$Browser.isPhone}
-{!$Browser.isAndroid}
-{!$Browser.formFactor}
-<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
-</code></pre>
-</li>
-<li>client-side controller using $A.get()<pre><code class="lang-js">({
-checkBrowser: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component</span>) </span>{
-  <span class="hljs-keyword">var</span> device = $A.get(<span class="hljs-string">&quot;$Browser.formFactor&quot;</span>);
-  alert(<span class="hljs-string">&quot;You are using a &quot;</span> + device);
-}
-})
-</code></pre>
-</li>
-</ul>
-</li>
-<li><p>$Locale</p>
-<ul>
-<li>Returns information about the current user&#x2019;s preferred locale<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span>&gt;</span>
-  {!$Locale.language}
-  {!$Locale.timezone}
-  {!$Locale.numberFormat}
-  {!$Locale.currencyFormat}
-<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
-</code></pre>
-</li>
-<li>client-side controller using $A.get()</li>
-</ul>
-</li>
-</ul>
-<pre><code class="lang-js">({
-       checkDevice: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component</span>) </span>{
-            <span class="hljs-keyword">var</span> locale = $A.get(<span class="hljs-string">&quot;$Locale.language&quot;</span>);
-            alert(<span class="hljs-string">&quot;You are using &quot;</span> + locale);
-        }
-})
-</code></pre>
-<ul>
-<li><p>$Resource</p>
-<ul>
-<li>lets you reference images, style sheets, and JavaScript code you&#x2019;ve uploaded in static resource</li>
-<li><p>$Resource isn&#x2019;t available until the Lightning Component framework is loaded on the client</p>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span>&gt;</span>
-  <span class="hljs-comment">&lt;!-- Stand-alone static resources --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;{!$Resource.generic_profile_svg}&quot;</span>/&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;{!$Resource.yourNamespace__generic_profile_svg}&quot;</span>/&gt;</span>
-  <span class="hljs-comment">&lt;!-- Asset from an archive static resource --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;{!$Resource.SLDSv2 + &apos;/assets/images/avatar1.jpg&apos;}&quot;</span>/&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;{!$Resource.yourNamespace__SLDSv2 + &apos;/assets/images/avatar1.jpg&apos;}&quot;</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
-</code></pre>
-<pre><code class="lang-js">({
-  profileUrl: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component</span>) </span>{
-      <span class="hljs-keyword">var</span> profUrl = $A.get(<span class="hljs-string">&apos;$Resource.SLDSv2&apos;</span>) + <span class="hljs-string">&apos;/assets/images/avatar1.jpg&apos;</span>;
-      alert(<span class="hljs-string">&quot;Profile URL: &quot;</span> + profUrl);
-  }
-})
-</code></pre>
-</li>
-</ul>
-</li>
+<li><a href="https://forcedotcom.github.io/LightningTestingService/" target="_blank">Lightning Testing Service</a></li>
+<li><a href="https://github.com/forcedotcom/LightningTestingService/blob/master/developer-workflow.md" target="_blank">Testing Lightning Components with the Lightning Testing Service
+</a></li>
 </ul>
 
                                 
@@ -768,12 +741,12 @@ checkBrowser: <span class="hljs-function"><span class="hljs-keyword">function</s
 
             
                 
-                <a href="expr.html" class="navigation navigation-prev " aria-label="Previous page: Expressions">
+                <a href="../chap-15/lightning.html" class="navigation navigation-prev " aria-label="Previous page: More lightning:*">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="lightning.html" class="navigation navigation-next " aria-label="Next page: More lightning:*">
+                <a href="../chap-11/lcc.html" class="navigation navigation-next " aria-label="Next page: Lightning Configuration Converter">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -784,7 +757,7 @@ checkBrowser: <span class="hljs-function"><span class="hljs-keyword">function</s
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Value Providers","level":"1.4.8.3","depth":3,"next":{"title":"More lightning:*","level":"1.4.8.4","depth":3,"path":"chap-15/lightning.md","ref":"chap-15/lightning.md","articles":[]},"previous":{"title":"Expressions","level":"1.4.8.2","depth":3,"path":"chap-15/expr.md","ref":"chap-15/expr.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-15/value-providers.md","mtime":"2018-05-14T00:37:11.706Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-14T23:51:53.235Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Test Automation","level":"1.5","depth":1,"next":{"title":"Lightning Configuration Converter","level":"1.6","depth":1,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"More lightning:*","level":"1.4.8.4","depth":3,"path":"chap-15/lightning.md","ref":"chap-15/lightning.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-20/test-automation.md","mtime":"2018-05-16T00:40:02.915Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-14T23:51:53.235Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
