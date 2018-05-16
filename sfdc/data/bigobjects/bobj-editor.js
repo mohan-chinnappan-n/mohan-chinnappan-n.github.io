@@ -223,6 +223,50 @@ $scope.restGet = function(url) {
    enableColumnMenus: true,
    enableRowHeaderSelection: true,
 
+   //---
+
+   enableGridMenu: true,
+   enableSelectAll: true,
+
+   exporterCsvFilename: 'bigobjects_def.csv',
+   exporterPdfDefaultStyle: {
+     fontSize: 9
+   },
+   exporterPdfTableStyle: {
+     margin: [30, 30, 30, 30]
+   },
+   exporterPdfTableHeaderStyle: {
+     fontSize: 10,
+     bold: true,
+     italics: true,
+     color: 'red'
+   },
+   exporterPdfHeader: {
+     text: "Big Object",
+     style: 'headerStyle'
+   },
+   exporterPdfFooter: function(currentPage, pageCount) {
+     return {
+       text: currentPage.toString() + ' of ' + pageCount.toString(),
+       style: 'footerStyle'
+     };
+   },
+   exporterPdfCustomFormatter: function(docDefinition) {
+     docDefinition.styles.headerStyle = {
+       fontSize: 22,
+       bold: true
+     };
+     docDefinition.styles.footerStyle = {
+       fontSize: 10,
+       bold: true
+     };
+     return docDefinition;
+   },
+   exporterPdfOrientation: 'portrait',
+   exporterPdfPageSize: 'LETTER',
+   exporterPdfMaxGridWidth: 500,
+   exporterCsvLinkElement: angular.element(document.querySelectorAll(".custom-csv-link-location"))
+
  };
 
  $scope.addNewItem=function() {
@@ -317,6 +361,8 @@ $scope.restGet = function(url) {
     ];
 
 $scope.msg = {};
+
+
 
 $scope.gridOptions.onRegisterApi = function(gridApi){
          //set gridApi on scope
