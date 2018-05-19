@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="MainCtrl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{appName}}</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/navbar-green.css">
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/data-markdown.user.js"></script>
+
+
+  <script src="../bower_components/marked/marked.min.js"></script>
+  <script src="../bower_components/angular-marked/dist/angular-marked.js"></script>
+
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../reveal.js/css/theme/white.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+    		<![endif]-->
+
+  <style>
+    .reveal .slide-number {
+      font-size: 0.5em;
+    }
+
+    .simg {
+      border-radius: 10px;
+      border: 1px;
+    }
+
+    .reveal section ul li,
+    .reveal section p {
+      font-size: .8em !important;
+    }
+
+    .reveal section pre code {
+      font-size: 0.7em !important;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">{{appName}}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+      <div class="inner-addon right-addon navbar-form navbar-right">
+        <i class="glyphicon glyphicon-search"></i>
+        <input type="text" class="form-control" placeholder="Search" />
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown ">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="./help.html">Help Topics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <!--
+  <div class="container" ng-controller='MainCtrl'>
+    <div marked src="'pevents.md'"></div>
+  </div>
+-->
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section id="home">
+        <h4>{{appName}}</h4>
+       </section>
+
+       <section>
+         <h4>Apex Best Practices </h4>
+
+         <ol style="font-size:25px;">
+           <li> Bulkify your Code </li>
+           <li> Avoid SOQL Queries or DML statements inside FOR Loops </li>
+           <li> Bulkify your Helper Methods</li>
+           <li> Using Collections, Streamlining Queries, and Efficient For Loops</li>
+           <li> Streamlining Multiple Triggers on the Same Object </li>
+           <li> Querying Large Data Sets </li>
+           <li> Use of the Limits Apex Methods to Avoid Hitting Governor Limits </li>
+           <li> Use <code>@future</code> Appropriately</li>
+           <li> Writing Test Methods to Verify Large Datasets </li>
+           <li> Avoid Hardcoding IDs </li>
+
+         </ul>
+              </section>
+
+          <section>
+            <h4> 1. Bulkify your Code</h4>
+            <ul style="font-size:30px;">
+              <li>Making sure that Apex code can properly handles more than just one record at a time (batch)</li>
+              <li>When a batch of object records initiates Apex, a single instance of your Apex code is executed.
+              This single instance can handle all the records in the given batch.</li>
+            </ul>
+            <pre>
+              <code>
+// NOT Recommended
+trigger accountTestTrggr on Account (before insert, before update) {
+   // This only handles the first record in the Trigger.new collection
+   // But if more than one Account record initiated this trigger, those additional records
+   //  will not be processed!
+   Account acct = Trigger.new[0]; // first record
+   List<Contact> contacts = [select id, salutation, firstname, lastname, email
+              from Contact where accountId = :acct.Id];
+
+}
+
+// Recommended
+// you can handle all the records in the batch (initiated by this trigger) by:
+trigger accountTestTrggr on Account (before insert, before update) {
+   List<String> accountNames = new List<String>{};
+   //Loop through all records in the Trigger.new collection
+   for(Account a: Trigger.new) { // we are now taking care of the all the records in teh collection Trigger.new
+      //Concatenate the Name and billingState into the Description field
+      a.Description = a.Name + ':' + a.BillingState
+   }
+
+}
+//======
+
+              </code>
+            </pre>
+          </section>
+
+  <section>
+    <h4>2. Avoid SOQL Queries or DML statements inside FOR Loops</h4>
+    <ul style="font-size:20px;">
+      <li>Do not place SOQL or DML(insert/update/delete/undelete) statments inside a loop</li>
+      <li>
+        When these operations are placed inside a for loop,
+            database operations are invoked once per iteration of the loop making it very easy to reach these SFDC governor limits
+
+      </li>
+      <li>Solution: Move SOQL/DML out of loops</li>
+      <li>Query: If you need query results, get all the records using a single query and iterate over the resultset</li>
+      <li>Update: If you need to update, batch up the data into a collection and invoke DML once for that collection</li>
+    </ul>
+    <pre>
+      <code>
+trigger accountTestTrggr on Account (before insert, before update) {
+//For loop to iterate through all the incoming Account records
+  for(Account a: Trigger.new) {
+  // Query inside LOOP!
+  // Since the SOQL Query for related Contacts is within the FOR loop, if this trigger is initiated
+  // with more than 100 records, the trigger will exceed the trigger governor limit
+  //  of maximum 100 SOQL Queries
+  // Note: governor limits are calculated at runtime
+  List<Contact> contacts = [SELECT id, salutation, firstname, lastname, email
+                  FROM Contact where accountId = :a.Id];
+
+   // Update inside a LOOP inside LOOP
+  for(Contact c: contacts) {
+   System.debug('Contact Id[' + c.Id + '], FirstName[' + c.firstname + '],
+                                   LastName[' + c.lastname +']');
+   c.Description=c.salutation + ' ' + c.firstName + ' ' + c.lastname;
+   //Since the UPDATE dml operation is within the FOR loop, if this trigger is initiated
+   //with more than 150 records, the trigger will exceed the trigger governor limit
+   //of 150 DML Operations maximum.
+
+   update c;
+   }
+ }
+}
+      </code>
+    </pre>
+  </section>
+
+
+  <section>
+    <h4 style="font-size:30px;">2.  Avoid SOQL Queries or DML statements inside FOR Loops  - Contd.</h4>
+    <pre>
+
+      <code>
+// Recommended code
+trigger accountTestTrggr on Account (before insert, before update) {
+  //This queries all Contacts related to the incoming Account records in a single SOQL query.
+  //This is also an example of how to use child relationships in SOQL
+  List<Account> accountsWithContacts = [select id, name, (SELECT id, salutation, description,
+                                                                firstname, lastname, email from Contacts)
+                                                                FROM Account WHERE Id IN :Trigger.newMap.keySet()];
+
+  List<Contact> contactsToUpdate = new List<Contact>{};
+  // For loop to iterate through all the queried Account records
+  for(Account a: accountsWithContacts){
+     // Use the child relationships dot syntax to access the related Contacts
+     for(Contact c: a.Contacts){
+   	  System.debug('Contact Id[' + c.Id + '], FirstName[' + c.firstname + '], LastName[' + c.lastname +']');
+   	  c.Description=c.salutation + ' ' + c.firstName + ' ' + c.lastname;
+   	  contactsToUpdate.add(c);
+     }
+   }
+
+   //Now outside the FOR Loop, perform a single Update DML statement.
+   update contactsToUpdate;
+}
+//====
+
+
+      </code>
+    </pre>
+  </section>
+
+  <section>
+    <h4>4. Bulkify your Helper Methods</h4>
+    <ul style="font-size:30px;">
+      <li> Make sure that the helper methods are properly designed to handle bulk records </li>
+      <li> These methods should be written to be invoked with a set of records, especially if the method has a SOQL query or DML operation </li>
+<li>Use the power of the SOQL where clause to query all data needed in a single query </li>
+    </ul>
+
+  </section>
+
+<section>
+  <h4>5.  Using Collections, Streamlining Queries, and Efficient For Loops</h4>
+    <ul style="font-size:30px;">
+      <li> Use Apex Collections to efficiently query data and store the data in memory</li>
+      <li>
+        A combination of using collections and streamlining SOQL queries can substantially help writing efficient Apex code and avoid governor limits
+      </li>
+    </ul>
+    <pre>
+      <code style="font-size:20px;">
+trigger accountTrigger on Account (before delete, before insert, before update) {
+     //This code efficiently queries all related Closed Lost and
+     //Closed Won opportunities in a single query.
+    List<Account> accountWithOpptys = [SELECT id, name, (select id, name, closedate,
+         stagename  FROM Opportunities
+         WHERE accountId IN :Trigger.newMap.keySet()
+               AND
+                (StageName='Closed - Lost' OR StageName = 'Closed - Won'))
+         FROM Account
+         WHERE Id IN :Trigger.newMap.keySet()];
+    //Loop through Accounts only once - governor-friendly
+    for(Account a : accountWithOpptys){
+       //Loop through related Opportunities only once
+       for(Opportunity o: a.Opportunities){
+        if(o.StageName == 'Closed - Won'){
+          System.debug('Opportunity Closed Won...do some more logic here...');
+        }else if(o.StageName =='Closed - Lost'){
+          System.debug('Opportunity Closed Lost...do some more logic here...');
+        }
+       }
+   }
+}
+//=====
+
+      </code>
+    </pre>
+</section>
+
+<section>
+  <h4>5. Streamlining Multiple Triggers on the Same Object</h4>
+  <ul style="font-size:30px;">
+    <li>
+       You do not have any explicit control over which trigger gets initiated first
+    </li>
+    <li>
+      Each trigger that is invoked does not get its own governor limits -
+       all code that is processed, including the additional triggers, share those available resources.<br/>
+       Instead one trigger getting a maximum of 100 queries, <b>all triggers on that same object</b> will share those 100 queries.
+
+
+    </li>
+    <li>So, it is critical to ensure that the multiple triggers are efficient and no redundancies exist</li>
+  </ul>
+</section>
+
+<section>
+  <h4>6. Querying Large Data Sets </h4>
+  <ul style="font-size:25px;">
+    <li>
+      The total number of records that can be returned by SOQL queries in a request is <b>50,000</b><br/>
+       If returning a large set of queries causes you to exceed your heap limit,
+       then a SOQL query for loop must be used instead
+    </li>
+    <li>
+     The loop can process multiple batches of records through the use of internal calls to <b>query and queryMore</b> </li>
+     <li>
+<pre>
+  <code>
+// Use this format for efficiency if you are executing DML statements
+// within the for loop.  Be careful not to exceed the 150 DML statement limit.
+Account[] accts = new Account[];
+// loop
+// Patform chunk your large query results into batches of 200 records
+//   by using this syntax where the SOQL query is in the for loop definition,
+//   and then handle the individual datasets in the for loop logic.
+for (List<Account> acct : [SELECT id, name FROM account
+                            WHERE name LIKE 'Acme']) {
+    // Your logic here
+    accts.add(acct);
+}
+update accts;
+
+//=====
+  </code>
+</pre>
+
+     </li>
+  </ul>
+
+</section>
+
+<section>
+  <h4>7. Use of the Limits Apex Methods to Avoid Hitting Governor Limits </h4>
+  <ul style="font-size:25px;">
+    <li>System class Limits - use this to output debug message about each governor limit - 2 version</li>
+    <li>First: (e.g. <code>Limits.getHeapSize()</code>) returns the amount of the resource that has been used in the current context</li>
+    <li>Second: Contains the word limit (e.g. <code>Limits.getLimitDmlStatements()</code>) and
+       returns the total amount of the resource that is available for that context</li>
+    <li>Use in the Apex code directly to throw error messages before reaching a governor limit</li>
+  </ul>
+  <pre style="font-size:20px;">
+    <code>
+// Uses IF statement to evaluate if the trigger is about to update too many Opportunities
+trigger accountLimitExample on Account (after delete, after insert, after update) {
+
+    System.debug('Total Number of SOQL Queries allowed in this Apex code context: ' +  Limits.getLimitQueries());
+    System.debug('Total Number of records that can be queried  in this Apex code context: ' +  Limits.getLimitDmlRows());
+    System.debug('Total Number of DML statements allowed in this Apex code context: ' +  Limits.getLimitDmlStatements() );
+    System.debug('Total Number of CPU usage time (in ms) allowed in this Apex code context: ' +  Limits.getLimitCpuTime());
+
+   // Query the Opportunity object
+    List<Opportunity> opptys =
+        [SELECT id, description, name, accountid,  closedate, stagename
+            FROM Opportunity
+            WHERE accountId IN: Trigger.newMap.keySet()];
+
+    System.debug('1. Number of Queries used in this Apex code so far: ' + Limits.getQueries());
+    System.debug('2. Number of rows queried in this Apex code so far: ' + Limits.getDmlRows());
+    System.debug('3. Number of DML statements used so far: ' +  Limits.getDmlStatements());
+    System.debug('4. Amount of CPU time (in ms) used so far: ' + Limits.getCpuTime());
+
+    //NOTE:Proactively determine if there are too many Opportunities to update and avoid governor limits
+    if (opptys.size() + Limits.getDMLRows() > Limits.getLimitDMLRows()) {
+            System.debug('Need to stop processing to avoid hitting a governor limit. Too many related Opportunities to update in this trigger');
+            System.debug('Trying to update ' + opptys.size() + ' opportunities but governor limits will only allow ' + Limits.getLimitDMLRows());
+            for (Account a : Trigger.new) {
+                a.addError('You are attempting to update the addresses of too many accounts at once. Please try again with fewer accounts.');
+            }
+    }
+
+    else{
+        System.debug('Continue processing. Not going to hit DML governor limits');
+        System.debug('Going to update ' + opptys.size() + ' opportunities and governor limits will allow ' + Limits.getLimitDMLRows());
+        for(Account a : Trigger.new){
+            System.debug('Number of DML statements used so far: ' +  Limits.getDmlStatements());
+
+
+            for(Opportunity o: opptys){
+                if (o.accountid == a.id)
+                   o.description = 'testing';
+            }
+
+        }
+        update opptys;
+        System.debug('Final number of DML statements used so far: ' +  Limits.getDmlStatements());
+        System.debug('Final heap size: ' +  Limits.getHeapSize());
+    }
+}
+//=====
+
+    </code>
+  </pre>
+</section>
+
+<section>
+  <h4>Apex Governor Limit Warning Emails </h4>
+  <ul style="font-size:30px;">
+    <li> Enable Apex governor limit warning emails: </li>
+    <li>When an end-user invokes Apex code that surpasses more than 50% of any governor limit,
+      you can specify a user in your organization to receive an email notification of the event with additional details. </li>
+      <li>To enable email warnings:
+    <pre>
+1. Log in to Salesforce as an administrator user.
+2. Click Setup | Manage Users | Users.
+3. Click Edit next to the name of the user who should receive the email notifications.
+4. Select the Send Apex Warning Emails option.
+5. Click Save.
+</li>
+</ul>
+
+</pre>
+
+</section>
+
+<section>
+  <h4>8. Use @future (asynchronous Apex methods) Appropriately</h4>
+  <ul style="font-size:30px;">
+    <li> Apex written within an asynchronous method gets its own independent set of higher governor limits</li>
+    <li>No more than <b>10</b> @future methods can be invoked within a single Apex transaction</li>
+    <li>No more than 200 method calls per Salesforce license per 24 hours </li>
+    <li>The parameters specified must be primitive dataypes, arrays of primitive datatypes, or collections of primitive datatypes </li>
+    <li>Methods with the future annotation cannot take sObjects or objects as arguments </li>
+    <li>Methods with the future annotation cannot be used in <b>Visualforce controllers</b> in either
+      <code> getMethodName</code> or <code>setMethodName</code> methods, nor in the constructor</li>
+  </ul>
+
+</section>
+
+
+<section>
+  <h4>@future inefficient code</h4>
+  <pre>
+    <code>
+global class asyncApex {
+
+  @future
+  public static void processAccount(Id accountId) {
+       // gets single contact
+       List<Contact> contacts = [SELECT id, salutation, firstname, lastname, email
+                FROM Contact
+                WHERE accountId = :accountId];
+
+    for(Contact c: contacts){
+ 	    System.debug('Contact Id[' + c.Id + '], FirstName[' + c.firstname + '], LastName[' + c.lastname +']');
+ 		  	          c.Description=c.salutation + ' ' + c.firstName + ' ' + c.lastname;
+        }
+      update contacts;
+  }
+}
+//====
+trigger accountAsyncTrigger on Account (after insert, after update) {
+  for(Account a: Trigger.new){
+    // Invoke the @future method for each Account
+    // This is inefficient and will easily exceed the governor limit of
+    // at most 10 @future invocation per Apex transaction
+    asyncApex.processAccount(a.id);
+   }
+}
+
+//====
+
+
+    </code>
+  </pre>
+</section>
+
+
+
+<section>
+  <h4>@future efficient code</h4>
+  <pre>
+    <code>
+// redesigned to receive a set of records
+global class asyncApex {
+
+  @future
+  public static void processAccount(Set<Id> accountIds) {
+       // gets set of records
+       List<Contact> contacts = [select id, salutation, firstname, lastname, email
+                 FROM Contact
+                 WHERE accountId IN :accountIds];
+       for(Contact c: contacts){
+ 	        System.debug('Contact Id[' + c.Id + '], FirstName[' + c.firstname + '], LastName[' + c.lastname +']');
+ 	                        c.Description=c.salutation + ' ' + c.firstName + ' ' + c.lastname;
+        }
+        update contacts;
+  }
+}
+//====
+trigger accountAsyncTrigger on Account (after insert, after update) {
+    //By passing the @future method a set of Ids, it only needs to be
+    //invoked once to handle all of the data.
+    asyncApex.processAccount(Trigger.newMap.keySet());
+}
+
+//====
+
+
+    </code>
+  </pre>
+</section>
+
+<section>
+  <h4>9. Writing Test Methods to Verify Large Datasets</h4>
+  <ul style="font-size:30px;">
+    <li>Essential to have test scenarios to verify that the Apex being tested is designed to <b>handle large datasets</b>
+      and <b>not just single records</b> </li>
+    <li>
+      Apex trigger can be invoked either by a data operation from the user interface or by a data operation from the Force.com SOAP/REST API.
+      <li>
+    <li> The API can send <b>multiple records per batch</b>,
+       leading to the trigger being invoked with several records.<br/>
+        Therefore, it is key to have test methods that verify that all Apex code is properly designed to handle larger datasets
+         and that it does not exceed governor limits.
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h4>9. Writing Test Methods to Verify Large Datasets - contd.</h4>
+
+  <pre>
+    <code>
+// trigger
+trigger contactTest on Contact (before insert, before update) {
+
+   Set<Id> accountIds = new Set<Id>();
+   // form accountIds collection
+   for(Contact ct: Trigger.new)
+   	   accountIds.add(ct.AccountId);
+
+   //Do SOQL Query outside the loop
+   Map<Id, Account> accounts = new Map<Id, Account>(
+        [SELECT id, name, billingState from Account WHERE id IN :accountIds]);
+
+   for(Contact ct: Trigger.new){
+       if(accounts.get(ct.AccountId).BillingState=='CA'){
+   	   	   System.debug('found a contact related to an account in california...');
+   	   	   ct.email = 'test_email@testing.com';
+   	   	   //Apply more logic here....
+   	   }
+   }
+
+}
+//===
+public class sampleTestMethodCls {
+
+static testMethod void testAccountTrigger(){
+
+//First, prepare 200 contacts for the test data
+Account acct = new Account(name='test account');
+insert acct;
+
+Contact[] contactsToCreate = new Contact[]{};
+// 200 contacts
+for(Integer x = 0; x < 200; x++) {
+    // contactTest will be fired
+    Contact ct = new Contact(AccountId=acct.Id,lastname='test');
+    contactsToCreate.add(ct);
+}
+
+//Now insert data causing an contact trigger to fire.
+Test.startTest();
+insert contactsToCreate;
+Test.stopTest();
+}
+
+
+}
+
+//======
+    </code>
+  </pre>
+</section>
+
+<section>
+  <h4>10. Avoid Hardcoding IDs</h4>
+  <ul style="font-size:30px;">
+    <li>
+     When deploying Apex code between sandbox and production environments, or installing Force.com AppExchange packages
+      it is essential to avoid hardcoding IDs in the Apex code
+
+    </li>
+    <li> Query for the record types in the code, stores the dataset in a map collection for easy retrieval, and ultimately avoids any hardcoding</li>
+    <li>This ensures that code can be deployed safely to different environments</li>
+  </ul>
+
+  <pre>
+    <code>
+  //Query for the Account record types
+ List<RecordType> rtypes = [Select Name, Id From RecordType
+              where sObjectType='Account' and isActive=true];
+
+ //Create a map between the Record Type Name and Id for easy retrieval
+ Map<String,String> accountRecordTypes = new Map<String,String>{};
+ for(RecordType rt: rtypes)
+    accountRecordTypes.put(rt.Name,rt.Id);
+
+  for(Account a: Trigger.new){
+
+ 	  //Use the Map collection to dynamically retrieve the Record Type Id
+ 	  //Avoid hardcoding Ids in the Apex code
+ 	  if(a.RecordTypeId==accountRecordTypes.get('Healthcare')){
+ 	  	 //do some logic here.....
+ 	  }else if(a.RecordTypeId==accountRecordTypes.get('High Tech')){
+ 	  	 //do some logic here for a different record type...
+ 	  }
+
+ }
+
+    </code>
+  </pre>
+</section>
+
+
+
+
+       <section>
+         <h4>Trigger Best Practices </h4>
+         <ol style="font-size:30px;">
+           <li>
+             <a target="_blank" href="https://developer.salesforce.com/page/Trigger_Frameworks_and_Apex_Trigger_Best_Practices">
+               Trigger Frameworks and Apex Trigger Best Practices
+             </a>
+           </li>
+           <li>
+             <a  target="_blank" href="https://github.com/kevinohara80/sfdc-trigger-framework">Code: sfdc-trigger-framework</a>
+           </li>
+         </ol>
+       </section>
+
+       <section>
+         <h4>TriggerHandler class</h4>
+         <ul style="font-size:30px;">
+           <li>
+             <a href="https://github.com/kevinohara80/sfdc-trigger-framework/tree/master/src/classes">
+               Kevin O'Hara's SFDC Trigger Framework
+             </a>
+           </li>
+         </ul>
+         <pre >
+           <code style="font-size:25px;">
+//refer:
+// https://raw.githubusercontent.com/kevinohara80/sfdc-trigger-framework/master/src/classes/TriggerHandler.cls
+public virtual class TriggerHandler {
+
+  // static map of handlername, times run() was invoked
+  private static Map<String, LoopCount> loopCountMap;
+  private static Set<String> bypassedHandlers;
+
+  // the current context of the trigger, overridable in tests
+  @TestVisible
+  private TriggerContext context;
+
+  // the current context of the trigger, overridable in tests
+  @TestVisible
+  private Boolean isTriggerExecuting;
+
+  // static initialization
+  static {
+    loopCountMap = new Map<String, LoopCount>();
+    bypassedHandlers = new Set<String>();
+  }
+
+  // constructor
+  public TriggerHandler() {
+    this.setTriggerContext();
+  }
+
+  /***************************************
+   * public instance methods
+   ***************************************/
+
+  // main method that will be called during execution
+  public void run() {
+
+    if(!validateRun()) return;
+
+    addToLoopCount();
+
+    // dispatch to the correct handler method
+    if(this.context == TriggerContext.BEFORE_INSERT) {
+      this.beforeInsert();
+    } else if(this.context == TriggerContext.BEFORE_UPDATE) {
+      this.beforeUpdate();
+    } else if(this.context == TriggerContext.BEFORE_DELETE) {
+      this.beforeDelete();
+    } else if(this.context == TriggerContext.AFTER_INSERT) {
+      this.afterInsert();
+    } else if(this.context == TriggerContext.AFTER_UPDATE) {
+      this.afterUpdate();
+    } else if(this.context == TriggerContext.AFTER_DELETE) {
+      this.afterDelete();
+    } else if(this.context == TriggerContext.AFTER_UNDELETE) {
+      this.afterUndelete();
+    }
+
+  }
+
+  public void setMaxLoopCount(Integer max) {
+    String handlerName = getHandlerName();
+    if(!TriggerHandler.loopCountMap.containsKey(handlerName)) {
+      TriggerHandler.loopCountMap.put(handlerName, new LoopCount(max));
+    } else {
+      TriggerHandler.loopCountMap.get(handlerName).setMax(max);
+    }
+  }
+
+  public void clearMaxLoopCount() {
+    this.setMaxLoopCount(-1);
+  }
+
+  /***************************************
+   * public static methods
+   ***************************************/
+
+  public static void bypass(String handlerName) {
+    TriggerHandler.bypassedHandlers.add(handlerName);
+  }
+
+  public static void clearBypass(String handlerName) {
+    TriggerHandler.bypassedHandlers.remove(handlerName);
+  }
+
+  public static Boolean isBypassed(String handlerName) {
+    return TriggerHandler.bypassedHandlers.contains(handlerName);
+  }
+
+  public static void clearAllBypasses() {
+    TriggerHandler.bypassedHandlers.clear();
+  }
+
+  /***************************************
+   * private instancemethods
+   ***************************************/
+
+  @TestVisible
+  private void setTriggerContext() {
+    this.setTriggerContext(null, false);
+  }
+
+  @TestVisible
+  private void setTriggerContext(String ctx, Boolean testMode) {
+    if(!Trigger.isExecuting && !testMode) {
+      this.isTriggerExecuting = false;
+      return;
+    } else {
+      this.isTriggerExecuting = true;
+    }
+
+    if((Trigger.isExecuting && Trigger.isBefore && Trigger.isInsert) ||
+        (ctx != null && ctx == 'before insert')) {
+      this.context = TriggerContext.BEFORE_INSERT;
+    } else if((Trigger.isExecuting && Trigger.isBefore && Trigger.isUpdate) ||
+        (ctx != null && ctx == 'before update')){
+      this.context = TriggerContext.BEFORE_UPDATE;
+    } else if((Trigger.isExecuting && Trigger.isBefore && Trigger.isDelete) ||
+        (ctx != null && ctx == 'before delete')) {
+      this.context = TriggerContext.BEFORE_DELETE;
+    } else if((Trigger.isExecuting && Trigger.isAfter && Trigger.isInsert) ||
+        (ctx != null && ctx == 'after insert')) {
+      this.context = TriggerContext.AFTER_INSERT;
+    } else if((Trigger.isExecuting && Trigger.isAfter && Trigger.isUpdate) ||
+        (ctx != null && ctx == 'after update')) {
+      this.context = TriggerContext.AFTER_UPDATE;
+    } else if((Trigger.isExecuting && Trigger.isAfter && Trigger.isDelete) ||
+        (ctx != null && ctx == 'after delete')) {
+      this.context = TriggerContext.AFTER_DELETE;
+    } else if((Trigger.isExecuting && Trigger.isAfter && Trigger.isUndelete) ||
+        (ctx != null && ctx == 'after undelete')) {
+      this.context = TriggerContext.AFTER_UNDELETE;
+    }
+  }
+
+  // increment the loop count
+  @TestVisible
+  private void addToLoopCount() {
+    String handlerName = getHandlerName();
+    if(TriggerHandler.loopCountMap.containsKey(handlerName)) {
+      Boolean exceeded = TriggerHandler.loopCountMap.get(handlerName).increment();
+      if(exceeded) {
+        Integer max = TriggerHandler.loopCountMap.get(handlerName).max;
+        throw new TriggerHandlerException('Maximum loop count of ' + String.valueOf(max) + ' reached in ' + handlerName);
+      }
+    }
+  }
+
+  // make sure this trigger should continue to run
+  @TestVisible
+  private Boolean validateRun() {
+    if(!this.isTriggerExecuting || this.context == null) {
+      throw new TriggerHandlerException('Trigger handler called outside of Trigger execution');
+    }
+    if(TriggerHandler.bypassedHandlers.contains(getHandlerName())) {
+      return false;
+    }
+    return true;
+  }
+
+  @TestVisible
+  private String getHandlerName() {
+    return String.valueOf(this).substring(0,String.valueOf(this).indexOf(':'));
+  }
+
+  /***************************************
+   * context methods
+   ***************************************/
+
+  // context-specific methods for override
+  @TestVisible
+  protected virtual void beforeInsert(){}
+  @TestVisible
+  protected virtual void beforeUpdate(){}
+  @TestVisible
+  protected virtual void beforeDelete(){}
+  @TestVisible
+  protected virtual void afterInsert(){}
+  @TestVisible
+  protected virtual void afterUpdate(){}
+  @TestVisible
+  protected virtual void afterDelete(){}
+  @TestVisible
+  protected virtual void afterUndelete(){}
+
+  /***************************************
+   * inner classes
+   ***************************************/
+
+  // inner class for managing the loop count per handler
+  @TestVisible
+  private class LoopCount {
+    private Integer max;
+    private Integer count;
+
+    public LoopCount() {
+      this.max = 5;
+      this.count = 0;
+    }
+
+    public LoopCount(Integer max) {
+      this.max = max;
+      this.count = 0;
+    }
+
+    public Boolean increment() {
+      this.count++;
+      return this.exceeded();
+    }
+
+    public Boolean exceeded() {
+      if(this.max < 0) return false;
+      if(this.count > this.max) {
+        return true;
+      }
+      return false;
+    }
+
+    public Integer getMax() {
+      return this.max;
+    }
+
+    public Integer getCount() {
+      return this.count;
+    }
+
+    public void setMax(Integer max) {
+      this.max = max;
+    }
+  }
+
+  // possible trigger contexts
+  @TestVisible
+  private enum TriggerContext {
+    BEFORE_INSERT, BEFORE_UPDATE, BEFORE_DELETE,
+    AFTER_INSERT, AFTER_UPDATE, AFTER_DELETE,
+    AFTER_UNDELETE
+  }
+
+  // exception class
+  public class TriggerHandlerException extends Exception {}
+
+}
+           </code>
+         </pre>
+       </section>
+
+    <section>
+      <h4>References</h4>
+     <ul>
+       <li>
+         <a href="https://developer.salesforce.com/page/Apex_Code_Best_Practices">Apex Code Best Practices</a>
+       </li>
+     </ul>
+
+    </section>
+
+    </div>
+  </div>
+
+
+
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
+
+
+  <script>
+    'use strict';
+
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+      //width: 960,
+      //	height: 700,
+
+      // Display presentation control arrows
+      controls: true,
+
+      // Help the user learn the controls by providing hints, for example by
+      // bouncing the down arrow when they first encounter a vertical slide
+      controlsTutorial: true,
+
+      // Determines where controls appear, "edges" or "bottom-right"
+      controlsLayout: 'edges',
+
+      // Visibility rule for backwards navigation arrows; "faded", "hidden"
+      // or "visible"
+      controlsBackArrows: 'faded',
+      // Display a presentation progress bar
+      progress: true,
+
+      // Set default timing of 2 minutes per slide
+      defaultTiming: 120,
+
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
+
+
+      history: true,
+      center: true,
+      slideNumber: true,
+
+      embedded: true,
+
+      transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+      menu: {
+        markers: true,
+        openSlideNumber: true,
+        themes: [{
+            name: 'Black',
+            theme: '../reveal.js/css/theme/black.css'
+          },
+          {
+            name: 'White',
+            theme: '../reveal.js/css/theme/white.css'
+          },
+          {
+            name: 'League',
+            theme: '../reveal.js/css/theme/league.css'
+          },
+          {
+            name: 'Sky',
+            theme: '../reveal.js/css/theme/sky.css'
+          },
+          {
+            name: 'Beige',
+            theme: '../reveal.js/css/theme/beige.css'
+          },
+          {
+            name: 'Simple',
+            theme: '../reveal.js/css/theme/simple.css'
+          },
+          {
+            name: 'Serif',
+            theme: '../reveal.js/css/theme/serif.css'
+          },
+          {
+            name: 'Blood',
+            theme: '../reveal.js/css/theme/blood.css'
+          },
+          {
+            name: 'Night',
+            theme: '../reveal.js/css/theme/night.css'
+          },
+          {
+            name: 'Moon',
+            theme: '../reveal.js/css/theme/moon.css'
+          },
+          {
+            name: 'Solarized',
+            theme: '../reveal.js/css/theme/solarized.css'
+          }
+        ],
+        custom: []
+      },
+
+      // Optional reveal.js plugins
+      dependencies: [{
+          src: '../reveal.js/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          condition: function() {
+            return !!document.querySelector('pre code');
+          },
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: '../reveal.js/plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/reveal.js-menu/menu.js',
+          async: true
+        }
+      ]
+    });
+
+
+
+    var app = angular.module('app', [
+      'hc.marked'
+    ]);
+    app.config(['markedProvider', function(markedProvider) {
+      markedProvider.setOptions({
+        gfm: true
+      });
+    }]);
+
+    var GSCOPE;
+    app.controller('MainCtrl', function($scope, $http, $timeout) {
+      GSCOPE = $scope; // debugging purposes
+      $scope.appName="Apex Code - Best Practices";
+
+
+
+    })
+  </script>
+</body>
+
+</html>
