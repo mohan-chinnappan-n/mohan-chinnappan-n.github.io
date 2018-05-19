@@ -663,16 +663,36 @@
 <li>DML operations you perform in <strong>your tests won&#x2019;t be rolled back at the end of the test</strong>.</li>
 <li>We recommend that you run your LTS test suites <strong>only in scratch orgs</strong>, using data provided by the test suite itself.</li>
 </ul>
-<h2 id="jasmine-or-mocha">Jasmine or Mocha</h2>
-<p> The LTS supports testing with standard JavaScript test frameworks. We provide easy-to-use wrappers for using Jasmine and Mocha.</p>
-<h2 id="installing-lts">Installing LTS</h2>
+<h3 id="getting-started-with-lts">Getting started with LTS</h3>
+<p>As the number and complexity of your Lightning Components grows, so does the risk of defects when you write them, and of breaking changes when you refactor them. Automated testing allows you to mitigate those risks and verify that your components work as designed when you first write them, and continue to work as expected when you make changes (change in the dependency tree) or when their dependencies (the framework, another component, or a JavaScript library they depend on) are updated.</p>
+<p>The Lightning Testing Service consists of:</p>
+<ol>
+<li>Wrappers that allow you to use popular JavaScript testing frameworks within your Salesforce org. LTS currently provides wrappers for <strong>Jasmine and Mocha</strong>, and you can create your own wrappers for other frameworks.</li>
+<li>A utility object <strong>($T)</strong> that makes it easy to work with Lightning Components in your tests. For example, it allows you to instantiate components or fire application events.</li>
+<li>A tight integration with <strong>Salesforce DX</strong> that allows you to run tests from the command line and from within continuous integration scripts.</li>
+</ol>
+<h4 id="note">Note:</h4>
+<p>Although the LTS integration with Salesforce DX is powerful, Salesforce DX is not a requirement to use LTS. You can install the LTS package manually and run your tests from a browser window.</p>
+<h3 id="jasmine-concepts">Jasmine concepts</h3>
+<ul>
+<li>A <strong>test suite</strong> is a plain JavaScript file wherein related tests (specs) are organized within <code>describe()</code> functions.</li>
+<li>A spec (or test) consists of one or more expectations invoked within the it() function.</li>
+<li>An expectation is an assertion that evaluates to either true or false.</li>
+<li>A spec is passing when all its expectations evaluate to true. A spec is failing when at least one of its expectations evaluates to false.</li>
+</ul>
+<h2 id="installing-lts---sfdx">Installing LTS - SFDX</h2>
 <p>Installing the LTS is a one line command in the Salesforce DX CLI.
 The LTS  provides utilities specific to the Lightning Component framework, which let you test behavior specific to Lightning components.</p>
 <pre><code class="lang-bash">$ sfdx update
 
 $ sfdx --version
 sfdx-cli/6.15.0-ded9afdffb (darwin-x64) node-v8.9.4
+
+$ sfdx force:lightning:<span class="hljs-built_in">test</span>:install
 </code></pre>
+<h2 id="installing-lts---without-sfdx">Installing LTS - without SFDX</h2>
+<p>If you are <strong>not using Salesforce DX</strong>, you can install the LTS package manually. Go to the LTS project 
+<a href="https://github.com/forcedotcom/LightningTestingService/releases" target="_blank">release page</a> and click on the link for the latest version of LTS with Examples.</p>
 <pre><code class="lang-js"><span class="hljs-comment">/**
  * Jasmine: This is a &apos;hello world&apos; Jasmine test spec
  */</span>
@@ -682,37 +702,453 @@ describe(<span class="hljs-string">&quot;A simple passing test&quot;</span>, <sp
     });
 });
 </code></pre>
-<pre><code class="lang-js"><span class="hljs-comment">/**
- * Mocha: This is a &apos;hello world&apos; Mocha test 
- */</span>
-<span class="hljs-keyword">var</span> assert = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;assert&apos;</span>);
-describe(<span class="hljs-string">&apos;Test the nature of truth&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    describe(<span class="hljs-string">&apos;A simple passing test&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-        it(<span class="hljs-string">&apos;checks that true is always true&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-            assert.equal(<span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>);
-        });
+<h2 id="run-sample-test-suite-via-sfdx">Run Sample test suite via SFDX</h2>
+<pre><code class="lang-bash">
+$ sfdx force:lightning:<span class="hljs-built_in">test</span>:run <span class="hljs-_">-a</span> jasmineTests.app
+</code></pre>
+<h2 id="run-sample-test-suite-via-browser">Run Sample test suite via Browser</h2>
+<pre><code class="lang-bash">
+open https://&lt;BASE_URL&gt;/c/jasmineTests.app
+</code></pre>
+<h2 id="creating-and-running-your-own-test-suite">Creating and running your own test suite</h2>
+<ul>
+<li><strong>Create a test suite</strong><ul>
+<li>in <code>force-app/main/default/staticresources</code> create a js file <code>myTestSuite.js</code> with the following content:</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-js">
+        describe(<span class="hljs-string">&quot;Lightning Component Testing Examples&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+            afterEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                $T.clearRenderedTestComponents();
+            });
+
+            describe(<span class="hljs-string">&quot;A suite that tests the obvious&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+                it(<span class="hljs-string">&quot;spec that verifies that true is true&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+                    expect(<span class="hljs-literal">true</span>).toBe(<span class="hljs-literal">true</span>);
+                });
+            });
+        })
+      <span class="hljs-comment">// add your test code here</span>
+</code></pre>
+<p><code>sfdx force:source:push</code> supports automatic source transformation when working with static resources.</p>
+<pre><code>In this specific example, it means you can edit the file in its .js format. 
+The file is automatically transformed to the right static resource format when pushed to your scratch org. 
+</code></pre><p><hr></p>
+<ul>
+<li>In the folder: <code>force-app/main/default/staticresources</code> create xml file:   <code>myTestSuite.resource-meta.xml</code> with the content:</li>
+</ul>
+<pre><code class="lang-xml">
+<span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">StaticResource</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://soap.sforce.com/2006/04/metadata&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">cacheControl</span>&gt;</span>Private<span class="hljs-tag">&lt;/<span class="hljs-name">cacheControl</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">contentType</span>&gt;</span>application/javascript<span class="hljs-tag">&lt;/<span class="hljs-name">contentType</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">StaticResource</span>&gt;</span>
+</code></pre>
+<hr>
+
+<ul>
+<li><strong>Create a test Lightning Test Application</strong> <code>MyTestApp</code> :</li>
+</ul>
+<pre><code class="lang-bash">$ sfdx force:lightning:app:create -n MyTestApp <span class="hljs-_">-d</span> force/main/default/aura/
+
+<span class="hljs-comment"># in VS Code: View &gt; Command Palette &gt; SFDX: Create Lightning App</span>
+</code></pre>
+<p><strong>MyTestApp.app markup:</strong></p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:application</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">c:lts_jasmineRunner</span> <span class="hljs-attr">testFiles</span>=<span class="hljs-string">&quot;{!$Resource.myTestSuite}&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:application</span>&gt;</span>
+</code></pre>
+<hr>
+
+<ul>
+<li><strong>Push MyTestApp</strong> into your org:</li>
+</ul>
+<pre><code class="lang-bash">$ sfdx force:<span class="hljs-built_in">source</span>:push
+</code></pre>
+<ul>
+<li><strong>Run tests by running MyTestApp.app</strong></li>
+</ul>
+<pre><code class="lang-bash">$ sfdx force:lightning:<span class="hljs-built_in">test</span>:run <span class="hljs-_">-a</span> myTestApp.app
+
+<span class="hljs-comment"># via browser: https://&lt;BASE_URL&gt;/c/myTestApp.app</span>
+</code></pre>
+<h3 id="examples">Examples</h3>
+<h4 id="1-verify-component-rendering">1. Verify component rendering</h4>
+<p>Write a test to verify that a component renders as expected.</p>
+<ul>
+<li><strong>Component markup</strong></li>
+</ul>
+<pre><code class="lang-xml">
+<span class="hljs-comment">&lt;!-- helloWorld component --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;message&quot;</span>&gt;</span>Hello World!<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<ul>
+<li>Add the following js code into <code>myTestSuite.js</code> after <code>js  // add your test code here</code></li>
+</ul>
+<pre><code class="lang-js">
+<span class="hljs-comment">// c: is default namespace, replace it with your namespace</span>
+
+describe(<span class="hljs-string">&apos;c:helloWorld&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    it(<span class="hljs-string">&apos;verify component rendering&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">done</span>) </span>{
+        <span class="hljs-comment">// $T.createComponent(componentName) :  instantiates a Lightning component. </span>
+        <span class="hljs-comment">// {} optional list of attribute values</span>
+        <span class="hljs-comment">// true: test requires the component to be rendered?</span>
+        $T.createComponent(<span class="hljs-string">&apos;c:helloWorld&apos;</span>, {}, <span class="hljs-literal">true</span>)
+            .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">cmp</span>) </span>{
+                <span class="hljs-comment">// check that weget innerHTML contains &apos;Hello World!&apos; </span>
+                <span class="hljs-comment">//    for this component&apos;s element with id as &apos;message&apos;</span>
+                expect(cmp.find(<span class="hljs-string">&quot;message&quot;</span>).getElement().innerHTML).toBe(<span class="hljs-string">&apos;Hello World!&apos;</span>);
+                done();
+            }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+                done.fail(e);
+            });
     });
 });
 </code></pre>
-<h3 id="sfdx-links">SFDX links</h3>
-<table class="slds-text-body_regular" data-aura-rendered-by="698:0"><tr data-aura-rendered-by="699:0"><td class="iconColumn" data-aura-rendered-by="700:0"><span class="slds-icon_container slds-icon_container--circle slds-icon-action-check" data-aura-rendered-by="703:0"><span data-aura-rendered-by="706:0" class="lightningPrimitiveIcon" data-aura-class="lightningPrimitiveIcon"><svg class="slds-icon slds-icon--small" focusable="false" aria-hidden="true" data-key="check">
-<use xlink:href="/_slds/icons/action-sprite/svg/symbols.svg?cache=8.2.0#check"/>
-</svg></span><!--render facet: 707:0--></span></td><td data-aura-rendered-by="708:0">Take the <a href="https://trailhead.salesforce.com/trails/sfdx_get_started" data-aura-rendered-by="710:0" target="_blank">Getting Started with Salesforce DX</a> Trail</td></tr><tr data-aura-rendered-by="713:0"><td class="iconColumn" data-aura-rendered-by="714:0"><span class="slds-icon_container slds-icon_container--circle slds-icon-action-check" data-aura-rendered-by="717:0"><span data-aura-rendered-by="720:0" class="lightningPrimitiveIcon" data-aura-class="lightningPrimitiveIcon"><svg class="slds-icon slds-icon--small" focusable="false" aria-hidden="true" data-key="check">
-<use xlink:href="/_slds/icons/action-sprite/svg/symbols.svg?cache=8.2.0#check"/>
-</svg></span><!--render facet: 721:0--></span></td><td data-aura-rendered-by="722:0">Download the <a href="https://developer.salesforce.com/tools/sfdxcli" data-aura-rendered-by="724:0" target="_blank">Salesforce CLI</a></td></tr><tr data-aura-rendered-by="726:0"><td class="iconColumn" data-aura-rendered-by="727:0"><span class="slds-icon_container slds-icon_container--circle slds-icon-action-check" data-aura-rendered-by="730:0"><span data-aura-rendered-by="733:0" class="lightningPrimitiveIcon" data-aura-class="lightningPrimitiveIcon"><svg class="slds-icon slds-icon--small" focusable="false" aria-hidden="true" data-key="check">
-<use xlink:href="/_slds/icons/action-sprite/svg/symbols.svg?cache=8.2.0#check"/>
-</svg></span><!--render facet: 734:0--></span></td><td data-aura-rendered-by="735:0">Play with the <a href="https://github.com/forcedotcom/sfdx-dreamhouse" data-aura-rendered-by="737:0" target="_blank">Dreamhouse sample application</a></td></tr><tr data-aura-rendered-by="739:0"><td class="iconColumn" data-aura-rendered-by="740:0"><span class="slds-icon_container slds-icon_container--circle slds-icon-action-check" data-aura-rendered-by="743:0"><span data-aura-rendered-by="746:0" class="lightningPrimitiveIcon" data-aura-class="lightningPrimitiveIcon"><svg class="slds-icon slds-icon--small" focusable="false" aria-hidden="true" data-key="check">
-<use xlink:href="/_slds/icons/action-sprite/svg/symbols.svg?cache=8.2.0#check"/>
-</svg></span><!--render facet: 747:0--></span></td><td data-aura-rendered-by="748:0">Join the <a href="https://success.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F9f40000007OVX" data-aura-rendered-by="750:0" target="_blank">Salesforce DX Trailblazer community</a></td></tr><tr data-aura-rendered-by="752:0"><td class="iconColumn" data-aura-rendered-by="753:0"><span class="slds-icon_container slds-icon_container--circle slds-icon-action-check" data-aura-rendered-by="756:0"><span data-aura-rendered-by="759:0" class="lightningPrimitiveIcon" data-aura-class="lightningPrimitiveIcon"><svg class="slds-icon slds-icon--small" focusable="false" aria-hidden="true" data-key="check">
-<use xlink:href="/_slds/icons/action-sprite/svg/symbols.svg?cache=8.2.0#check"/>
-</svg></span><!--render facet: 760:0--></span></td><td data-aura-rendered-by="761:0">Watch <a href="https://www.youtube.com/playlist?list=PLJC5QQjmffkTxVuCSYXTsqzcfFmYH44Lu" data-aura-rendered-by="763:0" target="_blank">some videos</a> about Salesforce DX</td></tr></table>
+<ul>
+<li><strong>Run the test suite</strong></li>
+</ul>
+<pre><code class="lang-bash">sfdx force:lightning:<span class="hljs-built_in">test</span>:run <span class="hljs-_">-a</span> MyTestApp.app
+</code></pre>
+<h4 id="2-verify-data-binding">2. Verify Data Binding</h4>
+<p> Instantiate a component passing a value for the <strong>message</strong> attribute and we verify that UI elements bound to that attribute are displaying the expected value.</p>
+<ul>
+<li><strong>Component markup</strong></li>
+</ul>
+<pre><code class="lang-xml">
+<span class="hljs-comment">&lt;!-- componentWithDataBinding component --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;message&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;String&quot;</span>/&gt;</span>
+   <span class="hljs-comment">&lt;!-- get user input --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:input</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;messageInput&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;{!v.message}&quot;</span>/&gt;</span>
+    <span class="hljs-comment">&lt;!-- div UI element bound this attribute --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;message&quot;</span>&gt;</span>{!v.message}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<ul>
+<li>Add the following js code into <code>myTestSuite.js</code> after <code>js  // add your test code here</code></li>
+</ul>
+<pre><code class="lang-js">
+<span class="hljs-comment">// c: is default namespace, replace it with your namespace</span>
 
+describe(<span class="hljs-string">&apos;c:componentWithDataBinding&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+   it(<span class="hljs-string">&apos;verify data binding&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">done</span>) </span>{
+    <span class="hljs-comment">// $T.createComponent(componentName) :  instantiates a Lightning component. </span>
+    <span class="hljs-comment">// {} optional list of attribute values: {message: &apos;Farming wins!&apos;}</span>
+    <span class="hljs-comment">// true: test requires the component to be rendered?</span>
+      $T.createComponent(<span class="hljs-string">&apos;c:componentWithDataBinding&apos;</span>, {message: <span class="hljs-string">&apos;Farming wins!&apos;</span>}, <span class="hljs-literal">true</span>)
+         .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">component</span>) </span>{
+            <span class="hljs-comment">// verify div element with id:message has this attribute correctly?</span>
+            expect(component.find(<span class="hljs-string">&quot;message&quot;</span>).getElement().innerHTML).toBe(<span class="hljs-string">&apos;Farming wins!&apos;</span>);
+             <span class="hljs-comment">// verify lightning:input has this attribute correctly?</span>
+            expect(component.find(<span class="hljs-string">&quot;messageInput&quot;</span>).get(<span class="hljs-string">&quot;v.value&quot;</span>)).toBe(<span class="hljs-string">&apos;Farming wins!&apos;</span>);
+            done();
+      }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+            done.fail(e);
+      });
+   });
+});
+</code></pre>
+<ul>
+<li><strong>Run the test suite</strong></li>
+</ul>
+<pre><code class="lang-bash">sfdx force:lightning:<span class="hljs-built_in">test</span>:run <span class="hljs-_">-a</span> MyTestApp.app
+</code></pre>
+<h4 id="3-verify-method-invocation">3. Verify method invocation</h4>
+<p>Verify that a method invocation produces the expected result.
+We create a component with a <code>counter</code> attribute and a method that increments that <code>counter</code>.
+We verify that the method invocation increments the <code>counter</code> as expected. 
+Note that you <strong>cannot directly invoke methods</strong> in the component&#x2019;s controller or helper. 
+You can only invoke methods that are exposed as part of the component&#x2019;s public API with an<code>&lt;aura:method&gt;</code> definition.</p>
+<ul>
+<li><strong>Component markup</strong></li>
+</ul>
+<pre><code class="lang-xml">
+<span class="hljs-comment">&lt;!-- componentWithMethod component --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;counter&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Integer&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;0&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;increment&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;{!c.increment}&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<p><strong>componentWithMethodController.js</strong></p>
+<pre><code class="lang-js">({
+    increment : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-keyword">var</span> value = component.get(<span class="hljs-string">&quot;v.counter&quot;</span>);
+        value = value + <span class="hljs-number">1</span>;
+        component.set(<span class="hljs-string">&quot;v.counter&quot;</span>, value);
+    }
+})
+</code></pre>
+<ul>
+<li>Add the following js code into <code>myTestSuite.js</code> after <code>js  // add your test code here</code></li>
+</ul>
+<pre><code class="lang-js">
+<span class="hljs-comment">// c: is default namespace, replace it with your namespace</span>
+describe(<span class="hljs-string">&quot;c:componentWithMethod&quot;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    it(<span class="hljs-string">&apos;verify method invocation&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>) </span>{
+        <span class="hljs-comment">// $T.createComponent(componentName) :  instantiates a Lightning component. </span>
+        <span class="hljs-comment">// {} optional list of attribute values</span>
+        <span class="hljs-comment">// false: test requires the component to be rendered?</span>
+        $T.createComponent(<span class="hljs-string">&quot;c:componentWithMethod&quot;</span>, {}, <span class="hljs-literal">false</span>)
+            .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">component</span>) </span>{
+                expect(component.get(<span class="hljs-string">&quot;v.counter&quot;</span>)).toBe(<span class="hljs-number">0</span>);
+                <span class="hljs-comment">// execute the &apos;increment&apos; method on the component</span>
+                component.increment();
+                <span class="hljs-comment">// did we get the incremented value?</span>
+                expect(component.get(<span class="hljs-string">&quot;v.counter&quot;</span>)).toBe(<span class="hljs-number">1</span>);
+                done();
+            }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+                done.fail(e);
+            });
+    });
+});
+</code></pre>
+<ul>
+<li><strong>Run the test suite</strong></li>
+</ul>
+<pre><code class="lang-bash">sfdx force:lightning:<span class="hljs-built_in">test</span>:run <span class="hljs-_">-a</span> MyTestApp.app
+</code></pre>
+<h4 id="4-verify-application-event">4. Verify application event</h4>
+<p>Verify that a component listening to an <strong>application event</strong> works as expected when the application event is fired.</p>
+<ul>
+<li><strong>Component and event markups</strong></li>
+</ul>
+<pre><code class="lang-xml">
+<span class="hljs-comment">&lt;!-- componentListeningToAppEvent component  --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;message&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;String&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:handler</span> <span class="hljs-attr">event</span>=<span class="hljs-string">&quot;c:myAppEvent&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;{!c.handleAppEvent}&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-xml">
+<span class="hljs-comment">&lt;!-- myAppEvent Application Event --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">aura:event</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;APPLICATION&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;msg&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;String&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:event</span>&gt;</span>
+</code></pre>
+<p><strong>componentListeningToAppEventController.js</strong></p>
+<pre><code class="lang-js">({
+    handleAppEvent : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        component.set(<span class="hljs-string">&quot;v.message&quot;</span>, event.getParam(<span class="hljs-string">&quot;msg&quot;</span>));
+    }
+})
+</code></pre>
+<ul>
+<li>Add the following js code into <code>myTestSuite.js</code> after <code>js  // add your test code here</code></li>
+</ul>
+<pre><code class="lang-js">
+<span class="hljs-comment">// c: is default namespace, replace it with your namespace</span>
+describe(<span class="hljs-string">&apos;c:componentListeningToAppEvent&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    it(<span class="hljs-string">&apos;verify application event&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">done</span>) </span>{
+        <span class="hljs-comment">// $T.createComponent(componentName) :  instantiates a Lightning component. </span>
+        $T.createComponent(<span class="hljs-string">&quot;c:componentListeningToAppEvent&quot;</span>)
+            .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">component</span>) </span>{
+                <span class="hljs-comment">// fire the event: myAppEvent with { &quot;msg&quot;: &quot;event fired&quot;}</span>
+                $T.fireApplicationEvent(<span class="hljs-string">&quot;c:myAppEvent&quot;</span>, {<span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;event fired&quot;</span>});
+                <span class="hljs-comment">// check handleAppEvent has set the attribute: message properly</span>
+                expect(component.get(<span class="hljs-string">&quot;v.message&quot;</span>)).toBe(<span class="hljs-string">&quot;event fired&quot;</span>);
+                done();
+            }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+                done.fail(e);
+            });
+    });
+});
+</code></pre>
+<ul>
+<li><strong>Run the test suite</strong></li>
+</ul>
+<pre><code class="lang-bash">sfdx force:lightning:<span class="hljs-built_in">test</span>:run <span class="hljs-_">-a</span> MyTestApp.app
+</code></pre>
+<h4 id="5-verify-server-method-invocation-not-recommended">5. Verify server method invocation (not recommended)</h4>
+<p>Verify that a call to a method in the component&#x2019;s <strong>Apex controller</strong> works as expected. </p>
+<p>Performing real database operations from <strong>within Lightning tests is not recommended because Lightning tests don&#x2019;t run in an isolated testing context</strong>, and <strong>changes to data are therefore permanent</strong>.</p>
+<p>Tests that rely on real data also tend to be nondeterministic and unreliable. </p>
+<p> Instead of accessing real data, <strong>consider using mock (static and predictable) data as demonstrated in this example</strong>. </p>
+<p> Moreover, <strong>tests that involve communication over the network are generally not recommended</strong>. </p>
+<p> The recommended best practice is to <strong>test the client and server code in isolation</strong>. See example 6 below for an example demonstrating how to mock the server method invocation all together.</p>
+<pre><code class="lang-java"><span class="hljs-comment">// AccountController.cls - server-side controller </span>
+ global with sharing <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AccountController</span> </span>{
+    <span class="hljs-comment">// make it available to Lightning </span>
+    <span class="hljs-meta">@AuraEnabled</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Account[] getAccounts() {
+        <span class="hljs-comment">// mock account records</span>
+        List accounts = <span class="hljs-keyword">new</span> List();
+        accounts.add(<span class="hljs-keyword">new</span> Account(Name = <span class="hljs-string">&apos;Account 1&apos;</span>));
+        accounts.add(<span class="hljs-keyword">new</span> Account(Name = <span class="hljs-string">&apos;Account 2&apos;</span>));
+        accounts.add(<span class="hljs-keyword">new</span> Account(Name = <span class="hljs-string">&apos;Account 3&apos;</span>));
+        <span class="hljs-keyword">return</span> accounts;
+    }
+}
+</code></pre>
+<ul>
+<li><strong>Component markup</strong></li>
+</ul>
+<pre><code class="lang-xml">
+<span class="hljs-comment">&lt;!-- accountList component using the AccountController server-side controller --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> <span class="hljs-attr">controller</span>=<span class="hljs-string">&quot;AccountController&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;accounts&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Account[]&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;loadAccounts&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;{!c.loadAccounts}&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<p><strong>accountListController.js</strong></p>
+<pre><code class="lang-js">({
+    loadAccounts : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-comment">//  setting action for calling server-side controller&apos;s getAccounts() method</span>
+        <span class="hljs-keyword">var</span> action = component.get(<span class="hljs-string">&quot;c.getAccounts&quot;</span>);
+        action.setCallback(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
+            <span class="hljs-keyword">var</span> state = response.getState();
+            <span class="hljs-keyword">if</span> (state === <span class="hljs-string">&quot;SUCCESS&quot;</span>) {
+                component.set(<span class="hljs-string">&quot;v.accounts&quot;</span>, response.getReturnValue());
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (state === <span class="hljs-string">&quot;INCOMPLETE&quot;</span>) {
+                $A.log(<span class="hljs-string">&quot;Action INCOMPLETE&quot;</span>);
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (state === <span class="hljs-string">&quot;ERROR&quot;</span>) {
+                $A.log(response.getError());
+            }
+        });
+        $A.enqueueAction(action);
+    }
+})
+</code></pre>
+<ul>
+<li>Add the following js code into <code>myTestSuite.js</code> after <code>js  // add your test code here</code></li>
+</ul>
+<pre><code class="lang-js">
+<span class="hljs-comment">// c: is default namespace, replace it with your namespace</span>
+describe(<span class="hljs-string">&apos;c:accountList&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    it(<span class="hljs-string">&apos;verify server method invocation&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">done</span>) </span>{
+        <span class="hljs-comment">// $T.createComponent(componentName) :  instantiates a Lightning component. </span>
+        $T.createComponent(<span class="hljs-string">&quot;c:accountList&quot;</span>)
+            .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">component</span>) </span>{
+            <span class="hljs-comment">// before executing the server-side call the lenght of the array accounts should be 0</span>
+            expect(component.get(<span class="hljs-string">&quot;v.accounts&quot;</span>).length).toBe(<span class="hljs-number">0</span>);
+                <span class="hljs-comment">// run the method loadAccounts</span>
+                $T.run(component.loadAccounts);
+                <span class="hljs-comment">/*
+                    The $T.waitFor(function, timeout, interval) function checks at a regular interval (defined by the value passed as the third argument) for a set amount of time (defined by the value passed as a second argument) if the function passed as the first argument returns true. 
 
+                    If the function returns true within the allotted time frame, the promise is resolved and the test succeeds.
+                    If the function doesn&#x2019;t return true within the allotted time frame, the promise is rejected and the test fails.
+                */</span>
+                <span class="hljs-keyword">return</span> $T.waitFor(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                    <span class="hljs-comment">// make sure that we have 3 records in the response</span>
+                    <span class="hljs-keyword">return</span> component.get(<span class="hljs-string">&quot;v.accounts&quot;</span>).length === <span class="hljs-number">3</span>;
+                })
+            }).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                done();
+            }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+                done.fail(e);
+            });
+    });
+});
+</code></pre>
+<ul>
+<li><strong>Run the test suite</strong></li>
+</ul>
+<pre><code class="lang-bash">sfdx force:lightning:<span class="hljs-built_in">test</span>:run <span class="hljs-_">-a</span> MyTestApp.app
+</code></pre>
+<h4 id="6--verify-mocked-server-method-invocation-recommended">6.  Verify mocked server method invocation (recommended)</h4>
+<p>Instead of calling a remote method that returns mock data (as shown in #5), you can mock the server call all together. </p>
+<p>Jasmine provides a <strong>spy utility</strong> that allows you to intercept (hijack) calls to specific functions.</p>
+<p> To mock a remote method invocation call, all you have to do is <strong>spy on the $A.enqueueAction() function</strong> and provide a mock implementation to execute <strong>instead of sending the request to the server</strong>.</p>
+<p> Let&#x2019;s create a new test for the accountList component using this approach. </p>
+<p> The Apex controller and Lightning component don&#x2019;t change.</p>
+<pre><code class="lang-java"><span class="hljs-comment">// AccountController.cls - server-side controller </span>
+ global with sharing <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AccountController</span> </span>{
+    <span class="hljs-comment">// make it available to Lightning </span>
+    <span class="hljs-meta">@AuraEnabled</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Account[] getAccounts() {
+        <span class="hljs-comment">// mock account records</span>
+        List accounts = <span class="hljs-keyword">new</span> List();
+        accounts.add(<span class="hljs-keyword">new</span> Account(Name = <span class="hljs-string">&apos;Account 1&apos;</span>));
+        accounts.add(<span class="hljs-keyword">new</span> Account(Name = <span class="hljs-string">&apos;Account 2&apos;</span>));
+        accounts.add(<span class="hljs-keyword">new</span> Account(Name = <span class="hljs-string">&apos;Account 3&apos;</span>));
+        <span class="hljs-keyword">return</span> accounts;
+    }
+}
+</code></pre>
+<ul>
+<li><strong>Component markup</strong></li>
+</ul>
+<pre><code class="lang-xml">
+<span class="hljs-comment">&lt;!-- accountList component using the AccountController server-side controller --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> <span class="hljs-attr">controller</span>=<span class="hljs-string">&quot;AccountController&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;accounts&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Account[]&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;loadAccounts&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;{!c.loadAccounts}&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<p><strong>accountListController.js</strong></p>
+<pre><code class="lang-js">({
+    loadAccounts : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-comment">//  setting action for calling server-side controller&apos;s getAccounts() method</span>
+        <span class="hljs-keyword">var</span> action = component.get(<span class="hljs-string">&quot;c.getAccounts&quot;</span>);
+        action.setCallback(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) </span>{
+            <span class="hljs-keyword">var</span> state = response.getState();
+            <span class="hljs-keyword">if</span> (state === <span class="hljs-string">&quot;SUCCESS&quot;</span>) {
+                component.set(<span class="hljs-string">&quot;v.accounts&quot;</span>, response.getReturnValue());
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (state === <span class="hljs-string">&quot;INCOMPLETE&quot;</span>) {
+                $A.log(<span class="hljs-string">&quot;Action INCOMPLETE&quot;</span>);
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (state === <span class="hljs-string">&quot;ERROR&quot;</span>) {
+                $A.log(response.getError());
+            }
+        });
+        $A.enqueueAction(action);
+    }
+})
+</code></pre>
+<ul>
+<li>Add the following js code into <code>myTestSuite.js</code> after <code>js  // add your test code here</code></li>
+</ul>
+<pre><code class="lang-js">
+<span class="hljs-comment">// c: is default namespace, replace it with your namespace</span>
+describe(<span class="hljs-string">&apos;c:accountList&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    it(<span class="hljs-string">&apos;verify mocked server method invocation&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">done</span>) </span>{
+         <span class="hljs-comment">// $T.createComponent(componentName) :  instantiates a Lightning component. </span>
+        $T.createComponent(<span class="hljs-string">&quot;c:accountList&quot;</span>, {}, <span class="hljs-literal">true</span>)
+            .then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">component</span>) </span>{
+                <span class="hljs-comment">// mocking the response</span>
+                <span class="hljs-keyword">var</span> mockResponse = { 
+                    <span class="hljs-comment">// response state as SUCCESS</span>
+                    getState: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ 
+                        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;SUCCESS&quot;</span>;
+                    }, 
+                    getReturnValue: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ 
+                        <span class="hljs-comment">// mock 3 account records</span>
+                        <span class="hljs-keyword">return</span> [{<span class="hljs-string">&quot;Name&quot;</span>: <span class="hljs-string">&quot;Farming&quot;</span>}, {<span class="hljs-string">&quot;Name&quot;</span>: <span class="hljs-string">&quot;Weaving&quot;</span>}, {<span class="hljs-string">&quot;Name&quot;</span>: <span class="hljs-string">&quot;Carpentry&quot;</span>}]; 
+                    } 
+                };
+                <span class="hljs-comment">// intercept (hijack) on $A.enqueueAction() and callFack(...)</span>
+                spyOn($A, <span class="hljs-string">&quot;enqueueAction&quot;</span>).and.callFake(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">action</span>) </span>{
+                    <span class="hljs-keyword">var</span> cb = action.getCallback(<span class="hljs-string">&quot;SUCCESS&quot;</span>);
+                    <span class="hljs-comment">// apply our mockResponse to become the response</span>
+                    cb.fn.apply(cb.s, [mockResponse]);
+                });
+                <span class="hljs-comment">// run the method loadAccounts</span>
+                component.loadAccounts();
+                <span class="hljs-comment">// do we have 3 account records</span>
+                expect(component.get(<span class="hljs-string">&quot;v.accounts&quot;</span>).length).toBe(<span class="hljs-number">3</span>);
+                <span class="hljs-comment">// first account record name is &apos;Farming&apos;?</span>
+                expect(component.get(<span class="hljs-string">&quot;v.accounts&quot;</span>)[<span class="hljs-number">0</span>][<span class="hljs-string">&apos;Name&apos;</span>]).toContain(<span class="hljs-string">&quot;Farming&quot;</span>);
+                done();
+            }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+                done.fail(e);
+            });
+    });
+});
+</code></pre>
+<ul>
+<li><strong>Run the test suite</strong></li>
+</ul>
+<pre><code class="lang-bash">sfdx force:lightning:<span class="hljs-built_in">test</span>:run <span class="hljs-_">-a</span> MyTestApp.app
+</code></pre>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="https://forcedotcom.github.io/LightningTestingService/" target="_blank">Lightning Testing Service</a></li>
 <li><a href="https://github.com/forcedotcom/LightningTestingService/blob/master/developer-workflow.md" target="_blank">Testing Lightning Components with the Lightning Testing Service
 </a></li>
+<li><a href="https://developer.salesforce.com/blogs/2018/04/getting-started-with-the-lightning-testing-service.html" target="_blank">Getting Started with the Lightning Testing Service</a></li>
 </ul>
 
                                 
@@ -757,7 +1193,7 @@ describe(<span class="hljs-string">&apos;Test the nature of truth&apos;</span>, 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Test Automation","level":"1.5","depth":1,"next":{"title":"Lightning Configuration Converter","level":"1.6","depth":1,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"More lightning:*","level":"1.4.8.4","depth":3,"path":"chap-15/lightning.md","ref":"chap-15/lightning.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-20/test-automation.md","mtime":"2018-05-16T00:40:02.915Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-14T23:51:53.235Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Test Automation","level":"1.5","depth":1,"next":{"title":"Lightning Configuration Converter","level":"1.6","depth":1,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"More lightning:*","level":"1.4.8.4","depth":3,"path":"chap-15/lightning.md","ref":"chap-15/lightning.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-20/test-automation.md","mtime":"2018-05-19T16:37:55.170Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-19T12:37:14.079Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
