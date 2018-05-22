@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Lightning Container Component · GitBook</title>
+        <title>Profile based Home Page · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="postMessage.html" />
+    <link rel="next" href="../chap-11/lcc.html" />
     
     
-    <link rel="prev" href="LockerService.html" />
+    <link rel="prev" href="../chap-20/test-automation.html" />
     
 
     </head>
@@ -393,9 +393,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="../chap-22/homepage-profile-based.html">
+        <li class="chapter active" data-level="1.6" data-path="homepage-profile-based.html">
             
-                <a href="../chap-22/homepage-profile-based.html">
+                <a href="homepage-profile-based.html">
             
                     
                     Profile based Home Page
@@ -439,9 +439,9 @@
         
         
     
-        <li class="chapter " data-level="2.1" data-path="body.html">
+        <li class="chapter " data-level="2.1" data-path="../chap-12/body.html">
             
-                <a href="body.html">
+                <a href="../chap-12/body.html">
             
                     
                     Security
@@ -453,9 +453,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.1.1" data-path="LockerService.html">
+        <li class="chapter " data-level="2.1.1" data-path="../chap-12/LockerService.html">
             
-                <a href="LockerService.html">
+                <a href="../chap-12/LockerService.html">
             
                     
                     LockerService
@@ -466,9 +466,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.1.2" data-path="lx-container.html">
+        <li class="chapter " data-level="2.1.2" data-path="../chap-12/lx-container.html">
             
-                <a href="lx-container.html">
+                <a href="../chap-12/lx-container.html">
             
                     
                     Lightning Container Component
@@ -479,9 +479,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.3" data-path="postMessage.html">
+        <li class="chapter " data-level="2.1.3" data-path="../chap-12/postMessage.html">
             
-                <a href="postMessage.html">
+                <a href="../chap-12/postMessage.html">
             
                     
                     window.postMessage
@@ -583,9 +583,9 @@
         
         
     
-        <li class="chapter " data-level="6.1" data-path="ea-static-binding.html">
+        <li class="chapter " data-level="6.1" data-path="../chap-12/ea-static-binding.html">
             
-                <a href="ea-static-binding.html">
+                <a href="../chap-12/ea-static-binding.html">
             
                     
                     EA Binding Notes 
@@ -646,7 +646,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Lightning Container Component</a>
+        <a href=".." >Profile based Home Page</a>
     </h1>
 </div>
 
@@ -661,43 +661,12 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="lightning-container-component-isolation">Lightning Container Component Isolation</h1>
-<ul>
-<li>The HTML Inline Frame Element <strong>iframe</strong> allows you to embed an HTML page in the current HTML page</li>
-<li>The embedded HTML page is loaded in a different DOM (with limited access to the parent DOM) and runs in its own context</li>
-<li>The Lightning Container Component (lightning:container) is a convenience component that wraps an iframe and provides a simple API to communicate between the iframe container and its content</li>
-<li>Can be used to sandbox components or apps built with libraries that don&#x2019;t run with LockerService</li>
-</ul>
-<h3 id="example">Example</h3>
-<p>Use a Lightning Container Component to embed an AngularJS app in a Lightning Component:</p>
-<pre><code class="lang-javascript">
-&lt;aura:component access=<span class="hljs-string">&quot;global&quot;</span> implements=<span class="hljs-string">&quot;flexipage:availableForAllPageTypes&quot;</span>&gt;
-    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">lightning:container</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;MyAngularApp&quot;</span>
-                         <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;{!$Resource.MyAngularApp + &apos;/index.html&apos;}&quot;</span>
-                         <span class="hljs-attr">onmessage</span>=<span class="hljs-string">&quot;{!c.handleMessage}&quot;</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
-</span></code></pre>
-<p>The Lightning Container Component is <strong>not</strong> an optimal solution for <strong>fine grained</strong> application composition where you would embed multiple iframed AngularJS components on a page.
-In that case, each component would load the AngularJS framework, communication between components would be limited (<strong>postMessage</strong> only), and the UI would be constrained by the boundaries of each iframe.</p>
-<h3 id="lightning-container-component-advantages">Lightning Container Component advantages</h3>
-<ul>
-<li>Native isolation mechanism in the browser</li>
-<li>Support for any third-party library, including ones that are not LockerService compliant (libraries are sandboxed in their own DOM/context)</li>
-<li>OK for coarse-grained apps</li>
-</ul>
-<h3 id="lightning-container-component-disadvantages">Lightning Container Component disadvantages</h3>
-<ul>
-<li>Limited communication mechanism between components (<strong>postMessage</strong>)</li>
-<li>Components are constrained to a rectangle area on the page.<ul>
-<li>Content may be clipped</li>
-<li>Rich interactions like drag-and-drop between components may not work</li>
-</ul>
-</li>
-<li>Heavier/Slower. If there are multiple iframes on a page, each iframe loads its own version of libraries</li>
-<li>Not great for fine-grained app composition</li>
-</ul>
-<h2 id="windowpostmessage">window.postMessage()</h2>
-<p>postMessage is discussed <a href="postMessage.html">here</a></p>
+                                <h2 id="assigning-custom-home-pages-to-specific-profiles">Assigning Custom Home Pages to Specific Profiles.</h2>
+<h3 id="demo">Demo</h3>
+<p><a target="_blank" href="img/lex-homepage-1.gif">
+<i class="fa fa-arrows-alt" title="full screen view of the demo"></i>
+</a></p>
+<p><img src="img/lex-homepage-1.gif" alt="Assigning Custom Home Page"></p>
 
                                 
                                 </section>
@@ -725,12 +694,12 @@ In that case, each component would load the AngularJS framework, communication b
 
             
                 
-                <a href="LockerService.html" class="navigation navigation-prev " aria-label="Previous page: LockerService">
+                <a href="../chap-20/test-automation.html" class="navigation navigation-prev " aria-label="Previous page: Test Automation">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="postMessage.html" class="navigation navigation-next " aria-label="Next page: window.postMessage">
+                <a href="../chap-11/lcc.html" class="navigation navigation-next " aria-label="Next page: Lightning Configuration Converter">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -741,7 +710,7 @@ In that case, each component would load the AngularJS framework, communication b
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lightning Container Component","level":"2.1.2","depth":2,"next":{"title":"window.postMessage","level":"2.1.3","depth":2,"path":"chap-12/postMessage.md","ref":"chap-12/postMessage.md","articles":[]},"previous":{"title":"LockerService","level":"2.1.1","depth":2,"path":"chap-12/LockerService.md","ref":"chap-12/LockerService.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-12/lx-container.md","mtime":"2018-02-26T20:42:31.907Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-22T15:48:14.656Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Profile based Home Page","level":"1.6","depth":1,"next":{"title":"Lightning Configuration Converter","level":"1.7","depth":1,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"Test Automation","level":"1.5","depth":1,"path":"chap-20/test-automation.md","ref":"chap-20/test-automation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-22/homepage-profile-based.md","mtime":"2018-05-22T15:50:26.460Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-22T15:48:14.656Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
