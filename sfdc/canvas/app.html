@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Canvas App</title>
+
+
+<script type="text/javascript" src="https://mohansun-59-dev-ed.my.salesforce.com/canvas/sdk/js/41.0/canvas-all.js"></script>
+<script type="text/javascript">
+    // callback to access the OAuth access token and context object
+    Sfdc.canvas(function() {
+        // Save the token
+        Sfdc.canvas.oauth.token(window.signedRequestJson.oauthToken);
+        window.alert("hello, " + window.signedRequestJson.context.user.fullName);
+    });
+</script>
+</head>
+<body>
+
+</body>
+</html>
