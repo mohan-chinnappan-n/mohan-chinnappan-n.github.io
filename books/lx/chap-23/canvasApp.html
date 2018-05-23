@@ -684,7 +684,7 @@
                                 <h2 id="how-to-host-a-canvas-app-in-lightning-component-">How to host a Canvas App in Lightning Component ?</h2>
 <h3 id="how-to-host-this-canvas-app-inside-lightning-component-using-forcecanvasapp">How to host this Canvas App inside Lightning Component using force:canvasApp</h3>
 <h4 id="-canvasapp-component">- CanvasApp component</h4>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> &gt;</span>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> <span class="hljs-attr">implements</span>=<span class="hljs-string">&quot;force:appHostable,flexipage:availableForAllPageTypes&quot;</span> &gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">force:canvasApp</span> <span class="hljs-attr">developerName</span>=<span class="hljs-string">&quot;capp2&quot;</span> <span class="hljs-attr">namespacePrefix</span>=<span class="hljs-string">&quot;gw19&quot;</span> /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
 </code></pre>
@@ -711,7 +711,12 @@
 <p><a target="_blank" href="img/canvas-app-2.gif">
 <i class="fa fa-arrows-alt" title="full screen view of the demo"></i>
 </a></p>
-<p><img src="img/canvas-app-2.gif" alt="Assigning Custom Home Page"></p>
+<p><img src="img/canvas-app-2.gif" alt="Canvas App Demo"></p>
+<h3 id="demo-how-to-use-it-in-app-builder-to-compose-app-page">Demo: How to use it in App Builder to compose App Page</h3>
+<p><a target="_blank" href="img/canvas-app-builder-1.gif">
+<i class="fa fa-arrows-alt" title="full screen view of the demo"></i>
+</a></p>
+<p><img src="img/canvas-app-builder-1.gif" alt="Canvas App in App Builder"></p>
 <h3 id="references">References</h3>
 <ol>
 <li><p><a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/aura_compref_force_canvasApp.htm" target="_blank">force:canvasApp</a></p>
@@ -766,7 +771,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Canvas App","level":"1.7","depth":1,"next":{"title":"Lightning Configuration Converter","level":"2.1","depth":1,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"Profile based Home Page","level":"1.6","depth":1,"path":"chap-22/homepage-profile-based.md","ref":"chap-22/homepage-profile-based.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-23/canvasApp.md","mtime":"2018-05-23T01:36:40.334Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-23T00:34:27.201Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Canvas App","level":"1.7","depth":1,"next":{"title":"Lightning Configuration Converter","level":"2.1","depth":1,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"Profile based Home Page","level":"1.6","depth":1,"path":"chap-22/homepage-profile-based.md","ref":"chap-22/homepage-profile-based.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-23/canvasApp.md","mtime":"2018-05-23T10:05:05.283Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-23T10:05:53.799Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
