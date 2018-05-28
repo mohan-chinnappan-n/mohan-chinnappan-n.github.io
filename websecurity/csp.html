@@ -54,6 +54,17 @@
     .reveal section pre code {
       font-size: 0.7em !important;
     }
+
+    @keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.App-logo {
+  border:0px;
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
   </style>
 
 
@@ -112,6 +123,7 @@
 
       <section id="home">
         <h4>{{appName}}</h4>
+        <img src='logo.svg' class="App-logo" style="border:0px;" alt="logo" />
       </section>
 
       <section>
@@ -149,7 +161,7 @@
           <a  target="_blank" href="https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet">XSS Filter Evasion Cheat Sheet
           </a>
         </li>
-  
+
        </ul>
 
       </section>
