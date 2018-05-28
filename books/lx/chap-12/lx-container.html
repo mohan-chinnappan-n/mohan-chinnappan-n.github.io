@@ -731,7 +731,18 @@
 <li>The HTML Inline Frame Element <strong>iframe</strong> allows you to embed an HTML page in the current HTML page</li>
 <li>The embedded HTML page is loaded in a different DOM (with limited access to the parent DOM) and runs in its own context</li>
 <li>The Lightning Container Component (lightning:container) is a convenience component that wraps an iframe and provides a simple API to communicate between the iframe container and its content</li>
-<li>Can be used to sandbox components or apps built with libraries that don&#x2019;t run with LockerService</li>
+<li><p>Can be used to sandbox components or apps built with libraries that don&#x2019;t run with LockerService</p>
+</li>
+<li><p>The Lightning Component Framework provides two isolation mechanisms: LockerService and the Lightning Container Component.</p>
+</li>
+<li><p>LockerService wraps standard DOM objects like <strong>window, document, and element</strong> to provide namespace-based access control. Using LockerService, custom components are hosted in the same DOM as the main Salesforce app.</p>
+</li>
+<li><p>If your JavaScript application doesn&#x2019;t work within the LockerService security constraints, you can host it in the Lightning Container Component. </p>
+</li>
+<li><p>Lightning Container Component is a convenience component that wraps your JavaScript application in an iFrame: the browser&#x2019;s native isolation mechanism. </p>
+</li>
+<li><p>The Lightning Container Component also comes with a library that you can use in your JavaScript application to make calls to <strong>Apex controller methods</strong>, and to communicate with the hosting component using a <strong>secure message channel</strong>.</p>
+</li>
 </ul>
 <h3 id="example">Example</h3>
 <p>Use a Lightning Container Component to embed an AngularJS app in a Lightning Component:</p>
@@ -763,6 +774,19 @@ In that case, each component would load the AngularJS framework, communication b
 </ul>
 <h2 id="windowpostmessage">window.postMessage()</h2>
 <p>postMessage is discussed <a href="postMessage.html">here</a></p>
+<hr>
+
+
+<h2 id="demo">Demo</h2>
+<p><img src="img/lex-lcc-demo-1.gif" alt="Demo of LCC samples"></p>
+<h4 id="introduction-to-lightning-container-components">Introduction to Lightning Container Components</h4>
+ <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/P_tbp4d3Fbc?autoplay=0 &amp;fs=1" frameborder="0"></iframe>
+
+<h4 id="resources">Resources</h4>
+<ul>
+<li><a href="https://developer.salesforce.com/blogs/2018/04/lightning-container-component-building-components-with-react-angular-and-other-libraries.html" target="_blank">Lightning Container Component: Building Components with React, Angular, and Other Libraries
+</a></li>
+</ul>
 
                                 
                                 </section>
@@ -806,7 +830,7 @@ In that case, each component would load the AngularJS framework, communication b
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lightning Container Component","level":"2.1.2","depth":2,"next":{"title":"window.postMessage","level":"2.1.3","depth":2,"path":"chap-12/postMessage.md","ref":"chap-12/postMessage.md","articles":[]},"previous":{"title":"LockerService","level":"2.1.1","depth":2,"path":"chap-12/LockerService.md","ref":"chap-12/LockerService.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-12/lx-container.md","mtime":"2018-02-26T20:42:31.907Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-23T10:05:53.799Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lightning Container Component","level":"2.1.2","depth":2,"next":{"title":"window.postMessage","level":"2.1.3","depth":2,"path":"chap-12/postMessage.md","ref":"chap-12/postMessage.md","articles":[]},"previous":{"title":"LockerService","level":"2.1.1","depth":2,"path":"chap-12/LockerService.md","ref":"chap-12/LockerService.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-12/lx-container.md","mtime":"2018-05-28T14:51:35.780Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-28T14:52:22.010Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
