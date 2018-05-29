@@ -859,7 +859,7 @@ target dir = /Users/mchinnappan/LEX-book/dx/lexbook_prj1/force-app/main/default/
 
 &lt;/aura:component&gt;
 </code></pre><h2 id="source-push">source push</h2>
-<p>$ sfdx force:source:push -u lexbook_prj1_org1
+<pre><code class="lang-bash">$ sfdx force:<span class="hljs-built_in">source</span>:push -u lexbook_prj1_org1
 === Pushed Source
 STATE  FULL NAME                       TYPE                  PROJECT PATH
 &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
@@ -871,7 +871,8 @@ Add    Training/Training.design        AuraDefinitionBundle  force-app/main/defa
 Add    Training/Training.svg           AuraDefinitionBundle  force-app/main/default/aura/Training/Training.svg
 Add    Training/TrainingController.js  AuraDefinitionBundle  force-app/main/default/aura/Training/TrainingController.js
 Add    Training/TrainingHelper.js      AuraDefinitionBundle  force-app/main/default/aura/Training/TrainingHelper.js
-Add    Training/TrainingRenderer.js    AuraDefinitionBundle  force-app/main/default/aura/Training/TrainingRenderer.js</p>
+Add    Training/TrainingRenderer.js    AuraDefinitionBundle  force-app/main/default/aura/Training/TrainingRenderer.js
+</code></pre>
 <h2 id="add-implements-for--training-component-in-the-vs-code">Add implements for  Training Component in the VS Code</h2>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> <span class="hljs-attr">implements</span>=<span class="hljs-string">&quot;flexipage:availableForAllPageTypes&quot;</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">lightning:card</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Training&quot;</span>&gt;</span>
@@ -954,6 +955,114 @@ Access org 00D3C000000LHDqUAO as user test-chpgw6fd8a2j@example.com with the fol
 <i class="fa fa-arrows-alt" title="full screen view of the demo"></i>
 </a></p>
 <p><img src="img/lex-dx-1.gif" alt="Demo1"></p>
+<h2 id="adding-slds-style-to-the-our-test-app">adding SLDS style to the our test app</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:application</span>  <span class="hljs-attr">extends</span>=<span class="hljs-string">&quot;force:slds&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">c:Training</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:application</span>&gt;</span>
+</code></pre>
+<h2 id="source-push">source push</h2>
+<pre><code class="lang-bash">$ sfdx force:<span class="hljs-built_in">source</span>:push -u lexbook_prj1_org1
+=== Pushed Source
+STATE    FULL NAME            TYPE                  PROJECT PATH
+&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
+Changed  TestApp/TestApp.app  AuraDefinitionBundle  force-app/main/default/aura/TestApp/TestApp.app
+</code></pre>
+<h2 id="create-student-custom-object">Create Student Custom Object</h2>
+<p><img src="img/cust-obj-student-create.gif" alt="create custom object Student"></p>
+<h2 id="sourcepull-from-the-org-to-our-project-folder">Source:pull from the org to our project folder</h2>
+<pre><code class="lang-bash">
+<span class="hljs-comment"># this includes our Lightning app and Custom object Student__c, custom tab, Profile for Student__c</span>
+$ sfdx force:<span class="hljs-built_in">source</span>:pull -u lexbook_prj1_org1
+=== Pulled Source
+STATE  FULL NAME                  TYPE          PROJECT PATH
+&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
+Add    Student__c                 CustomObject  force-app/main/default/objects/Student__c/Student__c.object-meta.xml
+Add    Student__c-Student Layout  Layout        force-app/main/default/layouts/Student__c-Student Layout.layout-meta.xml
+Add    Lex_Book_App_1             FlexiPage     force-app/main/default/flexipages/Lex_Book_App_1.flexipage-meta.xml
+Add    Lex_Book_App_1             CustomTab     force-app/main/default/tabs/Lex_Book_App_1.tab-meta.xml
+Add    Student__c                 CustomTab     force-app/main/default/tabs/Student__c.tab-meta.xml
+Add    Custom: Sales Profile      Profile       force-app/main/default/profiles/Custom: Sales Profile.profile-meta.xml
+Add    Custom: Marketing Profile  Profile       force-app/main/default/profiles/Custom: Marketing Profile.profile-meta.xml
+Add    Custom: Support Profile    Profile       force-app/main/default/profiles/Custom: Support Profile.profile-meta.xml
+Add    Admin                      Profile       force-app/main/default/profiles/Admin.profile-meta.xml
+</code></pre>
+<h2 id="how-to-get-the-student-record-we-created-in-ui-in-sfdx">How to get the Student record we created in UI in SFDX</h2>
+<pre><code class="lang-bash">
+$ sfdx force:data:record:get -h
+Usage: sfdx force:data:record:get <span class="hljs-_">-s</span> &lt;string&gt; [-i &lt;id&gt;] [-w &lt;string&gt;] [-t] [--perfloglevel &lt;string&gt;] [-u &lt;string&gt;] [--json] [--loglevel &lt;string&gt;] 
+
+view a record
+
+Flags:
+ -i, --sobjectid SOBJECTID            the ID of the record you&#x2019;re retrieving
+ <span class="hljs-_">-s</span>, --sobjecttype SOBJECTTYPE        (required) the <span class="hljs-built_in">type</span> of the record you&#x2019;re
+                                      retrieving
+ -u, --targetusername TARGETUSERNAME  username or <span class="hljs-built_in">alias</span> <span class="hljs-keyword">for</span> the target org;
+                                      overrides default target org
+ -t, --usetoolingapi                  retrieve the record with Tooling API
+ -w, --where WHERE                    a list of &lt;fieldName&gt;=&lt;value&gt; pairs to
+                                      search <span class="hljs-keyword">for</span>
+ --json                               format output as json
+ --loglevel LOGLEVEL                  logging level <span class="hljs-keyword">for</span> this <span class="hljs-built_in">command</span> invocation
+                                      (error*,trace,debug,info,warn,fatal)
+ --perfloglevel PERFLOGLEVEL          get API performance data.
+                                      (basic*,detailed)
+
+Specify an sObject <span class="hljs-built_in">type</span> and either an ID or a list of &lt;fieldName&gt;=&lt;value&gt; pairs.
+The format of a field-value pair is &lt;fieldName&gt;=&lt;value&gt;.
+Enclose all field-value pairs <span class="hljs-keyword">in</span> one <span class="hljs-built_in">set</span> of double quotation marks, delimited by spaces.
+Enclose values that contain spaces <span class="hljs-keyword">in</span> single quotes.
+
+To get data on API performance metrics, specify both --perfloglevel and --json.
+
+Examples:
+   $ sfdx force:data:record:get <span class="hljs-_">-s</span> Account -i 001D000000Kv3dl
+   $ sfdx force:data:record:get <span class="hljs-_">-s</span> Account -w <span class="hljs-string">&quot;Name=Acme&quot;</span>
+   $ sfdx force:data:record:get <span class="hljs-_">-s</span> Account -w <span class="hljs-string">&quot;Name=&apos;Universal Containers&apos;&quot;</span>
+   $ sfdx force:data:record:get <span class="hljs-_">-s</span> Account -w <span class="hljs-string">&quot;Name=&apos;Universal Containers&apos; Phone=&apos;(123) 456-7890&apos;&quot;</span>
+   $ sfdx force:data:record:get -t <span class="hljs-_">-s</span> TraceFlag -i 7tf170000009cUBAAY --perfloglevel <span class="hljs-string">&quot;basic&quot;</span> --json
+
+<span class="hljs-comment">## Let us get it</span>
+$ sfdx force:data:record:get <span class="hljs-_">-s</span> Student__c -u lexbook_prj1_org1 -i a003C0000010ogjQAA
+attributes:
+  <span class="hljs-built_in">type</span>: <span class="hljs-string">&quot;Student__c&quot;</span>
+  url: <span class="hljs-string">&quot;/services/data/v42.0/sobjects/Student__c/a003C0000010ogjQAA&quot;</span>
+Id: <span class="hljs-string">&quot;a003C0000010ogjQAA&quot;</span>
+OwnerId: <span class="hljs-string">&quot;0053C000000rMsrQAE&quot;</span>
+IsDeleted: null
+Name: <span class="hljs-string">&quot;Mohan Chinnappan&quot;</span>
+CreatedDate: <span class="hljs-string">&quot;2018-05-29T20:17:06.000+0000&quot;</span>
+CreatedById: <span class="hljs-string">&quot;0053C000000rMsrQAE&quot;</span>
+LastModifiedDate: <span class="hljs-string">&quot;2018-05-29T20:17:06.000+0000&quot;</span>
+LastModifiedById: <span class="hljs-string">&quot;0053C000000rMsrQAE&quot;</span>
+SystemModstamp: <span class="hljs-string">&quot;2018-05-29T20:17:06.000+0000&quot;</span>
+LastViewedDate: <span class="hljs-string">&quot;2018-05-29T20:46:57.000+0000&quot;</span>
+LastReferencedDate: <span class="hljs-string">&quot;2018-05-29T20:46:57.000+0000&quot;</span>
+</code></pre>
+<h2 id="add-report-type-and-report">Add Report Type and Report</h2>
+<p><img src="img/report-setup-1.gif" alt="Report Type setup"></p>
+<h2 id="pull-from-the-org-to-project-folder">Pull from the Org to Project Folder</h2>
+<pre><code class="lang-bash">
+$ sfdx force:<span class="hljs-built_in">source</span>:pull -u lexbook_prj1_org1
+=== Pulled Source
+STATE    FULL NAME                      TYPE            PROJECT PATH
+&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
+Add      TrainingCat                    GlobalValueSet  force-app/main/default/globalValueSets/TrainingCat.globalValueSet-meta.xml
+Add      Training__c                    CustomObject    force-app/main/default/objects/Training__c/Training__c.object-meta.xml
+Add      Training__c.CompletionDate__c  CustomField     force-app/main/default/objects/Training__c/fields/CompletionDate__c.field-meta.xml
+Add      Training__c.Student__c         CustomField     force-app/main/default/objects/Training__c/fields/Student__c.field-meta.xml
+Add      Training__c.TrainingCat__c     CustomField     force-app/main/default/objects/Training__c/fields/TrainingCat__c.field-meta.xml
+Add      Training_Report                ReportType      force-app/main/default/reportTypes/Training_Report.reportType-meta.xml
+Add      Training_Reports               ReportFolder    force-app/main/default/reports/Training_Reports.reportFolder-meta.xml
+Add      Training_Reports               ReportFolder    force-app/main/default/reports/Training_Reports
+Add      Training__c-Training Layout    Layout          force-app/main/default/layouts/Training__c-Training Layout.layout-meta.xml
+Changed  Custom: Sales Profile          Profile         force-app/main/default/profiles/Custom: Sales Profile.profile-meta.xml
+Changed  Custom: Marketing Profile      Profile         force-app/main/default/profiles/Custom: Marketing Profile.profile-meta.xml
+Changed  Custom: Support Profile        Profile         force-app/main/default/profiles/Custom: Support Profile.profile-meta.xml
+Changed  Admin                          Profile         force-app/main/default/profiles/Admin.profile-meta.xml
+</code></pre>
+<h2 id="view-this-in-ide">View this in IDE</h2>
+<p><img src="img/lex-sfdx-vsc-1.png" alt="IDE project folder"></p>
 <h2 id="killing-oauth-redirect-server--running-on-port-1717">Killing OAuth redirect server  running on port 1717</h2>
 <pre><code class="lang-bash">$ sudo lsof -i tcp:1717
 COMMAND   PID        USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
@@ -1003,7 +1112,7 @@ $ sudo <span class="hljs-built_in">kill</span> -9 55682
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SFDX & Lightning Dev","level":"2.1","depth":1,"next":{"title":"Lightning Configuration Converter","level":"2.2","depth":1,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"Consuming REST services","level":"1.8","depth":1,"path":"chap-24/rest-calls.md","ref":"chap-24/rest-calls.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-25/lex-dx.md","mtime":"2018-05-29T19:34:30.219Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-29T19:30:51.678Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SFDX & Lightning Dev","level":"2.1","depth":1,"next":{"title":"Lightning Configuration Converter","level":"2.2","depth":1,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"Consuming REST services","level":"1.8","depth":1,"path":"chap-24/rest-calls.md","ref":"chap-24/rest-calls.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-25/lex-dx.md","mtime":"2018-05-29T21:27:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-29T19:30:51.678Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
