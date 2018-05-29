@@ -1,0 +1,9 @@
+https://online.visual-paradigm.com/diagrams.jsp#diagramlist:proj=0&new=GoogleCloudPlatformDiagram
+https://online.visual-paradigm.com/diagrams.jsp#diagramlist:proj=0&new=AzureDiagram
+https://online.visual-paradigm.com/diagrams.jsp#diagramlist:proj=0&new=AWSDiagram
+https://online.visual-paradigm.com/diagrams.jsp#diagramlist:proj=0&new=AlibabaCloudArchitectureDiagram
+https://online.visual-paradigm.com/diagrams.jsp#diagramlist:proj=0&new=TencentCloudArchitectureDiagram
+https://online.visual-paradigm.com/diagrams.jsp#diagramlist:proj=0&new=NetworkDiagram
+https://online.visual-paradigm.com/diagrams.jsp#diagramlist:proj=0&new=RackDiagram
+
+http://support.rightscale.com/12-Guides/Designers_Guide/Cloud_Solution_Architectures/Cloud_Computing_System_Architecture_Diagrams/index.html
