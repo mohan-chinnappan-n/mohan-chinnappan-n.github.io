@@ -1063,6 +1063,395 @@ Changed  Admin                          Profile         force-app/main/default/p
 </code></pre>
 <h2 id="view-this-in-ide">View this in IDE</h2>
 <p><img src="img/lex-sfdx-vsc-1.png" alt="IDE project folder"></p>
+<h3 id="adding-charts-in-lightning-component">Adding charts in Lightning Component</h3>
+<h3 id="create-component-medalsbycountry">Create component MedalsByCountry</h3>
+<pre><code class="lang-bash">$ sfdx force:lightning:component:create -n MedalsByCountry <span class="hljs-_">-d</span> force-app/main/default/aura
+target dir = /Users/mchinnappan/LEX-book/dx/lexbook_prj1/force-app/main/default/aura
+   create MedalsByCountry/MedalsByCountry.cmp
+   create MedalsByCountry/MedalsByCountry.cmp-meta.xml
+   create MedalsByCountry/MedalsByCountryController.js
+   create MedalsByCountry/MedalsByCountryHelper.js
+   create MedalsByCountry/MedalsByCountry.css
+   create MedalsByCountry/MedalsByCountryRenderer.js
+   create MedalsByCountry/MedalsByCountry.svg
+   create MedalsByCountry/MedalsByCountry.auradoc
+   create MedalsByCountry/MedalsByCountry.design
+
+<span class="hljs-comment"># open the org</span>
+$ sfdx force:org:open -u lexbook_prj1_org1
+Access org 00D3C000000LHDqUAO as user <span class="hljs-built_in">test</span>-chpgw6fd8a2j@example.com with the following URL: https://connect-java-2931-dev-ed.cs60.my.salesforce.com/secur/frontdoor.jsp?sid=00D3C000000LHDq!AR8AQNUV7uq_Ux1HW7ZwzgfqXBYoQvEU1gjiO.xYdK82mo00pUoFug.0MPqb2HPF8YOXX07h9PWbqbDLRYVIfJsM_i9jqMU7
+</code></pre>
+<h2 id="create-source-pull-the-static-resources">Create source pull the static resources</h2>
+<p><img src="img/lex-chart-static-1.png" alt="static resources upload"></p>
+<pre><code class="lang-bash">
+$ sfdx force:<span class="hljs-built_in">source</span>:pull -u lexbook_prj1_org1
+=== Pulled Source
+STATE    FULL NAME           TYPE            PROJECT PATH
+&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
+Add      ChartJS23           StaticResource  force-app/main/default/staticresources/ChartJS23.resource-meta.xml
+Changed  ChartJS23           StaticResource  force-app/main/default/staticresources/ChartJS23.js
+Add      OlympicDataService  StaticResource  force-app/main/default/staticresources/OlympicDataService.resource-meta.xml
+Changed  OlympicDataService  StaticResource  force-app/main/default/staticresources/OlympicDataService.js
+</code></pre>
+<h2 id="update-component-and-controller">Update Component and Controller</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> <span class="hljs-attr">implements</span>=<span class="hljs-string">&quot;flexipage:availableForAllPageTypes,force:hasRecordId&quot;</span> <span class="hljs-attr">access</span>=<span class="hljs-string">&quot;global&quot;</span> &gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">ltng:require</span> <span class="hljs-attr">scripts</span>=<span class="hljs-string">&quot;{!join(&apos;,&apos;,
+                    $Resource.ChartJS23, 
+                    $Resource.OlympicDataService)}&quot;</span>
+                    <span class="hljs-attr">afterScriptsLoaded</span>=<span class="hljs-string">&quot;{!c.scriptsLoaded}&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;title&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;String&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;Medal distribution by country&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;medalType&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;String&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;Gold&quot;</span>/&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:handler</span> <span class="hljs-attr">event</span>=<span class="hljs-string">&quot;c:ChartEvent&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;{!c.chartChange}&quot;</span>/&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-text-heading--medium&quot;</span>&gt;</span>{!v.title}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;chart&quot;</span> <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;350&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-js">({
+    scriptsLoaded : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+
+        <span class="hljs-keyword">var</span> ctx = component.find(<span class="hljs-string">&quot;chart&quot;</span>).getElement();
+        component.chart = <span class="hljs-keyword">new</span> Chart(ctx,{
+            type: <span class="hljs-string">&apos;bar&apos;</span>,
+            data: {
+                labels: [],
+                datasets: [
+                    {
+                        label: <span class="hljs-string">&quot;&quot;</span>,
+                        data: [],
+                    }
+                ]
+            },
+            options: {
+                responsive: <span class="hljs-literal">true</span>,
+                maintainAspectRatio: <span class="hljs-literal">false</span>,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:<span class="hljs-literal">true</span>
+                        }
+                    }]
+                }
+            }
+        });
+
+    },
+
+    chartChange: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-keyword">var</span> colors = {
+            gold: <span class="hljs-string">&quot;rgba(255,203,75,.7)&quot;</span>,
+            silver: <span class="hljs-string">&quot;rgba(143,134,132,.7)&quot;</span>,
+            bronze: <span class="hljs-string">&quot;rgba(153,119,61,.7)&quot;</span>
+        };
+        <span class="hljs-keyword">var</span> filters = event.getParam(<span class="hljs-string">&quot;data&quot;</span>);
+        <span class="hljs-keyword">if</span> (!filters || !filters.year) {
+            <span class="hljs-keyword">return</span>;
+        }
+        <span class="hljs-keyword">var</span> medalType;
+        <span class="hljs-keyword">if</span> (filters.medalType) {
+            medalType = filters.medalType;
+            component.set(<span class="hljs-string">&quot;v.medalType&quot;</span>, medalType);
+        } <span class="hljs-keyword">else</span> {
+            medalType = component.get(<span class="hljs-string">&quot;v.medalType&quot;</span>);
+        }
+        <span class="hljs-keyword">var</span> years = <span class="hljs-built_in">window</span>.olympicDataService.getData();
+        years.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">year</span>) </span>{
+            <span class="hljs-keyword">if</span> (year.year == filters.year) {
+                component.set(<span class="hljs-string">&quot;v.title&quot;</span>, year.venue + <span class="hljs-string">&quot; &quot;</span> + year.year + <span class="hljs-string">&quot;, &quot;</span> + medalType + <span class="hljs-string">&quot; Medals&quot;</span>);
+                <span class="hljs-keyword">var</span> labels = [];
+                <span class="hljs-keyword">var</span> values = [];
+                year.countries.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">country</span>) </span>{
+                    labels.push(country.country);
+                    values.push(country[medalType.toLowerCase()]);
+                });
+                component.chart.data.labels = labels;
+                component.chart.data.datasets[<span class="hljs-number">0</span>].label = medalType;
+                component.chart.data.datasets[<span class="hljs-number">0</span>].data = values;
+                component.chart.data.datasets[<span class="hljs-number">0</span>].backgroundColor = colors[medalType.toLowerCase()];
+                component.chart.update();
+                <span class="hljs-keyword">return</span>;
+            }
+        })
+    }
+
+})
+</code></pre>
+<h2 id="medalstimeline-component">MedalsTimeline Component</h2>
+<pre><code class="lang-bash">
+$ sfdx force:lightning:component:create -n MedalsTimeline <span class="hljs-_">-d</span> force-app/main/default/aura
+target dir = /Users/mchinnappan/LEX-book/dx/lexbook_prj1/force-app/main/default/aura
+   create MedalsTimeline/MedalsTimeline.cmp
+   create MedalsTimeline/MedalsTimeline.cmp-meta.xml
+   create MedalsTimeline/MedalsTimelineController.js
+   create MedalsTimeline/MedalsTimelineHelper.js
+   create MedalsTimeline/MedalsTimeline.css
+   create MedalsTimeline/MedalsTimelineRenderer.js
+   create MedalsTimeline/MedalsTimeline.svg
+   create MedalsTimeline/MedalsTimeline.auradoc
+   create MedalsTimeline/MedalsTimeline.design
+</code></pre>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> <span class="hljs-attr">implements</span>=<span class="hljs-string">&quot;flexipage:availableForAllPageTypes&quot;</span> <span class="hljs-attr">access</span>=<span class="hljs-string">&quot;global&quot;</span> &gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">ltng:require</span> <span class="hljs-attr">scripts</span>=<span class="hljs-string">&quot;{!join(&apos;,&apos;,
+                    $Resource.ChartJS23, 
+                    $Resource.OlympicDataService)}&quot;</span>
+                    <span class="hljs-attr">afterScriptsLoaded</span>=<span class="hljs-string">&quot;{!c.scriptsLoaded}&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:registerEvent</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;chartEvent&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;c:ChartEvent&quot;</span>/&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-text-heading--medium&quot;</span>&gt;</span>Medals Timeline<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;chart&quot;</span> <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;380&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-comment">// MedalsTimelineController.js</span>
+({
+    scriptsLoaded : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+
+        <span class="hljs-keyword">var</span> colors = [
+            <span class="hljs-string">&apos;rgba(23, 48, 91, 1)&apos;</span>,
+            <span class="hljs-string">&apos;rgba(62, 159, 222, 1)&apos;</span>,
+            <span class="hljs-string">&apos;rgba(48, 165, 154, 1)&apos;</span>,
+            <span class="hljs-string">&apos;rgba(132, 220, 214, 1)&apos;</span>,
+            <span class="hljs-string">&apos;rgba(222, 159, 0, 1)&apos;</span>,
+            <span class="hljs-string">&apos;rgba(223, 205, 114, 1)&apos;</span>
+        ];
+
+        <span class="hljs-keyword">var</span> years = <span class="hljs-built_in">window</span>.olympicDataService.getData();
+
+        <span class="hljs-keyword">var</span> labels = [];
+        <span class="hljs-keyword">var</span> datasets = [];
+        <span class="hljs-keyword">var</span> countries = {};
+
+        years.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">year</span>) </span>{
+            labels.push(year.year);
+            year.countries.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">country</span>) </span>{
+                <span class="hljs-keyword">var</span> total = country.gold + country.silver + country.bronze;
+                <span class="hljs-keyword">if</span> (countries[country.country]) {
+                    countries[country.country].push(total);    
+                } <span class="hljs-keyword">else</span> {
+                     countries[country.country] = [total];   
+                }
+            })
+        });
+
+        <span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> key <span class="hljs-keyword">in</span> countries) {
+            datasets.push({
+                label: key, 
+                data: countries[key],
+                fill: <span class="hljs-literal">false</span>,
+                borderWidth: <span class="hljs-number">1.5</span>,
+                backgroundColor: colors[i++],
+                borderColor: colors[i],
+                pointBackgroundColor: <span class="hljs-string">&quot;#FFFFFF&quot;</span>,
+                pointBorderWidth: <span class="hljs-number">4</span>,
+                pointHoverRadius: <span class="hljs-number">8</span>,
+                pointRadius: <span class="hljs-number">6</span>,
+                pointHitRadius: <span class="hljs-number">10</span>,
+            });
+        }
+
+        <span class="hljs-keyword">var</span> ctx = component.find(<span class="hljs-string">&quot;chart&quot;</span>).getElement();
+        <span class="hljs-keyword">var</span> chart = <span class="hljs-keyword">new</span> Chart(ctx, {
+            type: <span class="hljs-string">&apos;line&apos;</span>,
+            data: {
+                labels: labels,
+                datasets: datasets
+            },
+            options: {
+                responsive: <span class="hljs-literal">true</span>,
+                maintainAspectRatio :<span class="hljs-literal">false</span>,
+                onClick: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{
+                    <span class="hljs-keyword">var</span> elements = chart.getElementAtEvent(event);
+                   <span class="hljs-comment">// console.log(&quot;elements&quot;);</span>
+                   <span class="hljs-comment">// console.log(elements);</span>
+                    <span class="hljs-keyword">if</span> (elements.length === <span class="hljs-number">1</span>) {
+                        <span class="hljs-keyword">var</span> year = labels[elements[<span class="hljs-number">0</span>]._index];
+                        <span class="hljs-keyword">var</span> country = datasets[elements[<span class="hljs-number">0</span>]._datasetIndex].label;
+                        <span class="hljs-keyword">var</span> chartEvent = $A.get(<span class="hljs-string">&quot;e.c:ChartEvent&quot;</span>);
+                        chartEvent.setParams({
+                            data: {year: year, country: country}
+                        });
+                        chartEvent.fire();
+                    }
+                }
+            }
+        });
+
+    }
+})
+</code></pre>
+<pre><code class="lang-bash">
+ sfdx force:<span class="hljs-built_in">source</span>:push -u lexbook_prj1_org1
+=== Pushed Source
+STATE  FULL NAME                                   TYPE                  PROJECT PATH
+&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
+Add    MedalsTimeline/MedalsTimeline.auradoc       AuraDefinitionBundle  force-app/main/default/aura/MedalsTimeline/MedalsTimeline.auradoc
+Add    MedalsTimeline/MedalsTimeline.cmp           AuraDefinitionBundle  force-app/main/default/aura/MedalsTimeline/MedalsTimeline.cmp
+Add    MedalsTimeline/MedalsTimeline.cmp           AuraDefinitionBundle  force-app/main/default/aura/MedalsTimeline/MedalsTimeline.cmp-meta.xml
+Add    MedalsTimeline/MedalsTimeline.css           AuraDefinitionBundle  force-app/main/default/aura/MedalsTimeline/MedalsTimeline.css
+Add    MedalsTimeline/MedalsTimeline.design        AuraDefinitionBundle  force-app/main/default/aura/MedalsTimeline/MedalsTimeline.design
+Add    MedalsTimeline/MedalsTimeline.svg           AuraDefinitionBundle  force-app/main/default/aura/MedalsTimeline/MedalsTimeline.svg
+Add    MedalsTimeline/MedalsTimelineController.js  AuraDefinitionBundle  force-app/main/default/aura/MedalsTimeline/MedalsTimelineController.js
+Add    MedalsTimeline/MedalsTimelineHelper.js      AuraDefinitionBundle  force-app/main/default/aura/MedalsTimeline/MedalsTimelineHelper.js
+Add    MedalsTimeline/MedalsTimelineRenderer.js    AuraDefinitionBundle  force-app/main/default/aura/MedalsTimeline/MedalsTimelineRenderer.js
+</code></pre>
+<h2 id="chartevent">ChartEvent</h2>
+<pre><code class="lang-xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">aura:event</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;APPLICATION&quot;</span> <span class="hljs-attr">description</span>=<span class="hljs-string">&quot;Event template&quot;</span> <span class="hljs-attr">access</span>=<span class="hljs-string">&quot;global&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;data&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Object&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:event</span>&gt;</span>
+</code></pre>
+<h2 id="medalsbytype-component">MedalsByType component</h2>
+<pre><code class="lang-bash">
+$ sfdx force:lightning:component:create -n MedalsByType <span class="hljs-_">-d</span> force-app/main/default/aura
+target dir = /Users/mchinnappan/LEX-book/dx/lexbook_prj1/force-app/main/default/aura
+   create MedalsByType/MedalsByType.cmp
+   create MedalsByType/MedalsByType.cmp-meta.xml
+   create MedalsByType/MedalsByTypeController.js
+   create MedalsByType/MedalsByTypeHelper.js
+   create MedalsByType/MedalsByType.css
+   create MedalsByType/MedalsByTypeRenderer.js
+   create MedalsByType/MedalsByType.svg
+   create MedalsByType/MedalsByType.auradoc
+   create MedalsByType/MedalsByType.design
+
+
+$ sfdx force:<span class="hljs-built_in">source</span>:push -u lexbook_prj1_org1
+=== Pushed Source
+STATE  FULL NAME                               TYPE                  PROJECT PATH
+&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
+Add    MedalsByType/MedalsByType.auradoc       AuraDefinitionBundle  force-app/main/default/aura/MedalsByType/MedalsByType.auradoc
+Add    MedalsByType/MedalsByType.cmp           AuraDefinitionBundle  force-app/main/default/aura/MedalsByType/MedalsByType.cmp
+Add    MedalsByType/MedalsByType.cmp           AuraDefinitionBundle  force-app/main/default/aura/MedalsByType/MedalsByType.cmp-meta.xml
+Add    MedalsByType/MedalsByType.css           AuraDefinitionBundle  force-app/main/default/aura/MedalsByType/MedalsByType.css
+Add    MedalsByType/MedalsByType.design        AuraDefinitionBundle  force-app/main/default/aura/MedalsByType/MedalsByType.design
+Add    MedalsByType/MedalsByType.svg           AuraDefinitionBundle  force-app/main/default/aura/MedalsByType/MedalsByType.svg
+Add    MedalsByType/MedalsByTypeController.js  AuraDefinitionBundle  force-app/main/default/aura/MedalsByType/MedalsByTypeController.js
+Add    MedalsByType/MedalsByTypeHelper.js      AuraDefinitionBundle  force-app/main/default/aura/MedalsByType/MedalsByTypeHelper.js
+Add    MedalsByType/MedalsByTypeRenderer.js    AuraDefinitionBundle  force-app/main/default/aura/MedalsByType/MedalsByTypeRenderer.js
+</code></pre>
+<pre><code class="lang-xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> <span class="hljs-attr">implements</span>=<span class="hljs-string">&quot;flexipage:availableForAllPageTypes,force:hasRecordId&quot;</span> <span class="hljs-attr">access</span>=<span class="hljs-string">&quot;global&quot;</span> &gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">ltng:require</span> <span class="hljs-attr">scripts</span>=<span class="hljs-string">&quot;{!join(&apos;,&apos;,
+                    $Resource.ChartJS23, 
+                    $Resource.OlympicDataService)}&quot;</span>
+                    <span class="hljs-attr">afterScriptsLoaded</span>=<span class="hljs-string">&quot;{!c.scriptsLoaded}&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;year&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;String&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;country&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;String&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;title&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;String&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;Medal breakdown&quot;</span>/&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:handler</span> <span class="hljs-attr">event</span>=<span class="hljs-string">&quot;c:ChartEvent&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;{!c.chartChange}&quot;</span>/&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-text-heading--medium&quot;</span>&gt;</span>{!v.title}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;chart&quot;</span> <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;280&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<h2 id="medalsbytype-controller">MedalsByType controller</h2>
+<pre><code class="lang-js"><span class="hljs-comment">// MedalsByTypeController.js</span>
+({
+    scriptsLoaded : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+
+        <span class="hljs-keyword">var</span> data = {
+            labels: [<span class="hljs-string">&quot;Gold&quot;</span>, <span class="hljs-string">&quot;Silver&quot;</span>, <span class="hljs-string">&quot;Bronze&quot;</span>], 
+            datasets: [
+                {
+                    data: [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>],
+                    backgroundColor: [
+                        <span class="hljs-string">&quot;rgba(255,203,75,.8)&quot;</span>,
+                        <span class="hljs-string">&quot;rgba(143,134,132,.8)&quot;</span>,
+                        <span class="hljs-string">&quot;rgba(153,119,61,.8)&quot;</span>
+                    ],
+                    hoverBackgroundColor: [
+                        <span class="hljs-string">&quot;rgba(255,203,75,1)&quot;</span>,
+                        <span class="hljs-string">&quot;rgba(143,134,132,1)&quot;</span>,
+                        <span class="hljs-string">&quot;rgba(143,125,92,1)&quot;</span>
+                    ]                
+                }
+            ]
+        };
+
+        <span class="hljs-keyword">var</span> ctx = component.find(<span class="hljs-string">&quot;chart&quot;</span>).getElement();
+        component.chart = <span class="hljs-keyword">new</span> Chart(ctx,{
+            type: <span class="hljs-string">&apos;doughnut&apos;</span>,
+            data: data,
+            options: {
+                responsive: <span class="hljs-literal">true</span>,
+                maintainAspectRatio: <span class="hljs-literal">false</span>,
+                onClick: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{
+                    <span class="hljs-keyword">var</span> elements = component.chart.getElementAtEvent(event);
+                    <span class="hljs-keyword">if</span> (elements.length === <span class="hljs-number">1</span>) {
+                        <span class="hljs-keyword">var</span> chartEvent = $A.get(<span class="hljs-string">&quot;e.c:ChartEvent&quot;</span>);
+                        chartEvent.setParams({
+                            data: {
+                                year: component.get(<span class="hljs-string">&quot;v.year&quot;</span>),
+                                country: component.get(<span class="hljs-string">&quot;v.country&quot;</span>),
+                                medalType: component.chart.data.labels[elements[<span class="hljs-number">0</span>]._index]
+                            }
+                        });
+                        chartEvent.fire();
+                    }
+                }
+            }
+
+        });
+
+    },
+
+    chartChange: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-keyword">var</span> filters = event.getParam(<span class="hljs-string">&quot;data&quot;</span>);
+        component.set(<span class="hljs-string">&quot;v.year&quot;</span>, filters.year);
+        component.set(<span class="hljs-string">&quot;v.country&quot;</span>, filters.country);
+        <span class="hljs-keyword">var</span> years = <span class="hljs-built_in">window</span>.olympicDataService.getData();
+        years.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">year</span>) </span>{
+            <span class="hljs-keyword">if</span> (year.year == filters.year) {
+                year.countries.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">country</span>) </span>{
+                    <span class="hljs-keyword">if</span> (country.country == filters.country) {
+                        component.set(<span class="hljs-string">&quot;v.title&quot;</span>, year.venue + <span class="hljs-string">&apos; &apos;</span> + year.year + <span class="hljs-string">&quot;, &quot;</span> + filters.country + <span class="hljs-string">&quot; (&quot;</span> + (country.gold + country.silver + country.bronze) + <span class="hljs-string">&quot; medals)&quot;</span>);
+                        <span class="hljs-keyword">var</span> medals = [country.gold, country.silver, country.bronze];
+                        component.chart.data.datasets[<span class="hljs-number">0</span>].data = medals;
+                        component.chart.update();
+                        <span class="hljs-keyword">return</span>;
+                    }
+                });
+            }
+        });
+    }
+
+})
+</code></pre>
+<pre><code class="lang-bash">
+$ sfdx force:<span class="hljs-built_in">source</span>:pull -u lexbook_prj1_org1
+=== Pulled Source
+STATE    FULL NAME                               TYPE                  PROJECT PATH
+&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
+Changed  MedalsByType/MedalsByType.cmp           AuraDefinitionBundle  force-app/main/default/aura/MedalsByType/MedalsByType.cmp-meta.xml
+Changed  MedalsByType/MedalsByTypeRenderer.js    AuraDefinitionBundle  force-app/main/default/aura/MedalsByType/MedalsByTypeRenderer.js
+Changed  MedalsByType/MedalsByType.css           AuraDefinitionBundle  force-app/main/default/aura/MedalsByType/MedalsByType.css
+Changed  MedalsByType/MedalsByTypeController.js  AuraDefinitionBundle  force-app/main/default/aura/MedalsByType/MedalsByTypeController.js
+Changed  MedalsByType/MedalsByTypeHelper.js      AuraDefinitionBundle  force-app/main/default/aura/MedalsByType/MedalsByTypeHelper.js
+Changed  MedalsByType/MedalsByType.cmp           AuraDefinitionBundle  force-app/main/default/aura/MedalsByType/MedalsByType.cmp
+Changed  Lex_Book_Chart_Page                     FlexiPage             force-app/main/default/flexipages/Lex_Book_Chart_Page.flexipage-meta.xml
+</code></pre>
+<h2 id="demo-time">Demo time</h2>
+<p><img src="img/lex-dx-chart-11.gif" alt="Demo Chart "></p>
+<h2 id="reference">Reference</h2>
+<p><a href="https://developer.salesforce.com/blogs/developer-relations/2017/03/building-lightning-components-chart-js.html" target="_blank">Building Lightning Components with Chart.js
+</a></p>
 <h2 id="killing-oauth-redirect-server--running-on-port-1717">Killing OAuth redirect server  running on port 1717</h2>
 <pre><code class="lang-bash">$ sudo lsof -i tcp:1717
 COMMAND   PID        USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
@@ -1112,7 +1501,7 @@ $ sudo <span class="hljs-built_in">kill</span> -9 55682
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SFDX & Lightning Dev","level":"2.1","depth":1,"next":{"title":"Lightning Configuration Converter","level":"2.2","depth":1,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"Consuming REST services","level":"1.8","depth":1,"path":"chap-24/rest-calls.md","ref":"chap-24/rest-calls.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-25/lex-dx.md","mtime":"2018-05-29T21:27:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-29T19:30:51.678Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SFDX & Lightning Dev","level":"2.1","depth":1,"next":{"title":"Lightning Configuration Converter","level":"2.2","depth":1,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"Consuming REST services","level":"1.8","depth":1,"path":"chap-24/rest-calls.md","ref":"chap-24/rest-calls.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-25/lex-dx.md","mtime":"2018-05-30T03:15:08.064Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-29T19:30:51.678Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
