@@ -1375,7 +1375,32 @@ public class TriggerHandlerException extends Exception {}
        </a>
      </li>
    </ul>
+</section>
 
+<section>
+  <h4>System.Debug(...) </h4>
+  <ul style="font-size:30px;">
+    <li>Has effects on
+     <ol>
+       <li>Log sizes</li>
+       <li>CPU time - depending on evaluation of the expressions used in the <code> System.Debug(...)</code>  method</li>
+       <li>Can count against Governor Limits - especially CPU time</li>
+       <li>May result in timeout  based on evaluation of the expressions used in the Debug method</li>
+
+     </ol>
+    </li>
+    <li>Best Practice:
+      <ol>
+        <li>Security review of the code going to PROD will demand removing of <code> System.Debug(...)</code> going to PROD</li>
+        <li>Code-Scanners like <a href="https://github.com/mohan-chinnappan-n/pmd-dist">PMD</a> will complain about this issue
+        </li>
+        <li>If proper Test Methods are written, you need for<code> System.Debug(...)</code> will be very low</li>
+        <li>Use a Custom Setting flag say <code>isDev</code> to provide switch on/off for  <code>System.Debug(...)</code>,
+          this may involve a CPU time spent on evaluation of this flag </li>
+      </ol>
+    </li>
+  </ul>
+</section>
 
     </div>
   </div>
