@@ -914,6 +914,469 @@ public virtual class TriggerHandler {
 
     </section>
 
+    <section>
+      <h4>Apex Trigger Common Issues</h4>
+      <ul style="font-size:30px;">
+        <li>Trigger logic is becoming hard to understand and maintain </li>
+        <li>Slight change required might mean complete rewrite of the trigger</li>
+        <li>Hard to test </li>
+        <li>Trigger logic is executing out-of-order</li>
+        <li>Governor Limits are hit</li>
+      </ul>
+    </section>
+
+    <section>
+      <h4>Trigger - Best Practice - 1 - One Trigger Per Object </h4>
+      <ul style="font-size:35px;">
+        <li> If we develop multiple Triggers for a single object,
+             we have no way of controlling the order of execution </li>
+        <li>
+           Best Practice: A single Trigger can handle all possible combinations of Trigger contexts
+          <pre>
+          <code>
+// A single Trigger can handle all possible combinations of Trigger contexts
+trigger OpportunityTrigger on Opportunity (
+  before insert, before update, before delete,
+  after insert, after update, after delete, after undelete) {
+    // trigger body
+
+}
+</code>
+</pre>
+
+        </li>
+      </ul>
+    </section>
+
+
+    <section>
+      <h4>Trigger - Best Practice - 2 - Logic-Less Trigger </h4>
+      <ul style="font-size:35px;">
+        <li>The role of the Trigger should be just  delegate the logic responsibilities to some other handler class</li>
+        <li> If the logic is the trigger:  testing a Trigger is difficult</li>
+        <li> Best Practice: create a handler class and let your Trigger delegate to it
+        <pre>
+        <code>
+// Handler class
+
+public class OpportunityTriggerHandler {
+
+  public static void handleAfterInsert(List opps) {
+    // handler logic
+  }
+
+}
+
+// can be called as
+OpportunityTriggerHandler.handleAfterInsert(Trigger.new);
+
+
+</code>
+</pre>
+
+        </li>
+      </ul>
+    </section>
+
+
+    <section>
+      <h4>Create context-specific handler methods in  Trigger handlers</h4>
+          <pre>
+            <code>
+trigger OpportunityTrigger on Opportunity (after insert, after update) {
+
+  // look at the context that the trigger is running?
+  //    after insert
+  if(Trigger.isAfter && Trigger.isInsert) {
+    OpportunityTriggerHandler.handleAfterInsert(Trigger.new);
+  } else if(Trigger.isAfter && Trigger.isUpdate) { // after update
+    OpportunityTriggerHandler.handleAfterUpdate(Trigger.new, Trigger.old);
+  }
+
+}
+
+            </code>
+          </pre>
+    </section>
+
+<section>
+  <h4>Benefits of using Trigger Framework</h4>
+  <ul style="font-size:35px;">
+<li>Help you to conform to best practices</li>
+<li>Make implementing new logic and new context handlers very easy</li>
+<li>Simplify testing and maintenance of your application logic</li>
+<li>Enforces consistent implementation of Trigger logic</li>
+<li>Implement tools, utilities, and abstractions to make your handler logic as lightweight as possible</li>
+  </ul>
+</section>
+
+<section>
+  <h4>Key features of a Trigger Framework</h4>
+  <ul>
+    <li>Routing Abstractions: Look  at the context that the trigger is running and  dispatch to the correct handler method accordingly </li>
+    <li>Recursion Detection and Prevention:  Detect this and figure out how to handle the situation properly </li>
+    <li>Centralize Switch (Enable/Disable) of Triggers:
+       Easily be wired up to a <b>Custom Setting</b> in the org to give us on/off control of the triggers  </li>
+  </ul>
+</section>
+
+<section>
+  <h4>Basic Implemention of Trigger Framework</h4>
+<pre style="font-size:20px;">
+<code>
+// TRIGGER
+trigger OpportunityTrigger on Opportunity (after insert, after update, after delete, after undelete) {
+  // one-liner for taking care of all 4 contexts
+  new OpportunityTriggerHandler().run();
+}
+// HANDLER - OpportunityTriggerHandler inherts the base case:
+//     TriggerHandler - the base class provided by the framework
+public class OpportunityTriggerHandler extends TriggerHandler {
+  // CONSTRUCTOR
+  public   OpportunityTriggerHandler() {
+    // prevent a single TriggerHandler from firing recursively
+    // sets  the number of executions per Trigger:
+    this.setMaxLoopCount(1);
+  }
+  // override default with a custom function
+  protected void override beforeUpdate() {
+     setLostOpptysToZero(); // call the private methods
+  }
+
+  // other contexts overrides if needed
+  protected void override afterInsert() {
+    doSomeAfterInsertStuff();
+  }
+
+  protected void override beforeDelete() {
+    doSomeStuffBeforeDelete();
+  }
+
+  // PRIVATE METHODS
+  // update the Amount field to zero when an opportunity is marked Closed/Lost
+  private void setLostOpptysToZero(List) {
+    // NOTE: Trigger.new and Trigger.newMap always contain raw sObjects or Maps of sObjects respectively.
+    for(Opportunity oppty : (List<Opportunity>) Trigger.new) {
+      if(oppty.StageName == 'Closed Lost' && oppty.Amount > 0) {
+        oppty.Amount = 0;
+      }
+    }
+  }
+
+
+
+
+}
+//======
+        </code>
+      </pre>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h4>run() method in Trigger Framework</h4>
+
+<pre style="font-size:20px;">
+<code>
+//  Checks the current context for the trigger
+//   Calls it’s own handler method for it
+public void run() {
+    if(!validateRun()) return;
+    addToLoopCount(); // Recursion Protection
+    // dispatch to the correct handler method based on the context
+    if(Trigger.isBefore && Trigger.isInsert) {
+      // overridable:  defined logic-less and meant to be overridden
+      // If they aren’t overridden, nothing really happens
+      // defined as: protected virtual void beforeInsert(){  }
+      this.beforeInsert();
+    } else if(Trigger.isBefore && Trigger.isUpdate) {
+      this.beforeUpdate();
+    } else if(Trigger.isBefore && Trigger.isDelete) {
+      this.beforeDelete();
+    } else if(Trigger.isAfter && Trigger.isInsert) {
+      this.afterInsert();
+    } else if(Trigger.isAfter && Trigger.isUpdate) {
+      this.afterUpdate();
+    } else if(Trigger.isAfter && Trigger.isDelete) {
+      this.afterDelete();
+    } else if(Trigger.isAfter && Trigger.isUndelete) {
+      this.afterUndelete();
+    }
+
+  }
+
+</code>
+</pre>
+</section>
+
+<section>
+  <h4> Source: TriggerHandler class</h4>
+  <ul style="font-size:30px;">
+    <li>
+      <a href="https://github.com/kevinohara80/sfdc-trigger-framework/tree/master/src/classes">
+        Kevin O'Hara's SFDC Trigger Framework
+      </a>
+    </li>
+  </ul>
+  <pre >
+    <code style="font-size:25px;">
+//refer:
+// https://raw.githubusercontent.com/kevinohara80/sfdc-trigger-framework/master/src/classes/TriggerHandler.cls
+public virtual class TriggerHandler {
+
+// static map of handlername, times run() was invoked
+private static Map<String, LoopCount> loopCountMap;
+private static Set<String> bypassedHandlers;
+
+// the current context of the trigger, overridable in tests
+@TestVisible
+private TriggerContext context;
+
+// the current context of the trigger, overridable in tests
+@TestVisible
+private Boolean isTriggerExecuting;
+
+// static initialization
+static {
+loopCountMap = new Map<String, LoopCount>();
+bypassedHandlers = new Set<String>();
+}
+
+// constructor
+public TriggerHandler() {
+this.setTriggerContext();
+}
+
+/***************************************
+* public instance methods
+***************************************/
+
+// main method that will be called during execution
+public void run() {
+
+if(!validateRun()) return;
+
+addToLoopCount();
+
+// dispatch to the correct handler method
+if(this.context == TriggerContext.BEFORE_INSERT) {
+this.beforeInsert();
+} else if(this.context == TriggerContext.BEFORE_UPDATE) {
+this.beforeUpdate();
+} else if(this.context == TriggerContext.BEFORE_DELETE) {
+this.beforeDelete();
+} else if(this.context == TriggerContext.AFTER_INSERT) {
+this.afterInsert();
+} else if(this.context == TriggerContext.AFTER_UPDATE) {
+this.afterUpdate();
+} else if(this.context == TriggerContext.AFTER_DELETE) {
+this.afterDelete();
+} else if(this.context == TriggerContext.AFTER_UNDELETE) {
+this.afterUndelete();
+}
+
+}
+
+public void setMaxLoopCount(Integer max) {
+String handlerName = getHandlerName();
+if(!TriggerHandler.loopCountMap.containsKey(handlerName)) {
+TriggerHandler.loopCountMap.put(handlerName, new LoopCount(max));
+} else {
+TriggerHandler.loopCountMap.get(handlerName).setMax(max);
+}
+}
+
+public void clearMaxLoopCount() {
+this.setMaxLoopCount(-1);
+}
+
+/***************************************
+* public static methods
+***************************************/
+
+public static void bypass(String handlerName) {
+TriggerHandler.bypassedHandlers.add(handlerName);
+}
+
+public static void clearBypass(String handlerName) {
+TriggerHandler.bypassedHandlers.remove(handlerName);
+}
+
+public static Boolean isBypassed(String handlerName) {
+return TriggerHandler.bypassedHandlers.contains(handlerName);
+}
+
+public static void clearAllBypasses() {
+TriggerHandler.bypassedHandlers.clear();
+}
+
+/***************************************
+* private instancemethods
+***************************************/
+
+@TestVisible
+private void setTriggerContext() {
+this.setTriggerContext(null, false);
+}
+
+@TestVisible
+private void setTriggerContext(String ctx, Boolean testMode) {
+if(!Trigger.isExecuting && !testMode) {
+this.isTriggerExecuting = false;
+return;
+} else {
+this.isTriggerExecuting = true;
+}
+
+if((Trigger.isExecuting && Trigger.isBefore && Trigger.isInsert) ||
+ (ctx != null && ctx == 'before insert')) {
+this.context = TriggerContext.BEFORE_INSERT;
+} else if((Trigger.isExecuting && Trigger.isBefore && Trigger.isUpdate) ||
+ (ctx != null && ctx == 'before update')){
+this.context = TriggerContext.BEFORE_UPDATE;
+} else if((Trigger.isExecuting && Trigger.isBefore && Trigger.isDelete) ||
+ (ctx != null && ctx == 'before delete')) {
+this.context = TriggerContext.BEFORE_DELETE;
+} else if((Trigger.isExecuting && Trigger.isAfter && Trigger.isInsert) ||
+ (ctx != null && ctx == 'after insert')) {
+this.context = TriggerContext.AFTER_INSERT;
+} else if((Trigger.isExecuting && Trigger.isAfter && Trigger.isUpdate) ||
+ (ctx != null && ctx == 'after update')) {
+this.context = TriggerContext.AFTER_UPDATE;
+} else if((Trigger.isExecuting && Trigger.isAfter && Trigger.isDelete) ||
+ (ctx != null && ctx == 'after delete')) {
+this.context = TriggerContext.AFTER_DELETE;
+} else if((Trigger.isExecuting && Trigger.isAfter && Trigger.isUndelete) ||
+ (ctx != null && ctx == 'after undelete')) {
+this.context = TriggerContext.AFTER_UNDELETE;
+}
+}
+
+// increment the loop count
+@TestVisible
+private void addToLoopCount() {
+String handlerName = getHandlerName();
+if(TriggerHandler.loopCountMap.containsKey(handlerName)) {
+Boolean exceeded = TriggerHandler.loopCountMap.get(handlerName).increment();
+if(exceeded) {
+ Integer max = TriggerHandler.loopCountMap.get(handlerName).max;
+ throw new TriggerHandlerException('Maximum loop count of ' + String.valueOf(max) + ' reached in ' + handlerName);
+}
+}
+}
+
+// make sure this trigger should continue to run
+@TestVisible
+private Boolean validateRun() {
+if(!this.isTriggerExecuting || this.context == null) {
+throw new TriggerHandlerException('Trigger handler called outside of Trigger execution');
+}
+if(TriggerHandler.bypassedHandlers.contains(getHandlerName())) {
+return false;
+}
+return true;
+}
+
+@TestVisible
+private String getHandlerName() {
+return String.valueOf(this).substring(0,String.valueOf(this).indexOf(':'));
+}
+
+/***************************************
+* context methods
+***************************************/
+
+// context-specific methods for override
+@TestVisible
+protected virtual void beforeInsert(){}
+@TestVisible
+protected virtual void beforeUpdate(){}
+@TestVisible
+protected virtual void beforeDelete(){}
+@TestVisible
+protected virtual void afterInsert(){}
+@TestVisible
+protected virtual void afterUpdate(){}
+@TestVisible
+protected virtual void afterDelete(){}
+@TestVisible
+protected virtual void afterUndelete(){}
+
+/***************************************
+* inner classes
+***************************************/
+
+// inner class for managing the loop count per handler
+@TestVisible
+private class LoopCount {
+private Integer max;
+private Integer count;
+
+public LoopCount() {
+this.max = 5;
+this.count = 0;
+}
+
+public LoopCount(Integer max) {
+this.max = max;
+this.count = 0;
+}
+
+public Boolean increment() {
+this.count++;
+return this.exceeded();
+}
+
+public Boolean exceeded() {
+if(this.max < 0) return false;
+if(this.count > this.max) {
+ return true;
+}
+return false;
+}
+
+public Integer getMax() {
+return this.max;
+}
+
+public Integer getCount() {
+return this.count;
+}
+
+public void setMax(Integer max) {
+this.max = max;
+}
+}
+
+// possible trigger contexts
+@TestVisible
+private enum TriggerContext {
+BEFORE_INSERT, BEFORE_UPDATE, BEFORE_DELETE,
+AFTER_INSERT, AFTER_UPDATE, AFTER_DELETE,
+AFTER_UNDELETE
+}
+
+// exception class
+public class TriggerHandlerException extends Exception {}
+
+}
+    </code>
+  </pre>
+</section>
+
+
+  <section>
+    <h4>References</h4>
+   <ul>
+     <li>
+       <a href="https://developer.salesforce.com/page/Trigger_Frameworks_and_Apex_Trigger_Best_Practices">
+         Trigger Frameworks and Apex Trigger Best Practices
+       </a>
+     </li>
+   </ul>
+
+
     </div>
   </div>
 
