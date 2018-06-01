@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="MainCtrl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{appName}}</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/navbar-green.css">
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/data-markdown.user.js"></script>
+
+
+  <script src="../bower_components/marked/marked.min.js"></script>
+  <script src="../bower_components/angular-marked/dist/angular-marked.js"></script>
+
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../reveal.js/css/theme/white.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+    		<![endif]-->
+
+  <style>
+    .reveal .slide-number {
+      font-size: 0.5em;
+    }
+
+    .simg {
+      border-radius: 10px;
+      border: 1px;
+    }
+
+    .reveal section ul li,
+    .reveal section p {
+      font-size: .8em !important;
+    }
+
+    .reveal section pre code {
+      font-size: 0.7em !important;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">{{appName}}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+      <div class="inner-addon right-addon navbar-form navbar-right">
+        <i class="glyphicon glyphicon-search"></i>
+        <input type="text" class="form-control" placeholder="Search" />
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown ">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="./help.html">Help Topics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <!--
+  <div class="container" ng-controller='MainCtrl'>
+    <div marked src="'pevents.md'"></div>
+  </div>
+-->
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section id="home">
+        <h4>{{appName}}</h4>
+
+        <table style="font-size:20px;" lass='table table-bordered table-hover table-sripped'>
+          <tr> <th>SOQL</th> <th>SOSL</th> </tr>
+          <tr> <td>Uses <code>query()</code> call on Database</td> <td>Uses <code>search()</code> on Search Indexes</td> </tr>
+          <tr>
+            <td>Use: when we <b>know</b> which sObjects and Fields the data risides</td>
+            <td>Use: when we <b>don't know</b> which sObjects and Fields the data risides and  want to find it in the most efficient way possible</td>
+          </tr>
+          <tr>
+            <td>Want to:
+                  <ul>
+                    <li>Retrieve data from a single sObject or  multiple sObjects that are related </li>
+                    <li>Count the number of records that meet specified criteria</li>
+                    <li>Sort results as part of the query </li>
+                  </ul>
+              </td>
+
+              <td>Want to:
+                    <ul>
+                      <li>Retrieve multiple objects and fields efficiently, and the objects <b> might or might not be related</b> to one another </li>
+                      <li>Retrieve data for a particular division in an organization using the divisions feature </li>
+                      <li>Generally faster than SOQL if the search expression uses a CONTAINS term.</li>
+                    </ul>
+                </td>
+          </tr>
+
+          <tr>
+            <td>
+              <ul>
+                <li>
+                  <b>Avoid</b> query with a WHERE filter that has null values for picklists or foreign key fields doesn’t use the index (full tablescan)
+                  <br/>Design the data model so that it does not rely on nulls as valid field values.
+                  <code>Category__c != null</code> vs <code>Category__c != 'Default'</code>
+                </li>
+                <li>
+                  <b>Indexes can't be used</b>: when multiple WHERE filters are being used in SOQL,
+                   indexes cannot be used even though the fields in the WHERE clause can be indexed.
+                   <br/>
+                   <b>Solution</b>: decompose the single query into multiple queries, each of which should have one WHERE filter, and then combine the results.
+
+
+                </li>
+              </ul>
+               </td>
+            <td>
+
+              <ul>
+                    Faster than SOQL:
+                <li>
+                  When if the search expression uses a CONTAINS term
+                </li>
+                <li>
+                  Tokenizes multiple terms within a field (for example, multiple words separated by spaces) and builds a search index off this.
+                  <br/>If you’re searching for a specific distinct term that you know exists within a field.
+                  <br/>Example: searching for “John” against fields that contained values like “Paul and John Company”.
+
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </section>
+
+
+
+<section>
+  <h4>Key Points</h4>
+  <ul style="font-size:30px;">
+    <li>
+      When building queries, list views, and reports, it's best to create filter conditions that are selective so Force.com scans only the rows necessary in the objects
+your queries target—the Force.com query optimizer doesn't use an index to drive queries containing unselective filter conditions, even if the fields those
+filter conditions reference alread have indexes on them.
+    </li>
+    <li>
+      Filter conditions are also unselective if they exceed the Force.com query optimizer's thresholds</li>
+    <li> Selectivity is
+especially important when your queries target objects containing <b> more than one million records</b></li>
+<li>Goals will be :
+  <ul>
+    <li>How to write selective filter conditions </li>
+    <li>Minimize your query response times</li>
+    <li>Optimize the database's overall performance</li>
+  </ul>
+
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h4>Fields with Database Indexes</h4>
+  <img style="border:0px;border-radius:20px;" height="400" src="img/soql/soql-index-1.png" alt="">
+
+</section>
+<section>
+  <h4>Avoid Full TableScans</h4>
+
+<pre style="font-size:20px;"> <code>
+  String status = 'Active';
+  if (status != null) {
+    Account[] accounts = [ SELECT Name
+        FROM Account
+       WHERE status__c = :status
+    ];
+     System.Debug('Count:  ' + accounts.size());
+  }
+  else {
+      // full tablescan is avoided
+     System.Debug('Not Found');
+  }
+</pre>
+</code>
+vs
+<pre>
+<code>
+
+// if status is null, result in full tablescan
+String status = null;
+Account[] accounts = [ SELECT Name
+    FROM Account
+   WHERE status__c = :status ];
+
+System.Debug('Count:  ' + accounts.size());
+</pre>
+</code>
+
+
+</section>
+
+
+<section>
+  <h4>Force.com Query Optimizer</h4>
+  <p>Generates most-efficient query based on:
+  <ul>
+    <li> Pre-computed Statistics</li>
+    <li>Indexs / Skinny Tables available</li>
+    <li>Visibility: Sharing </li>
+  </ul>
+
+  <ul>
+    <li>Uses pre-query engine to get the Statistics </li>
+    <li>Scans through WHERE clauses, look at each individual filters, select the most-selective filter</li>
+    <li>Determine the best leading table/index to Drive the query</li>
+  </ul>
+</section>
+
+<section>
+  <h4>Best Practices</h4>
+  <img style="border:0px;border-radius:20px;" height="400" src="img/soql/soql-index-exp-1.png" alt="">
+
+</section>
+
+<section>
+  <h4>Best Practices - contd.</h4>
+   <ul style="font-size:30px;">
+    <li>Provide filters that are selective: provide <b> one or more selective filter per SOQL statement</b></li>
+    <li>Avoid negative operators like:  <code>Status__c != 'Active'</code> tablescan will be used here.
+      Instead use: <code>Status__c IN ('Open', 'In-Progress')</code>
+
+    </li>
+    <li>Avoid leading wildcard ('%pen') filters</li>
+    <li>Non-deterministic Formula (e.g: TODAY() function) fields can't be good filters - we can't index them </li>
+    <li>Always test with more than 10K records (upto this limit, Query Optimizer will favor TableScan)</li>
+    <li>Sort on a number or date field: If you need to use a field that does not have a number or date type, you can add a “hidden” field,
+       populate it with converted number values, and then place an index on it</li>
+    <li>Sort on the second field for a two-column index</li>
+    <li>Exclude null records: If you sort on a field that might contain null records–regardless of
+       whether you actually have any–add a filter in the WHERE clause to exclude those records.
+       Otherwise, the Force.com query optimizer won’t consider using the index</li>
+   <li>Evaluate optimization: Make query planning part of development process<br/>
+        <ul>
+          <li>Consider state of database now and in future</li>
+          <li>Data Volume matters: Query performing well in Dev Org may not perform well in PROD!</li>
+        </ul>
+     </li>
+
+  </ul>
+</section>
+
+
+<section>
+  <h4>Selective Filter components</h4>
+  <ul>
+    <li>Filters to reduce data out of the query</li>
+    <li>Operators: avoid inefficient filter operators</li>
+    <li>Selectivity Thresholds: filters need to meet</li>
+    <li>Index: Fields in the filters are indexed?</li>
+    <li>Date, Picklists, fields with wide and even distribution of values makes good filters<br/>
+    Example: Checkbox  (with values boolean values, true/false 50:50 distribution) will <b>not</b> make a good index</li>
+  </ul>
+</section>
+
+<section>
+  <h4>Standard Index Selectivity Threshold</h4>
+  <p>  To find out using an index is efficient ? </p>
+  <img style="border:0px;border-radius:20px;" height="400" src="img/soql/soql-qo-1.png" alt="">
+  <ul style="font-size:30px;display:none;">
+   <li>Selects less than 1 Million Records</li>
+   <li>Selects less than 300K (~<sup>1</sup>&frasl;<sub>3</sub>) records for the <b>first</b> 1 Million records</li>
+   <li>Selects less than 150K  (~<sup>1</sup>&frasl;<sub>6</sub>) records for the <b>second</b> 1 Million records<br/>
+         # records: 900K, Threshold: 270K<br/>
+         # records: 2000K, Threshold: 300K + 150K = 450K <br/>
+         # records: 5000K, Threshold: 1000K <br/>
+   </li>
+
+  </ul>
+</section>
+
+<section>
+  <h4>Custom Index Selectivity Threshold</h4>
+  <p>  To find out using an index is efficient ? </p>
+  <img style="border:0px;border-radius:20px;" height="400" src="img/soql/soql-qo-2.png" alt="">
+
+  <ul style="font-size:30px;display:none;">
+    To find out using an index is efficient ?
+   <li>Selects less than 333,333  Records</li>
+   <li>Selects less than 100K   records for the <b>first</b> 1 Million records</li>
+   <li>Selects less than 50K    records for the <b>second</b> 1 Million records<br/>
+         # records: 900K, Threshold: 90K<br/>
+         # records: 2000K, Threshold: 90K + 45K = 135K <br/>
+         # records: 5000K, Threshold: 333,333  <br/>
+   </li>
+
+  </ul>
+</section>
+
+
+<section>
+  <h4>Index Selectivity Conditions and Thresholds</h4>
+  <img style="border:0px;border-radius:20px;" height="500" src="img/soql/soql-qo-3.png" alt="">
+
+
+</section>
+
+<section>
+  <h4>Custom Index - steps</h4>
+  <ol>
+    <li>Find out common filter conditions</li>
+    <li>Find selective fields in those filter conditions</li>
+    <li>Use Query-Plan tool</li>
+    <li>Request Custom Index with Salesforce Customer Support</li>
+
+  </ol>
+
+</section>
+
+<section>
+  <h4>Query Optimization</h4>
+  <img style="border:0px;border-radius:20px;" height="500" src="img/soql/soq-optimization-1.png" alt="">
+
+</section>
+
+
+<section>
+  <h4>Query Strategies</h4>
+  <img style="border:0px;border-radius:20px;" height="500" src="img/soql/soql-q-strat-1.png" alt="">
+
+</section>
+
+<section>
+  <h4>Avoid Nulls</h4>
+  <img style="border:0px;border-radius:20px;" height="500" src="img/soql/soql-avoid-null-1.png" alt="">
+
+</section>
+
+<section>
+  <h4>Avoid Wildcards</h4>
+  <img style="border:0px;border-radius:20px;" height="500" src="img/soql/soql-wildcard-1.png" alt="">
+
+</section>
+
+<section>
+  <h4>Avoid negative queries</h4>
+  <img style="border:0px;border-radius:20px;" height="500" src="img/soql/soql-ve-query-1.png" alt="">
+
+</section>
+
+
+
+<section>
+  <h4>Describe Opportunity</h4>
+  <img style="border:0px;border-radius:20px;" src="img/soql/soql-desc-oppty-1.gif" alt="">
+
+</section>
+
+<section>
+  <h4>Query Plan</h4>
+  <img style="border:0px;border-radius:20px;" src="img/soql/query-plan-1.png" alt="">
+
+</section>
+
+<section>
+  <h4>Query Plan - Example - 1 </h4>
+  <img style="border:0px;border-radius:20px;" src="img/soql/query-plan-oppty-describe-1.png" alt="">
+
+</section>
+
+<section>
+  <h4>Query Plan - Example - 1 - contd. </h4>
+  <img style="border:0px;border-radius:20px;" src="img/soql/query-plan-oppty-plan-1.png" alt="">
+
+</section>
+<section>
+  <h4>Query Plan - Example - 1 - contd..</h4>
+  <pre style="font-size:20px;">
+    <code>
+/query?explain=SELECT name,stageName FROM Opportunity WHERE stageName IN ('Closed Won', 'Value Proposition')
+    </code>
+  </pre>
+    <pre style="font-size:20px;">
+    <code>
+      {
+    "plans": [
+        {
+            "cardinality": 7, // Estimated #records that leading op type  will return
+            "fields": [],
+            "leadingOperationType": "TableScan", // primary op type that QO will use to optimize this query
+
+            "notes": [ // clues why optimizer can't use this filter
+                {
+                    "description": "Not considering filter for optimization because unindexed",
+                    "fields": [
+                        "IsDeleted"
+                    ],
+                    "tableEnumOrId": "Opportunity"
+                },
+                {
+                    "description": "Not considering filter for optimization because unindexed",
+                    "fields": [
+                        "StageName"
+                    ],
+                    "tableEnumOrId": "Opportunity"
+                }
+            ],
+            "relativeCost": 1.2833333333333334,
+            // cost is based on the Statistics SF gathered
+            // plan with lowest cost will be used
+            // relative cost compared to QO's Selectivity threshold
+            // > 1 means this query would be selective! TableScan will be used!
+            // if more than one filter is selective - QO will pick the one with lowest
+            // cost to drive the query
+
+            "sobjectCardinality": 33, // approx. record count for this query
+            "sobjectType": "Opportunity"
+        }
+    ],
+    "sourceQuery": "SELECT name,stageName FROM Opportunity WHERE stageName IN ('Closed Won', 'Value Proposition')"
+}
+    </code>
+  </pre>
+</section>
+
+
+<section>
+  <h4>Query Plan - Example - 1 - contd... </h4>
+  <img style="border:0px;border-radius:20px;" src="img/soql/soq-isDeleted-1.png" alt="">
+
+</section>
+
+
+<section>
+  <h4>Query Plan - Example - 1 - contd....</h4>
+  <pre style="font-size:20px;">
+    <code>
+      /query?explain=SELECT name,stageName FROM Opportunity WHERE stageName IN ('Closed Won', 'Value Propostion')
+      AND isDeleted = false
+    </code>
+  </pre>
+    <pre style="font-size:20px;">
+    <code>
+      {
+      "plans": [
+          {
+              "cardinality": 3,
+              "fields": [],
+              "leadingOperationType": "TableScan",
+              "notes": [
+                  {
+                      "description": "Not considering filter for optimization because unindexed",
+                      "fields": [
+                          "IsDeleted"
+                      ],
+                      "tableEnumOrId": "Opportunity"
+                  },
+                  {
+                      "description": "Not considering filter for optimization because unindexed",
+                      "fields": [
+                          "StageName"
+                      ],
+                      "tableEnumOrId": "Opportunity"
+                  },
+                  {
+                      "description": "Not considering filter for optimization because unindexed",
+                      "fields": [
+                          "IsDeleted"
+                      ],
+                      "tableEnumOrId": "Opportunity"
+                  }
+              ],
+              "relativeCost": 0.9944444444444444,
+              "sobjectCardinality": 33,
+              "sobjectType": "Opportunity"
+          }
+      ],
+      "sourceQuery": "SELECT name,stageName FROM Opportunity WHERE stageName IN ('Closed Won', 'Value Propostion')  AND isDeleted = false"
+  }
+    </code>
+  </pre>
+</section>
+
+<section>
+  <h4>Playing with Query Optimizer </h4>
+  <a target="_blank" style="font-size:30px;" href="img/soql/soql-desc-oppty-2.gif">
+<i class="fa fa-arrows-alt"  title="full screen view of the demo"></i>
+</a>
+<br/>
+  <img style="border:0px;border-radius:20px;" src="img/soql/soql-desc-oppty-2.gif" alt="">
+
+</section>
+<section>
+  <h4>Playing with Query Optimizer - 2  </h4>
+  <p style="font-size:30px;">Save the important Queries and find out the Query Plan on a regular basis</p>
+
+
+</section>
+
+<section>
+  <h4>Playing with Query Optimizer - 3  </h4>
+  <a target="_blank" style="font-size:30px;" href="img/soql/soql-desc-oppty-3.gif">
+<i class="fa fa-arrows-alt"  title="full screen view of the demo"></i>
+</a>
+<br/>
+  <img style="border:0px;border-radius:20px;" src="img/soql/soql-desc-oppty-3.gif" alt="">
+
+</section>
+
+
+
+<section>
+  <h4>Query-Plan Tool</h4>
+  <ul style="font-size:30px;">
+    <li>If #records in the sObject is less than 10K, Optimizer will opt into TableScan</li>
+    <li>
+      The Query Plan tool will show a list of available plans that our Query Optimizer can utilize for the query provided
+      and will be arranged by cost ascending.
+      Each Plan will contain information on Cardinality, Operation Type, Cost, sObject Type, and more.
+       Each plan has a “Leading Operation Type”, for example, Field Index or Full Table Scan.
+       The plan with the lowest cost is the plan that is used for driving the query execution.
+
+    </li>
+  </ul>
+</section>
+
+
+<section>
+  <h4>References</h4>
+  <ul>
+    <li>
+      <a target="_blank" href="https://help.salesforce.com/articleView?id=000199003&type=1">Query Plan Tool FAQ
+</a>
+    </li>
+
+    <li>
+      <a target="_blank" href="https://developer.salesforce.com/blogs/engineering/2013/02/force-com-soql-best-practices-nulls-and-formula-fields.html">
+        Force.com SOQL Best Practices: Nulls and Formula Fields
+
+      </a>
+    </li>
+    <li>
+      <a  target="_blank" href="http://resources.docs.salesforce.com/rel1/doc/en-us/static/pdf/SF_Query_Search_cheatsheet_web.pdf">
+        Query & Search Optimization - Cheatsheet
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm">
+      SOQL and SOSL Reference:  SOQL Date Formats and Date Literals
+      </a>
+    </li>
+
+    <li>
+      <a href="https://developer.salesforce.com/blogs/engineering/2014/03/force-com-soql-best-practice-sort-optimization.html">
+        Force.com SOQL Best Practice: Sort Optimization
+
+      </a>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h4>Video: Faster SOQL? Yes, Please </h4>
+
+  <iframe id="ytplayer" type="text/html" width="640" height="360"
+ src="https://www.youtube.com/embed/v6ay_mNeJTE?autoplay=0 &fs=1"
+ frameborder="0"></iframe>
+</section>
+
+<section>
+  <h4>Video: SOQL Query Performance Tips and Tricks
+ </h4>
+
+  <iframe id="ytplayer" type="text/html" width="640" height="360"
+ src="https://www.youtube.com/embed/uyyXdEIieN4?autoplay=0 &fs=1"
+ frameborder="0"></iframe>
+</section>
+
+
+    </div>
+  </div>
+
+
+
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
+
+
+  <script>
+    'use strict';
+
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+      //width: 960,
+      //	height: 700,
+
+      // Display presentation control arrows
+      controls: true,
+
+      // Help the user learn the controls by providing hints, for example by
+      // bouncing the down arrow when they first encounter a vertical slide
+      controlsTutorial: true,
+
+      // Determines where controls appear, "edges" or "bottom-right"
+      controlsLayout: 'edges',
+
+      // Visibility rule for backwards navigation arrows; "faded", "hidden"
+      // or "visible"
+      controlsBackArrows: 'faded',
+      // Display a presentation progress bar
+      progress: true,
+
+      // Set default timing of 2 minutes per slide
+      defaultTiming: 120,
+
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
+
+
+      history: true,
+      center: true,
+      slideNumber: true,
+
+      embedded: true,
+
+      transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+      menu: {
+        markers: true,
+        openSlideNumber: true,
+        themes: [{
+            name: 'Black',
+            theme: '../reveal.js/css/theme/black.css'
+          },
+          {
+            name: 'White',
+            theme: '../reveal.js/css/theme/white.css'
+          },
+          {
+            name: 'League',
+            theme: '../reveal.js/css/theme/league.css'
+          },
+          {
+            name: 'Sky',
+            theme: '../reveal.js/css/theme/sky.css'
+          },
+          {
+            name: 'Beige',
+            theme: '../reveal.js/css/theme/beige.css'
+          },
+          {
+            name: 'Simple',
+            theme: '../reveal.js/css/theme/simple.css'
+          },
+          {
+            name: 'Serif',
+            theme: '../reveal.js/css/theme/serif.css'
+          },
+          {
+            name: 'Blood',
+            theme: '../reveal.js/css/theme/blood.css'
+          },
+          {
+            name: 'Night',
+            theme: '../reveal.js/css/theme/night.css'
+          },
+          {
+            name: 'Moon',
+            theme: '../reveal.js/css/theme/moon.css'
+          },
+          {
+            name: 'Solarized',
+            theme: '../reveal.js/css/theme/solarized.css'
+          }
+        ],
+        custom: []
+      },
+
+      // Optional reveal.js plugins
+      dependencies: [{
+          src: '../reveal.js/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          condition: function() {
+            return !!document.querySelector('pre code');
+          },
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: '../reveal.js/plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/reveal.js-menu/menu.js',
+          async: true
+        }
+      ]
+    });
+
+
+
+    var app = angular.module('app', [
+      'hc.marked'
+    ]);
+    app.config(['markedProvider', function(markedProvider) {
+      markedProvider.setOptions({
+        gfm: true
+      });
+    }]);
+
+    var GSCOPE;
+    app.controller('MainCtrl', function($scope, $http, $timeout) {
+      GSCOPE = $scope; // debugging purposes
+      $scope.appName="SOQL Best Practices";
+
+
+
+    })
+  </script>
+</body>
+
+</html>
