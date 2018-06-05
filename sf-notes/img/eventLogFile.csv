@@ -1,0 +1,18 @@
+Label,Name,Nillable,Picklistvalues,Referenceto,Relationshipname,Type,Unique,Updateable
+Event Log File ID,Id,FALSE,--,--,null,id,FALSE,FALSE
+Deleted,IsDeleted,FALSE,--,--,null,boolean,FALSE,FALSE
+Created Date,CreatedDate,FALSE,--,--,null,datetime,FALSE,FALSE
+Created By ID,CreatedById,FALSE,--,"[ ""User"" ]",CreatedBy,reference,FALSE,FALSE
+Last Modified Date,LastModifiedDate,FALSE,--,--,null,datetime,FALSE,FALSE
+Last Modified By ID,LastModifiedById,FALSE,--,"[ ""User"" ]",LastModifiedBy,reference,FALSE,FALSE
+System Modstamp,SystemModstamp,FALSE,--,--,null,datetime,FALSE,FALSE
+Event Type,EventType,FALSE,"[ ""API"" , ""ApexCallout"" , ""ApexExecution"" , ""ApexSoap"" , ""ApexTrigger"" , ""AsyncReportRun"" , ""ExternalCrossOrgCallout"" , ""ExternalCustomApexCallout"" , ""ExternalODataCallout"" , ""BulkApi"" , ""ChangeSetOperation"" , ""Console"" , ""ContentDistribution"" , ""ContentDocumentLink"" , ""ContentTransfer"" , ""Dashboard"" , ""DocumentAttachmentDownloads"" , ""InsecureExternalAssets"" , ""KnowledgeArticleView"" , ""LightningError"" , ""LightningInteraction"" , ""LightningPageView"" , ""LightningPerformance"" , ""Login"" , ""LoginAs"" , ""Logout"" , ""MetadataApiOperation"" , ""MultiBlockReport"" , ""PackageInstall"" , ""QueuedExecution"" , ""Report"" , ""ReportExport"" , ""RestApi"" , ""Sandbox"" , ""Search"" , ""SearchClick"" , ""Sites"" , ""PlatformEncryption"" , ""TimeBasedWorkflow"" , ""TransactionSecurity"" , ""UITracking"" , ""URI"" , ""VisualforceRequest"" , ""WaveChange"" , ""WaveInteraction"" , ""WavePerformance"" ]",--,null,picklist,FALSE,FALSE
+Log Date,LogDate,FALSE,--,--,null,datetime,FALSE,FALSE
+Log File Length,LogFileLength,FALSE,--,--,null,double,FALSE,FALSE
+Log File Content Type,LogFileContentType,FALSE,--,--,null,string,FALSE,FALSE
+API Version,ApiVersion,FALSE,--,--,null,double,FALSE,FALSE
+Sequence,Sequence,FALSE,--,--,null,int,FALSE,FALSE
+Interval,Interval,TRUE,"[ ""Hourly"" , ""Daily"" ]",--,null,picklist,FALSE,FALSE
+Log File Field Names,LogFileFieldNames,TRUE,--,--,null,string,FALSE,FALSE
+Log File Field Types,LogFileFieldTypes,TRUE,--,--,null,string,FALSE,FALSE
+Log File,LogFile,FALSE,--,--,null,base64,FALSE,FALSE
