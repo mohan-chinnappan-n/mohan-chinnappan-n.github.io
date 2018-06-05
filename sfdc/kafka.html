@@ -573,7 +573,7 @@
           </li>
           <li>
             <code>linger.ms </code>:  maximum time to buffer data in asynchronous mode<br/>
-            Instead of sending immediately, we can set <code>linger.ms</code> to 5 and send more messages in one batch<br/>
+            Instead of sending immediately, we can set <code>linger.ms</code> to 5 and send more messages in one batch.<br/>
             This would reduce the number of requests sent,
             but would add up to 5 milliseconds of latency to records sent, even if the load on the system does not warrant the delay
 
