@@ -453,6 +453,113 @@
            </ul>
         </section>
 
+        <section>
+          <h4>Performance Tips</h4>
+          <ul style="font-size:30px;">
+            <li>Message size:
+            <ul>
+              <li>Apache Kafka is optimized for small messages (1KB)</li>
+              <li> Larger messages ( 10 MB to 100 MB) can decrease throughput and significantly impact operations</li>
+              <li>The Kafka producer can compress messages <br/>
+                if the original message is a text-based format (JSON/XML...),
+              <code>compression.codec</code> and <code>compressed.topic</code>  can be used for setting up the compression: Gzip </li>
+            </ul>
+          </li>
+          <li>Partitions and memory usage:
+            <ul>
+              <li>Brokers allocate a buffer the size of <code>replica.fetch.max.bytes</code> for each partition they replicate</li>
+              <li>If <code>replica.fetch.max.bytes</code> is set to 1 MiB, and you have 1000 partitions, about 1 GiB of RAM is required</li>
+              <li>The same consideration applies for the consumer <code>fetch.message.max.bytes setting</code></li>
+            </ul>
+          </li>
+          <li>Garbage Collection:
+            <ul>
+               <li> Large messages can cause longer garbage collection (GC) pauses as brokers allocate large chunks</li>
+                <li> Monitor the GC log and the server log. If long GC pauses cause Kafka to abandon the ZooKeeper session,<br/>
+                   you may need to configure longer timeout values for <code>zookeeper.session.timeout.ms</code>
+               </li>
+            </ul>
+          </li>
+
+        </ul>
+
+        </section>
+
+        <section>
+          <h4>Broker Config</h4>
+          <ul style="font-size:30px;">
+            <li>
+              <code>message.max.bytes </code>:
+               Maximum message size the broker will accept.
+               <br/>
+                Must be smaller than the consumer <b>fetch.message.max.bytes</b>, or the consumer cannot consume the message.
+                Default: 1MB
+            </li>
+
+            <li>
+              <code>log.segment.bytes </code>:
+              Size of a Kafka data file. Must be larger than any single message.
+                Default: 1GB
+            </li>
+
+            <li>
+              <code>replica.fetch.max.bytes </code>:
+              Maximum message size a broker can replicate. Must be larger than <code>message.max.bytes</code>
+              or a broker can accept messages it cannot replicate, potentially resulting in data loss.
+                Default: 1MB
+            </li>
+
+
+          </ul>
+        </section>
+
+        <section>
+          <h4>Consumer Config</h4>
+          <ul style="font-size:30px;">
+            <li>
+              <code>max.partition.fetch.bytes</code>:
+              The maximum amount of data per-partition the server will return.
+                Default: 10MB
+
+            </li>
+
+            <li>
+              <code>fetch.max.bytes </code>:
+              The maximum amount of data the server should return for a fetch request.
+                Default: 50MB
+            </li>
+
+            <li>
+              <code>fetch.message.max.bytes </code>:
+              Maximum message size a consumer can read. Must be at least as large as <code>message.max.bytes</code>
+                Default: 1MB
+            </li>
+            <li>
+              Note:
+              If a single message batch is larger than any of the default values above,
+              the consumer will still be able to consume the batch, but the batch will be sent alone, which can cause
+              <b>performance degradation</b>
+
+
+            </li>
+
+
+          </ul>
+        </section>
+
+
+
+
+        <section>
+          <h4>Balancing Apache Kafka Clusters </h4>
+            <iframe height="450" width="800" data-src="https://www.youtube.com/embed/t2pN4_HfGbY?autoplay=0"></iframe>
+        </section>
+
+        <section>
+          <h4>Tuning Your Apache Kafka Cluster </h4>
+            <iframe height="450" width="800" data-src="https://www.youtube.com/embed/6hFhf6LgEps?autoplay=0"></iframe>
+        </section>
+
 
         <section>
           <h4>References</h4>
@@ -479,6 +586,17 @@ The Log              </a>
             <li>
               <a target="_blank" href="https://engineering.salesforce.com/how-apache-kafka-inspired-our-platform-events-architecture-2f351fe4cf63">
               How Apache Kafka Inspired Our Platform Events Architecture
+              </a>
+            </li>
+            <li>
+              <a target="_blank" href="https://www.cloudera.com/documentation/kafka/latest/topics/kafka_performance.html">
+                Configuring Apache Kafka for Performance and Resource Management
+              </a>
+            </li>
+
+            <li>
+              <a target="_blank" href="https://engineering.linkedin.com/kafka/benchmarking-apache-kafka-2-million-writes-second-three-cheap-machines">
+                Benchmarking Apache Kafka: 2 Million Writes Per Second (On Three Cheap Machines)
               </a>
             </li>
 
