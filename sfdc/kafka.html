@@ -547,6 +547,78 @@
           </ul>
         </section>
 
+        <section>
+          <h4>Kafka is balanced  for both Latency and throughput</h4>
+          <ul style="font-size:30px;">
+            <li>Latency: how long it takes to process one event</li>
+            <li>Throughput:  how many events arrive within a specific amount of time</li>
+            <li>A well tuned Kafka system has just enough brokers to handle topic throughput,
+                given the latency required to process information as it is received
+              <br/>:
+            Expected:  100,000 events per second.</li>
+
+          </ul>
+        </section>
+
+        <section>
+          <h4>Tuning Kafka Producers</h4>
+          <ul style="font-size:30px;">
+            <li>Kafka uses an asynchronous publish/subscribe model.
+              <br/> When your producer calls the <code>send()</code> command, the result returned is a <code>future</code></li>
+              <li>When the batch is ready (fill up buffers on the producer), the producer sends it to the broker.
+                <br/> The Kafka broker waits for an event, receives the result, and then responds that the transaction is complete (OK)</li>
+            <li><code>batch.size </code>: measures batch size in total bytes instead of the number of messages <br/>
+            - how many bytes of data to collect before sending messages to the Kafka broker<br/>
+            Default: 16384 (set this as high as possible, without exceeding available memory)
+          </li>
+          <li>
+            <code>linger.ms </code>:  maximum time to buffer data in asynchronous mode<br/>
+            Instead of sending immediately, we can set <code>linger.ms</code> to 5 and send more messages in one batch<br/>
+            This would reduce the number of requests sent,
+            but would add up to 5 milliseconds of latency to records sent, even if the load on the system does not warrant the delay
+
+
+          </li>
+        </ul>
+
+        </section>
+
+        <section>
+
+          <h4>Tuning Kafka Brokers</h4>
+          <img style="border:0px; border-radius:10px;"src="img/kafka/kafka-part-1.png" height="300" alt="">
+          <ul style="font-size:30px;">
+            <li>Topics are divided into partitions. Each partition has a leader. <br/>
+              Most partitions are written into leaders with multiple replicas.  <br/>
+              When the leaders are not balanced properly, one might be overworked, compared to others</li>
+            <li>
+              Recommended: one partition per physical storage disk and <b> one consumer per partition</b>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h4>Tuning Kafka Consumers</h4>
+          <img style="border:0px; border-radius:10px;"src="img/kafka/kafka-part-2.png" height="300" alt="">
+            <ul style="font-size:20px;">
+            <li><b>The max. number of consumers for a topic  = the number of partitions</b></li>
+            <li>You need <b>enough partitions to handle all the consumers</b> needed to keep up with the producers</li>
+            <li>Consumers in the same consumer group split the partitions among them</li>
+            <li>Adding more consumers to a group can enhance performance</li>
+            <li>
+              <code>replica.high.watermark.checkpoint.interval.ms </code>:
+              If you have to go back and locate missing data,
+               you have a checkpoint from which to move forward without having to reread prior data.
+               <br>
+               If you set the checkpoint watermark for every event, you will never lose a message, but it significantly impacts performance.
+               If, instead, you set it to check the offset every hundred messages, you have a margin of safety with much less impact on throughput.
+
+
+            </li>
+          </ul>
+        </section>
+
+
 
 
 
@@ -558,6 +630,12 @@
         <section>
           <h4>Tuning Your Apache Kafka Cluster </h4>
             <iframe height="450" width="800" data-src="https://www.youtube.com/embed/6hFhf6LgEps?autoplay=0"></iframe>
+        </section>
+
+
+        <section>
+          <h4>Quotas: Cloudera Distribution of Apache Kafka </h4>
+            <iframe height="450" width="800" data-src="https://www.youtube.com/embed/zMAwFoPdcmM?autoplay=0"></iframe>
         </section>
 
 
