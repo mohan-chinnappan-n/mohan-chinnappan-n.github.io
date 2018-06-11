@@ -132,6 +132,37 @@
        </section>
 
        <section>
+         <h4>Avoid Recursive Trigger Calls</h4>
+         <img style="border:0px; border-radius:10px;" height="150" src="img/flow/avoid-recursive-call-1.png" alt="">
+
+         <pre style="font-size:20px;">
+<code>
+public class checkRecursive {
+        public static Set<Id> SetOfIDs = new Set<Id>();
+}
+//=====
+trigger testTriggerOrder on Account (before update) {
+     List<Account> accountList = trigger.new;
+     System.Debug('Inside testTriggerOrder at : ' + DateTime.now() );
+       for(Account acct: accountList){
+           if(!checkRecursive.SetOfIDs.contains(acct.Id)) {
+               if(acct.rating == 'Hot') {
+                   System.Debug('Going to update Account Record');
+                   acct.NumberOfEmployees = Integer.valueOf( Acct.NumberOfEmployees*1.1 );
+               }
+               checkRecursive.SetOfIDs.add(acct.Id);
+           }
+           else {
+              System.Debug('Update to Account Record already done!');
+          }
+       }
+   }
+   //=====
+           </code>
+         </pre>
+       </section>
+
+       <section>
          <h4>Resources</h4>
          <ul style="font-size:30px;">
            <li>
@@ -145,6 +176,10 @@
              Triggers and Order of Execution
 
            </a>
+         </li>
+         <li>
+           <a target="_blank" href="https://help.salesforce.com/articleView?id=000133752&language=en_US&type=1">Avoid Recursive Trigger Calls
+</a>
          </li>
          </ul>
        </section>
