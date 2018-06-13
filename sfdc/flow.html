@@ -163,6 +163,123 @@ trigger testTriggerOrder on Account (before update) {
        </section>
 
        <section>
+         <h4>Workflow Use Cases</h4>
+         <ul style="font-size:30px;">
+           <li> <b>Tasks</b> — Assign a new task to a user, role, or record owner
+              <ul> <li> Assign follow-up tasks to a support rep one week after a case is updated </li> </ul>
+          </li>
+          <li> <b>Email Alerts</b> — Send an email to one or more recipients you specify
+              <ul> <li> Send sales management an email alert when a sales rep qualifies a large deal </li> </ul>
+           </li>
+
+           <li> <b>Outbound Messages</b> — Send a secure, configurable API message (in XML format) to a designated listener
+             <ul> <li>Trigger an outbound API message to an external HR system to initiate the reimbursement process for an approved expense report </li> </ul>
+           </li>
+            <li> <b>Field Updates</b> — Update the value of a field on a record
+                 <ul> <li>Change the Owner field on a contract three days before it expires </li> </ul>
+           </li>
+         </ul>
+       </section>
+
+       <section>
+         <h4>Workflow Rule Components</h4>
+         <ul style="font-size:30px;">
+           <li> <b>Criteria</b> that cause the workflow rule to run </li>
+            <li><b>Immediate actions</b> that execute when a record matches the criteria<br/>
+               For example: Salesforce can automatically send an email that notifies the account team when a new high-value opportunity is created
+            </li>
+            <li> <b>Time-dependent actions</b> that queue when a record matches the criteria, and execute according to time triggers<br/>
+               For example: Salesforce can automatically send an email reminder to the account team if a high-value opportunity is still open ten days before the close date
+            </li>
+         </ul>
+       </section>
+
+       <section>
+         <h4 style="font-size:30px;">Workflow Field Update  Simple - Use Case </h4>
+         <div class="row">
+           <div class="col-lg-6">
+             <img style="border:0px; border-radius:10px;" src="img/flow/wf-fu-demo-1.png" alt="">
+
+           </div>
+           <div class="col-lg-6">
+             <img style="border:0px; border-radius:10px;" src="img/flow/wf-fu-demo-2.png" alt="">
+
+           </div>
+
+         </div>
+       </section>
+
+
+       <section>
+         <h4 style="font-size:30px;">Workflow Field Update  Simple - Use Case -  Action </h4>
+         <div class="row">
+           <div class="col-lg-12">
+             <img style="border:0px; border-radius:10px;" src="img/flow/wf-fu-action-1-.png" alt="">
+
+           </div>
+         </div>
+       </section>
+
+
+
+       <section>
+         <h4 style="font-size:30px;">Workflow Field Update  Simple - Use Case - Rule with Action </h4>
+         <div class="row">
+           <div class="col-lg-6">
+             <img style="border:0px; border-radius:10px;" src="img/flow/wf-rule-action-1.png" alt="">
+
+           </div>
+           <div class="col-lg-6">
+              <img style="border:0px; border-radius:10px;" src="img/flow/wf-rule-action-2.png" alt="">
+
+           </div>
+
+
+
+         </div>
+       </section>
+       <section>
+         <h4 style="font-size:30px;">Workflow Field Update  Simple - Use Case - Rule with Action </h4>
+         <div class="row">
+
+           <div class="col-lg-12">
+              <img style="border:0px; border-radius:10px;" src="img/flow/wf-rule-action-3.png" alt="">
+
+           </div>
+
+
+         </div>
+       </section>
+
+       <section>
+         <h4 style="font-size:30px;">Workflow Field Update  Simple - Use Case - Rule with Action contd. </h4>
+         <div class="row">
+
+           <div class="col-lg-12">
+              <img style="border:0px; border-radius:10px;" src="img/flow/wf-rule-action-assigned-1.png" alt="">
+           </div>
+
+
+         </div>
+       </section>
+
+
+      <section>
+        <h4 style="font-size:30px;">Workflow Field Update  Simple - Use Case - Logs </h4>
+        <div class="row">
+
+          <div class="col-lg-12">
+             <img style="border:0px; border-radius:10px;" src="img/flow/wf-fu-logs-2.png" alt="">
+          </div>
+
+
+        </div>
+      </section>
+
+
+
+
+       <section>
          <h4>Resources</h4>
          <ul style="font-size:30px;">
            <li>
@@ -356,5 +473,3 @@ trigger testTriggerOrder on Account (before update) {
 </body>
 
 </html>
-
- 
