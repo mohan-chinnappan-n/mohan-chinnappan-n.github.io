@@ -433,10 +433,20 @@
          CronExpression, EndTime,
          Id
       FROM CronTrigger
-
             </code>
-          </pre>
-        </section>
+  </pre>
+
+  <pre style="font-size:20px;">
+            <code>
+SELECT State,Id
+       TimeZoneSidKey, TimesTriggered,
+       NextFireTime, PreviousFireTime, StartTime,
+       CronExpression, EndTime,
+    FROM CronTrigger
+     WHERE CronJobDetail.Name = 'HelloWorldJob'
+   </code>
+ </pre>
+</section>
 
 
 
