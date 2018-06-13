@@ -369,6 +369,68 @@
     </section>
 
     <section>
+      <h4>Querying asyncApexJob</h4>
+      <img style="border:0px;border-radius:10px;padding:10px;" src="img/async-apex-query-1.png"  alt="">
+
+    </section>
+
+    <section>
+      <h4>Querying cronTrigger - contd.</h4>
+      <pre style="font-size:20px;">
+        <code>
+  SELECT JobType,Status,
+         Id, MethodName,
+         CreatedDate, CompletedDate,
+         ExtendedStatus
+    FROM asyncApexJob
+
+        </code>
+      </pre>
+    </section>
+
+
+
+        <section>
+          <h4 style="font-size:30px;">cronTrigger</h4>
+          <div class="row">
+            <div class="col-lg-10">
+              <img style="border:0px;border-radius:10px;padding:10px;" src="img/cronTrigger-1.png" height="500" alt="">
+            </div>
+           <div class="col-lg-2">
+             <ul style="font-size:20px;">
+               <li>
+                 <a style="font-size:30px;" target="_blank" href="csv-viewer.html?f=cronTrigger"> cronTrigger </a>
+               </li>
+             </ul>
+           </div>
+          </div>
+        </section>
+
+
+        <section>
+          <h4>Querying cronTrigger</h4>
+          <img style="border:0px;border-radius:10px;padding:10px;" src="img/cronTrigger-qurery-1.png" height="500" alt="">
+
+        </section>
+
+        <section>
+          <h4>Querying cronTrigger - contd.</h4>
+          <pre style="font-size:20px;">
+            <code>
+  SELECT CronJobDetail.Name, State,
+         TimeZoneSidKey, TimesTriggered,
+         NextFireTime, PreviousFireTime, StartTime,
+         CronExpression, EndTime,
+         Id
+      FROM CronTrigger
+
+            </code>
+          </pre>
+        </section>
+
+
+
+    <section>
       <h4 style="font-size:30px;">EventLogFile</h4>
       <div class="row">
         <div class="col-lg-8">
