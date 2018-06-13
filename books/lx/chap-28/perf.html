@@ -799,14 +799,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="performance-tips">Performance tips</h2>
+                                <h2 id="performance-tips">Performance Tips</h2>
 <h3 id="storable-actions--using-actionsetstorable">Storable Actions : Using action.setStorable();</h3>
 <ul>
 <li><p>Marks the actions as storable to quickly show cached data from client-side storage without waiting for a server trip.</p>
 </li>
-<li><p>refreshAge: 30 secs</p>
+<li><p><code>refreshAge</code>: <strong>30 secs</strong></p>
 </li>
-<li><p>expirationAge: 900 secs = 15 min.</p>
+<li><p><code>expirationAge</code>: <strong>900 secs = 15 min.</strong></p>
 </li>
 </ul>
 <pre><code class="lang-js">
@@ -824,11 +824,59 @@ action.setCallback(<span class="hljs-keyword">this</span>, <span class="hljs-fun
 
 $A.enqueueAction(action);
 </code></pre>
+<style>
+
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 500px;
+  height: 40px;
+  color:gray;
+}
+@-webkit-keyframes animate-stripes {
+   100% { background-position: -100px 0px; }
+}
+
+@keyframes animate-stripes {
+   100% { background-position: -100px 0px; }
+}
+
+progress[value]::-webkit-progress-value {
+  background-image:
+       -webkit-linear-gradient(-45deg, 
+                               transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                               rgba(0,0, 0, .1) 66%, transparent 66%),
+       -webkit-linear-gradient(top, 
+                               rgba(255, 255, 255, .25), 
+                               rgba(0, 0, 0, .25)),
+       -webkit-linear-gradient(left, #09c, #f44);
+
+    border-radius: 2px; 
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+progress {
+  text-align: left;
+  font-size:10px;
+  height:100px;
+}
+progress:after {
+  content: 'cache age: ' attr(value) ' secs';
+}
+</style>
+
+<progress value="901" max="900"></progress>
+
+
+
 <p><img src="img/action-setStorable-0.gif" alt="action.setStorable-1"></p>
-<hr>
+<progress value="20" max="900"></progress>
+
 
 <p><img src="img/action-setStorable-2.gif" alt="action.setStorable-2"></p>
-<hr>
+<progress value="35" max="900"></progress>
 
 <p><img src="img/action-setStorable-3.gif" alt="action.setStorable-2"></p>
 <h3 id="notes">Notes</h3>
@@ -844,17 +892,598 @@ $A.enqueueAction(action);
 <li><p>Keys used in determining an identical action:</p>
 <ul>
 <li>Apex controller name</li>
-<li>Method name (@AuraEnabled)</li>
+<li>Method name (<code>@AuraEnabled</code>)</li>
 <li>Method parameter values (method signature and parameter values)</li>
 </ul>
 </li>
 </ol>
+<h2 id="lightning-data-services-lds-forcerecorddata">Lightning Data Services (LDS): <code>force:recordData</code></h2>
+<p>Provides well-connected Components</p>
+<ul>
+<li><p>Component A asks LDS:  <code>[Contact.id, Contact.Name, Contact.Phone]</code></p>
+<ul>
+<li>LDS gets that data from the Server and <strong>Caches</strong> it</li>
+</ul>
+</li>
+<li><p>Component B asks LDS:  <code>[Contact.id, Contact.Name, Contact.Phone]</code>  </p>
+<ul>
+<li>LDS gets that data <strong>from the Cache</strong></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Component C asks LDS:  <code>[Contact.id, Contact.Name, Contact.Phone, Contact.MobilePhone]</code>  <ul>
+<li>LDS gets that data from the Cache and fetches the delta - extra field <code>Contact.MobilePhone</code> and <strong>Caches</strong> it</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/lds-1.gif" alt="action.setStorable-1"></p>
+<h3 id="component-a-markup">Component A Markup</h3>
+<pre><code class="lang-xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> <span class="hljs-attr">implements</span>=<span class="hljs-string">&quot;force:hasRecordId, flexipage:availableForAllPageTypes&quot;</span> <span class="hljs-attr">access</span>=<span class="hljs-string">&quot;global&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;recordId&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Id&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;contact&quot;</span>  <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;MyContact__c&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">force:recordData</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;dataService&quot;</span>
+            <span class="hljs-attr">recordId</span>=<span class="hljs-string">&quot;{!v.recordId}&quot;</span>
+            <span class="hljs-attr">targetFields</span>=<span class="hljs-string">&quot;{!v.contact}&quot;</span>
+            <span class="hljs-attr">fields</span>=<span class="hljs-string">&quot;[&apos;Id, &apos;Name&apos;, &apos;Phone__c&apos;]&quot;</span>
+
+    /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<h3 id="component-b-markup">Component B Markup</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> <span class="hljs-attr">implements</span>=<span class="hljs-string">&quot;force:hasRecordId, flexipage:availableForAllPageTypes&quot;</span> <span class="hljs-attr">access</span>=<span class="hljs-string">&quot;global&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;recordId&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Id&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;contact&quot;</span>  <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;MyContact__c&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">force:recordData</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;dataService&quot;</span>
+            <span class="hljs-attr">recordId</span>=<span class="hljs-string">&quot;{!v.recordId}&quot;</span>
+            <span class="hljs-attr">targetFields</span>=<span class="hljs-string">&quot;{!v.contact}&quot;</span>
+            <span class="hljs-attr">fields</span>=<span class="hljs-string">&quot;[&apos;Id, &apos;Name&apos;, &apos;Phone__c&apos;]&quot;</span>
+
+    /&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- other stuff --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<h3 id="component-c-markup">Component C Markup</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> <span class="hljs-attr">implements</span>=<span class="hljs-string">&quot;force:hasRecordId, flexipage:availableForAllPageTypes&quot;</span> <span class="hljs-attr">access</span>=<span class="hljs-string">&quot;global&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;recordId&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Id&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;contact&quot;</span>  <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;MyContact__c&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">force:recordData</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;dataService&quot;</span>
+            <span class="hljs-attr">recordId</span>=<span class="hljs-string">&quot;{!v.recordId}&quot;</span>
+            <span class="hljs-attr">targetFields</span>=<span class="hljs-string">&quot;{!v.contact}&quot;</span>
+            <span class="hljs-attr">fields</span>=<span class="hljs-string">&quot;[&apos;Id, &apos;Name&apos;, &apos;Phone__c&apos;, &apos;Mobile_Phone__c&apos;]&quot;</span>
+
+    /&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- other stuff --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<h3 id="data-binding">Data Binding</h3>
+<h3 id="component-with-bound-expression---2-way-data-binding">Component with Bound Expression - 2-way data-binding</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> <span class="hljs-attr">controller</span>=<span class="hljs-string">&quot;ContactCtrl&quot;</span> <span class="hljs-attr">implements</span>=<span class="hljs-string">&quot;force:hasRecordId, flexipage:availableForAllPageTypes&quot;</span> 
+                <span class="hljs-attr">access</span>=<span class="hljs-string">&quot;global&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;contacts&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Contact[]&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:iteration</span> <span class="hljs-attr">items</span>=<span class="hljs-string">&quot;{!v.contacts}&quot;</span> <span class="hljs-attr">var</span>=<span class="hljs-string">&quot;contact&quot;</span>&gt;</span>
+        <span class="hljs-comment">&lt;!--  <span class="hljs-doctag">Note:</span> {!contact.firstName} : this is 2-way data-binding to var contact--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;{!contact.firstName}&quot;</span> /&gt;</span>
+        <span class="hljs-comment">&lt;!--
+          - if user changes this value in the input element, the model (var contact) changes automatically 
+
+          - At framework level we need to setup 2 event-listeners - this is in a loop here, 
+            so 2 event-listeners per iterations...
+
+          - this is expensive!
+
+            // handle Model to View change
+            1. contact.addEventListener(&quot;change&quot;, function(event) {
+                 // put into in VIEW - input element
+                 inputElement.value = contact.firstName;
+               }
+            // handle View to Model change 
+            2. inputElment.addEventListener(&quot;change&quot;, function(event) {
+                 // update the model from value from the input element
+                 contact.firstName = inputElement.value;
+               }
+
+        --&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">aura:iteration</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<h3 id="component-with-unbound-expression---1-time-data-binding">Component with unBound Expression - 1-TIME data-binding</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> <span class="hljs-attr">controller</span>=<span class="hljs-string">&quot;ContactCtrl&quot;</span> <span class="hljs-attr">implements</span>=<span class="hljs-string">&quot;force:hasRecordId, flexipage:availableForAllPageTypes&quot;</span> 
+                <span class="hljs-attr">access</span>=<span class="hljs-string">&quot;global&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;contacts&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Contact[]&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:iteration</span> <span class="hljs-attr">items</span>=<span class="hljs-string">&quot;{!v.contacts}&quot;</span> <span class="hljs-attr">var</span>=<span class="hljs-string">&quot;contact&quot;</span>&gt;</span>
+        <span class="hljs-comment">&lt;!--  <span class="hljs-doctag">Note:</span> {#contact.firstName} : this is 1-TIME data-binding to var contact--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span> {#contact.firstName} <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-comment">&lt;!--
+         - this is 1-TIME data-binding
+         - cheap! 
+
+        --&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">aura:iteration</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<p><strong>Note</strong>:</p>
+<p>Don&#x2019;t use a component&#x2019;s <code>init</code> event and client-side controller to initialize an attribute that is used in an unbound expression.</p>
+<p>The attribute will not be initialized. Use a bound expression instead. </p>
+<h2 id="modular-code">Modular Code</h2>
+<h3 id="share-code-and-data-between-components">Share Code and Data Between Components</h3>
+<h3 id="js-library">JS library</h3>
+<h3 id="write-simple--simple-counter-js-library">Write simple  simple counter JS library</h3>
+<pre><code class="lang-js"><span class="hljs-comment">// simple Counter lib</span>
+
+<span class="hljs-comment">// singleton</span>
+<span class="hljs-built_in">window</span>.counter = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+   <span class="hljs-keyword">var</span> value = <span class="hljs-number">0</span>;
+   <span class="hljs-keyword">return</span> { <span class="hljs-comment">// returns 2 functions</span>
+
+       inc: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> ++value;
+       },
+       dec: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> --value;
+       },
+       getValue : <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+           <span class="hljs-keyword">return</span> value;
+       }
+   }
+} () );
+
+<span class="hljs-comment">// non-singleton</span>
+<span class="hljs-built_in">window</span>.counter2 = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> value = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">return</span> {
+        inc : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> ++value; },
+        dec : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> --value; },
+        getValue: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span> value; }
+    };
+
+ };
+</code></pre>
+<p><img src="img/lex-js-lib-1.gif" alt="lex-js-lib-1"></p>
+<h3 id="counter-component-using-this-simple-js-library">Counter Component using this Simple JS library</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span>  <span class="hljs-attr">implements</span>=<span class="hljs-string">&quot;flexipage:availableForAllPageTypes&quot;</span> 
+                <span class="hljs-attr">access</span>=<span class="hljs-string">&quot;global&quot;</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- require this js lib --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ltng:require</span> <span class="hljs-attr">scripts</span>=<span class="hljs-string">&quot;{!$Resource.gw19__Counter}&quot;</span> /&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- counter value --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;value&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Integer&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;0&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;help&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;String&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;Help!&quot;</span> /&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- component intialization 
+    &lt;aura:handler name=&quot;init&quot; value=&quot;{!this}&quot; action=&quot;{!c.doInit}&quot; /&gt;
+    --&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Value: {!v.value}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">&apos;slds-button slds-button_outline-brand&apos;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.getValue}&quot;</span>&gt;</span> Get Value <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">&apos;slds-button slds-button_brand&apos;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.inc}&quot;</span>&gt;</span> Increment Value <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">&apos;slds-button slds-button_destructive&apos;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.dec}&quot;</span>&gt;</span> Decrement Value <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:button</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">&apos;slds-button slds-button_success&apos;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.showHelp}&quot;</span>&gt;</span> Help <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span>{!v.help}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<p><strong> Component Controller </strong></p>
+<pre><code class="lang-js">
+({
+    doInit : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+         component.set(<span class="hljs-string">&apos;v.value&apos;</span>, <span class="hljs-number">0</span>);
+    },
+    getValue : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-keyword">var</span> value = <span class="hljs-built_in">window</span>.counter.getValue();
+        component.set(<span class="hljs-string">&apos;v.value&apos;</span>, value);
+
+    },
+
+    inc : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-keyword">var</span> value = <span class="hljs-built_in">window</span>.counter.inc();
+        component.set(<span class="hljs-string">&apos;v.value&apos;</span>, value);
+    },
+
+    dec : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-keyword">var</span> value = <span class="hljs-built_in">window</span>.counter.dec();
+        component.set(<span class="hljs-string">&apos;v.value&apos;</span>, value);
+    },
+
+    showHelp : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-keyword">var</span> help = <span class="hljs-string">&quot;Here comes help content for this component...&quot;</span>;
+        component.set(<span class="hljs-string">&apos;v.help&apos;</span>, help);
+    },
+
+
+
+
+})
+</code></pre>
+<p><strong> Testing App </strong></p>
+<pre><code class="lang-xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">aura:application</span> <span class="hljs-attr">extends</span>=<span class="hljs-string">&quot;force:slds&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">gw19:Counter</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:application</span>&gt;</span>
+</code></pre>
+<p><strong> Testing App CSS </strong></p>
+<pre><code class="lang-css">
+<span class="hljs-selector-class">.THIS</span> {
+    <span class="hljs-attribute">padding</span>:<span class="hljs-number">10px</span>;
+    <span class="hljs-attribute">margin</span>:<span class="hljs-number">30px</span>;
+    <span class="hljs-attribute">border</span>:<span class="hljs-number">5px</span> solid steelblue;
+    <span class="hljs-attribute">border-radius</span>:<span class="hljs-number">10px</span>;
+}
+</code></pre>
+<p><strong>Demo with Aura App</strong></p>
+<p><img src="img/lex-js-lib-2.gif" alt="lex-js-lib-1"></p>
+<p><strong>Demo in Lightning Page built with App Builder</strong></p>
+<p><img src="img/lex-js-lib-3.gif" alt="lex-js-lib-1"></p>
+<h3 id="counter2-component-using-this-simple-js-library">Counter2 Component using this Simple JS library</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span>  <span class="hljs-attr">implements</span>=<span class="hljs-string">&quot;flexipage:availableForAllPageTypes&quot;</span> 
+                <span class="hljs-attr">access</span>=<span class="hljs-string">&quot;global&quot;</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- require this js lib  and call jsLoaded to create the window.counter2 object
+         so window.counter2 object is unique to this component instance - not a singleton
+
+    --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ltng:require</span> <span class="hljs-attr">scripts</span>=<span class="hljs-string">&quot;{!$Resource.gw19__Counter}&quot;</span>
+                  <span class="hljs-attr">afterScriptsLoaded</span>=<span class="hljs-string">&quot;{!c.jsLoaded}&quot;</span> /&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- counter value --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;value&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Integer&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;0&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;help&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;String&quot;</span> <span class="hljs-attr">default</span>=<span class="hljs-string">&quot;Help!&quot;</span> /&gt;</span>
+
+    <span class="hljs-comment">&lt;!-- component intialization 
+    &lt;aura:handler name=&quot;init&quot; value=&quot;{!this}&quot; action=&quot;{!c.doInit}&quot; /&gt;
+    --&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Value: {!v.value}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">&apos;slds-button slds-button_outline-brand&apos;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.getValue}&quot;</span>&gt;</span> Get Value <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">&apos;slds-button slds-button_brand&apos;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.inc}&quot;</span>&gt;</span> Increment Value <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">&apos;slds-button slds-button_destructive&apos;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.dec}&quot;</span>&gt;</span> Decrement Value <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:button</span>&gt;</span>
+
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:button</span>  <span class="hljs-attr">class</span>=<span class="hljs-string">&apos;slds-button slds-button_success&apos;</span> <span class="hljs-attr">onclick</span>=<span class="hljs-string">&quot;{!c.showHelp}&quot;</span>&gt;</span> Help <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:button</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">hr</span>/&gt;</span>{!v.help}<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<p><strong> Component Controller </strong></p>
+<pre><code class="lang-js">
+({
+    doInit : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+         component.set(<span class="hljs-string">&apos;v.value&apos;</span>, <span class="hljs-number">0</span>);
+    },
+
+    jsLoaded: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-comment">// here create a new object for window.counter2 and</span>
+        <span class="hljs-comment">//  store in component.counter object</span>
+        component.counter = <span class="hljs-keyword">new</span> <span class="hljs-built_in">window</span>.counter2();
+
+    },
+
+    getValue : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-keyword">var</span> value = component.counter.getValue();
+        component.set(<span class="hljs-string">&apos;v.value&apos;</span>, value);
+
+    },
+
+    inc : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-keyword">var</span> value = component.counter.inc();
+        component.set(<span class="hljs-string">&apos;v.value&apos;</span>, value);
+    },
+
+    dec : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-keyword">var</span> value = component.counter.dec();
+        component.set(<span class="hljs-string">&apos;v.value&apos;</span>, value);
+    },
+
+    showHelp : <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-keyword">var</span> help = <span class="hljs-string">&quot;Here comes help content for this component...&quot;</span>;
+        component.set(<span class="hljs-string">&apos;v.help&apos;</span>, help);
+    },
+
+
+
+
+})
+</code></pre>
+<p><strong>Demo in Lightning Page built with App Builder showing both singleton and non-singleton window.counter </strong></p>
+<p><img src="img/lex-js-lib-4.gif" alt="lex-js-lib-1"></p>
+<h3 id="non-visual-component---dataservice-components">Non-visual component - DataService components</h3>
+<pre><code class="lang-&lt;aura:method&gt;```">
+Use &lt;aura:method&gt; to define a method as part of a component&apos;s API. This enables you to directly call a method in a **component&#x2019;s client-side controller instead of firing and handling a component event**.
+
+ Using &lt;aura:method&gt; simplifies the code needed for a parent component to **call a method on a child component** that it contains.
+
+
+**AccountDataService component - has no UI - non-visual**
+
+```xml
+&lt;aura:component  controller=&quot;AccountCtrl&quot;&gt;
+
+  &lt;!-- this findAll method another component can invoke --&gt;
+   &lt;aura:method name=&quot;findAll&quot; action=&quot;{!c.getAccounts}&quot;&gt;
+      &lt;aura:attribute name=&quot;callback&quot; type=&quot;function&quot; /&gt;
+   &lt;/aura:method&gt;
+
+&lt;/aura:component&gt;
+</code></pre>
+<p><strong>Server-side controller AccountCtrl</strong></p>
+<pre><code class="lang-java">
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AccountCtrl</span> </span>{
+
+    <span class="hljs-meta">@AuraEnabled</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> List&lt;Account&gt; <span class="hljs-title">svrGetAllAccounts</span><span class="hljs-params">()</span></span>{
+        List&lt;Account&gt; accounts = [SELECT Name FROM Account];
+        <span class="hljs-keyword">return</span> accounts;  
+    }
+}
+</code></pre>
+<p><strong>AccountDataService component controller</strong></p>
+<pre><code class="lang-js">
+({
+   getAccounts : <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">component, event, helper</span>) </span>{
+       <span class="hljs-keyword">var</span> params = event.getParam(<span class="hljs-string">&quot;arguments&quot;</span>);
+       <span class="hljs-keyword">var</span> action = component.get(<span class="hljs-string">&quot;c.svrGetAllAccounts&quot;</span>);
+       action.setStorable();
+
+       action.setCallback (<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>)</span>{
+           <span class="hljs-keyword">if</span> (response.getState() === <span class="hljs-string">&apos;SUCCESS&apos;</span>) {
+               params.callback(<span class="hljs-literal">null</span>, response.getReturnValue() );
+           } <span class="hljs-keyword">else</span> {
+               params.callback(response.getError() );
+           }
+       });
+
+       $A.enqueueAction(action);
+   }
+
+})
+</code></pre>
+<p><strong>AccountList component using AccountDataService</strong></p>
+<pre><code class="lang-xml">
+<span class="hljs-comment">&lt;!-- has no controller but it uses AccountDataService
+
+   <span class="hljs-doctag">NOTE:</span> Generally Component can have only one Service-side controller
+
+   This way a component can have make use many DataServices
+
+ --&gt;</span>
+<span class="hljs-comment">&lt;!-- has no controller but it uses AccountDataService
+
+   <span class="hljs-doctag">NOTE:</span> Generally Component can have only one Service-side controller
+
+   This way a component can have make use many DataServices
+
+ --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span>  <span class="hljs-attr">implements</span>=<span class="hljs-string">&quot;flexipage:availableForAllPageTypes&quot;</span> 
+                <span class="hljs-attr">access</span>=<span class="hljs-string">&quot;global&quot;</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;accounts&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Account[]&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:handler</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;init&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;{!this}&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;{!c.doInit}&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">gw19:AccountDataService</span> <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;ads&quot;</span> /&gt;</span>
+    <span class="hljs-comment">&lt;!--
+     &lt;gw19:ContactDataService aura:id=&quot;cds&quot; /&gt;
+     --&gt;</span>
+    <span class="hljs-comment">&lt;!--
+     <span class="hljs-doctag">NOTE:</span> Generally Component can have only one Service-side controller
+
+     This way a component can have make use many DataServices
+    --&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">aura:iteration</span> <span class="hljs-attr">items</span>=<span class="hljs-string">&quot;{!v.accounts}&quot;</span> <span class="hljs-attr">var</span>=<span class="hljs-string">&quot;account&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>{!account.Name}<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">aura:iteration</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<p><strong>Controller for AccountList Component</strong></p>
+<pre><code class="lang-js">
+({
+
+    doInit : <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">component, event, helper</span>) </span>{
+        <span class="hljs-keyword">var</span> ads = component.find(<span class="hljs-string">&quot;ads&quot;</span>); <span class="hljs-comment">// get the AccountDataService</span>
+        <span class="hljs-comment">// call findAll method on  AccountDataService</span>
+        ads.findAll($A.getCallback( <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">error, data</span>) </span>{
+          component.set(<span class="hljs-string">&apos;v.accounts&apos;</span>, data);  
+        }));
+    }
+})
+</code></pre>
+<p><strong>TestApp</strong></p>
+<pre><code class="lang-xml">
+<span class="hljs-tag">&lt;<span class="hljs-name">aura:application</span> <span class="hljs-attr">extends</span>=<span class="hljs-string">&quot;force:slds&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">gw19:Counter</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">gw19:Counter2</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">gw19:AccountList</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:application</span>&gt;</span>
+</code></pre>
+<h2 id="events">Events</h2>
+<p><img src="img/lex-events-1.png" alt="Events type selection"></p>
+<ul>
+<li>Application-Events are broadcast time : Costly</li>
+<li><p>If Component-B is included in Component-A  (have a parent-child relationship):</p>
+<ul>
+<li>Component-B was to say something to Component-A - Use Component-Event, not Application-Event</li>
+</ul>
+</li>
+<li><p>If Component-A and Component-B do not have a parent-child relationship:</p>
+<ul>
+<li>Component-B was to say something to Component-A - Use Application-Event</li>
+<li>This is typical App-Builder use case</li>
+</ul>
+</li>
+<li><p>If you using Application-level outside the App-Builder use-case, think twice and consider Component-Events</p>
+</li>
+<li><p>If two systems: System-A and System-B want to communicate each other, user Platform Events</p>
+</li>
+</ul>
+<p><img src="img/lex-dataservice-1.png" alt="DataService demo"></p>
+<p><hr>
+<img src="img/lex-dataservice-2.png" alt="DataService demo"></p>
+<h3 id="system-to-system-event---platform-event-and-component-event-example">System to System event - platform event and Component-Event Example</h3>
+<p><strong>Subscriber component</strong></p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span>  <span class="hljs-attr">implements</span>=<span class="hljs-string">&quot;flexipage:availableForAllPageTypes,flexipage:availableForRecordHome&quot;</span> 
+                 <span class="hljs-attr">controller</span>=<span class="hljs-string">&quot;SessionCtrl&quot;</span>
+                <span class="hljs-attr">access</span>=<span class="hljs-string">&quot;global&quot;</span>&gt;</span>
+
+<span class="hljs-comment">&lt;!--
+
+SessionController provides svrGetSessionId()
+--&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;eventName&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;String&quot;</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">ltng:require</span> <span class="hljs-attr">scripts</span>=<span class="hljs-string">&quot;{!$Resource.cometd + &apos;/cometd.js&apos; } &quot;</span> 
+       <span class="hljs-attr">afterScriptsLoaded</span>=<span class="hljs-string">&quot;{!c.onJSLoaded}&quot;</span>
+
+/&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">aura:registerEvent</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;onmessage&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;gw19:MessageEvent&quot;</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<p><strong>Subscriber component controller</strong></p>
+<pre><code class="lang-js">
+({
+   onJSLoaded: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">component, event, helper</span>) </span>{
+       <span class="hljs-keyword">var</span> action = component.get(<span class="hljs-string">&quot;c.svrGetSessionId&quot;</span>);
+
+       action.setCallback(<span class="hljs-keyword">this</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{
+           <span class="hljs-comment">// get sessionId</span>
+           <span class="hljs-keyword">var</span> sessionId = response.getReturnValue();
+           <span class="hljs-comment">// get the cometd object</span>
+           <span class="hljs-keyword">var</span> cometd = <span class="hljs-keyword">new</span> <span class="hljs-built_in">window</span>.org.cometd.CometD();
+           <span class="hljs-comment">// now configure the cometd object</span>
+           cometd.configure({
+                url: <span class="hljs-built_in">window</span>.location.protocol + <span class="hljs-string">&apos;//&apos;</span> +
+                     <span class="hljs-built_in">window</span>.location.hostname +
+                     <span class="hljs-string">&apos;/cometd/41.0/&apos;</span>,
+                requestHeader: { Authorization: <span class="hljs-string">&apos;OAuth &apos;</span> + sessionId },
+                appendMessageTypeToURL : <span class="hljs-literal">false</span>
+
+           });
+
+           <span class="hljs-comment">// comet handshake</span>
+           cometd.handshake($A.getCalback (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">status</span>)</span>{
+               <span class="hljs-keyword">if</span> (status.successful) {
+                   <span class="hljs-keyword">var</span> eventName = component.get(<span class="hljs-string">&quot;v.eventName&quot;</span>);
+                   <span class="hljs-comment">// eventName will Mix_Approved__e here...</span>
+                   cometd.subscribe(<span class="hljs-string">&apos;/event/&apos;</span> + eventName , $A.getCallback(
+                       <span class="hljs-comment">// get the message from the Platform Event (Mix_Approved__e)</span>
+                       <span class="hljs-comment">//   and fire the Component-event (onmessage)</span>
+                       <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"> message</span>) </span>{
+                           <span class="hljs-built_in">console</span>.log(message);
+                           <span class="hljs-keyword">var</span> messageEvent = component.getEvent(<span class="hljs-string">&quot;onmessage&quot;</span>);
+                           messageEvent.setParam(<span class="hljs-string">&quot;message&quot;</span>, message);
+                           <span class="hljs-comment">//fire: component-event the MixPath component listens to this component-event</span>
+                           <span class="hljs-comment">//     after receiving this event it changes the step in the Path</span>
+                           messageEvent.fire();
+                       }
+                   ) 
+
+                   );
+               }
+
+           }));
+
+
+
+       }); <span class="hljs-comment">// action.setCallback...</span>
+
+       $A.enqueueAction(action);
+
+
+
+   },
+
+})
+</code></pre>
+<p><strong>SessionCtrl - server-side controller</strong></p>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SessionCtrl</span> </span>{
+    <span class="hljs-meta">@AuraEnabled</span>
+    <span class="hljs-comment">// exposes this method to Lightning component controller</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">svrGetSessionId</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-comment">// uses std UserInfo utility class to get sessionId</span>
+        <span class="hljs-keyword">return</span> UserInfo.getSessionId();
+    }
+}
+</code></pre>
+<p><strong>MixPath Component</strong></p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span>  <span class="hljs-attr">implements</span>=<span class="hljs-string">&quot;flexipage:availableForAllPageTypes,flexipage:availableForRecordHome&quot;</span> 
+                <span class="hljs-attr">access</span>=<span class="hljs-string">&quot;global&quot;</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;recordId&quot;</span>  <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Id&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;record&quot;</span>  <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Object&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;steps&quot;</span>  <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;String[]&quot;</span> <span class="hljs-attr">default</span> =<span class="hljs-string">&quot;[&apos;Draft&apos;, &apos;Submitted to Mfr&apos;, &apos;Approved by Mfr&apos;, &apos;Ordered&apos;]&quot;</span> /&gt;</span>
+
+   <span class="hljs-comment">&lt;!-- The Subscriber will translate this Platform event(Mix_Approved__e) to Component-Event (onMixApproved)
+
+   --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">gw19:Subscriber</span> <span class="hljs-attr">eventName</span>=<span class="hljs-string">&quot;Mix_Approved__e&quot;</span> <span class="hljs-attr">onmessage</span>=<span class="hljs-string">&quot;{!c.onMixApproved}&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">force:recordData</span>
+          <span class="hljs-attr">aura:id</span>=<span class="hljs-string">&quot;mixRecord&quot;</span>
+          <span class="hljs-attr">recordId</span>=<span class="hljs-string">&quot;{!v.recordId}&quot;</span>
+          <span class="hljs-attr">targetFields</span>=<span class="hljs-string">&quot;{!v.record}&quot;</span>
+          <span class="hljs-attr">fields</span>=<span class="hljs-string">&quot;[&apos;Id&apos;, &apos;Status__c&apos;]&quot;</span>
+
+          <span class="hljs-attr">recordUpdated</span>=<span class="hljs-string">&quot;{!c.onRecordUpdated}&quot;</span>
+     /&gt;</span>
+
+     <span class="hljs-tag">&lt;<span class="hljs-name">gw:Path</span> <span class="hljs-attr">steps</span>=<span class="hljs-string">&quot;{!v.steps}&quot;</span> <span class="hljs-attr">currentStep</span>=<span class="hljs-string">&quot;{!v.record.Status__c}&quot;</span>
+                <span class="hljs-attr">stepChange</span>=<span class="hljs-string">&quot;{!c.onStepChange}&quot;</span>
+
+     /&gt;</span>
+
+
+
+
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
+</code></pre>
+<p><strong>Demo of using Platform Events and Component Events</strong></p>
+<ul>
+<li>Subscribe to the event created by the Manufacturing event - Platform Event</li>
+<li>On the receipt that Platform Event, a component-event is fired</li>
+</ul>
+<p><img src="img/lex-pe-1.gif" alt="PE demo"></p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><p><a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/expr_data_binding.htm" target="_blank">Data Binding Between Components
+</a></p>
+</li>
+<li><p><a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/js_libs_platform.htm" target="_blank">Using External JavaScript Libraries</a></p>
+</li>
+<li><p><a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/ref_tag_method.htm" target="_blank">aura:method</a></p>
+</li>
+<li><p><a href="https://mohan-chinnappan-n.github.io/sfdc/pevents.html#/26" target="_blank">Subscribe event message with Cometd example</a></p>
+</li>
+</ul>
 <h2 id="videos">Videos</h2>
 <h3 id="advanced-lightning-components">Advanced Lightning Components</h3>
  <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/G931jWBnxHU?autoplay=0 &amp;fs=1" frameborder="0"></iframe>
-
-
-
                                 
                                 </section>
                             
@@ -897,7 +1526,7 @@ $A.enqueueAction(action);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Performance Tips","level":"4.1","depth":1,"next":{"title":"Security","level":"5.1","depth":1,"path":"chap-12/body.md","ref":"chap-12/body.md","articles":[{"title":"LockerService","level":"5.1.1","depth":2,"path":"chap-12/LockerService.md","ref":"chap-12/LockerService.md","articles":[]},{"title":"Lightning Container Component","level":"5.1.2","depth":2,"path":"chap-12/lx-container.md","ref":"chap-12/lx-container.md","articles":[]},{"title":"window.postMessage","level":"5.1.3","depth":2,"path":"chap-12/postMessage.md","ref":"chap-12/postMessage.md","articles":[]}]},"previous":{"title":"Lightning Data Service","level":"3.2","depth":1,"path":"chap-5/body.md","ref":"chap-5/body.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-28/perf.md","mtime":"2018-06-13T01:11:42.176Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-13T00:19:44.532Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Performance Tips","level":"4.1","depth":1,"next":{"title":"Security","level":"5.1","depth":1,"path":"chap-12/body.md","ref":"chap-12/body.md","articles":[{"title":"LockerService","level":"5.1.1","depth":2,"path":"chap-12/LockerService.md","ref":"chap-12/LockerService.md","articles":[]},{"title":"Lightning Container Component","level":"5.1.2","depth":2,"path":"chap-12/lx-container.md","ref":"chap-12/lx-container.md","articles":[]},{"title":"window.postMessage","level":"5.1.3","depth":2,"path":"chap-12/postMessage.md","ref":"chap-12/postMessage.md","articles":[]}]},"previous":{"title":"Lightning Data Service","level":"3.2","depth":1,"path":"chap-5/body.md","ref":"chap-5/body.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-28/perf.md","mtime":"2018-06-13T06:35:31.176Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-13T00:19:44.532Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
