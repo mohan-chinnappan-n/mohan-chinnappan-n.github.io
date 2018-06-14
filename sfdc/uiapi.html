@@ -215,7 +215,16 @@ $ bash run_curl.sh query/?q=SELECT+Id+FROM+Account+LIMIT+1  | jq
                User Interface API Developer Guide
              </a>
            </li>
-           
+         </ul>
+         <pre>
+<code>
+# what is the content of the bash script run_curl.sh?
+$ cat run_curl.sh
+export SID='SID_HERE'
+export VER='v42.0'
+curl -H "Authorization: Bearer $SID" https:/INSTANCE_NAME/services/data/$VER/$1
+</code>
+</pre>
        </section>
 
 
