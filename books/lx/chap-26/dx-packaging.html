@@ -963,6 +963,7 @@ Examples:
    $ sfdx force:mdapi:convert -r &lt;path to <span class="hljs-built_in">source</span>&gt;
    $ sfdx force:mdapi:convert -r &lt;path to <span class="hljs-built_in">source</span>&gt; <span class="hljs-_">-d</span> &lt;path to outputdir&gt;
 </code></pre>
+<p><img src="img/pack2-install-before-1.png" alt="org with no installed package"></p>
 <p><img src="img/pack2-from-mdapi-1.png" alt="mdap to dx format"></p>
 <h4 id="create--a-second-generation-package-package2">Create  a second-generation package (package2)</h4>
 <pre><code class="lang-bash">
@@ -1059,6 +1060,12 @@ To list package version creation requests <span class="hljs-keyword">in</span> t
 Examples:
    $ sfdx force:package2:version:create <span class="hljs-_">-d</span> common
    $ sfdx force:package2:version:create -i 0Ho... <span class="hljs-_">-d</span> common
+
+
+$ sfdx force:package2:version:create <span class="hljs-_">-d</span> force-app
+
+<span class="hljs-comment">## This is async, will queue the request and provide the command to run to get the status</span>
+<span class="hljs-comment">## The package is created from the source in the local folder in the file system</span>
 </code></pre>
 <h2 id="app">App</h2>
 <ul>
@@ -1106,6 +1113,52 @@ To retrieve a package with a space <span class="hljs-keyword">in</span> its name
 Example:
    $ sfdx force:mdapi:retrieve <span class="hljs-_">-s</span> -r ./mdapipkg -u &lt;username&gt; -p <span class="hljs-string">&apos;My Package&apos;</span>
 </code></pre>
+<h4 id="install-a-package-in-the-target-org">Install a package in the target org</h4>
+<pre><code class="lang-bash">
+
+$ sfdx force:package:install -h
+Usage: sfdx force:package:install [-i &lt;id&gt;] [-w &lt;minutes&gt;] [-k &lt;string&gt;] [-p &lt;minutes&gt;] [-r] [--package &lt;string&gt;] [-u &lt;string&gt;] [--json] [--loglevel &lt;string&gt;]
+
+install a package <span class="hljs-keyword">in</span> the target org
+
+Flags:
+ -i, --id ID                            WARNING: The flag <span class="hljs-string">&quot;id&quot;</span> has been
+                                        deprecated and will be removed <span class="hljs-keyword">in</span>
+                                        v43.01.0 or later. Use <span class="hljs-string">&quot;--package&quot;</span>
+                                        instead.
+ -k, --installationkey INSTALLATIONKEY  installation key <span class="hljs-keyword">for</span> key-protected
+                                        package (default: null)
+ -r, --noprompt                         allow Remote Site Settings and Content
+                                        Security Policy websites to send or
+                                        receive data without confirmation
+ -p, --publishwait PUBLISHWAIT          number of minutes to <span class="hljs-built_in">wait</span> <span class="hljs-keyword">for</span> subscriber
+                                        package version ID to become available
+                                        <span class="hljs-keyword">in</span> the target org WARNING: The short
+                                        name <span class="hljs-string">&quot;-p&quot;</span> has been deprecated and will
+                                        be removed <span class="hljs-keyword">in</span> v44.0 or later. Use
+                                        <span class="hljs-string">&quot;--publishwait&quot;</span> instead.
+ -u, --targetusername TARGETUSERNAME    username or <span class="hljs-built_in">alias</span> <span class="hljs-keyword">for</span> the target org;
+                                        overrides default target org
+ -w, --wait WAIT                        number of minutes to <span class="hljs-built_in">wait</span> <span class="hljs-keyword">for</span>
+                                        installation status
+ --json                                 format output as json
+ --loglevel LOGLEVEL                    logging level <span class="hljs-keyword">for</span> this <span class="hljs-built_in">command</span>
+                                        invocation
+                                        (error*,trace,debug,info,warn,fatal)
+ --package PACKAGE                      ID (starts with 04t) or <span class="hljs-built_in">alias</span> of the
+                                        package version to install
+
+Supply the ID of the package version you want to install. The package installs <span class="hljs-keyword">in</span> your default target org unless you supply the username <span class="hljs-keyword">for</span> a different target org.
+
+Examples:
+   $ sfdx force:package:install --package 04t... -u me@example.com
+   $ sfdx force:package:install --package awesome_package_<span class="hljs-built_in">alias</span>
+   $ sfdx force:package:install --package <span class="hljs-string">&quot;Awesome Package Alias&quot;</span>
+</code></pre>
+<h3 id="org-with-newly-installed-package">Org with newly installed package</h3>
+<p><img src="img/pack2-install-after-1.png" alt="org with newly installed package"></p>
+<h3 id="exploring-the-installed-package">Exploring the installed package</h3>
+<p><img src="img/pack2-installed-pckage-explore-1.gif" alt="Exploring the installed package"></p>
 <ul>
 <li><p>Structure of sfdx-project.json file</p>
 </li>
@@ -1181,7 +1234,7 @@ No results found
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SFDX Packaging","level":"3.2","depth":1,"next":{"title":"SFDX DreamHouse App","level":"3.3","depth":1,"path":"chap-27/dh-app.md","ref":"chap-27/dh-app.md","articles":[]},"previous":{"title":"SFDX & Lightning Dev","level":"3.1","depth":1,"path":"chap-25/lex-dx.md","ref":"chap-25/lex-dx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-26/dx-packaging.md","mtime":"2018-06-14T19:12:33.272Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-13T13:24:48.107Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SFDX Packaging","level":"3.2","depth":1,"next":{"title":"SFDX DreamHouse App","level":"3.3","depth":1,"path":"chap-27/dh-app.md","ref":"chap-27/dh-app.md","articles":[]},"previous":{"title":"SFDX & Lightning Dev","level":"3.1","depth":1,"path":"chap-25/lex-dx.md","ref":"chap-25/lex-dx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-26/dx-packaging.md","mtime":"2018-06-14T19:39:44.628Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-13T13:24:48.107Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
