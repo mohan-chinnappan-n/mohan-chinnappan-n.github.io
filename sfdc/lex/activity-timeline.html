@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app" ng-controller="MainCtrl">
 
 <head>
   <meta charset="UTF-8">
@@ -7,6 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Activity Timeline</title>
   <link rel="stylesheet" href="slds261/assets/styles/salesforce-lightning-design-system.css">
+  <script src="../../js/angular.min.js"></script>
+
 </head>
 
 <body>
@@ -15,11 +17,40 @@
     <div class="slds-page-header">
       <div class="slds-media">
         <div class="slds-media__body">
-          <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="Activity Timeline">Activity  Timeline</h1>
+          <h1 class="slds-page-header__title slds-truncate slds-align-middle" title="{{appName}}">{{appName}}</h1>
         </div>
       </div>
     </div>
     <br/>
+
+      <ul class="slds-timeline" ng-show='true'>
+        <li ng-repeat="act in acts">
+            {{act.te}}
+            <div class="slds-timeline__item_expandable slds-timeline__item_task">
+                <span class="slds-assistive-text">Task</span>
+                <div class="slds-media">
+
+                  <div class="slds-media__figure">
+                  <button class="slds-button slds-button_icon" title="Toggle details for {{act.Subject}}"
+                             aria-controls="task-item-base" aria-expanded="false">
+
+
+                             <div class="slds-icon_container slds-icon-standard-task slds-timeline__icon" title="{{act.te}}">
+                               <svg class="slds-icon slds-icon_small">
+                                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    xlink:href="slds261/assets/icons/standard-sprite/svg/symbols.svg#{{act.te}}" />
+                                </svg>
+                             </div>
+
+
+                     {{act.Subject}}
+                  </div>
+                </div>
+
+            </div>
+
+        </li>
+      </ul>
 
 
     <ul class="slds-timeline">
@@ -304,6 +335,68 @@
 
 
   </div>
+
+  <script type="text/javascript">
+      var app = angular.module('app', [
+      ]);
+      var GSCOPE;
+      app.controller('MainCtrl', function($scope, $http, $timeout) {
+        GSCOPE = $scope; // debugging purposes
+        $scope.appName="Activity Timeline";
+
+        /*
+
+        SELECT Subject, Description,
+                 Priority, CallType, CallObject,
+                 IsReminderSet, IsRecurrence,
+                 RecurrenceType, TaskSubtype,
+                 WhoId, WhatId
+
+        	 FROM Task ;
+
+        SELECT Subject, Description,
+             IsReminderSet, IsRecurrence,
+             RecurrenceType,
+             WhoId, WhatId,
+             Location
+	        FROM Event
+
+
+        */
+
+        $scope.acts = [
+          {
+             "te": "event",
+             "Type": "Meeting",
+            "TaskSubtype": "Event",
+             "Status":"",
+             "Subject": "Review Farming options with larger team and get it reviewed by marketing",
+              "IsRecurrence": true,
+              "RecurrenceType":"RecursEveryWeekday"
+          },
+          {
+            "te": "task",
+            "Type": "Email",
+            "TaskSubtype": "Email",
+
+             "Status":"",
+             "with": "Edgar Codd",
+             "Subject": "Send follow-up email on Farming options",
+             "IsRecurrence": false,
+
+          },
+          {
+            "te": "call",
+            "Type": "Call",
+            "TaskSubtype": "Call",
+             "Status":"",
+             "with": "Ken Thompson",
+             "Subject": "Phone Call",
+             "IsRecurrence": false
+          }
+        ];
+      });
+  </script>
 
 </body>
 
