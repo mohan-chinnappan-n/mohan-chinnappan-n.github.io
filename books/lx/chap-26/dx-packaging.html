@@ -955,6 +955,11 @@ sfdx force:mdapi commands: (get <span class="hljs-built_in">help</span> with sfd
 <h3 id="things-to-note">Things to note</h3>
 <p><img src="img/guidelines-org-unmanaged-metadata-3.png" alt="Anti patterns"></p>
 <h3 id="org-shape">Org shape</h3>
+<ul>
+<li>Features</li>
+<li>Preferences</li>
+<li>Settings</li>
+</ul>
 <p><img src="img/org-shape-1.png" alt="org shape-1 ">
 <img src="img/org-shape-2.png" alt="org shape-2 "></p>
 <h3 id="faq">FAQ</h3>
@@ -1014,16 +1019,25 @@ Examples:
    $ sfdx force:package:install --package awesome_package_alias
    $ sfdx force:package:install --package &quot;Awesome Package Alias&quot;
 </code></pre><ul>
-<li>Define the dependencies between packages declaratively <ul>
+<li><p>Define the dependencies between packages declaratively </p>
+<ul>
 <li>Example: Expense package has dependency on Common-Util module</li>
 <li>In scratch org install - dependent package and packages it depends on</li>
 </ul>
 </li>
-</ul>
+<li><p>To use a Managed package in Scratch org, install that managed package in Scaratch org and DCP for the extensions and start the development process</p>
+</li>
+<li><p>Size of the DCP is determined by the limits of the metadata api</p>
+</li>
+<li><p>Difference between Package2 and DCP</p>
 <ul>
-<li><h2 id="app-hub---ui-for-sfdx">App Hub - UI for SFDX</h2>
-<img src="img/pk-apphub-ui-dx-1.png" alt="App Hub UI for SFDX"></li>
+<li>Package2 is a umberlla term covering different types of packaging (for partners and enterprise customers)</li>
+<li>DCP is customer oriented - enterprise customers doing modular development using packaging</li>
 </ul>
+</li>
+</ul>
+<h2 id="app-hub---ui-for-sfdx">App Hub - UI for SFDX</h2>
+<p><img src="img/pk-apphub-ui-dx-1.png" alt="App Hub UI for SFDX"></p>
 <h4 id="convert-metadata-from-the-metadata-api-format-into-the-salesforce-dx-format">Convert metadata from the Metadata API format into the Salesforce DX format</h4>
 <pre><code class="lang-bash">$ sfdx force:mdapi:convert -h
 Usage: sfdx force:mdapi:convert -r &lt;directory&gt; [<span class="hljs-_">-d</span> &lt;directory&gt;] [--json] [--loglevel &lt;string&gt;]
@@ -1297,8 +1311,13 @@ Examples:
 <pre><code class="lang-xml">$ sfdx force:package2:list
 No results found
 </code></pre>
+<h3 id="trailhead">Trailhead</h3>
+<ul>
+<li><a href="https://trailhead.salesforce.com/en/modules/unlocked-packages-for-customers" target="_blank">Unlocked Packages for Customers </a></li>
+</ul>
 <h3 id="resouces">Resouces</h3>
 <ul>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_dev2gp_plan_best_practices.htm" target="_blank">Best Practices for Second-Generation Packages</a></li>
 <li><p><a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_dev2gp.htm" target="_blank">Unlocked Packages and Second-Generation Managed Packages
 </a></p>
 </li>
@@ -1363,7 +1382,7 @@ No results found
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SFDX Packaging","level":"3.2","depth":1,"next":{"title":"SFDX DreamHouse App","level":"3.3","depth":1,"path":"chap-27/dh-app.md","ref":"chap-27/dh-app.md","articles":[]},"previous":{"title":"SFDX & Lightning Dev","level":"3.1","depth":1,"path":"chap-25/lex-dx.md","ref":"chap-25/lex-dx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-26/dx-packaging.md","mtime":"2018-06-15T00:36:15.732Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-13T13:24:48.107Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SFDX Packaging","level":"3.2","depth":1,"next":{"title":"SFDX DreamHouse App","level":"3.3","depth":1,"path":"chap-27/dh-app.md","ref":"chap-27/dh-app.md","articles":[]},"previous":{"title":"SFDX & Lightning Dev","level":"3.1","depth":1,"path":"chap-25/lex-dx.md","ref":"chap-25/lex-dx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-26/dx-packaging.md","mtime":"2018-06-15T01:06:19.806Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-13T13:24:48.107Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
