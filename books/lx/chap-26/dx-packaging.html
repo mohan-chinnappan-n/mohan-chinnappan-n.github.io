@@ -823,11 +823,22 @@
 <h3 id="why-use-packaging">Why use packaging?</h3>
 <h3 id="deploying-metadta-using-packages-to-prod-org">Deploying metadta using Packages to PROD org</h3>
 <h4 id="how-we-deploy-metadata-to-prod-orgs-today">How we deploy Metadata to PROD orgs today</h4>
-<p><img src="img/pk-curr-1.png" alt="current deploymenent of metadata"></p>
+<p><img src="img/pk-curr-1.png" alt="current deployment of metadata"></p>
+<p><img src="img/before-dx-1.png" alt="current deployment of metadata"></p>
 <ul>
 <li>Ant Migration Tool</li>
 <li>SFDX force:mdapi</li>
 </ul>
+<h2 id="source-based-development">Source Based Development</h2>
+<h3 id="org-based-development">Org-based development</h3>
+<p><img src="img/org-based-dev-1.png" alt="Org based Development">
+<img src="img/org-based-dev-2.png" alt="Org based Development"></p>
+<h3 id="modular-development---developing-towards-module-not-towards-org">Modular Development - developing towards module not towards org</h3>
+<p><img src="img/dx-dcp-1.png" alt="DCP"></p>
+<h3 id="dcp---developer-controlled-packages---modular-development-to-package-development">DCP - Developer Controlled Packages - Modular Development to Package Development</h3>
+<p><img src="img/prep-dcp-1.png" alt="DCP3">
+<img src="img/dx-dcp-2.png" alt="DCP2"></p>
+<p><img src="img/pack-dev-dex-1.png" alt="Modular Development"></p>
 <pre><code class="lang-bash">  $ sfdx force:mdapi -h
 Usage: sfdx force:mdapi:COMMAND [<span class="hljs-built_in">command</span>-specific-options]
 
@@ -938,6 +949,14 @@ sfdx force:mdapi commands: (get <span class="hljs-built_in">help</span> with sfd
 <p><img src="img/pk-unmaged-2-managed-1.png" alt="DX Packages App Dev Maintenance"></p>
 <p>TO</p>
 <p><img src="img/pk-unmaged-2-managed-2.png" alt="DX Packages App Dev Maintenance"></p>
+<h3 id="guidelines-and-criteria-in-identifying-metadata-that-can-be-migrated-into-a-package">Guidelines and Criteria in Identifying metadata that can be migrated into a Package</h3>
+<p><img src="img/guidelines-org-unmanaged-metadata-1.png" alt="Guidelines to making packages"></p>
+<p><img src="img/guidelines-org-unmanaged-metadata-2.png" alt="Criteria to making packages"></p>
+<h3 id="things-to-note">Things to note</h3>
+<p><img src="img/guidelines-org-unmanaged-metadata-3.png" alt="Anti patterns"></p>
+<h3 id="org-shape">Org shape</h3>
+<p><img src="img/org-shape-1.png" alt="org shape-1 ">
+<img src="img/org-shape-2.png" alt="org shape-2 "></p>
 <h2 id="app-hub---ui-for-sfdx">App Hub - UI for SFDX</h2>
 <p><img src="img/pk-apphub-ui-dx-1.png" alt="App Hub UI for SFDX"></p>
 <h4 id="convert-metadata-from-the-metadata-api-format-into-the-salesforce-dx-format">Convert metadata from the Metadata API format into the Salesforce DX format</h4>
@@ -1159,6 +1178,8 @@ Examples:
 <p><img src="img/pack2-install-after-1.png" alt="org with newly installed package"></p>
 <h3 id="exploring-the-installed-package">Exploring the installed package</h3>
 <p><img src="img/pack2-installed-pckage-explore-1.gif" alt="Exploring the installed package"></p>
+<h3 id="updating-the-packaging">Updating the packaging</h3>
+<p><img src="img/pack2-config-ver-2.png" alt="next version package"></p>
 <ul>
 <li><p>Structure of sfdx-project.json file</p>
 </li>
@@ -1167,13 +1188,40 @@ Examples:
 <li><p>The &quot;NEXT&quot; token</p>
 </li>
 </ul>
-<h3 id="timelines">Timelines</h3>
+<h3 id="key-points">Key Points</h3>
+<ul>
+<li>Sharing metadata:<ul>
+<li>Packages can depend on each other</li>
+<li>Depenedcies can be enforced at build time</li>
+<li>Check of circular references</li>
+<li>Inter-package dependencies check during the build of packages, if there any issues, the transaction will be rolled back</li>
+</ul>
+</li>
+<li>Common dependencies <ul>
+<li>Package A and B are using util Package U</li>
+<li>Salesforce does not have class loader, this issue needed by worked by the developer to maintain the forward compatability</li>
+</ul>
+</li>
+<li><p>Finding out depreciated items in the package</p>
+<ul>
+<li>Tooling API can be used for this</li>
+<li>We do not hard-delete items</li>
+<li>Explicit hard-delete is coming soon</li>
+</ul>
+</li>
+<li><p>Scratch orgs have listener for the metadata changes</p>
+</li>
+<li><p>Delta packaging is coming soon</p>
+</li>
+</ul>
 <h3 id="enable-packaging-2-beta-in-dev-hub-org">Enable Packaging 2 (Beta) in Dev Hub Org</h3>
 <p><img src="img/dx-packaging-0.png" alt="Enable Package"></p>
 <p><img src="img/dx-packaging-2-1.png" alt="Pipeline"></p>
 <h3 id="video-how-everyone-can-leverage-salesforce-dx-packaging">Video: How Everyone Can Leverage Salesforce DX Packaging</h3>
  <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/Prlurg2ORnU?autoplay=0 &amp;fs=1" frameborder="0"></iframe>
 
+<h3 id="video-simplify-your-code-with-salesforce-dx-and-module-development">Video: Simplify your code with Salesforce DX and module development</h3>
+ <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/ZMjKmQ9j9I8?autoplay=0 &amp;fs=1" frameborder="0"></iframe>
 
 <h3 id="video--second-generation-packaging-for-customers-and-partners">Video:  Second Generation Packaging for Customers and Partners</h3>
  <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/v6ay_mNeJTE?autoplay=0 &amp;fs=1" frameborder="0"></iframe>
@@ -1186,10 +1234,26 @@ No results found
 </code></pre>
 <h3 id="resouces">Resouces</h3>
 <ul>
+<li><p><a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_dev2gp.htm" target="_blank">Unlocked Packages and Second-Generation Managed Packages
+</a></p>
+</li>
 <li><p><a href="https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/packaging_intro.htm" target="_blank">ISVforce Guide</a></p>
 </li>
-<li><p><a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_dev2gp_intro.htm" target="_blank">SFDX Packaing</a></p>
+<li><p><a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_dev2gp_intro.htm" target="_blank">SFDX Packaging</a></p>
 </li>
+<li><p><a href="https://developer.salesforce.com/blogs/2018/02/getting-started-salesforce-dx-part-1-5.html" target="_blank">Getting started with SFDX</a></p>
+</li>
+</ul>
+<h3 id="trailblazer-community">Trailblazer Community</h3>
+<ul>
+<li><p><a href="https://success.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A000000Lg5U" target="_blank">Packaging 2</a></p>
+</li>
+<li><p><a href="https://success.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A000000HTp1" target="_blank">SFDX</a></p>
+</li>
+</ul>
+<h3 id="faqs">FAQs</h3>
+<ul>
+<li><a href="https://sfdc-db-gmail.github.io/" target="_blank">FAQ - Developer-Controlled Packages (DCPs) - Spring &#x2018;18 </a></li>
 </ul>
 
                                 
@@ -1234,7 +1298,7 @@ No results found
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SFDX Packaging","level":"3.2","depth":1,"next":{"title":"SFDX DreamHouse App","level":"3.3","depth":1,"path":"chap-27/dh-app.md","ref":"chap-27/dh-app.md","articles":[]},"previous":{"title":"SFDX & Lightning Dev","level":"3.1","depth":1,"path":"chap-25/lex-dx.md","ref":"chap-25/lex-dx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-26/dx-packaging.md","mtime":"2018-06-14T19:39:44.628Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-13T13:24:48.107Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SFDX Packaging","level":"3.2","depth":1,"next":{"title":"SFDX DreamHouse App","level":"3.3","depth":1,"path":"chap-27/dh-app.md","ref":"chap-27/dh-app.md","articles":[]},"previous":{"title":"SFDX & Lightning Dev","level":"3.1","depth":1,"path":"chap-25/lex-dx.md","ref":"chap-25/lex-dx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-26/dx-packaging.md","mtime":"2018-06-15T00:21:25.819Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-13T13:24:48.107Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
