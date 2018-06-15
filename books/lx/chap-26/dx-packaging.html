@@ -957,8 +957,73 @@ sfdx force:mdapi commands: (get <span class="hljs-built_in">help</span> with sfd
 <h3 id="org-shape">Org shape</h3>
 <p><img src="img/org-shape-1.png" alt="org shape-1 ">
 <img src="img/org-shape-2.png" alt="org shape-2 "></p>
-<h2 id="app-hub---ui-for-sfdx">App Hub - UI for SFDX</h2>
-<p><img src="img/pk-apphub-ui-dx-1.png" alt="App Hub UI for SFDX"></p>
+<h3 id="faq">FAQ</h3>
+<ul>
+<li>How to get list of packages installed in an org
+```bash</li>
+</ul>
+<p>Usage: sfdx force:package:installed:list [-u <string>] [--json] [--loglevel <string>] </string></string></p>
+<p>list the org&#x2019;s installed packages</p>
+<p>Flags:
+ -u, --targetusername TARGETUSERNAME  username or alias for the target org;
+                                      overrides default target org
+ --json                               format output as json
+ --loglevel LOGLEVEL                  logging level for this command invocation
+                                      (error*,trace,debug,info,warn,fatal)</p>
+<p>Examples:
+   $ sfdx force:package:installed:list
+   $ sfdx force:package:installed:list -u me@example.com</p>
+<pre><code>- How to install a package listed above into a target org
+```bash
+$ sfdx force:package:install -h
+Usage: sfdx force:package:install [-i &lt;id&gt;] [-w &lt;minutes&gt;] [-k &lt;string&gt;] [-p &lt;minutes&gt;] [-r] [--package &lt;string&gt;] [-u &lt;string&gt;] [--json] [--loglevel &lt;string&gt;] 
+
+install a package in the target org
+
+Flags:
+ -i, --id ID                            WARNING: The flag &quot;id&quot; has been
+                                        deprecated and will be removed in
+                                        v43.01.0 or later. Use &quot;--package&quot;
+                                        instead.
+ -k, --installationkey INSTALLATIONKEY  installation key for key-protected
+                                        package (default: null)
+ -r, --noprompt                         allow Remote Site Settings and Content
+                                        Security Policy websites to send or
+                                        receive data without confirmation
+ -p, --publishwait PUBLISHWAIT          number of minutes to wait for subscriber
+                                        package version ID to become available
+                                        in the target org WARNING: The short
+                                        name &quot;-p&quot; has been deprecated and will
+                                        be removed in v44.0 or later. Use
+                                        &quot;--publishwait&quot; instead.
+ -u, --targetusername TARGETUSERNAME    username or alias for the target org;
+                                        overrides default target org
+ -w, --wait WAIT                        number of minutes to wait for
+                                        installation status
+ --json                                 format output as json
+ --loglevel LOGLEVEL                    logging level for this command
+                                        invocation
+                                        (error*,trace,debug,info,warn,fatal)
+ --package PACKAGE                      ID (starts with 04t) or alias of the
+                                        package version to install
+
+Supply the ID of the package version you want to install. The package installs in your default target org unless you supply the username for a different target org.
+
+Examples:
+   $ sfdx force:package:install --package 04t... -u me@example.com
+   $ sfdx force:package:install --package awesome_package_alias
+   $ sfdx force:package:install --package &quot;Awesome Package Alias&quot;
+</code></pre><ul>
+<li>Define the dependencies between packages declaratively <ul>
+<li>Example: Expense package has dependency on Common-Util module</li>
+<li>In scratch org install - dependent package and packages it depends on</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><h2 id="app-hub---ui-for-sfdx">App Hub - UI for SFDX</h2>
+<img src="img/pk-apphub-ui-dx-1.png" alt="App Hub UI for SFDX"></li>
+</ul>
 <h4 id="convert-metadata-from-the-metadata-api-format-into-the-salesforce-dx-format">Convert metadata from the Metadata API format into the Salesforce DX format</h4>
 <pre><code class="lang-bash">$ sfdx force:mdapi:convert -h
 Usage: sfdx force:mdapi:convert -r &lt;directory&gt; [<span class="hljs-_">-d</span> &lt;directory&gt;] [--json] [--loglevel &lt;string&gt;]
@@ -1298,7 +1363,7 @@ No results found
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SFDX Packaging","level":"3.2","depth":1,"next":{"title":"SFDX DreamHouse App","level":"3.3","depth":1,"path":"chap-27/dh-app.md","ref":"chap-27/dh-app.md","articles":[]},"previous":{"title":"SFDX & Lightning Dev","level":"3.1","depth":1,"path":"chap-25/lex-dx.md","ref":"chap-25/lex-dx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-26/dx-packaging.md","mtime":"2018-06-15T00:21:25.819Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-13T13:24:48.107Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SFDX Packaging","level":"3.2","depth":1,"next":{"title":"SFDX DreamHouse App","level":"3.3","depth":1,"path":"chap-27/dh-app.md","ref":"chap-27/dh-app.md","articles":[]},"previous":{"title":"SFDX & Lightning Dev","level":"3.1","depth":1,"path":"chap-25/lex-dx.md","ref":"chap-25/lex-dx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-26/dx-packaging.md","mtime":"2018-06-15T00:36:15.732Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-13T13:24:48.107Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
