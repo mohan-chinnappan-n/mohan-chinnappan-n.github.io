@@ -223,6 +223,9 @@ $ cat run_curl.sh
 export SID='SID_HERE'
 export VER='v42.0'
 curl -H "Authorization: Bearer $SID" https:/INSTANCE_NAME/services/data/$VER/$1
+## you can get SID from Apex:
+##   String SID = UserInfo.getSessionId();
+##
 </code>
 </pre>
        </section>
