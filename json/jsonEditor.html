@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>JSONEditor</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/navbar-blue.css">
+  <script src="../js/angular.min.js"></script>
+
+
+  <link href="js/jsoneditor.css" rel="stylesheet" type="text/css">
+  <script src="js/jsoneditor.js"></script>
+
+  <script src="https://bgrins.github.io/filereader.js/filereader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+
+  <style>
+    html, body {
+      font: 11pt sans-serif;
+    }
+    #jsoneditor {
+      width: 100%;
+      height: 100%;
+    }
+
+   
+
+
+  </style>
+</head>
+<body class="container2">
+
+    <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="javascript:void(0)">JSON Editor</a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="javascript:void(0)">Home</a></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li ><a href="../index.html">Main</a></li>
+          </ul>
+    
+          <div class="inner-addon right-addon navbar-form navbar-right">
+            <i class="glyphicon glyphicon-search"></i>
+            <input type="text" class="form-control" placeholder="Search" />
+          </div>
+    
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown ">
+              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="./help.html">Help Topics</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </nav>
+
+<div class="container">
+  <div class='row'>
+  <div class="col-lg-3">
+     <input  type="file" name="file" class='btn btn-primary' id="loadDocument" />
+
+     
+  </div>
+   <div class="col-lg-2">
+     <button class="btn btn-info" id="saveDocument"  >
+        <i class="glyphicon glyphicon-save"></i> Save</button>
+  </div>
+  </div>
+  
+
+<div id="jsoneditor"></div>
+</div>
+<script>
+
+    var jsonObj = {
+    "browsers": ["Chrome", "Safari", "Firefox"],
+    "chrome_is_best": true,
+    "pollution": null,
+    "pi": 3.14,
+    "gems": {"unix": ["ken","dmr"], "c": ["dmr"]},
+    "greeting": "Hello Math!"
+  };
+
+    var options = {
+    mode: 'tree',
+    modes: ['code', 'form', 'text', 'tree', 'view'], // allowed modes
+    onError: function (err) {
+      alert(err.toString());
+    },
+    onModeChange: function (newMode, oldMode) {
+      //console.log('Mode switched from', oldMode, 'to', newMode);
+    }
+  };
+
+  // create the editor
+  var editor = new JSONEditor(document.getElementById('jsoneditor'), options, jsonObj);
+
+  // Load a JSON document
+  FileReaderJS.setupInput(document.getElementById('loadDocument'), {
+    readAsDefault: 'Text',
+    on: {
+      load: function (event, file) {
+        editor.setText(event.target.result);
+      }
+    }
+  });
+
+  // Save a JSON document
+  document.getElementById('saveDocument').onclick = function () {
+    // Save Dialog
+    fname = window.prompt("Save as in Downloads folder...");
+    
+    // Check json extension in file name
+    if(fname.indexOf(".")==-1){
+      fname = fname + ".json";
+    }else{
+      if(fname.split('.').pop().toLowerCase() == "json"){
+        // Nothing to do
+      }else{
+        fname = fname.split('.')[0] + ".json";
+      }
+    } 
+    var blob = new Blob([editor.getText()], {type: 'application/json;charset=utf-8'});
+    saveAs(blob, fname);
+  };
+</script>
+</body>
+</html>
+
+
