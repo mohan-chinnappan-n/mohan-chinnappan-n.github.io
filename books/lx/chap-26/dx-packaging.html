@@ -1373,7 +1373,39 @@ No results found
 <p>It appears you don&apos;t have a PDF plugin for this browser</p>
 </object>
 
-
+<h3 id=""> </h3>
+<ul>
+<li><a href="https://www.codescience.com/blog/2017/dependency-injection-with-salesforce-managed-packages" target="_blank">Dependency Injection with Salesforce Managed Packages
+</a></li>
+</ul>
+<h3 id="metadatacomponentdependency-api-version-430----currently-in-pilot">MetadataComponentDependency (API Version 43.0 -- currently in Pilot)</h3>
+<p> Use SOQL queries to list the relationships between the metadata components in your org. The query results include one row for each relationship.</p>
+<h5 id="example-show-all-references-to-the-apex-class-type-yourclass-name">Example: Show all references to the Apex class (Type) YourClass (Name)</h5>
+<pre><code class="lang-sql">
+<span class="hljs-comment">-- shows pages, components, flows, and other classes that YourClass depends on</span>
+<span class="hljs-keyword">SELECT</span> MetadataComponentName,
+       MetadataComponentType
+    <span class="hljs-keyword">FROM</span> MetadataComponentDependency
+    <span class="hljs-keyword">WHERE</span> 
+          RefMetadataComponentType = <span class="hljs-string">&apos;ApexClass&apos;</span> 
+          <span class="hljs-keyword">AND</span>
+          RefMetadataComponentName = <span class="hljs-string">&apos;YourClass&apos;</span>
+</code></pre>
+<h4 id="example-shows-all-references-to-a-field-including-references-from-layouts-apex-code-flows-reports-and-so-on">Example: Shows all references to a field, including references from layouts, Apex code, flows, reports, and so on</h4>
+<pre><code class="lang-sql"><span class="hljs-comment">-- queries FieldDefinition object</span>
+<span class="hljs-comment">--  shows all the metadata components that the field with the ID yourFieldId depends on</span>
+<span class="hljs-keyword">SELECT</span> MetadataComponentName, 
+       MetadataComponentType
+    <span class="hljs-keyword">FROM</span> MetadataComponentDependency
+    <span class="hljs-keyword">WHERE</span>
+       RefMetadataComponentId = yourFieldId
+</code></pre>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="https://releasenotes.docs.salesforce.com/en-us/summer18/release-notes/rn_metadata_metadatacomponentdependency.htm" target="_blank">Untangle Your Dependencies with MetadataComponentDependency Queries (Pilot)
+</a> 
+<a href="https://developer.salesforce.com/docs/atlas.en-us.214.0.api_tooling.meta/api_tooling/tooling_api_objects_metadatacomponentdependency.htm" target="_blank">MetadataComponentDependency (Pilot)</a></li>
+</ul>
 
                                 
                                 </section>
@@ -1417,7 +1449,7 @@ No results found
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SFDX Packaging","level":"3.2","depth":1,"next":{"title":"SFDX DreamHouse App","level":"3.3","depth":1,"path":"chap-27/dh-app.md","ref":"chap-27/dh-app.md","articles":[]},"previous":{"title":"SFDX & Lightning Dev","level":"3.1","depth":1,"path":"chap-25/lex-dx.md","ref":"chap-25/lex-dx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-26/dx-packaging.md","mtime":"2018-06-28T19:13:11.718Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-28T14:13:18.836Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SFDX Packaging","level":"3.2","depth":1,"next":{"title":"SFDX DreamHouse App","level":"3.3","depth":1,"path":"chap-27/dh-app.md","ref":"chap-27/dh-app.md","articles":[]},"previous":{"title":"SFDX & Lightning Dev","level":"3.1","depth":1,"path":"chap-25/lex-dx.md","ref":"chap-25/lex-dx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-26/dx-packaging.md","mtime":"2018-07-05T14:39:29.954Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-07-05T14:27:07.662Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
