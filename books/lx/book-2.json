@@ -1,0 +1,13 @@
+{ 
+  "plugins": ["youtube", "adsense" ],
+
+"pluginsConfig": {
+      "adsense": {
+        "client": "ca-pub-5381915020912221",
+        "slot": "8656817479",
+        "format": "auto",
+        "element": ".page-inner section",
+        "position": "top"
+      }
+    }
+}
