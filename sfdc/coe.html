@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="MainCtrl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{appName}}</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/navbar-green.css">
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/data-markdown.user.js"></script>
+
+
+  <script src="../bower_components/marked/marked.min.js"></script>
+  <script src="../bower_components/angular-marked/dist/angular-marked.js"></script>
+
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../reveal.js/css/theme/white.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+    		<![endif]-->
+
+  <style>
+    .reveal .slide-number {
+      font-size: 0.5em;
+    }
+
+    .simg {
+      border-radius: 10px;
+      border: 1px;
+    }
+
+    .reveal section ul li,
+    .reveal section p {
+      font-size: .8em !important;
+    }
+
+    .reveal section pre code {
+      font-size: 0.7em !important;
+    }
+  </style>
+  <!--
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5381915020912221",
+    enable_page_level_ads: true
+  });
+</script>
+-->
+
+
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">{{appName}}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+      <div class="inner-addon right-addon navbar-form navbar-right">
+        <i class="glyphicon glyphicon-search"></i>
+        <input type="text" class="form-control" placeholder="Search" />
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown ">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="./help.html">Help Topics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <!--
+  <div class="container" ng-controller='MainCtrl'>
+    <div marked src="'pevents.md'"></div>
+  </div>
+-->
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section id="home">
+        <h4>{{appName}}</h4>
+        <ul  style="font-size:30px;">
+          <li>
+            A few stakeholders from different functional groups in the company
+             work together to ensure that  changes support <b>business goals and follow IT best practices and processes</b>
+             <br/>
+             COE  promotes collaboration and best practices to ensure great business results
+
+          </li>
+          <li>Reviews user feedback and comments from user communities and responds to enhancement requests
+          </li>
+          <li>
+            Defines and shares best practices, business units find it easier to comply with governance practices in
+             <ul>
+               <li>
+                   Data, security, visibility, and access - <which></which> are critical to meeting regulatory requirements
+
+               </li>
+             </ul>
+
+          </li>
+          <li>
+            Develops and communicates the roadmap for change, velocity increases because everyone understands the priority of business requirements
+
+
+          </li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h4> Teams</h4>
+        <div class="row">
+          <div class="col-lg-6">
+
+        <img src="img/coe/coe-1.png"  height="250" style="border-radius:10px;" alt="coe">
+          </div>
+            <div class="col-lg-6">
+        <ul style="font-size:25px;">
+          <li><b>Program team </b>: manages the CoE’s day-to-day activities</li>
+
+          <li><b>Release (Project Management)</b>:
+          Create and own the overall project roadmap and release plan.
+          </li>
+          <li><b>Business</b>:
+          Convert high-level goals and strategies into a business backlog (Agile) or prioritized list of goals (waterfall).
+          </li>
+          <li><b>Scrum Teams</b>:
+          Take the business backlog and deliver the functionality defined in it.
+          </li>
+          <li><b>Architecture</b>:
+          Define the overall system architecture and make sure that projects <b>adhere to the corporate standards</b>, including data architecture.
+          </li>
+          <li><b>Adoption and Training</b>:
+          Ensure that end users understand how to use the system (training), and report on metrics that reflect adoption.
+          </li>
+          <li><b>Support</b>:
+          Provide support to end users and report system defects.
+
+          </li>
+          <li>
+            <b> Architecture team</b>: defines your company’s design standards.
+            Publish your design standards, and communicate them to all teams that work on Salesforce projects, and the rest of IT.
+          </li>
+
+        </ul>
+      </div>
+    </div>
+      </section>
+
+    <section>
+      <h4>How to get Started?</h4>
+      <ul style="font-size:30px;">
+
+    <li>Select your CoE team members</li>
+    <li><b>Choose a few key issues to tackle</b>: Focus on a few issues that can
+      demonstrate the value a CoE can provide.
+       Look for high-priority processes that need work.
+       For example, do you have trouble with end-user adoption?
+       Is data quality an issue?
+       Are your end users clamoring for mobile access?
+       Does your organization suffer from applications that are no longer needed, but still available?
+     </li>
+    <li>Create a charter, a backlog, and a release management process.
+    <li>Ask your Executive Sponsor to announce the CoE and encourage collaboration with it.
+      </ul>
+    </section>
+
+    <section>
+      <h4>Create a Charter </h4>
+      <ul style="font-size:30px;">
+        <li>Document your <b>business goals and the strategies to achieve these goals</b> with Salesforce.
+          Your charter serves as a <b>North Star</b>: everybody understands why the project is being carried out.
+           A clear charter helps the team to prioritize requirements, to focus on the area that <b>meets their business goals as quickly as possible</b>.
+</li>
+<li>
+Project stakeholders develop and own the charter. Be sure to include <b>key measures of success</b>.
+</li>
+      </ul>
+    </section>
+
+    <section>
+      <h4>Create a Backlog or Priority List </h4>
+  <ul style="font-size:30px;">
+    <li>
+      You need a prioritized list of projects and tasks (backlog) that, when finished, indicates that the project is complete.
+      Backlogs help you manage projects when stakeholders ask for increased scope, and they help you know
+        if you have the <b>resources to complete the project</b>.
+      The backlog is also a place where you can record <b>acceptance criteria, risks, and other project information</b>.
+    </li>
+    </section>
+
+    <section>
+      <h4>Create a Release Management Process </h4>
+      <ul style="font-size:30px;">
+<li> Add structure by setting up a release schedule and defining criteria for major versus minor releases.</li>
+
+<li>Releases typically fall into one of the following categories:
+<ul>
+
+<li><b>Daily</b>:
+Bug fixes and simple changes that do not require formal release management, including reports, dashboards, list views, email templates, and user administration.
+</li>
+<li><b>Minor</b>:
+Changes with limited impact, such as a new workflow rule or trigger impacting a single business process. These releases typically require testing, but limited training and change management, and are delivered within a few weeks.
+</li>
+<li><b>Major</b>:
+Changes with significant impact, including configuration and code changes with one or more dependencies. Because these releases greatly affect the user experience and data quality, they require thorough testing, training, and careful change management. Major releases typically occur once a quarter (or like Salesforce, three times a year). Releasing on the same day of the week for minor and major releases is a best practice. This allows for company-wide planning and sets expectations with your business users. In addition, don’t schedule releases near holidays or other major events.
+</li>
+</ul>
+</li>
+<li>
+Your release management strategy evolves over time.
+ Add checks and balances as you discover frequent points of failure or common root causes.
+ The CoE shares these best practices so that everyone who modifies or extends Salesforce knows how to do so safely.
+</li>
+      </ul>
+    </section>
+
+    <section>
+      <h4>Use Design Standards for Governance </h4>
+
+      <ul style="font-size:30px;">
+
+        <li>
+          Following the same design standards, anyone who modifies your organization can ensure that their changes aren’t in conflict with another group’s changes
+        </li>
+        <li>
+           Employing design standards helps ensure the changes stay within set governor limits
+        </li>
+        <li>
+          <b>Examples</b> of Design Standards:
+        <ul style="font-size:30px;">
+          <li>Standard naming conventions</li>
+          <li>Consistently using the Description field</li>
+          <li>Bulkified code</li>
+          <li>Standard methods for deprecating classes and fields</li>
+          <li>Consistent data architecture across all projects</li>
+        </ul>
+      </li>
+      <li><b>Areas</b> needing Design Standards:
+          <ul style="font-size:30px;">
+            <li>Coding</li>
+            <li>Testing</li>
+            <li>Integration</li>
+            <li>Handling large data volumes</li>
+            <li>Documentation</li>
+          </ul>
+
+      </li>
+      </ul>
+
+    </section>
+
+
+    <section>
+      <h4>Resouces</h4>
+      <ul>
+        <li>
+          <a target="_blank"
+          href="https://www.salesforce.com/blog/2017/02/center-of-excellence-curse.html">Overcoming the Curse of the Center of Excellence (COE)</a>
+        </li>
+        <li>
+          <a target="_blank" href="https://trailhead.salesforce.com/en/modules/app_deployment/units/app_deployment_governance">
+            Manage Change with a Governance Framework
+
+          </a>
+        </li>
+      </ul>
+      </section>
+
+      <section>
+        <h4>Video : Center of Excellence (CoE) Workshop </h4>
+        <iframe height="450" width="800" data-src="https://www.youtube.com/embed/u9eGh9zHkdw?autoplay=0"></iframe>
+      </section>
+
+      <section>
+        <h4>Video :Salesforce Governance Best Practices </h4>
+        <iframe height="450" width="800" data-src="https://www.youtube.com/embed/TpTtEloCtl8?autoplay=0"></iframe>
+      </section>
+
+
+      <section>
+        <h4>Video :Manage Development in Your Org with Salesforce Governance Framework </h4>
+        <iframe height="450" width="800" data-src="https://www.youtube.com/embed/MrKifTuivpo?autoplay=0"></iframe>
+      </section>
+
+
+
+
+    <section>
+      <h4>Video : CoE in a Box: A Toolkit to Optimize your Salesforce Implementation </h4>
+      <iframe height="450" width="800" data-src="https://www.youtube.com/embed/M90Zf0cwfvg?autoplay=0"></iframe>
+    </section>
+
+
+    <section>
+      <h4>Video : Single vs Multi-Org Strategy: The Key Questions You Need to Address </h4>
+      <iframe height="450" width="800" data-src="https://www.youtube.com/embed/OFDsdgZIGNo?autoplay=0"></iframe>
+    </section>
+
+
+
+
+      <section>
+        <h4>Key Centers</h4>
+      </section>
+
+
+      <section>
+        <h4>Best Practice Centers</h4>
+        <ul style="font-size:30px;">
+          <li>
+            These are the <b>sharers</b>, focusing on creating environments
+            where business units can collaborate with each other on like-minded processes and technologies,
+             designed to more rapidly enable lines of business.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>DevOps Centers</h4>
+        <ul style="font-size:30px;">
+          <li>
+            These are the <b>doers</b>, focusing on providing a shared service to scope, design, develop,
+             and deliver across with optimal IT governance, designed to foster standardization and reuse
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Competency Centers</h4>
+        <ul style="font-size:30px;">
+          <li>
+            These are the <b>guiders</b>, focusing on establishing best practices and standards to enable, build competency,
+             and embed expertise within individual lines of business through the creation of targeted improvement agendas.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Innovation Centers</h4>
+        <ul style="font-size:30px;">
+          <li>
+            These are the <b>creators</b>, focusing on the incubation and experimentation
+            required to develop the capabilities with <b>emerging technologies</b>,
+             designed to accelerate maturity and time to value.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h4>Manage Change with a Governance Framework </h4>
+        <ul>
+          <li>
+            Governance improves agility by ensuring all members of your team are working together to achieve goals that are aligned with overall business goals.
+          </li>
+        </ul>
+      </section>
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
+
+
+  <script>
+    'use strict';
+
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+      //width: 960,
+      //	height: 700,
+
+      // Display presentation control arrows
+      controls: true,
+
+      // Help the user learn the controls by providing hints, for example by
+      // bouncing the down arrow when they first encounter a vertical slide
+      controlsTutorial: true,
+
+      // Determines where controls appear, "edges" or "bottom-right"
+      controlsLayout: 'edges',
+
+      // Visibility rule for backwards navigation arrows; "faded", "hidden"
+      // or "visible"
+      controlsBackArrows: 'faded',
+      // Display a presentation progress bar
+      progress: true,
+
+      // Set default timing of 2 minutes per slide
+      defaultTiming: 120,
+
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
+
+
+      history: true,
+      center: true,
+      slideNumber: true,
+
+      embedded: true,
+
+      transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+      menu: {
+        markers: true,
+        openSlideNumber: true,
+        themes: [{
+            name: 'Black',
+            theme: '../reveal.js/css/theme/black.css'
+          },
+          {
+            name: 'White',
+            theme: '../reveal.js/css/theme/white.css'
+          },
+          {
+            name: 'League',
+            theme: '../reveal.js/css/theme/league.css'
+          },
+          {
+            name: 'Sky',
+            theme: '../reveal.js/css/theme/sky.css'
+          },
+          {
+            name: 'Beige',
+            theme: '../reveal.js/css/theme/beige.css'
+          },
+          {
+            name: 'Simple',
+            theme: '../reveal.js/css/theme/simple.css'
+          },
+          {
+            name: 'Serif',
+            theme: '../reveal.js/css/theme/serif.css'
+          },
+          {
+            name: 'Blood',
+            theme: '../reveal.js/css/theme/blood.css'
+          },
+          {
+            name: 'Night',
+            theme: '../reveal.js/css/theme/night.css'
+          },
+          {
+            name: 'Moon',
+            theme: '../reveal.js/css/theme/moon.css'
+          },
+          {
+            name: 'Solarized',
+            theme: '../reveal.js/css/theme/solarized.css'
+          }
+        ],
+        custom: []
+      },
+
+      // Optional reveal.js plugins
+      dependencies: [{
+          src: '../reveal.js/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          condition: function() {
+            return !!document.querySelector('pre code');
+          },
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: '../reveal.js/plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/reveal.js-menu/menu.js',
+          async: true
+        }
+      ]
+    });
+
+
+
+    var app = angular.module('app', [
+      'hc.marked'
+    ]);
+    app.config(['markedProvider', function(markedProvider) {
+      markedProvider.setOptions({
+        gfm: true
+      });
+    }]);
+
+    var GSCOPE;
+    app.controller('MainCtrl', function($scope, $http, $timeout) {
+      GSCOPE = $scope; // debugging purposes
+      $scope.appName="Centers of Excellence (COE)";
+
+
+
+    })
+  </script>
+</body>
+
+</html>
