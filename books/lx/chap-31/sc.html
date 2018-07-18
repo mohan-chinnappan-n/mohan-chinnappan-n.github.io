@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>SFDX TrainingTracker App · GitBook</title>
+        <title>Secure Coding · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../chap-11/lcc.html" />
+    <link rel="next" href="../chap-12/body.html" />
     
     
-    <link rel="prev" href="../chap-27/dh-app.html" />
+    <link rel="prev" href="../chap-28/perf.html" />
     
 
     </head>
@@ -517,9 +517,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.4" data-path="trainingTrackerApp.html">
+        <li class="chapter " data-level="3.4" data-path="../chap-29/trainingTrackerApp.html">
             
-                <a href="trainingTrackerApp.html">
+                <a href="../chap-29/trainingTrackerApp.html">
             
                     
                     SFDX TrainingTracker App
@@ -603,9 +603,9 @@
         
         
     
-        <li class="chapter " data-level="6.1" data-path="../chap-31/sc.html">
+        <li class="chapter active" data-level="6.1" data-path="sc.html">
             
-                <a href="../chap-31/sc.html">
+                <a href="sc.html">
             
                     
                     Secure Coding
@@ -850,7 +850,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >SFDX TrainingTracker App</a>
+        <a href=".." >Secure Coding</a>
     </h1>
 </div>
 
@@ -865,55 +865,28 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="trainingtracker-app">TrainingTracker App</h2>
-<h3 id="spin-up-a-scratch-org-trainingtrackerorg1">Spin up a Scratch org TrainingTracker_ORG1</h3>
-<pre><code class="lang-bash">
-<span class="hljs-comment"># create the project TrainingTracker </span>
-
-$ sfdx force:project:create -n TrainingTracker
-target dir = /Users/mchinnappan/lightning/apps
-   create TrainingTracker/sfdx-project.json
-   create TrainingTracker/README.md
-   create TrainingTracker/.forceignore
-   create TrainingTracker/config/project-scratch-def.json
-
-<span class="hljs-built_in">cd</span> TrainingTracker 
-
-<span class="hljs-comment">## get a DevHub 30 days org :</span>
-open https://developer.salesforce.com/promotions/orgs/dx-signup
-
-
-
-<span class="hljs-comment"># login into DebHub</span>
-
-$ sfdx force:auth:web:login <span class="hljs-_">-d</span> <span class="hljs-_">-a</span> DevHub201
-Successfully authorized mohan.chinnappan.dh201@gmail.com with org ID 00D1H000000NSUhUAO
-You may now close the browser
-
-
-$ sfdx force:org:list 
-
-=== Orgs
-     ALIAS       USERNAME                              ORG ID              CONNECTED STATUS
-&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
-(D)  DevHub201   mohan.chinnappan.dh201@gmail.com      00D1H000000NSUhUAO  Connected
-
-
-$ sfdx force:org:create <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> config/project-scratch-def.json  <span class="hljs-_">-a</span> TrainingTracker_ORG1
-Successfully created scratch org: 00DZ000000NDy8QMAT, username: <span class="hljs-built_in">test</span>-9gslwclndh6i@example.com
-
-$ sfdx force:org:list 
-
-=== Orgs
-     ALIAS       USERNAME                              ORG ID              CONNECTED STATUS
-&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
-(D)  DevHub201   mohan.chinnappan.dh201@gmail.com      00D1H000000NSUhUAO  Connected
-
-
-    ALIAS                 SCRATCH ORG NAME     USERNAME                       ORG ID              EXPIRATION DATE
-&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
-(U)  TrainingTracker_ORG1  mchinnappan Company  <span class="hljs-built_in">test</span>-9gslwclndh6i@example.com  00DZ000000NDy8QMAT  2018-06-23
-</code></pre>
+                                <h2 id="secure-coding">Secure coding</h2>
+<h3 id="resources">Resources</h3>
+<ul>
+<li><p><a href="https://developer.salesforce.com/page/Secure_Coding_Cross_Site_Scripting" target="_blank">Secure Coding: Cross Site Scripting (XSS):</a></p>
+</li>
+<li><p><a href="https://trailhead.salesforce.com/modules/secdev_injection_vulnerabilities" target="_blank">Trailhead:  covering: Injection Vulnerability Prevention</a></p>
+</li>
+<li><p>[Secure Coding: SQL Injection] (<a href="https://developer.salesforce.com/page/Secure_Coding_SQL_Injection" target="_blank">https://developer.salesforce.com/page/Secure_Coding_SQL_Injection</a>)</p>
+</li>
+<li><p>[Apex Dev guide covering SOQL Injection] (<a href="https://developer.salesforce.com/docs/atlas.en-us.214.0.apexcode.meta/apexcode/pages_security_tips_soql_injection.htm?search_text=soql%20injection" target="_blank">https://developer.salesforce.com/docs/atlas.en-us.214.0.apexcode.meta/apexcode/pages_security_tips_soql_injection.htm?search_text=soql%20injection</a>) </p>
+</li>
+<li><p><a href="https://trailhead.salesforce.com/en/modules/secdev_application_logic_vulnerabilities/units/secdev_app_logic_csrf" target="_blank">Prevent Cross-Site Request Forgery (CSRF)</a> </p>
+</li>
+<li><p><a href="https://developer.salesforce.com/page/Secure_Coding_Cross_Site_Request_Forgery" target="_blank">Secure Coding: Cross Site Request Forgery</a></p>
+</li>
+<li><p>[Trailhead: App Logic Vulnerability Prevention] (<a href="https://trailhead.salesforce.com/modules/secdev_application_logic_vulnerabilities" target="_blank">https://trailhead.salesforce.com/modules/secdev_application_logic_vulnerabilities</a>)</p>
+</li>
+<li><p><a href="https://resources.docs.salesforce.com/214/latest/en-us/sfdc/pdf/salesforce_security_impl_guide.pdf" target="_blank">Security Implementation doc</a></p>
+</li>
+<li><p><a href="https://help.salesforce.com/articleView?id=Salesforce-Services-Trust-and-Compliance-Documentation&amp;language=en_US&amp;type=1" target="_blank">Trust and Compliance docs</a></p>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -941,12 +914,12 @@ $ sfdx force:org:list
 
             
                 
-                <a href="../chap-27/dh-app.html" class="navigation navigation-prev " aria-label="Previous page: SFDX DreamHouse App">
+                <a href="../chap-28/perf.html" class="navigation navigation-prev " aria-label="Previous page: Performance Tips">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../chap-11/lcc.html" class="navigation navigation-next " aria-label="Next page: Lightning Configuration Converter">
+                <a href="../chap-12/body.html" class="navigation navigation-next " aria-label="Next page: Security">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -957,7 +930,7 @@ $ sfdx force:org:list
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SFDX TrainingTracker App","level":"3.4","depth":1,"next":{"title":"Lightning Configuration Converter","level":"4.1","depth":1,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"SFDX DreamHouse App","level":"3.3","depth":1,"path":"chap-27/dh-app.md","ref":"chap-27/dh-app.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-29/trainingTrackerApp.md","mtime":"2018-06-16T14:12:12.254Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-07-18T09:39:20.860Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Secure Coding","level":"6.1","depth":1,"next":{"title":"Security","level":"7.1","depth":1,"path":"chap-12/body.md","ref":"chap-12/body.md","articles":[{"title":"LockerService","level":"7.1.1","depth":2,"path":"chap-12/LockerService.md","ref":"chap-12/LockerService.md","articles":[]},{"title":"Lightning Container Component","level":"7.1.2","depth":2,"path":"chap-12/lx-container.md","ref":"chap-12/lx-container.md","articles":[]},{"title":"window.postMessage","level":"7.1.3","depth":2,"path":"chap-12/postMessage.md","ref":"chap-12/postMessage.md","articles":[]}]},"previous":{"title":"Performance Tips","level":"5.1","depth":1,"path":"chap-28/perf.md","ref":"chap-28/perf.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-31/sc.md","mtime":"2018-07-18T09:39:07.288Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-07-18T09:39:20.860Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
