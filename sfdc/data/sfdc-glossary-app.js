@@ -35,7 +35,9 @@ app.controller('MainCtrl', function($scope, $sce) {
                 'HouseWiring',
 
                  'EN',
-                 'Music']
+                 'Music',
+                 'Plants'
+]
                  ;
   $scope.sfdc = Object.assign(sfdcWords,
                               lxWords,
@@ -48,7 +50,8 @@ app.controller('MainCtrl', function($scope, $sce) {
                               houseWiringWords,
 
                               greWords,
-                              musicWords
+                              musicWords,
+                              plantsWords
                           );
 
   $scope.sfdcCounts = [
