@@ -1,0 +1,225 @@
+Label,Name,Nillable,Picklistvalues,Referenceto,Relationshipname,Type,Unique,Updateable
+Account ID,Id,FALSE,--,--,null,id,FALSE,FALSE
+Deleted,IsDeleted,FALSE,--,--,null,boolean,FALSE,FALSE
+Master Record ID,MasterRecordId,TRUE,--,"[ ""Account"" ]",MasterRecord,reference,FALSE,FALSE
+Account Name,Name,TRUE,--,--,null,string,FALSE,TRUE
+Last Name,LastName,TRUE,--,--,null,string,FALSE,TRUE
+First Name,FirstName,TRUE,--,--,null,string,FALSE,TRUE
+Salutation,Salutation,TRUE,"[ ""Mr."" , ""Ms."" , ""Mrs."" , ""Dr."" , ""Prof."" ]",--,null,picklist,FALSE,TRUE
+Middle Name,MiddleName,TRUE,--,--,null,string,FALSE,TRUE
+Suffix,Suffix,TRUE,--,--,null,string,FALSE,TRUE
+Account Type,Type,TRUE,"[ ""Analyst"" , ""Competitor"" , ""Customer"" , ""Integrator"" , ""Investor"" , ""Partner"" , ""Press"" , ""Prospect"" , ""Reseller"" , ""Other"" ]",--,null,picklist,FALSE,TRUE
+Record Type ID,RecordTypeId,TRUE,--,"[ ""RecordType"" ]",RecordType,reference,FALSE,TRUE
+Parent Account ID,ParentId,TRUE,--,"[ ""Account"" ]",Parent,reference,FALSE,TRUE
+Billing Street,BillingStreet,TRUE,--,--,null,textarea,FALSE,TRUE
+Billing City,BillingCity,TRUE,--,--,null,string,FALSE,TRUE
+Billing State/Province,BillingState,TRUE,--,--,null,string,FALSE,TRUE
+Billing Zip/Postal Code,BillingPostalCode,TRUE,--,--,null,string,FALSE,TRUE
+Billing Country,BillingCountry,TRUE,--,--,null,string,FALSE,TRUE
+Billing Latitude,BillingLatitude,TRUE,--,--,null,double,FALSE,TRUE
+Billing Longitude,BillingLongitude,TRUE,--,--,null,double,FALSE,TRUE
+Billing Geocode Accuracy,BillingGeocodeAccuracy,TRUE,"[ ""Address"" , ""NearAddress"" , ""Block"" , ""Street"" , ""ExtendedZip"" , ""Zip"" , ""Neighborhood"" , ""City"" , ""County"" , ""State"" , ""Unknown"" ]",--,null,picklist,FALSE,TRUE
+Billing Address,BillingAddress,TRUE,--,--,null,address,FALSE,FALSE
+Shipping Street,ShippingStreet,TRUE,--,--,null,textarea,FALSE,TRUE
+Shipping City,ShippingCity,TRUE,--,--,null,string,FALSE,TRUE
+Shipping State/Province,ShippingState,TRUE,--,--,null,string,FALSE,TRUE
+Shipping Zip/Postal Code,ShippingPostalCode,TRUE,--,--,null,string,FALSE,TRUE
+Shipping Country,ShippingCountry,TRUE,--,--,null,string,FALSE,TRUE
+Shipping Latitude,ShippingLatitude,TRUE,--,--,null,double,FALSE,TRUE
+Shipping Longitude,ShippingLongitude,TRUE,--,--,null,double,FALSE,TRUE
+Shipping Geocode Accuracy,ShippingGeocodeAccuracy,TRUE,"[ ""Address"" , ""NearAddress"" , ""Block"" , ""Street"" , ""ExtendedZip"" , ""Zip"" , ""Neighborhood"" , ""City"" , ""County"" , ""State"" , ""Unknown"" ]",--,null,picklist,FALSE,TRUE
+Shipping Address,ShippingAddress,TRUE,--,--,null,address,FALSE,FALSE
+Account Phone,Phone,TRUE,--,--,null,phone,FALSE,TRUE
+Account Fax,Fax,TRUE,--,--,null,phone,FALSE,TRUE
+Account Number,AccountNumber,TRUE,--,--,null,string,FALSE,TRUE
+Website,Website,TRUE,--,--,null,url,FALSE,TRUE
+Photo URL,PhotoUrl,TRUE,--,--,null,url,FALSE,FALSE
+SIC Code,Sic,TRUE,--,--,null,string,FALSE,TRUE
+Industry,Industry,TRUE,"[ ""Agriculture"" , ""Apparel"" , ""Banking"" , ""Biotechnology"" , ""Chemicals"" , ""Communications"" , ""Construction"" , ""Consulting"" , ""Education"" , ""Electronics"" , ""Energy"" , ""Engineering"" , ""Entertainment"" , ""Environmental"" , ""Finance"" , ""Food & Beverage"" , ""Government"" , ""Healthcare"" , ""Hospitality"" , ""Insurance"" , ""Machinery"" , ""Manufacturing"" , ""Media"" , ""Not For Profit"" , ""Other"" , ""Recreation"" , ""Retail"" , ""Shipping"" , ""Technology"" , ""Telecommunications"" , ""Transportation"" , ""Utilities"" ]",--,null,picklist,FALSE,TRUE
+Annual Revenue,AnnualRevenue,TRUE,--,--,null,currency,FALSE,TRUE
+Employees,NumberOfEmployees,TRUE,--,--,null,int,FALSE,TRUE
+Ownership,Ownership,TRUE,"[ ""Public"" , ""Private"" , ""Subsidiary"" , ""Other"" ]",--,null,picklist,FALSE,TRUE
+Ticker Symbol,TickerSymbol,TRUE,--,--,null,string,FALSE,TRUE
+Account Description,Description,TRUE,--,--,null,textarea,FALSE,TRUE
+Account Rating,Rating,TRUE,"[ ""Hot"" , ""Warm"" , ""Cold"" ]",--,null,picklist,FALSE,TRUE
+Account Site,Site,TRUE,--,--,null,string,FALSE,TRUE
+Owner ID,OwnerId,FALSE,--,"[ ""User"" ]",Owner,reference,FALSE,TRUE
+Created Date,CreatedDate,FALSE,--,--,null,datetime,FALSE,FALSE
+Created By ID,CreatedById,FALSE,--,"[ ""User"" ]",CreatedBy,reference,FALSE,FALSE
+Last Modified Date,LastModifiedDate,FALSE,--,--,null,datetime,FALSE,FALSE
+Last Modified By ID,LastModifiedById,FALSE,--,"[ ""User"" ]",LastModifiedBy,reference,FALSE,FALSE
+System Modstamp,SystemModstamp,FALSE,--,--,null,datetime,FALSE,FALSE
+Last Activity,LastActivityDate,TRUE,--,--,null,date,FALSE,FALSE
+Last Viewed Date,LastViewedDate,TRUE,--,--,null,datetime,FALSE,FALSE
+Last Referenced Date,LastReferencedDate,TRUE,--,--,null,datetime,FALSE,FALSE
+Contact ID,PersonContactId,TRUE,--,"[ ""Contact"" ]",PersonContact,reference,FALSE,FALSE
+Is Person Account,IsPersonAccount,FALSE,--,--,null,boolean,FALSE,FALSE
+Mailing Street,PersonMailingStreet,TRUE,--,--,null,textarea,FALSE,TRUE
+Mailing City,PersonMailingCity,TRUE,--,--,null,string,FALSE,TRUE
+Mailing State/Province,PersonMailingState,TRUE,--,--,null,string,FALSE,TRUE
+Mailing Zip/Postal Code,PersonMailingPostalCode,TRUE,--,--,null,string,FALSE,TRUE
+Mailing Country,PersonMailingCountry,TRUE,--,--,null,string,FALSE,TRUE
+Mailing Latitude,PersonMailingLatitude,TRUE,--,--,null,double,FALSE,TRUE
+Mailing Longitude,PersonMailingLongitude,TRUE,--,--,null,double,FALSE,TRUE
+Mailing Geocode Accuracy,PersonMailingGeocodeAccuracy,TRUE,"[ ""Address"" , ""NearAddress"" , ""Block"" , ""Street"" , ""ExtendedZip"" , ""Zip"" , ""Neighborhood"" , ""City"" , ""County"" , ""State"" , ""Unknown"" ]",--,null,picklist,FALSE,TRUE
+Mailing Address,PersonMailingAddress,TRUE,--,--,null,address,FALSE,FALSE
+Other Street,PersonOtherStreet,TRUE,--,--,null,textarea,FALSE,TRUE
+Other City,PersonOtherCity,TRUE,--,--,null,string,FALSE,TRUE
+Other State/Province,PersonOtherState,TRUE,--,--,null,string,FALSE,TRUE
+Other Zip/Postal Code,PersonOtherPostalCode,TRUE,--,--,null,string,FALSE,TRUE
+Other Country,PersonOtherCountry,TRUE,--,--,null,string,FALSE,TRUE
+Other Latitude,PersonOtherLatitude,TRUE,--,--,null,double,FALSE,TRUE
+Other Longitude,PersonOtherLongitude,TRUE,--,--,null,double,FALSE,TRUE
+Other Geocode Accuracy,PersonOtherGeocodeAccuracy,TRUE,"[ ""Address"" , ""NearAddress"" , ""Block"" , ""Street"" , ""ExtendedZip"" , ""Zip"" , ""Neighborhood"" , ""City"" , ""County"" , ""State"" , ""Unknown"" ]",--,null,picklist,FALSE,TRUE
+Other Address,PersonOtherAddress,TRUE,--,--,null,address,FALSE,FALSE
+Mobile,PersonMobilePhone,TRUE,--,--,null,phone,FALSE,TRUE
+Home Phone,PersonHomePhone,TRUE,--,--,null,phone,FALSE,TRUE
+Other Phone,PersonOtherPhone,TRUE,--,--,null,phone,FALSE,TRUE
+Asst. Phone,PersonAssistantPhone,TRUE,--,--,null,phone,FALSE,TRUE
+Email,PersonEmail,TRUE,--,--,null,email,FALSE,TRUE
+Title,PersonTitle,TRUE,--,--,null,string,FALSE,TRUE
+Department,PersonDepartment,TRUE,--,--,null,string,FALSE,TRUE
+Assistant,PersonAssistantName,TRUE,--,--,null,string,FALSE,TRUE
+Lead and Referral Source,PersonLeadSource,TRUE,"[ ""Advertisement"" , ""Customer Event"" , ""Employee Referral"" , ""Google AdWords"" , ""Other"" , ""Partner"" , ""Purchased List"" , ""Trade Show"" , ""Webinar"" , ""Website"" ]",--,null,picklist,FALSE,TRUE
+Birthdate,PersonBirthdate,TRUE,--,--,null,date,FALSE,TRUE
+Email Opt Out,PersonHasOptedOutOfEmail,FALSE,--,--,null,boolean,FALSE,TRUE
+Fax Opt Out,PersonHasOptedOutOfFax,FALSE,--,--,null,boolean,FALSE,TRUE
+Do Not Call,PersonDoNotCall,FALSE,--,--,null,boolean,FALSE,TRUE
+Last Stay-in-Touch Request Date,PersonLastCURequestDate,TRUE,--,--,null,datetime,FALSE,FALSE
+Last Stay-in-Touch Save Date,PersonLastCUUpdateDate,TRUE,--,--,null,datetime,FALSE,FALSE
+Email Bounced Reason,PersonEmailBouncedReason,TRUE,--,--,null,string,FALSE,TRUE
+Email Bounced Date,PersonEmailBouncedDate,TRUE,--,--,null,datetime,FALSE,TRUE
+Data.com Key,Jigsaw,TRUE,--,--,null,string,FALSE,TRUE
+Jigsaw Company ID,JigsawCompanyId,TRUE,--,--,JigsawCompany,string,FALSE,FALSE
+Account Source,AccountSource,TRUE,"[ ""Advertisement"" , ""Customer Event"" , ""Employee Referral"" , ""Google AdWords"" , ""Other"" , ""Partner"" , ""Purchased List"" , ""Trade Show"" , ""Webinar"" , ""Website"" ]",--,null,picklist,FALSE,TRUE
+SIC Description,SicDesc,TRUE,--,--,null,string,FALSE,TRUE
+AUM,FinServ__AUM__c,TRUE,--,--,null,currency,FALSE,FALSE
+Category,FinServ__ClientCategory__c,TRUE,"[ ""Platinum"" , ""Gold"" , ""Silver"" , ""Bronze"" ]",--,null,picklist,FALSE,TRUE
+Financial Interests,FinServ__FinancialInterests__c,TRUE,"[ ""Municipal Bonds"" , ""Fixed Income"" , ""Energy"" , ""Technology"" , ""Retirement"" , ""College Planning"" ]",--,null,multipicklist,FALSE,TRUE
+Individual ID,FinServ__IndividualId__c,TRUE,--,--,null,string,TRUE,TRUE
+Individual Type,FinServ__IndividualType__c,TRUE,"[ ""Individual"" , ""Group"" ]",--,null,picklist,FALSE,TRUE
+Investment Experience,FinServ__InvestmentExperience__c,TRUE,"[ ""Experienced"" , ""Moderately Experienced"" , ""Moderately Inexperienced"" , ""Inexperienced"" ]",--,null,picklist,FALSE,TRUE
+Investment Objectives,FinServ__InvestmentObjectives__c,TRUE,"[ ""Conservative Income"" , ""Income"" , ""Balanced"" , ""Growth"" , ""Aggressive Growth"" ]",--,null,multipicklist,FALSE,TRUE
+Last Interaction,FinServ__LastInteraction__c,TRUE,--,--,null,date,FALSE,TRUE
+Last Review,FinServ__LastReview__c,TRUE,--,--,null,date,FALSE,TRUE
+Marketing Segment,FinServ__MarketingSegment__c,TRUE,"[ ""Mass Affluent"" , ""High Net Worth"" , ""Female Investor"" , ""Millennial"" ]",--,null,multipicklist,FALSE,TRUE
+Net Worth,FinServ__NetWorth__c,TRUE,--,--,null,currency,FALSE,TRUE
+Next Interaction,FinServ__NextInteraction__c,TRUE,--,--,null,date,FALSE,TRUE
+Next Review,FinServ__NextReview__c,TRUE,--,--,null,date,FALSE,TRUE
+Important Notes,FinServ__Notes__c,TRUE,--,--,null,textarea,FALSE,TRUE
+Personal Interests,FinServ__PersonalInterests__c,TRUE,"[ ""Cooking"" , ""College Basketball"" , ""Environment"" , ""Hiking"" , ""Biking"" , ""Wine"" ]",--,null,multipicklist,FALSE,TRUE
+Primary Contact,FinServ__PrimaryContact__c,TRUE,--,"[ ""Contact"" ]",FinServ__PrimaryContact__r,reference,FALSE,TRUE
+Review Frequency,FinServ__ReviewFrequency__c,TRUE,"[ ""Monthly"" , ""Quarterly"" , ""Annually"" ]",--,null,picklist,FALSE,TRUE
+Risk Tolerance,FinServ__RiskTolerance__c,TRUE,"[ ""Aggressive"" , ""Conservative"" , ""Moderate"" , ""None"" ]",--,null,picklist,FALSE,TRUE
+Service Model,FinServ__ServiceModel__c,TRUE,"[ ""Tier 1"" , ""Tier 2"" , ""Tier 3"" ]",--,null,picklist,FALSE,TRUE
+Source System ID,FinServ__SourceSystemId__c,TRUE,--,--,null,string,TRUE,TRUE
+Status,FinServ__Status__c,TRUE,"[ ""Prospect"" , ""Onboarding"" , ""Active"" , ""Deceased"" , ""Inactive"" ]",--,null,picklist,FALSE,TRUE
+Time Horizon,FinServ__TimeHorizon__c,TRUE,"[ ""Long Term"" , ""Medium Term"" , ""Short Term"" ]",--,null,picklist,FALSE,TRUE
+Total AUM Joint Owner,FinServ__TotalAUMJointOwner__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total AUM Primary Owner,FinServ__TotalAUMPrimaryOwner__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total Bank Deposits Joint Owner,FinServ__TotalBankDepositsJointOwner__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total Bank Deposits Primary Owner,FinServ__TotalBankDepositsPrimaryOwner__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total Bank Deposits,FinServ__TotalBankDeposits__c,TRUE,--,--,null,currency,FALSE,FALSE
+Total Financial Accounts Joint Owner,FinServ__TotalFinAcctsJointOwner__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total Financial Accounts Primary Owner,FinServ__TotalFinAcctsPrimaryOwner__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total Financial Accounts,FinServ__TotalFinancialAccounts__c,TRUE,--,--,null,currency,FALSE,FALSE
+Total Held Financial Accounts Joint,FinServ__TotalHeldFinAcctsJointOwner__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total Held Financial Accounts Primary,FinServ__TotalHeldFinAcctsPrimaryOwner__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total Insurance Joint Owner,FinServ__TotalInsuranceJointOwner__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total Insurance Primary Owner,FinServ__TotalInsurancePrimaryOwner__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total Insurance,FinServ__TotalInsurance__c,TRUE,--,--,null,currency,FALSE,FALSE
+Total Investments Joint Owner,FinServ__TotalInvestmentsJointOwner__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total Investments Primary Owner,FinServ__TotalInvestmentsPrimaryOwner__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total Investments,FinServ__TotalInvestments__c,TRUE,--,--,null,currency,FALSE,FALSE
+Total Liabilities Joint Owner,FinServ__TotalLiabilitiesJointOwner__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total Liabilities Primary Owner,FinServ__TotalLiabilitiesPrimaryOwner__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total Liabilities,FinServ__TotalLiabilities__c,TRUE,--,--,null,currency,FALSE,FALSE
+Total Nonfinancial Assets Joint Owner,FinServ__TotalNonfinancialAssetsJointOwner__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total Nonfinancial Assets Primary Owner,FinServ__TotalNonfinancialAssetsPrimaryOwner__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total Nonfinancial Assets,FinServ__TotalNonfinancialAssets__c,TRUE,--,--,null,currency,FALSE,FALSE
+Wallet Share,FinServ__WalletShare__c,TRUE,--,--,null,percent,FALSE,FALSE
+Bank Number,FinServ__BankNumber__c,TRUE,--,--,null,string,FALSE,TRUE
+Borrowing History,FinServ__BorrowingHistory__c,TRUE,"[ ""Excellent"" , ""Moderate"" , ""Poor"" , ""Limited to No History"" ]",--,null,picklist,FALSE,TRUE
+Borrowing Priorities,FinServ__BorrowingPriorities__c,TRUE,"[ ""Build Equity"" , ""Debt Consolidation"" , ""Education"" , ""Investments"" , ""Large Capital Purchases"" , ""Property Purchase"" , ""Renovations"" ]",--,null,picklist,FALSE,TRUE
+Branch Code,FinServ__BranchCode__c,TRUE,--,--,null,string,FALSE,TRUE
+Branch Name,FinServ__BranchName__c,TRUE,--,--,null,string,FALSE,TRUE
+Conversion DateTime,FinServ__ConversionDateTime__c,TRUE,--,--,null,datetime,FALSE,TRUE
+Credit Rating,FinServ__CreditRating__c,TRUE,"[ ""Excellent"" , ""Good"" , ""Fair"" , ""Poor"" ]",--,null,picklist,FALSE,TRUE
+Credit Score,FinServ__CreditScore__c,TRUE,--,--,null,double,FALSE,TRUE
+Customer ID,FinServ__CustomerID__c,TRUE,--,--,null,string,FALSE,TRUE
+Customer Segment,FinServ__CustomerSegment__c,TRUE,"[ ""Mass Market"" , ""Mass Affluent"" , ""Wealth Accumulation"" , ""Transactional"" , ""Long Term Growth"" , ""Borrower"" , ""Millennial"" ]",--,null,multipicklist,FALSE,TRUE
+Customer Type,FinServ__CustomerType__c,TRUE,"[ ""Transaction"" , ""Relational"" , ""Borrower"" , ""Investor"" ]",--,null,picklist,FALSE,TRUE
+KYC Date,FinServ__KYCDate__c,TRUE,--,--,null,date,FALSE,TRUE
+KYC Status,FinServ__KYCStatus__c,TRUE,"[ ""Required"" , ""Overdue"" , ""In Queue"" , ""In progress"" , ""Completed - Valid"" , ""Completed - Invalid"" , ""Expired"" ]",--,null,picklist,FALSE,TRUE
+Last Transaction Date - Joint Owner,FinServ__LastTransactionDateJointOwner__c,TRUE,--,--,null,datetime,FALSE,TRUE
+Last Transaction Date - Primary Owner,FinServ__LastTransactionDatePrimaryOwner__c,TRUE,--,--,null,datetime,FALSE,TRUE
+Last Transaction Date,FinServ__LastTransactionDate__c,TRUE,--,--,null,date,FALSE,FALSE
+Last Used Channel,FinServ__LastUsedChannel__c,TRUE,"[ ""Mobile"" , ""Web"" , ""Branch"" , ""Call Center"" , ""Other"" ]",--,null,picklist,FALSE,TRUE
+Relationship Length,FinServ__LengthOfRelationship__c,TRUE,--,--,null,double,FALSE,FALSE
+Lifetime Value,FinServ__LifetimeValue__c,TRUE,--,--,null,currency,FALSE,TRUE
+External Referrer,FinServ__ReferredByContact__c,TRUE,--,"[ ""Contact"" ]",FinServ__ReferredByContact__r,reference,FALSE,TRUE
+Internal Referrer,FinServ__ReferredByUser__c,TRUE,--,"[ ""User"" ]",FinServ__ReferredByUser__r,reference,FALSE,TRUE
+Relationship Start Date,FinServ__RelationshipStartDate__c,TRUE,--,--,null,date,FALSE,TRUE
+Number of Fin. Accounts - Joint Owner,FinServ__TotalNumberOfFinAccountsJointOwner__c,TRUE,--,--,null,double,FALSE,TRUE
+Number of Fin. Accounts - Primary Owner,FinServ__TotalNumberOfFinAccountsPrimaryOwner__c,TRUE,--,--,null,double,FALSE,TRUE
+Total Number of Financial Accounts,FinServ__TotalNumberOfFinAccounts__c,TRUE,--,--,null,double,FALSE,FALSE
+Total Outstanding Credit - Joint Owner,FinServ__TotalOutstandingCreditJointOwner__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total Outstanding Credit - Primary Owner,FinServ__TotalOutstandingCreditPrimaryOwner__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total Outstanding Credit,FinServ__TotalOutstandingCredit__c,TRUE,--,--,null,currency,FALSE,FALSE
+Total Revenue,FinServ__TotalRevenue__c,TRUE,--,--,null,currency,FALSE,TRUE
+Total Premium,FinServ__TotalPremium__c,TRUE,--,--,null,currency,FALSE,TRUE
+Age As Text,FinServ__AgeAsText__pc,TRUE,--,--,null,string,FALSE,FALSE
+Age,FinServ__Age__pc,TRUE,--,--,null,double,FALSE,FALSE
+Annual Income,FinServ__AnnualIncome__pc,TRUE,--,--,null,currency,FALSE,TRUE
+Billing Address,FinServ__BillingAddress__pc,TRUE,--,--,null,string,FALSE,FALSE
+Citizenship,FinServ__Citizenship__pc,TRUE,--,--,null,string,FALSE,TRUE
+Country,FinServ__CountryOfResidence__pc,TRUE,--,--,null,string,FALSE,TRUE
+Created from Lead,FinServ__CreatedFromLead__pc,FALSE,--,--,null,boolean,FALSE,TRUE
+Current Employer,FinServ__CurrentEmployer__pc,TRUE,--,--,null,string,FALSE,TRUE
+Employed Since,FinServ__EmployedSince__pc,TRUE,--,--,null,date,FALSE,TRUE
+Facebook,FinServ__Facebook__pc,TRUE,--,--,null,url,FALSE,TRUE
+Gender,FinServ__Gender__pc,TRUE,"[ ""Female"" , ""Male"" , ""Other"" ]",--,null,picklist,FALSE,TRUE
+Individual ID,FinServ__IndividualId__pc,TRUE,--,--,null,string,FALSE,FALSE
+Individual Type,FinServ__IndividualType__pc,TRUE,"[ ""Individual"" ]",--,null,picklist,FALSE,TRUE
+Languages Spoken,FinServ__LanguagesSpoken__pc,TRUE,--,--,null,string,FALSE,TRUE
+LinkedIn,FinServ__LinkedIn__pc,TRUE,--,--,null,url,FALSE,TRUE
+Mailing Address,FinServ__MailingAddress__pc,TRUE,--,--,null,string,FALSE,FALSE
+Marital Status,FinServ__MaritalStatus__pc,TRUE,"[ ""Single"" , ""Married"" , ""Separated"" , ""Divorced"" , ""Widowed"" ]",--,null,picklist,FALSE,TRUE
+Number of Dependents,FinServ__NumberOfDependents__pc,TRUE,--,--,null,double,FALSE,TRUE
+Occupation,FinServ__Occupation__pc,TRUE,--,--,null,string,FALSE,TRUE
+Other Address,FinServ__OtherAddress__pc,TRUE,--,--,null,string,FALSE,FALSE
+Primary Address (Billing),FinServ__PrimaryAddressIsBilling__pc,FALSE,--,--,null,boolean,FALSE,TRUE
+Primary Address (Mailing),FinServ__PrimaryAddressIsMailing__pc,FALSE,--,--,null,boolean,FALSE,TRUE
+Primary Address (Other),FinServ__PrimaryAddressIsOther__pc,FALSE,--,--,null,boolean,FALSE,TRUE
+Primary Address (Shipping),FinServ__PrimaryAddressIsShipping__pc,FALSE,--,--,null,boolean,FALSE,TRUE
+Shipping Address,FinServ__ShippingAddress__pc,TRUE,--,--,null,string,FALSE,FALSE
+Source System ID,FinServ__SourceSystemId__pc,TRUE,--,--,null,string,FALSE,TRUE
+Tax Bracket,FinServ__TaxBracket__pc,TRUE,"[ ""10%"" , ""15%"" , ""25%"" , ""28%"" , ""33%"" , ""35%"" ]",--,null,picklist,FALSE,TRUE
+Tax ID,FinServ__TaxId__pc,TRUE,--,--,null,string,FALSE,TRUE
+Twitter,FinServ__Twitter__pc,TRUE,--,--,null,url,FALSE,TRUE
+Wedding Anniversary,FinServ__WeddingAnniversary__pc,TRUE,--,--,null,date,FALSE,TRUE
+Country Of Birth,FinServ__CountryOfBirth__pc,TRUE,"[ ""Afghanistan"" , ""Aland Islands"" , ""Albania"" , ""Algeria"" , ""Andorra"" , ""Angola"" , ""Anguilla"" , ""Antarctica"" , ""Antigua and Barbuda"" , ""Argentina"" , ""Armenia"" , ""Aruba"" , ""Australia"" , ""Austria"" , ""Azerbaijan"" , ""Bahamas"" , ""Bahrain"" , ""Bangladesh"" , ""Barbados"" , ""Belarus"" , ""Belgium"" , ""Belize"" , ""Benin"" , ""Bermuda"" , ""Bhutan"" , ""Bolivia, Plurinational State of"" , ""Bonaire, Sint Eustatius and Saba"" , ""Bosnia and Herzegovina"" , ""Botswana"" , ""Bouvet Island"" , ""Brazil"" , ""British Indian Ocean Territory"" , ""Brunei Darussalam"" , ""Bulgaria"" , ""Burkina Faso"" , ""Burundi"" , ""Cambodia"" , ""Cameroon"" , ""Canada"" , ""Cape Verde"" , ""Cayman Islands"" , ""Central African Republic"" , ""Chad"" , ""Chile"" , ""China"" , ""Christmas Island"" , ""Cocos (Keeling) Islands"" , ""Colombia"" , ""Comoros"" , ""Congo"" , ""Congo, the Democratic Republic of the"" , ""Cook Islands"" , ""Costa Rica"" , ""Cote d’Ivoire"" , ""Croatia"" , ""Cuba"" , ""Curaçao"" , ""Cyprus"" , ""Czech Republic"" , ""Denmark"" , ""Djibouti"" , ""Dominica"" , ""Dominican Republic"" , ""Ecuador"" , ""Egypt"" , ""El Salvador"" , ""Equatorial Guinea"" , ""Eritrea"" , ""Estonia"" , ""Ethiopia"" , ""Falkland Islands (Malvinas)"" , ""Faroe Islands"" , ""Fiji"" , ""Finland"" , ""France"" , ""French Guiana"" , ""French Polynesia"" , ""French Southern Territories"" , ""Gabon"" , ""Gambia"" , ""Georgia"" , ""Germany"" , ""Ghana"" , ""Gibraltar"" , ""Greece"" , ""Greenland"" , ""Grenada"" , ""Guadeloupe"" , ""Guatemala"" , ""Guernsey"" , ""Guinea"" , ""Guinea-Bissau"" , ""Guyana"" , ""Haiti"" , ""Heard Island and McDonald Islands"" , ""Holy See (Vatican City State)"" , ""Honduras"" , ""Hungary"" , ""Iceland"" , ""India"" , ""Indonesia"" , ""Iran, Islamic Republic of"" , ""Iraq"" , ""Ireland"" , ""Isle of Man"" , ""Israel"" , ""Italy"" , ""Jamaica"" , ""Japan"" , ""Jersey"" , ""Jordan"" , ""Kazakhstan"" , ""Kenya"" , ""Kiribati"" , ""Korea, Democratic People’s Republic of"" , ""Korea, Republic of"" , ""Kuwait"" , ""Kyrgyzstan"" , ""Lao People’s Democratic Republic"" , ""Latvia"" , ""Lebanon"" , ""Lesotho"" , ""Liberia"" , ""Libyan Arab Jamahiriya"" , ""Liechtenstein"" , ""Lithuania"" , ""Luxembourg"" , ""Macao"" , ""Macedonia, the former Yugoslav Republic of"" , ""Madagascar"" , ""Malawi"" , ""Malaysia"" , ""Maldives"" , ""Mali"" , ""Malta"" , ""Martinique"" , ""Mauritania"" , ""Mauritius"" , ""Mayotte"" , ""Mexico"" , ""Moldova, Republic of"" , ""Monaco"" , ""Mongolia"" , ""Montenegro"" , ""Montserrat"" , ""Morocco"" , ""Mozambique"" , ""Myanmar"" , ""Namibia"" , ""Nauru"" , ""Nepal"" , ""Netherlands"" , ""New Caledonia"" , ""New Zealand"" , ""Nicaragua"" , ""Niger"" , ""Nigeria"" , ""Niue"" , ""Norfolk Island"" , ""Norway"" , ""Oman"" , ""Pakistan"" , ""Palestine"" , ""Panama"" , ""Papua New Guinea"" , ""Paraguay"" , ""Peru"" , ""Philippines"" , ""Pitcairn"" , ""Poland"" , ""Portugal"" , ""Qatar"" , ""Reunion"" , ""Romania"" , ""Russian Federation"" , ""Rwanda"" , ""Saint Barthélemy"" , ""Saint Helena, Ascension and Tristan da Cunha"" , ""Saint Kitts and Nevis"" , ""Saint Lucia"" , ""Saint Martin (French part)"" , ""Saint Pierre and Miquelon"" , ""Saint Vincent and the Grenadines"" , ""Samoa"" , ""San Marino"" , ""Sao Tome and Principe"" , ""Saudi Arabia"" , ""Senegal"" , ""Serbia"" , ""Seychelles"" , ""Sierra Leone"" , ""Singapore"" , ""Sint Maarten (Dutch part)"" , ""Slovakia"" , ""Slovenia"" , ""Solomon Islands"" , ""Somalia"" , ""South Africa"" , ""South Georgia and the South Sandwich Islands"" , ""South Sudan"" , ""Spain"" , ""Sri Lanka"" , ""Sudan"" , ""Suriname"" , ""Svalbard and Jan Mayen"" , ""Swaziland"" , ""Sweden"" , ""Switzerland"" , ""Syrian Arab Republic"" , ""Taiwan"" , ""Tajikistan"" , ""Tanzania, United Republic of"" , ""Thailand"" , ""Timor-Leste"" , ""Togo"" , ""Tokelau"" , ""Tonga"" , ""Trinidad and Tobago"" , ""Tunisia"" , ""Turkey"" , ""Turkmenistan"" , ""Turks and Caicos Islands"" , ""Tuvalu"" , ""Uganda"" , ""Ukraine"" , ""United Arab Emirates"" , ""United Kingdom"" , ""United States"" , ""Uruguay"" , ""Uzbekistan"" , ""Vanuatu"" , ""Venezuela, Bolivarian Republic of"" , ""Vietnam"" , ""Virgin Islands, British"" , ""Wallis and Futuna"" , ""Western Sahara"" , ""Yemen"" , ""Zambia"" , ""Zimbabwe"" ]",--,null,picklist,FALSE,TRUE
+Preferred Name,FinServ__PreferredName__pc,TRUE,--,--,null,string,FALSE,TRUE
+Primary Language,FinServ__PrimaryLanguage__pc,TRUE,"[ ""Abkhaz"" , ""Adyghe"" , ""Afrikaans"" , ""Akan"" , ""Albanian"" , ""American Sign Language"" , ""Amharic"" , ""Arabic"" , ""Aragonese"" , ""Aramaic"" , ""Armenian"" , ""Aymara"" , ""Balinese"" , ""Basque"" , ""Betawi"" , ""Bosnian"" , ""Breton"" , ""Bulgarian"" , ""Cantonese"" , ""Catalan"" , ""Cherokee"" , ""Chickasaw"" , ""Chinese"" , ""Coptic"" , ""Cornish"" , ""Corsican"" , ""Crimean Tatar"" , ""Croatian"" , ""Czech"" , ""Danish"" , ""Dutch"" , ""Dawro"" , ""Esperanto"" , ""Estonian"" , ""Ewe"" , ""Fiji Hindi"" , ""Filipino"" , ""Finnish"" , ""French"" , ""Galician"" , ""Georgian"" , ""German"" , ""Greek, Modern"" , ""Ancient Greek"" , ""Greenlandic"" , ""Haitian Creole"" , ""Hawaiian"" , ""Hebrew"" , ""Hindi"" , ""Hungarian"" , ""Icelandic"" , ""Indonesian"" , ""Inuktitut"" , ""Interlingua"" , ""Irish"" , ""Italian"" , ""Japanese"" , ""Javanese"" , ""Kabardian"" , ""Kalasha"" , ""Kannada"" , ""Kashubian"" , ""Khmer"" , ""Kinyarwanda"" , ""Korean"" , ""Kurdish/Kurdî"" , ""Ladin"" , ""Latgalian"" , ""Latin"" , ""Lingala"" , ""Livonian"" , ""Lojban"" , ""Lower Sorbian"" , ""Low German"" , ""Macedonian"" , ""Malay"" , ""Malayalam"" , ""Mandarin"" , ""Manx"" , ""Maori"" , ""Mauritian Creole"" , ""Middle Low German"" , ""Min Nan"" , ""Mongolian"" , ""Norwegian"" , ""English"" , ""Oriya"" , ""Pangasinan"" , ""Papiamentu"" , ""Pashto"" , ""Persian"" , ""Pitjantjatjara"" , ""Polish"" , ""Portuguese"" , ""Proto-Slavic"" , ""Quenya"" , ""Rapa Nui"" , ""Romanian"" , ""Russian"" , ""Sanskrit"" , ""Scots"" , ""Scottish Gaelic"" , ""Serbian"" , ""Serbo-Croatian"" , ""Slovak"" , ""Slovene"" , ""Spanish"" , ""Sinhalese"" , ""Swahili"" , ""Swedish"" , ""Tagalog"" , ""Tajik"" , ""Tamil"" , ""Tarantino"" , ""Telugu"" , ""Thai"" , ""Tok Pisin"" , ""Turkish"" , ""Twi"" , ""Ukrainian"" , ""Upper Sorbian"" , ""Urdu"" , ""Uzbek"" , ""Venetian"" , ""Vietnamese"" , ""Vilamovian"" , ""Volapük"" , ""Võro"" , ""Welsh"" , ""Xhosa"" , ""Yiddish"" , ""Zazaki"" ]",--,null,picklist,FALSE,TRUE
+Secondary Language,FinServ__SecondaryLanguage__pc,TRUE,"[ ""Abkhaz"" , ""Adyghe"" , ""Afrikaans"" , ""Akan"" , ""Albanian"" , ""American Sign Language"" , ""Amharic"" , ""Arabic"" , ""Aragonese"" , ""Aramaic"" , ""Armenian"" , ""Aymara"" , ""Balinese"" , ""Basque"" , ""Betawi"" , ""Bosnian"" , ""Breton"" , ""Bulgarian"" , ""Cantonese"" , ""Catalan"" , ""Cherokee"" , ""Chickasaw"" , ""Chinese"" , ""Coptic"" , ""Cornish"" , ""Corsican"" , ""Crimean Tatar"" , ""Croatian"" , ""Czech"" , ""Danish"" , ""Dutch"" , ""Dawro"" , ""Esperanto"" , ""Estonian"" , ""Ewe"" , ""Fiji Hindi"" , ""Filipino"" , ""Finnish"" , ""French"" , ""Galician"" , ""Georgian"" , ""German"" , ""Greek, Modern"" , ""Ancient Greek"" , ""Greenlandic"" , ""Haitian Creole"" , ""Hawaiian"" , ""Hebrew"" , ""Hindi"" , ""Hungarian"" , ""Icelandic"" , ""Indonesian"" , ""Inuktitut"" , ""Interlingua"" , ""Irish"" , ""Italian"" , ""Japanese"" , ""Javanese"" , ""Kabardian"" , ""Kalasha"" , ""Kannada"" , ""Kashubian"" , ""Khmer"" , ""Kinyarwanda"" , ""Korean"" , ""Kurdish/Kurdî"" , ""Ladin"" , ""Latgalian"" , ""Latin"" , ""Lingala"" , ""Livonian"" , ""Lojban"" , ""Lower Sorbian"" , ""Low German"" , ""Macedonian"" , ""Malay"" , ""Malayalam"" , ""Mandarin"" , ""Manx"" , ""Maori"" , ""Mauritian Creole"" , ""Middle Low German"" , ""Min Nan"" , ""Mongolian"" , ""Norwegian"" , ""English"" , ""Oriya"" , ""Pangasinan"" , ""Papiamentu"" , ""Pashto"" , ""Persian"" , ""Pitjantjatjara"" , ""Polish"" , ""Portuguese"" , ""Proto-Slavic"" , ""Quenya"" , ""Rapa Nui"" , ""Romanian"" , ""Russian"" , ""Sanskrit"" , ""Scots"" , ""Scottish Gaelic"" , ""Serbian"" , ""Serbo-Croatian"" , ""Slovak"" , ""Slovene"" , ""Spanish"" , ""Sinhalese"" , ""Swahili"" , ""Swedish"" , ""Tagalog"" , ""Tajik"" , ""Tamil"" , ""Tarantino"" , ""Telugu"" , ""Thai"" , ""Tok Pisin"" , ""Turkish"" , ""Twi"" , ""Ukrainian"" , ""Upper Sorbian"" , ""Urdu"" , ""Uzbek"" , ""Venetian"" , ""Vietnamese"" , ""Vilamovian"" , ""Volapük"" , ""Võro"" , ""Welsh"" , ""Xhosa"" , ""Yiddish"" , ""Zazaki"" ]",--,null,picklist,FALSE,TRUE
+Affiliations,FinServ__Affiliations__pc,TRUE,--,--,null,textarea,FALSE,TRUE
+Communication Preferences,FinServ__CommunicationPreferences__pc,TRUE,"[ ""Fraud:Phone"" , ""Fraud:Email"" , ""Fraud:SMS"" , ""Promotions:Phone"" , ""Promotions:Email"" , ""Promotions:SMS"" , ""Balance Activities:Phone"" , ""Balance Activities:Email"" , ""Balance Activities:SMS"" ]",--,null,multipicklist,FALSE,TRUE
+Contact Preference,FinServ__ContactPreference__pc,TRUE,"[ ""Email"" , ""Phone"" , ""Mobile"" ]",--,null,picklist,FALSE,TRUE
+Customer Timezone,FinServ__CustomerTimezone__pc,TRUE,"[ ""Pacific/Kiritimati"" , ""Pacific/Enderbury"" , ""Pacific/Tongatapu"" , ""Pacific/Chatham"" , ""Asia/Kamchatka"" , ""Pacific/Auckland"" , ""Pacific/Fiji"" , ""Pacific/Norfolk"" , ""Pacific/Guadalcanal"" , ""Australia/Lord_Howe"" , ""Australia/Brisbane"" , ""Australia/Sydney"" , ""Australia/Adelaide"" , ""Australia/Darwin"" , ""Asia/Seoul"" , ""Asia/Tokyo"" , ""Asia/Hong_Kong"" , ""Asia/Kuala_Lumpur"" , ""Asia/Manila"" , ""Asia/Shanghai"" , ""Asia/Singapore"" , ""Asia/Taipei"" , ""Australia/Perth"" , ""Asia/Bangkok"" , ""Asia/Jakarta"" , ""Asia/Saigon"" , ""Asia/Rangoon"" , ""Asia/Dacca"" , ""Asia/Katmandu"" , ""Asia/Calcutta"" , ""Asia/Colombo"" , ""Asia/Karachi"" , ""Asia/Tashkent"" , ""Asia/Yekaterinburg"" , ""Asia/Kabul"" , ""Asia/Dubai"" , ""Asia/Tbilisi"" , ""Asia/Tehran"" , ""Africa/Nairobi"" , ""Asia/Baghdad"" , ""Asia/Kuwait"" , ""Asia/Riyadh"" , ""Europe/Moscow"" , ""Africa/Cairo"" , ""Africa/Johannesburg"" , ""Asia/Jerusalem"" , ""Europe/Athens"" , ""Europe/Bucharest"" , ""Europe/Helsinki"" , ""Europe/Istanbul"" , ""Europe/Minsk"" , ""Europe/Amsterdam"" , ""Europe/Berlin"" , ""Europe/Brussels"" , ""Europe/Paris"" , ""Europe/Prague"" , ""Europe/Rome"" , ""Europe/Dublin"" , ""Europe/Lisbon"" , ""Europe/London"" , ""GMT"" , ""Atlantic/Cape_Verde"" , ""Atlantic/South_Georgia"" , ""America/Buenos_Aires"" , ""America/Sao_Paulo"" , ""America/St_Johns"" , ""America/Halifax"" , ""America/Puerto_Rico"" , ""America/Santiago"" , ""Atlantic/Bermuda"" , ""America/Caracas"" , ""America/Bogota"" , ""America/Indianapolis"" , ""America/Lima"" , ""America/New_York"" , ""America/Panama"" , ""America/Chicago"" , ""America/El_Salvador"" , ""America/Mexico_City"" , ""America/Denver"" , ""America/Phoenix"" , ""America/Los_Angeles"" , ""America/Tijuana"" , ""America/Anchorage"" , ""Pacific/Honolulu"" , ""Pacific/Niue"" , ""Pacific/Pago_Pago"" ]",--,null,picklist,FALSE,TRUE
+Email Verified,FinServ__EmailVerified__pc,FALSE,--,--,null,boolean,FALSE,TRUE
+Fax Verified,FinServ__FaxVerified__pc,FALSE,--,--,null,boolean,FALSE,TRUE
+Home Ownership,FinServ__HomeOwnership__pc,TRUE,"[ ""Rent"" , ""Own"" , ""Other"" ]",--,null,picklist,FALSE,TRUE
+Home Phone Verified,FinServ__HomePhoneVerified__pc,FALSE,--,--,null,boolean,FALSE,TRUE
+SSN/Tax ID (Last Four Digits),FinServ__LastFourDigitSSN__pc,TRUE,--,--,null,string,FALSE,TRUE
+Marketing Opt-Out,FinServ__MarketingOptOut__pc,FALSE,--,--,null,boolean,FALSE,TRUE
+Mobile Verified,FinServ__MobileVerified__pc,FALSE,--,--,null,boolean,FALSE,TRUE
+Most Used Channel,FinServ__MostUsedChannel__pc,TRUE,"[ ""Mobile"" , ""Web"" , ""Branch"" , ""Call Center"" , ""Other"" ]",--,null,picklist,FALSE,TRUE
+Mother's Maiden Name,FinServ__MotherMaidenName__pc,TRUE,--,--,null,string,FALSE,TRUE
+Next Life Event,FinServ__NextLifeEvent__pc,TRUE,"[ ""Higher Education"" , ""Enter Workforce"" , ""Returning to Workforce"" , ""First Home Purchase"" , ""Children"" , ""Renovations"" , ""Moving"" , ""Critical Family Event"" , ""Promotion"" , ""Retirement"" ]",--,null,picklist,FALSE,TRUE
+Number Of Children,FinServ__NumberOfChildren__pc,TRUE,--,--,null,double,FALSE,TRUE
+Primary Citizenship,FinServ__PrimaryCitizenship__pc,TRUE,"[ ""Afghanistan"" , ""Aland Islands"" , ""Albania"" , ""Algeria"" , ""Andorra"" , ""Angola"" , ""Anguilla"" , ""Antarctica"" , ""Antigua and Barbuda"" , ""Argentina"" , ""Armenia"" , ""Aruba"" , ""Australia"" , ""Austria"" , ""Azerbaijan"" , ""Bahamas"" , ""Bahrain"" , ""Bangladesh"" , ""Barbados"" , ""Belarus"" , ""Belgium"" , ""Belize"" , ""Benin"" , ""Bermuda"" , ""Bhutan"" , ""Bolivia, Plurinational State of"" , ""Bonaire, Sint Eustatius and Saba"" , ""Bosnia and Herzegovina"" , ""Botswana"" , ""Bouvet Island"" , ""Brazil"" , ""British Indian Ocean Territory"" , ""Brunei Darussalam"" , ""Bulgaria"" , ""Burkina Faso"" , ""Burundi"" , ""Cambodia"" , ""Cameroon"" , ""Canada"" , ""Cape Verde"" , ""Cayman Islands"" , ""Central African Republic"" , ""Chad"" , ""Chile"" , ""China"" , ""Christmas Island"" , ""Cocos (Keeling) Islands"" , ""Colombia"" , ""Comoros"" , ""Congo"" , ""Congo, the Democratic Republic of the"" , ""Cook Islands"" , ""Costa Rica"" , ""Cote d’Ivoire"" , ""Croatia"" , ""Cuba"" , ""Curaçao"" , ""Cyprus"" , ""Czech Republic"" , ""Denmark"" , ""Djibouti"" , ""Dominica"" , ""Dominican Republic"" , ""Ecuador"" , ""Egypt"" , ""El Salvador"" , ""Equatorial Guinea"" , ""Eritrea"" , ""Estonia"" , ""Ethiopia"" , ""Falkland Islands (Malvinas)"" , ""Faroe Islands"" , ""Fiji"" , ""Finland"" , ""France"" , ""French Guiana"" , ""French Polynesia"" , ""French Southern Territories"" , ""Gabon"" , ""Gambia"" , ""Georgia"" , ""Germany"" , ""Ghana"" , ""Gibraltar"" , ""Greece"" , ""Greenland"" , ""Grenada"" , ""Guadeloupe"" , ""Guatemala"" , ""Guernsey"" , ""Guinea"" , ""Guinea-Bissau"" , ""Guyana"" , ""Haiti"" , ""Heard Island and McDonald Islands"" , ""Holy See (Vatican City State)"" , ""Honduras"" , ""Hungary"" , ""Iceland"" , ""India"" , ""Indonesia"" , ""Iran, Islamic Republic of"" , ""Iraq"" , ""Ireland"" , ""Isle of Man"" , ""Israel"" , ""Italy"" , ""Jamaica"" , ""Japan"" , ""Jersey"" , ""Jordan"" , ""Kazakhstan"" , ""Kenya"" , ""Kiribati"" , ""Korea, Democratic People’s Republic of"" , ""Korea, Republic of"" , ""Kuwait"" , ""Kyrgyzstan"" , ""Lao People’s Democratic Republic"" , ""Latvia"" , ""Lebanon"" , ""Lesotho"" , ""Liberia"" , ""Libyan Arab Jamahiriya"" , ""Liechtenstein"" , ""Lithuania"" , ""Luxembourg"" , ""Macao"" , ""Macedonia, the former Yugoslav Republic of"" , ""Madagascar"" , ""Malawi"" , ""Malaysia"" , ""Maldives"" , ""Mali"" , ""Malta"" , ""Martinique"" , ""Mauritania"" , ""Mauritius"" , ""Mayotte"" , ""Mexico"" , ""Moldova, Republic of"" , ""Monaco"" , ""Mongolia"" , ""Montenegro"" , ""Montserrat"" , ""Morocco"" , ""Mozambique"" , ""Myanmar"" , ""Namibia"" , ""Nauru"" , ""Nepal"" , ""Netherlands"" , ""New Caledonia"" , ""New Zealand"" , ""Nicaragua"" , ""Niger"" , ""Nigeria"" , ""Niue"" , ""Norfolk Island"" , ""Norway"" , ""Oman"" , ""Pakistan"" , ""Palestine"" , ""Panama"" , ""Papua New Guinea"" , ""Paraguay"" , ""Peru"" , ""Philippines"" , ""Pitcairn"" , ""Poland"" , ""Portugal"" , ""Qatar"" , ""Reunion"" , ""Romania"" , ""Russian Federation"" , ""Rwanda"" , ""Saint Barthélemy"" , ""Saint Helena, Ascension and Tristan da Cunha"" , ""Saint Kitts and Nevis"" , ""Saint Lucia"" , ""Saint Martin (French part)"" , ""Saint Pierre and Miquelon"" , ""Saint Vincent and the Grenadines"" , ""Samoa"" , ""San Marino"" , ""Sao Tome and Principe"" , ""Saudi Arabia"" , ""Senegal"" , ""Serbia"" , ""Seychelles"" , ""Sierra Leone"" , ""Singapore"" , ""Sint Maarten (Dutch part)"" , ""Slovakia"" , ""Slovenia"" , ""Solomon Islands"" , ""Somalia"" , ""South Africa"" , ""South Georgia and the South Sandwich Islands"" , ""South Sudan"" , ""Spain"" , ""Sri Lanka"" , ""Sudan"" , ""Suriname"" , ""Svalbard and Jan Mayen"" , ""Swaziland"" , ""Sweden"" , ""Switzerland"" , ""Syrian Arab Republic"" , ""Taiwan"" , ""Tajikistan"" , ""Tanzania, United Republic of"" , ""Thailand"" , ""Timor-Leste"" , ""Togo"" , ""Tokelau"" , ""Tonga"" , ""Trinidad and Tobago"" , ""Tunisia"" , ""Turkey"" , ""Turkmenistan"" , ""Turks and Caicos Islands"" , ""Tuvalu"" , ""Uganda"" , ""Ukraine"" , ""United Arab Emirates"" , ""United Kingdom"" , ""United States"" , ""Uruguay"" , ""Uzbekistan"" , ""Vanuatu"" , ""Venezuela, Bolivarian Republic of"" , ""Vietnam"" , ""Virgin Islands, British"" , ""Wallis and Futuna"" , ""Western Sahara"" , ""Yemen"" , ""Zambia"" , ""Zimbabwe"" ]",--,null,picklist,FALSE,TRUE
+External Referrer,FinServ__ReferredByContact__pc,TRUE,--,"[ ""Contact"" ]",FinServ__ReferredByContact__pr,reference,FALSE,TRUE
+Internal Referrer,FinServ__ReferredByUser__pc,TRUE,--,"[ ""User"" ]",FinServ__ReferredByUser__pr,reference,FALSE,TRUE
+Referrer Score,FinServ__ReferrerScore__pc,TRUE,--,--,null,double,FALSE,TRUE
+Secondary Citizenship,FinServ__SecondaryCitizenship__pc,TRUE,"[ ""Afghanistan"" , ""Aland Islands"" , ""Albania"" , ""Algeria"" , ""Andorra"" , ""Angola"" , ""Anguilla"" , ""Antarctica"" , ""Antigua and Barbuda"" , ""Argentina"" , ""Armenia"" , ""Aruba"" , ""Australia"" , ""Austria"" , ""Azerbaijan"" , ""Bahamas"" , ""Bahrain"" , ""Bangladesh"" , ""Barbados"" , ""Belarus"" , ""Belgium"" , ""Belize"" , ""Benin"" , ""Bermuda"" , ""Bhutan"" , ""Bolivia, Plurinational State of"" , ""Bonaire, Sint Eustatius and Saba"" , ""Bosnia and Herzegovina"" , ""Botswana"" , ""Bouvet Island"" , ""Brazil"" , ""British Indian Ocean Territory"" , ""Brunei Darussalam"" , ""Bulgaria"" , ""Burkina Faso"" , ""Burundi"" , ""Cambodia"" , ""Cameroon"" , ""Canada"" , ""Cape Verde"" , ""Cayman Islands"" , ""Central African Republic"" , ""Chad"" , ""Chile"" , ""China"" , ""Christmas Island"" , ""Cocos (Keeling) Islands"" , ""Colombia"" , ""Comoros"" , ""Congo"" , ""Congo, the Democratic Republic of the"" , ""Cook Islands"" , ""Costa Rica"" , ""Cote d’Ivoire"" , ""Croatia"" , ""Cuba"" , ""Curaçao"" , ""Cyprus"" , ""Czech Republic"" , ""Denmark"" , ""Djibouti"" , ""Dominica"" , ""Dominican Republic"" , ""Ecuador"" , ""Egypt"" , ""El Salvador"" , ""Equatorial Guinea"" , ""Eritrea"" , ""Estonia"" , ""Ethiopia"" , ""Falkland Islands (Malvinas)"" , ""Faroe Islands"" , ""Fiji"" , ""Finland"" , ""France"" , ""French Guiana"" , ""French Polynesia"" , ""French Southern Territories"" , ""Gabon"" , ""Gambia"" , ""Georgia"" , ""Germany"" , ""Ghana"" , ""Gibraltar"" , ""Greece"" , ""Greenland"" , ""Grenada"" , ""Guadeloupe"" , ""Guatemala"" , ""Guernsey"" , ""Guinea"" , ""Guinea-Bissau"" , ""Guyana"" , ""Haiti"" , ""Heard Island and McDonald Islands"" , ""Holy See (Vatican City State)"" , ""Honduras"" , ""Hungary"" , ""Iceland"" , ""India"" , ""Indonesia"" , ""Iran, Islamic Republic of"" , ""Iraq"" , ""Ireland"" , ""Isle of Man"" , ""Israel"" , ""Italy"" , ""Jamaica"" , ""Japan"" , ""Jersey"" , ""Jordan"" , ""Kazakhstan"" , ""Kenya"" , ""Kiribati"" , ""Korea, Democratic People’s Republic of"" , ""Korea, Republic of"" , ""Kuwait"" , ""Kyrgyzstan"" , ""Lao People’s Democratic Republic"" , ""Latvia"" , ""Lebanon"" , ""Lesotho"" , ""Liberia"" , ""Libyan Arab Jamahiriya"" , ""Liechtenstein"" , ""Lithuania"" , ""Luxembourg"" , ""Macao"" , ""Macedonia, the former Yugoslav Republic of"" , ""Madagascar"" , ""Malawi"" , ""Malaysia"" , ""Maldives"" , ""Mali"" , ""Malta"" , ""Martinique"" , ""Mauritania"" , ""Mauritius"" , ""Mayotte"" , ""Mexico"" , ""Moldova, Republic of"" , ""Monaco"" , ""Mongolia"" , ""Montenegro"" , ""Montserrat"" , ""Morocco"" , ""Mozambique"" , ""Myanmar"" , ""Namibia"" , ""Nauru"" , ""Nepal"" , ""Netherlands"" , ""New Caledonia"" , ""New Zealand"" , ""Nicaragua"" , ""Niger"" , ""Nigeria"" , ""Niue"" , ""Norfolk Island"" , ""Norway"" , ""Oman"" , ""Pakistan"" , ""Palestine"" , ""Panama"" , ""Papua New Guinea"" , ""Paraguay"" , ""Peru"" , ""Philippines"" , ""Pitcairn"" , ""Poland"" , ""Portugal"" , ""Qatar"" , ""Reunion"" , ""Romania"" , ""Russian Federation"" , ""Rwanda"" , ""Saint Barthélemy"" , ""Saint Helena, Ascension and Tristan da Cunha"" , ""Saint Kitts and Nevis"" , ""Saint Lucia"" , ""Saint Martin (French part)"" , ""Saint Pierre and Miquelon"" , ""Saint Vincent and the Grenadines"" , ""Samoa"" , ""San Marino"" , ""Sao Tome and Principe"" , ""Saudi Arabia"" , ""Senegal"" , ""Serbia"" , ""Seychelles"" , ""Sierra Leone"" , ""Singapore"" , ""Sint Maarten (Dutch part)"" , ""Slovakia"" , ""Slovenia"" , ""Solomon Islands"" , ""Somalia"" , ""South Africa"" , ""South Georgia and the South Sandwich Islands"" , ""South Sudan"" , ""Spain"" , ""Sri Lanka"" , ""Sudan"" , ""Suriname"" , ""Svalbard and Jan Mayen"" , ""Swaziland"" , ""Sweden"" , ""Switzerland"" , ""Syrian Arab Republic"" , ""Taiwan"" , ""Tajikistan"" , ""Tanzania, United Republic of"" , ""Thailand"" , ""Timor-Leste"" , ""Togo"" , ""Tokelau"" , ""Tonga"" , ""Trinidad and Tobago"" , ""Tunisia"" , ""Turkey"" , ""Turkmenistan"" , ""Turks and Caicos Islands"" , ""Tuvalu"" , ""Uganda"" , ""Ukraine"" , ""United Arab Emirates"" , ""United Kingdom"" , ""United States"" , ""Uruguay"" , ""Uzbekistan"" , ""Vanuatu"" , ""Venezuela, Bolivarian Republic of"" , ""Vietnam"" , ""Virgin Islands, British"" , ""Wallis and Futuna"" , ""Western Sahara"" , ""Yemen"" , ""Zambia"" , ""Zimbabwe"" ]",--,null,picklist,FALSE,TRUE
+" ToolSet v0.7.0 Copyright © 2015 salesforce.com, inc. All rights reserved ",,,,,,,,

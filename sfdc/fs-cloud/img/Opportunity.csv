@@ -1,0 +1,46 @@
+Label,Name,Nillable,Picklistvalues,Referenceto,Relationshipname,Type,Unique,Updateable
+Opportunity ID,Id,FALSE,--,--,null,id,FALSE,FALSE
+Deleted,IsDeleted,FALSE,--,--,null,boolean,FALSE,FALSE
+Account ID,AccountId,TRUE,--,"[ ""Account"" ]",Account,reference,FALSE,TRUE
+Record Type ID,RecordTypeId,TRUE,--,"[ ""RecordType"" ]",RecordType,reference,FALSE,TRUE
+Private,IsPrivate,FALSE,--,--,null,boolean,FALSE,TRUE
+Name,Name,FALSE,--,--,null,string,FALSE,TRUE
+Description,Description,TRUE,--,--,null,textarea,FALSE,TRUE
+Stage,StageName,FALSE,"[ ""Qualification"" , ""Needs Analysis"" , ""Discovery"" , ""Proposal"" , ""Negotiation"" , ""Develop Proposal"" , ""Client Presentation"" , ""Initiate Transfer"" , ""Closed Won"" , ""Closed Lost"" ]",--,null,picklist,FALSE,TRUE
+Amount,Amount,TRUE,--,--,null,currency,FALSE,TRUE
+Probability (%),Probability,TRUE,--,--,null,percent,FALSE,TRUE
+Expected Amount,ExpectedRevenue,TRUE,--,--,null,currency,FALSE,FALSE
+Close Date,CloseDate,FALSE,--,--,null,date,FALSE,TRUE
+Opportunity Type,Type,TRUE,"[ ""Existing Business"" , ""New Business"" ]",--,null,picklist,FALSE,TRUE
+Next Step,NextStep,TRUE,--,--,null,string,FALSE,TRUE
+Lead and Referral Source,LeadSource,TRUE,"[ ""Advertisement"" , ""Customer Event"" , ""Employee Referral"" , ""Google AdWords"" , ""Other"" , ""Partner"" , ""Purchased List"" , ""Trade Show"" , ""Webinar"" , ""Website"" ]",--,null,picklist,FALSE,TRUE
+Closed,IsClosed,FALSE,--,--,null,boolean,FALSE,FALSE
+Won,IsWon,FALSE,--,--,null,boolean,FALSE,FALSE
+Forecast Category,ForecastCategory,FALSE,"[ ""Omitted"" , ""Pipeline"" , ""BestCase"" , ""Forecast"" , ""Closed"" ]",--,null,picklist,FALSE,FALSE
+Forecast Category,ForecastCategoryName,TRUE,"[ ""Omitted"" , ""Pipeline"" , ""Best Case"" , ""Commit"" , ""Closed"" ]",--,null,picklist,FALSE,TRUE
+Campaign ID,CampaignId,TRUE,--,"[ ""Campaign"" ]",Campaign,reference,FALSE,TRUE
+Has Line Item,HasOpportunityLineItem,FALSE,--,--,null,boolean,FALSE,FALSE
+Price Book ID,Pricebook2Id,TRUE,--,"[ ""Pricebook2"" ]",Pricebook2,reference,FALSE,TRUE
+Owner ID,OwnerId,FALSE,--,"[ ""User"" ]",Owner,reference,FALSE,TRUE
+Created Date,CreatedDate,FALSE,--,--,null,datetime,FALSE,FALSE
+Created By ID,CreatedById,FALSE,--,"[ ""User"" ]",CreatedBy,reference,FALSE,FALSE
+Last Modified Date,LastModifiedDate,FALSE,--,--,null,datetime,FALSE,FALSE
+Last Modified By ID,LastModifiedById,FALSE,--,"[ ""User"" ]",LastModifiedBy,reference,FALSE,FALSE
+System Modstamp,SystemModstamp,FALSE,--,--,null,datetime,FALSE,FALSE
+Last Activity,LastActivityDate,TRUE,--,--,null,date,FALSE,FALSE
+Fiscal Quarter,FiscalQuarter,TRUE,--,--,null,int,FALSE,FALSE
+Fiscal Year,FiscalYear,TRUE,--,--,null,int,FALSE,FALSE
+Fiscal Period,Fiscal,TRUE,--,--,null,string,FALSE,FALSE
+Last Viewed Date,LastViewedDate,TRUE,--,--,null,datetime,FALSE,FALSE
+Last Referenced Date,LastReferencedDate,TRUE,--,--,null,datetime,FALSE,FALSE
+Quote ID,SyncedQuoteId,TRUE,--,"[ ""Quote"" ]",SyncedQuote,reference,FALSE,TRUE
+Has Open Activity,HasOpenActivity,FALSE,--,--,null,boolean,FALSE,FALSE
+Has Overdue Task,HasOverdueTask,FALSE,--,--,null,boolean,FALSE,FALSE
+Budget Confirmed,Budget_Confirmed__c,FALSE,--,--,null,boolean,FALSE,TRUE
+Discovery Completed,Discovery_Completed__c,FALSE,--,--,null,boolean,FALSE,TRUE
+ROI Analysis Completed,ROI_Analysis_Completed__c,FALSE,--,--,null,boolean,FALSE,TRUE
+Financial Account,FinServ__FinancialAccount__c,TRUE,--,"[ ""FinServ__FinancialAccount__c"" ]",FinServ__FinancialAccount__r,reference,FALSE,TRUE
+Loss Reason,Loss_Reason__c,TRUE,"[ ""Lost to Competitor"" , ""No Budget / Lost Funding"" , ""No Decision / Non-Responsive"" , ""Price"" , ""Other"" ]",--,null,picklist,FALSE,TRUE
+External Referrer,FinServ__ReferredByContact__c,TRUE,--,"[ ""Contact"" ]",FinServ__ReferredByContact__r,reference,FALSE,TRUE
+Internal Referrer,FinServ__ReferredByUser__c,TRUE,--,"[ ""User"" ]",FinServ__ReferredByUser__r,reference,FALSE,TRUE
+Household,FinServ__Household__c,TRUE,--,"[ ""Account"" ]",FinServ__Household__r,reference,FALSE,TRUE

@@ -1,0 +1,69 @@
+Label,Name,Nillable,Picklistvalues,Referenceto,Relationshipname,Type,Unique,Updateable
+Lead and Referral ID,Id,FALSE,--,--,null,id,FALSE,FALSE
+Deleted,IsDeleted,FALSE,--,--,null,boolean,FALSE,FALSE
+Master Record ID,MasterRecordId,TRUE,--,"[ ""Lead"" ]",MasterRecord,reference,FALSE,FALSE
+Last Name,LastName,FALSE,--,--,null,string,FALSE,TRUE
+First Name,FirstName,TRUE,--,--,null,string,FALSE,TRUE
+Salutation,Salutation,TRUE,"[ ""Mr."" , ""Ms."" , ""Mrs."" , ""Dr."" , ""Prof."" ]",--,null,picklist,FALSE,TRUE
+Middle Name,MiddleName,TRUE,--,--,null,string,FALSE,TRUE
+Suffix,Suffix,TRUE,--,--,null,string,FALSE,TRUE
+Full Name,Name,FALSE,--,--,null,string,FALSE,FALSE
+Lead and Referral Record Type,RecordTypeId,TRUE,--,"[ ""RecordType"" ]",RecordType,reference,FALSE,TRUE
+Title,Title,TRUE,--,--,null,string,FALSE,TRUE
+Company,Company,TRUE,--,--,null,string,FALSE,TRUE
+Street,Street,TRUE,--,--,null,textarea,FALSE,TRUE
+City,City,TRUE,--,--,null,string,FALSE,TRUE
+State/Province,State,TRUE,--,--,null,string,FALSE,TRUE
+Zip/Postal Code,PostalCode,TRUE,--,--,null,string,FALSE,TRUE
+Country,Country,TRUE,--,--,null,string,FALSE,TRUE
+Latitude,Latitude,TRUE,--,--,null,double,FALSE,TRUE
+Longitude,Longitude,TRUE,--,--,null,double,FALSE,TRUE
+Geocode Accuracy,GeocodeAccuracy,TRUE,"[ ""Address"" , ""NearAddress"" , ""Block"" , ""Street"" , ""ExtendedZip"" , ""Zip"" , ""Neighborhood"" , ""City"" , ""County"" , ""State"" , ""Unknown"" ]",--,null,picklist,FALSE,TRUE
+Address,Address,TRUE,--,--,null,address,FALSE,FALSE
+Phone,Phone,TRUE,--,--,null,phone,FALSE,TRUE
+Mobile Phone,MobilePhone,TRUE,--,--,null,phone,FALSE,TRUE
+Fax,Fax,TRUE,--,--,null,phone,FALSE,TRUE
+Email,Email,TRUE,--,--,null,email,FALSE,TRUE
+Website,Website,TRUE,--,--,null,url,FALSE,TRUE
+Photo URL,PhotoUrl,TRUE,--,--,null,url,FALSE,FALSE
+Description,Description,TRUE,--,--,null,textarea,FALSE,TRUE
+Lead and Referral Source,LeadSource,TRUE,"[ ""Advertisement"" , ""Customer Event"" , ""Employee Referral"" , ""Google AdWords"" , ""Other"" , ""Partner"" , ""Purchased List"" , ""Trade Show"" , ""Webinar"" , ""Website"" ]",--,null,picklist,FALSE,TRUE
+Lead and Referral Status,Status,FALSE,"[ ""Unqualified"" , ""New"" , ""Working"" , ""Nurturing"" , ""Working - Contacted"" , ""Nurturing - Contacted"" , ""Qualified"" ]",--,null,picklist,FALSE,TRUE
+Industry,Industry,TRUE,"[ ""Agriculture"" , ""Apparel"" , ""Banking"" , ""Biotechnology"" , ""Chemicals"" , ""Communications"" , ""Construction"" , ""Consulting"" , ""Education"" , ""Electronics"" , ""Energy"" , ""Engineering"" , ""Entertainment"" , ""Environmental"" , ""Finance"" , ""Food & Beverage"" , ""Government"" , ""Healthcare"" , ""Hospitality"" , ""Insurance"" , ""Machinery"" , ""Manufacturing"" , ""Media"" , ""Not For Profit"" , ""Other"" , ""Recreation"" , ""Retail"" , ""Shipping"" , ""Technology"" , ""Telecommunications"" , ""Transportation"" , ""Utilities"" ]",--,null,picklist,FALSE,TRUE
+Rating,Rating,TRUE,"[ ""Hot"" , ""Warm"" , ""Cold"" ]",--,null,picklist,FALSE,TRUE
+Annual Revenue,AnnualRevenue,TRUE,--,--,null,currency,FALSE,TRUE
+Employees,NumberOfEmployees,TRUE,--,--,null,int,FALSE,TRUE
+Lead and Referral Owner,OwnerId,FALSE,--,"[ ""Group"", ""User"" ]",Owner,reference,FALSE,TRUE
+Email Opt Out,HasOptedOutOfEmail,FALSE,--,--,null,boolean,FALSE,TRUE
+Converted,IsConverted,FALSE,--,--,null,boolean,FALSE,FALSE
+Converted Date,ConvertedDate,TRUE,--,--,null,date,FALSE,FALSE
+Converted Account ID,ConvertedAccountId,TRUE,--,"[ ""Account"" ]",ConvertedAccount,reference,FALSE,FALSE
+Converted Contact ID,ConvertedContactId,TRUE,--,"[ ""Contact"" ]",ConvertedContact,reference,FALSE,FALSE
+Converted Opportunity ID,ConvertedOpportunityId,TRUE,--,"[ ""Opportunity"" ]",ConvertedOpportunity,reference,FALSE,FALSE
+Unread By Owner,IsUnreadByOwner,FALSE,--,--,null,boolean,FALSE,TRUE
+Created Date,CreatedDate,FALSE,--,--,null,datetime,FALSE,FALSE
+Created By ID,CreatedById,FALSE,--,"[ ""User"" ]",CreatedBy,reference,FALSE,FALSE
+Last Modified Date,LastModifiedDate,FALSE,--,--,null,datetime,FALSE,FALSE
+Last Modified By ID,LastModifiedById,FALSE,--,"[ ""User"" ]",LastModifiedBy,reference,FALSE,FALSE
+System Modstamp,SystemModstamp,FALSE,--,--,null,datetime,FALSE,FALSE
+Last Activity,LastActivityDate,TRUE,--,--,null,date,FALSE,FALSE
+Do Not Call,DoNotCall,FALSE,--,--,null,boolean,FALSE,TRUE
+Fax Opt Out,HasOptedOutOfFax,FALSE,--,--,null,boolean,FALSE,TRUE
+Last Viewed Date,LastViewedDate,TRUE,--,--,null,datetime,FALSE,FALSE
+Last Referenced Date,LastReferencedDate,TRUE,--,--,null,datetime,FALSE,FALSE
+Last Transfer Date,LastTransferDate,TRUE,--,--,null,date,FALSE,FALSE
+Data.com Key,Jigsaw,TRUE,--,--,null,string,FALSE,TRUE
+Jigsaw Contact ID,JigsawContactId,TRUE,--,--,JigsawContact,string,FALSE,FALSE
+Email Bounced Reason,EmailBouncedReason,TRUE,--,--,null,string,FALSE,TRUE
+Email Bounced Date,EmailBouncedDate,TRUE,--,--,null,datetime,FALSE,TRUE
+Created from Lead,FinServ__CreatedFromLead__c,FALSE,--,--,null,boolean,FALSE,TRUE
+Employer,FinServ__Employer__c,TRUE,--,--,null,string,FALSE,TRUE
+Conversion DateTime,FinServ__ConversionDateTime__c,TRUE,--,--,null,datetime,FALSE,FALSE
+Created By Me,FinServ__CreatedByMe__c,FALSE,--,--,null,boolean,FALSE,FALSE
+Expressed Interest,FinServ__ExpressedInterest__c,TRUE,"[ ""Mortgage"" , ""Personal Loan"" , ""Credit Card"" , ""Savings Account"" , ""Checking Account"" , ""HELOC"" , ""Day to Day Banking"" , ""Manage Money"" , ""Property Purchase"" , ""Investments"" , ""Education"" , ""Manage Debt"" ]",--,null,picklist,FALSE,TRUE
+Household,FinServ__Household__c,TRUE,--,"[ ""Account"" ]",FinServ__Household__r,reference,FALSE,TRUE
+Potential Value,FinServ__PotentialValue__c,TRUE,--,--,null,currency,FALSE,TRUE
+External Referrer,FinServ__ReferredByContact__c,TRUE,--,"[ ""Contact"" ]",FinServ__ReferredByContact__r,reference,FALSE,TRUE
+Internal Referrer,FinServ__ReferredByUser__c,TRUE,--,"[ ""User"" ]",FinServ__ReferredByUser__r,reference,FALSE,TRUE
+Referrer Score,FinServ__ReferrerScore__c,TRUE,--,--,null,double,FALSE,FALSE
+Related Account,FinServ__RelatedAccount__c,TRUE,--,"[ ""Account"" ]",FinServ__RelatedAccount__r,reference,FALSE,TRUE
