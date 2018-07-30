@@ -1,0 +1,15 @@
+Label,Name,Nillable,Picklistvalues,Referenceto,Relationshipname,Type,Unique,Updateable
+Group ID,Id,FALSE,--,--,null,id,FALSE,FALSE
+Name,Name,FALSE,--,--,null,string,FALSE,TRUE
+Developer Name,DeveloperName,TRUE,--,--,null,string,FALSE,TRUE
+Related ID,RelatedId,TRUE,--,"[ ""User"", ""UserRole"" ]",Related,reference,FALSE,FALSE
+Type,Type,FALSE,"[ ""AllCustomerPortal"" , ""ChannelProgramGroup"" , ""CollaborationGroup"" , ""Manager"" , ""ManagerAndSubordinatesInternal"" , ""Organization"" , ""PRMOrganization"" , ""Queue"" , ""Regular"" , ""Role"" , ""RoleAndSubordinates"" , ""RoleAndSubordinatesInternal"" , ""Territory"" , ""TerritoryAndSubordinates"" ]",--,null,picklist,FALSE,FALSE
+Email,Email,TRUE,--,--,null,email,FALSE,TRUE
+Owner ID,OwnerId,FALSE,--,"[ ""Organization"", ""User"" ]",Owner,reference,FALSE,FALSE
+Send Email to Members,DoesSendEmailToMembers,FALSE,--,--,null,boolean,FALSE,TRUE
+Include Bosses,DoesIncludeBosses,FALSE,--,--,null,boolean,FALSE,TRUE
+Created Date,CreatedDate,FALSE,--,--,null,datetime,FALSE,FALSE
+Created By ID,CreatedById,FALSE,--,"[ ""User"" ]",CreatedBy,reference,FALSE,FALSE
+Last Modified Date,LastModifiedDate,FALSE,--,--,null,datetime,FALSE,FALSE
+Last Modified By ID,LastModifiedById,FALSE,--,"[ ""User"" ]",LastModifiedBy,reference,FALSE,FALSE
+System Modstamp,SystemModstamp,FALSE,--,--,null,datetime,FALSE,FALSE
