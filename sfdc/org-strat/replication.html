@@ -76,6 +76,48 @@
     </ul> 
     </div>
 </div>
+<h4 style="font-size: 25px;">TODOs</h4>
+
+<ul style="font-size: 20px;">
+        <li> Set up a Global Center of Excellence (CoE) 
+            <ul>
+                <li>Global CoE should manage business architecture and common standards of<b>all</b> Salesforce orgs across the enterprise</li>
+                <li>Each org will have its own CoE</li>
+                <li>Each org will have its own Architecture Review 
+                    <ul>
+                        <li> Design, Review and Approve Technical Changes to the org (data model, config, custom-code) </li>
+                    </ul>
+                </li>
+                <li>Should not allow to split orgs based on request-backlogs</li>
+                <li>Create a roadmap across all the Line of Businesses (LOBs)</li>
+                <li>Personally Identifiable Information (PII) (and Encryption needs) may have much different security requirements than other business data </li>
+            </ul> </li>
+        <li> Work with Enterprise data architects
+            <ul><li>
+                   Determine which data objects should or should not be in each org </li>
+                   <li> that each org is aware of any possible duplicated data objects </li>
+             </ul>
+            
+        </li>
+        <li>
+                The CoE should design and build a <b>Reference Architecture</b> that defines where and when an additional org is reasonable or necessary
+        </li>
+        <li>Establish Naming standards across the data model, configuration design, and custom code </li>
+        <li>Adhere to strict separation of concerns in Apex Code Design</li>
+        <li>Proper Security design to support profiles, perm-sets, role-hierarchy, sharing model, public-groups </li>
+        <li>Consider cost of having multi-org
+            <ul>
+                <li>Increased License cost if users need to access multiple-orgs</li>
+                <li>Integration costs</li>
+                <li>Cost of multiple sandboxes and release cycles</li>
+                <li>Plan to implement SSO (single sign on) to maintain user accounts</li>
+            </ul>
+        </li>
+        <li>Select proper Integration Strategy for the business process and data across multiple orgs</li>
+        <li>Plan to use managed packages to deploy from hub-org to spoke-orgs</li>
+        <li>Make sure Customer-360 is possible with hub-spoke model</li>
+            
+ </ul> 
 
 </body>
 </html>
