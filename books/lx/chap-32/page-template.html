@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>SFDX TrainingTracker App · GitBook</title>
+        <title>Custom Page Template · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../chap-11/lcc.html" />
+    <link rel="next" href="../chap-20/test-automation.html" />
     
     
-    <link rel="prev" href="../chap-27/dh-app.html" />
+    <link rel="prev" href="../chap-15/lightning.html" />
     
 
     </head>
@@ -370,9 +370,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8.5" data-path="../chap-32/page-template.html">
+        <li class="chapter active" data-level="1.4.8.5" data-path="page-template.html">
             
-                <a href="../chap-32/page-template.html">
+                <a href="page-template.html">
             
                     
                     Custom Page Template
@@ -530,9 +530,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.4" data-path="trainingTrackerApp.html">
+        <li class="chapter " data-level="3.4" data-path="../chap-29/trainingTrackerApp.html">
             
-                <a href="trainingTrackerApp.html">
+                <a href="../chap-29/trainingTrackerApp.html">
             
                     
                     SFDX TrainingTracker App
@@ -863,7 +863,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >SFDX TrainingTracker App</a>
+        <a href=".." >Custom Page Template</a>
     </h1>
 </div>
 
@@ -878,86 +878,100 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="trainingtracker-app">TrainingTracker App</h2>
-<h3 id="spin-up-a-scratch-org-trainingtrackerorg1">Spin up a Scratch org TrainingTracker_ORG1</h3>
-<pre><code class="lang-bash">
-<span class="hljs-comment"># create the project TrainingTracker </span>
+                                <h2 id="lightning-page-template">Lightning Page Template</h2>
+<p>Every <strong>standard Lightning page</strong> is associated with a <strong>default template component</strong>.</p>
+<p>This default template component defines:</p>
+<ul>
+<li>the page&#x2019;s regions </li>
+<li>what components the page includes</li>
+</ul>
+<p><strong>Custom Lightning page template components</strong> enable us to create page templates to fit the business needs with:</p>
+<ul>
+<li>the structure </li>
+<li>components 
+that we define. </li>
+</ul>
+<p>Once implemented, the custom template is available in the Lightning App Builder&#x2019;s new <strong>page wizard</strong> for the page creators to use.</p>
+<p>Custom Page Templates are available for:</p>
+<ul>
+<li>Record pages</li>
+<li>App pages</li>
+<li>Home pages</li>
+</ul>
+<h3 id="interfaces-the-page-template-component-to-implement">Interfaces the Page Template Component to implement</h3>
+<ul>
+<li><p>Should implement one of these (but should not implement any other interfaces)</p>
+<ul>
+<li>lightning:recordHomeTemplate</li>
+<li>lightning:appHomeTemplate</li>
+<li>lightning:homeTemplate</li>
+</ul>
+</li>
+</ul>
+<h4 id="example">Example</h4>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">aura:component</span> <span class="hljs-attr">implements</span>=<span class="hljs-string">&quot;lightning:appHomeTemplate&quot;</span>
+   <span class="hljs-attr">description</span>=<span class="hljs-string">&quot;Main (left) column and right sidebar. On a phone, the regions (left and right) are of equal width, each 6. On desktop: 30% : 70% that is 4: 8&quot;</span>
+&gt;</span>
+ <span class="hljs-comment">&lt;!-- componets goes here
+   design resource defines what kind of components can be put into the page that uses this template 
 
-$ sfdx force:project:create -n TrainingTracker
-target dir = /Users/mchinnappan/lightning/apps
-   create TrainingTracker/sfdx-project.json
-   create TrainingTracker/README.md
-   create TrainingTracker/.forceignore
-   create TrainingTracker/config/project-scratch-def.json
+   The regions : left and right
+  --&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;left&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Aura.Component[]&quot;</span> /&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">aura:attribute</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;right&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;Aura.Component[]&quot;</span> /&gt;</span>
 
-<span class="hljs-built_in">cd</span> TrainingTracker 
+<span class="hljs-comment">&lt;!-- layout info goes here --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">lightning:layout</span>&gt;</span>
 
-<span class="hljs-comment">## get a DevHub 30 days org :</span>
-open https://developer.salesforce.com/promotions/orgs/dx-signup
+            <span class="hljs-tag">&lt;<span class="hljs-name">lightning:layoutItem</span> <span class="hljs-attr">flexibility</span>=<span class="hljs-string">&quot;grow&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-m-right_small&quot;</span>&gt;</span>
+                {!v.left}
+            <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:layoutItem</span>&gt;</span>
 
+            <span class="hljs-tag">&lt;<span class="hljs-name">lightning:layoutItem</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;{! $Browser.isDesktop ? &apos;4&apos; : &apos;6&apos; }&quot;</span>
+                                  <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;slds-m-left_small&quot;</span>&gt;</span>
+                {!v.right}
+            <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:layoutItem</span>&gt;</span>
 
+        <span class="hljs-tag">&lt;/<span class="hljs-name">lightning:layout</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
-<span class="hljs-comment"># login into DebHub</span>
-
-$ sfdx force:auth:web:login <span class="hljs-_">-d</span> <span class="hljs-_">-a</span> DevHub201
-Successfully authorized mohan.chinnappan.dh201@gmail.com with org ID 00D1H000000NSUhUAO
-You may now close the browser
-
-
-$ sfdx force:org:list 
-
-=== Orgs
-     ALIAS       USERNAME                              ORG ID              CONNECTED STATUS
-&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
-(D)  DevHub201   mohan.chinnappan.dh201@gmail.com      00D1H000000NSUhUAO  Connected
-
-
-$ sfdx force:org:create <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> config/project-scratch-def.json  <span class="hljs-_">-a</span> TrainingTracker_ORG1
-Successfully created scratch org: 00DZ000000NDy8QMAT, username: <span class="hljs-built_in">test</span>-9gslwclndh6i@example.com
-
-$ sfdx force:org:list 
-
-=== Orgs
-     ALIAS       USERNAME                              ORG ID              CONNECTED STATUS
-&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
-(D)  DevHub201   mohan.chinnappan.dh201@gmail.com      00D1H000000NSUhUAO  Connected
-
-
-    ALIAS                 SCRATCH ORG NAME     USERNAME                       ORG ID              EXPIRATION DATE
-&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
-(U)  TrainingTracker_ORG1  mchinnappan Company  <span class="hljs-built_in">test</span>-9gslwclndh6i@example.com  00DZ000000NDy8QMAT  2018-06-23
-
-
-<span class="hljs-comment">## Create a LEX component : Greeter</span>
-$ sfdx force:lightning:component:create -n Greeter <span class="hljs-_">-d</span> force-app/main/default/aura/
-
-<span class="hljs-comment">## Open in IDE VS Code and make few changes to the Greeter Component</span>
-$ code .
-
-<span class="hljs-comment">## Push this component bundle into Scratch Org: TrainingTracker_ORG1</span>
-$ sfdx force:<span class="hljs-built_in">source</span>:push
-
-<span class="hljs-comment">## open the scratch org </span>
-$  sfdx force:org:open
-Access org 00DZ000000NDy8QMAT as user <span class="hljs-built_in">test</span>-9gslwclndh6i@example.com with the following URL: https://saas-customization-7196-dev-ed.cs11.my.salesforce.com/secur/frontdoor.jsp?sid=00DZ000000NDy8Q!AREAQL0BPZX4aInIffjSNQwc6QnorhgOsZHYaTT4U_brQvGfTrn_8WoAqtvYKfTh_2Ez6hx45k99d2yEVHUH0KF9V51rke4x
-
-<span class="hljs-comment">### Using UI add the picklist field field Department__c for the object Contact</span>
-<span class="hljs-comment">###   Picklist values: [&apos;Development&apos; , &apos;Dev Ops&apos;, &apos;Testing&apos;, &apos;Marketing&apos;, &apos;Sales&apos;]</span>
-
-<span class="hljs-comment">## pull the changes from the Org to the project folder:</span>
-
-$ sfdx force:<span class="hljs-built_in">source</span>:pull
-=== Pulled Source
-STATE  FULL NAME                                  TYPE                  PROJECT PATH
-&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;  &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;
-Add    TrainingTrackerApp/TrainingTrackerApp.app  AuraDefinitionBundle  force-app/main/default/aura/TrainingTrackerApp/TrainingTrackerApp.app-meta.xml
-Add    TrainingTrackerApp/TrainingTrackerApp.app  AuraDefinitionBundle  force-app/main/default/aura/TrainingTrackerApp/TrainingTrackerApp.app
-Add    Contact.Department__c                      CustomField           force-app/main/default/objects/Contact/fields/Department__c.field-meta.xml
-Add    Contact-Contact Layout                     Layout                force-app/main/default/layouts/Contact-Contact Layout.layout-meta.xml
-Add    Contact-Contact (Support) Layout           Layout                force-app/main/default/layouts/Contact-Contact (Support) Layout.layout-meta.xml
-Add    Contact-Contact (Sales) Layout             Layout                force-app/main/default/layouts/Contact-Contact (Sales) Layout.layout-meta.xml
-Add    Contact-Contact (Marketing) Layout         Layout                force-app/main/default/layouts/Contact-Contact (Marketing) Layout.layout-meta.xml
+<span class="hljs-tag">&lt;/<span class="hljs-name">aura:component</span>&gt;</span>
 </code></pre>
+<ul>
+<li>should include at least a .cmp resource implementing one of the above template interfaces</li>
+<li>a design resource</li>
+</ul>
+<h3 id="design-resource">Design resource</h3>
+<ul>
+<li><p>The design resource controls what kind of page can be built on the template</p>
+</li>
+<li><p>specifies what regions a page that uses the template must have</p>
+</li>
+<li>specifies what kinds of components can be put into those regions</li>
+</ul>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">design:component</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Two Column Custom App Page Template&quot;</span>&gt;</span>
+ <span class="hljs-comment">&lt;!-- above label will be available in the App Builder --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">flexipage:template</span> &gt;</span>
+        <span class="hljs-comment">&lt;!-- The default width for the &quot;left&quot; region is &quot;MEDIUM&quot;. 
+        In tablets, the width is &quot;SMALL&quot;
+        --&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">flexipage:region</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;left&quot;</span> <span class="hljs-attr">defaultWidth</span>=<span class="hljs-string">&quot;MEDIUM&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">flexipage:formfactor</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;MEDIUM&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;SMALL&quot;</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">flexipage:region</span>&gt;</span>
+
+            <span class="hljs-tag">&lt;<span class="hljs-name">flexipage:region</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;right&quot;</span> <span class="hljs-attr">defaultWidth</span>=<span class="hljs-string">&quot;SMALL&quot;</span> /&gt;</span>
+
+       <span class="hljs-tag">&lt;/<span class="hljs-name">flexipage:template</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">design:component</span>&gt;</span>
+</code></pre>
+<h3 id="demo-time">Demo time</h3>
+<p><img src="img/page-template-2.gif" alt=""></p>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/components_config_for_app_builder_template_component.htm" target="_blank">Create a Custom Lightning Page Template Component
+</a></li>
+</ul>
 
                                 
                                 </section>
@@ -985,12 +999,12 @@ Add    Contact-Contact (Marketing) Layout         Layout                force-ap
 
             
                 
-                <a href="../chap-27/dh-app.html" class="navigation navigation-prev " aria-label="Previous page: SFDX DreamHouse App">
+                <a href="../chap-15/lightning.html" class="navigation navigation-prev " aria-label="Previous page: More lightning:">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../chap-11/lcc.html" class="navigation navigation-next " aria-label="Next page: Lightning Configuration Converter">
+                <a href="../chap-20/test-automation.html" class="navigation navigation-next " aria-label="Next page: Lightning Testing Service">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1001,7 +1015,7 @@ Add    Contact-Contact (Marketing) Layout         Layout                force-ap
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"SFDX TrainingTracker App","level":"3.4","depth":1,"next":{"title":"Lightning Configuration Converter","level":"4.1","depth":1,"path":"chap-11/lcc.md","ref":"chap-11/lcc.md","articles":[]},"previous":{"title":"SFDX DreamHouse App","level":"3.3","depth":1,"path":"chap-27/dh-app.md","ref":"chap-27/dh-app.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-29/trainingTrackerApp.md","mtime":"2018-08-06T12:54:43.062Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-08-10T14:13:42.541Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Custom Page Template","level":"1.4.8.5","depth":3,"next":{"title":"Lightning Testing Service","level":"1.5","depth":1,"path":"chap-20/test-automation.md","ref":"chap-20/test-automation.md","articles":[]},"previous":{"title":"More lightning:","level":"1.4.8.4","depth":3,"path":"chap-15/lightning.md","ref":"chap-15/lightning.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chap-32/page-template.md","mtime":"2018-08-10T14:14:49.115Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-08-10T14:13:42.541Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
