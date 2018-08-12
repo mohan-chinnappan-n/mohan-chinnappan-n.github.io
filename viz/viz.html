@@ -3,7 +3,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>GraphViz on Web</title>
+    <title>GraphViz via viz.js</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"  />
+ 
     <style>
 
     #app {
@@ -156,11 +158,9 @@
   <body>
     
     <div id="app">
-      <div id="header">
-        <b>Viz.js</b> &mdash; <a href="http://www.graphviz.org">Graphviz</a> in your browser. Read more at <a href="https://github.com/mdaines/viz.js">the GitHub repository</a>.
-      </div>
       <div id="panes" class="split split-horizontal">
-        <div id="editor" class="split"># http://www.graphviz.org/content/cluster
+        <div id="editor" class="split">
+
 
 digraph G {
 
@@ -227,14 +227,17 @@ digraph G {
       </div>
     </div>
     
-    <script src="js/ace.js"></script>
+    <!--
+      <script src="http://viz-js.com/js/ace/ace.js"></script>
+     <script src="http://viz-js.com/bower_components/viz.js/viz.js"></script>
+    -->
 
-    <script src="js/viz.js"></script>
-    <script src="js/full-render.js"></script>
- 
-    <script src="js/fabric.min.js"></script>
-    <script src="js/split.min.js"></script>
-    <script src="js/svg-pan-zoom.min.js"></script>
+    <script src="./js/ace.js"></script>
+    <script src="./js/viz.js"></script>
+
+    <script src="./bower_components/fabric.js/dist/fabric.min.js"></script>
+    <script src="./bower_components/Split.js/split.min.js"></script>
+    <script src="./bower_components/svg-pan-zoom/dist/svg-pan-zoom.min.js"></script>
     <script>
 
     var beforeUnloadMessage = null;

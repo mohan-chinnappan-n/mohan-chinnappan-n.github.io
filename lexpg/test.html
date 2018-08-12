@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My App</title>
+    <script src="bower_components/Split.js/split.min.js"></script>
+</head>
+<body>
+   <div id="a" class="split content"></div>
+<div id="b" class="split">
+    <div id="d" class="split content split-horizontal"></div>
+    <div id="e" class="split content split-horizontal"></div>
+    <div id="f" class="split content split-horizontal"></div>
+</div>
+<div id="c" class="split content"></div>
+
+<script >
+Split(['#a', '#b', '#c'], {
+    gutterSize: 20,
+    cursor: 'pointer',
+    direction: 'vertical',
+});
+Split(['#d', '#e', '#f'], {
+    sizes: [15, 70, 15],
+    gutterSize: 20,
+    cursor: 'row-resize',
+}); 
+
+</script>
+</body>
+</html>
