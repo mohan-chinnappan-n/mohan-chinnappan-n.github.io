@@ -286,19 +286,22 @@
 
  
     var query = location.search.substr(1);
-    var result = {};
+    var qresult = {};
     query.split("&").forEach(function(part) {
           var item = part.split("=");
-          result[item[0]] = decodeURIComponent(item[1]);
+          qresult[item[0]] = decodeURIComponent(item[1]);
     });
     //console.log(result.f);
-    if (result.f === undefined) {
-      result.f = 'unix';
+    if (qresult.f === undefined) {
+      qresult.f = 'unix';
     }
-    document.getElementById('samples').value = result.f;
 
+    // set the select box with requested file
+    document.getElementById('samples').value = qresult.f;
+
+    // reading the resource
     var rawFile = new XMLHttpRequest();
-    rawFile.open("GET",   './data/' + result.f + '.dot', false);
+    rawFile.open("GET",   './data/' + qresult.f + '.dot', false);
     rawFile.onreadystatechange = function () {
         if(rawFile.readyState === 4) {
             if(rawFile.status === 200 || rawFile.status == 0) {
@@ -309,7 +312,7 @@
     }
     rawFile.send(null);
 
-
+    // set the url based on the select box selection
     function setUrl(elem) {
        //alert(elem.value);
        //console.log(result.f);
@@ -347,10 +350,12 @@
 
       worker = new Worker("./worker.js");
 
+     // pass the value from  the editor
       worker.onmessage = function(e) {
         document.querySelector("#output").classList.remove("working");
         document.querySelector("#output").classList.remove("error");
-        
+       
+        // data fromt the editor
         result = e.data;
         
         updateOutput();
@@ -372,9 +377,13 @@
         console.error(e);
         e.preventDefault();
       }
+
+      //======
       
       var params = {
+        // editor content
         src: editor.getSession().getDocument().getValue(),
+        // options selected
         options: {
           engine: document.querySelector("#engine select").value,
           format: document.querySelector("#format select").value
@@ -389,8 +398,11 @@
       }
       
       worker.postMessage(params);
-    }
+    } // updateGraph
+   
     
+    //========
+
     function updateOutput() {
       var graph = document.querySelector("#output");
 
@@ -418,6 +430,7 @@
         svg.id = "svg_output";
         graph.appendChild(svg);
 
+        // zooming 
         panZoom = svgPanZoom(svg, {
           zoomEnabled: true,
           controlIconsEnabled: true,
@@ -433,7 +446,9 @@
           panZoom.resize();
         });
       } else if (document.querySelector("#format select").value == "png-image-element") {
+        // use viz.js to convert the dot file into image
         var image = Viz.svgXmlToPngImageElement(result);
+        // add that image
         graph.appendChild(image);
       } else {
         var text = document.createElement("div");
@@ -443,6 +458,7 @@
       }
     }
 
+    // change handler for the editor
     editor.on("change", function() {
       updateGraph();
       beforeUnloadMessage = "Your changes will not be saved.";
