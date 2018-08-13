@@ -259,8 +259,16 @@
 
             
             <label id="raw">
-              <input type="checkbox"> Show raw output
+              <input type="checkbox" id="showRawOutput"> Show raw output
             </label>
+            <button  class='btn btn-primary' type="button" value="save" id="save">
+              <i class="glyphicon glyphicon-floppy-save"></i> Source</button>
+
+            <button  class='btn btn-success' type="button" value="save" id="saveGraph" disabled="disabled"
+              title="Click Show raw output to enable this!">
+                <i class="glyphicon glyphicon-floppy-save"></i> Graph</button>
+
+
           </div>
           <div id="output">
             <div id="error"></div>
@@ -285,6 +293,19 @@
 
     // based on the work from http://viz-js.com/
     // modifications: mohan.chinnappan.n
+
+    /*
+       dot - filter for drawing directed graphs
+
+       neato - filter for drawing undirected graphs
+       twopi - filter for radial layouts of graphs
+       circo - filter for circular layout of graphs
+       fdp - filter for drawing undirected graphs
+       sfdp - filter for drawing large undirected graphs
+       patchwork - filter for squarified tree maps
+       osage - filter for array-based layouts
+
+       */
 
     var editor = ace.edit("editor");
     editor.getSession().setMode("ace/mode/dot");
@@ -324,6 +345,97 @@
        var url = window.location.href.split('?')[0] + '?f=' + elem.value; 
        window.location.href = url;
     }
+
+
+
+
+
+var saveSrcButton = document.getElementById('save');
+saveSrcButton.addEventListener('click', saveSourceToFile);
+
+function destroyClickedElement(event) {
+  // remove the link from the DOM
+  document.body.removeChild(event.target);
+}
+
+var saveGraphButton = document.getElementById('saveGraph');
+saveGraphButton.addEventListener('click', saveGraphToFile);
+
+
+var checker = document.getElementById('showRawOutput');
+ 
+ // when unchecked or checked, run the function
+checker.onchange = function(){
+    if(this.checked){
+      saveGraphButton.disabled = false;
+    } else {
+      saveGraphButton.disabled = true;
+    }
+}
+
+
+
+// save to file
+ function saveSourceToFile() {
+    //var textToWrite = document.getElementById('textArea').innerHTML;
+    
+      var fileContent = editor.getValue();
+      var textFileAsBlob = new Blob([ fileContent ], { type: 'text/plain' });
+      var fileNameToSaveAs = "out.dot";
+
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    if (window.webkitURL != null) {
+      // Chrome allows the link to be clicked without actually adding it to the DOM.
+      downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+    } else {
+      // Firefox requires the link to be added to the DOM before it can be clicked.
+      downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+      downloadLink.onclick = destroyClickedElement;
+      downloadLink.style.display = "none";
+      document.body.appendChild(downloadLink);
+    }
+
+  downloadLink.click();
+}
+
+
+ function saveGraphToFile() {
+    //var textToWrite = document.getElementById('textArea').innerHTML;
+    
+    var fileContent = document.getElementById('text').innerHTML;
+    fileContent = fileContent.replace(/&apos;/g, "'")
+               .replace(/&quot;/g, '"')
+               .replace(/&gt;/g, '>')
+               .replace(/&lt;/g, '<')
+               .replace(/&amp;/g, '&')
+               ;
+     var textFileAsBlob = new Blob([ fileContent ], { type: 'text/plain' });
+     var fileNameToSaveAs = "out.svg";
+
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    if (window.webkitURL != null) {
+      // Chrome allows the link to be clicked without actually adding it to the DOM.
+      downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+    } else {
+      // Firefox requires the link to be added to the DOM before it can be clicked.
+      downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+      downloadLink.onclick = destroyClickedElement;
+      downloadLink.style.display = "none";
+      document.body.appendChild(downloadLink);
+    }
+
+  downloadLink.click();
+}
+
+
+
+//======
+
+
 
 
 
