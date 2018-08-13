@@ -202,64 +202,7 @@
 
    <div style="margin-top:10px;"></div>
       <div id="panes" class="split split-horizontal">
-        <div id="editor" class="split"> /* Based on the work of  Ian Darwin and Geoff Collyer  */
-digraph unix {
-    label="UNIX Family Tree. Let us remember the Unix Fathers: Ken Thompson(ken) & Dennis Ritchie (dmr)!"
-	size="6,6";
-	node [color=lightblue2, style=filled];
-	"5th Edition" -> "6th Edition";
-	"5th Edition" -> "PWB 1.0";
-	"6th Edition" -> "LSX";
-	"6th Edition" -> "1 BSD";
-	"6th Edition" -> "Mini Unix";
-	"6th Edition" -> "Wollongong";
-	"6th Edition" -> "Interdata";
-	"Interdata" -> "Unix/TS 3.0";
-	"Interdata" -> "PWB 2.0";
-	"Interdata" -> "7th Edition";
-	"7th Edition" -> "8th Edition";
-	"7th Edition" -> "32V";
-	"7th Edition" -> "V7M";
-	"7th Edition" -> "Ultrix-11";
-	"7th Edition" -> "Xenix";
-	"7th Edition" -> "UniPlus+";
-	"V7M" -> "Ultrix-11";
-	"8th Edition" -> "9th Edition";
-	"1 BSD" -> "2 BSD";
-	"2 BSD" -> "2.8 BSD";
-	"2.8 BSD" -> "Ultrix-11";
-	"2.8 BSD" -> "2.9 BSD";
-	"32V" -> "3 BSD";
-	"3 BSD" -> "4 BSD";
-	"4 BSD" -> "4.1 BSD";
-	"4.1 BSD" -> "4.2 BSD";
-	"4.1 BSD" -> "2.8 BSD";
-	"4.1 BSD" -> "8th Edition";
-	"4.2 BSD" -> "4.3 BSD";
-	"4.2 BSD" -> "Ultrix-32";
-	"PWB 1.0" -> "PWB 1.2";
-	"PWB 1.0" -> "USG 1.0";
-	"PWB 1.2" -> "PWB 2.0";
-	"USG 1.0" -> "CB Unix 1";
-	"USG 1.0" -> "USG 2.0";
-	"CB Unix 1" -> "CB Unix 2";
-	"CB Unix 2" -> "CB Unix 3";
-	"CB Unix 3" -> "Unix/TS++";
-	"CB Unix 3" -> "PDP-11 Sys V";
-	"USG 2.0" -> "USG 3.0";
-	"USG 3.0" -> "Unix/TS 3.0";
-	"PWB 2.0" -> "Unix/TS 3.0";
-	"Unix/TS 1.0" -> "Unix/TS 3.0";
-	"Unix/TS 3.0" -> "TS 4.0";
-	"Unix/TS++" -> "TS 4.0";
-	"CB Unix 3" -> "TS 4.0";
-	"TS 4.0" -> "System V.0";
-	"System V.0" -> "System V.2";
-	"System V.2" -> "System V.3";
-}
-
-
-</div>
+        <div id="editor" class="split"> </div>
         <div id="graph" class="split">
           <div id="options">
             <label id="engine">
@@ -285,6 +228,33 @@ digraph unix {
                 <option>ps</option>
               </select>
             </label>
+
+            <label  >
+                Samples:
+                <select id="samples" onchange="setUrl(this)">
+                  <option>unix</option>
+                  <option>process</option>
+                  <option>cluster</option>
+                  <option>er</option>
+                  <option>datastruct</option>
+                  <option>linear_angle</option>
+                  <option>radial_angle</option>
+                  <option>twopi</option>
+                  <option>gd</option>
+                  <option>table</option>
+                  <option>switch</option>
+                  <option>colors</option>
+                  <option>psg</option>
+
+
+
+
+
+ 
+ 
+                </select>
+              </label>
+
             
             <label id="raw">
               <input type="checkbox"> Show raw output
@@ -311,6 +281,45 @@ digraph unix {
     <script src="./bower_components/svg-pan-zoom/dist/svg-pan-zoom.min.js"></script>
     <script>
 
+    var editor = ace.edit("editor");
+    editor.getSession().setMode("ace/mode/dot");
+
+ 
+    var query = location.search.substr(1);
+    var result = {};
+    query.split("&").forEach(function(part) {
+          var item = part.split("=");
+          result[item[0]] = decodeURIComponent(item[1]);
+    });
+    //console.log(result.f);
+    if (result.f === undefined) {
+      result.f = 'unix';
+    }
+    document.getElementById('samples').value = result.f;
+
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET",   './data/' + result.f + '.dot', false);
+    rawFile.onreadystatechange = function () {
+        if(rawFile.readyState === 4) {
+            if(rawFile.status === 200 || rawFile.status == 0) {
+                var fileContent = rawFile.responseText;
+                editor.setValue(fileContent);
+            }
+        }
+    }
+    rawFile.send(null);
+
+
+    function setUrl(elem) {
+       //alert(elem.value);
+       //console.log(result.f);
+       var url = window.location.href.split('?')[0] + '?f=' + elem.value; 
+       window.location.href = url;
+    }
+
+
+
+
     var beforeUnloadMessage = null;
 
     var resizeEvent = new Event("paneresize");
@@ -324,10 +333,7 @@ digraph unix {
       }
     });
     
-    var editor = ace.edit("editor");
-    editor.getSession().setMode("ace/mode/dot");
-
-    var parser = new DOMParser();
+   var parser = new DOMParser();
     var worker;
     var result;
 
