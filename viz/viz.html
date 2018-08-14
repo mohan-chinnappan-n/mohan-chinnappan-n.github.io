@@ -151,6 +151,24 @@
       height: 100%;
       float: left;
     }
+
+    .fileOpen {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileOpen input.open {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
     
     </style>
 <!--
@@ -192,6 +210,9 @@
       </ul>
       <ul class="nav navbar-nav">
         <li ><a href="/">Main</a></li>
+        <li ><a target="_blank" href="./doc/doc.html">Dot Guide</a></li>
+        
+ 
       </ul>
 
 
@@ -204,8 +225,15 @@
       <div id="panes" class="split split-horizontal">
         <div id="editor" class="split"> </div>
         <div id="graph" class="split">
+          
+
           <div id="options">
-            <label id="engine">
+              <div class="fileOpen btn btn-primary" style="display:none;">
+                  <span>Open</span>
+                  <input type="file" id="file-input" class="open" onclick="readSingleFile" accept=".txt,.csv,.xml" />
+              </div>
+              
+             <label id="engine">
               Engine:
               <select>
                 <option>circo</option>
@@ -373,6 +401,25 @@ checker.onchange = function(){
     }
 }
 
+// read file
+function readSingleFile(e) {
+  var file = e.target.files[0];
+  if (!file) {
+    return;
+  }
+  var contents = "";
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    contents = e.target.result;
+    console.log(contents);
+    document.getElementById('editor').value = contents;
+  };
+  reader.readAsText(file);
+}
+
+document.getElementById('file-input').onchange = function(e) {
+  readSingleFile(e);
+}
 
 
 // save to file
