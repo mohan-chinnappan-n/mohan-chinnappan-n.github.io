@@ -328,7 +328,17 @@
 
        */
 
+          // set the url based on the select box selection
+    function setUrl(elem) {
+       //alert(elem.value);
+       //console.log(result.f);
+       var url = window.location.href.split('?')[0] + '?f=' + elem.value; 
+       window.location.href = url;
+    }
+
 (function() {
+
+
 
 
 (adsbygoogle = window.adsbygoogle || []).push({
@@ -367,13 +377,7 @@
     }
     rawFile.send(null);
 
-    // set the url based on the select box selection
-    function setUrl(elem) {
-       //alert(elem.value);
-       //console.log(result.f);
-       var url = window.location.href.split('?')[0] + '?f=' + elem.value; 
-       window.location.href = url;
-    }
+
 
 
 
