@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="MainCtrl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{appName}}</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/navbar-green.css">
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/data-markdown.user.js"></script>
+
+
+  <script src="../bower_components/marked/marked.min.js"></script>
+  <script src="../bower_components/angular-marked/dist/angular-marked.js"></script>
+
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../reveal.js/css/theme/white.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+    		<![endif]-->
+
+  <style>
+    .reveal .slide-number {
+      font-size: 0.5em;
+    }
+
+    .simg {
+      border-radius: 10px;
+      border: 1px;
+    }
+
+    .reveal section ul li,
+    .reveal section p {
+      font-size: .8em !important;
+    }
+
+    .reveal section pre code {
+      font-size: 0.7em !important;
+    }
+  </style>
+  <!--
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5381915020912221",
+    enable_page_level_ads: true
+  });
+</script>
+-->
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5381915020912221",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">{{appName}}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+      <div class="inner-addon right-addon navbar-form navbar-right">
+        <i class="glyphicon glyphicon-search"></i>
+        <input type="text" class="form-control" placeholder="Search" />
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown ">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="./help.html">Help Topics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <!--
+  <div class="container" ng-controller='MainCtrl'>
+    <div marked src="'pevents.md'"></div>
+  </div>
+-->
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section id="home">
+        <h4>{{appName}}</h4>
+      </section>
+
+     <section>
+         <h4>Grab this Workbook!</h4>
+            <object   data="img/getting-started/GettingStartedWorkbook.pdf" type="application/pdf" style="width: 100%; height: 800px;">
+           <p>It appears you don't have a PDF plugin for this browser</p>
+         </object>
+     </section>
+
+    
+     <section>
+       <h4 style="font-size:35px;">  Success with Sales Cloud - Plan → Implement → Train</h4>
+       <ul>
+         <li>Plan
+           <ul>
+             <li>Sales Cloud Basics</li>
+             <li>Create Your Users</li>
+             <li>Plan Your Implementation</li>
+           </ul>
+         </li>
+         <li> Implement
+           <ul>
+             <li>Define Your Sales Process</li>
+              <li>Set Up Accounts and Contacts</li>
+              <li>Customize Salesforce</li>
+              <li>Import and Manage Data</li>
+              <li>Explore Salesforce Analytics</li>
+           </ul>
+         </li>
+         <li>Train
+           <ul>
+             <li>Train Your Users</li>
+           </ul>
+         </li>
+       </ul>
+     </section>
+
+     <section>
+       <h4>Videos covering - Plan → Implement → Train </h4>
+     </section>
+
+
+     <section>
+       <h4>SALES CLOUD BASICS </h4>
+     <span id="vidyard_mhh7ruaB1Wr9rERKDTTFUW" class="vidyard_player"><span id="vidyard_span_mhh7ruaB1Wr9rERKDTTFUW" style="display: block; margin: auto; position: relative; width: 1015px; height: 570px;"><iframe id="vidyard_iframe_mhh7ruaB1Wr9rERKDTTFUW" class="vidyard_iframe" src="//play.vidyard.com/mhh7ruaB1Wr9rERKDTTFUW?v=3.1.1&amp;type=inline&amp;hide_playlist=1&amp;vyemail=mchinnappan%40salesforce.com&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fsales-cloud%252Fplan-your-implementation%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+     </section>
+
+     <section>
+       <h4>Create your users</h4>
+       <ul style="font-size: 30px;">
+         <li>
+            Using <b>Role hierarchy</b> you can control the baseline access and visibility of your records in Salesforce
+            <br/>
+            <b>Role hierarchies</b> ensures that users who are higher in the structure always have access to the data
+             that people lower in the structure have access to.
+              Role hierarchies generally mirror the structure of your org chart, though they don't have to match exactly.
+
+            <br/>
+            We suggest that you do <b>Create your users</b> at the beginning so you assign your data appropriately when importing into Salesforce.
+         </li>
+         <li>
+            After you've created the roles, you can then assign them to users as you create them and give them access 
+            to the data they need so they can start using Salesforce.
+
+         </li>
+         <li>When creating your users, we suggest giving them a <b> read-only profile</b> at the beginning of your implementation.
+            We suggest this to provide the benefit of letting users log in to train and become familiar with Salesforce.
+
+         </li>
+         <li>
+            After you've created the hierarchies, you're ready to <b>add users</b>.
+             You can do this easily by following the demonstration that we provide in next video.
+
+         </li>
+         <li>Once the users are active in Salesforce, you'll have options to help reset passwords, and when necessary, 
+           to deactivate users who are no longer in your organization.
+
+         </li>
+       </ul>
+     </section>
+
+     <section>
+        <h4>Create Your Users </h4>
+       <span id="vidyard_5U4xbBS8J68vcDYgMB4WUR" class="vidyard_player"><span id="vidyard_span_5U4xbBS8J68vcDYgMB4WUR" style="display: block; margin: auto; position: relative; width: 1015px; height: 570px;"><iframe id="vidyard_iframe_5U4xbBS8J68vcDYgMB4WUR" class="vidyard_iframe" src="//play.vidyard.com/5U4xbBS8J68vcDYgMB4WUR?v=3.1.1&amp;type=inline&amp;hide_playlist=1&amp;vyemail=undefined&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fsales-cloud%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+    </section>
+
+    <section>
+      <h4>Who sees what</h4>
+      <iframe height="400" width="800" data-src="https://www.youtube.com/embed/GOIPH0aLY0E?autoplay=0"></iframe>
+    </section>
+
+    <section>
+      <h4>Plan your Implementation</h4>
+      <ul style="font-size: 30px;">
+        <li>
+           Video-1:  Guidance on choosing your <b> key and supporting players</b>.<br/>
+           Considerations when choosing your <b>implementation path</b> — you can take on the implementation project:<br/>
+            <b>yourself or partner with a third party </b>
+        </li>
+        <li>
+          Video-2: Ways to gather feedback to drive a successful implementation.<br/>
+          Guidance on developing a <b>communication plan</b> to get the word out.<br/>
+
+
+        </li>
+        <li>Video-3: <b>Identify and prioritize your business objectives and manage your success</b>. <br/>
+          Your company has purchased Salesforce to achieve a certain business purpose, so you'll want to define that purpose, 
+          as well as how to measure and prove results. <br/>
+          Identifying pain points and capturing and prioritizing goals in a document. 
+          Once you've done this, you'll want to create a plan to measure all of this. 
+          This helps you pinpoint what's working well and identify areas in need of improvement.
+
+
+        </li>
+        <li>Video:4: <b>Demo</b> the concepts we've discussed.
+
+        </li>
+      </ul>
+    </section>
+    
+
+     <section>
+       <h4 style="font-size: 30px;">Plan Your Implementation - playlist </h4>
+     <span id="vidyard_nVaYcg7LYPx8ny2mRuaWrC" class="vidyard_player">
+       <span id="vidyard_span_nVaYcg7LYPx8ny2mRuaWrC" style="display: block; margin: auto; position: relative; width: 1015px; height: 570px;">
+           <iframe id="vidyard_iframe_nVaYcg7LYPx8ny2mRuaWrC" class="vidyard_iframe" src="//play.vidyard.com/nVaYcg7LYPx8ny2mRuaWrC?v=3.1.1&amp;type=inline&amp;hide_playlist=0&amp;vyemail=undefined&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fpage.aspx%253FQS%253D3935619f7de112ef5513f83cb4122a9af24fb63bba62ef77&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+     </section>
+
+     <section>
+       <h4>Define your Sales process</h4>
+       <ul style="font-size: 25px;">
+         <li>
+            <b>Leads</b> - The handoff mechanism between marketing and sales.
+            Leads help facilitate qualification of potential deals. They're necessary to take advantage of the Salesforce duplicate-prevention utility.<br/>
+            Lead has 3 components:
+            <ul>
+              <li>Company information</li>
+               <li> Contact information</li>
+               <li> Information about the deal</li>
+            </ul>
+            <b>Accounts</b> - Used to capture company information such as name, website, and location. 
+            These are companies you have a relationship with and are potential customers.<br/>
+            <b>Contacts</b> - People associated to an account who matter to your business..<br/>
+            <b>Opportunities</b> - Potential revenue-generating sales deals that you want to track until the deal closes..<br/>
+            <b>Activities</b> - Drives your sales performance.<hr/>
+
+
+         </li>
+         <li>
+            Once you've determined <b>a lead to be a valid opportunity</b>, you can use the built-in <b>Salesforce lead conversion feature</b> to convert the lead.
+         </li>
+         <li>
+            Building your sales process means <b>identifying when an opportunity should be created</b>.
+            Once you understand how you sell and the processes you have in place, you can use this to configure your Salesforce.
+         </li>
+
+       </ul>
+     </section>
+
+      <section>
+        <h4>Define your Sales Process</h4>
+        <span id="vidyard_gquKgQdfkHpQN5xHanQrrZ" class="vidyard_player"><span id="vidyard_span_gquKgQdfkHpQN5xHanQrrZ" style="display: block; margin: auto; position: relative; width: 1015px; height: 570px;"><iframe id="vidyard_iframe_gquKgQdfkHpQN5xHanQrrZ" class="vidyard_iframe" src="//play.vidyard.com/gquKgQdfkHpQN5xHanQrrZ?v=3.1.1&amp;type=inline&amp;hide_playlist=0&amp;vyemail=undefined&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fsales-cloud%252Fsales-process%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+      </section>
+
+
+      <section>
+        <h4>Set up accounts and contacts</h4>
+        <ul style="font-size: 28px;">
+          <li>
+              <b>Accounts</b> are companies you have a relationship with and can include:
+              <ul>
+                <b>
+               <li>prospects</li>
+               <li>customers</li>
+               <li>partners</li>
+               <li>competitors </li>
+              </b>
+
+              </ul>
+          </li>
+          <li>
+            <b>Contacts</b> are people associated with an account who matter to your business. 
+            They can include sponsors, decision makers, influencers, assistants, and partner liaisons.
+          </li>
+          <li>
+              <b>Account records</b> represent companies that you have a relationship with. 
+              In Salesforce, you'll see the Accounts tab, which features the highlights at the top. 
+              Here, you can get the field information you need quickly. 
+              There's also a News feed that shares the latest stories relevant to that account, as well as related lists.
+          </li>
+          <li>
+              Through the <b>page layout section</b>, you can rearrange these sections in a way that works best for you.
+               Also, you will note the Contacts associated with each Account,
+               which can be one or more. Simply clicking a Contact will bring up detailed information on the Contact.
+          </li>
+          <li>
+              Once you've created your accounts and contacts, you'll want to <b> create custom list views</b>, so you can easily monitor and manage your accounts.
+               You'll do this by simply adding<b> filters</b> that present the information you want to see.
+          </li>
+        </ul>
+
+      </section>
+
+      <section>
+          <h4>Set up accounts and contacts</h4>
+          <span id="vidyard_yfRSoDaQ9FYvH75LRUtYnn" class="vidyard_player"><span id="vidyard_span_yfRSoDaQ9FYvH75LRUtYnn" style="display: block; margin: auto; position: relative; width: 1015px; height: 570px;"><iframe id="vidyard_iframe_yfRSoDaQ9FYvH75LRUtYnn" class="vidyard_iframe" src="//play.vidyard.com/yfRSoDaQ9FYvH75LRUtYnn?v=3.1.1&amp;type=inline&amp;hide_playlist=0&amp;vyemail=undefined&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fsales-cloud%252Fsales-process%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+      </section>
+
+
+      <section>
+        <h4 style="font-size:30px;">Customize Salesforce</h4>
+        <ul style="font-size:25px;">
+         <li>
+            <b>Modifying standard fields</b> to match your organization's <b>unique requirements</b> </li>
+          <li>
+            Discussing <b>custom fields</b> that can be created to <b>capture additional information</b> that needs to be updated and tracked</li>
+          <li>
+            Showing you how you can customize your <b>search layout results page</b> to show relevant fields in the results column
+         </li>
+         <li>
+           Using the <b>Enhanced Page Layout Editor</b> to modify the Record Detail page
+         </li> 
+         <li>
+           Using App Builder:
+            a simple point-and-click tool that makes it easy to organize workspaces and record pages for the Salesforce Mobile App and Lightning Experience.
+
+         </li>
+         <li>
+            Engaging your team of testers to validate your solution, before officially rolling out all the new customizations to your organization.
+         </li>
+         <li>
+            Using the best practices, you'll simplify Salesforce screens and layouts, which will make a huge impact on your user adoption.<hr/>
+         </li>
+
+         <li>
+            Create a new lookup field on the opportunity page to track scenarios involving a competitor.
+         </li>
+         <li>
+            Add a Competitor field onto the Highlights Panel of the Opportunity record.
+         </li>
+         <li>
+           Add an Account's Type field to the search results page to quickly find accounts and identify their relationship to the organization.
+         </li>
+         <li>
+            Add guidance in the <b> Opportunity Sales path</b> to help coach sales reps on key milestones related to each sales stage. 
+            This will help improve forecast accuracy across the team.
+         </li>
+         <li>
+            How to create an Opportunities by Competitor report for quick access to all the deals that are open and at risk.
+         </li>
+
+        </ul>
+      </section>
+
+      <section>
+          <h4>Customize Salesforce - playlist </h4>
+      <span id="vidyard_Yih4HtQmJFFqkyeHKSx8YE" class="vidyard_player"><span id="vidyard_span_Yih4HtQmJFFqkyeHKSx8YE" style="display: block; margin: auto; position: relative; width: 1015px; height: 570px;"><iframe id="vidyard_iframe_Yih4HtQmJFFqkyeHKSx8YE" class="vidyard_iframe" src="//play.vidyard.com/Yih4HtQmJFFqkyeHKSx8YE?v=3.1.1&amp;type=inline&amp;hide_playlist=0&amp;vyemail=undefined&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fsales-cloud%252Fset-up-accounts-and-contacts%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+      </section>
+
+      <section>
+          <h4>Import and Manage Data </h4>
+          <ul style="font-size:30px;">
+
+            <li>
+                Best practices on preparing your source file and Salesforce for the data import process
+            </li>
+            <li>
+                Data import tools, including the Data Import Wizard and Data Loader.<hr/>
+            </li>
+            <li>
+                Best practices on good data management. Once data is imported, you <b>need a strong data management strategy to make sure data stays clean and up to date</b>.
+                he strategy begins with training users to input quality data. Then, you'll want to <b>standardize your data by using naming and address conventions</b> . 
+                Finally, ensure a process for users to search on records before creating new ones - this <b> prevents duplicate records</b>
+
+            </li>
+          </ul>
+      </section>
+
+      <section>
+          <h4>Import and Manage Data - playlist </h4>
+      <span id="vidyard_hDgmVXt54AfgfSjsKCiwCC" class="vidyard_player"><span id="vidyard_span_hDgmVXt54AfgfSjsKCiwCC" style="display: block; margin: auto; position: relative; width: 1015px; height: 570px;"><iframe id="vidyard_iframe_hDgmVXt54AfgfSjsKCiwCC" class="vidyard_iframe" src="//play.vidyard.com/hDgmVXt54AfgfSjsKCiwCC?v=3.1.1&amp;type=inline&amp;hide_playlist=0&amp;vyemail=undefined&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fsales-cloud%252Fexplore-salesforce-analytics%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+     </section>
+
+
+     <section>
+        <h4>Explore Salesforce Analytics  </h4>
+        <ul style="font-size: 30px;">
+
+          <li>How to up and running with reports and dashboards quickly.
+              Reporting is a great way to see how your company is performing, but we recommend that you take this a step further. 
+              You can develop a strategic approach to generating actionable data, which can be used specifically to target improvement.
+
+          </li>
+          <li>
+              you can tap into the <b>rich collection of prebuilt, out-of-the-box standard reports, and customize them to fit your needs</b>. 
+              Reports are available for most objects, including opportunities, accounts, contacts, and administrative reports.
+          </li>
+          <li>
+              There are <b> many standard reports available</b> so you'll rarely need to create brand new reports, especially in the beginning stages of your implementation.
+               As you get more comfortable with Salesforce and your reporting requirements evolve,
+                you can explore some of the custom reporting options.
+          </li>
+          <li>
+              The <b>AppExchange contains key dashboards for marketing, sales, and support roles</b>.
+               We also have dashboards for <b>measuring overall adoption of your Salesforce instance</b>.
+               We want to note that these were built by Salesforce experts, so you can start using dashboards right away.
+          </li>
+        </ul>
+      </section>
+
+    <section>
+      <h4>Explore Salesforce Analytics  - playlist  </h4>
+     <span id="vidyard_o9m899DUuLQadCffvXBEz8" class="vidyard_player"><span id="vidyard_span_o9m899DUuLQadCffvXBEz8" style="display: block; margin: auto; position: relative; width: 1015px; height: 570px;"><iframe id="vidyard_iframe_o9m899DUuLQadCffvXBEz8" class="vidyard_iframe" src="//play.vidyard.com/o9m899DUuLQadCffvXBEz8?v=3.1.1&amp;type=inline&amp;hide_playlist=0&amp;vyemail=undefined&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fsales-cloud%252Fimport-and-manage-data%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+    </section>
+
+    <section>
+      <h4>Train Your Users - Videos </h4>
+
+      <ul style="font-size: 30px;">
+        <li>
+            Video-1: About <b>User adoption</b> -  will take you through best practices of and considerations when creating your training plan.
+           <br/> We'll also go over resources on helping your administrators get trained and certified.
+           <br/> And we'll give you tips to support, motivate, and engage your users.
+
+        </li>
+        <li>
+           Video-2: will provide best practices for <b>tracking and measuring success and achievement</b> of business outcomes,
+            where to find valuable prebuilt dashboards on the AppExchange to jump-start your metrics, how to assess user sentiment through surveys or Chatter polls, 
+            and the importance of validating your metrics and dashboards with end users.
+
+        </li>
+        <li>
+            Video-3: how to <b>train your users</b>. We'll go over the concept of "Chatterizing" your rollout by creating a Chatter group
+             to enable collaboration around training and feedback.
+             <hr/>
+
+        </li>
+        <li>
+            To start off your training strategy the right way, you'll want to include a training objective and a delivery schedule.
+             You should also provide insight to your business objectives, so users understand what's expected of them and what they can expect in return.
+              Enlist your executive and management teams to drive home the message.
+
+        </li>
+      </ul>
+    
+      </section>
+
+    <section>
+      <h4>Train Your Users - playlist</h4>
+      <span id="vidyard_VrFpqZXRGzTHjNbTLxcZe4" class="vidyard_player"><span id="vidyard_span_VrFpqZXRGzTHjNbTLxcZe4" style="display: block; margin: auto; position: relative; width: 1015px; height: 570px;"><iframe id="vidyard_iframe_VrFpqZXRGzTHjNbTLxcZe4" class="vidyard_iframe" src="//play.vidyard.com/VrFpqZXRGzTHjNbTLxcZe4?v=3.1.1&amp;type=inline&amp;hide_playlist=0&amp;vyemail=undefined&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fsales-cloud%252Fexplore-salesforce-analytics%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+    </section>
+
+
+    <section>
+      <h4>Reduce Sales Rep Ramp Time</h4>
+      <a target="_blank" href="http://pages.mail.salesforce.com/Redirect.aspx?EQ=HTufsGMJ-cimI1fy7NywKvPxB8MdpBE9pBYJjhGLjDWLAnuVLZQ0akOd47Khr1SQW6zPsL2PggbQcbgVfbDo21zA0YUNLFXRPmtNXdIeesohR3E-5tCw498OHx6_7KBTSYqbVoCWQg81onXm5EZOccl_1zWpRXkCMVObbonxYuHLnvMjQaD_st4ahu-y4Cnb0Fu18n27jr9c1DtKUbE5A8ay8P8M5a1o1paRa9DFNp5BMgeuG6xU53LMKQHgxJ0vs3D0JcGGyf_OpinJXe87EG0eeDMjG3DnPr3VON9fDMb1nnHnR9aTeKxG8XISV2S9x5rHBIcwWU46LOvWKWyfP8MKIZY2y5VhRt5AsfEgfTXWCZDv8WnD4qkWxL-wFdcdkC1tb6qoe_fpL-IJuml6CjfaM9MuP2wNbeliF4vdD0lYLqUILUE54usgOAKX1ymLLh5BrkGNgaX8Y-1KqW43EXkKDZvV2zrLj98W5FZaGZqRICQUqtwgtDBGrgUYXThTS0JU4ZjHbmNw0TAkRzlNLrNmliH5GChs-aRPmOiU4iabcNgKIWq1XNugRc9jQTo2KaKb-uJuYQlRogPPBso7JFToZ8sW3G1iuTV0WUGriTxLl5Td-W6uRh3Mpfa9ZpB3-wCBhF6f0RPodNDznvxTEnsEsDzQW1g2DmGExBuXc7CMqZlZ_9QjrV_3tvI99jxfZx8NQOCyDsm7jfO7f4Zdk51Xw8ky7exevk3lcik8u3byLP6sxIiH18MM86uOALWgMqummfhg5lZ1RuBo87LBJex4hKKRjB8j4kdrI_iKEwIC0" method="POST" class="fancybox fancybox.iframe emailANDvidyardWindow">
+        <img src="http://image.mail.salesforce.com/lib/fe941c72756404757c/m/1/W-2791727-Video-BusinessPriority3.jpg" width="430" height="245" class="img-responsive" alt="Reduce Sales Rep Ramp Time for Sales Cloud">
+      </a>
+
+
+    </section>
+
+    <section>
+        <h4>4 Steps</h4>
+        <ol style="font-size:35px;">
+          <li>Prepare for Success
+            <ul>
+              <li>Determine who is involved? </li>
+              <li>How to focus your journey?</li>
+           </ul>
+          </li>
+          <li>Create User Success
+            <ul>
+              <li>
+                 Adapt Salesforce to <b>enable and improve</b> your business processes
+              </li>
+            </ul>
+              
+
+          </li>
+          <li>Enable User Experience with Data 
+            <ul>
+              <li>Import <b>clean data</b> and create <b>valuable</b> reports</li>
+            </ul>
+          </li>
+           <li>Deploy and Enpower Your Users
+           <ul>
+             <li>Train, support, motivate, and engage your users by <b></v> driving business outcome</b></li>
+           </ul>
+
+          </li>
+        </ol>
+    </section>
+
+    <section>
+      <h4>Marketing Cloud (MC)</h4>
+    </section>
+
+    <section>
+      <h4>Getting Started with Marketing Cloud</h4>
+      <ul>
+        <li>
+            Start sending 1-to-1 emails from the Marketing Cloud
+
+            <ul>
+              <li>
+                Setup Account & Subscribers
+                <ul>
+                    <li> Account Setup: How to set up your Marketing Cloud Email Studio account and user permissions</li>
+                    <li> Subscribers Setup:  How to manage and segment your Subscribers</li>
+                  </li>
+                </ul>
+
+              </li>
+              <li>Create, Test and Send emails
+               <ul>
+                 <li>Create an email that Captures your Brand's look & feel</li>
+                 <li>Test & send email</li>
+               </ul>
+
+              </li>
+              <li>Track your email: tracking data and extract your email metrics to optimize your email campaign. </li>
+              <li> Marketing Cloud Connect between your Marketing Cloud account and your Sales Cloud org. </li>
+            </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+        <h4>Grab this Marketing Cloud Workbook!</h4>
+           <object   data="img/getting-started/Getting_Started_with_Email_Workbook.pdf" type="application/pdf" style="width: 100%; height: 800px;">
+          <p>It appears you don't have a PDF plugin for this browser</p>
+        </object>
+    </section>
+
+   
+
+    <section>
+      <h4>Account Setup</h4>
+      <span id="vidyard_SbIx39h8cP2tbbRpOh9YEg" class="vidyard_player"><span id="vidyard_span_SbIx39h8cP2tbbRpOh9YEg" style="display: block; margin: auto; position: relative; width: 640px; height: 360px;"><iframe id="vidyard_iframe_SbIx39h8cP2tbbRpOh9YEg" class="vidyard_iframe" src="//play.vidyard.com/SbIx39h8cP2tbbRpOh9YEg?disable_popouts=0&amp;hide_html5_playlist=0&amp;v=3.1.1&amp;vyetoken=1c2c1bf7-b4c5-4920-95db-b4108a99b953&amp;type=inline&amp;email=mchinnappan%40salesforce.com&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fmarketing-cloud%252Femail-studio%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+    </section>
+
+    <section>
+        <h4>Subscribers Setup</h4>
+    <span id="vidyard_qlfB0MbLtTE7vfq-FAWG5w" class="vidyard_player"><span id="vidyard_span_qlfB0MbLtTE7vfq-FAWG5w" style="display: block; margin: auto; position: relative; width: 640px; height: 360px;"><iframe id="vidyard_iframe_qlfB0MbLtTE7vfq-FAWG5w" class="vidyard_iframe" src="//play.vidyard.com/qlfB0MbLtTE7vfq-FAWG5w?disable_popouts=0&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyetoken=1c2c1bf7-b4c5-4920-95db-b4108a99b953&amp;type=inline&amp;email=mchinnappan%40salesforce.com&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fmarketing-cloud%252Femail-studio%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+    </section>
+
+    <section>
+        <h4>Creating Email with Content Builder</h4>
+
+        <span id="vidyard_zsJibGYVnKsR4NAi2Yspq6" class="vidyard_player"><span id="vidyard_span_zsJibGYVnKsR4NAi2Yspq6" style="display: block; margin: auto; position: relative; width: 640px; height: 360px;"><iframe id="vidyard_iframe_zsJibGYVnKsR4NAi2Yspq6" class="vidyard_iframe" src="//play.vidyard.com/zsJibGYVnKsR4NAi2Yspq6?disable_popouts=0&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyetoken=1c2c1bf7-b4c5-4920-95db-b4108a99b953&amp;type=inline&amp;email=mchinnappan%40salesforce.com&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fmarketing-cloud%252Femail-studio%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+
+      </section>
+
+      <section>
+          <h4>Testing and sending your email</h4>
+      <span id="vidyard_gC44nAzvVRqyX3k7jTdcyE" class="vidyard_player"><span id="vidyard_span_gC44nAzvVRqyX3k7jTdcyE" style="display: block; margin: auto; position: relative; width: 640px; height: 360px;"><iframe id="vidyard_iframe_gC44nAzvVRqyX3k7jTdcyE" class="vidyard_iframe" src="//play.vidyard.com/gC44nAzvVRqyX3k7jTdcyE?disable_popouts=0&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyetoken=1c2c1bf7-b4c5-4920-95db-b4108a99b953&amp;type=inline&amp;email=mchinnappan%40salesforce.com&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fmarketing-cloud%252Femail-studio%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+      </section>
+
+      <section>
+        <h4>Track Your Email</h4>
+        <span id="vidyard_pLgKYhGZIyw42jQvAt22gw" class="vidyard_player"><span id="vidyard_span_pLgKYhGZIyw42jQvAt22gw" style="display: block; margin: auto; position: relative; width: 640px; height: 360px;"><iframe id="vidyard_iframe_pLgKYhGZIyw42jQvAt22gw" class="vidyard_iframe" src="//play.vidyard.com/pLgKYhGZIyw42jQvAt22gw?disable_popouts=0&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyetoken=1c2c1bf7-b4c5-4920-95db-b4108a99b953&amp;type=inline&amp;email=mchinnappan%40salesforce.com&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fmarketing-cloud%252Femail-studio%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+      </section>
+
+      <section>
+        <h4>Marketing Cloud Connect</h4>
+        <span id="vidyard_jM6xwurF_qjyAT_Tt42-iA" class="vidyard_player"><span id="vidyard_span_jM6xwurF_qjyAT_Tt42-iA" style="display: block; margin: auto; position: relative; width: 640px; height: 360px;"><iframe id="vidyard_iframe_jM6xwurF_qjyAT_Tt42-iA" class="vidyard_iframe" src="//play.vidyard.com/jM6xwurF_qjyAT_Tt42-iA?disable_popouts=0&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyetoken=1c2c1bf7-b4c5-4920-95db-b4108a99b953&amp;type=inline&amp;email=mchinnappan%40salesforce.com&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fmarketing-cloud%252Femail-studio%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+
+      </section>
+
+
+      <section>
+        <h4 style="font-size:30px;">MC Basics - MC Connect Part-1 Email - sending email from Sales Cloud, Service Cloud or Marketing Cloud</h4>
+        <iframe height="400" width="800" data-src="https://www.youtube.com/embed/NoXYOMupoKs?autoplay=0"></iframe>
+      </section>
+
+      <section>
+          <h4 style="font-size:30px;">MC Basics - MC Connect Part-2 Syncing CRM Data</h4>
+          <iframe height="400" width="800" data-src="https://www.youtube.com/embed/TiWBZgAM30s?autoplay=0"></iframe>
+        </section>
+
+        <section>
+            <h4 style="font-size:30px;">MC Basics - MC Connect Part-3 Journeys Across Marketing, Sales & Service</h4>
+            <iframe height="400" width="800" data-src="https://www.youtube.com/embed/nL7eXI3uQS0?autoplay=0"></iframe>
+          </section>
+
+          <section>
+              <h4 style="font-size:30px;">MC Basics - Journey Builder</h4>
+              <iframe height="400" width="800" data-src="https://www.youtube.com/embed/YAA1rbneMSY?autoplay=0"></iframe>
+            </section>
+            <section>
+                <h4 style="font-size:30px;">MC Basics - Automation Studio + Journey Builder
+                  </h4>
+                <iframe height="400" width="800" data-src="https://www.youtube.com/embed/GXa5KfGpbUw?autoplay=0"></iframe>
+              </section>
+          <section>
+              <h4 style="font-size:30px;">MC Basics - Email Studio & Content Builder - Create an Email
+                </h4>
+              <iframe height="400" width="800" data-src="https://www.youtube.com/embed/cNPbslropKQ?autoplay=0"></iframe>
+            </section>
+            <section>
+                <h4 style="font-size:30px;">MC Basics - Email Studio & Content Builder - Create a Template
+
+                  </h4>
+                <iframe height="400" width="800" data-src="https://www.youtube.com/embed/2EiZ6fcK_fE?autoplay=0"></iframe>
+              </section>
+
+      <section >
+        <h4>References</h4>
+       <ul>
+           <li>
+             <a target="_blank" href="https://help.salesforce.com/articleView?id=000025296&language=en_US&type=1"> KNOWLEDGE ARTICLE: Salesforce CRM Getting Started Workbook </a>
+            </li>
+         <li><a  target="_blank" href="http://image.mail.salesforce.com/lib/fe941c72756404757c/m/2/GettingStartedWorkbook.pdf">Salesforce CRM Getting Started Workbook </a></li>
+        <li>
+          <a target="_blank" href="http://pages.mail.salesforce.com/gettingstarted/sales-cloud/">Getting Started: Sales Cloud </a>
+        </li> 
+
+        <li>
+            <a target="_blank" href="http://pages.mail.salesforce.com/gettingstarted/marketing-cloud/">Getting Started: Marketing Cloud </a>
+          </li> 
+          <li>
+            <a target="_blank" href="https://help.salesforce.com/articleView?id=mc_overview_marketing_cloud.htm&type=5">Marketing Cloud Docs
+            </a>
+          </li>
+          <li>
+            <a href="http://pages.mail.salesforce.com/gettingstarted/marketing-cloud-connect/">Salesforce Marketing Cloud Connect</a>
+          </li>
+         </ul>
+         
+      </section>
+
+
+
+    </div>
+  </div>
+
+
+
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
+
+
+  <script>
+    'use strict';
+
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+      //width: 960,
+      //	height: 700,
+
+      // Display presentation control arrows
+      controls: true,
+
+      // Help the user learn the controls by providing hints, for example by
+      // bouncing the down arrow when they first encounter a vertical slide
+      controlsTutorial: true,
+
+      // Determines where controls appear, "edges" or "bottom-right"
+      controlsLayout: 'edges',
+
+      // Visibility rule for backwards navigation arrows; "faded", "hidden"
+      // or "visible"
+      controlsBackArrows: 'faded',
+      // Display a presentation progress bar
+      progress: true,
+
+      // Set default timing of 2 minutes per slide
+      defaultTiming: 120,
+
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
+
+
+      history: true,
+      center: true,
+      slideNumber: true,
+
+      embedded: true,
+
+      transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+      menu: {
+        markers: true,
+        openSlideNumber: true,
+        themes: [{
+            name: 'Black',
+            theme: '../reveal.js/css/theme/black.css'
+          },
+          {
+            name: 'White',
+            theme: '../reveal.js/css/theme/white.css'
+          },
+          {
+            name: 'League',
+            theme: '../reveal.js/css/theme/league.css'
+          },
+          {
+            name: 'Sky',
+            theme: '../reveal.js/css/theme/sky.css'
+          },
+          {
+            name: 'Beige',
+            theme: '../reveal.js/css/theme/beige.css'
+          },
+          {
+            name: 'Simple',
+            theme: '../reveal.js/css/theme/simple.css'
+          },
+          {
+            name: 'Serif',
+            theme: '../reveal.js/css/theme/serif.css'
+          },
+          {
+            name: 'Blood',
+            theme: '../reveal.js/css/theme/blood.css'
+          },
+          {
+            name: 'Night',
+            theme: '../reveal.js/css/theme/night.css'
+          },
+          {
+            name: 'Moon',
+            theme: '../reveal.js/css/theme/moon.css'
+          },
+          {
+            name: 'Solarized',
+            theme: '../reveal.js/css/theme/solarized.css'
+          }
+        ],
+        custom: []
+      },
+
+      // Optional reveal.js plugins
+      dependencies: [{
+          src: '../reveal.js/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          condition: function() {
+            return !!document.querySelector('pre code');
+          },
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: '../reveal.js/plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/reveal.js-menu/menu.js',
+          async: true
+        }
+      ]
+    });
+
+
+
+    var app = angular.module('app', [
+      'hc.marked'
+    ]);
+    app.config(['markedProvider', function(markedProvider) {
+      markedProvider.setOptions({
+        gfm: true
+      });
+    }]);
+
+    var GSCOPE;
+    app.controller('MainCtrl', function($scope, $http, $timeout) {
+      GSCOPE = $scope; // debugging purposes
+      $scope.appName="SFDC - Getting Started";
+
+
+
+    })
+  </script>
+</body>
+
+</html>
