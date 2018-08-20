@@ -54,5 +54,8 @@
       "<rootDir>/shared/vendor/prism/"
     ]
   },
-  "description": "Salesforce Lightning Design System"
+  "description": "Salesforce Lightning Design System",
+  "devDependencies": {
+    "cssnano": "^4.0.5"
+  }
 }

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+</head>
+<body>
+
+        <div id="myApp">
+                {{ message }}
+
+                <p v-if="seen">Now you see me</p>
+                <button v-on:click="myClickHandler">Click me!</button>
+       </div>
+
+    <my-component id="compApp"> </my-component>
+
+<script>
+    var myApp = new Vue( {
+        el: '#myApp',
+        data: {
+            message: 'Hello world!',
+            'seen': false
+
+        },
+        methods: {
+            myClickHandler: function() {
+                alert('Clicked!');
+            }
+        }
+});
+
+Vue.component('my-component', {
+    template: '<div>This is a Vue component</div>'
+});
+
+new Vue( {
+    el: "#compApp"
+})
+
+
+myApp.message = "Hello Vue!";
+
+</script>
+</body>
+</html>

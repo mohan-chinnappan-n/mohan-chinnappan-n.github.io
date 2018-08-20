@@ -25,10 +25,6 @@
 
   <!-- Printing and PDF exports -->
   <script>
-   // emmet main: section>h4{help}+ul>li{item $}*4
-   // emmet ref:  section>h4{help}+ul>li>a[target="_blank"][href="url $"]{reference1}*3
-   // emmet rc :  div[class="row"]>div[class="col-lg-6"]>p+div[class="col-lg-6"]>p
- 
     var link = document.createElement('link');
     link.rel = 'stylesheet';
     link.type = 'text/css';
@@ -134,6 +130,26 @@
 
       <section id="home">
         <h4>{{appName}}</h4>
+      </section>
+
+     <section>
+         <h4>About OData</h4>
+       <ul>
+           <li>The Open Data Protocol (OData) is a data access protocol built on core protocols like HTTP and commonly accepted methodologies like REST for the web</li>
+           <li></li>
+           <li></li>
+       </ul>
+     </section>
+
+      <section>
+          <h4>Sample Sevice</h4>
+         <ul>
+             <li>
+               <a href="https://services.odata.org/V4/(S(gjwkki3flez1y4a5mwxz50kc))/TripPinServiceRW/People">TripPinService/People</a>
+             </li>
+             <li></li>
+         </ul>
+
       </section>
 
 
@@ -297,7 +313,7 @@
     var GSCOPE;
     app.controller('MainCtrl', function($scope, $http, $timeout) {
       GSCOPE = $scope; // debugging purposes
-      $scope.appName="Help";
+      $scope.appName="OData";
 
 
 
