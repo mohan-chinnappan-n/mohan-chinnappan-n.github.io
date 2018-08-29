@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="MainCtrl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{appName}}</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/navbar-green.css">
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/data-markdown.user.js"></script>
+
+
+  <script src="../bower_components/marked/marked.min.js"></script>
+  <script src="../bower_components/angular-marked/dist/angular-marked.js"></script>
+
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../reveal.js/css/theme/white.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+   // emmet main: section>h4{help}+ul>li{item $}*4
+   // emmet ref:  section>h4{help}+ul>li>a[target="_blank"][href="url $"]{reference1}*3
+   // emmet rc :  div[class="row"]>div[class="col-lg-6"]>p+div[class="col-lg-6"]>p
+ 
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+    		<![endif]-->
+
+  <style>
+    .reveal .slide-number {
+      font-size: 0.5em;
+    }
+
+    .simg {
+      border-radius: 10px;
+      border: 1px;
+    }
+
+    .reveal section ul li,
+    .reveal section p {
+      font-size: .8em !important;
+    }
+
+    .reveal section pre code {
+      font-size: 0.7em !important;
+    }
+  </style>
+  <!--
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5381915020912221",
+    enable_page_level_ads: true
+  });
+</script>
+-->
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5381915020912221",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">{{appName}}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+      <div class="inner-addon right-addon navbar-form navbar-right">
+        <i class="glyphicon glyphicon-search"></i>
+        <input type="text" class="form-control" placeholder="Search" />
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown ">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="./help.html">Help Topics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <!--
+  <div class="container" ng-controller='MainCtrl'>
+    <div marked src="'pevents.md'"></div>
+  </div>
+-->
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section id="home">
+        <h4 style="font-size:30px;">{{appName}}</h4>
+         <img src="img/pb/pb-1.png" usemap="#image-map" style="border:0px;border-raidus:10px;" alt="">
+<map name="image-map">
+    <area target="_blank" alt="Object Selection" title="Object Selection" href="img/pb/pb-s-1.html" coords="56,70,298,130" shape="rect">
+   <area target="_blank" alt="Add Criteria" title="Add Criteria " href="img/pb/pb-s-2.html" coords="59,210,301,512" shape="rect">
+   <area target="_blank" alt="Setup Action" title="Setup Action" href="img/pb/pb-s-4.html" coords="46,225,783,330" shape="rect">
+
+
+</map>
+      </section>
+
+
+<section>
+    <h4>Process Builder goals</h4>
+    <ul>
+        <li>Advanced Business Logic without Code</li>
+         <li>Speed to Deliver </li>
+         <li>Ease of Maintenance and Supportability</li>
+        <li>Largely Deprecates Traditional Workflow</li>
+        <li>Replicates Some Common Trigger use-cases</li>
+    </ul>
+</section>
+
+<section>
+    <h4>Core Capabilities</h4>
+    <ul>
+        <li>Email Alerts</li>
+        <li>Field Updates</li>
+        <li>Create Records</li>
+        <li>Related Record Updates</li>
+        <li>Chatter posts</li>
+        <li>Approval Submission<hr/></li>
+<li>Quick Actions</li>
+<li>Apex and Flow Invocation</li>
+<li>AND/OR Conditional logic support</li>
+<li>Enhanced Bulkification (backend)</li>
+<li>Additional Process Invocation (chaining)</li>
+    </ul>
+</section>
+
+
+<section>
+    <h4>Why not Process Builder</h4>
+    <ul>
+        <li>Consolidated Process Logic is required</li>
+        <li>Complex logic </li>
+        <li>Testability is critical</li>
+    </ul>
+</section>
+
+<section>
+    <h4>1. Populate a lookup filed on record update</h4>
+    <img src="img/pb/pb-case-1.png" style="border:0;border-radius:10xp;" alt="">
+</section>
+
+<section>
+    <h4>2. Set owner based on Record Criteria</h4>
+    <img src="img/pb/pb-case-2.png" style="border:0;border-radius:10xp;" alt="">
+</section>
+
+<section>
+    <h4>3. Post to chatter based on Record Criteria</h4>
+    <img src="img/pb/pb-case-3.png" style="border:0;border-radius:10xp;" alt="">
+</section>
+<section>
+    <h4>4. Submit a Quote based on the Opportunity Stage</h4>
+    <img src="img/pb/pb-case-4.png" style="border:0;border-radius:10xp;" alt="">
+</section>
+
+<section>
+    <h4>5. Cloning a Record and Modify Field Values</h4>
+    <img src="img/pb/pb-case-5.png" style="border:0;border-radius:10xp;" alt="">
+</section>
+
+<section>
+    <h4>Process Builder Limitations</h4>
+    <ul>
+        <li>Complex Logic: Apex Trigger</li>
+        <li>Programmatic logic abstracted in Custom settings/metadata-types</li>
+        <li>Rapid Iteration in Process Builder can be challenging (deployment, versioning...)</li>
+        <li>Unit Test requirements for the critical processes</li>
+    </ul>
+</section>
+
+
+
+<section>
+    <h4>Video</h4>
+  <iframe height="500" width="800" data-src="https://www.youtube.com/embed/F-tBux6eg-8?autoplay=0"></iframe>
+</section>
+
+<section>
+    <h4>Culture</h4>
+<img src="img/pb/pb-culture-1.png" style="border:0px;border-radius:10px;" alt="">
+</section>
+
+
+
+<section>
+    <h4>References</h4>
+    <ul>
+        <li><a href="https://trailhead.salesforce.com/en/modules/business_process_automation/units/process_whichtool">
+Choose the Right Automation Tool </a></li>
+        <li><a href="https://trailhead.salesforce.com/en/modules/business_process_automation/units/process_builder">
+Automate Simple Business Processes with Process Builder </a></li>
+<li>
+<a href="https://help.salesforce.com/articleView?id=000230637&type=1">Process Builder - Bulkification enhancement and Limits in Winter '16
+</a></li>
+<li> <a href="https://help.salesforce.com/articleView?id=process_limits.htm&type=5"> Process Limits </a></li>
+ <li> <a href="http://releasenotes.docs.salesforce.com/en-us/winter16/release-notes/rn_forcecom_process_bulkification.htm"> Reduced Chances of Hitting SOQL Limits in Processes
+ </a></li>
+ 
+    </ul>
+</section>
+    </div>
+  </div>
+
+
+
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
+
+
+  <script>
+    'use strict';
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+      //width: 960,
+      //	height: 700,
+
+      // Display presentation control arrows
+      controls: true,
+
+      // Help the user learn the controls by providing hints, for example by
+      // bouncing the down arrow when they first encounter a vertical slide
+      controlsTutorial: true,
+
+      // Determines where controls appear, "edges" or "bottom-right"
+      controlsLayout: 'edges',
+
+      // Visibility rule for backwards navigation arrows; "faded", "hidden"
+      // or "visible"
+      controlsBackArrows: 'faded',
+      // Display a presentation progress bar
+      progress: true,
+
+      // Set default timing of 2 minutes per slide
+      defaultTiming: 120,
+
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
+
+
+      history: true,
+      center: true,
+      slideNumber: true,
+
+      embedded: true,
+
+      transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+      menu: {
+        markers: true,
+        openSlideNumber: true,
+        themes: [{
+            name: 'Black',
+            theme: '../reveal.js/css/theme/black.css'
+          },
+          {
+            name: 'White',
+            theme: '../reveal.js/css/theme/white.css'
+          },
+          {
+            name: 'League',
+            theme: '../reveal.js/css/theme/league.css'
+          },
+          {
+            name: 'Sky',
+            theme: '../reveal.js/css/theme/sky.css'
+          },
+          {
+            name: 'Beige',
+            theme: '../reveal.js/css/theme/beige.css'
+          },
+          {
+            name: 'Simple',
+            theme: '../reveal.js/css/theme/simple.css'
+          },
+          {
+            name: 'Serif',
+            theme: '../reveal.js/css/theme/serif.css'
+          },
+          {
+            name: 'Blood',
+            theme: '../reveal.js/css/theme/blood.css'
+          },
+          {
+            name: 'Night',
+            theme: '../reveal.js/css/theme/night.css'
+          },
+          {
+            name: 'Moon',
+            theme: '../reveal.js/css/theme/moon.css'
+          },
+          {
+            name: 'Solarized',
+            theme: '../reveal.js/css/theme/solarized.css'
+          }
+        ],
+        custom: []
+      },
+
+      // Optional reveal.js plugins
+      dependencies: [{
+          src: '../reveal.js/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          condition: function() {
+            return !!document.querySelector('pre code');
+          },
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: '../reveal.js/plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/reveal.js-menu/menu.js',
+          async: true
+        }
+      ]
+    });
+
+
+    var app = angular.module('app', [
+      'hc.marked'
+    ]);
+    app.config(['markedProvider', function(markedProvider) {
+      markedProvider.setOptions({
+        gfm: true
+      });
+    }]);
+
+    var GSCOPE;
+    app.controller('MainCtrl', function($scope, $http, $timeout) {
+      GSCOPE = $scope; // debugging purposes
+      $scope.appName="Process Builder and Apex Triggers";
+
+
+
+    })
+  </script>
+</body>
+
+</html>
