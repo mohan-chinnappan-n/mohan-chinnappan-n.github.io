@@ -1,0 +1,340 @@
+{
+  "dashboards": [
+    {
+      "allowPreview": false,
+      "assetSharingUrl": "https://mohansun-fsc2.my.salesforce.com/analytics/wave/dashboard?assetId=0FK0b000000PyqfGAC&orgId=00D0b000000uNnL&loginHost=na57.salesforce.com&urlType=sharing",
+      "createdBy": {
+        "id": "0050b0000048XLvAAM",
+        "name": "Mohan Chinnappan",
+        "profilePhotoUrl": "https://mohansun-fsc2--c.na57.content.force.com/profilephoto/005/T"
+      },
+      "createdDate": "2018-08-29T10:43:38.000Z",
+      "datasets": [
+        {
+          "id": "0Fb0b000000Q2DiCAK",
+          "label": "Account_Contact",
+          "name": "Account_Contact",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+        },
+        {
+          "id": "0Fb0b000000Q2DlCAK",
+          "label": "Event_Account_Contact",
+          "name": "Event_Account_Contact",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DlCAK"
+        },
+        {
+          "id": "0Fb0b000000Q2DmCAK",
+          "label": "FinAcc_Account_Contact",
+          "name": "FinAcc_Account_Contact",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DmCAK"
+        },
+        {
+          "id": "0Fb0b000000Q2DoCAK",
+          "label": "FinGoal_Account_Contact",
+          "name": "FinGoal_Account_Contact",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DoCAK"
+        },
+        {
+          "id": "0Fb0b000000Q2DrCAK",
+          "label": "FinancialHolding",
+          "name": "FinancialHolding",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DrCAK"
+        },
+        {
+          "id": "0Fb0b000000Q2DtCAK",
+          "label": "Task_Account_Contact",
+          "name": "Task_Account_Contact",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DtCAK"
+        }
+      ],
+      "files": [],
+      "folder": {
+        "id": "00l0b000002NxwTAAS",
+        "label": "Advisor Analytics",
+        "name": "WMAdvisorWave",
+        "namespace": "FinServWaveExt",
+        "url": "/services/data/v43.0/wave/folders/00l0b000002NxwTAAS"
+      },
+      "id": "0FK0b000000PyqfGAC",
+      "label": "Activities",
+      "lastAccessedDate": "2018-08-29T13:27:07.000Z",
+      "lastModifiedDate": "2018-08-29T10:43:38.000Z",
+      "mobileDisabled": false,
+      "name": "Activities",
+      "namespace": "FinServWaveExt",
+      "permissions": {
+        "manage": true,
+        "modify": true,
+        "view": true
+      },
+      "refreshDate": "2018-08-29T10:43:38.000Z",
+      "type": "dashboard",
+      "url": "/services/data/v43.0/wave/dashboards/0FK0b000000PyqfGAC"
+    },
+    {
+      "allowPreview": false,
+      "assetSharingUrl": "https://mohansun-fsc2.my.salesforce.com/analytics/wave/dashboard?assetId=0FK0b000000PyqjGAC&orgId=00D0b000000uNnL&loginHost=na57.salesforce.com&urlType=sharing",
+      "createdBy": {
+        "id": "0050b0000048XLvAAM",
+        "name": "Mohan Chinnappan",
+        "profilePhotoUrl": "https://mohansun-fsc2--c.na57.content.force.com/profilephoto/005/T"
+      },
+      "createdDate": "2018-08-29T10:43:38.000Z",
+      "datasets": [
+        {
+          "id": "0Fb0b000000Q2DiCAK",
+          "label": "Account_Contact",
+          "name": "Account_Contact",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+        },
+        {
+          "id": "0Fb0b000000Q2DjCAK",
+          "label": "Account_Revenue",
+          "name": "Account_Revenue",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DjCAK"
+        },
+        {
+          "id": "0Fb0b000000Q2DlCAK",
+          "label": "Event_Account_Contact",
+          "name": "Event_Account_Contact",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DlCAK"
+        },
+        {
+          "id": "0Fb0b000000Q2DnCAK",
+          "label": "FinAcc_Revenue",
+          "name": "FinAcc_Revenue",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DnCAK"
+        },
+        {
+          "id": "0Fb0b000000Q2DoCAK",
+          "label": "FinGoal_Account_Contact",
+          "name": "FinGoal_Account_Contact",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DoCAK"
+        },
+        {
+          "id": "0Fb0b000000Q2DsCAK",
+          "label": "Opportunity",
+          "name": "Opportunity",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DsCAK"
+        },
+        {
+          "id": "0Fb0b000000Q2DtCAK",
+          "label": "Task_Account_Contact",
+          "name": "Task_Account_Contact",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DtCAK"
+        }
+      ],
+      "files": [],
+      "folder": {
+        "id": "00l0b000002NxwTAAS",
+        "label": "Advisor Analytics",
+        "name": "WMAdvisorWave",
+        "namespace": "FinServWaveExt",
+        "url": "/services/data/v43.0/wave/folders/00l0b000002NxwTAAS"
+      },
+      "id": "0FK0b000000PyqjGAC",
+      "label": "80/20",
+      "lastAccessedDate": "2018-08-29T13:26:28.000Z",
+      "lastModifiedDate": "2018-08-29T10:43:38.000Z",
+      "mobileDisabled": false,
+      "name": "X80_20",
+      "namespace": "FinServWaveExt",
+      "permissions": {
+        "manage": true,
+        "modify": true,
+        "view": true
+      },
+      "refreshDate": "2018-08-29T10:43:38.000Z",
+      "type": "dashboard",
+      "url": "/services/data/v43.0/wave/dashboards/0FK0b000000PyqjGAC"
+    },
+    {
+      "allowPreview": false,
+      "assetSharingUrl": "https://mohansun-fsc2.my.salesforce.com/analytics/wave/dashboard?assetId=0FK0b000000PyqgGAC&orgId=00D0b000000uNnL&loginHost=na57.salesforce.com&urlType=sharing",
+      "createdBy": {
+        "id": "0050b0000048XLvAAM",
+        "name": "Mohan Chinnappan",
+        "profilePhotoUrl": "https://mohansun-fsc2--c.na57.content.force.com/profilephoto/005/T"
+      },
+      "createdDate": "2018-08-29T10:43:38.000Z",
+      "datasets": [
+        {
+          "id": "0Fb0b000000Q2DiCAK",
+          "label": "Account_Contact",
+          "name": "Account_Contact",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+        },
+        {
+          "id": "0Fb0b000000Q2DlCAK",
+          "label": "Event_Account_Contact",
+          "name": "Event_Account_Contact",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DlCAK"
+        },
+        {
+          "id": "0Fb0b000000Q2DmCAK",
+          "label": "FinAcc_Account_Contact",
+          "name": "FinAcc_Account_Contact",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DmCAK"
+        },
+        {
+          "id": "0Fb0b000000Q2DoCAK",
+          "label": "FinGoal_Account_Contact",
+          "name": "FinGoal_Account_Contact",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DoCAK"
+        },
+        {
+          "id": "0Fb0b000000Q2DrCAK",
+          "label": "FinancialHolding",
+          "name": "FinancialHolding",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DrCAK"
+        },
+        {
+          "id": "0Fb0b000000Q2DtCAK",
+          "label": "Task_Account_Contact",
+          "name": "Task_Account_Contact",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DtCAK"
+        }
+      ],
+      "files": [],
+      "folder": {
+        "id": "00l0b000002NxwTAAS",
+        "label": "Advisor Analytics",
+        "name": "WMAdvisorWave",
+        "namespace": "FinServWaveExt",
+        "url": "/services/data/v43.0/wave/folders/00l0b000002NxwTAAS"
+      },
+      "id": "0FK0b000000PyqgGAC",
+      "label": "Client Goals",
+      "lastModifiedDate": "2018-08-29T10:43:38.000Z",
+      "mobileDisabled": false,
+      "name": "Client_Goals",
+      "namespace": "FinServWaveExt",
+      "permissions": {
+        "manage": true,
+        "modify": true,
+        "view": true
+      },
+      "refreshDate": "2018-08-29T10:43:38.000Z",
+      "type": "dashboard",
+      "url": "/services/data/v43.0/wave/dashboards/0FK0b000000PyqgGAC"
+    },
+    {
+      "allowPreview": false,
+      "assetSharingUrl": "https://mohansun-fsc2.my.salesforce.com/analytics/wave/dashboard?assetId=0FK0b000000PyqhGAC&orgId=00D0b000000uNnL&loginHost=na57.salesforce.com&urlType=sharing",
+      "createdBy": {
+        "id": "0050b0000048XLvAAM",
+        "name": "Mohan Chinnappan",
+        "profilePhotoUrl": "https://mohansun-fsc2--c.na57.content.force.com/profilephoto/005/T"
+      },
+      "createdDate": "2018-08-29T10:43:38.000Z",
+      "datasets": [
+        {
+          "id": "0Fb0b000000Q2DiCAK",
+          "label": "Account_Contact",
+          "name": "Account_Contact",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+        }
+      ],
+      "files": [],
+      "folder": {
+        "id": "00l0b000002NxwTAAS",
+        "label": "Advisor Analytics",
+        "name": "WMAdvisorWave",
+        "namespace": "FinServWaveExt",
+        "url": "/services/data/v43.0/wave/folders/00l0b000002NxwTAAS"
+      },
+      "id": "0FK0b000000PyqhGAC",
+      "label": "Client List",
+      "lastModifiedDate": "2018-08-29T10:43:38.000Z",
+      "mobileDisabled": false,
+      "name": "Client_List",
+      "namespace": "FinServWaveExt",
+      "permissions": {
+        "manage": true,
+        "modify": true,
+        "view": true
+      },
+      "refreshDate": "2018-08-29T10:43:38.000Z",
+      "type": "dashboard",
+      "url": "/services/data/v43.0/wave/dashboards/0FK0b000000PyqhGAC"
+    },
+    {
+      "allowPreview": false,
+      "assetSharingUrl": "https://mohansun-fsc2.my.salesforce.com/analytics/wave/dashboard?assetId=0FK0b000000PyqiGAC&orgId=00D0b000000uNnL&loginHost=na57.salesforce.com&urlType=sharing",
+      "createdBy": {
+        "id": "0050b0000048XLvAAM",
+        "name": "Mohan Chinnappan",
+        "profilePhotoUrl": "https://mohansun-fsc2--c.na57.content.force.com/profilephoto/005/T"
+      },
+      "createdDate": "2018-08-29T10:43:38.000Z",
+      "datasets": [
+        {
+          "id": "0Fb0b000000Q2DiCAK",
+          "label": "Account_Contact",
+          "name": "Account_Contact",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+        },
+        {
+          "id": "0Fb0b000000Q2DmCAK",
+          "label": "FinAcc_Account_Contact",
+          "name": "FinAcc_Account_Contact",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DmCAK"
+        },
+        {
+          "id": "0Fb0b000000Q2DrCAK",
+          "label": "FinancialHolding",
+          "name": "FinancialHolding",
+          "namespace": "FinServWaveExt",
+          "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DrCAK"
+        }
+      ],
+      "files": [],
+      "folder": {
+        "id": "00l0b000002NxwTAAS",
+        "label": "Advisor Analytics",
+        "name": "WMAdvisorWave",
+        "namespace": "FinServWaveExt",
+        "url": "/services/data/v43.0/wave/folders/00l0b000002NxwTAAS"
+      },
+      "id": "0FK0b000000PyqiGAC",
+      "label": "Financial Accounts",
+      "lastModifiedDate": "2018-08-29T10:43:38.000Z",
+      "mobileDisabled": false,
+      "name": "Financial_Accounts",
+      "namespace": "FinServWaveExt",
+      "permissions": {
+        "manage": true,
+        "modify": true,
+        "view": true
+      },
+      "refreshDate": "2018-08-29T10:43:38.000Z",
+      "type": "dashboard",
+      "url": "/services/data/v43.0/wave/dashboards/0FK0b000000PyqiGAC"
+    }
+  ],
+  "nextPageUrl": null,
+  "totalSize": 5,
+  "url": "/services/data/v43.0/wave/dashboards"
+}

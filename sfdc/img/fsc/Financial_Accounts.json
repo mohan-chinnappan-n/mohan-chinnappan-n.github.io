@@ -1,0 +1,1334 @@
+{
+  "allowPreview": false,
+  "assetSharingUrl": "https://mohansun-fsc2.my.salesforce.com/analytics/wave/dashboard?assetId=0FK0b000000PyqiGAC&orgId=00D0b000000uNnL&loginHost=na57.salesforce.com&urlType=sharing",
+  "createdBy": {
+    "id": "0050b0000048XLvAAM",
+    "name": "Mohan Chinnappan",
+    "profilePhotoUrl": "https://mohansun-fsc2--c.na57.content.force.com/profilephoto/005/T"
+  },
+  "createdDate": "2018-08-29T10:43:38.000Z",
+  "datasets": [
+    {
+      "id": "0Fb0b000000Q2DiCAK",
+      "label": "Account_Contact",
+      "name": "Account_Contact",
+      "namespace": "FinServWaveExt",
+      "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+    },
+    {
+      "id": "0Fb0b000000Q2DmCAK",
+      "label": "FinAcc_Account_Contact",
+      "name": "FinAcc_Account_Contact",
+      "namespace": "FinServWaveExt",
+      "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DmCAK"
+    },
+    {
+      "id": "0Fb0b000000Q2DrCAK",
+      "label": "FinancialHolding",
+      "name": "FinancialHolding",
+      "namespace": "FinServWaveExt",
+      "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DrCAK"
+    }
+  ],
+  "files": [],
+  "folder": {
+    "id": "00l0b000002NxwTAAS",
+    "label": "Advisor Analytics",
+    "name": "WMAdvisorWave",
+    "namespace": "FinServWaveExt",
+    "url": "/services/data/v43.0/wave/folders/00l0b000002NxwTAAS"
+  },
+  "id": "0FK0b000000PyqiGAC",
+  "label": "Financial Accounts",
+  "lastModifiedDate": "2018-08-29T10:43:38.000Z",
+  "mobileDisabled": false,
+  "name": "Financial_Accounts",
+  "namespace": "FinServWaveExt",
+  "permissions": {
+    "manage": true,
+    "modify": true,
+    "view": true
+  },
+  "refreshDate": "2018-08-29T10:43:38.000Z",
+  "state": {
+    "dataSourceLinks": [],
+    "filters": [],
+    "gridLayouts": [],
+    "layouts": [],
+    "steps": {
+      "FinServ__TotalFinancialAccounts__c_11": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DiCAK",
+            "label": "Account_Contact",
+            "name": "Account_Contact",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+          }
+        ],
+        "isFacet": true,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;pigql&quot;:&quot;bz = load &#92;&quot;FinServWaveExt__Account_Contact&#92;&quot;;bz = filter bz by &#39;FinServ__ClientCategory__c&#39; in {{selection(FinServ__ClientCategory__c_1)}}; bz = filter bz by &#39;FinServ__ServiceModel__c&#39; in {{selection(FinServ__ServiceModel__c_2)}}; bz = filter bz by &#39;FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;end&#39;))) }}; bz = filter bz by &#39;FinServ__PrimaryContact__c.FinServ__Age__c&#39; {{ no_quote(value(field(selection(Agerange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__PrimaryContact__c.FinServ__Age__c&#39; {{ no_quote(value(field(selection(Agerange),&#39;end&#39;))) }};bz = filter bz by &#39;FinServ__InvestmentObjectives__c&#39; in {{selection(FinServ__InvestmentObjectives__c_6)}}; bz = filter bz by &#39;FinServ__RiskTolerance__c&#39; in {{selection(FinServ__RiskTolerance__c_7)}};bz = filter bz by &#39;FinServ__NetWorth__c&#39; in {{selection(FinServ__NetWorth__c_9)}};  bz = filter bz by &#39;FinServ__MarketingSegment__c&#39; in  {{selection(FinServ__MarketingSegment__c_8)}};bz = filter bz by &#39;FinServ__FinancialInterests__c&#39; in {{selection(Interests)}};bz = filter bz by &#39;FinServ__PersonalInterests__c&#39; in {{selection(Interests)}};bz = filter bz by &#39;FinServ__PrimaryContact__c.Id&#39; in {{results(Activity_ID)}};bz = group bz by all;bz = foreach bz generate sum(&#39;FinServ__TotalFinAcctsPrimaryOwner__c&#39;) as &#39;sum_FinServ__TotalFinAcctsPrimaryOwner__c&#39;;&quot;,&quot;measures&quot;:[[&quot;sum&quot;,&quot;FinServ__TotalFinAcctsPrimaryOwner__c&quot;]]}",
+          "version": -1
+        },
+        "selectMode": "single",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      },
+      "step_selection_Books": {
+        "datasets": [],
+        "dimensions": [],
+        "isFacet": false,
+        "isGlobal": false,
+        "selectMode": "single",
+        "start": "[[&quot;Total&quot;]]",
+        "type": "static",
+        "useGlobal": false,
+        "values": [
+          "{&quot;display&quot;:&quot;Total&quot;,&quot;value&quot;:&quot;Total&quot;}",
+          "{&quot;display&quot;:&quot;Held Away&quot;,&quot;value&quot;:&quot;Held&quot;}",
+          "{&quot;display&quot;:&quot;AUM&quot;,&quot;value&quot;:&quot;AUM&quot;}"
+        ]
+      },
+      "step_selection_FFA": {
+        "datasets": [],
+        "dimensions": [],
+        "isFacet": false,
+        "isGlobal": false,
+        "selectMode": "single",
+        "start": "[&quot;sum&quot;]",
+        "type": "static",
+        "useGlobal": false,
+        "values": [
+          "{&quot;display&quot;:&quot;$&quot;,&quot;value&quot;:&quot;sum&quot;}",
+          "{&quot;display&quot;:&quot;#&quot;,&quot;value&quot;:&quot;avg&quot;}"
+        ]
+      },
+      "step_selection_FHA": {
+        "datasets": [],
+        "dimensions": [],
+        "isFacet": false,
+        "isGlobal": false,
+        "selectMode": "single",
+        "start": "[&quot;sum&quot;]",
+        "type": "static",
+        "useGlobal": false,
+        "values": [
+          "{&quot;display&quot;:&quot;$&quot;,&quot;value&quot;:&quot;sum&quot;}",
+          "{&quot;display&quot;:&quot;#&quot;,&quot;value&quot;:&quot;avg&quot;}"
+        ]
+      },
+      "Interests": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DiCAK",
+            "label": "Account_Contact",
+            "name": "Account_Contact",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+          }
+        ],
+        "isFacet": false,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;pigql&quot;:&quot;q = load &#92;&quot;FinServWaveExt__Account_Contact&#92;&quot;; ;q = group q by &#39;FinServ__FinancialInterests__c&#39;; ;q = foreach q generate &#39;FinServ__FinancialInterests__c&#39; as &#39;Interest&#39;,count() as &#39;count&#39;;r = load &#92;&quot;FinServWaveExt__Account_Contact&#92;&quot;; ;r = group r by &#39;FinServ__PersonalInterests__c&#39;;r = foreach r generate &#39;FinServ__PersonalInterests__c&#39; as &#39;Interest&#39;,count() as &#39;count&#39;;s = union q,r;;s= group s by (&#39;Interest&#39;);;s= foreach s generate &#39;Interest&#39; as &#39;Interest&#39;, sum(&#39;count&#39;)as &#39;sum_count&#39;;&quot;,&quot;measures&quot;:[[&quot;sum&quot;,&quot;count&quot;]],&quot;groups&quot;:[&quot;Interest&quot;],&quot;order&quot;:[[-1,{&quot;ascending&quot;:false}]]}",
+          "version": -1
+        },
+        "selectMode": "multi",
+        "start": "[]",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      },
+      "FinServ__ServiceModel__c_2": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DiCAK",
+            "label": "Account_Contact",
+            "name": "Account_Contact",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+          }
+        ],
+        "isFacet": false,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;measures&quot;:[[&quot;count&quot;,&quot;*&quot;]],&quot;groups&quot;:[&quot;FinServ__ServiceModel__c&quot;]}",
+          "version": -1
+        },
+        "selectMode": "multi",
+        "start": "[]",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      },
+      "FinServ__RiskTolerance__c_7": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DiCAK",
+            "label": "Account_Contact",
+            "name": "Account_Contact",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+          }
+        ],
+        "isFacet": false,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;measures&quot;:[[&quot;count&quot;,&quot;*&quot;]],&quot;groups&quot;:[&quot;FinServ__RiskTolerance__c&quot;]}",
+          "version": -1
+        },
+        "selectMode": "multi",
+        "start": "[]",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      },
+      "Activity_ID": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DiCAK",
+            "label": "Account_Contact",
+            "name": "Account_Contact",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+          }
+        ],
+        "isFacet": true,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;pigql&quot;:&quot;bz = load &#92;&quot;FinServWaveExt__FinancialHolding&#92;&quot;;bz = filter bz by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;end&#39;))) }};bz = filter bz by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__PrimaryContact__c.FinServ__Age__c&#39;{{ no_quote(value(field(selection(Agerange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__PrimaryContact__c.FinServ__Age__c&#39;{{ no_quote(value(field(selection(Agerange),&#39;end&#39;))) }};bz = filter bz by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__ClientCategory__c&#39; in {{selection(FinServ__ClientCategory__c_1)}};bz = filter bz by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.Name&#39; in {{results(FinServ__PrimaryContact__c_Name_84)}};bz = filter bz by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__ServiceModel__c&#39; in {{selection(FinServ__ServiceModel__c_2)}};bz = filter bz by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__InvestmentObjectives__c&#39; in {{selection(FinServ__InvestmentObjectives__c_6)}};bz = filter bz by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__RiskTolerance__c&#39; in {{selection(FinServ__RiskTolerance__c_7)}};bz = filter bz by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__MarketingSegment__c&#39; in  {{selection(FinServ__MarketingSegment__c_8)}};bz = filter bz by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__FinancialInterests__c&#39; in {{selection(Interests)}};bz = filter bz by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__PersonalInterests__c&#39; in {{selection(Interests)}};bz = filter bz by &#39;FinServ__FinancialAccount__c.FinServ__RecordTypeName__c&#39; != &#92;&quot;Insurance Policy&#92;&quot;;bz = group bz by (&#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__PrimaryContact__c.Id&#39;,&#39;FinServ__Symbol__c&#39;,&#39;FinServ__FinancialAccount__c.FinServ__RecordTypeName__c&#39;,&#39;FinServ__FinancialAccount__c.FinServ__FinancialAccountType__c&#39;);bz = foreach bz generate &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__PrimaryContact__c.Id&#39; as &#39;AccountId&#39;,&#39;FinServ__Symbol__c&#39; as &#39;Symboltype&#39;,&#39;FinServ__FinancialAccount__c.FinServ__RecordTypeName__c&#39; as &#39;Recordtype&#39;,&#39;FinServ__FinancialAccount__c.FinServ__FinancialAccountType__c&#39; as &#39;Accounttype&#39;;bx = load &#92;&quot;FinServWaveExt__Account_Contact&#92;&quot;;bx = filter bx by &#39;FinServ__ClientCategory__c&#39; in {{selection(FinServ__ClientCategory__c_1)}}; bx = filter bx by &#39;FinServ__ServiceModel__c&#39; in {{selection(FinServ__ServiceModel__c_2)}}; bx = filter bx by &#39;FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;end&#39;))) }} ;bx = filter bx by &#39;FinServ__PrimaryContact__c.FinServ__Age__c&#39; {{ no_quote(value(field(selection(Agerange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__PrimaryContact__c.FinServ__Age__c&#39; {{ no_quote(value(field(selection(Agerange),&#39;end&#39;))) }};bx = filter bx by &#39;FinServ__InvestmentObjectives__c&#39; in {{selection(FinServ__InvestmentObjectives__c_6)}};bx = filter bx by &#39;FinServ__RiskTolerance__c&#39; in {{selection(FinServ__RiskTolerance__c_7)}};bx = filter bx by &#39;FinServ__NetWorth__c&#39; in {{selection(FinServ__NetWorth__c_9)}};bx = filter bx by &#39;FinServ__MarketingSegment__c&#39; in  {{selection(FinServ__MarketingSegment__c_8)}};bx = filter bx by &#39;FinServ__FinancialInterests__c&#39; in {{selection(Interests)}};bx = filter bx by &#39;FinServ__PersonalInterests__c&#39; in {{selection(Interests)}};bx = filter bx by &#39;FinServ__PrimaryContact__c.Name&#39; in {{results(FinServ__PrimaryContact__c_Name_84)}};bx = foreach bx generate &#39;FinServ__PrimaryContact__c.Id&#39; as &#39;AccountId&#39;, count() as &#39;count&#39;;list = union bz,bx;list = foreach list generate &#39;AccountId&#39; as &#39;AccountId&#39;,sum(&#39;count&#39;) as &#39;count&#39;,&#39;Recordtype&#39; as &#39;Recordtype&#39;,&#39;Accounttype&#39; as &#39;Accounttype&#39;,&#39;Symboltype&#39; as &#39;Symboltype&#39;;list = filter list by &#39;Symboltype&#39; in  {{selection(FinServ__Symbol__c_17)}};list = filter list by &#39;Recordtype&#39; in {{selection(Financial_Types)}};list = filter list by &#39;Accounttype&#39; in {{selection(FinServ__FinancialAccountType__c_16)}};&quot;,&quot;measures&quot;:[[&quot;count&quot;,&quot;*&quot;]],&quot;groups&quot;:[&quot;AccountId&quot;]}",
+          "version": -1
+        },
+        "selectMode": "single",
+        "start": "[]",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      },
+      "FinServ__NetWorth__c_9": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DiCAK",
+            "label": "Account_Contact",
+            "name": "Account_Contact",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+          }
+        ],
+        "isFacet": false,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;measures&quot;:[[&quot;sum&quot;,&quot;FinServ__NetWorth__c&quot;]]}",
+          "version": -1
+        },
+        "selectMode": "single",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      },
+      "Id_55": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DmCAK",
+            "label": "FinAcc_Account_Contact",
+            "name": "FinAcc_Account_Contact",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DmCAK"
+          }
+        ],
+        "isFacet": true,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;pigql&quot;:&quot;bz = load &#92;&quot;FinServWaveExt__Account_Contact&#92;&quot;;bz = filter bz by &#39;FinServ__ClientCategory__c&#39; in {{selection(FinServ__ClientCategory__c_1)}}; bz = filter bz by &#39;FinServ__ServiceModel__c&#39; in {{selection(FinServ__ServiceModel__c_2)}}; bz = filter bz by &#39;FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;end&#39;))) }} ;bz = filter bz by &#39;FinServ__PrimaryContact__c.FinServ__Age__c&#39; {{ no_quote(value(field(selection(Agerange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__PrimaryContact__c.FinServ__Age__c&#39; {{ no_quote(value(field(selection(Agerange),&#39;end&#39;))) }};bz = filter bz by &#39;FinServ__InvestmentObjectives__c&#39; in {{selection(FinServ__InvestmentObjectives__c_6)}}; bz = filter bz by &#39;FinServ__RiskTolerance__c&#39; in {{selection(FinServ__RiskTolerance__c_7)}};bz = filter bz by &#39;FinServ__NetWorth__c&#39; in {{selection(FinServ__NetWorth__c_9)}};  bz = filter bz by &#39;FinServ__MarketingSegment__c&#39; in  {{selection(FinServ__MarketingSegment__c_8)}};bz = filter bz by &#39;FinServ__FinancialInterests__c&#39; in {{selection(Interests)}};bz = filter bz by &#39;FinServ__PersonalInterests__c&#39; in {{selection(Interests)}};bz = filter bz by &#39;FinServ__PrimaryContact__c.Id&#39; in {{results(Activity_ID)}};bz = group bz by all;bz = foreach bz generate unique(&#39;FinServ__PrimaryContact__c.Id&#39;) as &#39;unique_Id&#39;;&quot;,&quot;measures&quot;:[[&quot;unique&quot;,&quot;Id&quot;]]}",
+          "version": -1
+        },
+        "selectMode": "single",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      },
+      "lens_25": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DiCAK",
+            "label": "Account_Contact",
+            "name": "Account_Contact",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+          }
+        ],
+        "isFacet": true,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;pigql&quot;:&quot;bz = load &#92;&quot;FinServWaveExt__Account_Contact&#92;&quot;;bz = filter bz by &#39;FinServ__ClientCategory__c&#39; in {{selection(FinServ__ClientCategory__c_1)}}; bz = filter bz by &#39;FinServ__ServiceModel__c&#39; in {{selection(FinServ__ServiceModel__c_2)}}; bz = filter bz by &#39;FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;end&#39;))) }} ;bz = filter bz by &#39;FinServ__PrimaryContact__c.FinServ__Age__c&#39; {{ no_quote(value(field(selection(Agerange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__PrimaryContact__c.FinServ__Age__c&#39; {{ no_quote(value(field(selection(Agerange),&#39;end&#39;))) }};bz = filter bz by &#39;FinServ__InvestmentObjectives__c&#39; in {{selection(FinServ__InvestmentObjectives__c_6)}}; bz = filter bz by &#39;FinServ__RiskTolerance__c&#39; in {{selection(FinServ__RiskTolerance__c_7)}};bz = filter bz by &#39;FinServ__NetWorth__c&#39; in {{selection(FinServ__NetWorth__c_9)}};  bz = filter bz by &#39;FinServ__MarketingSegment__c&#39; in  {{selection(FinServ__MarketingSegment__c_8)}};bz = filter bz by &#39;FinServ__FinancialInterests__c&#39; in {{selection(Interests)}};bz = filter bz by &#39;FinServ__PersonalInterests__c&#39; in {{selection(Interests)}};bz = filter bz by &#39;FinServ__PrimaryContact__c.Id&#39; in {{results(Activity_ID)}};bz = foreach bz generate &#39;FinServ__PrimaryContact__c.Id&#39; as &#39;AccountId&#39;,&#39;FinServ__PrimaryContact__c.Name&#39; as &#39;FinServ__PrimaryContact__c.Name&#39;, &#39;FinServ__ClientCategory__c&#39; as &#39;Client Category&#39;,&#39;FinServ__RiskTolerance__c&#39; as &#39;Risk Tolerance&#39;, &#39;FinServ__MarketingSegment__c&#39; as &#39;Marketing Segment&#39;,sum(&#39;FinServ__TotalFinancialAccounts__c&#39;) as &#39;Financial Accounts&#39;, sum(&#39;FinServ__AUM__c&#39;) as &#39;AUM&#39;, (sum(&#39;FinServ__TotalFinancialAccounts__c&#39;) - (sum(&#39;FinServ__TotalHeldFinAcctsPrimaryOwner__c&#39;) + sum(&#39;FinServ__TotalHeldFinAcctsJointOwner__c&#39;))) as &#39;Held Away&#39;, sum(&#39;FinServ__WalletShare__c&#39;) as &#39;Wallet Share&#39;, &#39;FinServ__LastInteraction__c&#39; as &#39;Last Interaction&#39;, &#39;FinServ__NextInteraction__c&#39; as &#39;Next Interaction&#39;;&quot;,&quot;values&quot;:[&quot;FinServ__PrimaryContact__c.Name&quot;,&quot;Client Category&quot;,&quot;Risk Tolerance&quot;,&quot;Marketing Segment&quot;,&quot;Financial Accounts&quot;,&quot;AUM&quot;,&quot;Held Away&quot;,&quot;Wallet Share&quot;,&quot;Last Interaction&quot;,&quot;Next Interaction&quot;]}",
+          "version": -1
+        },
+        "selectMode": "single",
+        "type": "grain",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "valuestable"
+        }
+      },
+      "FinServ__FinancialAccountType__c_16": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DmCAK",
+            "label": "FinAcc_Account_Contact",
+            "name": "FinAcc_Account_Contact",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DmCAK"
+          }
+        ],
+        "isFacet": true,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;pigql&quot;:&quot;b = load &#92;&quot;FinServWaveExt__FinAcc_Account_Contact&#92;&quot;;b= filter b by &#39;FinServ__RecordTypeName__c&#39; in {{selection(Financial_Types)}};b = filter b by &#39;FinServ__PrimaryOwner__c.Name&#39; in {{results(FinServ__PrimaryContact__c_Name_84)}};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__PrimaryOwner__c.FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;end&#39;))) }} ;b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__PrimaryContact__c.FinServ__Age__c&#39;{{ no_quote(value(field(selection(Agerange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__PrimaryOwner__c.FinServ__PrimaryContact__c.FinServ__Age__c&#39;{{ no_quote(value(field(selection(Agerange),&#39;end&#39;))) }};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__ClientCategory__c&#39; in {{selection(FinServ__ClientCategory__c_1)}};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__ServiceModel__c&#39; in {{selection(FinServ__ServiceModel__c_2)}};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__InvestmentObjectives__c&#39; in {{selection(FinServ__InvestmentObjectives__c_6)}};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__RiskTolerance__c&#39; in {{selection(FinServ__RiskTolerance__c_7)}};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__MarketingSegment__c&#39; in  {{selection(FinServ__MarketingSegment__c_8)}};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__FinancialInterests__c&#39; in {{selection(Interests)}};b= filter b by &#39;FinServ__PrimaryOwner__c.FinServ__PersonalInterests__c&#39; in {{selection(Interests)}};b = group b by &#39;FinServ__FinancialAccountType__c&#39;;b = filter b by &#39;FinServ__FinancialAccountType__c&#39; != &#92;&quot;Insurance Policy&#92;&quot;;x = foreach b generate &#39;FinServ__FinancialAccountType__c&#39; as &#39;Type&#39;, sum(&#39;FinServ__Balance__c&#39;) as &#39;Total&#39;,count() as &#39;count_Total&#39;;c1 = filter b by &#39;FinServ__Managed__c&#39; == &#92;&quot;true&#92;&quot;;c1 = foreach c1 generate &#39;FinServ__FinancialAccountType__c&#39; as &#39;Type&#39;,sum(&#39;FinServ__Balance__c&#39;) as &#39;AUM&#39;,count() as &#39;count_AUM&#39;;d1 = filter b by &#39;FinServ__HeldAway__c&#39; == &#92;&quot;true&#92;&quot;;d1 = foreach d1 generate &#39;FinServ__FinancialAccountType__c&#39; as &#39;Type&#39;, sum(&#39;FinServ__Balance__c&#39;) as &#39;Held&#39;,count() as &#39;count_Held&#39;;f = union x,c1,d1;f= group f by &#39;Type&#39;;f = foreach f generate &#39;Type&#39; as &#39;Type&#39;,coalesce(sum(&#39;AUM&#39;),0) as &#39;sum_AUM&#39;,coalesce(sum(&#39;Total&#39;),0) as &#39;sum_Total&#39;,coalesce(sum(&#39;Held&#39;),0) as &#39;sum_Held&#39;,coalesce(sum(&#39;count_AUM&#39;),0) as &#39;avg_AUM&#39;,coalesce(sum(&#39;count_Total&#39;),0) as &#39;avg_Total&#39;,coalesce(sum(&#39;count_Held&#39;),0) as &#39;avg_Held&#39;;f = order f by &#39;sum_Total&#39; desc;&quot;,&quot;measures&quot;:[[&quot;{{selection(step_selection_FFA)}}&quot;,&quot;{{selection(step_selection_Books)}}&quot;,null,{&quot;display&quot;:&quot; &quot;}]],&quot;groups&quot;:[&quot;Type&quot;],&quot;filters&quot;:[],&quot;order&quot;:[[-1,{&quot;ascending&quot;:false}]]}",
+          "version": -1
+        },
+        "selectMode": "single",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      },
+      "Networthrange": {
+        "datasets": [],
+        "dimensions": [],
+        "isFacet": false,
+        "isGlobal": false,
+        "selectMode": "single",
+        "start": "[[{&quot;start&quot;:&quot;&gt;= 0&quot;,&quot;end&quot;:&quot;&lt;= 100000000&quot;}]]",
+        "type": "static",
+        "useGlobal": false,
+        "values": [
+          "{&quot;display&quot;:&quot;0 - 5k&quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 0&quot;,&quot;end&quot;:&quot;&lt;= 5000&quot;}]}",
+          "{&quot;display&quot;:&quot;5k - 10k&quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 5000&quot;,&quot;end&quot;:&quot;&lt;= 10000&quot;}]}",
+          "{&quot;display&quot;:&quot;10k - 25k&quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 10000&quot;,&quot;end&quot;:&quot;&lt;= 25000&quot;}]}",
+          "{&quot;display&quot;:&quot;25k - 100k&quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 25000&quot;,&quot;end&quot;:&quot;&lt;= 100000&quot;}]}",
+          "{&quot;display&quot;:&quot;100k - 250k&quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 100000&quot;,&quot;end&quot;:&quot;&lt;= 250000&quot;}]}",
+          "{&quot;display&quot;:&quot;250k - 500k&quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 250000&quot;,&quot;end&quot;:&quot;&lt;= 500000&quot;}]}",
+          "{&quot;display&quot;:&quot;500k - 1M&quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 500000&quot;,&quot;end&quot;:&quot;&lt;= 1000000&quot;}]}",
+          "{&quot;display&quot;:&quot;1M - 5M&quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 1000000&quot;,&quot;end&quot;:&quot;&lt;= 5000000&quot;}]}",
+          "{&quot;display&quot;:&quot;5M - 10M&quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 5000000&quot;,&quot;end&quot;:&quot;&lt;= 10000000&quot;}]}",
+          "{&quot;display&quot;:&quot;10M+&quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 10000000&quot;,&quot;end&quot;:&quot;&lt;= 100000000&quot;}]}",
+          "{&quot;display&quot;:&quot; Full Range &quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 0&quot;,&quot;end&quot;:&quot;&lt;= 100000000&quot;}]}"
+        ]
+      },
+      "Agerange": {
+        "datasets": [],
+        "dimensions": [],
+        "isFacet": false,
+        "isGlobal": false,
+        "selectMode": "single",
+        "start": "[[{&quot;start&quot;:&quot;&gt;= 0&quot;,&quot;end&quot;:&quot;&lt;= 99&quot;}]]",
+        "type": "static",
+        "useGlobal": false,
+        "values": [
+          "{&quot;display&quot;:&quot;&lt;18&quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 1&quot;,&quot;end&quot;:&quot;&lt;= 17&quot;}]}",
+          "{&quot;display&quot;:&quot;18 - 24&quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 18&quot;,&quot;end&quot;:&quot;&lt;= 24&quot;}]}",
+          "{&quot;display&quot;:&quot;25 - 34&quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 25&quot;,&quot;end&quot;:&quot;&lt;= 34&quot;}]}",
+          "{&quot;display&quot;:&quot;35 - 44&quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 35&quot;,&quot;end&quot;:&quot;&lt;= 44&quot;}]}",
+          "{&quot;display&quot;:&quot;45 - 54&quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 45&quot;,&quot;end&quot;:&quot;&lt;= 54&quot;}]}",
+          "{&quot;display&quot;:&quot;55 - 64&quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 55&quot;,&quot;end&quot;:&quot;&lt;= 64&quot;}]}",
+          "{&quot;display&quot;:&quot;65 - 74&quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 65&quot;,&quot;end&quot;:&quot;&lt;= 74&quot;}]}",
+          "{&quot;display&quot;:&quot;75 + &quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 75&quot;,&quot;end&quot;:&quot;&lt;= 99&quot;}]}",
+          "{&quot;display&quot;:&quot; Full Range &quot;,&quot;value&quot;:[{&quot;start&quot;:&quot;&gt;= 0&quot;,&quot;end&quot;:&quot;&lt;= 99&quot;}]}"
+        ]
+      },
+      "FinServ__TotalHeldFinAcctsPrimaryOwner__c_13": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DiCAK",
+            "label": "Account_Contact",
+            "name": "Account_Contact",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+          }
+        ],
+        "isFacet": true,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;pigql&quot;:&quot;bz = load &#92;&quot;FinServWaveExt__Account_Contact&#92;&quot;;bz = filter bz by &#39;FinServ__ClientCategory__c&#39; in {{selection(FinServ__ClientCategory__c_1)}}; bz = filter bz by &#39;FinServ__ServiceModel__c&#39; in {{selection(FinServ__ServiceModel__c_2)}}; bz = filter bz by &#39;FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;end&#39;))) }} ;;bz = filter bz by &#39;FinServ__PrimaryContact__c.FinServ__Age__c&#39; {{ no_quote(value(field(selection(Agerange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__PrimaryContact__c.FinServ__Age__c&#39; {{ no_quote(value(field(selection(Agerange),&#39;end&#39;))) }};bz = filter bz by &#39;FinServ__InvestmentObjectives__c&#39; in {{selection(FinServ__InvestmentObjectives__c_6)}}; bz = filter bz by &#39;FinServ__RiskTolerance__c&#39; in {{selection(FinServ__RiskTolerance__c_7)}};bz = filter bz by &#39;FinServ__NetWorth__c&#39; in {{selection(FinServ__NetWorth__c_9)}};  bz = filter bz by &#39;FinServ__MarketingSegment__c&#39; in  {{selection(FinServ__MarketingSegment__c_8)}};bz = filter bz by &#39;FinServ__FinancialInterests__c&#39; in {{selection(Interests)}};bz = filter bz by &#39;FinServ__PersonalInterests__c&#39; in {{selection(Interests)}};bz = filter bz by &#39;FinServ__PrimaryContact__c.Id&#39; in {{results(Activity_ID)}};bz = group bz by all;bz = foreach bz generate sum(&#39;FinServ__TotalFinAcctsPrimaryOwner__c&#39;) -  sum(&#39;FinServ__TotalHeldFinAcctsPrimaryOwner__c&#39;)  as &#39;sum_FinServ__TotalHeldFinAcctsPrimaryOwner__c&#39;;&quot;,&quot;measures&quot;:[[&quot;sum&quot;,&quot;FinServ__TotalHeldFinAcctsPrimaryOwner__c&quot;]]}",
+          "version": -1
+        },
+        "selectMode": "single",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      },
+      "step_selection_FA": {
+        "datasets": [],
+        "dimensions": [],
+        "isFacet": false,
+        "isGlobal": false,
+        "selectMode": "single",
+        "start": "[&quot;sum&quot;]",
+        "type": "static",
+        "useGlobal": false,
+        "values": [
+          "{&quot;display&quot;:&quot;$&quot;,&quot;value&quot;:&quot;sum&quot;}",
+          "{&quot;display&quot;:&quot;#&quot;,&quot;value&quot;:&quot;avg&quot;}"
+        ]
+      },
+      "FinServ__Symbol__c_17": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DrCAK",
+            "label": "FinancialHolding",
+            "name": "FinancialHolding",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DrCAK"
+          }
+        ],
+        "isFacet": false,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;pigql&quot;:&quot;b = load &#92;&quot;FinServWaveExt__FinancialHolding&#92;&quot;;b = filter b by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;end&#39;))) }}; b = filter b by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__PrimaryContact__c.FinServ__Age__c&#39;{{ no_quote(value(field(selection(Agerange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__PrimaryContact__c.FinServ__Age__c&#39;{{ no_quote(value(field(selection(Agerange),&#39;end&#39;))) }};b = filter b by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__ClientCategory__c&#39; in {{selection(FinServ__ClientCategory__c_1)}};b = filter b by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__ServiceModel__c&#39; in {{selection(FinServ__ServiceModel__c_2)}};b = filter b by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__InvestmentObjectives__c&#39; in {{selection(FinServ__InvestmentObjectives__c_6)}};b = filter b by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__RiskTolerance__c&#39; in {{selection(FinServ__RiskTolerance__c_7)}};b = filter b by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__MarketingSegment__c&#39; in  {{selection(FinServ__MarketingSegment__c_8)}};b = filter b by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__FinancialInterests__c&#39; in {{selection(Interests)}};b= filter b by &#39;FinServ__FinancialAccount__c.FinServ__PrimaryOwner__c.FinServ__PersonalInterests__c&#39; in {{selection(Interests)}};b= filter b by &#39;FinServ__FinancialAccount__c.FinServ__FinancialAccountType__c&#39; in {{selection(FinServ__FinancialAccountType__c_16)}};b = filter b by &#39;FinServ__FinancialAccount__c.FinServ__RecordTypeName__c&#39; != &#92;&quot;Insurance Policy&#92;&quot;;b = filter b by &#39;FinServ__Symbol__c&#39; in {{selection(FinServ__Symbol__c_19)}};b = group b by &#39;FinServ__Symbol__c&#39;;x = foreach b generate &#39;FinServ__Symbol__c&#39; as &#39;Type&#39;, sum(&#39;FinServ__MarketValue__c&#39;) as &#39;Total&#39;,count() as &#39;count_Total&#39;;c1 = filter b by &#39;FinServ__FinancialAccount__c.FinServ__FinancialAccountType__c&#39; in {{selection(FinServ__FinancialAccountType__c_16)}};c1 = filter b by &#39;FinServ__Symbol__c&#39; in {{selection(FinServ__Symbol__c_19)}};c1 = filter b by &#39;FinServ__FinancialAccount__c.FinServ__Managed__c&#39; == &#92;&quot;true&#92;&quot;;c1 = foreach c1 generate &#39;FinServ__Symbol__c&#39; as &#39;Type&#39;,sum(&#39;FinServ__MarketValue__c&#39;) as &#39;AUM&#39;,count() as &#39;count_AUM&#39;;d1 = filter b by &#39;FinServ__FinancialAccount__c.FinServ__FinancialAccountType__c&#39; in {{selection(FinServ__FinancialAccountType__c_16)}};d1 = filter b by &#39;FinServ__Symbol__c&#39; in {{selection(FinServ__Symbol__c_19)}};d1 = filter b by &#39;FinServ__FinancialAccount__c.FinServ__HeldAway__c&#39; == &#92;&quot;true&#92;&quot;;d1 = foreach d1 generate &#39;FinServ__Symbol__c&#39; as &#39;Type&#39;, sum(&#39;FinServ__MarketValue__c&#39;) as &#39;Held&#39;,count() as &#39;count_Held&#39;;f = union x,c1,d1;f= group f by &#39;Type&#39;;f = foreach f generate &#39;Type&#39; as &#39;Type&#39;,coalesce(sum(&#39;AUM&#39;),0) as &#39;sum_AUM&#39;,coalesce(sum(&#39;Total&#39;),0) as &#39;sum_Total&#39;,coalesce(sum(&#39;Held&#39;),0) as &#39;sum_Held&#39;,coalesce(sum(&#39;count_AUM&#39;),0) as &#39;avg_AUM&#39;,coalesce(sum(&#39;count_Total&#39;),0) as &#39;avg_Total&#39;,coalesce(sum(&#39;count_Held&#39;),0) as &#39;avg_Held&#39;;f = order f by &#39;sum_Total&#39; desc;&quot;,&quot;measures&quot;:[[&quot;{{selection(step_selection_FHA)}}&quot;,&quot;{{selection(step_selection_Books)}}&quot;,null,{&quot;display&quot;:&quot; &quot;}]],&quot;groups&quot;:[&quot;Type&quot;],&quot;filters&quot;:[],&quot;order&quot;:[[-1,{&quot;ascending&quot;:false}]]}",
+          "version": -1
+        },
+        "selectMode": "single",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      },
+      "X_Total_FA": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DmCAK",
+            "label": "FinAcc_Account_Contact",
+            "name": "FinAcc_Account_Contact",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DmCAK"
+          }
+        ],
+        "isFacet": true,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;pigql&quot;:&quot;b = load &#92;&quot;FinServWaveExt__FinAcc_Account_Contact&#92;&quot;;b = filter b by &#39;FinServ__PrimaryOwner__c.Name&#39; in {{results(FinServ__PrimaryContact__c_Name_84)}};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__PrimaryOwner__c.FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;end&#39;))) }} ;b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__PrimaryContact__c.FinServ__Age__c&#39;{{ no_quote(value(field(selection(Agerange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__PrimaryOwner__c.FinServ__PrimaryContact__c.FinServ__Age__c&#39;{{ no_quote(value(field(selection(Agerange),&#39;end&#39;))) }};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__ClientCategory__c&#39; in {{selection(FinServ__ClientCategory__c_1)}};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__ServiceModel__c&#39; in {{selection(FinServ__ServiceModel__c_2)}};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__InvestmentObjectives__c&#39; in {{selection(FinServ__InvestmentObjectives__c_6)}};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__RiskTolerance__c&#39; in {{selection(FinServ__RiskTolerance__c_7)}};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__MarketingSegment__c&#39; in  {{selection(FinServ__MarketingSegment__c_8)}};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__FinancialInterests__c&#39; in {{selection(Interests)}};b= filter b by &#39;FinServ__PrimaryOwner__c.FinServ__PersonalInterests__c&#39; in {{selection(Interests)}};b = group b by &#39;FinServ__RecordTypeName__c&#39;;b = filter b by &#39;FinServ__RecordTypeName__c&#39; != &#92;&quot;Insurance Policy&#92;&quot;;x = foreach b generate &#39;FinServ__RecordTypeName__c&#39; as &#39;type&#39;, sum(&#39;FinServ__Balance__c&#39;) as &#39;Total&#39;,count() as &#39;count_Total&#39;;c1 = filter b by &#39;FinServ__Managed__c&#39; == &#92;&quot;true&#92;&quot;;c1 = foreach c1 generate &#39;FinServ__RecordTypeName__c&#39; as &#39;type&#39;,sum(&#39;FinServ__Balance__c&#39;) as &#39;AUM&#39;,count() as &#39;count_AUM&#39;;d1 = filter b by &#39;FinServ__HeldAway__c&#39; == &#92;&quot;true&#92;&quot;;d1 = foreach d1 generate sum(&#39;FinServ__Balance__c&#39;) as &#39;Held&#39;,count() as &#39;count_Held&#39;;f = union x,c1,d1;f= group f by all;f = foreach f generate coalesce(sum(&#39;AUM&#39;),0) as &#39;sum_AUM&#39;,coalesce(sum(&#39;Total&#39;),0) as &#39;sum_Total&#39;,coalesce(sum(&#39;Held&#39;),0) as &#39;sum_Held&#39;,coalesce(sum(&#39;count_AUM&#39;),0) as &#39;avg_AUM&#39;,coalesce(sum(&#39;count_Total&#39;),0) as &#39;avg_Total&#39;,coalesce(sum(&#39;count_Held&#39;),0) as &#39;avg_Held&#39;;&quot;,&quot;measures&quot;:[[&quot;{{selection(step_selection_FA)}}&quot;,&quot;{{selection(step_selection_Books)}}&quot;]],&quot;groups&quot;:[]}",
+          "version": -1
+        },
+        "selectMode": "single",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      },
+      "FinServ__Symbol__c_19": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DrCAK",
+            "label": "FinancialHolding",
+            "name": "FinancialHolding",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DrCAK"
+          }
+        ],
+        "isFacet": true,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;measures&quot;:[[&quot;count&quot;,&quot;*&quot;]],&quot;groups&quot;:[&quot;FinServ__Symbol__c&quot;]}",
+          "version": -1
+        },
+        "selectMode": "multi",
+        "start": "[]",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      },
+      "FinServ__ClientCategory__c_1": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DiCAK",
+            "label": "Account_Contact",
+            "name": "Account_Contact",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+          }
+        ],
+        "isFacet": false,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;measures&quot;:[[&quot;count&quot;,&quot;*&quot;]],&quot;groups&quot;:[&quot;FinServ__ClientCategory__c&quot;]}",
+          "version": -1
+        },
+        "selectMode": "multi",
+        "start": "[]",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      },
+      "FinServ__MarketingSegment__c_8": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DiCAK",
+            "label": "Account_Contact",
+            "name": "Account_Contact",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+          }
+        ],
+        "isFacet": false,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;measures&quot;:[[&quot;count&quot;,&quot;*&quot;]],&quot;groups&quot;:[&quot;FinServ__MarketingSegment__c&quot;]}",
+          "version": -1
+        },
+        "selectMode": "multi",
+        "start": "[]",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      },
+      "Wallet_Share": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DiCAK",
+            "label": "Account_Contact",
+            "name": "Account_Contact",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+          }
+        ],
+        "isFacet": true,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;pigql&quot;:&quot;b = load &#92;&quot;FinServWaveExt__Account_Contact&#92;&quot;; b= foreach b generate 100 - ({{value(results(FinServ__TotalHeldFinAcctsPrimaryOwner__c_13))}}/ {{value(results(FinServ__TotalFinancialAccounts__c_11))}}) * 100 as &#39;sum_walletpercent&#39;;&quot;,&quot;measures&quot;:[[&quot;sum&quot;,&quot;walletpercent&quot;]]}",
+          "version": -1
+        },
+        "selectMode": "single",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      },
+      "FinServ__AUM__c_10": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DiCAK",
+            "label": "Account_Contact",
+            "name": "Account_Contact",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+          }
+        ],
+        "isFacet": true,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;pigql&quot;:&quot;bz = load &#92;&quot;FinServWaveExt__Account_Contact&#92;&quot;;bz = filter bz by &#39;FinServ__ClientCategory__c&#39; in {{selection(FinServ__ClientCategory__c_1)}}; bz = filter bz by &#39;FinServ__ServiceModel__c&#39; in {{selection(FinServ__ServiceModel__c_2)}}; bz = filter bz by &#39;FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;end&#39;))) }} ;;bz = filter bz by &#39;FinServ__PrimaryContact__c.FinServ__Age__c&#39; {{ no_quote(value(field(selection(Agerange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__PrimaryContact__c.FinServ__Age__c&#39; {{ no_quote(value(field(selection(Agerange),&#39;end&#39;))) }};bz = filter bz by &#39;FinServ__InvestmentObjectives__c&#39; in {{selection(FinServ__InvestmentObjectives__c_6)}}; bz = filter bz by &#39;FinServ__RiskTolerance__c&#39; in {{selection(FinServ__RiskTolerance__c_7)}};bz = filter bz by &#39;FinServ__NetWorth__c&#39; in {{selection(FinServ__NetWorth__c_9)}};  bz = filter bz by &#39;FinServ__MarketingSegment__c&#39; in  {{selection(FinServ__MarketingSegment__c_8)}};bz = filter bz by &#39;FinServ__FinancialInterests__c&#39; in {{selection(Interests)}};bz = filter bz by &#39;FinServ__PersonalInterests__c&#39; in {{selection(Interests)}};bz = filter bz by &#39;FinServ__PrimaryContact__c.Id&#39; in {{results(Activity_ID)}};bz = group bz by all;bz = foreach bz generate sum(&#39;FinServ__TotalAUMPrimaryOwner__c&#39;) as &#39;sum_FinServ__TotalAUMPrimaryOwner__c&#39;;&quot;,&quot;measures&quot;:[[&quot;sum&quot;,&quot;FinServ__TotalAUMPrimaryOwner__c&quot;]]}",
+          "version": -1
+        },
+        "selectMode": "single",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      },
+      "FinServ__PrimaryContact__c_Name_84": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DiCAK",
+            "label": "Account_Contact",
+            "name": "Account_Contact",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+          }
+        ],
+        "isFacet": true,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;measures&quot;:[[&quot;count&quot;,&quot;*&quot;]],&quot;groups&quot;:[&quot;FinServ__PrimaryContact__c.Name&quot;]}",
+          "version": -1
+        },
+        "selectMode": "single",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      },
+      "FinServ__InvestmentObjectives__c_6": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DiCAK",
+            "label": "Account_Contact",
+            "name": "Account_Contact",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DiCAK"
+          }
+        ],
+        "isFacet": false,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;measures&quot;:[[&quot;count&quot;,&quot;*&quot;]],&quot;groups&quot;:[&quot;FinServ__InvestmentObjectives__c&quot;]}",
+          "version": -1
+        },
+        "selectMode": "multi",
+        "start": "[]",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      },
+      "Financial_Types": {
+        "datasets": [
+          {
+            "id": "0Fb0b000000Q2DmCAK",
+            "label": "FinAcc_Account_Contact",
+            "name": "FinAcc_Account_Contact",
+            "namespace": "FinServWaveExt",
+            "url": "/services/data/v43.0/wave/datasets/0Fb0b000000Q2DmCAK"
+          }
+        ],
+        "isFacet": true,
+        "isGlobal": false,
+        "query": {
+          "query": "{&quot;pigql&quot;:&quot;b = load &#92;&quot;FinServWaveExt__FinAcc_Account_Contact&#92;&quot;;b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__PrimaryOwner__c.FinServ__NetWorth__c&#39; {{ no_quote(value(field(selection(Networthrange),&#39;end&#39;))) }} ;b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__PrimaryContact__c.FinServ__Age__c&#39;{{ no_quote(value(field(selection(Agerange),&#39;start&#39;))) }} &amp;&amp; &#39;FinServ__PrimaryOwner__c.FinServ__PrimaryContact__c.FinServ__Age__c&#39;{{ no_quote(value(field(selection(Agerange),&#39;end&#39;))) }};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__ClientCategory__c&#39; in {{selection(FinServ__ClientCategory__c_1)}};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__ServiceModel__c&#39; in {{selection(FinServ__ServiceModel__c_2)}};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__InvestmentObjectives__c&#39; in {{selection(FinServ__InvestmentObjectives__c_6)}};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__RiskTolerance__c&#39; in {{selection(FinServ__RiskTolerance__c_7)}};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__MarketingSegment__c&#39; in  {{selection(FinServ__MarketingSegment__c_8)}};b = filter b by &#39;FinServ__PrimaryOwner__c.FinServ__FinancialInterests__c&#39; in {{selection(Interests)}};b= filter b by &#39;FinServ__PrimaryOwner__c.FinServ__PersonalInterests__c&#39; in {{selection(Interests)}};b = group b by &#39;FinServ__RecordTypeName__c&#39;;b = filter b by &#39;FinServ__RecordTypeName__c&#39; != &#92;&quot;Insurance Policy&#92;&quot;;x = foreach b generate &#39;FinServ__RecordTypeName__c&#39; as &#39;Type&#39;, sum(&#39;FinServ__Balance__c&#39;) as &#39;Total&#39;, count () as &#39;count_Total&#39;;c1 = filter b by &#39;FinServ__Managed__c&#39; == &#92;&quot;true&#92;&quot;;c1 = foreach c1 generate &#39;FinServ__RecordTypeName__c&#39; as &#39;Type&#39;,sum(&#39;FinServ__Balance__c&#39;) as &#39;AUM&#39;,count () as &#39;count_AUM&#39;;d1 = filter b by &#39;FinServ__HeldAway__c&#39; == &#92;&quot;true&#92;&quot;;d1 = foreach d1 generate &#39;FinServ__RecordTypeName__c&#39; as &#39;Type&#39;, sum(&#39;FinServ__Balance__c&#39;) as &#39;Held&#39;,count () as &#39;count_Held&#39;;f = union x,c1,d1;f= group f by &#39;Type&#39;;f = foreach f generate &#39;Type&#39; as &#39;Type&#39;,coalesce(sum(&#39;AUM&#39;),0) as &#39;sum_AUM&#39;,coalesce(sum(&#39;Total&#39;),0) as &#39;sum_Total&#39;,coalesce(sum(&#39;Held&#39;),0) as &#39;sum_Held&#39;,coalesce(sum(&#39;count_AUM&#39;),0) as &#39;avg_AUM&#39;,coalesce(sum(&#39;count_Total&#39;),0) as &#39;avg_Total&#39;,coalesce(sum(&#39;count_Held&#39;),0) as &#39;avg_Held&#39;;&quot;,&quot;measures&quot;:[[&quot;{{selection(step_selection_FA)}}&quot;,&quot;{{selection(step_selection_Books)}}&quot;]],&quot;groups&quot;:[&quot;Type&quot;]}",
+          "version": -1
+        },
+        "selectMode": "single",
+        "start": "[]",
+        "type": "aggregate",
+        "useGlobal": true,
+        "visualizationParameters": {
+          "visualizationType": "hbar"
+        }
+      }
+    },
+    "widgets": {
+      "valuestable_1": {
+        "parameters": {
+          "exploreLink": false,
+          "selectModeOverride": "single",
+          "step": "lens_25"
+        },
+        "position": {
+          "h": "570",
+          "w": "1200",
+          "x": 90,
+          "y": 970,
+          "zIndex": 103
+        },
+        "type": "valuestable"
+      },
+      "text_15": {
+        "parameters": {
+          "fontSize": 18,
+          "text": "Tasks",
+          "textAlignment": "left"
+        },
+        "position": {
+          "x": 800,
+          "y": 880,
+          "zIndex": 0
+        },
+        "type": "text"
+      },
+      "text_12": {
+        "parameters": {
+          "fontSize": 16,
+          "text": "2. Financial Account Types",
+          "textAlignment": "left",
+          "textColor": "rgb(22, 50, 92)"
+        },
+        "position": {
+          "x": 510,
+          "y": 385,
+          "zIndex": 49
+        },
+        "type": "text"
+      },
+      "text_11": {
+        "parameters": {
+          "fontSize": 16,
+          "text": "3. Holdings/Securities",
+          "textAlignment": "left",
+          "textColor": "rgb(22, 50, 92)"
+        },
+        "position": {
+          "x": 890,
+          "y": 385,
+          "zIndex": 46
+        },
+        "type": "text"
+      },
+      "text_50": {
+        "parameters": {
+          "fontSize": 18,
+          "text": "What Financial Accounts are in My Book ?",
+          "textColor": "rgb(22, 50, 92)"
+        },
+        "position": {
+          "x": 510,
+          "y": 270,
+          "zIndex": 45
+        },
+        "type": "text"
+      },
+      "dimfilter_11": {
+        "parameters": {
+          "expanded": false,
+          "instant": false,
+          "selectModeOverride": "multi",
+          "step": "FinServ__Symbol__c_19"
+        },
+        "position": {
+          "h": "50",
+          "w": "210",
+          "x": 910,
+          "y": 430,
+          "zIndex": 100010
+        },
+        "type": "listselector"
+      },
+      "box_17": {
+        "parameters": {
+          "backgroundColor": "rgb(255, 255, 255)",
+          "borderColor": "rgb(224, 229, 238)"
+        },
+        "position": {
+          "h": "660",
+          "w": "1200",
+          "x": 90,
+          "y": 250,
+          "zIndex": 2
+        },
+        "type": "box"
+      },
+      "chart_6": {
+        "parameters": {
+          "totalValue": "computeTotal",
+          "totalLabel": "",
+          "visualizationType": "hbar",
+          "step": "FinServ__FinancialAccountType__c_16",
+          "exploreLink": false
+        },
+        "position": {
+          "h": "430",
+          "w": "340",
+          "x": 520,
+          "y": 430,
+          "zIndex": 51
+        },
+        "type": "chart"
+      },
+      "box_5": {
+        "parameters": {
+          "backgroundColor": "rgb(224, 229, 238)",
+          "borderColor": "rgba(0, 0, 0, 0)"
+        },
+        "position": {
+          "h": "100",
+          "w": "1360",
+          "x": 10,
+          "y": 30,
+          "zIndex": 2
+        },
+        "type": "box"
+      },
+      "box_4": {
+        "parameters": {
+          "backgroundColor": "rgb(247, 249, 251)",
+          "borderColor": "rgba(0, 0, 0, 0)"
+        },
+        "position": {
+          "h": "1540",
+          "w": "1360",
+          "x": 10,
+          "y": 30,
+          "zIndex": 1
+        },
+        "type": "box"
+      },
+      "chart_7": {
+        "parameters": {
+          "totalValue": "computeTotal",
+          "totalLabel": "",
+          "visualizationType": "hbar",
+          "step": "FinServ__Symbol__c_17",
+          "exploreLink": false
+        },
+        "position": {
+          "h": "380",
+          "w": "340",
+          "x": 900,
+          "y": 480,
+          "zIndex": 44
+        },
+        "type": "chart"
+      },
+      "box_11": {
+        "parameters": {
+          "backgroundColor": "rgb(1, 158, 115)"
+        },
+        "position": {
+          "h": "75",
+          "w": "160",
+          "x": 440,
+          "y": 140,
+          "zIndex": 34
+        },
+        "type": "box"
+      },
+      "box_6": {
+        "parameters": {
+          "backgroundColor": "rgba(255, 255, 255, 0.96)",
+          "borderColor": "rgb(197, 211, 224)"
+        },
+        "position": {
+          "h": "500",
+          "w": "360",
+          "x": 890,
+          "y": 370,
+          "zIndex": 42
+        },
+        "type": "box"
+      },
+      "text_7": {
+        "parameters": {
+          "fontSize": 16,
+          "text": "1. Financial Accounts",
+          "textAlignment": "left",
+          "textColor": "rgb(22, 50, 92)"
+        },
+        "position": {
+          "x": 130,
+          "y": 385,
+          "zIndex": 52
+        },
+        "type": "text"
+      },
+      "box_10": {
+        "parameters": {
+          "backgroundColor": "rgb(1, 158, 115)"
+        },
+        "position": {
+          "h": "75",
+          "w": "160",
+          "x": 270,
+          "y": 140,
+          "zIndex": 35
+        },
+        "type": "box"
+      },
+      "box_8": {
+        "parameters": {
+          "backgroundColor": "rgb(1, 158, 115)"
+        },
+        "position": {
+          "h": "75",
+          "w": "160",
+          "x": 610,
+          "y": 140,
+          "zIndex": 59
+        },
+        "type": "box"
+      },
+      "text_8": {
+        "parameters": {
+          "fontSize": 18,
+          "text": "Client Details",
+          "textAlignment": "left",
+          "textColor": "rgb(22, 50, 92)"
+        },
+        "position": {
+          "x": 90,
+          "y": 940,
+          "zIndex": 101
+        },
+        "type": "text"
+      },
+      "dimfilter_7": {
+        "parameters": {
+          "expanded": false,
+          "instant": false,
+          "selectModeOverride": "multi",
+          "step": "FinServ__MarketingSegment__c_8"
+        },
+        "position": {
+          "h": "50",
+          "w": "130",
+          "x": 970,
+          "y": 50,
+          "zIndex": 100005
+        },
+        "type": "listselector"
+      },
+      "box_2": {
+        "parameters": {
+          "backgroundColor": "rgb(255, 255, 255)",
+          "borderColor": "rgb(224, 229, 238)"
+        },
+        "position": {
+          "h": "610",
+          "w": "1200",
+          "x": 90,
+          "y": 930,
+          "zIndex": 2
+        },
+        "type": "box"
+      },
+      "dimfilter_18": {
+        "parameters": {
+          "expanded": false,
+          "instant": false,
+          "measureField": "sum_count",
+          "selectModeOverride": "multi",
+          "step": "Interests"
+        },
+        "position": {
+          "h": "50",
+          "w": "130",
+          "x": 550,
+          "y": 50,
+          "zIndex": 100012
+        },
+        "type": "listselector"
+      },
+      "buttongroup_7": {
+        "parameters": {
+          "measureField": "",
+          "step": "step_selection_Books"
+        },
+        "position": {
+          "w": "330",
+          "x": 600,
+          "y": 300,
+          "zIndex": 42
+        },
+        "type": "pillbox"
+      },
+      "dimfilter_5": {
+        "parameters": {
+          "expanded": false,
+          "instant": false,
+          "selectModeOverride": "multi",
+          "step": "FinServ__InvestmentObjectives__c_6"
+        },
+        "position": {
+          "h": "50",
+          "w": "130",
+          "x": 690,
+          "y": 50,
+          "zIndex": 100003
+        },
+        "type": "listselector"
+      },
+      "buttongroup_8": {
+        "parameters": {
+          "measureField": "",
+          "step": "step_selection_FFA"
+        },
+        "position": {
+          "w": "130",
+          "x": 790,
+          "y": 370,
+          "zIndex": 50
+        },
+        "type": "pillbox"
+      },
+      "dimfilter_6": {
+        "parameters": {
+          "expanded": false,
+          "instant": false,
+          "selectModeOverride": "multi",
+          "step": "FinServ__RiskTolerance__c_7"
+        },
+        "position": {
+          "h": "50",
+          "w": "130",
+          "x": 830,
+          "y": 50,
+          "zIndex": 100004
+        },
+        "type": "listselector"
+      },
+      "buttongroup_9": {
+        "parameters": {
+          "measureField": "",
+          "step": "step_selection_FHA"
+        },
+        "position": {
+          "w": "130",
+          "x": 1170,
+          "y": 370,
+          "zIndex": 47
+        },
+        "type": "pillbox"
+      },
+      "text_43": {
+        "parameters": {
+          "fontSize": 14,
+          "text": "Held Away",
+          "textAlignment": "right",
+          "textColor": "rgb(255, 255, 255)"
+        },
+        "position": {
+          "x": 640,
+          "y": 145,
+          "zIndex": 109
+        },
+        "type": "text"
+      },
+      "number_49": {
+        "parameters": {
+          "compact": true,
+          "exploreLink": false,
+          "fontSize": 30,
+          "step": "X_Total_FA",
+          "textAlignment": "center",
+          "textColor": "rgb(23, 50, 77)",
+          "title": "Total"
+        },
+        "position": {
+          "w": "130",
+          "x": 172,
+          "y": 495,
+          "zIndex": 102
+        },
+        "type": "number"
+      },
+      "dimfilter_15": {
+        "parameters": {
+          "expanded": false,
+          "measureField": "",
+          "step": "Networthrange",
+          "title": "Net Worth"
+        },
+        "position": {
+          "h": "50",
+          "w": "130",
+          "x": 1110,
+          "y": 50,
+          "zIndex": 100012
+        },
+        "type": "listselector"
+      },
+      "text_42": {
+        "parameters": {
+          "fontSize": 14,
+          "text": "AUM",
+          "textAlignment": "right",
+          "textColor": "rgb(255, 255, 255)"
+        },
+        "position": {
+          "x": 470,
+          "y": 145,
+          "zIndex": 108
+        },
+        "type": "text"
+      },
+      "dimfilter_1": {
+        "parameters": {
+          "expanded": false,
+          "instant": false,
+          "selectModeOverride": "multi",
+          "step": "FinServ__ClientCategory__c_1",
+          "title": "Category"
+        },
+        "position": {
+          "h": "50",
+          "w": "130",
+          "x": 130,
+          "y": 50,
+          "zIndex": 100011
+        },
+        "type": "listselector"
+      },
+      "buttongroup_4": {
+        "parameters": {
+          "measureField": "",
+          "step": "step_selection_FA"
+        },
+        "position": {
+          "w": "130",
+          "x": 410,
+          "y": 370,
+          "zIndex": 53
+        },
+        "type": "pillbox"
+      },
+      "dimfilter_2": {
+        "parameters": {
+          "expanded": false,
+          "instant": false,
+          "selectModeOverride": "multi",
+          "step": "FinServ__ServiceModel__c_2",
+          "title": "Service Model"
+        },
+        "position": {
+          "h": "50",
+          "w": "130",
+          "x": 270,
+          "y": 50,
+          "zIndex": 100000
+        },
+        "type": "listselector"
+      },
+      "text_44": {
+        "parameters": {
+          "fontSize": 14,
+          "text": "Financial Accounts",
+          "textAlignment": "right",
+          "textColor": "rgb(255, 255, 255)"
+        },
+        "position": {
+          "x": 280,
+          "y": 145,
+          "zIndex": 39
+        },
+        "type": "text"
+      },
+      "number_46": {
+        "parameters": {
+          "exploreLink": false,
+          "fontSize": 24,
+          "step": "Wallet_Share",
+          "textColor": "rgb(255, 255, 255)",
+          "title": ""
+        },
+        "position": {
+          "w": "160",
+          "x": 780,
+          "y": 165,
+          "zIndex": 38
+        },
+        "type": "number"
+      },
+      "number_5": {
+        "parameters": {
+          "exploreLink": false,
+          "fontSize": 24,
+          "measureField": "unique_Id",
+          "step": "Id_55",
+          "textColor": "rgb(255, 255, 255)",
+          "title": ""
+        },
+        "position": {
+          "w": "160",
+          "x": 950,
+          "y": 165,
+          "zIndex": 37
+        },
+        "type": "number"
+      },
+      "number_3": {
+        "parameters": {
+          "compact": true,
+          "exploreLink": false,
+          "fontSize": 24,
+          "measureField": "sum_FinServ__TotalHeldFinAcctsPrimaryOwner__c",
+          "step": "FinServ__TotalHeldFinAcctsPrimaryOwner__c_13",
+          "textColor": "rgb(255, 253, 253)",
+          "title": ""
+        },
+        "position": {
+          "w": "160",
+          "x": 610,
+          "y": 165,
+          "zIndex": 110
+        },
+        "type": "number"
+      },
+      "text_41": {
+        "parameters": {
+          "fontSize": 14,
+          "text": "Wallet Share",
+          "textAlignment": "right",
+          "textColor": "rgb(255, 255, 255)"
+        },
+        "position": {
+          "x": 810,
+          "y": 145,
+          "zIndex": 39
+        },
+        "type": "text"
+      },
+      "number_2": {
+        "parameters": {
+          "compact": true,
+          "exploreLink": false,
+          "fontSize": 24,
+          "measureField": "sum_FinServ__TotalFinAcctsPrimaryOwner__c",
+          "step": "FinServ__TotalFinancialAccounts__c_11",
+          "textColor": "rgb(255, 255, 255)",
+          "title": ""
+        },
+        "position": {
+          "w": "160",
+          "x": 270,
+          "y": 165,
+          "zIndex": 38
+        },
+        "type": "number"
+      },
+      "dimfilter_20": {
+        "parameters": {
+          "expanded": false,
+          "step": "Agerange",
+          "title": "Age"
+        },
+        "position": {
+          "h": "50",
+          "w": "130",
+          "x": 410,
+          "y": 50,
+          "zIndex": 100013
+        },
+        "type": "listselector"
+      },
+      "text_40": {
+        "parameters": {
+          "fontSize": 14,
+          "text": "Total Clients",
+          "textAlignment": "right",
+          "textColor": "rgb(255, 255, 255)"
+        },
+        "position": {
+          "x": 980,
+          "y": 145,
+          "zIndex": 38
+        },
+        "type": "text"
+      },
+      "number_1": {
+        "parameters": {
+          "compact": true,
+          "exploreLink": false,
+          "fontSize": 24,
+          "measureField": "sum_FinServ__TotalAUMPrimaryOwner__c",
+          "step": "FinServ__AUM__c_10",
+          "textColor": "rgb(255, 255, 255)",
+          "title": ""
+        },
+        "position": {
+          "w": "160",
+          "x": 440,
+          "y": 165,
+          "zIndex": 102
+        },
+        "type": "number"
+      },
+      "box_29": {
+        "parameters": {
+          "backgroundColor": "rgba(255, 255, 255, 0.96)",
+          "borderColor": "rgb(197, 211, 224)"
+        },
+        "position": {
+          "h": "500",
+          "w": "360",
+          "x": 130,
+          "y": 370,
+          "zIndex": 51
+        },
+        "type": "box"
+      },
+      "box_28": {
+        "parameters": {
+          "backgroundColor": "rgba(255, 255, 255, 0.96)",
+          "borderColor": "rgb(197, 211, 224)"
+        },
+        "position": {
+          "h": "500",
+          "w": "360",
+          "x": 510,
+          "y": 370,
+          "zIndex": 48
+        },
+        "type": "box"
+      },
+      "box_26": {
+        "parameters": {
+          "backgroundColor": "rgb(128, 115, 247)"
+        },
+        "position": {
+          "h": "75",
+          "w": "160",
+          "x": 780,
+          "y": 140,
+          "zIndex": 32
+        },
+        "type": "box"
+      },
+      "box_25": {
+        "parameters": {
+          "backgroundColor": "rgb(1, 161, 224)"
+        },
+        "position": {
+          "h": "75",
+          "w": "160",
+          "x": 950,
+          "y": 140,
+          "zIndex": 33
+        },
+        "type": "box"
+      },
+      "box_24": {
+        "parameters": {
+          "backgroundColor": "rgb(10, 39, 78)",
+          "borderColor": "rgba(0, 0, 0, 0)"
+        },
+        "position": {
+          "h": "95",
+          "w": "1360",
+          "x": 10,
+          "y": 130,
+          "zIndex": 2
+        },
+        "type": "box"
+      },
+      "chart_13": {
+        "parameters": {
+          "totalValue": "computeTotal",
+          "totalLabel": "",
+          "legend": true,
+          "visualizationType": "pie",
+          "step": "Financial_Types",
+          "exploreLink": false
+        },
+        "position": {
+          "h": "230",
+          "w": "340",
+          "x": 140,
+          "y": 430,
+          "zIndex": 59
+        },
+        "type": "chart"
+      }
+    }
+  },
+  "type": "dashboard",
+  "url": "/services/data/v43.0/wave/dashboards/0FK0b000000PyqiGAC"
+}
