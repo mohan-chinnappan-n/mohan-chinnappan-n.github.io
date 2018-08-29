@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="MainCtrl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{appName}}</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/navbar-green.css">
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/data-markdown.user.js"></script>
+
+
+  <script src="../bower_components/marked/marked.min.js"></script>
+  <script src="../bower_components/angular-marked/dist/angular-marked.js"></script>
+
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../reveal.js/css/theme/white.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+   // emmet main: section>h4{help}+ul>li{item $}*4
+   // emmet ref:  section>h4{help}+ul>li>a[target="_blank"][href="url $"]{reference1}*3
+   // emmet rc :  div[class="row"]>div[class="col-lg-6"]>p+div[class="col-lg-6"]>p
+ 
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+    		<![endif]-->
+
+  <style>
+    .reveal .slide-number {
+      font-size: 0.5em;
+    }
+
+    .simg {
+      border-radius: 10px;
+      border: 1px;
+    }
+
+    .reveal section ul li,
+    .reveal section p {
+      font-size: .8em !important;
+    }
+
+    .reveal section pre code {
+      font-size: 0.7em !important;
+    }
+  </style>
+  <!--
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5381915020912221",
+    enable_page_level_ads: true
+  });
+</script>
+-->
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5381915020912221",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">{{appName}}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+      <div class="inner-addon right-addon navbar-form navbar-right">
+        <i class="glyphicon glyphicon-search"></i>
+        <input type="text" class="form-control" placeholder="Search" />
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown ">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="./help.html">Help Topics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <!--
+  <div class="container" ng-controller='MainCtrl'>
+    <div marked src="'pevents.md'"></div>
+  </div>
+-->
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section id="home">
+        <h4>{{appName}}</h4>
+      </section>
+<section>
+    <h4>Embedded dashboards</h4>
+<ul style="font-size:33px;">
+<li><b>Client List</b>—Get a focused list of clients with robust filtering capabilities that surface financial data points and account details across your entire book of business.</li>
+<li><b>80/20</b>—Maximize your time by comparing client revenue against advising activities and identify key actions for high-potential clients.</li>
+<li><b>Activities</b>—See how activities are impacting your client relationships by analyzing interactions in the context of different activity types. Identify gaps and opportunities to improve future engagement.</li>
+<li><b>Financial Accounts</b>—Respond to market conditions in a timely manner by uncovering the types of financial accounts and securities that make up your book of business.</li>
+<li><b>Client Goals</b>—Measure client goals across your entire book of business. Spot key trends, and create tasks or opportunities in context to client data to help keep clients on track.</li>
+</ul>
+</section>
+<section>
+    <h4 style="font-size:30px">EA Dashboard in FSC</h4>
+    <img src="img/fsc/FSC-EA-dashboards-1.png" style="border:0px;border-radius:10px;"  alt="">
+</section>
+<section>
+  <h4 style="font-size:30px">EA Dashboard in FSC</h4>
+  <img src="img/fsc/fsc-ea-datasets-1.png" style="border:0px;border-radius:10px;"  alt="">
+</section>
+
+<section>
+  <h4 style="font-size:30px">EA Dashboards and datasets in FSC - demo</h4>
+  <img src="img/fsc/fsc-ea-dataset-1.gif" style="border:0px;border-radius:10px;"  alt="">
+</section>
+
+<section>
+  <h4 style="font-size:30px">EA Dashboard and datasets in FSC - demo-2</h4>
+  <img src="img/fsc/fsc-ea-dataset-2.gif" style="border:0px;border-radius:10px;"  alt="">
+</section>
+
+
+<section>
+  <h4 style="font-size: 25px;">FSC EA Dashboards - click to view datasets...</h4>
+  <ul style="font-size: 22px;">
+    <li>  Activities
+      <ol>
+        <li> <a target="_blank" href="img/fsc/Account_Contact.json">Account_Contact</a></li>
+        <li> <a target="_blank" href="img/fsc/Event_Account_Contact.json"> Event_Account_Contact</a></li>
+        <li><a target="_blank"  href="img/fsc/FinAcc_Account_Contact.json">FinAcc_Account_Contact</a></li>
+        <li><a target="_blank"  href="img/fsc/FinGoal_Account_Contact.json">FinGoal_Account_Contact</a></li>
+        <li><a target="_blank"  href="img/fsc/Task_Account_Contact.json">Task_Account_Contact</a></li>
+        <li><a target="_blank"  href="img/fsc/FinancialHolding.json">FinancialHolding</a></li>
+      </ol>
+
+    </li>
+    <li>  80/20
+     <ol>
+        <li> <a target="_blank" href="img/fsc/Account_Contact.json">Account_Contact</a></li>
+        <li><a target="_blank"  href="img/fsc/Account_Revenue.json">Account_Revenue</a></li>
+        <li> <a target="_blank" href="img/fsc/Event_Account_Contact.json"> Event_Account_Contact</a></li>
+        <li><a target="_blank"  href="img/fsc/FinAcc_Revenue.json">FinAcc_Revenue</a></li>
+        <li><a target="_blank"  href="img/fsc/FinGoal_Account_Contact.json">FinGoal_Account_Contact</a></li>
+        <li><a target="_blank"  href="img/fsc/Opportunity.json">Opportunity</a></li>
+        <li><a target="_blank"  href="img/fsc/Task_Account_Contact.json">Task_Account_Contact</a></li>
+      
+
+ 
+     </ol>
+    </li>
+    <li>  Client Goals
+
+      <ol>
+        <li> <a target="_blank" href="img/fsc/Account_Contact.json">Account_Contact</a></li>
+        <li> <a target="_blank" href="img/fsc/Event_Account_Contact.json"> Event_Account_Contact</a></li>
+        <li><a target="_blank"  href="img/fsc/FinAcc_Account_Contact.json">FinAcc_Account_Contact</a></li>
+        <li><a target="_blank"  href="img/fsc/FinGoal_Account_Contact.json">FinGoal_Account_Contact</a></li>
+        <li><a target="_blank"  href="img/fsc/Task_Account_Contact.json">Task_Account_Contact</a></li>
+        <li><a target="_blank"  href="img/fsc/FinancialHolding.json">FinancialHolding</a></li>
+     
+
+      
+
+
+      </ol>
+    </li>
+    <li>  Client List
+      <ol>
+        <li> <a target="_blank" href="img/fsc/Account_Contact.json">Account_Contact</a></li>
+      </ol>
+    </li>
+    <li>  Financial Accounts 
+      <ol>
+        <li> <a target="_blank" href="img/fsc/Account_Contact.json">Account_Contact</a></li>
+        <li><a target="_blank"  href="img/fsc/FinAcc_Account_Contact.json">FinAcc_Account_Contact</a></li>
+        <li><a target="_blank"  href="img/fsc/FinancialHolding.json">FinancialHolding</a></li>
+        </ol>
+    </li>
+</ul>
+</section>
+
+
+<section>
+  <h4 style="font-size: 32px;">FSC EA Datasets - click to view dimensions, measures...</h4>
+  <ul style="font-size:30px">
+    <li> <a target="_blank" href="img/fsc/Event_Account_Contact.json"> Event_Account_Contact</a></li>
+    <li> <a target="_blank" href="img/fsc/Account_Contact.json">Account_Contact</a></li>
+    <li><a target="_blank"  href="img/fsc/FinancialHolding.json">FinancialHolding</a></li>
+    <li><a target="_blank"  href="img/fsc/FinAcc_Account_Contact.json">FinAcc_Account_Contact</a></li>
+    <li><a target="_blank"  href="img/fsc/FinGoal_Account_Contact.json">FinGoal_Account_Contact</a></li>
+    <li><a target="_blank"  href="img/fsc/Task_Account_Contact.json">Task_Account_Contact</a></li>
+    <li><a target="_blank"  href="img/fsc/Account_Revenue.json">Account_Revenue</a></li>
+    <li><a target="_blank"  href="img/fsc/FinAcc_Revenue.json">FinAcc_Revenue</a></li>
+    <li><a target="_blank"  href="img/fsc/Opportunity.json">Opportunity</a></li>
+    <li><a target="_blank"  href="img/fsc/Account.json">Account</a></li>
+    <li><a target="_blank"  href="img/fsc/Contact.json">Contact</a></li>
+    <li><a target="_blank"  href="img/fsc/FinancialAccount.json">FinancialAccount</a></li>
+    <li><a target="_blank"  href="img/fsc/FinancialGoal.json">FinancialGoal</a></li>
+</ul>
+</section>
+<section>
+    <h4 style="font-size:30px">EA Dashboard - 80-20 - in FSC</h4>
+    <img src="https://resources.help.salesforce.com/images/f0f11a32518843d6a85c9fd0490bb3e3.png" style="border:0px;border-radius:10px;" height="600" alt="">
+</section>
+
+<section>
+  <h4>References</h4>
+  <ul>
+    <li>
+      <a target="_blank" href="https://www.salesforce.com/form/signup/financial-services-cloud-trial/">
+        Get started with a free 30-day trial of Financial Services Cloud
+      </a>
+    </li>
+
+    <li>
+      <a target="_blank" href="https://trailhead.salesforce.com/trails/fsc_build_loyalty">Trail : Inspire Customer Loyalty with Financial Services Cloud
+</a>
+    </li>
+    <li>
+      <a target="_blank" href="https://trailhead.salesforce.com/users/00550000007GRZzAAO/trailmixes/financial-services-cloud">Trailmix : Financial Services Cloud  </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://www.salesforce.com/blog/2017/03/introducing-financial-services-cloud-einstein.html">
+        Introducing Financial Services Cloud Einstein: AI-Powered CRM for Financial Advisors
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://www.salesforce.com/products/financial-services-cloud/faq/">FAQ</a>
+    </li>
+
+
+    <li>
+      <a target="_blank" href="https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3000000E1LUwEAN">
+        Salesforce Financial Services Cloud - AppExchange
+
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://help.salesforce.com/articleView?id=How-to-Access-Financial-Services-Cloud&language=en_US&type=1">
+        Access Financial Services Cloud - Knowledge Article
+      </a>
+    </li>
+
+    <li>
+      <a target="_blank" href="https://developer.salesforce.com/docs/atlas.en-us.financial_services_cloud.meta/financial_services_cloud/fsc_admin_wave.htm"> Einstein Analytics for Financial Services Cloud
+
+      </a>
+    </li>
+
+  </ul>
+
+</section>
+
+
+    </div>
+  </div>
+
+
+
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
+
+
+  <script>
+    'use strict';
+
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+      //width: 960,
+      //	height: 700,
+
+      // Display presentation control arrows
+      controls: true,
+
+      // Help the user learn the controls by providing hints, for example by
+      // bouncing the down arrow when they first encounter a vertical slide
+      controlsTutorial: true,
+
+      // Determines where controls appear, "edges" or "bottom-right"
+      controlsLayout: 'edges',
+
+      // Visibility rule for backwards navigation arrows; "faded", "hidden"
+      // or "visible"
+      controlsBackArrows: 'faded',
+      // Display a presentation progress bar
+      progress: true,
+
+      // Set default timing of 2 minutes per slide
+      defaultTiming: 120,
+
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
+
+
+      history: true,
+      center: true,
+      slideNumber: true,
+
+      embedded: true,
+
+      transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+      menu: {
+        markers: true,
+        openSlideNumber: true,
+        themes: [{
+            name: 'Black',
+            theme: '../reveal.js/css/theme/black.css'
+          },
+          {
+            name: 'White',
+            theme: '../reveal.js/css/theme/white.css'
+          },
+          {
+            name: 'League',
+            theme: '../reveal.js/css/theme/league.css'
+          },
+          {
+            name: 'Sky',
+            theme: '../reveal.js/css/theme/sky.css'
+          },
+          {
+            name: 'Beige',
+            theme: '../reveal.js/css/theme/beige.css'
+          },
+          {
+            name: 'Simple',
+            theme: '../reveal.js/css/theme/simple.css'
+          },
+          {
+            name: 'Serif',
+            theme: '../reveal.js/css/theme/serif.css'
+          },
+          {
+            name: 'Blood',
+            theme: '../reveal.js/css/theme/blood.css'
+          },
+          {
+            name: 'Night',
+            theme: '../reveal.js/css/theme/night.css'
+          },
+          {
+            name: 'Moon',
+            theme: '../reveal.js/css/theme/moon.css'
+          },
+          {
+            name: 'Solarized',
+            theme: '../reveal.js/css/theme/solarized.css'
+          }
+        ],
+        custom: []
+      },
+
+      // Optional reveal.js plugins
+      dependencies: [{
+          src: '../reveal.js/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          condition: function() {
+            return !!document.querySelector('pre code');
+          },
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: '../reveal.js/plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/reveal.js-menu/menu.js',
+          async: true
+        }
+      ]
+    });
+
+
+
+    var app = angular.module('app', [
+      'hc.marked'
+    ]);
+    app.config(['markedProvider', function(markedProvider) {
+      markedProvider.setOptions({
+        gfm: true
+      });
+    }]);
+
+    var GSCOPE;
+    app.controller('MainCtrl', function($scope, $http, $timeout) {
+      GSCOPE = $scope; // debugging purposes
+      $scope.appName="FSC - EA Dashboards";
+
+
+
+    })
+  </script>
+</body>
+
+</html>
