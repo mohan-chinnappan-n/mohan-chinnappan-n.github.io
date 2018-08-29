@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="../css/navbar-blue.css">
 
 
-  <link href="app.min.css" rel="stylesheet" type="text/css">
-  <script src="app.min.js"></script>
+  <link href="js/jsoneditor.css" rel="stylesheet" type="text/css">
+  <script src="js/jsoneditor.js"></script>
 
   <script src="https://bgrins.github.io/filereader.js/filereader.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
@@ -82,17 +82,11 @@
         <i class="glyphicon glyphicon-save"></i> Save</button>
   </div>
 
-  <div class="col-lg-5">
+  <div class="col-lg-7">
       <button class="btn btn-success" id="showDemo"  >
          <i class="glyphicon glyphicon-book"></i> Demo</button>
     
    </div>
-
-   <div class="col-lg-2">
-       <span class='badge badge-info' id="fileselected"</span>
-    
-   </div>
-
   </div>
   
   <div id='demo'>
@@ -100,7 +94,7 @@
   </div>
 
 
-<div id="jsoneditor" class="jsoneditor"></div>
+<div id="jsoneditor"></div>
 </div>
 <script>
 
@@ -112,38 +106,6 @@
     "gems": {"unix": ["ken","dmr"], "c": ["dmr"]},
     "greeting": "Hello Math!"
   };
-
-  var query = location.search.substr(1);
-    var qresult = {};
-    query.split("&").forEach(function(part) {
-          var item = part.split("=");
-          qresult[item[0]] = decodeURIComponent(item[1]);
-    });
-   console.log(qresult.f);
-    if (qresult.f === undefined) {
-      qresult.f = 'browsers';
-    }
-
-    // set the select box with requested file
-   // document.getElementById('samples').value = qresult.f;
-
-    // reading the resource
-    var rawFile = new XMLHttpRequest();
-    var baseURI='https://mohan-chinnappan-n.github.io/sfdc/img/fsc/'
-    var fileUrl = baseURI + qresult.f + '.json';
-    console.log(fileUrl);
-    rawFile.open("GET",  fileUrl, false);
-    rawFile.onreadystatechange = function () {
-        if(rawFile.readyState === 4) {
-            if(rawFile.status === 200 || rawFile.status == 0) {
-                jsonObj = JSON.parse(rawFile.responseText);
-            }
-        }
-    }
-    rawFile.send(null);
-    document.getElementById('fileselected').textContent = qresult.f;
-
-
 
     var options = {
     mode: 'tree',
@@ -193,7 +155,6 @@
     $('#showDemo').click(function(){
       $('#demo').slideToggle(); 
     });
-      
 })
 
 
