@@ -137,6 +137,9 @@
     if (qresult.f === undefined) {
       qresult.f = 'browsers';
     }
+    if (qresult.c === undefined) {
+      qresult.c = 0;
+    }
 
     // set the select box with requested file
    // document.getElementById('samples').value = qresult.f;
@@ -150,12 +153,17 @@
     rawFile.onreadystatechange = function () {
         if(rawFile.readyState === 4) {
             if(rawFile.status === 200 || rawFile.status == 0) {
-                jsonObj = JSON.parse(rawFile.responseText.replace(/&quot;/g,'\'')
+              if (qresult.c == 1) {
+                jsonObj = JSON.parse(rawFile.responseText
+                  .replace(/&quot;/g,'\'')
                   .replace(/&amp;/g,'')
                   .replace(/&#39;/g, '\'')
                   .replace(/&#92;/g,'')
                 
                 );
+              } else {
+                jsonObj = JSON.parse(rawFile.responseText);
+              }
             }
         }
     }
