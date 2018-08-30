@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="MainCtrl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{appName}}</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/navbar-green.css">
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/data-markdown.user.js"></script>
+
+
+  <script src="../bower_components/marked/marked.min.js"></script>
+  <script src="../bower_components/angular-marked/dist/angular-marked.js"></script>
+
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../reveal.js/css/theme/white.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+  <link rel="stylesheet" href="../css/step.min.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+    		<![endif]-->
+
+  <style>
+    .reveal .slide-number {
+      font-size: 0.5em;
+    }
+
+    .simg {
+      border-radius: 10px;
+      border: 0px;
+      border-color: #efe;
+    }
+
+    .reveal section ul li,
+    .reveal section p {
+      font-size: .8em !important;
+    }
+
+    .reveal section pre code {
+      font-size: 0.7em !important;
+    }
+   
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">{{appName}}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+      <div class="inner-addon right-addon navbar-form navbar-right">
+        <i class="glyphicon glyphicon-search"></i>
+        <input type="text" class="form-control" placeholder="Search" />
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown ">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="./help.html">Help Topics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <!--
+  <div class="container" ng-controller='MainCtrl'>
+    <div marked src="'pevents.md'"></div>
+  </div>
+-->
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section id="home">
+        <h4 style="font-size:30px;">{{appName}} (MC) <br/>To reach your individual consumers in a more personalized way, at scale</h4>
+        <div class="row">
+            <div class="col-lg-5">
+                    <ul style="font-size:30px;">
+                            <li>Helps you <b>know</b> your consumers like never before</li>
+                            <li><b>personalize</b> every interaction with AI</li>
+                            <li><b>engage</b> across the entire journey</li>
+                            <li>deliver personalized consumer engagement at scale on <b> every channel</b>
+                
+                                <ul>
+                                    <li>email</li>
+                                    <li>web</li>
+                                    <li>mobile</li>
+                                    <li>social</li>
+                                    <li>digital advertising</li>
+                                </ul>
+                            </li>
+                        </ul>
+            </div>
+            <div class="col-lg-7">
+                <img class="simg" src="img/mc/mc-1.jpg" alt="">
+            </div>
+        </div>
+       
+      </section>
+
+      <section>
+          <h4 style="font-size:25px;">Features of MC</h4>
+          <div class="row">
+              <div class="col-lg-12">
+                    <ul style="font-size:25px;">
+                        <li><b>Connect</b> to your consumers where they are (for example, email, mobile, web).</li>
+                        <li>Offer tailored <b>recommendations, reminders, and discounts</b>.</li>
+                        <li><b>Listen</b> to what consumers say on social media and respond to their needs, 
+                            including providing real-time customer service.</li>
+                        <li>Expand your <b>reach and discover new audiences</b>.</li>
+                        <li>Deliver a <b>seamless, personalized experience</b> across corporate marketing and local partner networks.</li></li>
+                 </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                    <iframe height="400" width="800" data-src="https://www.youtube.com/embed/AJnYlN17hOE?autoplay=0"></iframe>
+              </div>
+          </div>
+         
+      </section>
+
+      <section>
+        <h4 style="font-size:30px;">MC Products</h4>
+
+        <div class="row">
+          <div class="col-lg-6">
+              <ul style="font-size:30px;">
+                  <li>DATA: Put <b>consumer data</b> at the center of everything you do. 
+                  <ul>
+                      <li><b>Salesforce DMP</b>: Capture, unify, and activate data in the leading 
+                        <b>data management platform</b>. Whether you’re a marketer or a media owner, use data at scale to 
+                        <b>personalize</b>
+                         every consumer touchpoint. </li>
+                      <li><b>Data Studio</b>: Develop new audiences and build new partnerships via
+                        <b> peer-to-peer data sharing</b>
+                         , and use that data to enhance existing campaigns. </li>
+                      <li><b>Interaction Studio</b>: Automatically reconcile consumer data across owned online and offline marketing
+                         <b>touchpoints </b>
+                         in this real-time interaction management platform. Provide real-time context for recommended 
+                         <b>next actions </b>
+                         on each channel and device. </li>
+                      <li><b>Journey Builder</b>: Plan, build, and automate 
+                       <b>consumer engagement </b>
+                        at scale across channels and devices. Drive personalization throughout the consumer lifecycle automatically. </li>
+                  </ul>
+                  </li>
+                </ul>
+          </div>
+          <div class="col-lg-6">
+              <ul style="font-size:30px;">
+                  <li>
+                      TOOLS: Engage with consumers when, where, and how they want using proven <b>engagement tools</b>. 
+                      <ul>
+                          <li> <b>Email Studio</b>: Engage consumers with tailored, personalized messages with speed, security, scalability, and excellent deliverability. 
+                          <li><b> Mobile Studio</b>: Align SMS marketing, push notifications, and group messaging to your brand’s overall marketing strategy, and ensure consumers are reached at the right moment based on events, location, or proximity. 
+                          <li><b> Advertising Studio</b> : Activate customer data across Salesforce to power personalized advertising across social, search, and display. 
+                          <li><b> Social Studio</b>: Integrate the power of social media messaging with service and sales to listen, engage, and analyze consumer interactions and sentiment in real time. 
+                    </ul>
+                  </li>
+                </ul>
+          </div>
+        </div>
+  
+      </section>
+
+          
+      <section>
+          <h4>MC  Products - 3 Buckets</h4>
+  
+          <ol style="font-size:25px;">
+            <li> <b>Messaging</b>: create, build, deploy, and manage communication across different marketing channels at scale </li>
+              <ol>
+                <li>Email Studio</li>
+                <li>Mobile Studio</li> 
+                <li>Journey Builder</li>
+              </ol>
+            <li><b>Advertising & Data </b>:create custom audiences and combine data from any source to deliver more targeted marketing.
+                <ol>
+                  <li>Advertising Studio</li>
+                  <li>Salesforce DMP</li>
+                  <li>Salesforce Data Studio</li>
+                 </ol>
+  
+            </li>
+            <li><b>Social media management</b>:isten to conversations; engage across marketing, sales, and service; and publish information for key discussions your customers are having about your brand.
+              <ol><li>Social Studio</li></ol>
+  
+            </li>
+          </ol>
+  
+        </section>
+
+
+      <section>
+        <h4>MC Connect</h4>
+        <ul style="font-size:30px;">
+          <li>Integrates MC across the Customer Success Platform,
+             giving you the ability to deliver <b>connected consumer engagement</b> across your entire business.</li>
+          <li>  <b>Sales Cloud</b>: Onboard new customers, open new opportunities, and drive product adoption with Journeys triggered by actions in Sales Cloud.</li>
+          <li> <b> Service Cloud</b>: Open and close service cases, or launch a customer into a Journey from a case creation in Service Cloud.</li>
+          <li> <b> Community Cloud</b>: Encourage participation for unanswered posts, drive engagement and retention, and set up drip campaigns to follow-up on activities in Community Cloud.</li>
+          <li> <b> Commerce Cloud</b>: Increase loyalty and retention with behavioral-influenced emails. Set up triggers in Journey Builder for commerce activities like making a purchase or abandoning a cart.</li>
+        </ul>
+      </section>
+
+     <section>
+       <h4>MC Connect - Video</h4>
+       <iframe height="400" width="800" data-src="https://www.youtube.com/embed/NvPk-pyN-PA?autoplay=0"></iframe>
+ 
+     </section>
+
+     <section>
+       <h4>MC Connect Actions</h4>
+       <ol style="font-size:30px;">
+         <li>Sync CRM data to personalize every email:
+            Data Sync, Marketing Cloud users gain direct access to data from any object across Salesforce, directly inside Marketing Cloud.
+            combine it with other data in Marketing Cloud for an enriched customer profile.
+         </li>
+         <li>
+            Automate interactions across every touchpoint: Based on how a customer interacts with you, trigger specific journeys that encompass marketing, sales, service, and every touchpoint a customer might have with an organization.
+         </li>
+         <li>
+            Empower anyone to create connected experiences: Create templated, on-brand, consumer journeys that advisors, owners, and partners can personalize and send themselves.
+         </li>
+       </ol>
+     </section>
+
+     <section>
+       <h4> digital marketing strategy</h4>
+       <ul>
+         <li>
+            Start by assessing your current strategy;
+            <ul>
+              <li>Closely aligned to your business objectives?</li>
+              <li>Are you collecting the right data about your consumers </li>
+              <li>Are you reaching the right people?</li>
+              <li>Are focused on driving customer loyalty? Are you able to measure success?</li>
+
+            </ul>
+         </li>
+       </ul>
+     </section>
+
+     <section>
+       <h4>5 Key Items</h4>
+       <ol style="font-size:25px;">
+         <li>Unified/Single View of the Consumers</li>
+         <li>Personalization of the Interactions</li>
+         <li>Consumer Engagement</li>
+         <li> Track your progress with SMART (specific, measurable, attainable, realistic, and timely) objectives.</li>
+         <li> Work with MC Services team</li>
+       </ol>
+     </section>
+      
+     <section>
+       <h4 style="font-size:30px;">Steps -  Know your consumer better than ever before</h4>
+       <div class="ui vertical steps">
+          <div class="completed step">
+            <i class="truck icon"></i>
+            <div class="content">
+              <div class="title">Create an Unified view of consumers across all business units </div>
+              <div class="description">
+                <ul style="font-size:22px;">
+                  <li> Unify first-party marketing data and augment it with other second- and third-party data sources.</li>
+                  <li>Clean and Right Data is key</li>
+                  <li>Track customer interactions on your website.</li>
+                  <li>Monitor your brand on social media. </li>
+                  <li>Determine your most loyal and most at-risk customers. </li>
+                  <li>Discover new audiences. </li>
+                  <li>
+                      Optimize resource allocations by determining which consumers are most likely to engage with a particular offer.
+
+                  </li>
+                </ul>
+               
+
+              </div>
+            </div>
+          </div>
+         
+        </div>
+
+
+     </section>
+
+     <section>
+        <h4 style="font-size:30px;">Steps - Personalize every interaction</h4>
+        <div class="ui vertical steps">
+           <div class="completed step">
+             <i class="truck icon"></i>
+             <div class="content">
+               <div class="title"> Personalization </div>
+               <div class="description">
+                 <ul style="font-size:25px;">
+<li>  Automate and segment marketing messages at scale.
+<li>  Align marketing voice, messaging, and campaigns across your entire business.
+<li>  Predict the best outcome for your consumer.
+<li>  Make targeted content recommendations.
+<li>  Reengage consumers who abandon an online shopping cart.
+<li>  Deliver unique experiences for each individual.
+<li>  Manage all your marketing interactions with your consumers in one single place.</li>
+                 </ul>
+                
+ 
+               </div>
+             </div>
+           </div>
+          
+         </div>
+ 
+ 
+      </section>
+
+ 
+
+
+
+     <section>
+        <h4 style="font-size:30px;">Steps - Engage consumers wherever they are </h4>
+        <div class="ui vertical steps">
+           <div class="completed step">
+             <i class="truck icon"></i>
+             <div class="content">
+               <div class="title"> Consumer Engagement </div>
+               <div class="description">
+                 <ul style="font-size:25px;">
+<li>Make a strong connection with consumers, starting from their first interaction with your brand.</li>
+<li>Interact with consumers in real time.</li>
+<li>Ensure you’re reaching your consumers on the channel they prefer.</li>
+<li>Be prepared when a customer tweets negative comments about your product or service.</li>
+<li>Engage your customers with mobile messaging.</li>
+<li>Put Yourself in Your Consumers’ Shoes for Every Interaction</li>
+
+               </div>
+             </div>
+           </div>
+          
+         </div>
+ 
+ 
+      </section>
+
+
+        
+      <section>
+          <h4>MC  Products - 3 Buckets - again</h4>
+  
+          <ol style="font-size:25px;">
+            <li> <b>Messaging</b>: create, build, deploy, and manage communication across different marketing channels at scale </li>
+              <ol>
+                <li>Email Studio</li>
+                <li>Mobile Studio</li> 
+                <li>Journey Builder</li>
+              </ol>
+            <li><b>Advertising & Data </b>:create custom audiences and combine data from any source to deliver more targeted marketing.
+                <ol>
+                  <li>Advertising Studio</li>
+                  <li>Salesforce DMP</li>
+                  <li>Salesforce Data Studio</li>
+                 </ol>
+  
+            </li>
+            <li><b>Social media management</b>:isten to conversations; engage across marketing, sales, and service; and publish information for key discussions your customers are having about your brand.
+              <ol><li>Social Studio</li></ol>
+  
+            </li>
+          </ol>
+  
+        </section> 
+  
+<section><h4>Messaging Products </h4></section>
+
+<section>
+  <h4>Email Studio</h4>
+  <ul style="font-size:30px;">
+    <li>Send <b>Intelligent and Personalized</b> email marketing at scale</li>
+    <li>Segment, automate, and target your customers based on the data you collect from them</li>
+    <li>Track every email send and open rate, so you know exactly how your emails are performing.</li>
+  </ul>
+  <iframe height="400" width="800" data-src="https://www.youtube.com/embed/mem5kD9POCs?autoplay=0"></iframe>
+
+
+</section>
+
+<section>
+    <h4>Email Studio - contd.</h4>
+    <ul style="font-size:30px;">
+      <li>Use drag-and-drop <b>audience segmentation</b> tools</li>
+      <li> Scale and automate all interactions with your customers</li>
+      <li>Create dynamic email <b>content</b> with drag-and-drop tools.</li>
+      <li>Use mobile-optimized <b>email templates</b>.</li>
+      <li>Examples:
+     <ol>
+       <li>Create and send a “happy birthday” email to your subscribers when it’s their birthday with a celebratory 20% off coupon.</li>
+       <li>Use Email Studio for mass communications to your employees about an event or organizational change.</li>
+      </ol>
+
+      </li>
+    </ul>
+</section>
+
+         
+<section>
+    <h4  style="font-size:30px;">Mobile Studio</h4>
+    <ul style="font-size:20px;">
+      <li><b>Reach customers</b> at the right time, with the right message, regardless of location.</li>
+      <li>Increase your immediate customer’s engagement by sending SMS, MMS, and push messaging based on events, location, and proximity.</li>
+      <li>Use mobile APIs to create and automate custom messages, such as daily appointment alerts, order confirmations, and travel updates.</li>
+      <li>Integrate your CRM data and marketing analytics with your mobile campaigns to have real-time interactions with your customers.</li>
+    </ul>
+    <iframe height="400" width="800" data-src="https://www.youtube.com/embed/_vNWF7qANZQ?autoplay=0"></iframe>
+  
+  
+  </section>
+
+
+  <section>
+      <h4>Mobile Studio - contd.</h4>
+      <ul style="font-size:30px;">
+        <li>Track and send text messages with SMS. </li>
+        <li> Have two-way mobile conversations that include pictures, videos, and audio with MMS, and group messaging.</li>
+        <li>Increase use of your app with push messaging.</li>
+        <li>Use automated geofencing (interactions based on your customer’s GPS location).</li>
+        <li>Track when customers open your app, how much time they spend interacting with it, and details about their location</li>
+        <li>Create and automate custom solutions with mobile APIs.</li>
+        <li>Use ready-made SMS and MMS templates and drag-and-drop tools to customize your messages. </li>
+        <li>Examples:
+       <ol>
+         <li>Send your customers mobile tickets and coupons to complete customer services updates and surveys. Keep your customers engaged with your brand and drive customer loyalty.</li>
+         <li> Connect the physical world with the digital world, and when a customer walks into one of your physical stores, send them a push message with the latest deals. This helps you engage with your customers right when they’re ready to take the kind of action you’re trying to drive.</li>
+        </ol>
+  
+        </li>
+      </ul>
+  </section>
+
+  <section>
+      <h4  style="font-size:30px;">Journey Builder</h4>
+      <ul style="font-size:20px;">
+        <li>Create a coordinated customer journey at scale across email, mobile, and advertising, and triggers based on customer behavior, preferences, or other data points. </li>
+        <li>Customize journeys to respond to customer purchases, clicks, or email opens, and define the path that the customer takes based on their current and predicted behavior./li>
+        <li>Map the customer journey, and adjust the customer’s path based on their behavior.</li>
+        <li>Use data from any source</li>
+        <li>Test multiple variations of content, channel, timing, and frequency.</li>
+      </ul>
+     <img src="img/mc/mc-journeybuilder-1.png" style="border:0px;border-radius:10px;" height="400" alt="">
+    
+    </section>
+    
+
+    <section>
+        <h4  style="font-size:30px;">Journey Builder - Example Use case</h4>
+        <ul style="font-size:20px;">
+           <li>
+              Build a customer’s journey for your loyalty program marketing campaign. </li>
+              <li>
+              Using the drag-and-drop tools in Journey Builder, you create the flow of how and when emails and push notifications are sent to your subscribers.
+              </li> 
+              <li>You add a decision split into the journey:
+                <ul>
+                   <li>
+                      When the customer joins the loyalty program so it sends the new loyalty member a coupon.
+                   </li>
+                   <li>
+                      If the customer doesn’t join the loyalty program in the time frame you define, then a reminder email is sent to reengage the customer.
+
+                   </li>
+                </ul> 
+                
+                
+           </li>
+        </ul>
+       <img src="img/mc/mc-journeybuilder-1.png" style="border:0px;border-radius:10px;" height="400" alt="">
+      
+      </section>
+
+      <section><h4>Advertising & Data Products </h4></section>
+
+      <section>
+        <h4>Advertising Studio </h4>
+
+        <ul style="font-size:20px;">
+            <li>Manage and optimize your ad campaigns so that, based on customers profile,
+               you present only the relevant content to customers.</li>
+            <li>Use CRM data in Salesforce to reach your customers
+               across all of your digital advertising with customized and timely messages.</li>
+            <li>Advertise relevant content on Facebook, Instagram, Twitter, and LinkedIn.</li>
+            <li>Manage ads at scale using alternate creative versions, rules automation, and team collaboration tools.</li>
+            <li>Visualize data using analytics.</li>
+          </ul>
+          <iframe height="400" width="800" data-src="https://www.youtube.com/embed/hff0p92I02M?autoplay=0"></iframe>
+  
+          
+
+      </section>
+
+      <section>
+          <h4>Advertising Studio - Usecase Examples </h4>
+  
+          <ul style="font-size:30px;">
+              <li>You want to <b>reengage</b> customers who haven’t opened or clicked your emails for 180 days. First, you use data from your CRM to identify those subscribers, then target them with advertising based on their CRM data—inactive customers become active again.</li>
+              <li>You use your customer’s<b> purchase history</b> to <b> tailor the ads</b> that appear in their web browser. 
+                These upsell ads include customized special offers specifically tailored for each customer, 
+                <b>based on products they’ve purchased in the past 30 days</b>.
+                 By connecting your CRM customer data with your marketing campaigns,
+                  you not only make your <b>customers happy &#9786; </b> but also make your <b>marketing efforts more effective</b>.</li>
+            </ul>
+        </section>
+ 
+
+        <section>
+            <h4>Salesforce DMP - data management platform </h4>
+    
+            <ul style="font-size:30px;">
+                <li>Captures and analyzes consumer data</li>
+                <li><b>Organizes</b> the data for marketers and provides instructions based on <b>insights </b>generated by the platform</li>
+                <li>Supports more than 200 billion data collection events, and orchestrates more than 200 billion personalized consumer experiences</li>
+                <li>Use cases
+                  <ol>
+                    <li> You want to target<b> audience segments</b> to improve results, 
+                        the power of Salesforce DMP can help you serve better targeted ads according to the interest of your customers.</li>
+                    <li>
+                      <li>
+                          You want to create a <b>campaign targeted </b>to Cereal Moms who purchase food for the family. Salesforce DMP can collect and unify data based on specified characteristics and determine which moms are best to market to.
+
+                      </li>
+                  </ol>
+
+                </li>
+              </ul>
+               
+              
+    
+            </section>
+
+          
+        <section>
+            <h4>Salesforce Data Studio </h4>
+    
+            <ul style="font-size:30px;">
+                <li>Data sharing platform for marketers, brands, and publishers</li>
+                <li> Allows marketers to expand their reach, discover new audiences, and supercharge their DMP</li>
+                <li>Brands and publishers use it to <b> safely share and provision their owned data</b> with secure permissions to drive incremental revenue</li>
+                <li>Use cases: win-win:
+                  <ol>
+                    <li> Marketers are always looking to acquire new customers and often want access to data that publishers own.
+                       Historically, publishers and data owners have been reluctant to share their data because they were unable to control 
+                       what was shared and with whom. Data Studio solves both problems in a secure environment that is fully controlled by data owners, 
+                      so data buyers and data sellers can <b>transact with confidence</b>. Marketers connect with bigger and more targeted audiences and publishers 
+                      get paid for controlled access to their data. Can you say win-win
+                      </li>
+                  </ol>
+
+                </li>
+              </ul>
+    
+            </section>
+
+            <section><h4>Social Media Management Product</h4></section>
+
+
+<section>
+    <h4>Social Studio</h4>
+    <ul style="font-size:25px;">
+      <li>Can <b>listen, publish, engage, and analyze</b> your customer’s conversations on social media.</li>
+      <li>Helps you to listen to the social media conversation about your brand, then identify the most engaging content. </li>
+      <li>Share your analysis with different product, regional, or brand teams.</li>
+      <li> adjust your marketing strategy as these conversations happen and get the most compelling and effective content to your customers—no more waiting days or weeks or even months for engagement reports.</li>
+    </ul>
+    <iframe height="400" width="800" data-src="https://www.youtube.com/embed/295brS23_4I?autoplay=0"></iframe>
+  
+  
+  </section>
+            
+      <section>
+        <h4>Resources</h4>
+        <ul style="font-size:30px;">
+          <li>
+            <a target="_blank" href="https://trust.marketingcloud.com/"> MC Trust</a>
+          </li>
+
+          <li>
+            <a target="_blank" href="http://pages.mail.salesforce.com/gettingstarted/marketing-cloud/"> Success with Marketing Cloud</a>
+          </li>
+          <li>
+            <a target="_blank" href="https://trailhead.salesforce.com/en/modules/mrkt_cloud_studios_builders/units/mrkt_cloud_studios_builders_email_journey">
+              Learn How Our Marketing Cloud Products Work Together
+            </a>
+          </li>
+
+          <li>
+            <a  target="_blank" href="https://trailhead.salesforce.com/en/modules/marketing-cloud-connect/units/install-mc-connect">
+              Install Marketing Cloud Connect and Configure Salesforce CRM
+
+            </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.youtube.com/watch?v=BbaUkhdtqTQ">Create Your Own Journey Builder Activities </a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://www.youtube.com/watch?v=uomQToGGHQk">
+              Journey Builder 101: How to Plan, Personalize, and Optimize Customer Journeys
+
+            </a>
+          </li>
+
+        </ul>
+      </section>
+
+       
+
+
+
+    </div>
+  </div>
+
+
+
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
+
+
+  <script>
+    'use strict';
+
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+      //width: 960,
+      //	height: 700,
+
+      // Display presentation control arrows
+      controls: true,
+
+      // Help the user learn the controls by providing hints, for example by
+      // bouncing the down arrow when they first encounter a vertical slide
+      controlsTutorial: true,
+
+      // Determines where controls appear, "edges" or "bottom-right"
+      controlsLayout: 'edges',
+
+      // Visibility rule for backwards navigation arrows; "faded", "hidden"
+      // or "visible"
+      controlsBackArrows: 'faded',
+      // Display a presentation progress bar
+      progress: true,
+
+      // Set default timing of 2 minutes per slide
+      defaultTiming: 120,
+
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
+
+
+      history: true,
+      center: true,
+      slideNumber: true,
+
+      embedded: true,
+
+      transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+      menu: {
+        markers: true,
+        openSlideNumber: true,
+        themes: [{
+            name: 'Black',
+            theme: '../reveal.js/css/theme/black.css'
+          },
+          {
+            name: 'White',
+            theme: '../reveal.js/css/theme/white.css'
+          },
+          {
+            name: 'League',
+            theme: '../reveal.js/css/theme/league.css'
+          },
+          {
+            name: 'Sky',
+            theme: '../reveal.js/css/theme/sky.css'
+          },
+          {
+            name: 'Beige',
+            theme: '../reveal.js/css/theme/beige.css'
+          },
+          {
+            name: 'Simple',
+            theme: '../reveal.js/css/theme/simple.css'
+          },
+          {
+            name: 'Serif',
+            theme: '../reveal.js/css/theme/serif.css'
+          },
+          {
+            name: 'Blood',
+            theme: '../reveal.js/css/theme/blood.css'
+          },
+          {
+            name: 'Night',
+            theme: '../reveal.js/css/theme/night.css'
+          },
+          {
+            name: 'Moon',
+            theme: '../reveal.js/css/theme/moon.css'
+          },
+          {
+            name: 'Solarized',
+            theme: '../reveal.js/css/theme/solarized.css'
+          }
+        ],
+        custom: []
+      },
+
+      // Optional reveal.js plugins
+      dependencies: [{
+          src: '../reveal.js/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          condition: function() {
+            return !!document.querySelector('pre code');
+          },
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: '../reveal.js/plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/reveal.js-menu/menu.js',
+          async: true
+        }
+      ]
+    });
+
+
+
+    var app = angular.module('app', [
+      'hc.marked'
+    ]);
+    app.config(['markedProvider', function(markedProvider) {
+      markedProvider.setOptions({
+        gfm: true
+      });
+    }]);
+
+    var GSCOPE;
+    app.controller('MainCtrl', function($scope, $http, $timeout) {
+      GSCOPE = $scope; // debugging purposes
+      $scope.appName="Marketing Cloud";
+
+
+
+    })
+  </script>
+</body>
+
+</html>
