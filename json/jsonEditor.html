@@ -104,6 +104,8 @@
       <img src="js/json-editor-1.gif" alt="json editor demo">
   </div>
 <div id="jsoneditor" class="jsoneditor" style="display: none2;"></div>
+
+ 
      <ins class="adsbygoogle"
       style="display:block;margin-top:30px;"
       data-ad-client="ca-pub-5381915020912221"
@@ -148,7 +150,12 @@
     rawFile.onreadystatechange = function () {
         if(rawFile.readyState === 4) {
             if(rawFile.status === 200 || rawFile.status == 0) {
-                jsonObj = JSON.parse(rawFile.responseText);
+                jsonObj = JSON.parse(rawFile.responseText.replace(/&quot;/g,'\'')
+                  .replace(/&amp;/g,'')
+                  .replace(/&#39;/g, '\'')
+                  .replace(/&#92;/g,'')
+                
+                );
             }
         }
     }
@@ -176,7 +183,9 @@
     readAsDefault: 'Text',
     on: {
       load: function (event, file) {
-        editor.setText(event.target.result);
+        editor.setText(event.target.result
+                  
+        );
       }
     }
   });
