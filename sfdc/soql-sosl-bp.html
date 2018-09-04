@@ -557,7 +557,7 @@ System.Debug('Count:  ' + accounts.size());
     <li>
       The Query Plan tool will show a list of available plans that our Query Optimizer can utilize for the query provided
       and will be arranged by cost ascending.
-      Each Plan will contain information on Cardinality, Operation Type, Cost, sObject Type, and more.
+      Each Plan will contain information on Cardinality (number of rows returned by each operation in an execution plan),sobjectCardinality(number of the rows in the sObject participating in the query), Operation Type, Cost, sObject Type, and more.
        Each plan has a “Leading Operation Type”, for example, Field Index or Full Table Scan.
        The plan with the lowest cost is the plan that is used for driving the query execution.
 
