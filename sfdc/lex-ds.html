@@ -136,15 +136,115 @@
         <h4>{{appName}} (LDS)</h4>
         <ul style="font-size:30px;">
             <li>Data-Layer for Lightning (similar to Visualforce standard controller)</li>
+            <li>Developers no longer have to write your own controller code</li>
+             <li> All the data access code is contained within the LDS component
+
+              <code>force:recordData</code>
+             </li>
+             <li> Significantly reducing the complexity of Lightning apps and pages</li>
         </ul>
       </section>
 
       <section>
-        <h4 style="font-size:30px;">Combine Multiple data requests to same record to single data-request</h4>
+        <h4 style="font-size:30px;">Combine Multiple data-requests on same record to single data-request</h4>
+        
         <img src="img/lds/lds-2.jpg" style="border:0px; border-radius:10px;border-color:steelblue;" 
         height="500px;" alt="">
       </section>
 
+      <section>
+        <h4>LDS Goals</h4>
+        <ul style="font-size:30px;">
+          <li>Minimize XMLHttpRequests (XHRs)</li>
+          <li>Fetch records once, reducing network transfers, app server load, and database server load</li>
+          <li>Cache record data on the client, separate from component metadata</li>
+          <li><b>Share record data across components</b></li>
+          <li>Enable progressive record loading, caching, and merging more fields and layouts into the cache</li>
+          <li>Enable proactive cache population</li>
+          <li>Promote <b>consistency by using only one instance of the record data across multiple components</b></li>
+          <li>Create <b>notifications</b> when record data changes</li>
+        </ul>
+      </section>
+      
+      <section>
+        
+        <h4>How to use LDS?  - force:recordData</h4>
+         <ul style="font-size:30px;">
+           <li>input attributes:
+              <ul>
+                <li>recordId: Id of the sObject Record to load</li>
+                <li>mode: determines the behavior of <b>notifications</b> and
+                     what <b>operations</b> are available to perform with the record:
+                  <ul>
+                    <li>VIEW</li>
+                    <li>EDIT</li>
+                  </ul>
+
+                </li>
+                <li>layoutType: to adapt to layout definitions:
+                  <ul>
+                    <li>FULL</li>
+                    <li>COMPACT</li>
+                  </ul>
+                </li>
+                <li>fields:  which fields in the record to query. example: "Name,BillingCity,BillingState"
+
+                </li>
+              </ul>
+
+           </li>
+           <li>output attributes:
+              <ul>
+                <li>targetRecord: the attribute that will be populated with the loaded record</li>
+                <li>targetFields: populated with the simplified view of the loaded record</li>
+                <li>targetError: populated with any errors
+                  </li>
+              </ul>
+
+           </li>
+         </ul>
+         </section>
+
+         <section>
+           <h4>Example</h4>
+           <pre style="font-size:20px;">
+             <code>
+  <force:recordData aura:id="forceRecordCmp"
+    
+    recordId="{!v.recordId}"
+    layoutType="{!v.layout}"
+    fields="{!v.fieldsToQuery}"
+    mode="VIEW"
+    targetRecord="{!v.record}"
+    targetFields="{!v.simpleRecord}" 
+    targetError="{!v.error}"
+    recordUpdated="{!c.handleRecordUpdated}"
+
+/>
+             </code>
+           </pre>
+           <pre style="font-size:20px;">
+             <code>
+    ({
+      handleRecordUpdated: function(component, event, helper) {
+          var eventParams = event.getParams();
+          if(eventParams.changeType === "LOADED") {
+              // record is loaded (render other component which needs record data value)
+              console.log("Record is loaded successfully.");
+          } else if(eventParams.changeType === "CHANGED") {
+              // record is changed
+          } else if(eventParams.changeType === "REMOVED") {
+              // record is deleted
+          } else if(eventParams.changeType === "ERROR") {
+              // there’s an error while loading, saving, or deleting the record
+          }
+      }
+  })
+             </code>
+           </pre>
+         </section>
+   
+      </section>
 
 
     </div>
