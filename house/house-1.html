@@ -23,12 +23,12 @@
   <!-- Code syntax highlighting -->
   <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
 
-  <script src="https://raw.githubusercontent.com/hakimel/reveal.js/master/plugin/math/math.js">
-
-  </script>
-
   <!-- Printing and PDF exports -->
   <script>
+   // emmet main: section>h4{help}+ul>li{item $}*4
+   // emmet ref:  section>h4{help}+ul>li>a[target="_blank"][href="url $"]{reference1}*3
+   // emmet rc :  div[class="row"]>div[class="col-lg-6"]>p+div[class="col-lg-6"]>p
+ 
     var link = document.createElement('link');
     link.rel = 'stylesheet';
     link.type = 'text/css';
@@ -59,8 +59,23 @@
       font-size: 0.7em !important;
     }
   </style>
+  <!--
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5381915020912221",
+    enable_page_level_ads: true
+  });
+</script>
+-->
 
-
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5381915020912221",
+    enable_page_level_ads: true
+  });
+</script>
 
 
 </head>
@@ -119,163 +134,15 @@
 
       <section id="home">
         <h4>{{appName}}</h4>
-       </section>
-
-  <section>
-    <h4>Hardy–Ramanujan number - positive cubes</h4>
-    <img height="200" style="border:0px;border-radius:70px;" src="img/hardy.jpg" alt="">
-    <ul style="font-size:35px;">
-      <li>I (Prof. Hardy) remember once going to see him (Ramanujan) when he was lying ill at Putney. I had ridden in taxi-cab No. 1729,
-     and remarked that the number seemed to be rather a dull one, and that I hoped it was not an unfavourable omen. "No", he replied,
-      "it is a very interesting number; it is the smallest number expressible as the sum of two [positive] cubes in two different ways."
-</li>
-</ul>
-  <pre>
-  <code>>>> 1**3 + 12**3 == 9**3 + 10**3 == 1729
-True</code>
-</pre>
-  </section>
-
-  <section>
-    <h4>E = m c<sup>2</sup> - mass–energy equivalence - Albert Einstein</h4>
-    <ul>
-      <li>Anything having <b>mass</b> has an equivalent amount of <b>energy</b> and vice versa. It is can be expressed in terms of speed-of-light.
-      </li>
-    </ul>
-    <div class="row">
-
-   <div class="col-lg-4">
-      <img height="120" style="border:0px;" src="img/emc2.png" alt="">
-      <img height="200" style="border:0px;" src="img/Earth_to_Sun_-_en.png" alt="">
-
-
-    </div>
-     <div class="col-lg-8">
-    <pre style="font-size:20px;">
-      <code> E = m * c**2
- # E : "units of energy" in Joules
- # e : "units of mass" in kg
- # c : "speed of light"  ~= 3.00 * 10**8 m/s
- # Sunlight takes about 8 min. 17 sec. ( 8*60 + 17) secs.
- # to travel avg distance (km) from
- # surface of Sun to Earth(15 * 10**7)
-
- # 1 kg of mass can produce:
- >>> E = m * c**2
- 9e+16 Joules of energy!
- # 1 Joules per second = 0.001 kW
-      </code>
-    </pre>
-  </div>
-</div>
-  </section>
-
-  <section>
-    <h4>Theory of special relativity - Albert Einstein </h4>
-    <ul style="font-size:30px;">
-      <li> Laws of physics are the same for all non-accelerating observers</li>
-      <li> Speed of light (c) in a vacuum is independent of the motion of all observers </li>
-      <li> Space and time were interwoven into a single continuum known as space-time. </li>
-      <li> Events that occur at the same time for one observer could occur at different times for another</li>
-      <li> Massive objects cause a distortion in space-time, which is felt as gravity</li>
-      <li> Two objects exert a force of attraction on one another known as <b>gravity</b></li>
-    </ul>
-  </section>
-
-
-  <section>
-    <h4>Input-Output Economics - Wassily Leontif</h4>
-    <img src="img/Wassily_Leontief_1973.jpg"  style="border:0px;border-radius:100px;" height="100" alt="">
-    \[\begin{aligned}
-
-  X = inv(I - A) * D
-\end{aligned} \]
-
-<pre style="font-size:15px;">
-  I : Identity Matrix
-  A : The matrix of coefficients
-  D : Final Demand
-  X : Vector of total output
-</pre>
-<img style="border:0px;" src="img/input-output-problem-def.png" alt="">
-
-  </section>
-
+      </section>
 <section>
-  <h4>Solution: Input-output Model</h4>
-  <pre style="font-size:15px;">
-    <code>
-  import numpy as np
-  from numpy.linalg import inv
-  I = np.identity(3)
-  A = np.matrix ('0 .5 .3; .3 .1 .2; .4 .3 .3' )
-  # in thousands
-  D = np.matrix('20; 15; 18')
-
-  In [32]: I
-  array([[ 1.,  0.,  0.],
-         [ 0.,  1.,  0.],
-         [ 0.,  0.,  1.]])
-
-  In [33]: A
-  matrix([[ 0. ,  0.5,  0.3],
-          [ 0.3,  0.1,  0.2],
-          [ 0.4,  0.3,  0.3]])
-
-  In [34]: D
-  matrix([[20],
-          [15],
-          [18]])
-
-  # in thousands
-  In [35]: inv(I-A)*D
-  matrix([[  85.03448276],
-          [  68.        ],
-          [ 103.44827586]])
-
-
-
-    </code>
-  </pre>
-
-<ul style="font-size:25px;">
-  <li>
-    <a target="_blank" href="https://en.wikipedia.org/wiki/Input%E2%80%93output_model">Wiki: Input–output model
-</a>
-  </li>
-  <li>
-    <a target="_blank" href="https://www.youtube.com/watch?v=6C1MOD_oKwU">Video: Input–output model </a>
-
-  </li>
-
-  <li>
-    <a target="_blank" href="https://www.math.ksu.edu/~gerald/leontief.pdf">7.2 Application to economics: Leontief Model </a>
-
-  </li>
-
-
-</ul>
-    </section>
-
-<section>
-    <h4>Why is 0! = 1 ?</h4>
-      <iframe height="450" width="800" data-src="https://www.youtube.com/embed/X32dce7_D48?autoplay=0"></iframe>
+    <h4>Top 10 Most Efficient Home in America </h4>
+    <iframe height="450" width="800" data-src="https://www.youtube.com/embed/fhbLjEKKLVM?autoplay=0"></iframe>
  
 </section>
 
-<section>
-    <h4>Divide by zero?</h4>
-      <iframe height="450" width="800" data-src="https://www.youtube.com/embed/J2z5uzqxJNU?autoplay=0"></iframe>
- 
-</section>
-
-
-
-
     </div>
   </div>
-
-
 
 
 
@@ -324,11 +191,6 @@ True</code>
       embedded: true,
 
       transition: 'convex', // none/fade/slide/convex/concave/zoom
-
-      math: {
-					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
-					config: 'TeX-AMS_HTML-full'
-				},
 
       menu: {
         markers: true,
@@ -382,10 +244,7 @@ True</code>
       },
 
       // Optional reveal.js plugins
-      dependencies: [
-        { src: '../reveal.js/plugin/math/math.js', async: true },
-
-        {
+      dependencies: [{
           src: '../reveal.js/lib/js/classList.js',
           condition: function() {
             return !document.body.classList;
@@ -442,7 +301,7 @@ True</code>
     var GSCOPE;
     app.controller('MainCtrl', function($scope, $http, $timeout) {
       GSCOPE = $scope; // debugging purposes
-      $scope.appName="Numbers";
+      $scope.appName="Passive Houses";
 
 
 
