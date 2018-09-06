@@ -1,0 +1,6 @@
+Reports and Dashboards: What’s Different or Not Available in Lightning Experience:
+https://help.salesforce.com/articleView?id=lex_gaps_limitations_analytics.htm&type=0
+Configure Search Results in Lightning Experience
+
+https://help.salesforce.com/articleView?id=search_results_setup_lex.htm&type=5
+
