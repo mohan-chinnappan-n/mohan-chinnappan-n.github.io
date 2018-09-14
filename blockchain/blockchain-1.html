@@ -136,6 +136,123 @@
         <h4>{{appName}}</h4>
       </section>
 
+     <section>
+         <h4>Benefits for the Enterprise</h4>
+         <ul style="font-size:30px;">
+             <li>Distributed: <b>Trusted decentralized shared immutable temper-proof/evident ledger </b> - once transactions (orders, payments, account tracking,...)
+                  are recorded can't be altered (WriteOnceReadMany - WORM): <b>shared system-of-record (SSOR)</b> among the members of the network -  members share a
+common view of the truth - no need to reconcile the disparate ledgers. Transactions can't changed; it can only be reversed with another transaction
+              <ul>
+                  <li>Each transaction is put into a block</li>
+                  <li>Each block is connected to one before and one after it to create: a bockchain</li>
+              </ul>
+             </li>
+             <li>Permissioned: members of the network has access rights: confidential info is shared on a <b>need-to-know basis</b> </li>
+             <li>Secured: <b>Consensus</b> is required among the members of the network to <b>create/update/delete  transactions</b></li>
+             <li>Peer-to-peer:Each member of the network can act as both publisher and subscriber</li>
+             <li>Each node can send/receive transactions to/from other nodes - data is synced across the network</li>
+              <li>
+               <ul>
+                   <li>Lower transaction cost : Eliminates or reduces paper processes, speeding up transaction times and increasing efficiencies</li>
+                   <li>High velocity process</li>
+                   <li>Security and trust</li>
+               </ul>  
+              </li>
+
+         </ul>
+     </section>
+
+    <section>
+        <h4>Assets</h4>
+        <ul>
+            <li>Tangible:
+               <ul>
+                   <li>House</li>
+                   <li>Land</li>
+                   <li>Cash</li>
+               </ul>
+           </li>
+            <li>Intangible
+                <ul>
+                    <li>Patents</li>
+                    <li>IP</li>
+                    <li>copy-rights</li>
+                </ul>
+            </li>
+            <li>Blockchain can be used to track anything of value</li>
+        </ul>
+    </section>
+
+    <section>
+        <h4>Goals</h4>
+        <ul style="font-size:35px;">
+            <li>Need for efficient, reliable and secure for conducting and recording financial transactions</li>
+            <li>Issues in Current transactions systems:
+              <ul>
+                  <li>Instruments of trust: Minted Coins, paper-money, letter-of-credit, banking systems : to protect buyers and sellers</li>
+                  <li>Innovations: Telephone lines, credit-card systems, Internet, mobile - improved convenience/speed/efficiency of transactions 
+                      - eliminating/reducing distance between buyers and sellers</li>
+                  <li>Limitations of current systems:
+                     <ul>
+                         <li>duration between transaction and settlement can be long</li>
+                         <li>need for 3rd party validations - intermediaries increase the inefficiency</li>
+                         <li>fraud, cyber-attacks add to the cost/complexity of doing business - if a central system is attacked/compromised it exposes all the participants of the network</li>
+                         <li>credit card systems: merchants must pay high-cost of onboarding (with paperworks) and vetting process </li>
+                         <li>everyone the world do not have bank accounts - so parallel payment systems are used </li>
+                         <li>limited transparency and inconsistent information</li>
+                     </ul>
+
+                  </li>
+              </ul>
+
+             </li>
+            <li></li>
+        </ul>
+    </section>
+
+   <section>
+       <h4>Things to change the environment</h4>
+       <ul>
+           <li>Internet Of Things (IoT)</li>
+           <li>Autonomous objects:
+                <ul>
+                    <li>Fridges - with order management built-in</li>
+                    <li>Cars - deliver themselves</li>
+                    <li></li>
+                </ul>
+           </li>
+           <li></li>
+       </ul>
+   </section>
+
+   <section>
+       <h4>Properties</h4>
+       <ul style="font-size:35px;">
+           <li><b>Consensus</b>: all participants should agree for a transaction to be valid</li>
+           <li><b>Provenance</b>: participants know where the asset came from and how its ownership changed over the time</li>
+           <li><b>Immutable</b>: participants can't temper a transaction after it is recorded in the ledger. If a transaction is in error, 
+               a new transaction must be used to correct the error and bother corrected and correcting transactions should be visible</li>
+           <li><b>Finality</b>: Single shared ledger - determines the ownership of the asset or the completion of the transaction </li>
+       </ul>
+   </section>
+
+  <section>
+      <h4>Bitcoin White paper </h4>
+          <object   data="img/bitcoin-wp.pdf" type="application/pdf" style="width: 100%; height: 800px;">
+
+            <p>It appears you don't have a PDF plugin for this browser</p>
+          </object>
+ 
+  </section>
+
+ <section>
+     <h4>References</h4>
+     <ul>
+      <li>
+       <a target="_blank" href="https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?htmlfid=XIM12354USEN">IBM book on Blockchain</a>
+      </li>
+    </ul>
+ </section>
 
     </div>
   </div>
@@ -297,7 +414,7 @@
     var GSCOPE;
     app.controller('MainCtrl', function($scope, $http, $timeout) {
       GSCOPE = $scope; // debugging purposes
-      $scope.appName="Help";
+      $scope.appName="Blockchain";
 
 
 
