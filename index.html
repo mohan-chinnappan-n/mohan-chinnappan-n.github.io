@@ -12,6 +12,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/navbar-blue.css">
 
+  <style>
+
+    #sf-menu-content-list {
+      margin-left:10px;
+      font-size:25px;
+      border: 1px solid #fff;
+      border-radius: 10px;
+
+    }
+  </style>
+
 
 
 
@@ -40,7 +51,7 @@
 
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Salesforce<b class="caret"></b></a>
-          <ul class="dropdown-menu" id="sf_menu">
+          <ul class="dropdown-menu" id="sf-menu-content">
              <li><a href="./sfdc/GettingStarted.html">Getting Started</a></li>
               <li class='divider'></li>
             <li><a href="./sfdc/pevents.html">Platform Events</a></li>
@@ -419,14 +430,27 @@
 
   <script>
     $('document').ready(function() {
-      alert('ready');
+        $('#sf-menu-content-list').html(
+              $('#sf-menu-content').html()
+
+        ).hide()
+ 
+        ;
+        $('#sf-menu-content .divider').html("<button class='btn btn-info' style='height:.5px;width:300px;'></button>");
+        $('#toggle-sf-content').click(function() {
+            $('#sf-menu-content-list').html(
+              $('#sf-menu-content').html()
+            )
+            $('#sf-menu-content-list').toggle();
+ 
+        });
     });
   </script>
 
 
   <div class="container">
-    <button id="toggle-sf-content">Show/Hide Salesforce Items</button>
-    <span id="sf-content"></span>
+    <button id="toggle-sf-content" class="btn btn-info">Toggle Salesforce Items</button>
+    <ul id="sf-menu-content-list"></ul>
     <div class="row">
       <div class="col-lg-6">
     அகர	முதல	எழுத்தெல்லாம்	ஆதி <br/>
