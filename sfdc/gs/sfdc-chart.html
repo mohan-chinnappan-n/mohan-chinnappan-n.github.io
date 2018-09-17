@@ -408,15 +408,7 @@ var orgChart = (function() {
 
 <script language="javascript" type="text/javascript">
 var u_data = {};
-   
-function loadChilds(actualElement, successFunction) {
-   $.getJSON("http://blog.zubasoft.at/Examples/D3.js/OrgChart/getPositions.php?id=" + actualElement.id, 
-          function(data) {
-             successFunction(data);
-          });
-}
 
-//$.getJSON("http://blog.zubasoft.at/Examples/D3.js/OrgChart/getPositions.php?id=0", 
 $.getJSON("./data.json", 
           function(data) {
              u_data = data;
