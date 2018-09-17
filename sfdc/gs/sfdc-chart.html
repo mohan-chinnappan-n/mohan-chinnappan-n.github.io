@@ -409,6 +409,13 @@ var orgChart = (function() {
 <script language="javascript" type="text/javascript">
 var u_data = {};
 
+function loadChilds(actualElement, successFunction) {
+    $.getJSON("./data.json?id=" + actualElement.id, 
+           function(data) {
+              successFunction(data);
+           });
+ }
+
 $.getJSON("./data.json", 
           function(data) {
              u_data = data;
