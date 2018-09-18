@@ -1,0 +1,35 @@
+{
+  "name": "bootpopup",
+  "main": "bootpopup.js",
+  "homepage": "http://www.bootpopup.tk",
+  "authors": [
+    "rigon <ricardompgoncalves@gmail.com>"
+  ],
+  "description": "Popup dialog boxes for Bootstrap",
+  "keywords": [
+    "bootstrap",
+    "dialog"
+  ],
+  "license": "GPL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "bootstrap": "^3.3.7"
+  },
+  "version": "1.5.1",
+  "_release": "1.5.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.5.1",
+    "commit": "0d76d407d085fd53ec30bb7615e33cf1d85204ff"
+  },
+  "_source": "https://github.com/rigon/bootpopup.git",
+  "_target": "^1.1.0",
+  "_originalSource": "bootpopup"
+}

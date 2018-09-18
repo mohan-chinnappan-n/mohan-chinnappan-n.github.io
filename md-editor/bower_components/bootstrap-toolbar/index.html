@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Bootstrap Toolbar</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta charset="UTF-8">
+		
+		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css" />
+		
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="bootstrap-toolbar.js"></script>
+
+		<style type="text/css">
+			.toolbar {
+				background-color: lightgray;
+				background: linear-gradient(to bottom, #f7f7f7 0%,#bababa 100%);
+			}
+			.toolbar > .navbar { min-height: 0; }
+			.toolbar > .navbar > .btn-group {
+				margin: 5px;
+			}
+
+			.statusbar {
+				color: white;
+				background-color: #007ACC;
+				position: absolute;
+				bottom: 0px;
+				width: 100%;
+			}
+			.statusbar > .navbar { min-height: 0; margin: 0; }
+			.statusbar > .navbar > .btn-group {
+				margin: 0px 7px 0px 7px;
+			}
+			.statusbar .btn {
+				font-size: 85%;
+				color: white;
+				background: none;
+				border: none;
+				border-radius: 0px;
+				padding: 3px 6px;
+			}
+			.statusbar .btn:hover { background-color: #008DDF; }
+			.statusbar .btn:active, .statusbar .btn-group.open .btn {
+				color: white;
+				background-color: #0070C1;
+			}
+		</style>
+
+		<script type="text/javascript">
+			window.onload = function() {
+				$(".toolbar").toolbar({
+					show: true,
+					attr: {class: "toolbar"},
+					buttons: {
+						button1: {text: "Button"},
+						button2: {text: "Primary", class: "btn btn-primary" }
+					},
+
+					list: ["bold", "italic", "space",
+						"quote", "code", "image", "link", "space",
+						"ol", "ul", "header", "table", "space",
+						"undo", "redo", "space",
+						"newpage", "space", "tabSize" ],
+
+					buttons: {
+						bold: { title: "Bold", icon: "fa fa-bold", onclick: this.bold },
+						italic: { title: "Italic", icon: "fa fa-italic", onclick: this.italic },
+
+						quote: { title: "Quote text", icon: "fa fa-quote-left", onclick: this.quote },
+						code: { title: "Block of code", icon: "fa fa-code", onclick: this.code },
+						image: { title: "Add image", icon: "fa fa-image", onclick: this.image },
+						link: { title: "Hyperlink", icon: "fa fa-link", onclick: this.link },
+						
+						ol: { title: "Ordered list", icon: "fa fa-list-ol", onclick: this.ol },
+						ul: { title: "Unordered list", icon: "fa fa-list-ul", onclick: this.ul },
+						header: { title: "Header", icon: "fa fa-header", onclick: this.header },
+						table: { title: "Table", icon: "fa fa-table", onclick: this.table },
+						
+						undo: { title: "Undo", icon: "fa fa-undo", onclick: this.undo },
+						redo: { title: "Redo", icon: "fa fa-repeat", onclick: this.redo },
+
+						newpage: { 
+							widget: "dropdown",
+							icon: "fa fa-file-text",
+							list: [
+								{ text: '<a href="#" class="btn-newpage">New Page</a>' },
+								{ class: "divider" },
+								{ text: '<a href="#">Page 1</a>' },
+								{ text: '<a href="#">Page 2</a>' },
+								{ text: '<a href="#">Page 3</a>' },
+								{ text: '<a href="#">Page 4</a>' },
+								{ text: '<a href="#">Page 5</a>' },
+								{ text: '<a href="#">Page 6</a>' }]
+						},
+						tabSize: { 
+							widget: "input",
+							type: "number",
+							prefix: "Tab size",
+							sufix: "spaces",
+							style: "width: 80px"
+						},
+					}
+				});
+
+
+				$(".statusbar").toolbar({
+					list: ["settings", "language", "theme", "space", "position" ],
+					buttons: {
+						settings: { icon: "fa fa-cogs" },
+
+						language: { 
+							widget: "dropup",
+							text: "Language",
+							list: [
+								{ text: '<a href="#">Plain text</a>' },
+								{ class: "divider" },
+								{ text: '<a href="#">HTML</a>' },
+								{ text: '<a href="#">JavaScript</a>' },
+								{ text: '<a href="#">Java</a>' },
+								{ text: '<a href="#">C/C++</a>' },
+								{ text: '<a href="#">OCaml</a>' },
+								{ text: '<a href="#">Haskell</a>' }]
+						},
+
+						theme: { 
+							widget: "dropup",
+							text: "Theme",
+							list: [
+								{ text: '<a href="#">Abyss</a>' },
+								{ text: '<a href="#">Dark+</a>' },
+								{ text: '<a href="#">Kimbie</a>' },
+								{ text: '<a href="#">High Contrast</a>' },
+								{ text: '<a href="#">Light</a>' },
+								{ text: '<a href="#">Monokai</a>' }]
+						},
+
+						position: {
+							text: "Ln 139, Col 54"
+						},
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		TOOLBAR 1:
+		<div class="toolbar" id="t1"></div>
+		
+		TOOLBAR 2:
+		<div class="toolbar" id="t2"></div>
+
+		<span style="position: absolute; bottom: 30px;">STATUSBAR 2:</span>
+		<div class="statusbar"></div>
+	</body>
+</html>

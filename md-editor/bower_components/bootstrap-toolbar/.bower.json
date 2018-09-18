@@ -1,0 +1,35 @@
+{
+  "name": "bootstrap-toolbar",
+  "main": "index.html",
+  "homepage": "https://github.com/rigon/bootstrap-toolbar",
+  "authors": [
+    "rigon <ricardompgoncalves@gmail.com>"
+  ],
+  "description": "Customizable toolbars for Bootstrap",
+  "keywords": [
+    "notes"
+  ],
+  "license": "GPL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "fontawesome#^4.7.0",
+    "jquery": "^3.1.1"
+  },
+  "version": "0.0.1",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.1",
+    "commit": "8927e1a1a7cee92693ed50fc263916385dd7ee16"
+  },
+  "_source": "https://github.com/rigon/bootstrap-toolbar.git",
+  "_target": "^0.0.1",
+  "_originalSource": "bootstrap-toolbar"
+}
