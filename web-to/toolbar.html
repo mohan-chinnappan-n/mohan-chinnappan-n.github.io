@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Editor</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://mohan-chinnappan-n.github.io/css/navbar-blue.css">
+
+
+  <style type="text/css" media="screen">
+
+    .ace_editor, .toolbar {
+        border: 1px solid lightgray;
+        margin: auto;
+        width: 80%;
+    } 
+    .ace_editor {
+        height: 600px;
+    }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="javascript:void(0)">Markdown Editor</a>
+        </div>
+
+</nav>
+<script src="require.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.1/ace.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.1/ext-language_tools.js"></script> 
+<script>
+// setup paths
+require(["ace/ace", "ace/ext/language_tools"], function(ace) {
+    var buildDom = require("ace/lib/dom").buildDom;
+    var editor = ace.edit();
+    editor.setOptions({
+        theme: "ace/theme/monokai",
+        mode: "ace/mode/markdown",
+        maxLines: 30,
+        minLines: 30,
+        autoScrollEditorIntoView: true,
+    });
+    var refs = {};
+    function updateToolbar() {
+        refs.saveButton.disabled = editor.session.getUndoManager().isClean();
+        refs.undoButton.disabled = !editor.session.getUndoManager().hasUndo();
+        refs.redoButton.disabled = !editor.session.getUndoManager().hasRedo();
+    }
+    editor.on("input", updateToolbar);
+    editor.session.setValue(localStorage.savedValue || "Welcome to ace Toolbar demo!")
+    function save() {
+        localStorage.savedValue = editor.getValue(); 
+        editor.session.getUndoManager().markClean();
+        updateToolbar();
+    }
+    editor.commands.addCommand({
+        name: "save",
+        exec: save,
+        bindKey: { win: "ctrl-s", mac: "cmd-s" }
+    });
+    
+    buildDom(["div", { class: "toolbar" },
+        ["button", {
+            ref: "saveButton",
+            onclick: save
+        }, "SAVE"],
+        ["button", {
+            ref: "undoButton",
+            onclick: function() {
+                editor.undo();
+            }
+        }, "UNDO"],
+        ["button", {
+            ref: "redoButton",
+            onclick: function() {
+                editor.redo();
+            }
+        }, "REDO"],
+        ["button", {
+            style: "font-weight: bold",
+            onclick: function() {
+                editor.insertSnippet("**${1:$SELECTION}**");
+                editor.renderer.scrollCursorIntoView()
+            }
+        }, "BOLD"],
+        ["button", {
+            style: "font-style: italic",
+            onclick: function() {
+                editor.insertSnippet("*${1:$SELECTION}*");
+                editor.renderer.scrollCursorIntoView()
+            }
+        }, "ITALIC"],
+    ], document.body, refs);
+    document.body.appendChild(editor.container)
+    
+    window.editor = editor;
+});
+
+</script>
+
+</body>
+</html>
