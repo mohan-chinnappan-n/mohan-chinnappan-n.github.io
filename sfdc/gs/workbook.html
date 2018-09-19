@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <title>Workbook</title>
-
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -16,7 +12,6 @@
  
 <script src="js/split.js"></script>
 <link rel="stylesheet" href="css/split.css">
-
 </head>
 <body>
   <nav class="navbar navbar-default" role="navigation">
@@ -42,13 +37,35 @@
   </nav>
  
     <div id="menu" class="split split-horizontal">
-       <ul>
-           <li> <a href="#KeyPlayers">Key Players</a> </li>
-           <li> <a href="#ImpType">Implementation Type</a> </li>
-           <li> <a href="#Feedback">Feedback and Validation</a> </li>
-           <li> <a href="#WordOut">Get Word Out</a> </li>
+          <a  data-toggle="collapse" href="#collapseStep1" role="button" aria-expanded="false" aria-controls="collapseStep1">
+             Step-1 - Prepare for Success
+           </a>
+         <div class="collapse" id="collapseStep1">
+          <div class="card card-body" style="background-color:#fff;">
  
-       </ul>
+           <ul>
+               <li> <a href="#KeyPlayers">Key Players</a> </li>
+               <li> <a href="#ImpType">Implementation Type</a> </li>
+               <li> <a href="#Feedback">Feedback and Validation</a> </li>
+               <li> <a href="#WordOut">Get Word Out</a> </li>
+               <li> <a href="#BizObj">Business Objectives</a> </li>
+     
+           </ul>
+         </div>
+        </div>
+
+        <br/>  <a  data-toggle="collapse" href="#collapseStep2" role="button" aria-expanded="false" aria-controls="collapseStep2">
+             Step-2 - Create UX
+           </a>
+         <div class="collapse" id="collapseStep2">
+          <div class="card card-body" style="background-color:#fff;">
+           <ul>
+               <li> <a href="#KeyPlayers">Key Players</a> </li>
+     
+           </ul>
+         </div>
+        </div>
+
 
 
 </div>
@@ -169,6 +186,46 @@ Select Type of Implementation Support </h2></span>
 
 <span id="WordOut" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Get Word Out</h2></span> 
 <center><img src="img/get-word-out-1.png" height="300" style="margin-left:30px;" alt=""></center>
+<ul class='list-group'>
+    <li class='list-group-item'><b>Pre-Launch</b>: Program Vision, Business Goals, Key Players </li>
+    <li class='list-group-item'><b>Week of Launch</b>:  How to access Salesforce, How to get help</li>
+    <li class='list-group-item'><b>Post-Launch</b>:  User recognition, Tips & tricks, How to get help </li>
+</ul>
+
+<span id="BizObj" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Business Objectives</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Define your goals</b>: Define a clear purpose for your Salesforce initiative, drive ongoing commitment, and provide a way to measure and prove results. </li>
+    <li class='list-group-item'><b>List your pain-points</b>:  Capture the issues that various groups are facing</li>
+    <li class='list-group-item'><b>Prioritize goals</b>:  To help focus your Salesforce implementation efforts going forward</li>
+    <li class='list-group-item'><b>Define Measurements  </b>: What you’ll use to measure the success of your Salesforce implementation:
+     <ul class='list-group'>
+        <li class='list-group-item'><b>Usage and data quality</b>
+            <ul class="list-group">
+                <li class="list-group-item">Percentage of users logging into Salesforce</li>
+                <li class="list-group-item">Number of accounts, contacts, and opportunities created, Number of active licenses</li>
+                <li class="list-group-item">Login leaderboard, Hall of Fame</li>
+                <li class="list-group-item"> Average number of opportunities associated to an account</li>
+                <li class="list-group-item"> Number of open opportunities with close dates in the past</li>
+            </ul>
+         </li>
+        <li class='list-group-item'><b>User satisfaction</b>
+           <ul class="list-group">
+               <li class="list-group-item">Is the training helping you perform your job?</li>
+               <li class="list-group-item">Have you improved lead qualification?</li>
+               <li class="list-group-item">Do you find competitor information quickly?</li>
+               <li class="list-group-item">Is collaboration helping to close deals faster?</li>
+           </ul>
+        </li>
+        <li class='list-group-item'><b>Business performance</b>
+        <ul class="list-group">
+               <li class="list-group-item">How is my team tracking with sales?</li>
+               <li class="list-group-item">Do I have a sufficient pipeline?</li>
+               <li class="list-group-item">What is the quality of my leads?</li>
+               <li class="list-group-item">Are we remaining engaged with our customers</li>
+           </ul>
+       
+       </li>
+    </ul>
 
 
 
@@ -176,7 +233,7 @@ Select Type of Implementation Support </h2></span>
 </div> 
 <script>
   Split(['#menu', '#content'], {
-    sizes: [15, 85]
+    sizes: [20, 80]
 });
 </script>
 
