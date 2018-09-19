@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Split.js</title>
+  <style>
+  td {
+    padding: 8px 10px;
+  }
+
+  td:first-child {
+    font-family: monospace;
+  }
+
+  h3 {
+    margin-top: 100px;
+  }
+
+  h5 {
+    margin-bottom: 0;
+  }
+
+  hr {
+    margin-top: 2px;
+  }
+
+  .api {
+    height: 250px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .example-4, .example-5 {
+    height: 400px;
+  }
+
+  .split p {
+    padding: 20px;
+  }
+
+  .split {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .gutter {
+    background-color: #eee;
+
+    background-repeat: no-repeat;
+    background-position: 50%;
+  }
+
+  .gutter.gutter-horizontal {
+    background-image: url('https://nathancahill.github.io/Split.js/grips/vertical.png');
+    cursor: ew-resize;
+  }
+
+  .gutter.gutter-vertical {
+    background-image: url('https://nathancahill.github.io/Split.js/grips/horizontal.png');
+    cursor: ns-resize;
+  }
+
+  .split.split-horizontal, .gutter.gutter-horizontal {
+    height: 100%;
+    float: left;
+  }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Split.js</h3>
+        <div class="api">
+          <div id="three" class="split split-horizontal">
+            <p>Bacon ipsum dolor amet beef ribs meatloaf picanha pork loin pork chop rump pig sausage bacon shank boudin beef fatback. Pork loin turducken t-bone chicken.</p>
+          </div>
+          <div id="four" class="split split-horizontal">
+            <p>Brisket andouille cow ball tip. Ham ground round short loin tri-tip ribeye t-bone boudin, pork loin turkey drumstick tongue pork chop. Kielbasa doner picanha turducken, swine bacon shank pastrami andouille. Hamburger tongue tenderloin meatball picanha. Rump bresaola chicken bacon, ground round corned beef ribeye salami. Turkey fatback short ribs andouille meatball, brisket pork belly cow t-bone turducken pig beef ribs.</p>
+          </div>
+        </div>
+        <br><br>
+        <div>
+          <button onclick="split.setSizes([25, 75])">Set Sizes 25/50/25%</button>
+          <button onclick="split.setSizes([0, 100])">Collapse First</button>
+        </div>
+    </div>
+</body>
+<script src="https://nathancahill.github.io/Split.js/split.js"></script>
+<script>
+    var split = Split(['#three', '#four'], {
+        sizes: [50, 50],
+        minSize: 0,
+    });
+</script>
+</html>

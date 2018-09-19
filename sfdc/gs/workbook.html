@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Workbook</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="../../css/navbar-green.css">
+ 
+<script src="js/split.js"></script>
+<link rel="stylesheet" href="css/split.css">
+
+</head>
+<body>
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">Salesforce Workbook</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+ 
+    <div id="menu" class="split split-horizontal">
+       <ul>
+           <li> <a href="#KeyPlayers">Key Players</a> </li>
+           <li> <a href="#ImpType">Implementation Type</a> </li>
+           <li> <a href="#Feedback">Feedback and Validation</a> </li>
+           <li> <a href="#WordOut">Get Word Out</a> </li>
+ 
+       </ul>
+
+
+</div>
+    <div id="content" class="split split-horizontal">
+
+<span  id="KeyPlayers" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Define Key Players and Supporting Players</h2></span>
+<ul  class="list-group">
+    <li class="list-group-item">
+       <h3>Key Players</h3>
+       <ul class='list-group'>
+        <li class="list-group-item">
+          <a class="btn btn-primary" data-toggle="collapse" href="#collapseAdmin" role="button" aria-expanded="false" aria-controls="collapseAdmin">
+             Administrator
+           </a>
+        <div class="collapse" id="collapseAdmin">
+          <div class="card card-body" style="background-color:#eef;">
+              Supports Business Process Mapping. Configures Salesforce. Trains and Suports End-Users
+          </div>
+        </div>
+        </li>
+         <li class="list-group-item">
+          <a class="btn btn-primary" data-toggle="collapse" href="#collapseBizPO" role="button" aria-expanded="false" aria-controls="collapseBizPO">
+             Business Process Owner
+           </a>
+        <div class="collapse" id="collapseBizPO">
+          <div class="card card-body" style="background-color:#eef;">
+               Has deep knoweldge of sales-process & steps. Can map sales-process steps to Salesforce. Can Validate Design and Testing.
+          </div>
+        </div>
+        </li>
+             
+       </ul>
+    </li>
+
+    <li class="list-group-item">
+       <h3>Supporting Players</h3>
+       <ul class='list-group'>
+            <li class="list-group-item">
+
+              <a class="btn btn-success" data-toggle="collapse" href="#collapseES" role="button" aria-expanded="false" aria-controls="collapseES">
+                Executive Sponsor
+               </a>
+            <div class="collapse" id="collapseES">
+              <div class="card card-body" style="background-color:#efe;">
+                 Articulates the Value. Encourages adoption. Communicates the strategy.
+              </div>
+            </div>
+     
+
+          </li>
+           <li class="list-group-item">
+
+              <a class="btn btn-success" data-toggle="collapse" href="#collapseDA" role="button" aria-expanded="false" aria-controls="collapseDA">
+                Data Analyst
+               </a>
+            <div class="collapse" id="collapseDA">
+              <div class="card card-body" style="background-color:#efe;">
+                  Has deep knowledge of the current data. Owns data-mapping and consolidation strategy in Salesforce.
+              </div>
+            </div>
+     
+           </li>
+           <li class="list-group-item">
+
+             <a class="btn btn-success" data-toggle="collapse" href="#collapseChamp" role="button" aria-expanded="false" aria-controls="collapseChamp">
+                Champion
+               </a>
+            <div class="collapse" id="collapseChamp">
+              <div class="card card-body" style="background-color:#efe;">
+                Passinate about Salesforce Implementation. Ensures Salesforce is meeting the end-user needs. Drives adoption!
+
+              </div>
+            </div>
+     
+          </li>
+       </ul>
+    </li>
+
+</ul>  
+
+<span id="ImpType" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>
+Select Type of Implementation Support </h2></span>
+
+<ul class="list-group">
+    <li class="list-group-item"><h3>Self-Implement</h3>
+        <ul class="list-group">
+            <li class="list-group-item">Strong in-house expertise</li>
+            <li class="list-group-item">Ability to dedicate time for setup</li>
+            <li class="list-group-item">Will be using mostly out-of-box functionality </li>
+        </ul>
+   </li>
+    <li class="list-group-item"><h3>With Partner</h3>
+     <ul class="list-group">
+         <li class="list-group-item" >
+            <a target="_blank" href="https://help.salesforce.com/articleView?id=000176287&type=3">How to: Successfully Implement with Salesforce Partners</a>
+        </li>
+     </ul>
+   </li>
+</ul>
+
+
+<span id="Feedback" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Feedback and Validation </h2></span> 
+
+<ul class="list-group">
+    <li class="list-group-item"><h3>Validation</h3>
+        <ul class="list-group">
+            <li class="list-group-item">Who: Most Capable Person/Team</li>
+            <li class="list-group-item">Needs: Sandbox, Config, User-setup, Test-data </li>
+            <li class="list-group-item">Timing: Avoid end-of-quarter</li>
+        </ul>
+   </li>
+</ul>
+
+<span id="WordOut" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Get Word Out</h2></span> 
+<center><img src="img/get-word-out-1.png" height="300" style="margin-left:30px;" alt=""></center>
+
+
+
+
+</div> 
+<script>
+  Split(['#menu', '#content'], {
+    sizes: [15, 85]
+});
+</script>
+
+</body>
+</html>
