@@ -61,11 +61,50 @@
           <div class="card card-body" style="background-color:#fff;">
            <ul>
                <li> <a href="#salesProcess"> Define Sales Process</a> </li>
-                <li> <a href="#setupUsers"> Set up Users</a> </li>
+               <li> <a href="#setupUsers"> Set up Users</a> </li>
+               <li> <a href="#setupLeads"> Set up Leads</a> </li>
+               <li> <a href="#setupOpptys"> Set up Opportunities</a> </li>
+               <li> <a href="#setupActivities"> Set up Activities</a> </li>
+               <li> <a href="#UtilizeChatter"> Utilize Chatter </a> </li>
+               <li> <a href="#sfMobileApp"> Salesforce Mobile App </a> </li>
+               <li> <a href="#setupAccounts"> Set up Accounts </a> </li>
+               <li> <a href="#setupContacts"> Set up Contacts </a> </li>
+               <li> <a href="#AlignToBiz">Align Salesforce to Your Business </a> </li>
      
            </ul>
          </div>
         </div>
+
+        <br/>  <a  data-toggle="collapse" href="#collapseStep3" role="button" aria-expanded="false" aria-controls="collapseStep3">
+             Step-3 - Enable the UX With Data
+           </a>
+         <div class="collapse" id="collapseStep3">
+          <div class="card card-body" style="background-color:#fff;">
+           <ul>
+               <li> <a href="#Data"> Identify Data & Prepare Data for Import</a> </li>
+               <li> <a href="#ImportData"> Import Data</a> </li>
+                <li> <a href="#ManageData"> Manage Your Data</a> </li>
+ 
+           </ul>
+          </div>
+        </div>
+
+        <br/>  <a  data-toggle="collapse" href="#collapseStep4" role="button" aria-expanded="false" aria-controls="collapseStep4">
+             Step-4 - Deploy & Empower Users </a>
+         <div class="collapse" id="collapseStep4">
+          <div class="card card-body" style="background-color:#fff;">
+           <ul>
+               <li> <a href="#4idAudience">Identify Audience</a> </li>
+               <li> <a href="#4scenarios"> Determine relevant scenarios</a> </li>
+                <li> <a href="#4trainingPaths"> Define your training paths</a> </li>
+                 <li> <a href="#4driveAdoption"> Drive user adoption</a> </li>
+                 <li> <a href="#4trackMeasureSuccess"> Track Measure Success</a> </li>
+                 <li> <a href="#4trackBizOutcome">Track Achievement of Business Outcomes </a> </li>
+ 
+           </ul>
+          </div>
+        </div>
+
 
 
 
@@ -276,7 +315,7 @@ Select Type of Implementation Support </h2></span>
 <span id="setupLeads" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Set up Leads</h2></span> 
 <ul class='list-group'>
     <li class='list-group-item'><b>Adjust the standard fields to match your business </b>: 
-          <a class='btn btn-info' target="_blank" href="https://mohan-chinnappan-n.github.io/sfdc/fs-cloud/csv-viewer.html?f=Lead">Lead Standard Fields</a>
+          <a class='btn btn-info' target="_blank" href="../fs-cloud/csv-viewer.html?f=Lead">Lead Standard Fields</a>
      <ul class='list-group'>
           <li class="list-group-item">Set required fields.</li>
           <li class="list-group-item">Update picklist values.</li>
@@ -292,7 +331,7 @@ Select Type of Implementation Support </h2></span>
      <ul class='list-group'>
           <li class="list-group-item">Manually Enter Leads</li>
           <li class="list-group-item">Web-to-Lead to collect Leads
-             <a target="_blank" class="btn btn-info" href="../../web-to/demo-web2lead.html">Demo: Web-to-Lead</a>
+             <a target="_blank" class="btn btn-info" href="../../web-to/editor.html">Demo: Web-to-Lead</a>
            </li>
           <li class="list-group-item">Import Leads - if you have purchased Leads</li>
       </ul>
@@ -311,8 +350,386 @@ Select Type of Implementation Support </h2></span>
       </ul>
      </li>
  
+     <li class='list-group-item'><b> Adapt dashboards and reports</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What metrics do you need to run your business</li>
+          <li class="list-group-item">Modify reports and dashboards to align to your business.</li>
+          <li class="list-group-item">Share reports and dashboards with appropriate users.</li>
+      </ul>
+     </li>
+ 
 
 </ul>
+
+<span id="setupOpptys" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Set up Opportunities</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Adjust the standard fields to match your business </b>: 
+          <a class='btn btn-info' target="_blank" href="../fs-cloud/csv-viewer.html?f=Opportunity">Opportunity Standard Fields</a>
+     <ul class='list-group'>
+          <li class="list-group-item">Set required fields.</li>
+          <li class="list-group-item">Update picklist values.</li>
+          <li class="list-group-item">Set default values.</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b>Add custom fields (if necessary) </b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What additional Opportunity information do I need to track for reporting purposes?</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b> Set up opportunity products</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">Enter your products manually or with the Data Loader. </li>
+          <li class="list-group-item">Enter your standard price book</li>
+          <li class="list-group-item">If you are not using products and price books: Hide the products related list from the opportunity page.</li>
+      </ul>
+     </li>
+      <li class='list-group-item'><b> Set up Sales Path</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item"> Guide your users along steps in a process, like working an opportunity from stage 1 to close
+               <img src="img/salespath-1.png" width="100%" alt="">
+          </li>
+          <li class="list-group-item">Create a path to guide users on a process</li>
+          <li class="list-group-item">Select key fields to focus users on the most critical information, and at each step, help users succeed with step-specific guidance</li>
+      </ul>
+     </li>
+ 
+     <li class='list-group-item'><b> Customize Highlights panel</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item"> Ability to have key fields highlighted at the top of the screen:
+               <img src="img/salespath-2.png" width="100%" alt="">
+          </li>
+          <li class="list-group-item"> Edit Compact Layouts to add fields to appear in an object’s highlights area, like at the top of the Opportunity page.</b>
+      </ul>
+     </li>
+     <li class='list-group-item'><b> Create custom list views</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">Select particular fields that drive the action you want to perform</li> 
+      </ul>
+     </li>
+ 
+
+     <li class='list-group-item'><b> Create dashboards and reports</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What metrics do you need to run your business</li>
+          <li class="list-group-item">Modify reports and dashboards to align to your business.</li>
+          <li class="list-group-item">Share reports and dashboards with appropriate users.</li>
+      </ul>
+     </li>
+
+</ul>
+
+<span id="setupActivities" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Set up Activities</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Adjust the standard fields to match your business </b>: 
+          <a class='btn btn-info' target="_blank" href="../fs-cloud/csv-viewer.html?f=Task">Task Standard Fields</a>
+          <a class='btn btn-info' target="_blank" href="../fs-cloud/csv-viewer.html?f=Event">Event Standard Fields</a>
+ 
+     <ul class='list-group'>
+          <li class="list-group-item">Set required fields.</li>
+          <li class="list-group-item">Update picklist values.</li>
+          <li class="list-group-item">Set default values.</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b>Add custom fields (if necessary) </b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What additional Activity information do I need to track for reporting purposes?</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b> Set up email integration</b>:  Synchronize Salesforce with your  email provider
+     <ul class='list-group'>
+          <li class="list-group-item">Lightning For Outlook <a target="_blank" class="btn btn-info"  href="../email-integration.html">LOF</a> </li>
+      </ul>
+     </li>
+ 
+     <li class='list-group-item'><b> Create custom list views</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">Select particular fields that drive the action you want to perform</li> 
+      </ul>
+     </li>
+ 
+
+     <li class='list-group-item'><b> Create dashboards and reports</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What metrics do you need to run your business</li>
+          <li class="list-group-item">Modify reports and dashboards to align to your business.</li>
+          <li class="list-group-item">Share reports and dashboards with appropriate users.</li>
+      </ul>
+     </li>
+</ul>
+
+<span id="UtilizeChatter" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Utilize Chatter</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Sales teams collaboration on deals </b>: Collaborate on opportunities
+     <ul class='list-group'>
+          <li class="list-group-item">Collaborate on opportunities</li>
+          <li class="list-group-item">Chatter Groups:<br/> 1. Salesforce Training, Tips and Support.<br/>2. Company initiative or event.</li>
+      </ul>
+     </li>
+</ul>
+
+<span id="sfMobileApp" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Salesforce Mobile App</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Available from Apple AppStore and Google Play </b>: Use App to: 
+     <ul class='list-group'>
+          <li class="list-group-item">View, modify, and create contacts, accounts, opportunities, and tasks.</li>
+          <li class="list-group-item">Collaborate with Chatter.</li>
+          <li class="list-group-item">View reports and dashboards.</li>
+          <li class="list-group-item">Use the Today App.</li>
+          <li class="list-group-item"> Customize the Salesforce Mobile App:
+           <ul class='list-group'>
+               <li class="list-group-item">Branding</li>
+               <li class="list-group-item"> Pay layouts </li>
+               <li class="list-group-item">Navigation menu</li>
+               <li class="list-group-item">Notifications</li>
+               <li class="list-group-item"> Publisher actions</li>
+           </ul>
+ 
+          </li>
+
+
+   
+      </ul>
+     </li>
+</ul>
+
+<span id="setupAccounts" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Set up Accounts</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Adjust the standard fields to match your business </b>: 
+          <a class='btn btn-info' target="_blank" href="../fs-cloud/csv-viewer.html?f=Account">Account Standard Fields</a>
+ 
+     <ul class='list-group'>
+          <li class="list-group-item">Set required fields.</li>
+          <li class="list-group-item">Update picklist values.</li>
+          <li class="list-group-item">Set default values.</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b>Add custom fields (if necessary) </b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What additional Account information do I need to track for reporting purposes?</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b> Create an account hierarchy (if needed)</b>: To  track multiple locations, franchises, and subsidiaries on an account 
+     <ul class='list-group'>
+          <li class="list-group-item">Create an account hierarchy by associating an existing and/or new account to a parent account.</li>
+          <li class="list-group-item">If loading accounts, include a column with the parent account ID and map that to the Parent Account field in Salesforce</li>
+    </ul>
+     </li>
+ 
+     <li class='list-group-item'><b> Create custom list views</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">Select particular fields that drive the action you want to perform: Customer Accounts or Competitor Accounts</li> 
+      </ul>
+     </li>
+
+     <li class='list-group-item'><b> Create dashboards and reports</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What metrics do you need to run your business</li>
+          <li class="list-group-item">Modify reports and dashboards to align to your business.</li>
+          <li class="list-group-item">Share reports and dashboards with appropriate users.</li>
+      </ul>
+     </li>
+</ul>
+
+<span id="setupContacts" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Set up Contacts</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Adjust the standard fields to match your business </b>: 
+          <a class='btn btn-info' target="_blank" href="../fs-cloud/csv-viewer.html?f=Contact">Contact Standard Fields</a>
+ 
+     <ul class='list-group'>
+          <li class="list-group-item">Set required fields.</li>
+          <li class="list-group-item">Update picklist values.</li>
+          <li class="list-group-item">Set default values.</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b>Add custom fields (if necessary) </b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What additional Contact information do I need to track for reporting purposes?</li>
+      </ul>
+     </li>
+ 
+     <li class='list-group-item'><b> Create custom list views</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">Select particular fields that drive the action you want to perform </li> 
+      </ul>
+     </li>
+
+     <li class='list-group-item'><b> Create dashboards and reports</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What metrics do you need to run your business</li>
+          <li class="list-group-item">Modify reports and dashboards to align to your business.</li>
+          <li class="list-group-item">Share reports and dashboards with appropriate users.</li>
+      </ul>
+     </li>
+</ul>
+
+<span id="AlignToBiz" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Align Salesforce to Your Business</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Improve Usability With Page Layouts</b>: 
+ 
+     <ul class='list-group'>
+          <li class="list-group-item">Create new sections with meaningful section headers</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b>Improve Usability With Search Modification</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">Add more fields to make it easier to use lookup fields.</li>
+          <li class="list-group-item">Make sure that relevant fields are returned in search.</li>
+
+
+
+
+      </ul>
+     </li>
+ 
+</ul>
+
+
+<span id="Data" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>Identify Data and Prepare Your Data for Import  </h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Data Analysis</b>: 
+ 
+     <ul class='list-group'>
+          <li class="list-group-item">Determine the data for import and its source.</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b>Data Prep</b>: Clean and de-duped data: 
+     <ul class='list-group'>
+          <li class="list-group-item">To create your data import template, export field name columns from Salesforce.</li>
+          <li class="list-group-item">Include the record owner ID</li>
+          <li class="list-group-item"> Populate required fields</li>
+          <li class="list-group-item"> Use valid picklist values (such as Not Started, In Review, and Complete).</li>
+          <li class="list-group-item"> Examine data and correct errors: 
+           <ul class='list-group'>
+              <li class="list-group-item">Delete duplicates.</li>
+              <li class="list-group-item">Correct spelling.</li>
+              <li class="list-group-item">Correct spelling.</li>
+              <li class="list-group-item">Enforce Data Standards  
+                  <a target="_blank" class='btn btn-info' href="../dg.html">Data Governance</a>
+             </li>
+          </ul>
+          </li>
+          <li class="list-group-item"> Include legacy system data ID</li>
+      </ul>
+     </li>
+ 
+</ul>
+
+<span id="ImportData" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Import Data  </h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'>Choose data to import. </li>
+     <li class='list-group-item'>Edit field mapping.</li>
+     <li class='list-group-item'>Test on subsets of records before a full import.</li>
+     <li class='list-group-item'>Review and start import. </li>
+</ul>
+
+<span id="ManageData" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Manage Your Data  </h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'>Data Quality:  standards  in place to maintain the data
+      <ul class='list-group'>
+        <li class='list-group-item'>Use naming, address conventions.</li>
+        <li class='list-group-item'>Prevent duplicates.</li>
+         <li class='list-group-item'>Establish required field.</li>
+         <li class='list-group-item'>Create default values.</li>
+         <li class='list-group-item'>Use data validation rules.</li>
+      </ul> 
+     </li>
+     <li class='list-group-item'>Data Archive Strategy
+       <ul class='list-group'>
+        <li class='list-group-item'>Determine an archive strategy for data you do not migrate.</li>
+        <li class='list-group-item'>Determine an ongoing archive strategy for data.</li>
+      </ul> 
+     </li>
+     <li class='list-group-item'>Data Backup Strategy
+       <ul class='list-group'>
+        <li class='list-group-item'>Weekly Data Export Service.</li>
+        <li class='list-group-item'>Explore the AppExchange for options available for data backup.</li>
+      </ul> 
+     </li>
+     <li class='list-group-item'>Create Data Quality Dashboards
+       <ul class='list-group'>
+        <li class='list-group-item'>Modify reports and dashboards to align to your business.</li>
+        <li class='list-group-item'>Share the reports and dashboards with appropriate users.</li>
+
+      </ul> 
+     </li>
+</ul>
+
+<span id="4idAudience" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Identify Audience  </h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'>Determine the audience groups that need to be trained and what scenarios are covered by Salesforce. Then map the processes that are relevant to each audience. </li>
+</ul>
+
+<span id="4scenarios" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Determine Relevant Scenarios  </h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'>Think about the typical Salesforce processes that your users will go through on a daily basis. Plan your training around these processes and document both the scenario and the Salesforce functions that you’ll cover</li>
+</ul>
+
+<span id="#4trainingPaths" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Define Your Training Paths</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'>
+Training paths are the sequence of training and type of training that you want for your users. This can vary by type of audience (such as a sales rep or an executive).</li>
+</ul>
+
+<span id="#4driveAdoption" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>Drive user adoption </h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'>Motivate 
+     <ul class='list-group'>
+      <li class='list-group-item'> Leverage executive leadership. </li>
+      <li class='list-group-item'> Emphasize the value. </li>
+      <li class='list-group-item'> Motivate by recognition. </li>
+      <li class='list-group-item'> Develop incentives. </li>
+    </ul> 
+   </li>
+<li class='list-group-item'>Support 
+     <ul class='list-group'>
+      <li class='list-group-item'> Utilize super users. </li>
+      <li class='list-group-item'>  Document your support process and share. </li>
+      <li class='list-group-item'> Address problems quickly and publicly. </li>
+      <li class='list-group-item'> Offer refresher training. </li>
+    </ul> 
+   </li>
+<li class='list-group-item'>Motivate 
+     <ul class='list-group'>
+      <li class='list-group-item'>  Develop a communication plan.</li>
+      <li class='list-group-item'> Create feedback loops. </li>
+      <li class='list-group-item'> Reach out to “resistors.” </li>
+      <li class='list-group-item'> “Walk the floor.” </li>
+    </ul> 
+   </li>
+
+
+
+</ul>
+
+<span id="#4trackMeasureSuccess" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>Track and Measure Success </h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'>Measure Salesforce Usage: 
+     <ul class='list-group'>
+      <li class='list-group-item'> How users are leveraging Salesforce? What actions will you take based on your observations? </li>
+    </ul> 
+   </li>
+<li class='list-group-item'>Measure Data Quality 
+     <ul class='list-group'>
+      <li class='list-group-item'> How will you keep your data up to date and validate that users are using Salesforce appropriately? </li>
+    </ul> 
+   </li>
+<li class='list-group-item'>Assess User Satisfaction 
+     <ul class='list-group'>
+      <li class='list-group-item'>  How will you determine if pain points are being addressed and if Salesforce is helping users reach their goals?: Chatter Polls and Surveys.</li>
+    </ul> 
+   </li>
+
+
+
+</ul>
+
+
+
+<span id="#4trackBizOutcome" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Track Achievement of Business Outcomes</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'>Are all the metrics defined in Step 1: Prepare for Success reflected in the reports and dashboards?  </li>
+</ul>
+
 
 
 
