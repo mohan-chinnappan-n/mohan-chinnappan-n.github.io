@@ -1,0 +1,166 @@
+
+<div class="videoComponent parbase section vy-player"><div>
+  
+
+
+
+
+
+<script type="text/javascript" src="//c1.sfdcstatic.com/etc/clientlibs/granite/jquery.min.a1b61eccd1f2b58b4221afee4dd310e6.js"></script>
+<script type="text/javascript" src="//c1.sfdcstatic.com/etc/clientlibs/granite/utils.min.10f010d84e0498a3af791c34aab51c38.js"></script>
+<script type="text/javascript" src="//c1.sfdcstatic.com/etc/clientlibs/granite/jquery/granite.min.9b90e3963ab2f40342a5eb8f1a308f0d.js"></script>
+<script type="text/javascript" src="//c1.sfdcstatic.com/etc/clientlibs/foundation/jquery.min.04c02883bbd8d131b579412d156fbd96.js"></script>
+
+
+
+        <p class='vy-player-container'>
+	        <script type='text/javascript' id='vidyard_embed_code_Vm7yFFoa38GvH5FQJG2ZE2' src='https://play.vidyard.com/Vm7yFFoa38GvH5FQJG2ZE2.js?v=3.1.1&type=inline'></script>
+        </p>
+        
+
+</div>
+
+<script>
+  (function($) {
+    // Add 'Configuration' global object with details of our Adobe Analytics instance
+    window.Configuration = window.Configuration || {};
+    var rsid = (typeof Server !== 'undefined') ? Server.getAccount() : '';
+    $.extend(window.Configuration, {
+      PUBLISHER: '8D6C67C25245AF020A490D4C@AdobeOrg',
+      MCID: '8D6C67C25245AF020A490D4C@AdobeOrg',
+      NAMESPACE: 'salesforce',
+      CHANNEL: 'salesforce',
+      RSID: rsid,
+      TRACKING_SERVER: 'salesforce.sc.omtrdc.net',
+      HEARTBEAT_TRACKING_SERVER: 'salesforce.hb.omtrdc.net',
+      DEBUG: false
+    });
+    // For some reason, the 'ready' event fires many times as the Vidyard player loads.
+    // We want our logic to execute only on the first time the event is fired.
+    var isFirstOnReady = true;
+    $(document).ready(function() {
+      /**
+       * Since the code in this file can be injected dynamically, any script added via <script> tag would be loaded
+       * asynchornously. This caused race condition issues. This function ensures that the scripts are loaded
+       * in order.
+       *
+       * @param {string} scriptUrl - The URL that needs to be fecthed 'synchronously'
+       * @param {function} successCallback - optional, a callback that needs to fire after the script is loaded
+       */
+      var getSyncScript = function(src, successCallback) {
+        var s = document.createElement('script');
+        s.src = src;
+        s.type = "text/javascript";
+        s.async = false;
+        if (typeof successCallback === "function") {
+          s.onload = successCallback;
+        }
+        document.getElementsByTagName('head')[0].appendChild(s);
+      }
+      getSyncScript("//play.vidyard.com/v0/api.js", function() {
+        selectChapter();
+        getSyncScript("//play.vidyard.com/v1/progress-events.js");
+      });
+      /**
+      * Looks for the query param 'chapterIndex' || 'chapter' on the page to play a specific chapter
+      * on the vidyard player. chapterIndex uses the js api where as the chapter updates the vidyard iframe
+      */
+      var selectChapter = function() {
+      var playerUUID = getPlayerUUID();
+      if (playerUUID && Vidyard) {
+        var player = new Vidyard.player(playerUUID);
+        var index = getChapterIndex();
+        var cId = getChapterId();
+        if ((player && index) || (player && cId)) {
+          player.on('ready', function() {
+            if(index){	
+              isFirstOnReady && player.playChapter(index);
+            } else if (cId){
+              //get player id and src and add the chapter param and update vidyard iframe
+              var frameId=player.iframe.id;
+              var vPlay=player.iframe.src;
+              vPlay+='video_id='+cId;
+              isFirstOnReady && $("#"+frameId).attr("src",vPlay)
+            }
+            isFirstOnReady = false;
+          });
+        }
+      }
+      }
+      // get ChapterId via query string param if value isn't passed via the QS grab it from 
+      // the iframe src which contains the string passed along from the referr url
+      var getChapterId = function() {
+        
+        if(Util && typeof Util.getParam === 'function') {
+              var chapVal = Util.getParam('chapter');
+              if (chapVal) {
+                return (chapVal);
+              } else if ($('.vidyard_iframe').length > 0 ){
+                var data = $('.vidyard_iframe').attr('src');
+                if(data.indexOf('chapter') > -1){
+                  var dataSplit=data.split('chapter%253D');	
+                  var chapter = dataSplit[1].split('%2526');
+                  //clean the extra & when the last val in the string
+                chapter =  chapter[0].replace(/\&$/,'');
+                return (chapter);
+                }
+              } else {
+                return (null);	
+              }
+        } 
+      }
+      // get ChapterIndex via query string param if value isn't passed via the QS grab it from 
+      // the iframe src which contains the string passed along from the referr url
+      var getChapterIndex = function() {
+          if(Util && typeof Util.getParam === 'function') {
+              var chapInd = Util.getParam('chapterIndex');
+              if (chapInd) {
+                return (chapInd);
+              } else if ($('.vidyard_iframe').length > 0 ){
+                var dataIn = $('.vidyard_iframe').attr('src');
+                if(dataIn.indexOf('chapterIndex') > -1){
+                  var dataSplitIn=dataIn.split('chapterIndex%253D');	
+                  var chapterIndex = dataSplitIn[1].split('%2526');
+                  //clean the extra & when the last val in the string
+                chapterIndex =  chapterIndex[0].replace(/\&$/,'');
+                return (chapterIndex);
+                }
+              } else {
+                return (null);	
+              }
+         }
+       }
+       
+      var getPlayerUUID = function() {
+        var vidyardPlayerId = $('.videoComponent .vy-player-container .vidyard_player').attr('id');
+        return vidyardPlayerId ? vidyardPlayerId.split('_')[1] : '';
+      }
+      /**
+       * The Vidyard iframe posts messages on the main window at some specific events.
+       * As soon as the video is 'played', we would want to track it. We do this by the
+       * helper function trackVidyard()
+       *
+       * @param {object} jQEvent - a jQuery Event Object
+       */
+      function handleMessageEvent(jQEvent) {
+        var originalEvent = jQEvent.originalEvent;
+        var data = {};
+        try {
+          data = JSON.parse(originalEvent.data);
+        } catch(e) {}
+        var currentStatus = data.hasOwnProperty("event") ? data.event : '';
+        if (currentStatus === "play") {
+          if (typeof digitalData !== "undefined" && typeof Vidyard === "object" && typeof VidyardProgressEvents === "function") {
+            digitalData.util.trackVidyard();
+            $(window).off("message", handleMessageEvent);
+            return null;
+          }
+        }
+      }
+      $(window).on("message", handleMessageEvent);
+    }); // End of document.ready()
+  }(jQuery)); // End of IIFE
+</script>
+</div>
+
+
