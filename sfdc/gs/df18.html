@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Workbook</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="../../css/navbar-green.css">
+ 
+<script src="js/split.js"></script>
+<link rel="stylesheet" href="css/split.css">
+</head>
+<body>
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">Dreamforce 18</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+ 
+    <div id="menu" class="split split-horizontal">
+          <a  data-toggle="collapse" href="#collapseStep1" role="button" aria-expanded="false" aria-controls="collapseStep1">
+             Step-1 - Prepare for Success
+           </a>
+         <div class="collapse" id="collapseStep1">
+          <div class="card card-body" style="background-color:#fff;">
+ 
+           <ul>
+               <li> <a href="#KeyPlayers">Key Players</a> </li>
+               <li> <a href="#ImpType">Implementation Type</a> </li>
+               <li> <a href="#Feedback">Feedback and Validation</a> </li>
+               <li> <a href="#WordOut">Get Word Out</a> </li>
+               <li> <a href="#BizObj">Business Objectives</a> </li>
+     
+           </ul>
+         </div>
+        </div>
+
+        <br/>  <a  data-toggle="collapse" href="#collapseStep2" role="button" aria-expanded="false" aria-controls="collapseStep2">
+             Step-2 - Create User Experience
+           </a>
+         <div class="collapse" id="collapseStep2">
+          <div class="card card-body" style="background-color:#fff;">
+           <ul>
+               <li> <a href="#salesProcess"> Define Sales Process</a> </li>
+               <li> <a href="#setupUsers"> Set up Users</a> </li>
+               <li> <a href="#setupLeads"> Set up Leads</a> </li>
+               <li> <a href="#setupOpptys"> Set up Opportunities</a> </li>
+               <li> <a href="#setupActivities"> Set up Activities</a> </li>
+               <li> <a href="#UtilizeChatter"> Utilize Chatter </a> </li>
+               <li> <a href="#sfMobileApp"> Salesforce Mobile App </a> </li>
+               <li> <a href="#setupAccounts"> Set up Accounts </a> </li>
+               <li> <a href="#setupContacts"> Set up Contacts </a> </li>
+               <li> <a href="#AlignToBiz">Align Salesforce to Your Business </a> </li>
+     
+           </ul>
+         </div>
+        </div>
+
+        <br/>  <a  data-toggle="collapse" href="#collapseStep3" role="button" aria-expanded="false" aria-controls="collapseStep3">
+             Step-3 - Enable the UX With Data
+           </a>
+         <div class="collapse" id="collapseStep3">
+          <div class="card card-body" style="background-color:#fff;">
+           <ul>
+               <li> <a href="#Data"> Identify Data & Prepare Data for Import</a> </li>
+               <li> <a href="#ImportData"> Import Data</a> </li>
+                <li> <a href="#ManageData"> Manage Your Data</a> </li>
+ 
+           </ul>
+          </div>
+        </div>
+
+        <br/>  <a  data-toggle="collapse" href="#collapseStep4" role="button" aria-expanded="false" aria-controls="collapseStep4">
+             Step-4 - Deploy & Empower Users </a>
+         <div class="collapse" id="collapseStep4">
+          <div class="card card-body" style="background-color:#fff;">
+           <ul>
+               <li> <a href="#idAudience">Identify Audience</a> </li>
+               <li> <a href="#scenarios"> Determine relevant scenarios</a> </li>
+                <li> <a href="#trainingPaths"> Define your training paths</a> </li>
+                 <li> <a href="#4driveAdoption"> Drive user adoption</a> </li>
+                 <li> <a href="#4trackMeasureSuccess"> Track Measure Success</a> </li>
+                 <li> <a href="#trackBizOutcome">Track Achievement of Business Outcomes </a> </li>
+ 
+           </ul>
+          </div>
+        </div>
+
+        <br/>  <a  data-toggle="collapse" href="#collapseStep5" role="button" aria-expanded="false" aria-controls="collapseStep5">
+             Step-5 - Knowing Sharing Model </a>
+         <div class="collapse" id="collapseStep5">
+          <div class="card card-body" style="background-color:#fff;">
+           <ul>
+               <li> <a href="#sharingBigPic">Sharing Big Picture</a> </li>
+ 
+           </ul>
+          </div>
+        </div>
+
+
+
+
+</div>
+    <div id="content" class="split split-horizontal">
+
+<span  id="KeyPlayers" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Define Key Players and Supporting Players</h2></span>
+<ul  class="list-group">
+    <li class="list-group-item">
+       <h3>Key Players</h3>
+       <ul class='list-group'>
+        <li class="list-group-item">
+          <a class="btn btn-primary" data-toggle="collapse" href="#collapseAdmin" role="button" aria-expanded="false" aria-controls="collapseAdmin">
+             Administrator
+           </a>
+        <div class="collapse" id="collapseAdmin">
+          <div class="card card-body" style="background-color:#eef;">
+              Supports Business Process Mapping. Configures Salesforce. Trains and Suports End-Users
+          </div>
+        </div>
+        </li>
+         <li class="list-group-item">
+          <a class="btn btn-primary" data-toggle="collapse" href="#collapseBizPO" role="button" aria-expanded="false" aria-controls="collapseBizPO">
+             Business Process Owner
+           </a>
+        <div class="collapse" id="collapseBizPO">
+          <div class="card card-body" style="background-color:#eef;">
+               Has deep knoweldge of sales-process & steps. Can map sales-process steps to Salesforce. Can Validate Design and Testing.
+          </div>
+        </div>
+        </li>
+             
+       </ul>
+    </li>
+
+    <li class="list-group-item">
+       <h3>Supporting Players</h3>
+       <ul class='list-group'>
+            <li class="list-group-item">
+
+              <a class="btn btn-success" data-toggle="collapse" href="#collapseES" role="button" aria-expanded="false" aria-controls="collapseES">
+                Executive Sponsor
+               </a>
+            <div class="collapse" id="collapseES">
+              <div class="card card-body" style="background-color:#efe;">
+                 Articulates the Value. Encourages adoption. Communicates the strategy.
+              </div>
+            </div>
+     
+
+          </li>
+           <li class="list-group-item">
+
+              <a class="btn btn-success" data-toggle="collapse" href="#collapseDA" role="button" aria-expanded="false" aria-controls="collapseDA">
+                Data Analyst
+               </a>
+            <div class="collapse" id="collapseDA">
+              <div class="card card-body" style="background-color:#efe;">
+                  Has deep knowledge of the current data. Owns data-mapping and consolidation strategy in Salesforce.
+              </div>
+            </div>
+     
+           </li>
+           <li class="list-group-item">
+
+             <a class="btn btn-success" data-toggle="collapse" href="#collapseChamp" role="button" aria-expanded="false" aria-controls="collapseChamp">
+                Champion
+               </a>
+            <div class="collapse" id="collapseChamp">
+              <div class="card card-body" style="background-color:#efe;">
+                Passinate about Salesforce Implementation. Ensures Salesforce is meeting the end-user needs. Drives adoption!
+
+              </div>
+            </div>
+     
+          </li>
+       </ul>
+    </li>
+
+</ul> 
+ <h4 style="font-size: 30px;">Plan Your Implementation - playlist </h4>
+     <span id="vidyard_nVaYcg7LYPx8ny2mRuaWrC" class="vidyard_player">
+       <span id="vidyard_span_nVaYcg7LYPx8ny2mRuaWrC" style="display: block; margin: auto; position: relative; width: 1015px; height: 570px;">
+           <iframe id="vidyard_iframe_nVaYcg7LYPx8ny2mRuaWrC" class="vidyard_iframe" src="//play.vidyard.com/nVaYcg7LYPx8ny2mRuaWrC?v=3.1.1&amp;type=inline&amp;hide_playlist=0&amp;vyemail=undefined&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fpage.aspx%253FQS%253D3935619f7de112ef5513f83cb4122a9af24fb63bba62ef77&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span> 
+
+<span id="ImpType" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>
+Select Type of Implementation Support </h2></span>
+
+<div class="row">
+    <div class="col-lg-4"> <img height="400" src="img/imp-type-1.png" alt=""> </div>
+    <div class="col-lg-8">
+
+    <ul class="list-group">
+        <li class="list-group-item"><h3>Self-Implement</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Strong in-house expertise</li>
+                <li class="list-group-item">Ability to dedicate time for setup</li>
+                <li class="list-group-item">Will be using mostly out-of-box functionality </li>
+            </ul>
+       </li>
+        <li class="list-group-item"><h3>With Partner</h3>
+         <ul class="list-group">
+             <li class="list-group-item" >
+                <a target="_blank" href="https://help.salesforce.com/articleView?id=000176287&type=3">How to: Successfully Implement with Salesforce Partners</a>
+            </li>
+         </ul>
+       </li>
+    </ul>
+</div>
+</div>
+
+<span id="Feedback" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Feedback and Validation </h2></span> 
+
+<ul class="list-group">
+    <li class="list-group-item"><h3>Validation</h3>
+        <ul class="list-group">
+            <li class="list-group-item">Who: Most Capable Person/Team</li>
+            <li class="list-group-item">Needs: Sandbox, Config, User-setup, Test-data </li>
+            <li class="list-group-item">Timing: Avoid end-of-quarter</li>
+        </ul>
+   </li>
+</ul>
+
+<span id="WordOut" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Get Word Out</h2></span> 
+<center><img src="img/get-word-out-1.png" height="300" style="margin-left:30px;" alt=""></center>
+<ul class='list-group'>
+    <li class='list-group-item'><b>Pre-Launch</b>: Program Vision, Business Goals, Key Players </li>
+    <li class='list-group-item'><b>Week of Launch</b>:  How to access Salesforce, How to get help</li>
+    <li class='list-group-item'><b>Post-Launch</b>:  User recognition, Tips & tricks, How to get help </li>
+</ul>
+
+<span id="BizObj" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Business Objectives</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Define your goals</b>: Define a clear purpose for your Salesforce initiative, drive ongoing commitment, and provide a way to measure and prove results. </li>
+    <li class='list-group-item'><b>List your pain-points</b>:  Capture the issues that various groups are facing</li>
+    <li class='list-group-item'><b>Prioritize goals</b>:  To help focus your Salesforce implementation efforts going forward</li>
+    <li class='list-group-item'><b>Define Measurements  </b>: What you’ll use to measure the success of your Salesforce implementation:
+     <ul class='list-group'>
+        <li class='list-group-item'><b>Usage and data quality</b>
+            <ul class="list-group">
+                <li class="list-group-item">Percentage of users logging into Salesforce</li>
+                <li class="list-group-item">Number of accounts, contacts, and opportunities created, Number of active licenses</li>
+                <li class="list-group-item">Login leaderboard, Hall of Fame</li>
+                <li class="list-group-item"> Average number of opportunities associated to an account</li>
+                <li class="list-group-item"> Number of open opportunities with close dates in the past</li>
+            </ul>
+         </li>
+        <li class='list-group-item'><b>User satisfaction</b>
+           <ul class="list-group">
+               <li class="list-group-item">Is the training helping you perform your job?</li>
+               <li class="list-group-item">Have you improved lead qualification?</li>
+               <li class="list-group-item">Do you find competitor information quickly?</li>
+               <li class="list-group-item">Is collaboration helping to close deals faster?</li>
+           </ul>
+        </li>
+        <li class='list-group-item'><b>Business performance</b>
+        <ul class="list-group">
+               <li class="list-group-item">How is my team tracking with sales?</li>
+               <li class="list-group-item">Do I have a sufficient pipeline?</li>
+               <li class="list-group-item">What is the quality of my leads?</li>
+               <li class="list-group-item">Are we remaining engaged with our customers</li>
+           </ul>
+       
+       </li>
+    </ul>
+
+
+<span id="salesProcess" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Define Your Sales Process</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Define your Sales Process </b>: Define the steps you go through to close a deal (such as your sales funnel). Define the criteria that will be required before you move to the next stage.</li>
+     <ul class='list-group'>
+        <li class='list-group-item'><b>Stages</b>
+            <ul class="list-group">
+                <li class="list-group-item"><b>Lead</b>: Individuals are received through a lead source, they are not current customers, and interest is not confirmed.</li>
+                <li class="list-group-item"><b>Prospecting</b>: An individual is an existing customer with a new opportunity. </li>
+                <li class="list-group-item"><b>Qualification</b>:An individual has been contacted and expressed interest. </li>
+                <li class="list-group-item"><b>Discovery or Scoping</b>: Interactions to understand individual needs for a particular deal are in progress.</li>
+                <li class="list-group-item"><b>Proposal or Price Quote</b>:A proposal or quote is being developed.</b>
+                <li class="list-group-item"><b>Negotiation or Review</b>:An individual has a proposal and has not made a decision.</li>
+                <li class="list-group-item"><b>Closed or Won/Lost</b>:An individual accepts or rejects a proposal</li>.
+ 
+            </ul>
+         </li>
+    </ul>
+  <h4>Define your Sales Process</h4>
+        <span id="vidyard_gquKgQdfkHpQN5xHanQrrZ" class="vidyard_player"><span id="vidyard_span_gquKgQdfkHpQN5xHanQrrZ" style="display: block; margin: auto; position: relative; width: 1015px; height: 570px;"><iframe id="vidyard_iframe_gquKgQdfkHpQN5xHanQrrZ" class="vidyard_iframe" src="//play.vidyard.com/gquKgQdfkHpQN5xHanQrrZ?v=3.1.1&amp;type=inline&amp;hide_playlist=0&amp;vyemail=undefined&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fsales-cloud%252Fsales-process%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+
+
+<span id="setupUsers" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Set up Users</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Set up your role hierarchy. </b>: What role hierarchy will ensure that your managers have access to the same data as their employees?</li>
+ 
+     <ul class='list-group'>
+        <li class='list-group-item'><b>How to setup role hierarchy</b>
+            <ul class="list-group">
+                <li class="list-group-item">Identify the roles you want to set up based on your organization’s structure.</li>
+                <li class="list-group-item">Create your role hierarchy and set up your roles.</li>
+ 
+            </ul>
+         </li>
+    </ul>
+     <ul class='list-group'>
+        <li class='list-group-item'><b>Enter your users</b>: What employees would benefit from access to Salesforce?
+            <ul class="list-group">
+                <li class="list-group-item">Enter the names of your users.</li>
+                <li class="list-group-item">Assign your users to roles and profiles.
+ <h4>Create Your Users </h4>
+       <span id="vidyard_5U4xbBS8J68vcDYgMB4WUR" class="vidyard_player"><span id="vidyard_span_5U4xbBS8J68vcDYgMB4WUR" style="display: block; margin: auto; position: relative; width: 1015px; height: 570px;"><iframe id="vidyard_iframe_5U4xbBS8J68vcDYgMB4WUR" class="vidyard_iframe" src="//play.vidyard.com/5U4xbBS8J68vcDYgMB4WUR?v=3.1.1&amp;type=inline&amp;hide_playlist=1&amp;vyemail=undefined&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fsales-cloud%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+
+     </li>
+ 
+            </ul>
+         </li>
+    </ul>
+  </li>
+</ul>
+
+<span id="setupLeads" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Set up Leads</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Adjust the standard fields to match your business </b>: 
+          <a class='btn btn-info' target="_blank" href="../fs-cloud/csv-viewer.html?f=Lead">Lead Standard Fields</a>
+     <ul class='list-group'>
+          <li class="list-group-item">Set required fields.</li>
+          <li class="list-group-item">Update picklist values.</li>
+          <li class="list-group-item">Set default values.</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b>Add custom fields (if necessary) </b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What additional lead information do I need to track for reporting purposes?</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b> Determine your lead import approach and enter your leads</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">Manually Enter Leads</li>
+          <li class="list-group-item">Web-to-Lead to collect Leads
+             <a target="_blank" class="btn btn-info" href="../../web-to/editor.html">Demo: Web-to-Lead</a>
+           </li>
+          <li class="list-group-item">Import Leads - if you have purchased Leads</li>
+      </ul>
+     </li>
+      <li class='list-group-item'><b> Assign your leads</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">Manually Lead Assignment: for low volume of leads</li>
+          <li class="list-group-item">Lead Queues: distribute leads to a group of people to work on</li>
+          <li class="list-group-item">Lead Assignment Rules: process or set of rules to distribute leads based on attributes (like  Regional, Industry, or Product)</li>
+      </ul>
+     </li>
+ 
+     <li class='list-group-item'><b> Create custom list views</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">Select particular fields that drive the action you want to perform</li> 
+      </ul>
+     </li>
+ 
+     <li class='list-group-item'><b> Adapt dashboards and reports</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What metrics do you need to run your business</li>
+          <li class="list-group-item">Modify reports and dashboards to align to your business.</li>
+          <li class="list-group-item">Share reports and dashboards with appropriate users.</li>
+      </ul>
+     </li>
+ 
+
+</ul>
+
+  <h4>Customize Salesforce - playlist </h4>
+      <span id="vidyard_Yih4HtQmJFFqkyeHKSx8YE" class="vidyard_player"><span id="vidyard_span_Yih4HtQmJFFqkyeHKSx8YE" style="display: block; margin: auto; position: relative; width: 1015px; height: 570px;"><iframe id="vidyard_iframe_Yih4HtQmJFFqkyeHKSx8YE" class="vidyard_iframe" src="//play.vidyard.com/Yih4HtQmJFFqkyeHKSx8YE?v=3.1.1&amp;type=inline&amp;hide_playlist=0&amp;vyemail=undefined&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fsales-cloud%252Fset-up-accounts-and-contacts%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+
+<span id="setupOpptys" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Set up Opportunities</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Adjust the standard fields to match your business </b>: 
+          <a class='btn btn-info' target="_blank" href="../fs-cloud/csv-viewer.html?f=Opportunity">Opportunity Standard Fields</a>
+     <ul class='list-group'>
+          <li class="list-group-item">Set required fields.</li>
+          <li class="list-group-item">Update picklist values.</li>
+          <li class="list-group-item">Set default values.</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b>Add custom fields (if necessary) </b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What additional Opportunity information do I need to track for reporting purposes?</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b> Set up opportunity products</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">Enter your products manually or with the Data Loader. </li>
+          <li class="list-group-item">Enter your standard price book</li>
+          <li class="list-group-item">If you are not using products and price books: Hide the products related list from the opportunity page.</li>
+      </ul>
+     </li>
+      <li class='list-group-item'><b> Set up Sales Path</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item"> Guide your users along steps in a process, like working an opportunity from stage 1 to close
+               <img src="img/salespath-1.png" width="100%" alt="">
+          </li>
+          <li class="list-group-item">Create a path to guide users on a process</li>
+          <li class="list-group-item">Select key fields to focus users on the most critical information, and at each step, help users succeed with step-specific guidance</li>
+      </ul>
+     </li>
+ 
+     <li class='list-group-item'><b> Customize Highlights panel</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item"> Ability to have key fields highlighted at the top of the screen:
+               <img src="img/salespath-2.png" width="100%" alt="">
+          </li>
+          <li class="list-group-item"> Edit Compact Layouts to add fields to appear in an object’s highlights area, like at the top of the Opportunity page.</b>
+      </ul>
+     </li>
+     <li class='list-group-item'><b> Create custom list views</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">Select particular fields that drive the action you want to perform</li> 
+      </ul>
+     </li>
+ 
+
+     <li class='list-group-item'><b> Create dashboards and reports</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What metrics do you need to run your business</li>
+          <li class="list-group-item">Modify reports and dashboards to align to your business.</li>
+          <li class="list-group-item">Share reports and dashboards with appropriate users.</li>
+      </ul>
+     </li>
+
+</ul>
+
+<span id="setupActivities" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Set up Activities</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Adjust the standard fields to match your business </b>: 
+          <a class='btn btn-info' target="_blank" href="../fs-cloud/csv-viewer.html?f=Task">Task Standard Fields</a>
+          <a class='btn btn-info' target="_blank" href="../fs-cloud/csv-viewer.html?f=Event">Event Standard Fields</a>
+ 
+     <ul class='list-group'>
+          <li class="list-group-item">Set required fields.</li>
+          <li class="list-group-item">Update picklist values.</li>
+          <li class="list-group-item">Set default values.</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b>Add custom fields (if necessary) </b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What additional Activity information do I need to track for reporting purposes?</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b> Set up email integration</b>:  Synchronize Salesforce with your  email provider
+     <ul class='list-group'>
+          <li class="list-group-item">Lightning For Outlook <a target="_blank" class="btn btn-info"  href="../email-integration.html">LOF</a> </li>
+      </ul>
+     </li>
+ 
+     <li class='list-group-item'><b> Create custom list views</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">Select particular fields that drive the action you want to perform</li> 
+      </ul>
+     </li>
+ 
+
+     <li class='list-group-item'><b> Create dashboards and reports</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What metrics do you need to run your business</li>
+          <li class="list-group-item">Modify reports and dashboards to align to your business.</li>
+          <li class="list-group-item">Share reports and dashboards with appropriate users.</li>
+      </ul>
+     </li>
+</ul>
+
+<span id="UtilizeChatter" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Utilize Chatter</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Sales teams collaboration on deals </b>: Collaborate on opportunities
+     <ul class='list-group'>
+          <li class="list-group-item">Collaborate on opportunities</li>
+          <li class="list-group-item">Chatter Groups:<br/> 1. Salesforce Training, Tips and Support.<br/>2. Company initiative or event.</li>
+      </ul>
+     </li>
+</ul>
+
+<span id="sfMobileApp" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Salesforce Mobile App</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Available from Apple AppStore and Google Play </b>: Use App to: 
+     <ul class='list-group'>
+          <li class="list-group-item">View, modify, and create contacts, accounts, opportunities, and tasks.</li>
+          <li class="list-group-item">Collaborate with Chatter.</li>
+          <li class="list-group-item">View reports and dashboards.</li>
+          <li class="list-group-item">Use the Today App.</li>
+          <li class="list-group-item"> Customize the Salesforce Mobile App:
+           <ul class='list-group'>
+               <li class="list-group-item">Branding</li>
+               <li class="list-group-item"> Pay layouts </li>
+               <li class="list-group-item">Navigation menu</li>
+               <li class="list-group-item">Notifications</li>
+               <li class="list-group-item"> Publisher actions</li>
+           </ul>
+ 
+          </li>
+
+
+   
+      </ul>
+     </li>
+</ul>
+
+<span id="setupAccounts" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Set up Accounts</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Adjust the standard fields to match your business </b>: 
+          <a class='btn btn-info' target="_blank" href="../fs-cloud/csv-viewer.html?f=Account">Account Standard Fields</a>
+ 
+     <ul class='list-group'>
+          <li class="list-group-item">Set required fields.</li>
+          <li class="list-group-item">Update picklist values.</li>
+          <li class="list-group-item">Set default values.</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b>Add custom fields (if necessary) </b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What additional Account information do I need to track for reporting purposes?</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b> Create an account hierarchy (if needed)</b>: To  track multiple locations, franchises, and subsidiaries on an account 
+     <ul class='list-group'>
+          <li class="list-group-item">Create an account hierarchy by associating an existing and/or new account to a parent account.</li>
+          <li class="list-group-item">If loading accounts, include a column with the parent account ID and map that to the Parent Account field in Salesforce</li>
+    </ul>
+     </li>
+ 
+     <li class='list-group-item'><b> Create custom list views</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">Select particular fields that drive the action you want to perform: Customer Accounts or Competitor Accounts</li> 
+      </ul>
+     </li>
+
+     <li class='list-group-item'><b> Create dashboards and reports</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What metrics do you need to run your business</li>
+          <li class="list-group-item">Modify reports and dashboards to align to your business.</li>
+          <li class="list-group-item">Share reports and dashboards with appropriate users.</li>
+      </ul>
+     </li>
+</ul>
+  <span id="vidyard_yfRSoDaQ9FYvH75LRUtYnn" class="vidyard_player"><span id="vidyard_span_yfRSoDaQ9FYvH75LRUtYnn" style="display: block; margin: auto; position: relative; width: 1015px; height: 570px;"><iframe id="vidyard_iframe_yfRSoDaQ9FYvH75LRUtYnn" class="vidyard_iframe" src="//play.vidyard.com/yfRSoDaQ9FYvH75LRUtYnn?v=3.1.1&amp;type=inline&amp;hide_playlist=0&amp;vyemail=undefined&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fsales-cloud%252Fsales-process%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+
+<span id="setupContacts" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Set up Contacts</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Adjust the standard fields to match your business </b>: 
+          <a class='btn btn-info' target="_blank" href="../fs-cloud/csv-viewer.html?f=Contact">Contact Standard Fields</a>
+ 
+     <ul class='list-group'>
+          <li class="list-group-item">Set required fields.</li>
+          <li class="list-group-item">Update picklist values.</li>
+          <li class="list-group-item">Set default values.</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b>Add custom fields (if necessary) </b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What additional Contact information do I need to track for reporting purposes?</li>
+      </ul>
+     </li>
+ 
+     <li class='list-group-item'><b> Create custom list views</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">Select particular fields that drive the action you want to perform </li> 
+      </ul>
+     </li>
+
+     <li class='list-group-item'><b> Create dashboards and reports</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">What metrics do you need to run your business</li>
+          <li class="list-group-item">Modify reports and dashboards to align to your business.</li>
+          <li class="list-group-item">Share reports and dashboards with appropriate users.</li>
+      </ul>
+     </li>
+</ul>
+
+<span id="AlignToBiz" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>  Align Salesforce to Your Business</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Improve Usability With Page Layouts</b>: 
+ 
+     <ul class='list-group'>
+          <li class="list-group-item">Create new sections with meaningful section headers</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b>Improve Usability With Search Modification</b>: 
+     <ul class='list-group'>
+          <li class="list-group-item">Add more fields to make it easier to use lookup fields.</li>
+          <li class="list-group-item">Make sure that relevant fields are returned in search.</li>
+
+
+
+
+      </ul>
+     </li>
+ 
+</ul>
+
+
+<span id="Data" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>Identify Data and Prepare Your Data for Import  </h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'><b>Data Analysis</b>: 
+ 
+     <ul class='list-group'>
+          <li class="list-group-item">Determine the data for import and its source.</li>
+      </ul>
+     </li>
+     <li class='list-group-item'><b>Data Prep</b>: Clean and de-duped data: 
+     <ul class='list-group'>
+          <li class="list-group-item">To create your data import template, export field name columns from Salesforce.</li>
+          <li class="list-group-item">Include the record owner ID</li>
+          <li class="list-group-item"> Populate required fields</li>
+          <li class="list-group-item"> Use valid picklist values (such as Not Started, In Review, and Complete).</li>
+          <li class="list-group-item"> Examine data and correct errors: 
+           <ul class='list-group'>
+              <li class="list-group-item">Delete duplicates.</li>
+              <li class="list-group-item">Correct spelling.</li>
+              <li class="list-group-item">Correct spelling.</li>
+              <li class="list-group-item">Enforce Data Standards  
+                  <a target="_blank" class='btn btn-info' href="../dg.html">Data Governance</a>
+             </li>
+          </ul>
+          </li>
+          <li class="list-group-item"> Include legacy system data ID</li>
+      </ul>
+     </li>
+ 
+</ul>
+
+<span id="ImportData" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Import Data  </h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'>Choose data to import. </li>
+     <li class='list-group-item'>Edit field mapping.</li>
+     <li class='list-group-item'>Test on subsets of records before a full import.</li>
+     <li class='list-group-item'>Review and start import.
+
+  <h4>Import and Manage Data - playlist </h4>
+      <span id="vidyard_hDgmVXt54AfgfSjsKCiwCC" class="vidyard_player"><span id="vidyard_span_hDgmVXt54AfgfSjsKCiwCC" style="display: block; margin: auto; position: relative; width: 1015px; height: 570px;"><iframe id="vidyard_iframe_hDgmVXt54AfgfSjsKCiwCC" class="vidyard_iframe" src="//play.vidyard.com/hDgmVXt54AfgfSjsKCiwCC?v=3.1.1&amp;type=inline&amp;hide_playlist=0&amp;vyemail=undefined&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fsales-cloud%252Fexplore-salesforce-analytics%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+
+ </li>
+</ul>
+
+<span id="ManageData" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Manage Your Data  </h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'>Data Quality:  standards  in place to maintain the data
+      <ul class='list-group'>
+        <li class='list-group-item'>Use naming, address conventions.</li>
+        <li class='list-group-item'>Prevent duplicates.</li>
+         <li class='list-group-item'>Establish required field.</li>
+         <li class='list-group-item'>Create default values.</li>
+         <li class='list-group-item'>Use data validation rules.</li>
+      </ul> 
+     </li>
+     <li class='list-group-item'>Data Archive Strategy
+       <ul class='list-group'>
+        <li class='list-group-item'>Determine an archive strategy for data you do not migrate.</li>
+        <li class='list-group-item'>Determine an ongoing archive strategy for data.</li>
+      </ul> 
+     </li>
+     <li class='list-group-item'>Data Backup Strategy
+       <ul class='list-group'>
+        <li class='list-group-item'>Weekly Data Export Service.</li>
+        <li class='list-group-item'>Explore the AppExchange for options available for data backup.</li>
+      </ul> 
+     </li>
+     <li class='list-group-item'>Create Data Quality Dashboards
+       <ul class='list-group'>
+        <li class='list-group-item'>Modify reports and dashboards to align to your business.</li>
+        <li class='list-group-item'>Share the reports and dashboards with appropriate users.</li>
+
+      </ul> 
+     </li>
+</ul>
+
+<span id="idAudience" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Identify Audience  </h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'>Determine the audience groups that need to be trained and what scenarios are covered by Salesforce. Then map the processes that are relevant to each audience. </li>
+</ul>
+
+<span id="scenarios" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Determine Relevant Scenarios  </h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'>Think about the typical Salesforce processes that your users will go through on a daily basis. Plan your training around these processes and document both the scenario and the Salesforce functions that you’ll cover</li>
+</ul>
+
+<span id="trainingPaths" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Define Your Training Paths</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'>
+Training paths are the sequence of training and type of training that you want for your users. This can vary by type of audience (such as a sales rep or an executive).
+
+ <h4>Train Your Users - playlist</h4>
+      <span id="vidyard_VrFpqZXRGzTHjNbTLxcZe4" class="vidyard_player"><span id="vidyard_span_VrFpqZXRGzTHjNbTLxcZe4" style="display: block; margin: auto; position: relative; width: 1015px; height: 570px;"><iframe id="vidyard_iframe_VrFpqZXRGzTHjNbTLxcZe4" class="vidyard_iframe" src="//play.vidyard.com/VrFpqZXRGzTHjNbTLxcZe4?v=3.1.1&amp;type=inline&amp;hide_playlist=0&amp;vyemail=undefined&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fsales-cloud%252Fexplore-salesforce-analytics%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+</li>
+</ul>
+
+<span id="4driveAdoption" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>Drive user adoption </h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'>Motivate 
+     <ul class='list-group'>
+      <li class='list-group-item'> Leverage executive leadership. </li>
+      <li class='list-group-item'> Emphasize the value. </li>
+      <li class='list-group-item'> Motivate by recognition. </li>
+      <li class='list-group-item'> Develop incentives. </li>
+    </ul> 
+   </li>
+<li class='list-group-item'>Support 
+     <ul class='list-group'>
+      <li class='list-group-item'> Utilize super users. </li>
+      <li class='list-group-item'>  Document your support process and share. </li>
+      <li class='list-group-item'> Address problems quickly and publicly. </li>
+      <li class='list-group-item'> Offer refresher training. </li>
+    </ul> 
+   </li>
+<li class='list-group-item'>Motivate 
+     <ul class='list-group'>
+      <li class='list-group-item'>  Develop a communication plan.</li>
+      <li class='list-group-item'> Create feedback loops. </li>
+      <li class='list-group-item'> Reach out to “resistors.” </li>
+      <li class='list-group-item'> “Walk the floor.” </li>
+    </ul> 
+   </li>
+
+
+
+</ul>
+
+<span id="4trackMeasureSuccess" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2>Track and Measure Success </h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'>Measure Salesforce Usage: 
+     <ul class='list-group'>
+      <li class='list-group-item'> How users are leveraging Salesforce? What actions will you take based on your observations? </li>
+    </ul> 
+   </li>
+<li class='list-group-item'>Measure Data Quality 
+     <ul class='list-group'>
+      <li class='list-group-item'> How will you keep your data up to date and validate that users are using Salesforce appropriately? </li>
+    </ul> 
+   </li>
+<li class='list-group-item'>Assess User Satisfaction 
+     <ul class='list-group'>
+      <li class='list-group-item'>  How will you determine if pain points are being addressed and if Salesforce is helping users reach their goals?: Chatter Polls and Surveys.</li>
+    </ul> 
+   </li>
+
+
+
+</ul>
+  <h4>Explore Salesforce Analytics  - playlist  </h4>
+     <span id="vidyard_o9m899DUuLQadCffvXBEz8" class="vidyard_player"><span id="vidyard_span_o9m899DUuLQadCffvXBEz8" style="display: block; margin: auto; position: relative; width: 1015px; height: 570px;"><iframe id="vidyard_iframe_o9m899DUuLQadCffvXBEz8" class="vidyard_iframe" src="//play.vidyard.com/o9m899DUuLQadCffvXBEz8?v=3.1.1&amp;type=inline&amp;hide_playlist=0&amp;vyemail=undefined&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252Fgettingstarted%252Fsales-cloud%252Fimport-and-manage-data%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span>
+
+
+
+
+<span id="trackBizOutcome" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Track Achievement of Business Outcomes</h2></span> 
+<ul class='list-group'>
+    <li class='list-group-item'>Are all the metrics defined in Step 1: Prepare for Success reflected in the reports and dashboards?  </li>
+</ul>
+<span id="sharingBigPic" class='btn btn-info' style='width:100%;opacity:.6;color:black;'><h2> Sharing Big Picture</h2></span> 
+<center>
+<img src="img/sharing-big-pic-1.png" height="449" width="800" alt="">
+<hr/>
+<h4>Sharing Layers</h4>
+<img src="img/sharing-layers-1.png"  height="449" width="800" alt="">
+
+<hr/> <h4>Role Hierarchy Types</h4>
+<img src="img/rh-types.png"   alt="">
+
+<hr/> <h4>Role Hierarchy - List View</h4>
+<img src="img/rh-list.png"   alt="">
+
+<hr/><h4>Setting User's Role</h4>
+
+<img src="img/user-role-setting.png"   alt="">
+
+<hr/><h4>Org-Wide-Default-Sharing (OWD)</h4>
+<img src="img/owd-1.png"   alt="">
+
+<hr/><h4>Sharing Rules</h4>
+<img src="img/sharing-sharing-rules-1.png"   alt="">
+
+
+
+
+
+
+</center>
+
+
+
+
+
+</div> 
+<script>
+  Split(['#menu', '#content'], {
+    sizes: [20, 80]
+});
+</script>
+
+</body>
+</html>
