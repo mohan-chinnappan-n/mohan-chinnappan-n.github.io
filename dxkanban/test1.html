@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My App</title>
+
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/jquery.nestable.js"></script>
+</head>
+<body>
+
+<div class="dd">
+    <ol class="dd-list">
+        <li class="dd-item" data-id="1">
+            <div class="dd-handle">Item 1</div>
+        </li>
+        <li class="dd-item" data-id="2">
+            <div class="dd-handle">Item 2</div>
+            <ol>
+                <li>One</li>
+                <li>Two</li>
+                <li>Three</li>
+            </ol>
+        </li>
+        <li class="dd-item" data-id="3">
+            <div class="dd-handle">Item 3</div>
+            <ol class="dd-list">
+                <li class="dd-item" data-id="4">
+                    <div class="dd-handle">Item 4</div>
+                </li>
+                <li class="dd-item" data-id="5">
+                    <div class="dd-handle">Item 5</div>
+                </li>
+            </ol>
+        </li>
+    </ol>
+</div>
+
+<script>
+$('.dd').nestable({ /* config options */ });
+</script>    
+
+</body>
+</html>

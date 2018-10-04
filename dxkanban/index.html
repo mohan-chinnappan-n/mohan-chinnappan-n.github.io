@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Kanban Board</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Arbutus+Slab'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <!-- Simple MDL Progress Bar -->
+<div id="p1" class="mdl-progress mdl-js-progress"></div>
+<script>
+  document.querySelector('#p1').addEventListener('mdl-componentupgraded', function() {
+    this.MaterialProgress.setProgress(44);
+  });
+</script><div class="kanban__title">
+
+<h1><i class="material-icons">check</i> DX Package Kanban</h1></div>
+
+<div class="dd">
+  
+  <ol class="kanban To-do">
+    <h2> Metadata Types</h2>
+
+    <li class="dd-item" data-id="1">
+      <h3 class="title dd-handle" >CustomObject</h3>
+        <div class="text" contenteditable="true">What is CustomObject?</div>
+   </li>
+
+   <li class="dd-item" data-id="2">
+      <h3 class="title dd-handle" >CustomField</h3>
+        <div class="text" contenteditable="true">What is CustomField?</div>
+   </li>
+ 
+    <li class="dd-item" data-id="3">
+      <h3 class="title dd-handle"> ApexClass</h3>
+        <div class="text" contenteditable="true">What is ApexClass?</div>
+    </li>
+
+    <li class="dd-item" data-id="4">
+        <h3 class="title dd-handle"> ApexClass</h3>
+          <div class="text" contenteditable="true">What is ApexClass?</div>
+    </li>
+
+    <li class="dd-item" data-id="5">
+        <h3 class="title dd-handle"> ApexClass</h3>
+          <div class="text" contenteditable="true">What is ApexClass?</div>
+    </li>
+    
+    <li class="dd-item" data-id="6">
+          <h3 class="title dd-handle"> ApexClass</h3>
+            <div class="text" contenteditable="true">What is ApexClass?</div>
+    </li>
+
+  </ol>
+
+
+  <ol class="kanban progress">
+    <h2> Schema</h2>
+      <li class="dd-item" data-id="7">
+      <h3 class="title dd-handle">  StandardObject</h3>
+    </li>
+  </ol>
+
+  <ol class="kanban  Done">
+    <h2> Business Logic</h2>
+      <li class="dd-item" data-id="8">
+      <h3 class="title dd-handle">Flow</h3>
+     </li>
+     
+     <li class="dd-item" data-id="9">
+      <h3 class="title dd-handle">ProcessBuilder</h3>
+    </li>
+  </ol>
+
+  <ol class="kanban Gone">
+    <h2> UI</h2>
+     <li class="dd-item" data-id="10">
+      <h3 class="title dd-handle">PageLayout</h3>
+    </li>
+  </ol>
+
+  <ol class="kanban Gone2">
+    <h2> Perms</h2>
+     <li class="dd-item" data-id="11">
+      <h3 class="title dd-handle">PermissionSet</h3>
+    </li>
+  </ol>
+
+
+</div>
+
+
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js'></script>
+<script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
