@@ -204,6 +204,10 @@ var BoardComponent = (function () {
                 cards: []
             },
             {
+                name: 'UI',
+                cards: []
+            },
+            {
                 name: 'Perm',
                 cards: []
             }
