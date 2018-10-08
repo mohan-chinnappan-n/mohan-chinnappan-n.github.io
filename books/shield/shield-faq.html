@@ -200,14 +200,11 @@
 <li><p>Organization admins can follow the steps below to use <strong>tenant key masking</strong> to verify field encryption at a record level:</p>
 </li>
 </ol>
-<pre><code>  a.     Export **current tenant secret** used to encrypt current data in report and store it in a safe place.
-
-  b.     Generate a **new tenant secret**.
-
-  c.     Destroy the initial key used to encrypt data.
-
-  d.     With the new key active navigate to any record where fields are encrypted and the data will show ????? meaning the data is encrypted.
-</code></pre><p>Note: Once the admin or customer has reviewed the data masked with ????, the old secret used to encrypt the data can be imported back into the org and the new key destroyed as it was not used to encrypt any data.</p>
+<p>a.     Export <strong>current tenant secret</strong> used to encrypt current data in report and store it in a safe place.</p>
+<p>b.     Generate a <strong>new tenant secret</strong>.</p>
+<p>c.     Destroy the initial key used to encrypt data.</p>
+<p>d.     With the new key active navigate to any record where fields are encrypted and the data will show ????? meaning the data is encrypted.</p>
+<p>Note: Once the admin or customer has reviewed the data masked with ????, the old secret used to encrypt the data can be imported back into the org and the new key destroyed as it was not used to encrypt any data.</p>
 <h4 id="how-about-attachments-encryption">How about Attachments encryption?</h4>
 <p>In the event that an admin would like to verify encryption on files and attachments the query below can be ran in Developer Console:</p>
 <pre><code class="lang-sql">     <span class="hljs-keyword">SELECT</span> ContentType, <span class="hljs-keyword">Id</span>, IsEncrypted <span class="hljs-keyword">FROM</span> Attachments <span class="hljs-keyword">WHERE</span> IsEncrypted = <span class="hljs-literal">false</span>/<span class="hljs-literal">true</span>
@@ -357,7 +354,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Shield FAQ","level":"1.4","depth":1,"previous":{"title":"Shield Implementation","level":"1.3","depth":1,"path":"shield-imp.md","ref":"shield-imp.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"shield-faq.md","mtime":"2018-10-08T12:44:10.161Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-08T12:34:50.725Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Shield FAQ","level":"1.4","depth":1,"previous":{"title":"Shield Implementation","level":"1.3","depth":1,"path":"shield-imp.md","ref":"shield-imp.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"shield-faq.md","mtime":"2018-10-08T15:03:00.668Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-08T12:34:50.725Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
