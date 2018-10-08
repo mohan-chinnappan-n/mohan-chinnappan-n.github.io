@@ -1,0 +1,373 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Shield Deterministic Encryption · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="shield-faq.html" />
+    
+    
+    <link rel="prev" href="shield-imp.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="shield-arch.html">
+            
+                <a href="shield-arch.html">
+            
+                    
+                    Shield Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="shield-imp.html">
+            
+                <a href="shield-imp.html">
+            
+                    
+                    Shield Implementation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="shield-de.html">
+            
+                <a href="shield-de.html">
+            
+                    
+                    Shield Deterministic Encryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="shield-faq.html">
+            
+                <a href="shield-faq.html">
+            
+                    
+                    Shield FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Shield Deterministic Encryption</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="deterministic-encryption">Deterministic Encryption</h1>
+<h4 id="what-is--deterministic-encryption">What is  Deterministic Encryption</h4>
+<p> Produces the same ciphertext for a given plaintext and key, even over separate executions of the encryption algorithm.
+ While <strong>Probabilistic encryption</strong> uses <strong>randomness</strong> in an encryption algorithm, so that when encrypting the same message several times it will, in general, yield different ciphertexts. </p>
+<p> <strong>Examples of  Deterministic Encryption</strong>:</p>
+<p> RSA cryptosystem (without encryption padding), and many block ciphers when used in ECB (Electronic Codebook: the message is divided into blocks, and each block is encrypted separately.) mode or with a constant initialization vector.</p>
+<h5 id="what-is-aes-advanced-encryption-standard">What is AES (Advanced Encryption Standard)?</h5>
+<ul>
+<li><p>Symmetric block cipher chosen by the U.S. government to protect classified information and is implemented in software and hardware throughout the world to encrypt sensitive data.</p>
+</li>
+<li><p>Comprises three block ciphers: AES-128, AES-192 and AES-256</p>
+</li>
+<li><p>Each cipher encrypts and decrypts data in blocks of 128 bits using cryptographic keys of 128-bits, 192-bits and 256-bits, respectively</p>
+</li>
+</ul>
+<p><img src="img/AES-1.png" style="border-radius:10px; border-color:#eef;"></p>
+  <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/liKXtikP9F0?autoplay=0 &amp;fs=1" frameborder="0"> </iframe>
+
+<h5 id="what-is-des-data-encryption-standard">What is DES (Data Encryption Standard)?</h5>
+<ul>
+<li>A symmetric-key algorithm for the encryption of electronic data. Although insecure, it was highly influential in the advancement of modern cryptography.</li>
+</ul>
+  <iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/3BZRBfhpIb0?autoplay=0 &amp;fs=1" frameborder="0"> </iframe>
+
+<h5 id="what-is-cbc-cipher-block-chaining">What is CBC (Cipher Block Chaining)?</h5>
+<ul>
+<li>Each block of plaintext is <strong>XORed</strong> with the previous ciphertext block before being encrypted. </li>
+<li>This way, each ciphertext block depends on all plaintext blocks processed up to that point. </li>
+<li>To make each message unique, an initialization vector (IV:  is a fixed-size input to a cryptographic primitive that is typically required to be random or pseudorandom. ) must be used in the first block.</li>
+</ul>
+<p><img src="img/cbc-encryption-1.png" style="border-radius:10px; border-color:#eef;"></p>
+<p><img src="img/cbc-decryption-1.png" style="border-radius:10px; border-color:#eef;"></p>
+<h5 id="what-is-ecb-electronic-codebook">What is ECB (Electronic Codebook)?</h5>
+<ul>
+<li>The message is divided into blocks, and each block is encrypted separately.</li>
+</ul>
+<p><img src="img/ECB.png" style="border-radius:10px; border-color:#eef;"></p>
+<p><img src="img/ECB-d.png" style="border-radius:10px; border-color:#eef;"></p>
+<h4 id="salesforce-shield-support-for--deterministic-encryption">Salesforce Shield Support for  Deterministic Encryption</h4>
+<ul>
+<li>The users can filter records in reports and list views, even when the underlying fields (data-at-rest) are encrypted.</li>
+<li>Supports WHERE clauses in SOQL queries and is compatible with unique and external ID fields</li>
+<li>Supports single-column indexes and single-column case-sensitive unique indexes</li>
+<li><p>Uses the Advanced Encryption Standard (AES) with 256-bit keys with CBC mode, and a static initialization vector (IV).</p>
+<p>One primary motivation for the use of deterministic encryption is the <strong>efficient searching of encrypted data</strong>.  If the database entries were encrypted with a deterministic scheme and sorted, then a specific field of the database could be retrieved in logarithmic time.</p>
+</li>
+</ul>
+<p>By default, Salesforce encrypts data using a <strong>probabilistic encryption scheme</strong>. Each bit of data is turned into a fully random ciphertext string every time it&#x2019;s encrypted. Encryption doesn&#x2019;t generally impact users who are authorized to view the data. 
+The exceptions are when logic is executed in the database or when encrypted values are <strong>compared to a string or to each other</strong>. In these cases, because the data has been turned into random, patternless strings, <strong>filtering isn&#x2019;t possible</strong>.</p>
+<pre><code class="lang-sql">   <span class="hljs-comment">-- if the LastName field is encrypted with probabilistic encryption, </span>
+   <span class="hljs-comment">--  you can&#x2019;t run this query. Deterministic encryption addresses this problem.</span>
+   <span class="hljs-keyword">SELECT</span> firstName <span class="hljs-keyword">FROM</span> Contact <span class="hljs-keyword">WHERE</span> LastName = <span class="hljs-string">&apos;Smith&apos;</span>
+</code></pre>
+<p>To be able to use <strong>filters when data is encrypted</strong>, we have to allow some patterns in our data. </p>
+<p>Deterministic encryption uses a <strong>static initialization vector (IV)</strong> so that encrypted data can be matched to a particular field value. 
+The system can&#x2019;t read a piece of data that&#x2019;s encrypted, but it does know how to <strong>retrieve the ciphertext</strong>
+that stands for that piece of data with the help of this  static IV.</p>
+<p>The IV is unique for a given field in a given org and can only be decrypted with your org-specific encryption key.</p>
+<p>We evaluate the relative strengths and weaknesses of cryptographic approaches based on the types of attacks that can be launched against a particular algorithm.</p>
+<p> We also consider the length of time that it could take for the attack to succeed. For example, it is commonly said that a brute-force attack against an AES 256-bit key would take a billion billion years given current computing capabilities. Nevertheless, it is common practice to rotate keys regularly.</p>
+<p>Certain kinds of attacks become a bit less far-fetched when <strong>you get away from purely random ciphertext</strong>.</p>
+<p> For example, an attacker could conceivably analyze deterministically encrypted ciphertext and determine that the cleartext string <strong>Alice</strong> always resolves to the ciphertext <strong>YjNkY2JlNjU5M2JkNjk4MGJiNWE2NGQ5NzI5MzU1OTcNCg==</strong>. Given enough time to eavesdrop, an attacker could defeat encryption by building a <strong>dictionary</strong> of cleartext values to ciphertext values.</p>
+<h4 id="just-enough-determinism-decrease-encryption-strength-as-minimally-necessary-to-allow-filtering">Just enough determinism: decrease encryption strength as minimally necessary to allow filtering</h4>
+<p>The Salesforce Shield approach is to expose just enough determinism to enable bona fide users to filter on encrypted data while limiting it enough to ensure that a given plaintext value does not universally result in the same ciphertext value across all fields, objects, or orgs. Even if an attacker successfully matched cleartext to encrypted values for one field, the attacker would have to do it all over again for any other field, and again for the same field in another object.</p>
+<h4 id="how-to-setup-salesforce-deterministic-encryption">How to setup Salesforce Deterministic Encryption</h4>
+<p>From <em>Setup &gt; Platform Encryption &gt; Advanced Settings: Enable Deterministic Encryption</em>:</p>
+<p><img src="img/de-1.png" style="border-radius:10px; border-color:#eef;"></p>
+<p>From <em>Setup &gt;  Key Management: Select the Data in Salesforce (Deterministic) secret type</em>:</p>
+<p><img src="img/de-2.png" style="border-radius:10px; border-color:#eef;">
+Generate a tenant secret:
+You can mix and match probabilistic and deterministic encryption, encrypting some fields one way and some fields the other.</p>
+<p><img src="img/de-3.png" style="border-radius:10px; border-color:#eef;">
+<img src="img/de-4.png" style="border-radius:10px; border-color:#eef;">
+<img src="img/de-5.png" style="border-radius:10px; border-color:#eef;">
+Enable encryption for each field, specifying the deterministic encryption scheme. How you do that depends on whether it&#x2019;s a standard field or a custom field.
+<img src="img/de-6.png" style="border-radius:10px; border-color:#eef;">
+<img src="img/de-7.png" style="border-radius:10px; border-color:#eef;">
+For custom fields, open the Object Manager and edit the field you want to encrypt. Select Encrypt the contents of this field, and select Use case sensitive deterministic encryption.</p>
+<p><img src="img/de-8.png" style="border-radius:10px; border-color:#eef;"></p>
+<h3 id="references">References</h3>
+<ul>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_pe_deterministic_encrypt.htm" target="_blank">Encrypt Data with the Deterministic Encryption Scheme </a></li>
+<li>AES proposal<object data="img/Rijndael-ammended.pdf" type="application/pdf" style="width: 100%; height: 800px;">
+<p>It appears you don&apos;t have a PDF plugin for this browser</p>
+</object>
+
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="shield-imp.html" class="navigation navigation-prev " aria-label="Previous page: Shield Implementation">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="shield-faq.html" class="navigation navigation-next " aria-label="Next page: Shield FAQ">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Shield Deterministic Encryption","level":"1.4","depth":1,"next":{"title":"Shield FAQ","level":"1.5","depth":1,"path":"shield-faq.md","ref":"shield-faq.md","articles":[]},"previous":{"title":"Shield Implementation","level":"1.3","depth":1,"path":"shield-imp.md","ref":"shield-imp.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"shield-de.md","mtime":"2018-10-08T16:56:25.606Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-08T12:34:50.725Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
