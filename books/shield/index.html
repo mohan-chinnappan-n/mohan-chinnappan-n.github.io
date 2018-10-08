@@ -244,23 +244,28 @@ Your security, legal, and regulatory specialist can take your organization throu
 <li><p>Keys for keys: (required before you can use the key)</p>
 </li>
 </ul>
-<pre><code>1. Master Secrets
-    Salesforce generates new master-secret 3 times year with each release.
-
-    - A dedicated processor - Hardware-Security-Module (HSM) specially designed for creating strong &amp; secure cryptographic keys.
-
-    - HSM is on a USB stick - is stored in bank-safety-deposit-box
-
-    - During each release, designated Salesforce security officers can access the HSM stored in this safety deposit box
-
-    - They then use the HSM to generate a **new master secret**, which is stored in a secure area of our servers.
-
-2. Tenant Secrets
-
-        You create your own tenant secret **on demand** in Salesforce, we store it securely in the database. You can update your **tenant secrets** as often as you want.
-
-Your **tenant secret** partners with the **master secret** in what&#x2019;s called a **key derivation process** to create keys that encrypt and decrypt your data.
-</code></pre><h4 id="classic-encryption">Classic Encryption</h4>
+<ol>
+<li><p>Master Secrets
+ Salesforce generates new master-secret 3 times year with each release.</p>
+<ul>
+<li><p>A dedicated processor - Hardware-Security-Module (HSM) specially designed for creating strong &amp; secure cryptographic keys.</p>
+</li>
+<li><p>HSM is on a USB stick - is stored in bank-safety-deposit-box</p>
+</li>
+<li><p>During each release, designated Salesforce security officers can access the HSM stored in this safety deposit box</p>
+</li>
+<li><p>They then use the HSM to generate a <strong>new master secret</strong>, which is stored in a secure area of our servers.</p>
+</li>
+</ul>
+</li>
+<li><p>Tenant Secrets</p>
+<ul>
+<li>You create your own tenant secret <strong>on demand</strong> in Salesforce, we store it securely in the database. You can update your <strong>tenant secrets</strong> as often as you want.</li>
+</ul>
+</li>
+</ol>
+<p>Your <strong>tenant secret</strong> partners with the <strong>master secret</strong> in what&#x2019;s called a <strong>key derivation process</strong> to create keys that encrypt and decrypt your data.</p>
+<h4 id="classic-encryption">Classic Encryption</h4>
 <ul>
 <li>Create a custom-text-field to store the data you want to encrypt. The data is encrypted using <strong>128-bit AES</strong> (Advanced Encryption Standard) keys</li>
 </ul>
@@ -322,7 +327,7 @@ Shield Platform Encryption even allows you to <strong>search</strong> for encryp
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Shield Architecture","level":"1.2","depth":1,"path":"shield-arch.md","ref":"shield-arch.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-10-08T13:00:07.813Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-08T12:34:50.725Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"Shield Architecture","level":"1.2","depth":1,"path":"shield-arch.md","ref":"shield-arch.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-10-08T13:06:20.082Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-08T12:34:50.725Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
