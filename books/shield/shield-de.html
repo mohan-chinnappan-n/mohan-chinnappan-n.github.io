@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="shield-faq.html" />
+    <link rel="next" href="shield-bp.html" />
     
     
     <link rel="prev" href="shield-imp.html" />
@@ -141,7 +141,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="shield-faq.html">
+        <li class="chapter " data-level="1.5" data-path="shield-bp.html">
+            
+                <a href="shield-bp.html">
+            
+                    
+                    Shield Best Practices
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="shield-faq.html">
             
                 <a href="shield-faq.html">
             
@@ -278,6 +291,47 @@ Enable encryption for each field, specifying the deterministic encryption scheme
 <img src="img/de-7.png" style="border-radius:10px; border-color:#eef;">
 For custom fields, open the Object Manager and edit the field you want to encrypt. Select Encrypt the contents of this field, and select Use case sensitive deterministic encryption.</p>
 <p><img src="img/de-8.png" style="border-radius:10px; border-color:#eef;"></p>
+<h4 id="considerations-for-using-deterministic-encryption">Considerations for Using Deterministic Encryption</h4>
+<p><a href="https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_pe_deterministic_considerations.htm" target="_blank">Refer: Considerations for Using Deterministic Encryption</a></p>
+<h5 id="key-rotation-and-filter-availability">Key Rotation and Filter Availability</h5>
+<p>To filter and execute queries on fields with unique attributes, new and existing encrypted data must be encrypted with the active Data in Salesforce (Deterministic) key material.</p>
+<h5 id="available-fields-and-other-data">Available Fields and Other Data</h5>
+<p>The deterministic encryption option is available for custom URL, email, phone, text, and text area field types. It isn&#x2019;t available for the following types of data:</p>
+<ul>
+<li>Custom date, date/time, long text area, or description field types</li>
+<li>Chatter</li>
+<li>Files and attachments</li>
+</ul>
+<h5 id="filter-operators">Filter Operators</h5>
+<p>In reports and list views, the operators <strong>equals</strong> and <strong>not equal to</strong> are supported with deterministic encryption. Other operators, like <strong>contains</strong> or <strong>starts with</strong> don&#x2019;t return an exact match and <strong>aren&#x2019;t supported</strong>.</p>
+<h5 id="case-sensitivity">Case Sensitivity</h5>
+<p>When you use deterministic encryption, <strong>case matters</strong>. </p>
+<p>In reports, list views, and SOQL queries on encrypted fields, the results are case-sensitive. Therefore, a SOQL query against the Contact object, <code>where LastName = &apos;Jones&#x2019;</code>, returns only Jones, not jones nor JONES. Similarly, when the filter-preserving scheme tests for unicity (uniqueness), each version of &#x201C;Jones&#x201D; is unique.</p>
+<h5 id="api-options-to-identify-filterable-fields">API Options to Identify Filterable Fields</h5>
+<p>Fields encrypted using the deterministic encryption scheme are <strong>filterable</strong>. You can use the <code>isFilterable()</code> method to determine the encryption scheme of a particular encrypted field. If the field is filterable, the method returns <code>true</code>.</p>
+<p>However, you can&#x2019;t explicitly detect or set the deterministic encryption scheme via the API.</p>
+<h5 id="external-id">External ID</h5>
+<p>You can enable the external ID for deterministically encrypted fields when you use the Unique - Case-Sensitive attribute. External ID isn&#x2019;t available for email field types</p>
+<p>However, you can&#x2019;t explicitly detect or set the deterministic encryption scheme via the API.</p>
+<h5 id="compound-names">Compound Names</h5>
+<p>Even with deterministic encryption, some kinds of searches don&#x2019;t work when data is encrypted. Concatenated values, such as compound names, aren&#x2019;t the same as the separate values. For example, the ciphertext for the compound name <strong>William Jones</strong> is not the same as the concatenation of the ciphertexts for <strong>William</strong> and <strong>Jones</strong>.</p>
+<p>So, if the First Name and Last Name fields are encrypted in the Contacts object, this query doesn&#x2019;t work:</p>
+<pre><code class="lang-sql"><span class="hljs-comment">--- this will NOT work</span>
+<span class="hljs-keyword">Select</span> <span class="hljs-keyword">Id</span> <span class="hljs-keyword">from</span> Contact <span class="hljs-keyword">Where</span> <span class="hljs-keyword">Name</span> = <span class="hljs-string">&apos;William Jones&apos;</span>
+</code></pre>
+<pre><code class="lang-sql"><span class="hljs-comment">--- this will work</span>
+<span class="hljs-keyword">Select</span> <span class="hljs-keyword">Id</span> <span class="hljs-keyword">from</span> Contact <span class="hljs-keyword">Where</span> FirstName = <span class="hljs-string">&apos;William&#x2019; And LastName =&apos;</span>Jones<span class="hljs-string">&apos;
+</span></code></pre>
+<h5 id="filter-records-by-strings">Filter Records by Strings</h5>
+<p>You can search for records using strings. However, commas in strings act as OR statements. If your string includes a comma, use quotation marks around the string. For example, a search for <strong>Universal Containers, Inc, Berlin</strong> returns records that include the full string including the comma. Searches for Universal Containers, Inc, Berlin returns records that include Universal Containers or Inc or Berlin.</p>
+<h5 id="soql-group-by-statements">SOQL GROUP BY Statements</h5>
+<p>You can use most of the SOQL statements with deterministic encryption. One exception is <strong>GROUP BY, which isn&#x2019;t supported</strong>, even though you can group report results by row or column.</p>
+<h5 id="soql-like-and-starts-with-statements">SOQL LIKE and STARTS WITH Statements</h5>
+<p>Deterministic encryption only supports <strong>exact, case-sensitive matches</strong>. Comparison operators that return partial matches aren&#x2019;t supported. For example, LIKE and STARTS WITH statements aren&#x2019;t supported.</p>
+<h5 id="soql-order-by-statements">SOQL ORDER BY Statements</h5>
+<p>Because deterministic encryption doesn&#x2019;t maintain the sort order of encrypted data in the database, <strong>ORDER BY isn&#x2019;t supported</strong>.</p>
+<h5 id="indexes">Indexes</h5>
+<p>Deterministic encryption supports <strong>single-column indexes</strong>, <strong>single-column case-sensitive unique indexes</strong>, <strong>two-column indexes</strong>, and <strong>custom indexes on standard and custom fields</strong>.</p>
 <h3 id="references">References</h3>
 <ul>
 <li><a href="https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_pe_deterministic_encrypt.htm" target="_blank">Encrypt Data with the Deterministic Encryption Scheme </a></li>
@@ -319,7 +373,7 @@ For custom fields, open the Object Manager and edit the field you want to encryp
                 </a>
                 
                 
-                <a href="shield-faq.html" class="navigation navigation-next " aria-label="Next page: Shield FAQ">
+                <a href="shield-bp.html" class="navigation navigation-next " aria-label="Next page: Shield Best Practices">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -330,7 +384,7 @@ For custom fields, open the Object Manager and edit the field you want to encryp
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Shield Deterministic Encryption","level":"1.4","depth":1,"next":{"title":"Shield FAQ","level":"1.5","depth":1,"path":"shield-faq.md","ref":"shield-faq.md","articles":[]},"previous":{"title":"Shield Implementation","level":"1.3","depth":1,"path":"shield-imp.md","ref":"shield-imp.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"shield-de.md","mtime":"2018-10-08T16:59:07.684Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-08T12:34:50.725Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Shield Deterministic Encryption","level":"1.4","depth":1,"next":{"title":"Shield Best Practices","level":"1.5","depth":1,"path":"shield-bp.md","ref":"shield-bp.md","articles":[]},"previous":{"title":"Shield Implementation","level":"1.3","depth":1,"path":"shield-imp.md","ref":"shield-imp.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"shield-de.md","mtime":"2018-10-09T12:27:59.363Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-09T12:06:16.862Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

@@ -1,0 +1,343 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Shield Best Practices · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="shield-faq.html" />
+    
+    
+    <link rel="prev" href="shield-de.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="shield-arch.html">
+            
+                <a href="shield-arch.html">
+            
+                    
+                    Shield Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="shield-imp.html">
+            
+                <a href="shield-imp.html">
+            
+                    
+                    Shield Implementation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="shield-de.html">
+            
+                <a href="shield-de.html">
+            
+                    
+                    Shield Deterministic Encryption
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="shield-bp.html">
+            
+                <a href="shield-bp.html">
+            
+                    
+                    Shield Best Practices
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="shield-faq.html">
+            
+                <a href="shield-faq.html">
+            
+                    
+                    Shield FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Shield Best Practices</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="shield-best-practices">Shield Best Practices</h1>
+<h4 id="define-a-threat-model-for-your-organization">Define a threat model for your organization</h4>
+<p>To identify the threats that are most likely to affect your organization, walk through a formal threat modeling exercise. Use your findings to create a <strong>data classification scheme</strong>, which can help you decide what data to encrypt.</p>
+<h4 id="encrypt-only-where-necessary">Encrypt only where necessary</h4>
+<ul>
+<li><p>Not all data is sensitive. Focus on information that requires encryption to meet your regulatory, security, compliance, and privacy requirements. <strong>Unnecessarily encrypting data impacts functionality and performance</strong>.</p>
+</li>
+<li><p>Evaluate your <strong>data classification scheme</strong> early and work with <strong>stakeholders in security, compliance, and business IT departments</strong> to define requirements. Balance business-critical functionality against security and risk measures and challenge your assumptions periodically.</p>
+</li>
+</ul>
+<h4 id="create-a-strategy-early-for-backing-up-and-archiving-keys-and-data">Create a strategy early for backing up and archiving keys and data</h4>
+<p>If your tenant secrets are destroyed, reimport them to access your data. You are solely responsible for making sure that <strong>your data and tenant secrets are backed up and stored in a safe place</strong>.
+ Salesforce <strong>cannot help you with deleted, destroyed, or misplaced tenant secrets</strong>.</p>
+<h4 id="read-the-shield-platform-encryption-considerations-and-understand-their-implications-on-your-organization">Read the Shield Platform Encryption considerations and understand their implications on your organization</h4>
+<ul>
+<li>Evaluate the impact of the considerations on your business solution and implementation.</li>
+<li>Test Shield Platform Encryption in a sandbox environment before deploying to a production environment. Encryption policy settings can be deployed using change sets.</li>
+<li>Before enabling encryption, fix any violations that you uncover.
+For example, if you <strong>reference encrypted fields in a SOQL ORDER BY clause, a violation occurs</strong>. Fix the violation by removing references to the encrypted fields.</li>
+<li>When requesting feature enablement, such as pilot features, give Salesforce Customer Support <strong>several days lead time</strong>. The time to complete the process varies based on the feature and how your org is configured.</li>
+</ul>
+<h4 id="analyze-and-test-appexchange-apps-before-deploying-them">Analyze and test AppExchange apps before deploying them</h4>
+<ul>
+<li>If you use an app from the AppExchange, test how it interacts with encrypted data in your organization and evaluate whether its functionality is affected.</li>
+<li>If an app interacts with encrypted data that&apos;s stored outside of Salesforce, investigate how and where data processing occurs and how information is protected.</li>
+<li>If you suspect Shield Platform Encryption could affect the functionality of an app, ask the provider for help with evaluation. Also discuss any custom solutions that must be compatible with Shield Platform Encryption.</li>
+<li>Apps on the AppExchange that are built exclusively using Lightning Platform inherit Shield Platform Encryption capabilities and limitations.</li>
+</ul>
+<h4 id="use-out-of-the-box-security-tools">Use out-of-the-box security tools</h4>
+<p>Shield Platform Encryption is not a user authentication or authorization tool. 
+<strong>To control which users can see which data, use out-of-the-box tools such as field-level security settings, page layout settings, and sharing rules, rather than Shield Platform Encryption</strong>.</p>
+<h4 id="grant-the-manage-encryption-keys-user-permission-to-authorized-users-only">Grant the Manage Encryption Keys user permission to authorized users only</h4>
+<p>Users with the Manage Encryption Keys permission can generate, export, import, and destroy organization-specific keys. Monitor the key management activities of these users regularly with the setup audit trail.</p>
+<h4 id="synchronize-your-existing-data-with-your-active-key-material">Synchronize your existing data with your active key material</h4>
+<p>Existing field and file data is not automatically encrypted when you turn on Shield Platform Encryption. To encrypt existing field data, update the records associated with the field data. This action triggers encryption for these records so that your existing data is encrypted at rest. <strong>To encrypt existing files or get help updating other encrypted data, contact Salesforce</strong>. We can encrypt existing file data in the background to ensure data alignment with the latest encryption policy and key material.</p>
+<p>When you contact Salesforce support to request the background encryption service, allow at <strong>least a week before you need the background encryption completed</strong>. The time to complete the process varies based on the volume of data involved. It could take several days.</p>
+<h4 id="handle-currency-and-number-data-with-care">Handle currency and number data with care</h4>
+<p>Currency and Number fields can&#x2019;t be encrypted because they could have broad functional consequences across the platform, such as disruptions to roll-up summary reports, report timeframes, and calculations. You can often keep private, sensitive, or regulated data of this variety safe in other encryption-supported field types.</p>
+<h4 id="communicate-to-your-users-about-the-impact-of-encryption">Communicate to your users about the impact of encryption</h4>
+<p>Before you enable Shield Platform Encryption in a production environment, inform users about how it affects your business solution. For example, share the information described in <a href="https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_pe_considerations_general.htm" target="_blank">Shield Platform Encryption considerations</a>, where it&apos;s relevant to your business processes. d</p>
+<h4 id="encrypt-your-data-using-the-most-current-key">Encrypt your data using the most current key</h4>
+<p>When you generate a new tenant secret, any new data is encrypted using this key. However, existing sensitive data remains encrypted using previous keys. In this situation, <strong>Salesforce strongly recommends re-encrypting these fields using the latest key</strong>. Contact Salesforce for help with re-encrypting your data.</p>
+<h4 id="use-discretion-when-granting-login-as-access-to-users-or-salesforce-customer-support">Use discretion when granting login-as-access to users or Salesforce Customer Support</h4>
+<p>If you grant login access to a user, and they have field level security access to an encrypted field, that user is able to view encrypted data in that field in plaintext.</p>
+<p>If you want Salesforce Customer Support to follow specific processes around asking for or using login-as-access, you can create special handling instructions. Salesforce Customer Support follows these instructions in situations where login-as-access may help them resolve your case. To set up these special handling instructions, contact your account executive.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="shield-de.html" class="navigation navigation-prev " aria-label="Previous page: Shield Deterministic Encryption">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="shield-faq.html" class="navigation navigation-next " aria-label="Next page: Shield FAQ">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Shield Best Practices","level":"1.5","depth":1,"next":{"title":"Shield FAQ","level":"1.6","depth":1,"path":"shield-faq.md","ref":"shield-faq.md","articles":[]},"previous":{"title":"Shield Deterministic Encryption","level":"1.4","depth":1,"path":"shield-de.md","ref":"shield-de.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"shield-bp.md","mtime":"2018-10-09T12:14:00.822Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-09T12:06:16.862Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

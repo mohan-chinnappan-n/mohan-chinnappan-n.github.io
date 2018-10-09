@@ -141,7 +141,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="shield-faq.html">
+        <li class="chapter " data-level="1.5" data-path="shield-bp.html">
+            
+                <a href="shield-bp.html">
+            
+                    
+                    Shield Best Practices
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="shield-faq.html">
             
                 <a href="shield-faq.html">
             
@@ -204,7 +217,131 @@
  <p>It appears you don&apos;t have a PDF plugin for this browser</p>
 </object>
 
-
+<h3 id="summary">Summary</h3>
+<p> The 3 requirements shared by a wide variety of customers
+in regulated industries such as financial services, healthcare, and life sciences, as well as
+manufacturing, technology, and government:</p>
+<ol>
+<li><p>Encrypt sensitive data when it&#x2019;s stored at rest in the Salesforce cloud.</p>
+</li>
+<li><p>Support customer-controlled encryption key lifecycles.</p>
+</li>
+<li><p>Preserve application and Lightning Platform functionality</p>
+</li>
+</ol>
+<h4 id="trade-off">Trade off</h4>
+<p>There&#x2019;s a tradeoff between strong security and functionality. If data is encrypted at
+rest, preserving Salesforce functionality becomes difficult, if not impossible, depending on
+where encryption and decryption occur and where the encryption keys are stored. What the
+business wants often differs from what security and compliance require.</p>
+<p>The Salesforce Shield Platform Encryption solution encrypts <strong>data at rest</strong> when stored on our
+servers, in the database, in search index files, and the file system. </p>
+<p>We don&#x2019;t address data residency or remote key management, which require off-Salesforce solutions and typically
+involve on-premises software and complex integrations. To encrypt data at rest and preserve
+functionality, we built the encryption services natively into the Lightning Platform.</p>
+<p>Shield Platform Encryption uses that <strong>metadata</strong> to tell the other platform features
+which data is encrypted. This way, we can ensure that critical business functionality &#x2014; like partial
+search &#x2014; continues to work even when data is encrypted.</p>
+<p>The Shield Platform Encryption solution uses strong, <strong>probabilistic encryption by default</strong> on
+data stored at rest. Shield Platform Encryption uses the Advanced Encryption Standard (AES)
+with 256-bit keys using CBC mode and a <strong>random initialization vector (IV)</strong>. </p>
+<p>While this type of encryption results in a loss of some functionality, such as <strong>sort operation</strong>, we consider this a
+reasonable tradeoff in favor of security.</p>
+<p> We also offer deterministic encryption:</p>
+<p><strong>Deterministic encryption</strong> uses the Advanced Encryption Standard (AES) with 256-bit keys using
+CBC mode and a <strong>customer and field-specific static IV</strong>. </p>
+<p>In this way, <strong>deterministic encryption only decreases encryption strength as much as is minimally necessary to allow filtering</strong>.</p>
+<p>We built a <strong>key management framework</strong> that scales to our multi-tenant model and gives
+you complete control over the key management life cycle.</p>
+<ul>
+<li><p>the encryption keys must reside in the Salesforce environment</p>
+</li>
+<li><p>Adhering to the principle that customers should have complete control over the
+key life cycle, we built key management functionality into the Setup UI and API </p>
+<ul>
+<li>Customers decide when to <strong>generate, supply, rotate, import, export, and destroy keys</strong>. Customers also
+determine who is responsible for performing these tasks. </li>
+</ul>
+</li>
+<li><p>With the <strong>Bring Your Own Keys (BYOK)</strong> option, you can generate and store tenant secrets and data encryption keys outside of
+Salesforce using your own crypto libraries, enterprise key management systems, or hardware
+security modules. As with all administration tasks, <strong>everything is audited</strong>.</p>
+</li>
+<li><p>Hardware security modules (HSMs) into the infrastructure  to generate cryptographic key material - shared key
+management service that creates <strong>tenant-specific encryption keys</strong>. </p>
+</li>
+<li><p>These <strong>keys aren&#x2019;t persisted</strong>; they are therefore inaccessible to Salesforce employees and, by extension,malicious external attackers. </p>
+</li>
+<li><p>Salesforce org administrator chooses whether to turn on encryption for standard fields, custom fields, files, and attachments.</p>
+</li>
+<li><p>Salesforce org administrator also choose which specific fields to encrypt at rest. 
+The driving principle is to <strong>encrypt as little as possible to preserve functionality while keeping private, sensitive, confidential, and regulated</strong></p>
+</li>
+</ul>
+<h4 id="why-encrypt">Why Encrypt?</h4>
+<ul>
+<li><p>Finding right security solution to the type of threats you face</p>
+</li>
+<li><p>Salesforce Shield Platform Encryption protects <strong>data at rest</strong>. It shouldn&#x2019;t be confused with
+a control that encrypts data in transit, such as <strong>Transport Layer Security</strong> (which Salesforce
+provides by default for your org).</p>
+</li>
+</ul>
+<p><strong>Shield Platform Encryption is best suited for</strong>:</p>
+<ul>
+<li><p>Protecting against data loss due to unauthorized database access</p>
+</li>
+<li><p>Bolstering compliance with regulatory requirements or internal security policies</p>
+</li>
+<li><p>Satisfying contractual obligations to handle sensitive and private data on behalf
+of customers</p>
+</li>
+</ul>
+<p>In contrast to <strong>Classic Encryption</strong>, which uses a custom field type in the Salesforce data
+model, <strong>Shield Platform Encryption</strong> allows you to encrypt a variety of standard fields, custom
+fields, and files.</p>
+<p><img src="img/classic-vs-shield-1.png" style="border-radius:10px;border-color:#99ccff;"></p>
+<p> We use <strong>metadata</strong> to keep information in these files and fields secure while
+preserving the ability to perform common business tasks.</p>
+<p>The platform&#x2019;s <strong>object-relational mapping model</strong> includes metadata that describes exactly
+which data is encrypted.</p>
+<p>Encryption and decryption occur in the platform&#x2019;s application layer as application
+components are materialized by the <strong>runtime engine</strong> - to ensure encrypted <strong>data isn&#x2019;t persisted in plaintext</strong>.</p>
+<p>Shield Key Management Service derives keys on-demand from  key material generated by HSMs. </p>
+<p>The architecture supports the simultaneous use of multiple encryption keys, enabling customers to quickly 
+<strong>rotate and archive keys without losing access to their data</strong></p>
+<p>Application components, such as <strong>Salesforce objects, aren&#x2019;t modeled directly in our underlying relational database</strong>.
+Instead, when customers interact with their data in a Salesforce application, the <strong>platform&#x2019;s runtime engine materializes the data using metadata</strong> stored separately in the Lightning Platform&#x2019;s <strong>Universal Data Dictionary (UDD)</strong>. The UDD includes metadata that determines which data is encrypted at runtime. </p>
+<p>This way, each tenant&#x2019;s data is kept secure in the shared database, tenants can customize
+schema in real time without affecting other tenants&#x2019; data, and the application&#x2019;s code base can
+be patched or upgraded without breaking tenant-specific customizations.</p>
+<p>The data is encrypted directly before it&#x2019;s stored in the database.</p>
+<p>The resulting encrypted payload is stored with metadata about the specific key used to encrypt it.
+In the case of decryption, data is decrypted as it&#x2019;s materialized. It is then pushed up through the application pipeline and appears in plaintext to the authorized user who requested it.</p>
+<p>Shield Platform Encryption uses the <strong>Java Cryptography Extension (JCE)</strong> to encrypt and decrypt
+data. Specifically, Shield Platform Encryption uses the Advanced Encryption Standard (AES256) in CBC mode with a random IV.</p>
+<p>Rather than storing data encryption keys on the application server, they are stored in an <strong>encrypted key cache</strong>. 
+This is a central service that all application servers can access. 
+When the customer accesses encrypted data on the application server, the server uses a data encryption key for a short period of time to perform both encryption and decryption operations. 
+Once this transaction is complete, related memory containing the data encryption key is freed. 
+Thus, the data encryption keys aren&#x2019;t cached on the application server. </p>
+<p><img src="img/shield-key-1.png" style="border-radius:10px;border-color:#99ccff;"></p>
+<p>Derived keys are generated on demand from secrets generated by logically and physically separated HSMs.
+The <strong>master secret</strong> is generated at the start of each  <strong>Salesforce release and stored securely in Salesforce&#x2019;s internal file system</strong>.</p>
+<p>The customer-specific key material - <strong>tenant secret</strong> is supplied by customers or generated by customers on demand, and then stored securely in the database. </p>
+<p>These secrets, along with a master salt generated at the start of each release, are used as inputs to <strong>Password-Based Key Derivation
+Function 2 (PBKDF2)</strong> to derive data encryption keys. </p>
+<p>PBKDF2 is run on the Shield Key Management Service (KMS) in a Salesforce data center. </p>
+<p>Data encryption keys are sent (encrypted) back to the encryption service running on the Lightning Platform and stored in the
+encrypted key cache.</p>
+<p><strong>What is PBKDF2?</strong></p>
+<ul>
+<li>key derivation functions with a sliding computational cost, aimed to reduce the vulnerability of encrypted keys to brute force attacks.
+<img src="img/pbkdf2.png" style="border-radius:10px;border-color:#99ccff;"></li>
+</ul>
+<object data="img/salesforce_security_impl_guide.pdf" type="application/pdf" style="width: 100%; height: 800px;">
+ <p>It appears you don&apos;t have a PDF plugin for this browser</p>
+</object>
 
 
                                 
@@ -249,7 +386,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Shield Architecture","level":"1.2","depth":1,"next":{"title":"Shield Implementation","level":"1.3","depth":1,"path":"shield-imp.md","ref":"shield-imp.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"shield-arch.md","mtime":"2018-10-08T12:30:03.058Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-08T12:34:50.725Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Shield Architecture","level":"1.2","depth":1,"next":{"title":"Shield Implementation","level":"1.3","depth":1,"path":"shield-imp.md","ref":"shield-imp.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"shield-arch.md","mtime":"2018-10-09T06:48:39.603Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-09T12:06:16.862Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
