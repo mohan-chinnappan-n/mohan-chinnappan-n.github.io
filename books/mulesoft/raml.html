@@ -159,7 +159,92 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="raml-tutorial">RAML tutorial</h1>
-<h3 id="example-bookmobile-api-design">Example: BookMobile API Design</h3>
+<ul>
+<li>Design of API</li>
+<li>Writing the API in RAML using<ul>
+<li>Resources (/books)</li>
+<li>Methods (GET, PUT, POST, DELETE)</li>
+<li>URI Parameters ({bookTitle}) - object-based</li>
+<li>Query parameters - for filtering collections</li>
+<li>Responses</li>
+</ul>
+</li>
+</ul>
+<h2 id="resources">Resources</h2>
+<ul>
+<li>Define various collections as resources<pre><code>  - 3 resources (resources begin with / )
+  ```
+  /users:
+      /authors:
+      /books:
+</code></pre></li>
+<li>Nested resources<pre><code>  ```
+  /authors:
+      /{authorname}
+  ```
+</code></pre></li>
+<li><p>example:</p>
+<pre><code>  ```
+   http://api.e-bookmobile.com/v1.0/authors/CJ_Date
+
+  ```
+</code></pre><p>  returns details about the author: CJ Date</p>
+</li>
+</ul>
+<h2 id="methods">Methods</h2>
+<ul>
+<li>GET : Retrieve the info defined in the request-uri</li>
+<li>PUT : Replace the addressed collection - at Object-level, create/update it</li>
+<li>POST : Create a new-entry in the collection.</li>
+<li><p>DELETE : Delete the info defined in the request-uri</p>
+<ul>
+<li>example:<pre><code>/books:
+  get:
+  post:
+  put:
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h2 id="uri-parameters">URI Parameters</h2>
+<ul>
+<li>Allows to act upon more granular objects<ul>
+<li>Example: <strong>/authors</strong> are made up of individual authors <strong>{authoreName}</strong></li>
+<li>Are denoted by surrounding curly brackets<pre><code>/books:
+  /{bookTitle}
+</code></pre></li>
+</ul>
+</li>
+<li>so far we have<pre><code>/books:
+  get:
+  put:
+  post:
+  /{bookTitle}:
+      get:
+      put:
+      /author:
+          get:
+      /publisher:
+          get:
+</code></pre></li>
+</ul>
+<h2 id="query-parameters">Query Parameters</h2>
+<ul>
+<li>Filter collections using specific attribute like rating or publicationYear</li>
+<li>Something that server requires to process the API (e.g accessToken)</li>
+</ul>
+<pre><code>/books:
+    get:
+        queryParameters:
+            author:
+            publicationYear:
+            rating:
+            isbn:
+    put:
+    post:
+        queryParameters:
+            accessToken:
+</code></pre><h2 id="example-bookmobile-api-design">Example: BookMobile API Design</h2>
 <pre><code class="lang-raml">#%RAML 1.0
 ---
 title: e-BookMobile API
@@ -187,6 +272,43 @@ version: v1
             /publisher:
                 get:
 </code></pre>
+<h2 id="responses">Responses</h2>
+<ul>
+<li>Mapped to one or more HTTP status codes (like 200)</li>
+<li><p>Each response includes :</p>
+<ul>
+<li>description</li>
+<li>example</li>
+<li><p>schemas
+```
+/books:
+/{bookTitle}:
+  get:</p>
+<pre><code>  description: Retrieve a specific book title
+  responses:
+      200:
+          body:
+              application/json:
+                  example: |
+                      {
+                          data&quot;: {
+                              &quot;id&quot;: &quot;SbBGk&quot;,
+                              &quot;title&quot;: &quot;An introduction to Database Systems&quot;,
+                              &quot;description&quot;: &quot;The ultimate book for learning Database Systems&quot; 
+                              &quot;datetime&quot;: 1341533193,
+                              &quot;genre&quot;: &quot;Computer Science&quot;,
+                              &quot;author&quot;: &quot;C. J Date&quot;,
+                              &quot;link&quot;: &quot;http://e-bookmobile.com/books/Stiff&quot;,
+                          },
+                          &quot;success&quot;: true,
+                          &quot;status&quot;: 200
+
+                      }
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<p>```</p>
 
                                 
                                 </section>
@@ -226,7 +348,7 @@ version: v1
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"RAML Tutorial","level":"1.2","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","adsense","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"search":{},"adsense":{"client":"ca-pub-5381915020912221","slot":"8656817479","format":"auto","element":".page-inner section","position":"top"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"raml.md","mtime":"2018-10-09T22:34:02.924Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-10T13:25:28.221Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"RAML Tutorial","level":"1.2","depth":1,"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","adsense","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"search":{},"adsense":{"client":"ca-pub-5381915020912221","slot":"8656817479","format":"auto","element":".page-inner section","position":"top"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"raml.md","mtime":"2018-10-15T12:57:06.404Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-15T12:55:32.091Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
