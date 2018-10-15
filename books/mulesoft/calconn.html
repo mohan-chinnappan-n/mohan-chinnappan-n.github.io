@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Introduction · GitBook</title>
+        <title>CallidusCloud Connector · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,8 +57,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="raml.html" />
     
+    <link rel="prev" href="raml.html" />
     
 
     </head>
@@ -87,7 +87,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -113,7 +113,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="calconn.html">
+        <li class="chapter active" data-level="1.3" data-path="calconn.html">
             
                 <a href="calconn.html">
             
@@ -156,7 +156,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Introduction</a>
+        <a href="." >CallidusCloud Connector</a>
     </h1>
 </div>
 
@@ -171,69 +171,38 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="mastering--mulesoft-anypoint-platform">Mastering  Mulesoft Anypoint Platform</h1>
-<h4 id="designing-your-first-api">Designing your first API</h4>
+                                <h1 id="calliduscloud-commissions-connector---mule-3">CallidusCloud Commissions Connector - Mule 3</h1>
+<p>CallidusCloud Commissions Connector allows reading and writing data into Commissions application. This Anypoint CallidusCloud Commissions connector enables CallidusCloud customers to integrate their existing applications with Commissions application</p>
+<p>The Anypoint CallidusCloud Commissions connector enables CallidusCloud customers to integrate their existing applications with Commissions application by leveraging the Commissions REST-based APIs provided by Commissions.</p>
+<p>The following operations are supported:</p>
+<p>Get Participant
+Get Position
+Get Transaction with assignments
+Put Participant
+Put Position
+Put Transaction with assignments</p>
+<p>Overview:</p>
+<pre><code>Type:    Connector
+Organization:    MuleSoft
+Created by:     Callidus Software Inc.
+Published on:    Dec 20, 2017
+</code></pre><h2 id="resources">Resources</h2>
 <ul>
-<li>API Specifications using API Designer</li>
-<li>How to use API specifications to begin a <strong>Data Integration</strong></li>
-<li>Time-saving considerations while designing API Specifications</li>
-<li>Test/Validate API specification in API Console</li>
+<li><a href="https://anypoint.mulesoft.com/exchange/org.mule.modules.calliduscloud/commissions-connector/" target="_blank">CallidusCloud Commissions Connector - Mule 3</a></li>
 </ul>
-<h5 id="api-specification">API Specification</h5>
-<p>It is a contract which can be consumed by humans and machines. Has README and API Definitions (e.g. WSDL) files.
-RAML (RESTful API Modeling Language) is API specification language for API Designer</p>
-<ul>
-<li>Serves as documentation for the consumption of the API</li>
-<li>Reuse of deployed API by future apps via Exchange</li>
-<li>The consumers of the APIs can perform acceptance tests before the app is ever built</li>
-<li>Can be used to pre-populate your implementation with artifacts and metadata to reduce development time</li>
-</ul>
-<h4 id="simple-api-design-example">Simple API Design Example</h4>
-<ul>
-<li>Create a resource (fm)</li>
-<li>Add a queryParameter (zip)</li>
-<li>Test the mocking service (/fm/03060)</li>
-</ul>
-<p><img src="img/mulesoft-1.gif" alt="API-Design"></p>
-<p><hr>
-<a target="_blank" href="img/mulesoft-1.gif">Full View </a></p>
-<h5 id="todo">TODO</h5>
-<ul>
-<li><p>Sign up for a 30-day Anypoint Platform account by clicking here <a href="https://anypoint.mulesoft.com/login/#/signup" target="_blank">Sign up</a></p>
-</li>
-<li><p><a href="https://anypoint.mulesoft.com/login/#/signin?apintent=generic" target="_blank">Login</a></p>
-</li>
-<li><p><strong>API Designer</strong>  will be used for creating API Specification</p>
-</li>
-<li>Mule Apps will be created in <strong>Flow Designer</strong></li>
-<li>Download Product-Database from <a href="https://developer.mulesoft.com/sites/default/files/congo.xlsx" target="_blank">here</a><ul>
-<li>It has 3 tabs <ul>
-<li>Category</li>
-<li>Product</li>
-<li>Variant</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="img/products-db-1.gif" alt="proudct table"></p>
-<h4 id="let-us-create-an-ecommerce-api">Let us create an eCommerce API</h4>
-<ul>
-<li>Product API<ul>
-<li>provide details about a specific item in the store <code>/products/{productId}</code></li>
-</ul>
-</li>
-</ul>
-<h4 id="design-center">Design Center</h4>
-<ul>
-<li>Cloud based development environment for building Mule Apps and API specs</li>
-</ul>
-<h4 id="references">References</h4>
-<ul>
-<li><a href="https://developer.mulesoft.com/guides/quick-start/designing-your-first-api" target="_blank">Design your first API</a></li>
-<li><a href="https://raml.org/developers/raml-100-tutorial" target="_blank">RAML 100 Tutorial</a></li>
-</ul>
-
+<h2 id="dependencies">Dependencies</h2>
+<h3 id="maven-dependency">Maven Dependency</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mule.modules.calliduscloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>commissions-connector<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.0.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</code></pre>
+<h3 id="gradle-dependency">Gradle Dependency</h3>
+<pre><code>compile group: &apos;org.mule.modules.calliduscloud&apos;, name: &apos;commissions-connector&apos;, version: &apos;1.0.1&apos;
+</code></pre><h3 id="sbt-dependency">SBT Dependency</h3>
+<pre><code>libraryDependencies += &quot;org.mule.modules.calliduscloud&quot; % &quot;commissions-connector&quot; % &quot;1.0.1&quot;
+</code></pre>
                                 
                                 </section>
                             
@@ -260,10 +229,10 @@ RAML (RESTful API Modeling Language) is API specification language for API Desig
 
             
                 
-                
-                <a href="raml.html" class="navigation navigation-next navigation-unique" aria-label="Next page: RAML Tutorial">
-                    <i class="fa fa-angle-right"></i>
+                <a href="raml.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: RAML Tutorial">
+                    <i class="fa fa-angle-left"></i>
                 </a>
+                
                 
             
         
@@ -272,7 +241,7 @@ RAML (RESTful API Modeling Language) is API specification language for API Desig
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"RAML Tutorial","level":"1.2","depth":1,"path":"raml.md","ref":"raml.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","adsense","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"search":{},"adsense":{"client":"ca-pub-5381915020912221","slot":"8656817479","format":"auto","element":".page-inner section","position":"top"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-10-15T13:48:42.505Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-15T12:55:32.091Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"CallidusCloud Connector","level":"1.3","depth":1,"previous":{"title":"RAML Tutorial","level":"1.2","depth":1,"path":"raml.md","ref":"raml.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["youtube","adsense","livereload"],"pluginsConfig":{"youtube":{},"livereload":{},"search":{},"adsense":{"client":"ca-pub-5381915020912221","slot":"8656817479","format":"auto","element":".page-inner section","position":"top"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"calconn.md","mtime":"2018-10-15T16:52:02.520Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-15T12:55:32.091Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
