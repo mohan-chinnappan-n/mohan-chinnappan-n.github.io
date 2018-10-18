@@ -13,6 +13,14 @@
  <script src="../sfdc/gs/js/split.js"></script>
 <link rel="stylesheet" href="../sfdc/gs/css/split.css"> 
 
+<style>
+    .menu-button {
+     width:100%;
+     opacity:.7;
+     margin-bottom:10px;
+     text-align:left;
+    }
+</style>
 </head>
 <body>
 
@@ -43,14 +51,14 @@
 
    <div id="menu" class="split split-horizontal">
 
-     <a class='btn btn-primary'  style='width:100%;margin-bottom:10px;' data-toggle="collapse" href="#step1" role="button" aria-expanded="false" aria-controls="step1"> Step-1 - Get to Know EA </a>
+     <a class='btn btn-primary menu-button'   data-toggle="collapse" href="#step1" role="button" aria-expanded="false" aria-controls="step1"> Step-1 - Get to Know EA </a>
       <ul class='collapse list-group' id='step1'>
         <li class='list-group-item'> <a href="#welcome-to-EA">Welcome to EA!</a>  </li>
         <li class='list-group-item'> <a href="#ea-steps">EA Steps</a>  </li>
         <li class='list-group-item'> <a href="#data-exploration">Data Exploration</a>  </li>
      </ul> 
     
-  <a  class='btn btn-primary' style='width:100%;margin-bottom:10px;' data-toggle="collapse" href="#step2" role="button" aria-expanded="false" aria-controls="step2"> Step-2 - Key Features </a>
+  <a  class='btn btn-primary menu-button'  data-toggle="collapse" href="#step2" role="button" aria-expanded="false" aria-controls="step2"> Step-2 - Key Features </a>
       <ul class='collapse list-group' id='step2'>
         <li class='list-group-item'> <a href="#recipe-editor">Recipe Editor</a> </li>
         <li class='list-group-item'> <a href="#take-action">Take Action</a> </li>
@@ -61,7 +69,7 @@
         <li class='list-group-item'> <a href="#interactive-dashboardr">Interactive Dashboards</a> </li>
     </ul>
  
- <a  class='btn btn-primary' style='width:100%;margin-bottom:10px;' data-toggle="collapse" href="#step3" role="button" aria-expanded="false" aria-controls="step3"> Step-3 - How to </a>
+ <a  class='btn btn-primary menu-button'  data-toggle="collapse" href="#step3" role="button" aria-expanded="false" aria-controls="step3"> Step-3 - How to </a>
   <ul class='collapse list-group' id='step3'>
         <li class='list-group-item'> <a href="#load-data">Load Data</a> </li>
         <li class='list-group-item'> <a href="#connect-db-sf">Connect Dashboards to Salesforce </a> </li>
@@ -71,9 +79,9 @@
    </ul>
 
  
- <a  class='btn btn-primary' data-toggle="collapse" style='width:100%;margin-bottom:10px;' href="#step4" role="button" aria-expanded="false" aria-controls="step4"> Resources </a>
+ <a  class='btn btn-primary menu-button' data-toggle="collapse"  href="#step4" role="button" aria-expanded="false" aria-controls="step4"> Resources </a>
  <ul class='collapse list-group' id='step4'>
-        <li class='list-group-item'> <a href="#Resources">EA Docs</a> </li>
+        <li class='list-group-item'> <a href="#ea-resources">EA Docs</a> </li>
   </ul>
  
 </div>
@@ -260,7 +268,7 @@ Analytics collects and organizes your data in <b>datasets, lenses, dashboards, a
          </object>
  
 <!-- -->
-   <h3 id='EA-resources'>EA Resources </h3>
+   <h3 id='ea-resources'>EA Resources </h3>
    <ul class="list-group">
        <li class="list-group-item"> <a target='_blank' href="http://www.einsteinanalyticslearningmap.com/">EA Learning Map</a> </li>
        <li class="list-group-item"> <a target='_blank' href="http://pages.mail.salesforce.com/gettingstarted/analytics-cloud/einstein-analytics/">EA Getting Started</a> </li>
