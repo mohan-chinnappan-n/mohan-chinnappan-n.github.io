@@ -1,0 +1,2099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My App</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body class='container'>
+<h3>Metadata types</h3>    
+<table class="table table-striped table-borderd table-hover" summary="">
+          <thead class="thead sorted" align="left">
+            <tr>
+              <th>Metadata Type</th>
+
+              <th>Allows Wildcard (*)?</th>
+
+              <th>Description</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody class="tbody">
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_accountsettings.htm">AccountSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an organization’s account
+					settings for account teams, account owner report, and the <strong class="ph uicontrol">View
+						Hierarchy</strong> link.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_actionlinkgrouptemplate.htm">ActionLinkGroupTemplate</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the action link group template. Action link templates let you reuse action link definitions and
+			package and distribute action links. An action link is a button on a feed element.
+			Clicking on an action link can take a user to another Web page, initiate a file
+			download, or invoke an API call to an external server or Salesforce. Use action links
+			to integrate Salesforce and
+			third-party services into the feed. Every action link belongs to an action link group
+			and action links within the group are mutually exclusive.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/actionoverride.htm" title="Represents an action override on a standard or custom object. Use it to create, update, edit, or delete action overrides. You can access ActionOverride only by accessing its encompassing CustomObject.">ActionOverride</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an action override on a standard or custom object. Use it
+            to create, update, edit, or delete action overrides.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_activitiessettings.htm">ActivitiesSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an organization’s activity
+                    settings, and its user interface settings for the calendar.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_addresssettings.htm" title="Represents the configuration of country and state picklists. Use the AddressSettings component type to configure state and country data in your organization so that you can convert text-based values into standard picklist values. To convert your state and country values, from Setup, enter State and Country Picklists in the Quick Find box, then select State and Country Picklists. For more information, see “Let Users Select State and Country from Picklists” in the Salesforce online help.">AddressSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the configuration of country and state
+      picklists. </td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_analyticsnapshot.htm" title="Represents a reporting snapshot. A reporting snapshot lets you report on historical data. Authorized users can save tabular or summary report results to fields on a custom object, then map those fields to corresponding fields on a target object. They can then schedule when to run the report to load the custom object's fields with the report's data. Reporting snapshots enable you to work with report data similarly to how you work with other records in Salesforce.">AnalyticSnapshot</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a reporting snapshot. A reporting snapshot lets you report on historical data.
+      Authorized users can save tabular or summary report results to fields on a custom object, then
+      map those fields to corresponding fields on a target object. They can then schedule when to
+      run the report to load the custom object's fields with the report's data. Reporting snapshots
+      enable you to work with report data similarly to how you work with other records in
+      Salesforce.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_classes.htm" title="Represents an Apex class. An Apex class is a template or blueprint from which Apex objects are created. Classes consist of other classes, user-defined methods, variables, exception types, and static initialization code.">ApexClass</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an Apex class. An Apex class <span class="ph" id="d274257e190-d274434e14-d274455e101"><a name="d274257e190-d274434e14-d274455e101"><!-- --></a> is a template or blueprint from
+     which Apex objects are created. Classes consist of other classes, user-defined methods,
+     variables, exception types, and static initialization code</span>.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_component.htm" title="Represents a Visualforce component.">ApexComponent</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a Visualforce component.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_pages.htm" title="Represents a Visualforce page.">ApexPage</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a Visualforce page.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_triggers.htm" title="Represents an Apex trigger. A trigger is Apex code that executes before or after specific data manipulation language (DML) events occur, such as before object records are inserted into the database, or after records have been deleted.">ApexTrigger</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an Apex trigger. A trigger <span class="ph" id="d274257e229-d274508e14-d274529e80"><a name="d274257e229-d274508e14-d274529e80"><!-- --></a>is Apex code that executes before or
+     after specific data manipulation language (DML) events occur, such as before object records are
+     inserted into the database, or after records have been deleted.</span>
+</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_appmenu.htm" title="Represents the app menu or the Salesforce mobile navigation menu.">AppMenu</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the app menu or the Salesforce mobile navigation
+         menu.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_approvalprocess.htm">ApprovalProcess</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes<p class="p">(See description.)</p>
+</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with an approval
+                    process. An approval process automates how records are approved in Salesforce.
+                    An approval process specifies each step of approval, including who to request
+                    approval from and what to do at each point of the process.<p class="p">Use the wildcard (*) symbol to retrieve all approval processes for all
+                  objects. You can’t use it to retrieve a subset of approval processes;
+                  syntax such as <samp class="codeph nolang">Lead.*</samp> is not
+                supported.</p>
+</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_articletype.htm" title="Represents the metadata associated with an article type.">ArticleType</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with an article
+        type.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_assignmentrule.htm" title="Represents assignment rules that allow you to automatically route cases to the appropriate users or queues. You can access rules metadata for all applicable objects, for a specific object, or for a specific rule on a specific object.">AssignmentRules</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents assignment rules that allow you to
+            automatically route cases to the appropriate users or queues. You can access rules
+            metadata for all applicable objects, for a specific object, or for a specific rule on a
+            specific object.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_audience.htm" title="Represents the audience in a community. An audience consists of different types of criteria, where the audience can be assigned and used for targeting in a community.This type extends the Metadata metadata type and inherits its fullName field.">Audience</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the audience in a community. An audience consists of
+      different types of criteria, where the audience can be assigned and used for targeting in a
+      community.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_authproviders.htm" title="Represents an authentication provider (or auth provider) in your organization. An auth provider enables users to log in to your Salesforce organization using their login credentials from an external service provider such as Facebook© or Janrain©.This type extends the Metadata metadata type and inherits its fullName field.">AuthProvider</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an authentication provider (or auth
+            provider) in your organization. An auth provider enables users to log in to your Salesforce organization using
+            their login credentials from an external service provider such as Facebook© or
+            Janrain©.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_auradefinitionbundle.htm" title="Represents a Lightning definition bundle. A bundle contains a Lightning definition and all its related resources. The definition can be a component, application, event, interface, or a tokens collection.">AuraDefinitionBundle</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a Lightning definition bundle. A bundle
+      contains a Lightning definition and
+      all its related resources. The definition can be a component, application, event, interface,
+      or a tokens collection.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_autoresponserules.htm" title="Represents an auto-response rule that sets conditions for sending automatic email responses to lead or case submissions based on the attributes of the submitted record. You can access rules metadata for all applicable objects, for a specific object, or for a specific rule on a specific object.">AutoResponseRules</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an auto-response rule that sets conditions
+            for sending automatic email responses to lead or case submissions based on the
+            attributes of the submitted record. You can access rules metadata for all applicable
+            objects, for a specific object, or for a specific rule on a specific
+        object.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_basesharingrule.htm" title="This component is removed as of API version 33.0 and is available in earlier versions only. Use SharingBaseRule instead. Represents the base container for criteria-based and owner-based sharing rules.">BaseSharingRule</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">
+<span class="ph" id="d274257e354-d274709e13"><a name="d274257e354-d274709e13"><!-- --></a>This component is
+                removed as of API version 33.0 and is available in earlier versions only.</span> Use
+                <a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_sharingbaserule.htm" title="Represents sharing rule settings such as access level and to whom access is granted.">SharingBaseRule</a> instead. Represents the base container for criteria-based and
+            owner-based sharing rules.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_bot.htm#meta_bot" title="Represents a definition of an Einstein Bot configuration that can have one or more versions. Only one version can be active. This type extends the Metadata metadata type and inherits its fullName field.">Bot</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a definition of an Einstein Bot configuration that
+            can have one or more versions. Only one version can be active.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_botversion.htm" title="Represents the configuration details for a specific Einstein Bot version, including dialogs, intents, entities, and variables. This type extends the Metadata metadata type and inherits its fullName field.">BotVersion</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the configuration details for a specific
+            Einstein Bot version, including dialogs, intents, entities, and variables.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_brandingset.htm#meta_brandingset" title="Represents the definition of a set of branding properties for a community, as defined in the Branding Panel in Community Builder. This type extends the Metadata metadata type and inherits its fullName field.">BrandingSet</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the definition of a set of branding properties
+      for a community, as defined in the Branding Panel in Community Builder.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_businesshourssettings.htm" title="Represents the metadata used to manage settings for business hours and holidays in entitlements, entitlement templates, campaigns, and cases. This type extends the Metadata metadata type and inherits its fullName field.">BusinessHoursSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata used to manage settings
+            for business hours and holidays in entitlements, entitlement templates, campaigns, and
+            cases.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_businessprocess.htm" title="The BusinessProcess metadata type enables you to display different picklist values for users based on their profile.This type extends the Metadata metadata type and inherits its fullName field.">BusinessProcess</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">(See description.)</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">The BusinessProcess metadata type
+            enables you to display different picklist values for users based on their
+            profile.<p class="p">Supports wildcard (*) only if a <a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_recordtype.htm" title="Represents the metadata associated with a record type. Record types let you offer different business processes, picklist values, and page layouts to different users. Use this metadata type to create, update, or delete record type definitions for a custom object.">RecordType</a> is
+                  specified.</p>
+</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_callcenter.htm" title="Represents the Call Center definition used to integrate Salesforce with a third-party computer-telephony integration (CTI) system.">CallCenter</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the Call Center definition used to integrate Salesforce with a third-party
+            computer-telephony integration (CTI) system.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_casesettings.htm">CaseSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an organization’s case settings,
+                    such as the default case owner, which case-related features are enabled, and
+                    which email templates are used for various case activities.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_casesubjectparticle.htm#casesubjectparticle">CaseSubjectParticle</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the Social Business Rules custom
+                    format for the <strong class="ph uicontrol">Case Subject</strong> field on cases created from
+                    inbound social posts.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_certificate.htm" title="Represents a certificate used for digital signatures which verify that requests are coming from your org. Certificates are used for either authenticated single sign-on with an external website, or when using your org as an identity provider. This type extends the MetadataWithContent metadata type and inherits its content and fullName fields.">Certificate</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a certificate used for digital signatures
+      which verify that requests are coming from your org. Certificates are used for either
+      authenticated single sign-on with an external website, or when using your org as an identity
+      provider.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_chatteranswerssettings.htm" title="Represents the metadata used to manage settings for Chatter Answers.">ChatterAnswersSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata used to manage settings
+            for Chatter Answers.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_chatterextensions.htm#meta_chatterextensions" title="Represents the metadata used to describe a Rich Publisher App that’s integrated with the Chatter publisher.">ChatterExtension</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata used to describe a Rich
+            Publisher App that’s integrated with the Chatter publisher.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_cleandataservice.htm" title="Represents a data service that adds and updates data in standard objects. This type extends the Metadata metadata type and inherits its fullName field.">CleanDataService</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a data service that adds and updates data in
+      standard objects. </td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_cmsconnectsource.htm#topic-title">CMSConnectSource</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the connection information for external content
+      management systems that feed content to Communities.
+      </td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_companyprofilesettings.htm" title="Represents global settings that affect multiple features in your organization.s">CompanySettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents global settings that affect multiple
+            features in your
+        organization.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_community.htm" title="Represents a zone that contains Ideas or Chatter Answers objects. Zones are shared by the Ideas, Answers, and Chatter Answers features, allowing you to view and create zones from those locations.This type extends the Metadata metadata type and inherits its fullName field.">Community (Zone)</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a zone that contains Ideas or Chatter Answers objects. Zones are shared by the Ideas, Answers, and Chatter Answers features,
+            allowing you to view and create zones from those locations.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_communitytemplatedefinition.htm" title="Represents the definition of a community template. This type extends the Metadata metadata type and inherits its fullName field.">CommunityTemplateDefinition</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the definition of a community
+            template.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_communitythemedefinition.htm" title="Represents the definition of a community theme.This type extends the Metadata metadata type and inherits its fullName field.">CommunityThemeDefinition</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the definition of a community
+      theme.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_compactlayout.htm" title="Represents the metadata associated with a compact layout. This type extends the Metadata metadata type and inherits its fullName field.">CompactLayout</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with a compact
+            layout.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_connectedapp.htm">ConnectedApp</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a connected app configuration. A connected app
+          integrates an application with Salesforce using APIs. Connected apps use standard SAML and
+          OAuth protocols to authenticate, provide single sign-on, and provide tokens for use with
+          Salesforce APIs. In addition to standard OAuth capabilities, connected apps allow
+          Salesforce admins to set various security policies and have explicit control over who can
+          use the corresponding apps.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_contentasset.htm" title="Represents the metadata for creating an asset file. Asset files enable a Salesforce file to be used for org setup and configuration purposes. This type extends the MetadataWithContent metadata type and inherits its content and fullName fields.">ContentAsset</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata for creating an asset file.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_contractsettings.htm" title="Represents contract settings. For more information, see “Set Up Contracts” in the Salesforce online help.">ContractSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents contract settings.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_corswhitelistorigin.htm">CorsWhitelistOrigin</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an origin in the CORS whitelist.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_cbsrule.htm" title="This component is removed as of API version 33.0 and is available in earlier versions only. Use SharingRules instead. Represents a criteria-based sharing rule. CriteriaBasedSharingRule enables you to share records based on specific criteria.">CriteriaBasedSharingRule</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">This component is
+                removed as of API version 33.0 and is available in earlier versions only. Use <a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_sharingrules.htm" title="Represents the base container for sharing rules, which can be criteria-based, ownership-based, or territory-based. SharingRules enables you to share records with a set of users, using rules that specify the access level for the target user group.">SharingRules</a>
+      instead. Represents a criteria-based sharing rule. CriteriaBasedSharingRule
+      enables you to share records based on specific criteria. It contains metadata for the following criteria-based sharing rules: Accounts,
+                Campaigns, Cases, Contacts, Custom Objects, Leads, and Opportunities.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_csptrustedsite.htm#topic-title">CspTrustedSite</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a CSP Trusted Site. 
+      <span class="ph">The Lightning Component framework</span> uses Content
+      Security Policy (CSP), which is a W3C standard, to control the source of content that can be
+      loaded on a page. To use
+      third-party APIs that make requests to an external (non-Salesforce) server, add the server as
+      a <span class="ph" id="d274257e666-d275245e16-d275266e18"><a name="d274257e666-d275245e16-d275266e18"><!-- --></a>CSP Trusted Site</span>.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_customapplication.htm" title="CustomApplication represents a custom or standard application. In API version 29.0 and earlier, CustomApplication represents only a custom application. An application is a list of tab references, with a description and a logo. This type extends the Metadata metadata type and inherits its fullName field.">CustomApplication</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">CustomApplication represents a custom or standard
+      application. In API version 29.0 and earlier, CustomApplication represents only a custom
+      application. An application is a list of tab references, with a description and a logo.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_customapplicationcomponent.htm" title="Represents a custom console component (Visualforce page) assigned to a CustomApplication that is marked as a Salesforce console. Custom console components extend the capabilities of Salesforce console apps. See “Customize a Console with Custom Components in Salesforce Classic” in the Salesforce online help.">CustomApplicationComponent</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a custom console component
+            (Visualforce page) assigned to a <a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_customapplication.htm" title="CustomApplication represents a custom or standard application. In API version 29.0 and earlier, CustomApplication represents only a custom application. An application is a list of tab references, with a description and a logo. This type extends the Metadata metadata type and inherits its fullName field.">CustomApplication</a> that is marked as a Salesforce console. Custom console
+            components extend the capabilities of Salesforce console apps.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_customfeedfilter.htm" title="Represents a custom feed filter that limits the feed view to feeds from the Cases object. The custom feed filter shows only feed items that satisfy the criteria specified in the CustomFeedFilter definition.This type extends the Metadata metadata type and inherits its fullName field.">CustomFeedFilter</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a custom feed filter that limits the feed
+      view to feeds from the Cases object. The custom feed filter shows only feed items that satisfy
+      the criteria specified in the CustomFeedFilter
+      definition.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/customfield.htm" title="Represents the metadata associated with a field. Use this metadata type to create, update, or delete custom field definitions on standard, custom, and external objects or standard field definitions on standard objects. This type extends the Metadata metadata type and inherits its fullName field.">CustomField</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with a field. Use
+            this metadata type to create, update, or delete custom field definitions on standard,
+            custom, and external objects or standard field definitions on standard objects.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_customlabels.htm#customLabel">CustomLabel</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a custom label that can be localized and used in different
+                languages, countries, and currencies. Use this type instead of CustomLabels if you
+                want to retrieve custom labels by name.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_custommetadatatypes.htm#meta_custommetadatatypes" title="Represents the metadata associated with a custom metadata type.">Custom Metadata Types (CustomObject)</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with a
+   custom metadata type.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_custommetadata.htm#meta_custommetadata" title="Represents a record of a custom metadata type.">CustomMetadata</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a record of a custom metadata
+    type.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_customlabels.htm" title="The CustomLabels metadata type allows you to create custom labels that can be localized for use in different languages, countries, and currencies.">CustomLabels</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">The CustomLabels metadata type allows you to create
+            custom labels that can be localized for use in different languages, countries, and
+            currencies.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/customobject.htm" title="Represents a custom object that stores data unique to your organization or an external object that maps to data stored outside your org.This type extends the Metadata metadata type and inherits its fullName field.">CustomObject</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">(See description.)</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a custom object that stores data unique to
+            your organization or an external object that maps to data stored outside your
+            org.
+                <p class="p">You can also use this metadata type to work with customizations of standard
+                  objects, such as Accounts. It contains the following types: Action Overrides,
+                  Business Processes, Custom Fields, Field Sets, List Views, Named Filters (Lookup
+                  Filters), Picklists (including Dependent Picklists), Record Types, Search Layouts,
+                  Sharing Reasons, Sharing Recalculations, Validation Rules, Weblinks, and Field
+                  Types.</p>
+<p class="p">Supports wildcard (*) for Field Sets and Record Types, but not for
+                  other components.</p>
+</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_customobjecttranslation.htm" title="This metadata type allows you to translate custom objects for a variety of languages.">CustomObjectTranslation</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">This metadata type allows you to translate
+            custom objects for a variety of languages.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/custompageweblink.htm" title="Represents a custom link defined in a home page component. This type extends the Metadata metadata type and inherits its fullName field.">CustomPageWebLink</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a custom link defined in a home page
+            component.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_custompermission.htm" title="Represents a permission that grants access to a custom feature. This type extends the Metadata metadata type and inherits its fullName field.">CustomPermission</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a permission that grants access to a custom
+         feature.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_sites.htm" title="Represents a Salesforce site. Create public websites and applications that are directly integrated with your Salesforce organization, but don't require users to log in with a username and password.">CustomSite</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a Salesforce site. Create public websites and
+      applications that are directly integrated with your Salesforce organization, but don't require
+      users to log in with a username and password. </td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_tab.htm" title="Represents a custom tab. Custom tabs let you display custom object data or other web content in Salesforce. When you add a custom tab to an app in Salesforce Classic, it displays as a tab. When you add a custom tab to an app in Lightning Experience, it displays as an item in the app’s navigation bar. When a tab displays a custom object, the tab name is the same as the custom object name; for page, s-control, or URL tabs, the name is arbitrary.">CustomTab</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a custom tab. Custom tabs let you display custom object data or other web
+      content in Salesforce. When you add a custom tab to an app in Salesforce Classic, it displays
+      as a tab. When you add a custom tab to an app in Lightning Experience, it displays as an item
+      in the app’s navigation bar. When a
+            tab displays a custom object, the tab name is the same as the custom object name; for
+            page, s-control, or URL tabs, the name is arbitrary.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_dashboard.htm" title="Represents a dashboard. Dashboards are visual representations of data that allow you to see key metrics and performance at a glance.">Dashboard</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a dashboard. Dashboards are visual
+            representations of data that allow you to see key metrics and performance at a
+            glance.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_datacategorygroup.htm" title="Represents a data category group.">DataCategoryGroup</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a data category group.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_delegategroup.htm">DelegateGroup</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a group of users who have the same administrative
+          privileges. These groups are different from public groups used for sharing.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_document.htm" title="Represents a Document. All documents must be in a document folder, such as sampleFolder/TestDocument.">Document</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a Document. All documents must be in a
+            document folder, such as
+        <span class="ph filepath">sampleFolder/TestDocument</span>.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_duplicaterule.htm#meta_duplicaterule" title="Represents a rule that specifies how duplicate records in an object are detected. This type extends the Metadata metadata type and inherits its fullName field.">DuplicateRule</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a rule that specifies how duplicate records in
+      an object are detected. </td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_eclairgeodata.htm#meta_eclairgeodata" title="Represents an Analytics custom map chart. Custom maps are user-defined maps that are uploaded to Analytics and are used just as standard maps are. Custom maps are accessed in Analytics from the list of maps available with the map chart type.">EclairGeoData</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an Analytics custom map chart. Custom maps
+      are user-defined maps that are uploaded to Analytics and are used just as standard maps are.
+      Custom maps are accessed in Analytics from the list of maps available with the map chart
+      type.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_emailservicesfunction.htm#topic-title">EmailServicesFunction</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an email service.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_emailtemplate.htm" title="Represents an email template.">EmailTemplate</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an email template.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_embeddedservicebranding.htm#meta_embeddedservicebranding" title="Represents the branding for each Snap-ins deployment. This type extends the Metadata metadata type and inherits its fullName field.">EmbeddedServiceBranding</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the branding for each Snap-ins
+      deployment.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_embeddedserviceconfig.htm#meta_embeddedserviceconfig" title="Represents a setup node for creating a Snap-ins deployment. This type extends the Metadata metadata type and inherits its fullName field.">EmbeddedServiceConfig</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a setup node for creating a Snap-ins
+      deployment.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_embeddedserviceliveagent.htm#meta_embeddedserviceliveagent" title="Represents a setup node for creating a Snap-ins Chat Live Agent deployment. This type extends the Metadata metadata type and inherits its fullName field.">EmbeddedServiceLiveAgent</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a setup node for creating a
+      Snap-ins Chat Live Agent deployment.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_entitlementprocess.htm">EntitlementProcess</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the settings for an entitlement
+                    process.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_entitlementsettings.htm">EntitlementSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an organization’s
+                    entitlement settings.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_entitlementtemplate.htm" title="Represents an entitlement template. Entitlement templates are predefined terms of customer support that you can quickly add to products. For example, you can create entitlement templates for Web or phone support so that users can easily add entitlements to products offered to customers.">EntitlementTemplate</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an entitlement template.
+            Entitlement templates are predefined terms of customer support that you can quickly add
+            to products. For example, you can create entitlement templates for Web or phone support
+            so that users can easily add entitlements to products offered to
+        customers.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_eventdelivery.htm" title="Represents how an event instance maps to a target payload. This type extends the Metadata metadata type and inherits its fullName field.">EventDelivery</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents how an event instance maps to a target
+      payload.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_eventsubscription.htm" title="Represents a subscription to an event type. This type extends the Metadata metadata type and inherits its fullName field.">EventSubscription</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a subscription to an event type.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_externalserviceregistration.htm#topic-title">ExternalServiceRegistration</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the External Service
+      configuration for an org.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_externaldatasource.htm#ExternalDataSource">ExternalDataSource</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with an external
+      data source. Create external data sources to manage connection details for integration with
+      data and content that are stored outside your Salesforce org.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_featureparameterboolean.htm#meta_featureparameterboolean" title="Represents a boolean feature parameter in a packaging org that has access to the Feature Management App (FMA). Feature parameters let you drive app behavior and track activation metrics in subscriber orgs that install your package. This type extends the Metadata metadata type and inherits its fullName field.">FeatureParameterBoolean</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a boolean feature parameter in a
+      packaging org that has access to the Feature Management App (FMA). Feature parameters let you
+      drive app behavior and track activation metrics in subscriber orgs that install your
+      package.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_featureparameterdate.htm#meta_featureparameterdate" title="Represents a date feature parameter in a packaging org that has access to the Feature Management App (FMA). Feature parameters let you drive app behavior and track activation metrics in subscriber orgs that install your package. This type extends the Metadata metadata type and inherits its fullName field.">FeatureParameterDate</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a date feature parameter in a packaging
+      org that has access to the Feature Management App (FMA). Feature parameters let you drive app
+      behavior and track activation metrics in subscriber orgs that install your package.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_featureparameterinteger.htm#meta_featureparameterinteger" title="Represents an integer feature parameter in a packaging org that has access to the Feature Management App (FMA). Feature parameters let you drive app behavior and track activation metrics in subscriber orgs that install your package. This type extends the Metadata metadata type and inherits its fullName field.">FeatureParameterInteger</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an integer feature parameter in a
+      packaging org that has access to the Feature Management App (FMA). Feature parameters let you
+      drive app behavior and track activation metrics in subscriber orgs that install your
+      package.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_fieldset.htm" title="Represents a field set. A field set is a grouping of fields. For example, you could have a field set that contains fields describing a user's first name, middle name, last name, and business title.">FieldSet</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a field set. A field set is a grouping of
+            fields. For example, you could have a field set that contains fields describing a user's
+            first name, middle name, last name, and business title.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_fileuploadanddownloadsecuritysettings.htm" title="Represents the security settings for uploading and downloading files. This type extends the Metadata metadata type and inherits its fullName field.">
+                  FileUploadAndDownloadSecuritySettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the security
+            settings for uploading and downloading files. </td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_flexipage.htm">FlexiPage</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with a Lightning page. A
+               Lightning page represents a customizable screen made up of regions containing
+               Lightning components.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_visual_workflow.htm" title="Represents the metadata associated with a flow. With Flow, you can create an application that navigates users through a series of screens to query and update records in the database. You can also execute logic and provide branching capability based on user input to build dynamic applications.">Flow</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with a flow. With Flow,
+            you can create an application that navigates users through a series of screens to query
+            and update records in the database. You can also execute logic and provide branching
+            capability based on user input to build dynamic applications.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_flowcategory.htm" title="Represents a list of flows that are grouped by category. Flows aren’t added directly to a Lightning Bolt Solution. Instead, add the category the flows are in to the Lightning Bolt Solution. This type extends the Metadata metadata type and inherits its fullName field.">FlowCategory</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a list of flows that are grouped by category.
+      Flows aren’t added directly to a Lightning Bolt Solution. Instead, add
+      the category the flows are in to the Lightning Bolt Solution.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_flowdefinition.htm" title="Represents the flow definition’s description and active flow version number.">FlowDefinition</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the flow definition’s description and active flow
+            version number.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_folder.htm" title="Represents a folder. This type extends the Metadata metadata type and inherits its fullName field.">Folder</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a folder. A folder can
+                contain documents, email templates, reports, or dashboards. You must specify the
+                folder type (Document, EmailTemplate, Report, or Dashboard) to retrieve or
+                deploy.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_foldershare.htm">FolderShare</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the settings for enhanced analytics folder sharing.
+          Users can control access to reports or dashboards by giving others Viewer, Editor or
+          Manager access to the folder that contains the report or dashboard.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_forecastingsettings.htm">ForecastingSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the Collaborative Forecasts settings options.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_globalvalueset.htm" title="Represents the metadata for a global picklist value set, which is the set of shared values that custom picklist fields can use. A global value set isn't a field itself. (In contrast, the custom picklist fields that are based on a global picklist are of type ValueSet.) This type extends the Metadata metadata type and inherits its fullName field.">GlobalValueSet</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata for a global picklist value set,
+      which is the set of shared values that custom picklist fields can use. A global value set
+      isn't a field itself. (In contrast, the custom picklist fields that are based on a global
+      picklist are of type ValueSet.) </td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_globalvaluesettranslation.htm#meta_globalvaluesettranslations" title="Contains details for a global value set translation. Global value sets are lists of values that can be shared by multiple custom picklist fields, optionally across objects.This type extends the Metadata metadata type and inherits its fullName field.">GlobalValueSetTranslation</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Contains details for a global value set
+      translation. Global value sets are lists of values that can be shared by multiple custom
+      picklist fields, optionally across objects.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_globalpicklistvalue.htm#meta_globalpicklistvalue" title="Represents the definition of a value used in a global picklist. Custom picklist fields can inherit the picklist value set from a global picklist. This type extends the Metadata metadata type and inherits its fullName field.">GlobalPicklistValue</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the definition of a value used in a
+      global picklist. Custom picklist fields can inherit the picklist value set from a global
+      picklist. This type extends the <a class="xref" href="atlas.en-us.api_meta.meta/api_meta/metadata.htm" title="This is the base class for all metadata types. You cannot edit this object. A component is an instance of a metadata type.">Metadata</a>
+                metadata type and inherits its <span class="keyword parmname">fullName</span> field.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_group.htm" title="Represents a set of public groups, which can have users, roles, and other groups.">Group</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a set of public groups, which can have users,
+            roles, and other groups.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_homepagecomponent.htm" title="Represents the metadata associated with a home page component. You can customize the Home tab in Salesforce Classic to include components such as sidebar links, a company logo, a dashboard snapshot, or custom components that you create. Use to create, update, or delete home page component definitions.">HomePageComponent</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with a home
+      page component. You can customize the Home tab in Salesforce Classic to include components such as sidebar links, a
+   company logo, a dashboard snapshot, or custom components that you create. Use to create, update, or delete home page component definitions.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_homepagelayouts.htm" title="Represents the metadata associated with a home page layout. You can customize home page layouts and assign the layouts to users based on their user profile.">HomePageLayout</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with a home page
+            layout. You can customize home page layouts and assign the layouts to users based on
+            their user profile.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_ideassettings.htm" title="Represents the metadata used to manage settings for Ideas.">IdeasSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata used to manage settings for Ideas.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_index.htm" title="Represents an index defined within a custom big object. Use this metadata type to define the composite primary key (index) for a custom big object.This type extends the Metadata metadata type and inherits its fullName field.">Index</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an index defined within a custom big
+        object. Use this metadata type to define the composite primary key (index) for a
+      custom big object.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_installedpackage.htm#meta_installedpackage" title="Represents a package to be installed or uninstalled. Deploying a newer version of a currently installed package upgrades the package.">InstalledPackage</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a package to be installed or uninstalled.
+      Deploying a newer version of a currently installed package upgrades the
+    package.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_keywordlist.htm">KeywordList</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a list of keywords used in community
+          moderation. This keyword list is a type of moderation criteria that defines offensive
+          language or inappropriate content that you don’t want in your community.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_knowledgesettings.htm" title="Represents the metadata used to manage settings for Salesforce Knowledge.">KnowledgeSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata used to manage settings for
+        Salesforce Knowledge.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_layouts.htm" title="Represents the metadata associated with a page layout. For more information, see “Page Layouts” in the Salesforce online help.">Layout</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with a page layout.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_letterhead.htm" title="Represents formatting options for the letterhead in an email template. A letterhead defines the logo, page color, and text settings for your HTML email templates. Use letterheads to ensure a consistent look and feel in your company’s emails.">Letterhead</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents formatting options for the letterhead in an
+            email template. A letterhead defines the logo, page color, and text
+                        settings for your HTML email templates. Use letterheads to ensure a
+                        consistent look and feel in your company’s emails.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_lightningbolt.htm" title="Represents the definition of a Lightning Bolt Solution, which can include custom apps, flow categories, and Lightning Community templates. This type extends the Metadata metadata type and inherits its fullName field.">LightningBolt</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the definition of a Lightning Bolt Solution, which can
+      include custom apps, flow categories, and Lightning Community templates.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_lightningcomponentbundle.htm" title="Reserved for future use.">LightningComponentBundle</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Reserved for future
+    use.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_lightningexperiencetheme.htm" title="Represents the details of a custom theme, including the BrandingSet. Themes enable admins to specify configurable attributes, such as three colors and five images. The colors and some of the images override SLDS token values and influence the generation of app.css.">LightningExperienceTheme</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the details of a custom theme,
+      including the <a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_brandingset.htm#meta_brandingset" title="Represents the definition of a set of branding properties for a community, as defined in the Branding Panel in Community Builder. This type extends the Metadata metadata type and inherits its fullName field.">BrandingSet</a>. Themes enable admins to specify
+      configurable attributes, such as three colors and five images. The colors and some of the
+      images override SLDS token values and influence the generation of
+      <span class="ph filepath">app.css</span>.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_listview.htm" title="ListView allows you to see a filtered list of records, such as contacts, accounts, or custom objects.">ListView</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">ListView allows you to see a filtered list of records,
+            such as contacts, accounts, or custom objects.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_liveagentsettings.htm">LiveAgentSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an organization’s Live Agent
+                    settings, such as whether or not Live Agent is enabled.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_livechatagentconfig.htm">LiveChatAgentConfig</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the configuration of an
+                    organization’s Live Agent deployment, such as how many chats can be
+                    assigned to an agent and whether or not chat sounds are enabled.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_livechatbutton.htm">LiveChatButton</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a Live Agent deployment’s settings
+                    for the button that customers click to chat with an agent and the chat window,
+                    such as the label that appears on the button and the pre-chat form that appears
+                    before a live chat begins.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_livechatdeployment.htm">LiveChatDeployment</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the configuration settings for a
+                    specific Live Agent deployment, such as the branding image for the deployment
+                    and whether or not chat transcripts are automatically saved.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_livechatsensitivedatarule.htm" title="Represents a rule for masking or deleting data of a specified pattern. Written as a regular expression (regex).">LiveChatSensitiveDataRule</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a rule for masking or deleting data of
+    a specified pattern. Written as a regular expression (regex).
+                This object is available in API version 35.0 and later.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_managedtopics.htm">ManagedTopics</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents navigational and featured topics managed in a
+                    community.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_matchingrule.htm#meta_matchingrule" title="Represents a matching rule that is used to identify duplicate records. This type extends the Metadata metadata type and inherits its fullName field.">MatchingRule</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a matching rule that is used to identify duplicate
+   records.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/metadata.htm" title="This is the base class for all metadata types. You cannot edit this object. A component is an instance of a metadata type.">Metadata</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">This is the base class for all metadata types. You cannot
+      edit this object. A component is an instance of a
+            metadata type.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_metadatawithcontent.htm" title="MetadataWithContent is the base type for all metadata types that contain content, such as documents or email templates. It extends Metadata. You cannot edit this object.">MetadataWithContent</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">MetadataWithContent is the base type for all
+   metadata types that contain content, such as documents or email templates.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_milestonetype.htm">MilestoneType</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the name and description of a milestone,
+                    which you can use in an entitlement process to track important steps in
+                    cases.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_mldomain.htm#meta_mldomain" title="Represents an Einstein Intent Set. This type extends the Metadata metadata type and inherits its fullName field.">MlDomain (Beta)</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an Einstein Intent Set.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_mobilesettings.htm">MobileSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an organization’s mobile
+                    settings.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_moderationrule.htm" title="Represents a rule used in your community to moderate member-generated content.Each rule specifies the member-generated content the rule applies to, the criteria to enforce the rule on, and the moderation action to take. Moderation rules help protect your community from spammers, bots, and offensive or inappropriate content. This type extends the Metadata metadata type and inherits its fullName field.">ModerationRule</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a rule used in your community to
+      moderate member-generated content.Each rule specifies the member-generated content the rule applies to, the
+   criteria to enforce the rule on, and the moderation action to take. Moderation rules help protect
+   your community from spammers, bots, and offensive or inappropriate content.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_namedcredential.htm" title="Represents a named credential, which specifies the URL of a callout endpoint and its required authentication parameters in one definition. A named credential can be specified as an endpoint to simplify the setup of authenticated callouts.">NamedCredential</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a named credential, which
+                    specifies the URL of a callout endpoint and its required authentication
+                    parameters in one definition. A named credential can be specified as an endpoint
+                    to simplify the setup of authenticated callouts.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/namedfilter.htm" title="Represents the metadata associated with a lookup filter. This metadata type is used to create, update, or delete lookup filter definitions. This component has been removed as of API version 30.0 and is only available in previous API versions. The metadata associated with a lookup filter is now represented by the lookupFilter field in the CustomField component.">NamedFilter</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">
+<p class="p">This component has been removed as of API version 30.0 and is only provided
+                  for backward compatibility. The metadata associated with a lookup
+                filter is now represented by the <span class="keyword parmname">lookupFilter</span> field in the
+                    CustomField
+            component.</p>
+Represents the metadata associated with a lookup filter. This metadata
+            type
+            is used to create, update, or delete lookup filter definitions. This
+            component has been removed as of API version 30.0 and is only available in previous API
+            versions. <span class="ph" id="d274257e1661-d276896e18"><a name="d274257e1661-d276896e18"><!-- --></a>The metadata associated with a lookup
+                filter is now represented by the <span class="keyword parmname">lookupFilter</span> field in the
+                    CustomField
+            component.</span>
+</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_namesettings.htm#topic-title">NameSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Enables or disables middle name and suffix attributes
+            for the following person objects: Contact, Lead, Person Account, and
+        User.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_network.htm" title="Represents a community. Communities are branded spaces for your employees, customers, and partners to connect. You can customize and create communities to meet your business needs, then transition seamlessly between them. Use the Network component for Salesforce Communities. If you want to create zones that contain Chatter Answers and Ideas, use the Community (Zone) component.">Network</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a community. Communities are branded spaces for your employees,
+         customers, and partners to connect. You can customize and create communities to meet your
+         business needs, then transition seamlessly between them. Use the Network component for Salesforce Communities. If you want to create zones
+            that contain Chatter Answers and
+                Ideas, use the Community (Zone) component.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_networkbranding.htm#meta_networkbranding" title="Represents the branding and color scheme applied to a community. (Salesforce Communities are represented by the Network component.)">NetworkBranding</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the branding and color scheme applied
+            to a community.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_omnichannelsettings.htm#topic-title">OmniChannelSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the Omni-Channel settings for an org.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_opportunityssettings.htm">OpportunitySettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents organization preferences for features
+                    such as automatic opportunity updates and similar-opportunity filters. </td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_ordersettings.htm">OrderSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents order settings.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type">OrgPreferenceSettings</td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the unique org preference settings in
+            a Salesforce
+        org.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_ownersharingrule.htm" title="Represents an ownership-based sharing rule. OwnerSharingRule enables you to share records owned by a set of users with another set, using rules that specify the access level of the target user group. This component is removed as of API version 33.0 and is available in earlier versions only.">OwnerSharingRule</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an ownership-based sharing rule.
+   OwnerSharingRule enables you to share records owned by a set of users with another set, using
+   rules that specify the access level of the target user group. This component is
+                removed as of API version 33.0 and is available in earlier versions only. It contains metadata for the following specific owner-sharing rules: Accounts,
+                Campaigns, Cases, Contacts, Custom Objects, Leads, Account Territory and
+                Opportunities.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_package.htm" title="Specifies which metadata components to retrieve as part of a retrieve() call or defines a package of components.">Package</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Specifies which metadata components to retrieve as part of a
+        <a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_retrieve.htm" title="The retrieve() call retrieves XML file representations of components in an organization."><samp class="codeph nolang">retrieve()</samp></a> call or defines a
+      package of components.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_pathassistant.htm#meta_pathassistant" title="Represents Path records.This type extends the Metadata metadata type and inherits its fullName field.">PathAssistant</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents Path records.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_pathassistantsettings.htm#meta_pathassistantsettings" title="Represents the Path preference setting. This type extends the Metadata metadata type and inherits its fullName field.">PathAssistantSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the Path preference setting.
+            </td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_permissionset.htm" title="Represents a set of permissions that's used to grant additional access to one or more users without changing their profile or reassigning profiles. You can use permission sets to grant access but not to deny access.">PermissionSet</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a set of permissions that's used to grant
+            additional access to one or more users without changing their profile or reassigning
+            profiles. You can use permission sets to grant access but not to deny
+        access.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_picklist.htm" title="Deprecated. Represents a picklist (or dependent picklist) definition for a custom field in a custom object or a custom or standard field in a standard object, such as an account.">Picklist (Including Dependent Picklist)</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">
+<strong class="ph b">Deprecated.</strong> Represents a picklist (or
+            dependent picklist) definition for a custom field in a custom object or a custom or
+            standard field in a standard object, such as an account.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_platformcachepartition.htm" title="Represents a partition in the Platform Cache. This type extends the Metadata metadata type and inherits its fullName field.">PlatformCachePartition</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a partition in the Platform Cache.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_portal.htm" title="The Portal metadata type represents a partner portal or Customer Portal.">Portal</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">The Portal metadata type represents a partner portal or Customer Portal.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_posttemplate.htm" title="Represents the metadata associated with an approval post template for Approvals in Chatter. With approval post templates, you can customize the information included in approval request posts that appear in Chatter feeds. This type extends the Metadata metadata type and inherits its fullName field.">PostTemplate</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with an approval post
+            template for Approvals in Chatter. With approval post templates, you can customize the
+            information included in approval request posts that appear in Chatter feeds.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_presencedeclinereason.htm#topic-title">PresenceDeclineReason</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an Omni-Channel decline reason that
+      agents can select when declining work requests.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_presenceuserconfig.htm" title="Represents a configuration that determines a presence user’s settings. This type extends the Metadata metadata type and inherits its fullName field.">PresenceUserConfig</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a configuration that determines a presence
+      user’s settings.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_productsettings.htm">ProductSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents organization preferences for quantity
+                    schedules, revenue schedules, and active flag interaction with prices. </td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_profile.htm" title="Represents a user profile. A profile defines a user’s permission to perform different functions within Salesforce. This type extends the Metadata metadata type and inherits its fullName field.">Profile</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a user profile. A profile defines a user’s
+            permission to perform different functions within Salesforce.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_profileactionoverride.htm#meta_profileactionoverride" title="Represents an override of an ActionOverride by a user profile. You can use it to override an ActionOverride on a standard Home tab or object record page in Lightning Experience. When a user logs in with a profile, a matching ProfileActionOverride assignment takes precedence over existing overrides for the Home tab or record page specified in ActionOverride. You can access ProfileActionOverride only by accessing its encompassing CustomApplication or Profile. Available in API version 39.0 and later.">ProfileActionOverride</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an override of an ActionOverride by a
+      user profile. You can use it to override an ActionOverride on a standard Home tab or object
+      record page in Lightning Experience. When a user logs in with a profile, a matching
+      ProfileActionOverride assignment takes precedence over existing overrides for the Home tab or
+      record page specified in ActionOverride.</td>
+
+            </tr>
+
+            
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_profilepasswordpolicy.htm#meta_profilepasswordpolicy" title="Represents a profile’s password policies. Profile password policies override org-wide password policies for that profile’s users. Use ProfilePasswordPolicy to retrieve password policies for a given profile. This type extends the Metadata metadata type and inherits its fullName field.">ProfilePasswordPolicy</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a profile’s password policies. Profile
+    password policies override org-wide password policies for that profile’s users. Use
+    ProfilePasswordPolicy to retrieve password policies for a given profile.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_profilesessionsetting.htm#meta_profilesessionsetting" title="Represents a profile’s session settings. Use ProfileSessionSetting to retrieve the session settings for a given profile. This type extends the Metadata metadata type and inherits its fullName field.">ProfileSessionSetting</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a profile’s session settings. Use
+      ProfileSessionSetting to retrieve the session settings for a given profile.</td>
+
+            </tr>
+
+            
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_queue.htm" title="Represents a holding area for items before they are processed.">Queue</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a holding area for items before they are
+            processed.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_queueroutingconfig.htm#topic-title">QueueRoutingConfig</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the settings that determine how work items
+      are routed to agents.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_quickaction.htm">QuickAction</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a specified create or update quick action for
+                    an object that then becomes available in the Chatter publisher. <span class="ph" id="d274257e2001-d277530e46"><a name="d274257e2001-d277530e46"><!-- --></a>For example, you can create an action that, on the
+                        detail page of an account, allows a user to create a contact related to that
+                        account from the Chatter feed on that page.</span>
+                    QuickAction can be created on objects that
+                    allow custom fields.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_quotessettings.htm">QuoteSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Enables or disables Quotes, which show proposed prices
+                    for products and services. </td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_recordtype.htm" title="Represents the metadata associated with a record type. Record types let you offer different business processes, picklist values, and page layouts to different users. Use this metadata type to create, update, or delete record type definitions for a custom object.">RecordType</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with a record type.
+                Record types let you offer different business processes,
+            picklist values, and page layouts to different users. Use this metadata type to create, update, or delete record type definitions for a
+            custom object.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_remotesitesetting.htm" title="Represents a remote site setting. Before any Visualforce page, Apex callout, or JavaScript code using XmlHttpRequest in an s-control or custom button can call an external site, that site must be registered in the Remote Site Settings page, or the call fails.">RemoteSiteSetting</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a remote site setting. Before any Visualforce page, Apex callout, or JavaScript code using
+    XmlHttpRequest in an s-control or custom button can call an external site, that site must be
+    registered in the Remote Site Settings page, or the call fails.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_report.htm" title="Represents a custom report. This metadata type only supports custom reports; standard reports are not supported.">Report</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a custom report.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_reporttype.htm" title="Represents the metadata associated with a custom report type. Custom report types allow you to build a framework from which users can create and customize reports. For more information, see “Set Up a Custom Report Type” in the Salesforce online help.">ReportType</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with a custom report
+            type. <span class="ph" id="d274257e2067-d277665e14"><a name="d274257e2067-d277665e14"><!-- --></a>Custom report types allow you to build a framework from
+                which users can create and customize reports.</span>Custom
+                report types allow you to build a framework from which users can create and
+                customize reports.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_role.htm" title="Represents a role in your organization.">Role</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a role in your organization.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_samlssoconfig.htm">SamlSsoConfig</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a SAML Single Sign-On configuration.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_scontrol.htm" title="Deprecated. Represents an Scontrol component, corresponding to an s-control in the Salesforce user interface.">Scontrol</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Deprecated. Represents an Scontrol component, corresponding
+   to an s-control in the Salesforce user interface.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_searchlayouts.htm" title="Represents the metadata associated with the Search Layouts for an object. You can customize which fields to display for users in search results, search filter fields, lookup dialogs, and recent record lists on tab home pages. You can access SearchLayouts only by accessing its encompassing CustomObject.">SearchLayouts</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with the Search
+            Layouts for an object. You can customize which fields to display for users in search
+            results, search filter fields, lookup dialogs, and recent record lists on tab home
+            pages.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_searchsettings.htm#meta_searchsettings" title="Represents an org's search settings.">SearchSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an org's search
+		settings.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_securitysettings.htm#SecuritySettings-0D286E71">SecuritySettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Not Applicable</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an organization’s security
+            settings. Security settings define trusted IP ranges for network access, password and
+            login requirements, and session expiration and security settings.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_servicechannel.htm#topic-title">ServiceChannel</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a channel of work items that are received from
+      your organization—for example, cases, chats, or leads.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_servicepresencestatus.htm#topic-title">ServicePresenceStatus</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a presence status that can be assigned
+      to a service channel.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_sharingbaserule.htm" title="Represents sharing rule settings such as access level and to whom access is granted.">SharingBaseRule</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents sharing rule settings such as access level
+   and to whom access is granted.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_apexsharingreason.htm" title="Represents an Apex sharing reason, which is used to indicate why sharing was implemented for a custom object. Apex managed sharing allows developers to use Apex to programmatically share custom objects. When you use Apex managed sharing to share a custom object, only users with the “Modify All Data” permission can add or change the sharing on the custom object's record, and the sharing access is maintained across record owner changes. For more information, see “Sharing Settings” in the Salesforce online help.">SharingReason</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an Apex sharing reason, which is used to
+            indicate why sharing was implemented for a custom object.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_apexsharingrecalculation.htm" title="Represents Apex classes that recalculate the Apex managed sharing for a specific custom object.">SharingRecalculation</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents Apex classes that recalculate the
+            Apex managed sharing for a specific custom object.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_sharingrules.htm" title="Represents the base container for sharing rules, which can be criteria-based, ownership-based, or territory-based. SharingRules enables you to share records with a set of users, using rules that specify the access level for the target user group.">SharingRules</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the base container for sharing rules,
+            which can be criteria-based, ownership-based, or territory-based. SharingRules enables you to share records with a set
+            of users, using rules that specify the access level for the target user
+        group.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_sharingset.htm">SharingSet</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a sharing set. A sharing set defines an access mapping
+          that grants portal or community users access to objects that are associated with their
+          accounts or contacts.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_sitedotcom.htm" title="Represents a site for deployment.">SiteDotCom</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents
+            a site for deployment.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_skills.htm">Skill</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the settings for a skill used for field service or
+                    to route chats to agents in Live Agent, such as the name of the skill and which
+                    agents the skills are assigned to.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_socialcustomerservicesettings.htm#socialcustomerservicesettings">SocialCustomerServiceSettings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the Social Business Rules custom
+                    format for the <strong class="ph uicontrol">Case Subject</strong> field on cases created from
+                    inbound social posts.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_standardvalueset.htm#meta_standardvalueset" title="Represents the set of values in a standard picklist field. This type extends the Metadata metadata type and inherits its fullName field.">StandardValueSet</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the set of values in a standard picklist
+      field. This type extends the <a class="xref" href="atlas.en-us.api_meta.meta/api_meta/metadata.htm" title="This is the base class for all metadata types. You cannot edit this object. A component is an instance of a metadata type.">Metadata</a>
+                metadata type and inherits its <span class="keyword parmname">fullName</span> field.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_standardvaluesettranslation.htm#meta_standardvaluesettranslations" title="Contains details for a standard picklist translation. It returns a translated standard value set.This type extends the Metadata metadata type and inherits its fullName field.">StandardValueSetTranslation</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Contains details for a standard picklist
+      translation. It returns a translated standard value set.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_staticresource.htm" title="Represents a static resource file, often a code library in a ZIP file. Static resources allow you to upload content that you can reference in a Visualforce page, including archives (such as .zip and .jar files), images, style sheets, JavaScript, and other files.">StaticResource</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a static resource file, often a code
+            library in a ZIP file. Static resources allow you to upload content that you
+            can reference in a Visualforce page, including archives (such as .zip and .jar files),
+            images, style sheets, JavaScript, and other files.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_synonymdictionary.htm" title="Represents a set of synonym groups, which are groups of words or phrases that are treated as equivalent in users’ searches. You can define synonym groups to optimize search results for acronyms, variations of product names, and other terminology unique to your organization.">SynonymDictionary</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a set of synonym groups, which are groups
+            of words or phrases that are treated as equivalent in users’ searches. You can
+            define synonym groups to optimize search results for acronyms, variations of product
+            names, and other terminology unique to your organization.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_territory.htm" title="Represents a territory in your organization.">Territory</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a territory in your
+        organization.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_territory2.htm#topic-title">Territory2</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with a sales territory
+      in Territory Management 2.0. </td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_territory2model.htm#topic-title">Territory2Model</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with a territory
+      model in Territory Management 2.0.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_territory2rule.htm#topic-title">Territory2Rule</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with a territory
+      assignment rule associated with an object, such as Account, in Territory Management 2.0.
+      </td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_territory2settings.htm#topic-title">Territory2Settings</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata for the default settings
+      for Territory Management 2.0 users to access and modify records associated with sales
+      territories. The standard record access settings apply to accounts and opportunities. If your
+        Salesforce org uses
+        <kbd class="ph userinput">Private</kbd> default internal access for contacts or cases, you can also
+      set access for those records.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_territory2type.htm#topic-title">Territory2Type</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata for a category of territories
+      in Territory Management 2.0. Every Territory2 must have a Territory2Type. </td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_topicsforobjects.htm#meta_topicsforobjects" title="Represents the ability to assign topics to objects or to remove topic assignments.">TopicsForObjects</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the ability to assign topics to objects or
+      to remove topic assignments.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_transactionsecurity.htm#topic-title">TransactionSecurityPolicy</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a transaction security policy definition.
+      Transaction Security policies give you a way to look through events in your organization and
+      specify actions to take when certain combinations occur.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_translations.htm" title="This metadata type allows you to work with translations for various supported languages. The ability to translate component labels is part of the Translation Workbench. For more information, see “Enable and Disable the Translation Workbench” in the Salesforce online help.">Translations</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">This metadata type allows you to work with
+            translations for various supported languages.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_validationformulas.htm" title="Represents a validation rule, which is used to verify that the data a user enters in a record is valid and can be saved. A validation rule contains a formula or expression that evaluates the data in one or more fields and returns a value of true or false. Validation rules also include an error message that your client application can display to the user when the rule returns a value of true due to invalid data.">ValidationRule</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a validation rule, which is used to
+            verify that the data a user enters in a record is valid and can be saved. A validation
+            rule contains a formula or expression that evaluates the data in one or more fields and
+            returns a value of <samp class="codeph java">true</samp> or <samp class="codeph java">false</samp>. Validation rules also include an error message that your client
+            application can display to the user when the rule returns a value of <samp class="codeph java">true</samp> due to invalid data.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_waveapplication.htm#topic-title">WaveApplication
+                </a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the Analytics application.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_wavedashboard.htm#topic-title">WaveDashboard
+                </a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the WaveDashboard object in the Analytics
+      application.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_wavedataflow.htm#topic-title">WaveDataflow
+                </a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the WaveDataflow object in the Analytics
+            application.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_wavedataset.htm#topic-title">WaveDataset
+                </a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the WaveDataset object in the Analytics
+   application.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_wavelens.htm#topic-title">WaveLens
+                </a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the WaveLens object in the Analytics
+      application.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_wavetemplatebundle.htm#topic-title">WaveTemplateBundle</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents an Analytics template bundle, which can be
+      used to create Analytics apps. A bundle contains an Analytics template definition and all its
+      related resources.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_wavexmd.htm#topic-title">WaveXmd</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the WaveXmd object in the Analytics
+            application.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_weblink.htm" title="Represents a custom button or link defined in a custom object.">WebLink</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">No</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents a custom button or link defined in a custom
+            object.</td>
+
+            </tr>
+
+            <tr>
+              <td class="entry" headers="d334149e96" data-title="Metadata Type"><a class="xref" href="atlas.en-us.api_meta.meta/api_meta/meta_workflow.htm" title="Represents the metadata associated with a workflow rule. A workflow rule sets workflow actions into motion when its designated conditions are met. You can configure workflow actions to execute immediately when a record meets the conditions in your workflow rule, or set time triggers that execute the workflow actions on a specific day. Use this metadata type to create, update, or delete workflow rule definitions.">Workflow</a></td>
+
+              <td class=" text-center" headers="d334149e99" data-title="Allows Wildcard (*)?">Yes</td>
+
+              <td class="entry" headers="d334149e102" data-title="Description">Represents the metadata associated with a workflow rule.
+            A workflow rule sets workflow actions into motion when its designated conditions are
+            met. You can configure workflow actions to execute immediately when a record meets the
+            conditions in your workflow rule, or set time triggers that execute the workflow actions
+            on a specific day. Use this metadata type to create, update, or delete workflow rule
+            definitions.</td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+</body>
+</html>
