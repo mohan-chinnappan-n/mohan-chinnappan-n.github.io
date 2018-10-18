@@ -43,11 +43,19 @@
 
    <div id="menu" class="split split-horizontal">
       <ul class='list-group'>
-        <li class='list-group-item'> <a href="#welcome-to-EA">Welcome to EA</a>  </li>
+        <li class='list-group-item'> <a href="#welcome-to-EA">Welcome to EA!</a>  </li>
+        <li class='list-group-item'> <a href="#ea-steps">EA Steps</a>  </li>
+         <li class='list-group-item'> <a href="#data-exploration">Data Exploration</a>  </li>
+ 
+
         <li class='list-group-item'> <a href="#recipe-editor">Recipe Editor</a> </li>
         <li class='list-group-item'> <a href="#take-action">Take Action</a> </li>
         <li class='list-group-item'> <a href="#build-app">Build App</a> </li>
         <li class='list-group-item'> <a href="#get-answers">Get Answers</a> </li>
+        <li class='list-group-item'> <a href="#trend-report-data">Trend Report Data</a> </li>
+        <li class='list-group-item'> <a href="#ea-explorer">Explorer</a> </li>
+        <li class='list-group-item'> <a href="#interactive-dashboardr">Interactive Dashboards</a> </li>
+ 
         <li class='list-group-item'> <a href="#load-data">Load Data</a> </li>
         <li class='list-group-item'> <a href="#connect-db-sf">Connect Dashboards to Salesforce </a> </li>
         <li class='list-group-item'> <a href="#design-data-security">Design Data Security</a> </li>
@@ -58,7 +66,19 @@
      </ul> 
 </div>
   <div id="content" class="split split-horizontal">
-    <h3 id='welcome-to-EA'>Welcome to EA </h3>
+
+    <p>
+<h3> Einstein Analytics </h3>
+
+Analytics collects and organizes your data in <b>datasets, lenses, dashboards, and apps</b>. These collections, also known as <b>Analytics assets</b> represent levels of data refinement—from raw data that’s uploaded from your source systems to highly curated, packaged views of your data.
+<h3>Analytics Assets</h3>
+<ul class="list-group">
+    <li class="list-group-item"> <b>Dataset</b> contains a set of source data, specially formatted and optimized for interactive exploration.</li>
+    <li class="list-group-item"> <b>Lens</b> is a particular view into a dataset’s data. It’s where you do exploratory analysis and visualization.j</li>
+    <li class="list-group-item"> <b>Dashboard</b> is a curated set of charts, metrics, and tables based on the data in one or more lenses.</li>
+    <li class="list-group-item"><b>App</b> is a purpose-built set of analytics and answers about a specific area of your business. With apps, you can provide pathways through your data, plus powerful tools for spontaneous, deep explorations. After creating dashboards, lenses, and datasets, organize apps to present dashboards in relevant order, and then share apps with appropriate groups.</li>
+</ul>
+    <h3 id='welcome-to-EA'>Welcome to EA! </h3>
     <div  class="stage append-bottom">
                 <meta itemprop="height" content="600">
                 <meta itemprop="width" content="800">
@@ -70,8 +90,46 @@
    </div>
    
    <hr/>
- 
 
+  <h3 id='ea-steps'>Exploring and Visualizing Your Data Interactively </h3>
+   <div class='row'> 
+     <div class="col-lg-3">
+        <img src="img/ea-stages.png" style='border-radius:10px;border-color:#99ccff;'alt="">
+    </div>
+
+     <div class="col-lg-9">
+        <ul class="list-group">
+            <li class="list-group-item"> <b>View</b>—View the data set </li>
+            <li class="list-group-item"><b>Explore</b>—Get to know the boundaries and shape of your data. Play with different views, zoom in and zoom out, and see what you get with different charting options.</li>
+            <li class="list-group-item"><b>Refine</b>—Narrow your view to the most important data. Decide the level of detail and categorization that’s easiest for your colleagues to understand. Choose the most appropriate chart visualization.</li>
+            <li class="list-group-item"><b>Save</b>—Save your work.</li>
+             <li class="list-group-item"><b>Share</b>—Share your view with others. For a more packaged presentation, use your visualization to build a dashboard.
+</li>
+ 
+ 
+        </ul>
+    </div>
+ 
+   </div>
+
+<h3 id='data-exploration'>Data Exploration</h3>
+<ul class="list-group">
+    <li class="list-group-item"> <b>Visualization</b>  is commonly a chart or graph, such as a bar chart, donut chart, timeline, or heat map. It can also be data in tabular form, such as a comparison table or pivot table. Every visualization has an underlying <b>query</b>, which is how Analytics retrieves information from the source data. </li>
+   <li class="list-group-item"><b>Measure</b> is a <b>quantitative value</b>, like revenue and exchange rate. You can do <b>math on measures</b> such as calculating the total revenue and minimum exchange rate. Measures have names (revenue) and values ($1,000,000). When you’re viewing a chart visualization in Analytics, it’s important to remember:
+ <ul class="list-group">
+  <li class="list-group-item">
+   A measure is typically <b>aggregated in some way</b>, which means that it’s displayed with some math already applied to it. 
+   <br/>For example, when you first view a dataset, you often see a simple aggregation such as the count of the number of rows. You typically aggregate by a different method—sum, average, maximum, and so on—as you explore and change or add measures, but you always specify how you want to aggregate at the time when you select the measure.
+</li>
+</ul>
+
+  <li class="list-group-item">
+<b>Dimension</b> is a <b>qualitative value</b>, like region, product name, and model number. Dimensions are handy for grouping and filtering your data. Unlike measures, <b>you can’t perform math on dimensions</b>. Like measures, dimensions also have names (region) and values (northeast). Time is usually considered a dimension rather than a measure.
+  </li>  
+</ul>    
+ </li>
+
+</ul>
 <!-- -->
 
 <h3 id='recipe-editor'> Recipe Editor</h3>
@@ -125,11 +183,50 @@
         </div>
       </div>
 
+<hr/> 
+<h3 id='trend-report-data'>Trend Report Data </h3>
+<div class="stage append-bottom">
+        <meta itemprop="height" content="360">
+        <meta itemprop="width" content="640">
+        <meta itemprop="thumbnail" content="//play.vidyard.com/6dRdRv8f2yn8Wfc45eAU1Q.jpg?">
+        <meta itemprop="duration" content="T144S">
+        <div class="aspect-ratio">
+          <span id="vidyard_6dRdRv8f2yn8Wfc45eAU1Q" class="vidyard_player"><span id="vidyard_span_6dRdRv8f2yn8Wfc45eAU1Q" style="display: block; margin: auto; position: relative; width: 640px; height: 360px;"><iframe id="vidyard_iframe_6dRdRv8f2yn8Wfc45eAU1Q" class="vidyard_iframe" src="//play.vidyard.com/6dRdRv8f2yn8Wfc45eAU1Q?disable_popouts=0&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;type=inline&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span><script type="text/javascript" id="vidyard_embed_code_6dRdRv8f2yn8Wfc45eAU1Q" src="//play.vidyard.com/6dRdRv8f2yn8Wfc45eAU1Q.js?disable_popouts=0&amp;height=360&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;width=640&amp;type=inline"></script>
+        </div>
+      </div>
+
+
+<hr/> 
+
+<h3 id='ea-explorer'>Explorer</h3>
+<div class="stage append-bottom">
+        <meta itemprop="height" content="360">
+        <meta itemprop="width" content="640">
+        <meta itemprop="thumbnail" content="//play.vidyard.com/M8GkvG9EvEpneAvxq2WQdc.jpg?">
+        <meta itemprop="duration" content="T165S">
+        <div class="aspect-ratio">
+          <span id="vidyard_M8GkvG9EvEpneAvxq2WQdc" class="vidyard_player"><span id="vidyard_span_M8GkvG9EvEpneAvxq2WQdc" style="display: block; margin: auto; position: relative; width: 640px; height: 360px;"><iframe id="vidyard_iframe_M8GkvG9EvEpneAvxq2WQdc" class="vidyard_iframe" src="//play.vidyard.com/M8GkvG9EvEpneAvxq2WQdc?disable_popouts=0&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;type=inline&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span><script type="text/javascript" id="vidyard_embed_code_M8GkvG9EvEpneAvxq2WQdc" src="//play.vidyard.com/M8GkvG9EvEpneAvxq2WQdc.js?disable_popouts=0&amp;height=360&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;width=640&amp;type=inline"></script>
+        </div>
+      </div>
+<hr/>
+
+<h3 id='dashboard-interactive'> Build Interactive EA Dashboards</H3>
+<div class="stage append-bottom">
+        <meta itemprop="height" content="360">
+        <meta itemprop="width" content="959">
+        <meta itemprop="thumbnail" content="//play.vidyard.com/6aA4EKE9jbuhqC2fLoHt85.jpg?">
+        <meta itemprop="duration" content="T1078S">
+        <div class="aspect-ratio aspect-ratio-playlist">
+          <span id="vidyard_6aA4EKE9jbuhqC2fLoHt85" class="vidyard_player"><span id="vidyard_span_6aA4EKE9jbuhqC2fLoHt85" style="display: block; margin: auto; position: relative; width: 640px; height: 360px;"><iframe id="vidyard_iframe_6aA4EKE9jbuhqC2fLoHt85" class="vidyard_iframe" src="//play.vidyard.com/6aA4EKE9jbuhqC2fLoHt85?disable_popouts=0&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;type=inline&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span><script type="text/javascript" id="vidyard_embed_code_6aA4EKE9jbuhqC2fLoHt85" src="//play.vidyard.com/6aA4EKE9jbuhqC2fLoHt85.js?disable_popouts=0&amp;height=360&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;width=640&amp;type=inline"></script>
+        </div>
+      </div>
+
+
+
 <h3 id='load-data'>How to Load Data</h3>
          <object   data="img/how-to-einstein-analytics-load-data.pdf" type="application/pdf" style="width: 100%; height: 800px;">
            <p>It appears you don't have a PDF plugin for this browser</p>
          </object>
- 
 <h3 id='connect-db-sf'>How to connect Dashboards to Salesforce</h3>
          <object   data="img/insights-einstein-analytics-connect-dashboards-to-salesforce.pdf" type="application/pdf" style="width: 100%; height: 800px;">
            <p>It appears you don't have a PDF plugin for this browser</p>
