@@ -1,0 +1,68 @@
+Song: Kaadhal oviyam
+Film: Alaigal oivathillai
+
+---------------------------------------------------------------------
+Legend for the notes:
+s  = sa    = C
+r1 = ri 1  = C#
+r2 = ri 2  = D
+g2 = ga 2  = D#
+g3 = ga 3  = E
+m1 = ma 1  = F
+m2 = ma 2  = F#
+p  = pa    = G
+d1 = da 1  = G#
+d2 = da 2  = A
+n2 = ni 2  = A#
+n3 = ni 3  = B
+S  = sa    = C [next octave; higher "sa"]
+R1 ...
+
+
+Notes: s r2 g3 m2 p d1 n3 S
+here, r=r2, g=g3, m=m2, d=d1, n=n3 [unless otherwise specified]
+---------------------------------------------------------------------
+
+
+
+Kaadhal oviyam paadum kaaviyam
+sr sr   gg g   r  gp  g  g g
+CD CD   EE E   D  EG  E  E E
+
+thaen sindhum poonjolai nam raajiyam
+r     r  g    r   r g   r   s  n.n.
+D     D  E    D   D E   D   C  B.B.
+
+endrum anandham perinbam deiveeham  oh oh
+s g    pp  d    p p  d   p  p  dd2  d2 g
+C E    GG  G#   G G  G#  G  G  G#A  A  E
+
+(Kaadhal)
+
+Stanza 1:
+
+Thedinaen oh oh oh en      jeevane
+pg p n    S  n  p  pmgmg   g  g g
+GE G B    C+ B  G  GF#EF#E E  E E
+
+thendraliley  midhandhu varum thaen malare
+p   p  p d    d d   d   d d2  d2    d2d2n  S n d2
+G   G  G G#   G# G# G#  G# A  A     AAB   C+ B A
+
+nee en  naayagan kaadhal paadagan
+dd2 nR  n  d2d2  dd2 nR  n  d2d2
+G#A BD+ B  AA    G#A BD+ B  AA
+
+anbil  odi  inbam  kodi endrum kaanalaam
+dd2dd2 d2d2 dd2dd2 d2d2 r d2   p  m m    g r
+G#AG#A AA   G#AG#A AA   D A    G  F# F#  E D
+
+(Kaadhal)
+
+Stanza 2: (notes similar to Stanza 1)
+
+Thaangumo oh oh oh en dehame
+manmadhanin malar kanaigal tholgaliley
+
+moham theeravey vaa en aruhiley
+ullam koil kangal deepam poojai kaanalaam
