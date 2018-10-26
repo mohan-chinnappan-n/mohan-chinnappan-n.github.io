@@ -743,6 +743,45 @@ SELECT State,Id,
    </ul>
 </section>
 
+<section>
+    <h4 style='font-size:30px;'> Developers - Disable Lightning Component Caching -  demo </h4>
+       <img style="border:0px;border-radius:10px;padding:10px;" src="./img/Lex-developer-1.gif" height='500'  alt="">
+</section>
+
+<section>
+    <h4 style='font-size:30px;'> Developers - Disable Lightning Component Caching -  via SFDX </h4>
+ <pre>
+<code> {
+  "orgName": "Acme",
+  "edition": "Enterprise",
+  "features": ["Communities", "ServiceCloud", "Chatbot"],
+  "settings": {
+      "orgPreferenceSettings": {
+          "networksEnabled": true,
+          "s1DesktopEnabled": true,
+          "s1EncryptedStoragePref2": false <----
+      },
+      "omniChannelSettings": {
+          "enableOmniChannel": true
+      },
+      "caseSettings": {
+          "systemUserEmail": "support@acme.com"
+      }
+  }
+}
+</code></pre>
+<a style='font-size:20px;' target='_blank' href="https://medium.com/salestrip/salesforce-lightning-component-caching-a39b6a9d01a7">Auto-disable Component Caching in Scratch Orgs
+</a>
+</section>
+
+<section>
+    <h4 style='font-size:30px;'> Production - Clear Cache Chrome Extension </h4>
+     <a style='font-size:20px;' target='_blank' href="https://chrome.google.com/webstore/detail/clear-browser-cache/ifhfpdbgpmalhoigckoojjjpepbionkn">Clear Browser Cache -  Chrome Extension - Install</a>
+         <hr/>
+       <img style="border:0px;border-radius:10px;padding:10px;" src="./img/clear-cache-1.png" height='400'  alt="">
+</section>
+
+
 
     </div>
   </div>
