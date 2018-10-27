@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MC Workbook</title>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/navbar-green.css">
+ <script src="../sfdc/gs/js/split.js"></script>
+<link rel="stylesheet" href="../sfdc/gs/css/split.css"> 
+
+<style>
+    .menu-button {
+     width:100%;
+     opacity:.7;
+     margin-bottom:10px;
+     text-align:left;
+    }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">Marketing Cloud Workbook</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="javascript:void(0)">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li><a href="../index.html">Main</a></li>
+      </ul>
+
+
+    <!-- /.navbar-collapse -->
+  </nav>
+
+   <div id="menu" class="split split-horizontal">
+
+     <a class='btn btn-primary menu-button'   data-toggle="collapse" href="#step1" role="button" aria-expanded="false" aria-controls="step1"> Step-1 - Get to Know MC </a>
+      <ul class='collapse list-group' id='step1'>
+        <li class='list-group-item'> <a href="#welcome-to-EA">Welcome to MC!</a>  </li>
+        <li class='list-group-item'> <a href="#ea-steps">EA Steps</a>  </li>
+        <li class='list-group-item'> <a href="#data-exploration">Data Exploration</a>  </li>
+     </ul> 
+    
+  <a  class='btn btn-primary menu-button'  data-toggle="collapse" href="#step2" role="button" aria-expanded="false" aria-controls="step2"> Step-2 - Key Features </a>
+      <ul class='collapse list-group' id='step2'>
+        <li class='list-group-item'> <a href="#recipe-editor">Recipe Editor</a> </li>
+        <li class='list-group-item'> <a href="#take-action">Take Action</a> </li>
+        <li class='list-group-item'> <a href="#build-app">Build App</a> </li>
+        <li class='list-group-item'> <a href="#get-answers">Get Answers</a> </li>
+        <li class='list-group-item'> <a href="#trend-report-data">Trend Report Data</a> </li>
+        <li class='list-group-item'> <a href="#ea-explorer">Explorer</a> </li>
+        <li class='list-group-item'> <a href="#interactive-dashboardr">Interactive Dashboards</a> </li>
+    </ul>
+ 
+ <a  class='btn btn-primary menu-button'  data-toggle="collapse" href="#step3" role="button" aria-expanded="false" aria-controls="step3"> Step-3 - How to </a>
+  <ul class='collapse list-group' id='step3'>
+        <li class='list-group-item'> <a href="#load-data">Load Data</a> </li>
+        <li class='list-group-item'> <a href="#connect-db-sf">Connect Dashboards to Salesforce </a> </li>
+        <li class='list-group-item'> <a href="#design-data-security">Design Data Security</a> </li>
+        <li class='list-group-item'> <a href="#build-dashboards">Build Dashboards</a> </li>
+        <li class='list-group-item'> <a href="#bindings-dev-guide">Bindings Developer Guide</a> </li>
+   </ul>
+
+ 
+ <a  class='btn btn-primary menu-button' data-toggle="collapse"  href="#step4" role="button" aria-expanded="false" aria-controls="step4"> Resources </a>
+ <ul class='collapse list-group' id='step4'>
+        <li class='list-group-item'> <a href="#ea-resources">EA Docs</a> </li>
+  </ul>
+ 
+</div>
+
+
+ <div id="content" class="split split-horizontal">
+
+    <h3 id='welcome-to-EA'>Welcome to MC! </h3>
+
+    <iframe id="vidyard_iframe_fktmPeaBq57puSnhqch5ip" class="vidyard_iframe"
+    src="//play.vidyard.com/fktmPeaBq57puSnhqch5ip?v=3.1&amp;type=inline&amp;hide_html5_playlist=1&amp;video_id=&amp;_=1540664151138&amp;referring_url=https%253A%252F%252Freadiness--c.visualforce.com%252F&amp;" 
+      width="780" height="450" title="Video" aria-label="Video" scrolling="no" frameborder="0" 
+      allowtransparency="true" 
+    ></iframe>
+
+
+         
+   <hr/>
+
+  <h3 id='ea-steps'>Exploring and Visualizing Your Data Interactively </h3>
+   <div class='row'> 
+     <div class="col-lg-3">
+        <img src="img/ea-stages.png" style='border-radius:10px;border-color:#99ccff;'alt="">
+    </div>
+
+     <div class="col-lg-9">
+        <ul class="list-group">
+            <li class="list-group-item"> <b>View</b>—View the data set </li>
+            <li class="list-group-item"><b>Explore</b>—Get to know the boundaries and shape of your data. Play with different views, zoom in and zoom out, and see what you get with different charting options.</li>
+            <li class="list-group-item"><b>Refine</b>—Narrow your view to the most important data. Decide the level of detail and categorization that’s easiest for your colleagues to understand. Choose the most appropriate chart visualization.</li>
+            <li class="list-group-item"><b>Save</b>—Save your work.</li>
+             <li class="list-group-item"><b>Share</b>—Share your view with others. For a more packaged presentation, use your visualization to build a dashboard.
+</li>
+ 
+ 
+        </ul>
+    </div>
+ 
+   </div>
+
+<h3 id='data-exploration'>Data Exploration</h3>
+<ul class="list-group">
+    <li class="list-group-item"> <b>Visualization</b>  is commonly a chart or graph, such as a bar chart, donut chart, timeline, or heat map. It can also be data in tabular form, such as a comparison table or pivot table. Every visualization has an underlying <b>query</b>, which is how Analytics retrieves information from the source data. </li>
+   <li class="list-group-item"><b>Measure</b> is a <b>quantitative value</b>, like revenue and exchange rate. You can do <b>math on measures</b> such as calculating the total revenue and minimum exchange rate. Measures have names (revenue) and values ($1,000,000). When you’re viewing a chart visualization in Analytics, it’s important to remember:
+ <ul class="list-group">
+  <li class="list-group-item">
+   A measure is typically <b>aggregated in some way</b>, which means that it’s displayed with some math already applied to it. 
+   <br/>For example, when you first view a dataset, you often see a simple aggregation such as the count of the number of rows. You typically aggregate by a different method—sum, average, maximum, and so on—as you explore and change or add measures, but you always specify how you want to aggregate at the time when you select the measure.
+</li>
+</ul>
+
+  <li class="list-group-item">
+<b>Dimension</b> is a <b>qualitative value</b>, like region, product name, and model number. Dimensions are handy for grouping and filtering your data. Unlike measures, <b>you can’t perform math on dimensions</b>. Like measures, dimensions also have names (region) and values (northeast). Time is usually considered a dimension rather than a measure.
+  </li>  
+</ul>    
+ </li>
+
+</ul>
+<!-- -->
+
+<h3 id='recipe-editor'> Recipe Editor</h3>
+<div class="hub-container">
+
+      <div class="stage append-bottom">
+        <meta itemprop="height" content="600">
+        <meta itemprop="width" content="800">
+        <meta itemprop="thumbnail" content="//play.vidyard.com/Ah3XgJikytnp9psNRE6FWu.jpg?">
+        <meta itemprop="duration" content="T158S">
+        <div class="aspect-ratio">
+          <span id="vidyard_Ah3XgJikytnp9psNRE6FWu" class="vidyard_player"><span id="vidyard_span_Ah3XgJikytnp9psNRE6FWu" style="display: block; margin: auto; position: relative; width: 800px; height: 600px;"><iframe id="vidyard_iframe_Ah3XgJikytnp9psNRE6FWu" class="vidyard_iframe" src="//play.vidyard.com/Ah3XgJikytnp9psNRE6FWu?disable_popouts=0&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;type=inline&amp;referring_url=http%253A%252F%252Fwww.einsteinanalyticslearningmap.com%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span><script type="text/javascript" id="vidyard_embed_code_Ah3XgJikytnp9psNRE6FWu" src="//play.vidyard.com/Ah3XgJikytnp9psNRE6FWu.js?disable_popouts=0&amp;height=360&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;width=640&amp;type=inline"></script>
+        </div>
+
+<hr/>
+
+<h3 id='take-action'>Personalize, collaborate, and take action from the analytics tab </h3>
+<div class="stage append-bottom">
+        <meta itemprop="height" content="360">
+        <meta itemprop="width" content="640">
+        <meta itemprop="thumbnail" content="//play.vidyard.com/X5Cv1RYiuk2Kb5QkVQYBwY.jpg?">
+        <meta itemprop="duration" content="T224S">
+        <div class="aspect-ratio">
+          <span id="vidyard_X5Cv1RYiuk2Kb5QkVQYBwY" class="vidyard_player"><span id="vidyard_span_X5Cv1RYiuk2Kb5QkVQYBwY" style="display: block; margin: auto; position: relative; width: 640px; height: 360px;"><iframe id="vidyard_iframe_X5Cv1RYiuk2Kb5QkVQYBwY" class="vidyard_iframe" src="//play.vidyard.com/X5Cv1RYiuk2Kb5QkVQYBwY?disable_popouts=0&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;type=inline&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span><script type="text/javascript" id="vidyard_embed_code_X5Cv1RYiuk2Kb5QkVQYBwY" src="//play.vidyard.com/X5Cv1RYiuk2Kb5QkVQYBwY.js?disable_popouts=0&amp;height=360&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;width=640&amp;type=inline"></script>
+        </div>
+      </div>
+<hr/>
+
+<h3 id='build-app'>Build Analytics App</h3>
+
+<div class="stage append-bottom">
+        <meta itemprop="height" content="360">
+        <meta itemprop="width" content="640">
+        <meta itemprop="thumbnail" content="//play.vidyard.com/6kdihLWNfRmtdtx1oncY23.jpg?">
+        <meta itemprop="duration" content="T238S">
+        <div class="aspect-ratio">
+          <span id="vidyard_6kdihLWNfRmtdtx1oncY23" class="vidyard_player"><span id="vidyard_span_6kdihLWNfRmtdtx1oncY23" style="display: block; margin: auto; position: relative; width: 640px; height: 360px;"><iframe id="vidyard_iframe_6kdihLWNfRmtdtx1oncY23" class="vidyard_iframe" src="//play.vidyard.com/6kdihLWNfRmtdtx1oncY23?disable_popouts=0&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;type=inline&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span><script type="text/javascript" id="vidyard_embed_code_6kdihLWNfRmtdtx1oncY23" src="//play.vidyard.com/6kdihLWNfRmtdtx1oncY23.js?disable_popouts=0&amp;height=360&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;width=640&amp;type=inline"></script>
+        </div>
+      </div>
+
+<hr/>
+
+<h3 id='get-answers'>Get Answers</h3>
+<div class="stage append-bottom">
+        <meta itemprop="height" content="360">
+        <meta itemprop="width" content="640">
+        <meta itemprop="thumbnail" content="//play.vidyard.com/tpgDwYmW3eSTjJJikZrwhJ.jpg?">
+        <meta itemprop="duration" content="T175S">
+        <div class="aspect-ratio">
+          <span id="vidyard_tpgDwYmW3eSTjJJikZrwhJ" class="vidyard_player"><span id="vidyard_span_tpgDwYmW3eSTjJJikZrwhJ" style="display: block; margin: auto; position: relative; width: 640px; height: 360px;"><iframe id="vidyard_iframe_tpgDwYmW3eSTjJJikZrwhJ" class="vidyard_iframe" src="//play.vidyard.com/tpgDwYmW3eSTjJJikZrwhJ?disable_popouts=0&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;type=inline&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span><script type="text/javascript" id="vidyard_embed_code_tpgDwYmW3eSTjJJikZrwhJ" src="//play.vidyard.com/tpgDwYmW3eSTjJJikZrwhJ.js?disable_popouts=0&amp;height=360&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;width=640&amp;type=inline"></script>
+        </div>
+      </div>
+
+<hr/> 
+<h3 id='trend-report-data'>Trend Report Data </h3>
+<div class="stage append-bottom">
+        <meta itemprop="height" content="360">
+        <meta itemprop="width" content="640">
+        <meta itemprop="thumbnail" content="//play.vidyard.com/6dRdRv8f2yn8Wfc45eAU1Q.jpg?">
+        <meta itemprop="duration" content="T144S">
+        <div class="aspect-ratio">
+          <span id="vidyard_6dRdRv8f2yn8Wfc45eAU1Q" class="vidyard_player"><span id="vidyard_span_6dRdRv8f2yn8Wfc45eAU1Q" style="display: block; margin: auto; position: relative; width: 640px; height: 360px;"><iframe id="vidyard_iframe_6dRdRv8f2yn8Wfc45eAU1Q" class="vidyard_iframe" src="//play.vidyard.com/6dRdRv8f2yn8Wfc45eAU1Q?disable_popouts=0&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;type=inline&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span><script type="text/javascript" id="vidyard_embed_code_6dRdRv8f2yn8Wfc45eAU1Q" src="//play.vidyard.com/6dRdRv8f2yn8Wfc45eAU1Q.js?disable_popouts=0&amp;height=360&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;width=640&amp;type=inline"></script>
+        </div>
+      </div>
+
+
+<hr/> 
+
+<h3 id='ea-explorer'>Explorer</h3>
+<div class="stage append-bottom">
+        <meta itemprop="height" content="360">
+        <meta itemprop="width" content="640">
+        <meta itemprop="thumbnail" content="//play.vidyard.com/M8GkvG9EvEpneAvxq2WQdc.jpg?">
+        <meta itemprop="duration" content="T165S">
+        <div class="aspect-ratio">
+          <span id="vidyard_M8GkvG9EvEpneAvxq2WQdc" class="vidyard_player"><span id="vidyard_span_M8GkvG9EvEpneAvxq2WQdc" style="display: block; margin: auto; position: relative; width: 640px; height: 360px;"><iframe id="vidyard_iframe_M8GkvG9EvEpneAvxq2WQdc" class="vidyard_iframe" src="//play.vidyard.com/M8GkvG9EvEpneAvxq2WQdc?disable_popouts=0&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;type=inline&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span><script type="text/javascript" id="vidyard_embed_code_M8GkvG9EvEpneAvxq2WQdc" src="//play.vidyard.com/M8GkvG9EvEpneAvxq2WQdc.js?disable_popouts=0&amp;height=360&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;width=640&amp;type=inline"></script>
+        </div>
+      </div>
+<hr/>
+
+<h3 id='dashboard-interactive'> Build Interactive EA Dashboards</H3>
+<div class="stage append-bottom">
+        <meta itemprop="height" content="360">
+        <meta itemprop="width" content="959">
+        <meta itemprop="thumbnail" content="//play.vidyard.com/6aA4EKE9jbuhqC2fLoHt85.jpg?">
+        <meta itemprop="duration" content="T1078S">
+        <div class="aspect-ratio aspect-ratio-playlist">
+          <span id="vidyard_6aA4EKE9jbuhqC2fLoHt85" class="vidyard_player"><span id="vidyard_span_6aA4EKE9jbuhqC2fLoHt85" style="display: block; margin: auto; position: relative; width: 640px; height: 360px;"><iframe id="vidyard_iframe_6aA4EKE9jbuhqC2fLoHt85" class="vidyard_iframe" src="//play.vidyard.com/6aA4EKE9jbuhqC2fLoHt85?disable_popouts=0&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;type=inline&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe></span></span><script type="text/javascript" id="vidyard_embed_code_6aA4EKE9jbuhqC2fLoHt85" src="//play.vidyard.com/6aA4EKE9jbuhqC2fLoHt85.js?disable_popouts=0&amp;height=360&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyemail=&amp;width=640&amp;type=inline"></script>
+        </div>
+      </div>
+
+
+
+<h3 id='load-data'>How to Load Data</h3>
+         <object   data="img/how-to-einstein-analytics-load-data.pdf" type="application/pdf" style="width: 100%; height: 800px;">
+           <p>It appears you don't have a PDF plugin for this browser</p>
+         </object>
+<h3 id='connect-db-sf'>How to connect Dashboards to Salesforce</h3>
+         <object   data="img/insights-einstein-analytics-connect-dashboards-to-salesforce.pdf" type="application/pdf" style="width: 100%; height: 800px;">
+           <p>It appears you don't have a PDF plugin for this browser</p>
+         </object>
+ 
+<h3 id='design-data-security'>Design Data Security</h3>
+         <object   data="img/how-to-einstein-analytics-design-data-security.pdf" type="application/pdf" style="width: 100%; height: 800px;">
+           <p>It appears you don't have a PDF plugin for this browser</p>
+         </object>
+ 
+<h3 id='build-dashboards'>Build Dashboards</h3>
+         <object   data="img/insights-einstein-analytics-build-dashboards.pdf" type="application/pdf" style="width: 100%; height: 800px;">
+           <p>It appears you don't have a PDF plugin for this browser</p>
+         </object>
+ 
+<h3 id='bindings-dev-guide'>Bindings Developer Guide</h3>
+         <object   data="img/bi_dev_guide_bindings-216.pdf" type="application/pdf" style="width: 100%; height: 800px;">
+           <p>It appears you don't have a PDF plugin for this browser</p>
+         </object>
+ 
+<!-- -->
+   <h3 id='ea-resources'>EA Resources </h3>
+   <ul class="list-group">
+       <li class="list-group-item"> <a target='_blank' href="http://www.einsteinanalyticslearningmap.com/">EA Learning Map</a> </li>
+       <li class="list-group-item"> <a target='_blank' href="http://pages.mail.salesforce.com/gettingstarted/analytics-cloud/einstein-analytics/">EA Getting Started</a> </li>
+       <li class="list-group-item"> <a target='_blank' href="https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000DoLB3UAN">Einstein Analytics Learning Adventure
+       <li class="list-group-item"> <a target='_blank' href="https://quip.com/bXRWA7b6TGPN">Einstein Analytics Asset Management</a> </li>
+       <li class="list-group-item"> <a target='_blank' href="https://quip.com/PYL5ACZkTsPb">Resource Recommendations for an Einstein Analytics Engagement</a> </li>
+       
+       <li class="list-group-item"> <a target='_blank' href="https://quip.com/pDa8A1Xa5ogP">Scope Management for Einstein Analytics Projects</a></li>
+ 
+   </ul>
+
+
+
+
+
+</div>
+
+<script>
+  Split(['#menu', '#content'], {
+    sizes: [15, 85]
+});
+</script>
+
+  
+
+</body>
+</html>
+
