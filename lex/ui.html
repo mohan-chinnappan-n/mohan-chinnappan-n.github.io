@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-controller="MainCtrl">
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{appName}}</title>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/navbar-green.css">
+  <script src="../js/angular.min.js"></script>
+  <script src="../js/data-markdown.user.js"></script>
+
+
+  <script src="../bower_components/marked/marked.min.js"></script>
+  <script src="../bower_components/angular-marked/dist/angular-marked.js"></script>
+
+  <link rel="stylesheet" href="../reveal.js/css/reveal.css">
+  <link rel="stylesheet" href="../reveal.js/css/theme/white.css" id="theme">
+
+  <!-- Code syntax highlighting -->
+  <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? '../reveal.js/css/print/pdf.css' : '../reveal.js/css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+
+  <!--[if lt IE 9]>
+    		<script src="../reveal.js/lib/js/html5shiv.js"></script>
+    		<![endif]-->
+
+  <style>
+    .reveal .slide-number {
+      font-size: 0.5em;
+    }
+
+    .simg {
+      border-radius: 10px;
+      border: 1px;
+    }
+
+    .reveal section ul li,
+    .reveal section p {
+      font-size: .8em !important;
+    }
+
+    .reveal section pre code {
+      font-size: 0.7em !important;
+    }
+  </style>
+  <!--
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5381915020912221",
+    enable_page_level_ads: true
+  });
+</script>
+-->
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5381915020912221",
+    enable_page_level_ads: true
+  });
+</script>
+
+
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">{{appName}}</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+      <div class="inner-addon right-addon navbar-form navbar-right">
+        <i class="glyphicon glyphicon-search"></i>
+        <input type="text" class="form-control" placeholder="Search" />
+      </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown ">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Help <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="./help.html">Help Topics</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+  <!--
+  <div class="container" ng-controller='MainCtrl'>
+    <div marked src="'pevents.md'"></div>
+  </div>
+-->
+
+
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+
+      <section id="home">
+        <h4>{{appName}}</h4>
+      </section>
+
+      <section>
+          <h4 style='font-size:30px;'>Classic and Lightning</h4>
+          <ul style='font-size:30px;'>
+              <li><b>Classic</b> - Page-Centric web app model
+                <ul>
+                    <li>Hard to deliver new dynamic experience </li>
+                    <li>Relies on server to generate new pages every time the user interacts with the app</li>
+                </ul>
+              </li>
+              <li><b>Lightning</b> -  App-Centric model, JavaScript is used to create/modify/transform/animate the UI instead of replacing with a new page generated at the server</li>
+          </ul>
+      </section>
+
+      <section>
+          <h4 style='font-size:30px;'>Classic Visualforce</h4>
+          <ul style='font-size:30px;'>
+            <li>Platform for page-centric apps</li>
+            <li>Provides UI tags resolved at server-side </li>
+            <li>Has standard/custom controllers to make DB and other operations easier</li>
+          </ul>
+          <table class="table-bordered table-striped" style="font-size:20px;">
+              <tr>
+                  <th>UI</th>
+                  <th>Data and Biz logic</th>
+                  <th>Workflow</th>
+                   <th>Pros</th>
+                   <th>Caveats</th>
+              </tr>
+
+              <tr>
+                  <td>Server-side</td>
+                  <td>Apex Standard/Custom Controller - makes it easy to access the database without writing queries</td>
+                  <td>
+                  <ol>
+                      <li>User requests a page</li>
+                      <li>Server serves the request: generates page HTML by executing the underlying code (controller and ui-tags)</li>
+                      <li>Browser receives the page and renders it</li>
+                      <li>When the user interacts with that page, GOTO step-1</li>
+                  </ol>
+                   </td>
+                  <td> 
+                     <ul>
+                         <li>Proven model, easy to implement</li>
+                         <li>Splits large apps into small manageable pages</li>
+                         <li>Has built-in metadata integration - allows plug-and-play via markups in the page</li>
+                     </ul>
+                  </td>
+                  <td>
+                   <ul>
+                         <li>Limited interactivity</li>
+                         <li>High latency, not suitable for Mobile </li>
+                    </ul>
+
+                  </td>
+              </tr>
+          </table>
+      </section>
+
+       <section>
+          <h4 style='font-size:30px;'> Visualforce as JS app container</h4>
+          <ul style='font-size:30px;'>
+            <li>User VF page as container for JS app. VF tags are not used; your JS app is  loaded into the empty VF page</li>
+            <li>UI generated on the client-side by this JS app - Single-Page-App (SPA)</li>
+          </ul>
+          <table class="table-bordered table-striped" style="font-size:20px;">
+              <tr>
+                  <th>UI</th>
+                  <th>Data and Biz logic</th>
+                  <th>Workflow</th>
+                   <th>Pros</th>
+                   <th>Caveats</th>
+              </tr>
+
+              <tr>
+                  <td>Client-side by JS</td>
+                  <td>Remote Objects or JavaScript Remoting, Apex controller </td>
+                  <td>
+                  <ol>
+                      <li>User requests the empty VF page containing the skeleton and JS</li>
+                      <li>Server serves the request: page returns to the browser</li>
+                      <li>Browser receives the page and loads the JS App in the received page</li>
+                      <li>JS app generates the dynamic UI - when user interacts, JS app modifies the UI as needed</li>
+                  </ol>
+                   </td>
+                  <td> 
+                     <ul>
+                         <li>Highly interactive and immersive user experiences </li>
+                         <li>Can make use of Browser rendering power</li>
+                     </ul>
+                  </td>
+                  <td>
+                   <ul>
+                         <li>Complex and No builtin metadata integration</li>
+                         <li>Lack of integrated DX - JS libs are loaded as static resources</li>
+                    </ul>
+
+                  </td>
+              </tr>
+          </table>
+      </section>
+
+        <section>
+          <h4 style='font-size:30px;'>Lightning Components</h4>
+          <ul style='font-size:30px;'>
+            <li>Uses JavaScript at the client-side and Apex at the server-side to provide the data and business logic.</li>
+          </ul>
+          <table class="table-bordered table-striped" style="font-size:20px;align-top;">
+              <tr>
+                  <th>UI</th>
+                  <th>Data and Biz logic</th>
+                  <th>Workflow</th>
+                   <th>Pros</th>
+                   <th>Caveats</th>
+              </tr>
+
+              <tr>
+                  <td>Client-side by JS</td>
+                  <td>Lightning Data Services (LDS) and Apex Controller</td>
+                  <td>
+                  <ol>
+                      <li>User requests an app or a component</li>
+                      <li>app/comp bundle is returned to the client - browser</li>
+                      <li>Browser loads the bundle and JS app generates the UI</li>
+                      <li>When the user interacts with the page, JS app modifies the UI and GOTO step-3</li>
+                  </ol>
+                   </td>
+                  <td> 
+                     <ul>
+                         <li>Highly interactive and immersive user experiences </li>
+                         <li>Aligns with Salesforce UI strategy</li>
+                         <li>Metadata integration - accelerating the development</li>
+                        <li>Tag support: lighting:input  as equivalent for   apex:inputText. Processes markup on the client.</li>
+                         <li>Developer Console and Force.com IDE support</li>
+                     </ul>
+                  </td>
+                  <td>
+                   <ul>
+                         <li>Steep/longer learning curve and high-complexity</li>
+                         <li>Still some features are not yet supported - limited number of out-of-the-box components</li>
+                    </ul>
+
+                  </td>
+              </tr>
+          </table>
+      </section>
+
+        <section>
+          <h4 style='font-size:30px;'>VF in Lightning Experience</h4>
+          <ul style='font-size:30px;'>
+           <li> Lightning Experience, VF pages are embedded in an HTML iframe that’s displayed inside the Lightning Experience app</li>
+           <li> VF page embedded in Lightning App can’t directly access the <code>window</code> global object since it is rendered as in an iframe </li>
+           <li> Check for apex:iframe in VF page - this can create issues</li>
+            <li>VF page using Canvas app - needs extra test - since Canvas app use an iframe</li>
+            <li> showHeader and sidebar attributes of apex:page have no effect on Visualforce pages when displayed in Lightning Experience</li>
+             <li>Rendering Visualforce pages as PDFs works exactly as in Salesforce Classic, without any of the Lightning Experience visual design</li>
+           <li>Things got combined:
+           <ol style='font-size:25px;'>
+               <li>Classic - <b>Object Tab</b>  is part of  Lightning - <b>Object Home</b></li>
+               <li>Classic - <b>Object List</b> is part of  - Lightning -<b> Object Home</b></li>
+            
+           </ol>
+            </li>
+           </ul>
+
+        </section> 
+ 
+        <section>
+          <h4 style='font-size:30px;'>VF in Lightning Experience</h4>
+          <ul style='font-size:30px;'>
+                <li><b>Out-of-the-box components set</b>: Salesforce provides a number of components to bootstrap your app development  </li>
+                <li><b>Performance</b>:The component framework leverages a stateful client (using JavaScript) and a stateless server (using Apex).
+                    This allows the client to call the server only when absolutely necessary. With fewer calls to the server, your apps are more responsive and efficient.</li>
+                <li><b>Event-driven-architecture</b>: Events are key to the Lightning component framework. Components listen to application and component events and respond accordingly.</li>
+                <li><b>Rapid Development</b>: The simple markup and pre-made components mean that you can get applications out the door faster than ever. </li>
+                 <li><b>Device-aware and cross-browser support</b>: Component framework handles compatibility across devices and browsers. </li>
+              <li><b>Lightning Out</b>: allows run your Lightning components and apps anywhere you can serve a web page.</li>
+              <li>Lightning components can be used in VF</li>
+           </ul>
+          </section> 
+
+<section>
+    <h4>Partners, Packaging, and AppExchange </h4>
+<table class="table table-bordered table-striped" style="font-size:20px;">
+                    
+                    <thead class="thead sorted" align="left">
+                        <tr>
+                            <th class="featureTableHeader  " id="d327664e120">Feature</th>
+
+                            <th class="featureTableHeader  " id="d327664e123">Supported In</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="tbody">
+                        <tr>
+                            <td class="entry" headers="d327664e120" data-title="Feature">
+                                <ul class="ul bulletList">
+                                    <li class="li">Environment Hub</li>
+
+                                    <li class="li">License Management App (LMA)</li>
+
+                                    <li class="li">Checkout Management App (CMA)</li>
+
+                                </ul>
+
+                            </td>
+
+                            <td class="entry" headers="d327664e123" data-title="Supported In">Both Salesforce Classic and Lightning Experience.</td>
+
+                        </tr>
+
+                        <tr>
+                            <td class="entry" headers="d327664e120" data-title="Feature">
+                                <ul class="ul bulletList">
+                                    <li class="li">Trialforce</li>
+
+                                    <li class="li">Channel Order App (COA)</li>
+
+                                    <li class="li">Usage Metrics Visualization App</li>
+
+                                </ul>
+
+                            </td>
+
+                            <td class="entry" headers="d327664e123" data-title="Supported In">Salesforce Classic
+                                only.</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+      <ul style='font-size:30px;'>
+           <li>Package manager lets you create and manage packages from Setup, just like you could in Salesforce Classic. </li>
+          <li> New products sold using AppExchange Checkout and new free products must be Lightning Ready before their security review.</li>
+          <li>For existing products, we encourage you to get Lightning Ready as soon as possible</li>
+      </ul>
+</section>
+
+<section>
+    <h4>Lightning Dev tools</h4>
+    <ul style='font-size:30px;'>
+        <li>  The <b>Installed Packages</b> landing page is available in the Lightning Experience setup area. </li>
+        <li>Apps listed on AppExchange are marked with a <b>Lightning Ready</b> sash if they’re fully compatible with Lightning Experience. 
+           If the app is not <b>Lightning Ready</b>  we recommend sticking to Salesforce Classic to prevent unexpected behavior. </li>
+        <li> <b>Apex code and queries</b> continue to function as expected, regardless of whether you’re using Lightning Experience or Salesforce Classic. </li>
+        <li>In Lightning Experience : <b>The App Launcher</b> is available by default to all users in your organization.
+           Admins should make ensure that your development work is only seen by the people who are supposed to see it.
+         </li>
+        <li><b>Canvas</b> allows you to easily integrate third party applications in Salesforce - you can integrate Canvas apps in Lightning Components.</li>
+       <li><b>Salesforce Mobile</b> & Lightning Experience are made for each other. You can use sforce.one JS object for navigation in Lightning Experience.  </li>
+        <li><b>Mobile SDK</b> isn’t impacted by Lightning Experience.</li>
+    </ul>
+</section>
+
+    <section>
+        <h4>References</h4>
+        <ul>
+            <li>
+             <a target='_blank' href="https://trailhead.salesforce.com/content/learn/modules/lex_dev_overview/lex_dev_overview_future">User Interface Development Considerations
+</a></li>
+        </ul>
+    </section>
+
+
+    </div>
+  </div>
+
+
+
+  <script src="../reveal.js/lib/js/head.min.js"></script>
+  <script src="../reveal.js/js/reveal.js"></script>
+
+
+  <script>
+    'use strict';
+
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+
+      //width: 960,
+      //	height: 700,
+
+      // Display presentation control arrows
+      controls: true,
+
+      // Help the user learn the controls by providing hints, for example by
+      // bouncing the down arrow when they first encounter a vertical slide
+      controlsTutorial: true,
+
+      // Determines where controls appear, "edges" or "bottom-right"
+      controlsLayout: 'edges',
+
+      // Visibility rule for backwards navigation arrows; "faded", "hidden"
+      // or "visible"
+      controlsBackArrows: 'faded',
+      // Display a presentation progress bar
+      progress: true,
+
+      // Set default timing of 2 minutes per slide
+      defaultTiming: 120,
+
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
+
+
+      history: true,
+      center: true,
+      slideNumber: true,
+
+      embedded: true,
+
+      transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+      menu: {
+        markers: true,
+        openSlideNumber: true,
+        themes: [{
+            name: 'Black',
+            theme: '../reveal.js/css/theme/black.css'
+          },
+          {
+            name: 'White',
+            theme: '../reveal.js/css/theme/white.css'
+          },
+          {
+            name: 'League',
+            theme: '../reveal.js/css/theme/league.css'
+          },
+          {
+            name: 'Sky',
+            theme: '../reveal.js/css/theme/sky.css'
+          },
+          {
+            name: 'Beige',
+            theme: '../reveal.js/css/theme/beige.css'
+          },
+          {
+            name: 'Simple',
+            theme: '../reveal.js/css/theme/simple.css'
+          },
+          {
+            name: 'Serif',
+            theme: '../reveal.js/css/theme/serif.css'
+          },
+          {
+            name: 'Blood',
+            theme: '../reveal.js/css/theme/blood.css'
+          },
+          {
+            name: 'Night',
+            theme: '../reveal.js/css/theme/night.css'
+          },
+          {
+            name: 'Moon',
+            theme: '../reveal.js/css/theme/moon.css'
+          },
+          {
+            name: 'Solarized',
+            theme: '../reveal.js/css/theme/solarized.css'
+          }
+        ],
+        custom: []
+      },
+
+      // Optional reveal.js plugins
+      dependencies: [{
+          src: '../reveal.js/lib/js/classList.js',
+          condition: function() {
+            return !document.body.classList;
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/marked.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/markdown/markdown.js',
+          condition: function() {
+            return !!document.querySelector('[data-markdown]');
+          }
+        },
+        {
+          src: '../reveal.js/plugin/highlight/highlight.js',
+          async: true,
+          condition: function() {
+            return !!document.querySelector('pre code');
+          },
+          callback: function() {
+            hljs.initHighlightingOnLoad();
+          }
+        },
+        {
+          src: '../reveal.js/plugin/zoom-js/zoom.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: '../reveal.js/plugin/reveal.js-menu/menu.js',
+          async: true
+        }
+      ]
+    });
+
+
+
+    var app = angular.module('app', [
+      'hc.marked'
+    ]);
+    app.config(['markedProvider', function(markedProvider) {
+      markedProvider.setOptions({
+        gfm: true
+      });
+    }]);
+
+    var GSCOPE;
+    app.controller('MainCtrl', function($scope, $http, $timeout) {
+      GSCOPE = $scope; // debugging purposes
+      $scope.appName="Lightning Experience Development";
+
+
+
+    })
+  </script>
+</body>
+
+</html>
