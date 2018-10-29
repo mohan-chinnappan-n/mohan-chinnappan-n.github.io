@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app" ng-controller="MainCtrl">
+
 <head>
   <meta charset="UTF-8">
   <title>{{appName}}</title>
@@ -130,142 +131,20 @@
       <section id="home">
         <h4>{{appName}}</h4>
       </section>
-
-      <section>
-          <h4 style='font-size:30px;'>sfdx-mohanc-plugins</h4>
-      <ul style="font-size:30px;">
-          <li>install: <code>sfdx plugins:install sfdx-mohanc-plugins</code></li>
-          <li>usage: <code> sfdx mohanc:projectFile:gen </code> </li>
-          <li>purpose: <ul><li> Creates project json files for the given sfdx-project.json </li>
-                <li> Creates deploy.sh to run the source:push in sequence </li>
-           </li>
-      </ul>
-      </section>
-
-      <section>
-          <h4 style='font-size:20px;'>sfdx-mohanc-plugins - Demo-1</h4>
-            <img src='img/sfdx-mohanc-2.gif' height='520' style='border-radius:10px;border-color:#eef;opacity:1;padding:10px;'>
-           <a target='_blank' href='img/sfdx-mohanc-2.gif'>Full View</a>
-       </section>
- 
-      <section>
-          <h4 style='font-size:20px;'>sfdx-mohanc-plugins - Demo-2</h4>
-           <img src='img/sfdx-mohanc-3.gif' height='520' style='border-radius:10px;border-color:#efe;opacity:1;padding:10px;'>
-            <a target='_blank' href='img/sfdx-mohanc-3.gif'>Full View</a>
-       </section>
-
-       <section>
-          <h4 style='font-size:20px;'>sfdx mohanc:md:rename plugin - Demo</h4>
-           <img src='img/rename-meta-3.gif' height='520' style='border-radius:10px;border-color:#efe;opacity:1;padding:10px;'>
-             <a target='_blank' href='img/renmae-meta.gif'>Full View</a>
-      </section>
-
-      <section>
-          <h4 style='font-size:30px;'>sfdx-mohanc-plugins &#8594;  md:rename</h4>
-      <ul style="font-size:30px;">
-          <li>install: <code>sfdx plugins:install sfdx-mohanc-plugins</code></li>
-          <li>usage: <code> sfdx mohanc:md:rename -r update.json </code> </li>
-          <li>
-              <pre><code>
-             Example:
-             Renames the given metadata type as given in the input file
-             sfdx mohanc:md:rename -r update.json
-
-            $ cat update.json | jq
-               {
-               "updates": [
-                   {
-                   "mdtype": "CustomField",
-                   "fullName": "Account.Hot_Status__c",
-                   "label": "HOT STAT",
-                   "type": "Text",
-                   "length": 12
-                   }
-               ]
-               }
-            </code>
-            </pre>
-          </li>
-      </ul>
-      </section>
-
-      <section>
-          <h4 style='font-size:30px;'>sfdx-mohanc-plugins &#8594;  data:transform:rt</h4>
-      <ul style="font-size:25px;">
-          <li>install: <code>sfdx plugins:install sfdx-mohanc-plugins</code></li>
-          <li>usage: <code> sfdx mohanc:data:transform:rt -i /tmp/Accounts.json -o /tmp/Accounts.out.json </code> </li>
-          <li>
-              <pre><code>
- ** Transforms the RecordTypeIds of the extracted json to target org RecordTypeIds **
-
-       sfdx mohanc:data:transform:rt -i /tmp/Accounts.json -o /tmp/Accounts.out.json
-
-       bash script to process all the files in a folder:
-       ------------
-       for file in /tmp/*
-       do
-           echo Processing "$file" ...
-           sfdx mohanc:data:transform:rt -i $file -o $file.out.json
-       done
-       -----------
-               
-            </code> </pre>
-          </li>
-      </ul>
-      </section>
-
-      <section>
-          <h4 style='font-size:30px;'>sfdx-mohanc-plugins &#8594;  data:transform:ur</h4>
-      <ul style="font-size:25px;">
-          <li>install: <code>sfdx plugins:install sfdx-mohanc-plugins</code></li>
-          <li>usage: <code> sfdx mohanc:data:transform:ur -i /tmp/input.json -o /tmp/input.out.json </code> </li>
-          <li>
-              <pre><code>
-      ** Transforms the UserIds of the extracted json to target org UserIds **
-
-       sfdx mohanc:data:transform:ur -i /tmp/input.json -o /tmp/input.out.jso
-
-       bash script to process all the files in a folder:
-       ------------
-       for file in /tmp/*
-       do
-           echo Processing "$file" ...
-           sfdx mohanc:data:transform:ur -i $file -o $file.out.json
-       done
-       ----------- 
-            </code> </pre>
-          </li>
-      </ul>
-      </section>
-
-
-       <section>
-          <h4 style='font-size:30px;'>sfdx-mohanc-plugins &#8594;  data:transform:acct</h4>
-      <ul style="font-size:25px;">
-          <li>install: <code>sfdx plugins:install sfdx-mohanc-plugins</code></li>
-          <li>usage: <code> sfdx mohanc:data:transform:acct -i /tmp/input.json -o /tmp/input.out.json </code> </li>
-          <li>
-              <pre><code>
-        ** Transforms the AccountId of the extracted json to target org AccountId **
-
-        sfdx mohanc:data:transform:acct -i /tmp/input.json -o /tmp/input.out.jso
-
-       bash script to process all the files in a folder:
-       ------------
-       for file in /tmp/*
-       do
-           echo Processing "$file" ...
-           sfdx mohanc:data:transform:acct -i $file -o $file.out.json
-       done
-       -----------
-            </code> </pre>
-          </li>
-      </ul>
-      </section>
+     
+     <section>
+         <h4>Live Agent - Connection issues - proxy and ip-whitelist</h4>
+         <ul>
+             <li><a target='_blank' href="https://help.salesforce.com/articleView?id=000138845&type=1"> Knowledge Article - LA connection issues</a></li>
+             <li><a target='_blank' href="https://help.salesforce.com/articleView?id=000003652&type=1&language=en_US">Salesforce IP address and Domains to whitelist</a></li>
+             <li><a target='_blank' href="https://help.salesforce.com/articleView?id=000248127&type=1">Details to provide to Salesforce Support about Live Agent Issuest</a></li>
+             <li></li>
+             <li></li>
+         </ul>
+     </section>
 
 
 
- 
     </div>
   </div>
 
@@ -426,7 +305,7 @@
     var GSCOPE;
     app.controller('MainCtrl', function($scope, $http, $timeout) {
       GSCOPE = $scope; // debugging purposes
-      $scope.appName="sfdx Plugins";
+      $scope.appName="Live Agent";
 
 
 
