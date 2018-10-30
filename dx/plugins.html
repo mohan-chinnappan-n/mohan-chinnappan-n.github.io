@@ -192,22 +192,24 @@
           <li>usage: <code> sfdx mohanc:data:transform:rt -i /tmp/Accounts.json -o /tmp/Accounts.out.json </code> </li>
           <li>
               <pre><code>
- ** Transforms the RecordTypeIds of the extracted json to target org RecordTypeIds **
+              
+       ** Transforms the RecordTypeIds of the extracted json to target org RecordTypeIds **
 
-       sfdx mohanc:data:transform:rt -i /tmp/Accounts.json -o /tmp/Accounts.out.json
+       sfdx mohanc:data:transform:rt -i /tmp/Accounts.json -o /tmp/Accounts.out.json -s n
 
        bash script to process all the files in a folder:
        ------------
        for file in /tmp/*
        do
            echo Processing "$file" ...
-           sfdx mohanc:data:transform:rt -i $file -o $file.out.json
+           sfdx mohanc:data:transform:rt -i $file -o $file.out.json -s y|n
        done
-       -----------
-               
+       ----------- 
             </code> </pre>
           </li>
       </ul>
+       <a style='font-size:25px' target='_blank' href="img/data-transform-rt-1.gif">Demo: showing how to use Simple option with this plugin </a>
+ 
       </section>
 
       <section>
