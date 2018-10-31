@@ -213,7 +213,7 @@
 
       <section>
           <h4 style='font-size:30px;'>sfdx-mohanc-plugins &#8594;  data:transform:ur</h4>
-      <ul style="font-size:25px;">
+      <ul style="font-size:30px;">
           <li>install: <code>sfdx plugins:install sfdx-mohanc-plugins</code></li>
           <li>usage: <code> sfdx mohanc:data:transform:ur -i /tmp/input.json -o /tmp/input.out.json </code> </li>
           <li>
@@ -238,7 +238,7 @@
 
        <section>
           <h4 style='font-size:30px;'>sfdx-mohanc-plugins &#8594;  data:transform:acct</h4>
-      <ul style="font-size:25px;">
+      <ul style="font-size:30px;">
           <li>install: <code>sfdx plugins:install sfdx-mohanc-plugins</code></li>
           <li>usage: <code> sfdx mohanc:data:transform:acct -i /tmp/input.json -o /tmp/input.out.json </code> </li>
           <li>
@@ -277,7 +277,34 @@
       </section>
 
 
+      <section>
+          <h4 style='font-size:30px;'>sfdx-mohanc-plugins &#8594;  data:transform:profile</h4>
+      <ul style="font-size:30px;">
+          <li>install: <code>sfdx plugins:install sfdx-mohanc-plugins</code></li>
+          <li>usage: <code> sfdx mohanc:data:transform:profile -i /tmp/cs.in.json -o /tmp/cs.out.json </code> </li>
+          <li>
+              <pre><code>
+            
+ ** Transforms the ProfileName of the extracted json to target org ProfileId **
 
+       sfdx mohanc:data:transform:profile -i /tmp/input.json -o /tmp/output.json -s n
+
+       bash script to process all the files in a folder:
+       ------------
+       for file in /tmp/*
+       do
+           echo Processing "$file" ...
+           sfdx mohanc:data:transform:profile -i $file -o $file.out.json -s y|n
+       done
+       -----------  
+            </code> </pre>
+          </li>
+      </ul>
+       <a style='font-size:25px' target='_blank' href="img/data-transform-profile-1.gif">Demo: showing how to use Simple option with this plugin </a>
+ 
+      </section>
+
+ 
 
  
     </div>
