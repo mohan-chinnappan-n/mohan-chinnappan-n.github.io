@@ -188,22 +188,26 @@
           <h4 style='font-size:30px;'>sfdx-mohanc-plugins &#8594;  data:transform:rt</h4>
       <ul style="font-size:25px;">
           <li>install: <code>sfdx plugins:install sfdx-mohanc-plugins</code></li>
-          <li>usage: <code> sfdx mohanc:data:transform:rt -i /tmp/Accounts.json -o /tmp/Accounts.out.json </code> </li>
+          <li>usage: <code> sfdx mohanc:data:transform:rt -i /tmp/Accounts.json -o /tmp/Accounts.out.json -e sobjectName</code> </li>
           <li>
               <pre><code>
-              
+            
+
        ** Transforms the RecordTypeIds of the extracted json to target org RecordTypeIds **
 
-       sfdx mohanc:data:transform:rt -i /tmp/Accounts.json -o /tmp/Accounts.out.json -s n
+       sfdx mohanc:data:transform:rt -i /tmp/Accounts.json -o /tmp/Accounts.out.json -s n -e sobjectName
+
+       Note: flag: e is optional. Tool can read from the inputfile to figure out sobjectName
 
        bash script to process all the files in a folder:
        ------------
        for file in /tmp/*
        do
            echo Processing "$file" ...
-           sfdx mohanc:data:transform:rt -i $file -o $file.out.json -s y|n
+           sfdx mohanc:data:transform:rt -i $file -o $file.out.json -s y|n -e Account
        done
-       ----------- 
+       -----------
+  
             </code> </pre>
           </li>
       </ul>
@@ -333,6 +337,32 @@
       </section>
 
  
+
+      <section>
+          <h4 style='font-size:30px;'>sfdx-mohanc-plugins &#8594;  data:transform:simplify</h4>
+      <ul style="font-size:30px;">
+          <li>install: <code>sfdx plugins:install sfdx-mohanc-plugins</code></li>
+          <li>usage: <code> sfdx mohanc:data:transform:simplify -i /tmp/input.json -o /tmp/input.out.json -e sobjectName</code> </li>
+          <li>
+          <pre><code>
+** Transforms the given object into simple key:value format **
+
+        sfdx mohanc:data:transform:simplify -i /tmp/input.json -o /tmp/input.out.json -e sobjectName
+
+       bash script to process all the files in a folder:
+       ------------
+       for file in /tmp/*
+       do
+           echo Processing "$file" ...
+           sfdx mohanc:data:transform:simplify -i $file -o $file.out.json -e sobjectName
+       done
+       ----------- 
+            </code> </pre>
+          </li>
+      </ul>
+       <a style='font-size:25px' target='_blank' href="img/data-transform-simplify-1.gif">Demo of this plugin </a>
+ 
+      </section>
 
 
 
