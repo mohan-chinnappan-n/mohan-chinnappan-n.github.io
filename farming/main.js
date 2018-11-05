@@ -113,10 +113,16 @@ var Common = /** @class */ (function () {
                         url: 'mSNu1OBKqh0',
                         title: 'How To Make Compost and Add Organic Amendments',
                         cat: 'Compost'
+                    }),
+                    new _Video__WEBPACK_IMPORTED_MODULE_1__["Video"]({
+                        url: 'MACjIdB80Qc',
+                        title: 'Winter Harvest',
+                        cat: 'Winter Farming'
                     })
                 ]
             })
         ];
+        this.nutTrees = ['Almond', 'Cashew', 'Chestnut', 'Hazel', 'Macadamia', 'Pecan', 'Hicory', 'Pecan', 'Pine', 'Pistachio', 'Walnut'];
         // tslint:disable-next-line:max-line-length
         this.countries = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Anguilla', 'Antigua & Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 'Bhutan', 'Bolivia', 'Bosnia & Herzegovina', 'Botswana', 'Brazil', 'British Virgin Islands', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 'Cameroon', 'Canada', 'Cape Verde', 'Cayman Islands', 'Central Arfrican Republic', 'Chad', 'Chile', 'China', 'Colombia', 'Congo', 'Cook Islands', 'Costa Rica', 'Cote D Ivoire', 'Croatia', 'Cuba', 'Curacao', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Ethiopia', 'Falkland Islands', 'Faroe Islands', 'Fiji', 'Finland', 'France', 'French Polynesia', 'French West Indies', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Guam', 'Guatemala', 'Guernsey', 'Guinea', 'Guinea Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Isle of Man', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jersey', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macau', 'Macedonia', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Montserrat', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauro', 'Nepal', 'Netherlands', 'Netherlands Antilles', 'New Caledonia', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Korea', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Puerto Rico', 'Qatar', 'Reunion', 'Romania', 'Russia', 'Rwanda', 'Saint Pierre & Miquelon', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'St Kitts & Nevis', 'St Lucia', 'St Vincent', 'Sudan', 'Suriname', 'Swaziland', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Timor LEste', 'Togo', 'Tonga', 'Trinidad & Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Turks & Caicos', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States of America', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City', 'Venezuela', 'Vietnam', 'Virgin Islands (US)', 'Yemen', 'Zambia', 'Zimbabwe'];
     }
@@ -344,7 +350,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h2 id='Great Farmers'>Great Farmers</h2>\n<ul class='list-group'>\n  <li class='list-group-item' *ngFor=\"let farmer of farmers\">\n    <h3>{{ farmer.name}}</h3>\n    <ul class='list-group'>\n      <li class='list-group-item' *ngFor=\"let video of farmer.videos\">\n        <h4>{{ video.title }}</h4>\n        <iframe height=\"400\" width=\"800\" allowfullscreen [src]=\"youtubeUrl + video.url | safe\">\n        </iframe>\n      </li>\n    </ul>\n</ul>\n\n<hr style='padding:30px;' />\n\n<h3 id='Indian Rivers'>Indian Rivers</h3>\n<div  style=\"width:200px;\">\n<input list=\"rivers\" name=\"river\" class='form-control'>\n<datalist id=\"rivers\" class='form-control'>\n  <option *ngFor=\"let river of indianRivers\" value=\"{{river}}\">\n</datalist>\n</div>\n<hr style='padding:30px;' />\n\n<h3 id='Countries'>Countries</h3>\n\n<div class=\"autocomplete\" style=\"width:200px;\">\n  <input [(ngModel)]=\"selCountry\" placeholder=\"Country\" class='form-control'>\n  <select id=\"countries\" class='form-control'>\n    <option *ngFor=\"let country of countries | filterName:selCountry \" value=\"{{country}}\">{{country}}</option>\n  </select>\n</div>\n\n<hr style='padding:30px;' />\n"
+module.exports = "<h2 id='Great Farmers'>Great Farmers</h2>\n<ul class='list-group'>\n  <li class='list-group-item' *ngFor=\"let farmer of farmers\">\n    <h3>{{ farmer.name}}</h3>\n    <ul class='list-group'>\n      <li class='list-group-item' *ngFor=\"let video of farmer.videos\">\n        <h4>{{ video.title }}</h4>\n        <iframe height=\"400\" width=\"800\" allowfullscreen [src]=\"youtubeUrl + video.url | safe\">\n        </iframe>\n      </li>\n    </ul>\n</ul>\n\n<hr style='padding:30px;' />\n\n<h3 id='Indian Rivers'>Indian Rivers</h3>\n<div  style=\"width:200px;\">\n<input list=\"rivers\" name=\"river\" class='form-control'>\n<datalist id=\"rivers\" class='form-control'>\n  <option *ngFor=\"let river of indianRivers\" value=\"{{river}}\">\n</datalist>\n</div>\n<hr style='padding:30px;' />\n\n<h3 id='Countries'>Countries</h3>\n\n<div  style=\"width:200px;\">\n  <input [(ngModel)]=\"selCountry\" placeholder=\"Country\" class='form-control'>\n  <select id=\"countries\" class='form-control'>\n    <option *ngFor=\"let country of countries | filterName:selCountry \" value=\"{{country}}\">{{country}}</option>\n  </select>\n</div>\n\n<hr style='padding:30px;' />\n\n<h3 id='Nut Trees'>Nut Trees</h3>\n\n<div  style=\"width:200px;\">\n  <input [(ngModel)]=\"selNutTree\" placeholder=\"Nut Tree\" class='form-control'>\n  <select id=\"nutTrees\" class='form-control'>\n    <option *ngFor=\"let nutTree of nutTrees | filterName:selNutTree \" value=\"{{nutTree}}\">{{nutTree}}</option>\n  </select>\n</div>\n\n<hr style='padding:30px;' />\n\n\n\n"
 
 /***/ }),
 
@@ -379,6 +385,8 @@ var FarmersComponent = /** @class */ (function () {
         this.indianRivers = common.indianRivers;
         this.countries = common.countries;
         this.selCountry = 'United States of America';
+        this.selNutTree = 'Almond';
+        this.nutTrees = common.nutTrees;
     }
     FarmersComponent.prototype.ngOnInit = function () {
     };
@@ -486,7 +494,8 @@ var MenuComponent = /** @class */ (function () {
         this.topics = [
             'Great Farmers',
             'Indian Rivers',
-            'Countries'
+            'Countries',
+            'Nut Trees'
         ];
     }
     MenuComponent.prototype.ngOnInit = function () {
