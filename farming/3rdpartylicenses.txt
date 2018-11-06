@@ -316,6 +316,18 @@ Apache-2.0
 @angular/core
 MIT
 
+@angular/common
+MIT
+
+@angular/platform-browser
+MIT
+
+@angular/router
+MIT
+
+@angular/forms
+MIT
+
 angular-split-ng6
 Apache-2.0
                                  Apache License
@@ -519,15 +531,6 @@ Apache-2.0
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-
-@angular/common
-MIT
-
-@angular/platform-browser
-MIT
-
-@angular/forms
-MIT
 
 @angular/animations
 MIT
