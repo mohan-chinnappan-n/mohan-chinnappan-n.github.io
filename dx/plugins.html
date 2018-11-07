@@ -362,6 +362,33 @@
  
       </section>
 
+      <section>
+          <h4 style='font-size:30px;'>sfdx-mohanc-plugins &#8594;  data:transform:un</h4>
+      <ul style="font-size:30px;">
+          <li>install: <code>sfdx plugins:install sfdx-mohanc-plugins</code></li>
+          <li>usage: <code> sfdx mohanc:data:transform:un -i /tmp/input.json -o /tmp/input.out.json </code> </li>
+          <li>
+          <pre><code>
+  ** Transforms the given Usernames to unique Usernames **
+
+       sfdx mohanc:data:transform:un -i /tmp/input.json -o /tmp/input.out.json
+
+       bash script to process all the files in a folder:
+       ------------
+       for file in /tmp/*
+       do
+           echo Processing "$file" ...
+           sfdx mohanc:data:transform:un -i $file -o $file.out.json
+       done
+       -----------
+           </code> </pre>
+          </li>
+      </ul>
+       <a style='font-size:25px' target='_blank' href="img/data-transform-un-1.gif">Demo of this plugin </a>
+ 
+      </section>
+
+
 
 
  
