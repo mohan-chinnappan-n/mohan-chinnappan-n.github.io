@@ -217,24 +217,26 @@
           <h4 style='font-size:30px;'>sfdx-mohanc-plugins &#8594;  data:transform:ur</h4>
       <ul style="font-size:30px;">
           <li>install: <code>sfdx plugins:install sfdx-mohanc-plugins</code></li>
-          <li>usage: <code> sfdx mohanc:data:transform:ur -i /tmp/input.json -o /tmp/input.out.json </code> </li>
+          <li>usage: <code> sfdx mohanc:data:transform:ur -i /tmp/input.json -o /tmp/input.out.json -s y|n </code> </li>
           <li>
               <pre><code>
-      ** Transforms the UserIds of the extracted json to target org UserIds **
+      ** Transforms the UserRoleIds of the extracted json to target org UserRoleIds **
 
-       sfdx mohanc:data:transform:ur -i /tmp/input.json -o /tmp/input.out.jso
+       sfdx mohanc:data:transform:ur -i /tmp/input.json -o /tmp/input.out.json -s y|n
 
        bash script to process all the files in a folder:
        ------------
        for file in /tmp/*
        do
            echo Processing "$file" ...
-           sfdx mohanc:data:transform:ur -i $file -o $file.out.json
+           sfdx mohanc:data:transform:ur -i $file -o $file.out.json -s y|n
        done
        ----------- 
             </code> </pre>
           </li>
       </ul>
+       <a style='font-size:25px' target='_blank' href="img/data-transform-ur-1.gif">Demo of this plugin </a>
+ 
       </section>
 
 
