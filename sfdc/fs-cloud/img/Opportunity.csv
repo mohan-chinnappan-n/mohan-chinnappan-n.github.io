@@ -1,46 +1,46 @@
-Label,Name,Nillable,Picklistvalues,Referenceto,Relationshipname,Type,Unique,Updateable
-Opportunity ID,Id,FALSE,--,--,null,id,FALSE,FALSE
-Deleted,IsDeleted,FALSE,--,--,null,boolean,FALSE,FALSE
-Account ID,AccountId,TRUE,--,"[ ""Account"" ]",Account,reference,FALSE,TRUE
-Record Type ID,RecordTypeId,TRUE,--,"[ ""RecordType"" ]",RecordType,reference,FALSE,TRUE
-Private,IsPrivate,FALSE,--,--,null,boolean,FALSE,TRUE
-Name,Name,FALSE,--,--,null,string,FALSE,TRUE
-Description,Description,TRUE,--,--,null,textarea,FALSE,TRUE
-Stage,StageName,FALSE,"[ ""Qualification"" , ""Needs Analysis"" , ""Discovery"" , ""Proposal"" , ""Negotiation"" , ""Develop Proposal"" , ""Client Presentation"" , ""Initiate Transfer"" , ""Closed Won"" , ""Closed Lost"" ]",--,null,picklist,FALSE,TRUE
-Amount,Amount,TRUE,--,--,null,currency,FALSE,TRUE
-Probability (%),Probability,TRUE,--,--,null,percent,FALSE,TRUE
-Expected Amount,ExpectedRevenue,TRUE,--,--,null,currency,FALSE,FALSE
-Close Date,CloseDate,FALSE,--,--,null,date,FALSE,TRUE
-Opportunity Type,Type,TRUE,"[ ""Existing Business"" , ""New Business"" ]",--,null,picklist,FALSE,TRUE
-Next Step,NextStep,TRUE,--,--,null,string,FALSE,TRUE
-Lead and Referral Source,LeadSource,TRUE,"[ ""Advertisement"" , ""Customer Event"" , ""Employee Referral"" , ""Google AdWords"" , ""Other"" , ""Partner"" , ""Purchased List"" , ""Trade Show"" , ""Webinar"" , ""Website"" ]",--,null,picklist,FALSE,TRUE
-Closed,IsClosed,FALSE,--,--,null,boolean,FALSE,FALSE
-Won,IsWon,FALSE,--,--,null,boolean,FALSE,FALSE
-Forecast Category,ForecastCategory,FALSE,"[ ""Omitted"" , ""Pipeline"" , ""BestCase"" , ""Forecast"" , ""Closed"" ]",--,null,picklist,FALSE,FALSE
-Forecast Category,ForecastCategoryName,TRUE,"[ ""Omitted"" , ""Pipeline"" , ""Best Case"" , ""Commit"" , ""Closed"" ]",--,null,picklist,FALSE,TRUE
-Campaign ID,CampaignId,TRUE,--,"[ ""Campaign"" ]",Campaign,reference,FALSE,TRUE
-Has Line Item,HasOpportunityLineItem,FALSE,--,--,null,boolean,FALSE,FALSE
-Price Book ID,Pricebook2Id,TRUE,--,"[ ""Pricebook2"" ]",Pricebook2,reference,FALSE,TRUE
-Owner ID,OwnerId,FALSE,--,"[ ""User"" ]",Owner,reference,FALSE,TRUE
-Created Date,CreatedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-Created By ID,CreatedById,FALSE,--,"[ ""User"" ]",CreatedBy,reference,FALSE,FALSE
-Last Modified Date,LastModifiedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-Last Modified By ID,LastModifiedById,FALSE,--,"[ ""User"" ]",LastModifiedBy,reference,FALSE,FALSE
-System Modstamp,SystemModstamp,FALSE,--,--,null,datetime,FALSE,FALSE
-Last Activity,LastActivityDate,TRUE,--,--,null,date,FALSE,FALSE
-Fiscal Quarter,FiscalQuarter,TRUE,--,--,null,int,FALSE,FALSE
-Fiscal Year,FiscalYear,TRUE,--,--,null,int,FALSE,FALSE
-Fiscal Period,Fiscal,TRUE,--,--,null,string,FALSE,FALSE
-Last Viewed Date,LastViewedDate,TRUE,--,--,null,datetime,FALSE,FALSE
-Last Referenced Date,LastReferencedDate,TRUE,--,--,null,datetime,FALSE,FALSE
-Quote ID,SyncedQuoteId,TRUE,--,"[ ""Quote"" ]",SyncedQuote,reference,FALSE,TRUE
-Has Open Activity,HasOpenActivity,FALSE,--,--,null,boolean,FALSE,FALSE
-Has Overdue Task,HasOverdueTask,FALSE,--,--,null,boolean,FALSE,FALSE
-Budget Confirmed,Budget_Confirmed__c,FALSE,--,--,null,boolean,FALSE,TRUE
-Discovery Completed,Discovery_Completed__c,FALSE,--,--,null,boolean,FALSE,TRUE
-ROI Analysis Completed,ROI_Analysis_Completed__c,FALSE,--,--,null,boolean,FALSE,TRUE
-Financial Account,FinServ__FinancialAccount__c,TRUE,--,"[ ""FinServ__FinancialAccount__c"" ]",FinServ__FinancialAccount__r,reference,FALSE,TRUE
-Loss Reason,Loss_Reason__c,TRUE,"[ ""Lost to Competitor"" , ""No Budget / Lost Funding"" , ""No Decision / Non-Responsive"" , ""Price"" , ""Other"" ]",--,null,picklist,FALSE,TRUE
-External Referrer,FinServ__ReferredByContact__c,TRUE,--,"[ ""Contact"" ]",FinServ__ReferredByContact__r,reference,FALSE,TRUE
-Internal Referrer,FinServ__ReferredByUser__c,TRUE,--,"[ ""User"" ]",FinServ__ReferredByUser__r,reference,FALSE,TRUE
-Household,FinServ__Household__c,TRUE,--,"[ ""Account"" ]",FinServ__Household__r,reference,FALSE,TRUE
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"Opportunity","Opportunity","Id","Opportunity ID","id",18,false,"[]",,false,false,,"[]",false
+"Opportunity","Opportunity","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"Opportunity","Opportunity","AccountId","Account ID","reference",18,true,"[""Account""]","Account",false,true,,"[]",false
+"Opportunity","Opportunity","RecordTypeId","Record Type ID","reference",18,true,"[""RecordType""]","RecordType",false,true,,"[]",false
+"Opportunity","Opportunity","IsPrivate","Private","boolean",0,false,"[]",,false,true,,"[]",false
+"Opportunity","Opportunity","Name","Name","string",120,false,"[]",,false,true,,"[]",false
+"Opportunity","Opportunity","Description","Description","textarea",32000,true,"[]",,false,true,,"[]",false
+"Opportunity","Opportunity","StageName","Stage","picklist",40,false,"[]",,false,true,,"[""Qualification"",""Needs Analysis"",""Discovery"",""Proposal"",""Negotiation"",""Develop Proposal"",""Client Presentation"",""Initiate Transfer"",""Closed Won"",""Closed Lost""]",false
+"Opportunity","Opportunity","Amount","Amount","currency",0,true,"[]",,false,true,,"[]",false
+"Opportunity","Opportunity","Probability","Probability (%)","percent",0,true,"[]",,false,true,,"[]",false
+"Opportunity","Opportunity","ExpectedRevenue","Expected Amount","currency",0,true,"[]",,false,false,,"[]",false
+"Opportunity","Opportunity","CloseDate","Close Date","date",0,false,"[]",,false,true,,"[]",false
+"Opportunity","Opportunity","Type","Opportunity Type","picklist",40,true,"[]",,false,true,,"[""Existing Business"",""New Business""]",false
+"Opportunity","Opportunity","NextStep","Next Step","string",255,true,"[]",,false,true,,"[]",false
+"Opportunity","Opportunity","LeadSource","Lead and Referral Source","picklist",40,true,"[]",,false,true,,"[""Advertisement"",""Customer Event"",""Employee Referral"",""Google AdWords"",""Other"",""Partner"",""Purchased List"",""Trade Show"",""Webinar"",""Website""]",false
+"Opportunity","Opportunity","IsClosed","Closed","boolean",0,false,"[]",,false,false,,"[]",false
+"Opportunity","Opportunity","IsWon","Won","boolean",0,false,"[]",,false,false,,"[]",false
+"Opportunity","Opportunity","ForecastCategory","Forecast Category","picklist",40,false,"[]",,false,false,,"[""Omitted"",""Pipeline"",""Best Case"",""Commit"",""Closed""]",false
+"Opportunity","Opportunity","ForecastCategoryName","Forecast Category","picklist",40,true,"[]",,false,true,,"[""Omitted"",""Pipeline"",""Best Case"",""Commit"",""Closed""]",false
+"Opportunity","Opportunity","CampaignId","Campaign ID","reference",18,true,"[""Campaign""]","Campaign",false,true,,"[]",false
+"Opportunity","Opportunity","HasOpportunityLineItem","Has Line Item","boolean",0,false,"[]",,false,false,,"[]",false
+"Opportunity","Opportunity","Pricebook2Id","Price Book ID","reference",18,true,"[""Pricebook2""]","Pricebook2",false,true,,"[]",false
+"Opportunity","Opportunity","OwnerId","Owner ID","reference",18,false,"[""User""]","Owner",false,true,,"[]",false
+"Opportunity","Opportunity","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Opportunity","Opportunity","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"Opportunity","Opportunity","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Opportunity","Opportunity","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"Opportunity","Opportunity","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"Opportunity","Opportunity","LastActivityDate","Last Activity","date",0,true,"[]",,false,false,,"[]",false
+"Opportunity","Opportunity","FiscalQuarter","Fiscal Quarter","int",0,true,"[]",,false,false,,"[]",false
+"Opportunity","Opportunity","FiscalYear","Fiscal Year","int",0,true,"[]",,false,false,,"[]",false
+"Opportunity","Opportunity","Fiscal","Fiscal Period","string",6,true,"[]",,false,false,,"[]",false
+"Opportunity","Opportunity","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Opportunity","Opportunity","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Opportunity","Opportunity","SyncedQuoteId","Quote ID","reference",18,true,"[""Quote""]","SyncedQuote",false,true,,"[]",false
+"Opportunity","Opportunity","HasOpenActivity","Has Open Activity","boolean",0,false,"[]",,false,false,,"[]",false
+"Opportunity","Opportunity","HasOverdueTask","Has Overdue Task","boolean",0,false,"[]",,false,false,,"[]",false
+"Opportunity","Opportunity","Budget_Confirmed__c","Budget Confirmed","boolean",0,false,"[]",,false,true,,"[]",false
+"Opportunity","Opportunity","Discovery_Completed__c","Discovery Completed","boolean",0,false,"[]",,false,true,,"[]",false
+"Opportunity","Opportunity","ROI_Analysis_Completed__c","ROI Analysis Completed","boolean",0,false,"[]",,false,true,,"[]",false
+"Opportunity","Opportunity","FinServ__FinancialAccount__c","Financial Account","reference",18,true,"[""FinServ__FinancialAccount__c""]","FinServ__FinancialAccount__r",false,true,,"[]",false
+"Opportunity","Opportunity","Loss_Reason__c","Loss Reason","picklist",255,true,"[]",,false,true,,"[""Lost to Competitor"",""No Budget / Lost Funding"",""No Decision / Non-Responsive"",""Price"",""Other""]",false
+"Opportunity","Opportunity","FinServ__ReferredByContact__c","External Referrer","reference",18,true,"[""Contact""]","FinServ__ReferredByContact__r",false,true,,"[]",false
+"Opportunity","Opportunity","FinServ__ReferredByUser__c","Internal Referrer","reference",18,true,"[""User""]","FinServ__ReferredByUser__r",false,true,,"[]",false
+"Opportunity","Opportunity","FinServ__Household__c","Household","reference",18,true,"[""Account""]","FinServ__Household__r",false,true,,"[]",false

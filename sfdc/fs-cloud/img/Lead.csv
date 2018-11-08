@@ -1,69 +1,69 @@
-Label,Name,Nillable,Picklistvalues,Referenceto,Relationshipname,Type,Unique,Updateable
-Lead and Referral ID,Id,FALSE,--,--,null,id,FALSE,FALSE
-Deleted,IsDeleted,FALSE,--,--,null,boolean,FALSE,FALSE
-Master Record ID,MasterRecordId,TRUE,--,"[ ""Lead"" ]",MasterRecord,reference,FALSE,FALSE
-Last Name,LastName,FALSE,--,--,null,string,FALSE,TRUE
-First Name,FirstName,TRUE,--,--,null,string,FALSE,TRUE
-Salutation,Salutation,TRUE,"[ ""Mr."" , ""Ms."" , ""Mrs."" , ""Dr."" , ""Prof."" ]",--,null,picklist,FALSE,TRUE
-Middle Name,MiddleName,TRUE,--,--,null,string,FALSE,TRUE
-Suffix,Suffix,TRUE,--,--,null,string,FALSE,TRUE
-Full Name,Name,FALSE,--,--,null,string,FALSE,FALSE
-Lead and Referral Record Type,RecordTypeId,TRUE,--,"[ ""RecordType"" ]",RecordType,reference,FALSE,TRUE
-Title,Title,TRUE,--,--,null,string,FALSE,TRUE
-Company,Company,TRUE,--,--,null,string,FALSE,TRUE
-Street,Street,TRUE,--,--,null,textarea,FALSE,TRUE
-City,City,TRUE,--,--,null,string,FALSE,TRUE
-State/Province,State,TRUE,--,--,null,string,FALSE,TRUE
-Zip/Postal Code,PostalCode,TRUE,--,--,null,string,FALSE,TRUE
-Country,Country,TRUE,--,--,null,string,FALSE,TRUE
-Latitude,Latitude,TRUE,--,--,null,double,FALSE,TRUE
-Longitude,Longitude,TRUE,--,--,null,double,FALSE,TRUE
-Geocode Accuracy,GeocodeAccuracy,TRUE,"[ ""Address"" , ""NearAddress"" , ""Block"" , ""Street"" , ""ExtendedZip"" , ""Zip"" , ""Neighborhood"" , ""City"" , ""County"" , ""State"" , ""Unknown"" ]",--,null,picklist,FALSE,TRUE
-Address,Address,TRUE,--,--,null,address,FALSE,FALSE
-Phone,Phone,TRUE,--,--,null,phone,FALSE,TRUE
-Mobile Phone,MobilePhone,TRUE,--,--,null,phone,FALSE,TRUE
-Fax,Fax,TRUE,--,--,null,phone,FALSE,TRUE
-Email,Email,TRUE,--,--,null,email,FALSE,TRUE
-Website,Website,TRUE,--,--,null,url,FALSE,TRUE
-Photo URL,PhotoUrl,TRUE,--,--,null,url,FALSE,FALSE
-Description,Description,TRUE,--,--,null,textarea,FALSE,TRUE
-Lead and Referral Source,LeadSource,TRUE,"[ ""Advertisement"" , ""Customer Event"" , ""Employee Referral"" , ""Google AdWords"" , ""Other"" , ""Partner"" , ""Purchased List"" , ""Trade Show"" , ""Webinar"" , ""Website"" ]",--,null,picklist,FALSE,TRUE
-Lead and Referral Status,Status,FALSE,"[ ""Unqualified"" , ""New"" , ""Working"" , ""Nurturing"" , ""Working - Contacted"" , ""Nurturing - Contacted"" , ""Qualified"" ]",--,null,picklist,FALSE,TRUE
-Industry,Industry,TRUE,"[ ""Agriculture"" , ""Apparel"" , ""Banking"" , ""Biotechnology"" , ""Chemicals"" , ""Communications"" , ""Construction"" , ""Consulting"" , ""Education"" , ""Electronics"" , ""Energy"" , ""Engineering"" , ""Entertainment"" , ""Environmental"" , ""Finance"" , ""Food & Beverage"" , ""Government"" , ""Healthcare"" , ""Hospitality"" , ""Insurance"" , ""Machinery"" , ""Manufacturing"" , ""Media"" , ""Not For Profit"" , ""Other"" , ""Recreation"" , ""Retail"" , ""Shipping"" , ""Technology"" , ""Telecommunications"" , ""Transportation"" , ""Utilities"" ]",--,null,picklist,FALSE,TRUE
-Rating,Rating,TRUE,"[ ""Hot"" , ""Warm"" , ""Cold"" ]",--,null,picklist,FALSE,TRUE
-Annual Revenue,AnnualRevenue,TRUE,--,--,null,currency,FALSE,TRUE
-Employees,NumberOfEmployees,TRUE,--,--,null,int,FALSE,TRUE
-Lead and Referral Owner,OwnerId,FALSE,--,"[ ""Group"", ""User"" ]",Owner,reference,FALSE,TRUE
-Email Opt Out,HasOptedOutOfEmail,FALSE,--,--,null,boolean,FALSE,TRUE
-Converted,IsConverted,FALSE,--,--,null,boolean,FALSE,FALSE
-Converted Date,ConvertedDate,TRUE,--,--,null,date,FALSE,FALSE
-Converted Account ID,ConvertedAccountId,TRUE,--,"[ ""Account"" ]",ConvertedAccount,reference,FALSE,FALSE
-Converted Contact ID,ConvertedContactId,TRUE,--,"[ ""Contact"" ]",ConvertedContact,reference,FALSE,FALSE
-Converted Opportunity ID,ConvertedOpportunityId,TRUE,--,"[ ""Opportunity"" ]",ConvertedOpportunity,reference,FALSE,FALSE
-Unread By Owner,IsUnreadByOwner,FALSE,--,--,null,boolean,FALSE,TRUE
-Created Date,CreatedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-Created By ID,CreatedById,FALSE,--,"[ ""User"" ]",CreatedBy,reference,FALSE,FALSE
-Last Modified Date,LastModifiedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-Last Modified By ID,LastModifiedById,FALSE,--,"[ ""User"" ]",LastModifiedBy,reference,FALSE,FALSE
-System Modstamp,SystemModstamp,FALSE,--,--,null,datetime,FALSE,FALSE
-Last Activity,LastActivityDate,TRUE,--,--,null,date,FALSE,FALSE
-Do Not Call,DoNotCall,FALSE,--,--,null,boolean,FALSE,TRUE
-Fax Opt Out,HasOptedOutOfFax,FALSE,--,--,null,boolean,FALSE,TRUE
-Last Viewed Date,LastViewedDate,TRUE,--,--,null,datetime,FALSE,FALSE
-Last Referenced Date,LastReferencedDate,TRUE,--,--,null,datetime,FALSE,FALSE
-Last Transfer Date,LastTransferDate,TRUE,--,--,null,date,FALSE,FALSE
-Data.com Key,Jigsaw,TRUE,--,--,null,string,FALSE,TRUE
-Jigsaw Contact ID,JigsawContactId,TRUE,--,--,JigsawContact,string,FALSE,FALSE
-Email Bounced Reason,EmailBouncedReason,TRUE,--,--,null,string,FALSE,TRUE
-Email Bounced Date,EmailBouncedDate,TRUE,--,--,null,datetime,FALSE,TRUE
-Created from Lead,FinServ__CreatedFromLead__c,FALSE,--,--,null,boolean,FALSE,TRUE
-Employer,FinServ__Employer__c,TRUE,--,--,null,string,FALSE,TRUE
-Conversion DateTime,FinServ__ConversionDateTime__c,TRUE,--,--,null,datetime,FALSE,FALSE
-Created By Me,FinServ__CreatedByMe__c,FALSE,--,--,null,boolean,FALSE,FALSE
-Expressed Interest,FinServ__ExpressedInterest__c,TRUE,"[ ""Mortgage"" , ""Personal Loan"" , ""Credit Card"" , ""Savings Account"" , ""Checking Account"" , ""HELOC"" , ""Day to Day Banking"" , ""Manage Money"" , ""Property Purchase"" , ""Investments"" , ""Education"" , ""Manage Debt"" ]",--,null,picklist,FALSE,TRUE
-Household,FinServ__Household__c,TRUE,--,"[ ""Account"" ]",FinServ__Household__r,reference,FALSE,TRUE
-Potential Value,FinServ__PotentialValue__c,TRUE,--,--,null,currency,FALSE,TRUE
-External Referrer,FinServ__ReferredByContact__c,TRUE,--,"[ ""Contact"" ]",FinServ__ReferredByContact__r,reference,FALSE,TRUE
-Internal Referrer,FinServ__ReferredByUser__c,TRUE,--,"[ ""User"" ]",FinServ__ReferredByUser__r,reference,FALSE,TRUE
-Referrer Score,FinServ__ReferrerScore__c,TRUE,--,--,null,double,FALSE,FALSE
-Related Account,FinServ__RelatedAccount__c,TRUE,--,"[ ""Account"" ]",FinServ__RelatedAccount__r,reference,FALSE,TRUE
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"Lead","Lead and Referral","Id","Lead and Referral ID","id",18,false,"[]",,false,false,,"[]",false
+"Lead","Lead and Referral","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"Lead","Lead and Referral","MasterRecordId","Master Record ID","reference",18,true,"[""Lead""]","MasterRecord",false,false,,"[]",false
+"Lead","Lead and Referral","LastName","Last Name","string",80,false,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","FirstName","First Name","string",40,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","Salutation","Salutation","picklist",40,true,"[]",,false,true,,"[""Mr."",""Ms."",""Mrs."",""Dr."",""Prof.""]",false
+"Lead","Lead and Referral","MiddleName","Middle Name","string",40,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","Suffix","Suffix","string",40,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","Name","Full Name","string",121,false,"[]",,false,false,,"[]",false
+"Lead","Lead and Referral","RecordTypeId","Lead and Referral Record Type","reference",18,true,"[""RecordType""]","RecordType",false,true,,"[]",false
+"Lead","Lead and Referral","Title","Title","string",128,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","Company","Company","string",255,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","Street","Street","textarea",255,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","City","City","string",40,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","State","State/Province","string",80,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","PostalCode","Zip/Postal Code","string",20,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","Country","Country","string",80,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","Latitude","Latitude","double",0,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","Longitude","Longitude","double",0,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","GeocodeAccuracy","Geocode Accuracy","picklist",40,true,"[]",,false,true,,"[""Address"",""NearAddress"",""Block"",""Street"",""ExtendedZip"",""Zip"",""Neighborhood"",""City"",""County"",""State"",""Unknown""]",false
+"Lead","Lead and Referral","Address","Address","address",0,true,"[]",,false,false,,"[]",false
+"Lead","Lead and Referral","Phone","Phone","phone",40,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","MobilePhone","Mobile Phone","phone",40,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","Fax","Fax","phone",40,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","Email","Email","email",80,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","Website","Website","url",255,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","PhotoUrl","Photo URL","url",255,true,"[]",,false,false,,"[]",false
+"Lead","Lead and Referral","Description","Description","textarea",32000,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","LeadSource","Lead and Referral Source","picklist",40,true,"[]",,false,true,,"[""Advertisement"",""Customer Event"",""Employee Referral"",""Google AdWords"",""Other"",""Partner"",""Purchased List"",""Trade Show"",""Webinar"",""Website""]",false
+"Lead","Lead and Referral","Status","Lead and Referral Status","picklist",40,false,"[]",,false,true,,"[""Unqualified"",""New"",""Working"",""Nurturing"",""Working - Contacted"",""Nurturing - Contacted"",""Qualified""]",false
+"Lead","Lead and Referral","Industry","Industry","picklist",40,true,"[]",,false,true,,"[""Agriculture"",""Apparel"",""Banking"",""Biotechnology"",""Chemicals"",""Communications"",""Construction"",""Consulting"",""Education"",""Electronics"",""Energy"",""Engineering"",""Entertainment"",""Environmental"",""Finance"",""Food & Beverage"",""Government"",""Healthcare"",""Hospitality"",""Insurance"",""Machinery"",""Manufacturing"",""Media"",""Not For Profit"",""Other"",""Recreation"",""Retail"",""Shipping"",""Technology"",""Telecommunications"",""Transportation"",""Utilities""]",false
+"Lead","Lead and Referral","Rating","Rating","picklist",40,true,"[]",,false,true,,"[""Hot"",""Warm"",""Cold""]",false
+"Lead","Lead and Referral","AnnualRevenue","Annual Revenue","currency",0,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","NumberOfEmployees","Employees","int",0,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","OwnerId","Lead and Referral Owner","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"Lead","Lead and Referral","HasOptedOutOfEmail","Email Opt Out","boolean",0,false,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","IsConverted","Converted","boolean",0,false,"[]",,false,false,,"[]",false
+"Lead","Lead and Referral","ConvertedDate","Converted Date","date",0,true,"[]",,false,false,,"[]",false
+"Lead","Lead and Referral","ConvertedAccountId","Converted Account ID","reference",18,true,"[""Account""]","ConvertedAccount",false,false,,"[]",false
+"Lead","Lead and Referral","ConvertedContactId","Converted Contact ID","reference",18,true,"[""Contact""]","ConvertedContact",false,false,,"[]",false
+"Lead","Lead and Referral","ConvertedOpportunityId","Converted Opportunity ID","reference",18,true,"[""Opportunity""]","ConvertedOpportunity",false,false,,"[]",false
+"Lead","Lead and Referral","IsUnreadByOwner","Unread By Owner","boolean",0,false,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Lead","Lead and Referral","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"Lead","Lead and Referral","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Lead","Lead and Referral","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"Lead","Lead and Referral","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"Lead","Lead and Referral","LastActivityDate","Last Activity","date",0,true,"[]",,false,false,,"[]",false
+"Lead","Lead and Referral","DoNotCall","Do Not Call","boolean",0,false,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","HasOptedOutOfFax","Fax Opt Out","boolean",0,false,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Lead","Lead and Referral","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Lead","Lead and Referral","LastTransferDate","Last Transfer Date","date",0,true,"[]",,false,false,,"[]",false
+"Lead","Lead and Referral","Jigsaw","Data.com Key","string",20,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","JigsawContactId","Jigsaw Contact ID","string",20,true,"[]","JigsawContact",false,false,,"[]",false
+"Lead","Lead and Referral","EmailBouncedReason","Email Bounced Reason","string",255,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","EmailBouncedDate","Email Bounced Date","datetime",0,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","FinServ__CreatedFromLead__c","Created from Lead","boolean",0,false,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","FinServ__Employer__c","Employer","string",255,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","FinServ__ConversionDateTime__c","Conversion DateTime","datetime",0,true,"[]",,false,false,,"[]",false
+"Lead","Lead and Referral","FinServ__CreatedByMe__c","Created By Me","boolean",0,false,"[]",,false,false,,"[]",false
+"Lead","Lead and Referral","FinServ__ExpressedInterest__c","Expressed Interest","picklist",255,true,"[]",,false,true,,"[""Mortgage"",""Personal Loan"",""Credit Card"",""Savings Account"",""Checking Account"",""HELOC"",""Day to Day Banking"",""Manage Money"",""Property Purchase"",""Investments"",""Education"",""Manage Debt""]",false
+"Lead","Lead and Referral","FinServ__Household__c","Household","reference",18,true,"[""Account""]","FinServ__Household__r",false,true,,"[]",false
+"Lead","Lead and Referral","FinServ__PotentialValue__c","Potential Value","currency",0,true,"[]",,false,true,,"[]",false
+"Lead","Lead and Referral","FinServ__ReferredByContact__c","External Referrer","reference",18,true,"[""Contact""]","FinServ__ReferredByContact__r",false,true,,"[]",false
+"Lead","Lead and Referral","FinServ__ReferredByUser__c","Internal Referrer","reference",18,true,"[""User""]","FinServ__ReferredByUser__r",false,true,,"[]",false
+"Lead","Lead and Referral","FinServ__ReferrerScore__c","Referrer Score","double",0,true,"[]",,false,false,,"[]",false
+"Lead","Lead and Referral","FinServ__RelatedAccount__c","Related Account","reference",18,true,"[""Account""]","FinServ__RelatedAccount__r",false,true,,"[]",false
