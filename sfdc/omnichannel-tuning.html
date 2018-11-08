@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Omni Channel App</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+</head>
+<body style='padding:10px;'>
+<style>
+#overlay {
+    position: absolute;
+    background: lightgreen;
+    opacity:.7;
+    border-radius:10px;
+    border-color:#efe;    
+    color: black;
+    top: 350px;
+    padding:10px;
+    left: 500px;
+    font-size:18px;
+    width:800px;
+}
+#map {
+    position: relative;
+}
+</style>
+
+<h2 style='border-bottom:2px solid #99ccff'>Omni-Channel Tuning </h2>
+<div id="map">
+    <div id="overlay">Details come here when you hover over the items in <b>Routing Config</b> in this picture!</div>
+    <img src="https://mohan-chinnappan-n.github.io/sfdc/img/omni/omni-channel.png" usemap="#image-map">
+</div>
+<map name="image-map">
+    <area target="" alt="WorkItemDetails" title="showdetails" href="#" coords="179,400,297,417" shape="rect">
+    <area target="" alt="RoutingPriority" title="showdetails" href="showdetails" coords="172,420,304,442" shape="rect">-
+    <area target="" alt="PushTimeOut" title="showdetails" href="showdetails" coords="171,441,303,463" shape="rect">
+    <area target="" alt="MostAvailable" title="showdetails" href="showdetails" coords="214,483,346,505" shape="rect">
+    <area target="" alt="LeastActive" title="showdetails" href="showdetails" coords="211,504,343,526" shape="rect">
+    <area target="" alt="ExternalRouting" title="showdetails" href="showdetails" coords="213,524,345,546" shape="rect">
+
+
+
+</map>
+
+<script>
+const data = {
+ "WorkItemDetails": "<b>Work item size</b> is vital to managing agent capacity. You don’t want cases, chats, and SOS calls to be treated equally—agents can handle multiple chats and cases together, but an SOS call requires their full attention. So you can size chats and cases to a lower number or percentage of capacity, and size SOS calls to the full capacity, or 100%. You can set work item size in your routing configuration."
+,"RoutingPriority": "When you use multiple routing configurations, you can set the routing priority to make sure the most important work is assigned to an agent first. Lower-priority items are pushed first."
+,"PushTimeOut":"Push time-out sets a <b>timer</b> for how long an agent has to accept or decline a work request before it’s pushed to another agent. It’s like the mail carrier knocking on your door for a signature to receive your package, and if you don’t answer, asking your neighbor to sign for it instead. It ensures that nothing gets lost in work-request limbo. You can turn on push time-out in the routing configuration."
+,"MostAvailable": "<b> Most Available</b> routing model routes to the agent with the greatest difference between work item capacity and open work items."
+,"LeastActive": "<b>Least Active</b> routing model routes work to the agent with the fewest number of open work items."
+,"ExternalRouting": "<img src='https://developer.salesforce.com/docs/resources/img/en-us/216.0?doc_id=dev_guides%2Fomnichannel%2Fimages%2Fexternal_routing_overview.png&folder=omni_channel_dev'/> More details in the Omni-Channel Developer Guide."
+}
+$('area').each(function(){
+    var area = $(this),
+        alt = area.attr('alt');
+    area.mouseenter(function(){
+        $('#overlay').html(data[alt]);
+    }).mouseleave(function(){
+        $('#overlay').html('');
+    });
+});
+
+
+</script>
+</body>
+</html>
