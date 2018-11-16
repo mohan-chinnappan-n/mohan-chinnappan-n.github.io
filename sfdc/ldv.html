@@ -304,10 +304,24 @@
           </li>
           <li>
             This separation ordinarily requires a join when a query contains both kinds of fields.
-
           </li>
+        <li>Most useful with tables containing millions of records to improve the performance of read-only operations, such as reports.</li>
         </ul>
           <img style="border:0px; border-radius:10xp;" height="380" src="img/ldv/skinny-table.png" alt="">
+       </section>
+
+      <section>
+        <h4>Skinny Tables 2</h4>
+        <ul style="font-size:30px;">
+          <li> Skinny tables aren’t a magic wand to wave at performance problems. There’s overhead in maintaining separate tables
+that hold copies of live data. Using them in an inappropriate context can lead to performance degradation instead of improvement.
+          </li>
+          <li> Skinny tables can contain a maximum of 100 columns.  </li>
+        <li> Skinny tables can’t contain fields from other objects.</li>
+        <li>For Full sandboxes: Skinny tables are copied to your Full sandbox orgs.</li>
+<li>For other types of sandboxes: Skinny tables aren’t copied to your sandbox organizations. To have production skinny tables activated
+for sandbox types other than Full sandboxes, contact Salesforce Customer Support.</li>
+        </ul>
        </section>
 
 
