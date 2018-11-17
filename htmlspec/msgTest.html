@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FP App</title>
+ <style>
+   #send {
+      background-color:steelblue;color:white;border-radius:5px; 
+      padding:5px;
+  }
+  input {
+   width:200px;
+   background-color:lightyellow;
+   border-radius:5px;
+  }
+</style>
+</head>
+<body>
+  <iframe 
+     src="https://mohansun40-dev-ed--c.na40.visual.force.com/apex/CustRedirect"
+     id='receiver' 
+     height='200' width='400' frameborder="0">
+  </iframe>
+  <hr/>
+  <input type="text" id='msg'>
+  <button id='send' >Send</button>
+ <script>
+    window.onload = function() {
+        var receiver = document.getElementById('receiver').contentWindow;
+        var btn = document.getElementById('send');
+        var domain = 'https://mohansun40-dev-ed--c.na40.visual.force.com';
+        function sendMessage(e) {
+             var msg = document.getElementById('msg').value;
+             receiver.postMessage(msg, domain); 
+        }
+        btn.addEventListener('click', sendMessage);
+   }
+</script>
+</body>
+</html>
