@@ -9,7 +9,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://mohan-chinnappan-n.github.io/css/navbar-blue.css">
 <script src="https://mohan-chinnappan-n.github.io/sfdc/gs/js/split.js"></script>
-
+<link rel="stylesheet" href="../typography/slds-274/styles/salesforce-lightning-design-system.min.css">
 <link rel="stylesheet" href="https://mohan-chinnappan-n.github.io/sfdc/gs/css/split.css">
 
 <style>
@@ -48,7 +48,8 @@
 
     <div class="split split-horizontal" id="menu">
     <ol class="list-group">
-        <li class="list-group-item"> <a target='_blank' href="msgTest.html">From Localhost: window.postMessage  to: Salesforce Visualforce page</a> </li>
+        <li class="list-group-item">
+                   <a target='_blank' href="msgtest.html">from localhost: window.postmessage  to: salesforce visualforce page</a> </li>
         <li class="list-group-item"> <a target='_blank' href="msgTest2.html">From github: window.postMessage  to: Salesforce Visualforce page</a> </li>
  
     </ol>
@@ -62,7 +63,12 @@ Normally, scripts on different pages are allowed to access each other if and onl
 <br/>
 <pre>window.postMessage()</pre> provides a controlled mechanism to circumvent this restriction in a way which is secure when properly used.</p>
 
-<h3>Demo</h3>
+<hr/>
+
+<h2 class='slds-text-heading--label'>Demo</h3>
+ <span class='slds-badge slds-theme--inverse'>Messaging with Visualforce Page </span>
+<hr/>
+
 <img src="img/win-msg-vf-1.gif" alt="">
 <hr/>
 <h4>References</h4>
@@ -74,6 +80,14 @@ Normally, scripts on different pages are allowed to access each other if and onl
 
 
 </ol>
+
+
+<div class="slds-grid">
+  <div class="slds-col">Column 1</div>
+  <div class="slds-col">Column 2</div>
+  <div class="slds-col">Column 3</div>
+</div>
+
 
    </div>
 <script>
