@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Spec Expriments</title>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://mohan-chinnappan-n.github.io/css/navbar-blue.css">
+<script src="https://mohan-chinnappan-n.github.io/sfdc/gs/js/split.js"></script>
+
+<link rel="stylesheet" href="https://mohan-chinnappan-n.github.io/sfdc/gs/css/split.css">
+
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">HTML Spec Experiments</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+
+    <div class="split split-horizontal" id="menu">
+    <ol class="list-group">
+        <li class="list-group-item"> <a target='_blank' href="msgTest.html">From Localhost: window.postMessage  to: Salesforce Visualforce page</a> </li>
+        <li class="list-group-item"> <a target='_blank' href="msgTest2.html">From github: window.postMessage  to: Salesforce Visualforce page</a> </li>
+ 
+    </ol>
+   </div>
+    <div class="split split-horizontal" id="content">
+
+<h3>About window.postMessage()</h3>
+
+<p><pre> window.postMessage()</pre> method safely enables <strong>cross-origin communication</strong>.
+Normally, scripts on different pages are allowed to access each other if and only if the pages that executed them are at locations with the same protocol(https).
+window.postMessage() provides a controlled mechanism to circumvent this restriction in a way which is secure when properly used.</p>
+<hr/>
+<h4>References</h4>
+
+<ol>
+<li><a target='_blank' href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage" rel="nofollow">MDN</a></li>
+<li><a target='_blank' href="http://blog.teamtreehouse.com/cross-domain-messaging-with-postmessage" rel="nofollow">Cross-Domain Messaging With postMessage</a></li>
+<li><a target='_blank' href="https://developer.salesforce.com/blogs/developer-relations/2017/01/lightning-visualforce-communication.html" rel="nofollow">Communicating between Lightning Components and Visualforce Pages</a></li>
+
+
+</ol>
+
+   </div>
+<script>
+    Split(['#menu', '#content'],  {sizes: [25, 75]});
+</script>
+</body>
+</html>

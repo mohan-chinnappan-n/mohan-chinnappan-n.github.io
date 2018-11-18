@@ -9,16 +9,17 @@
     </style>
     
     <h3>Cust Redirect - Visual Force Page</h3>
-    <p>Can receieve messages from: http://localhost:7010</p>
+    <p>Can receieve messages from: https://mohan-chinnappan-n.github.io </p>
     
     <div id='msg'></div>
     <script>
     // this VF page can receive message payload from fpOrigin
     //   via listening to message event if it comes
     //   from the fpOrgin as origin
-    var fpOrigin = "http://localhost:7010"; 
+    var fpOrigin = "https://mohan-chinnappan-n.github.io"; 
     window.addEventListener("message", function(event) {
         if (event.origin !== fpOrigin) {
+            alert('wrong origin: ' + event.origin);
             // Not the expected origin: reject message!
             return;
         }
