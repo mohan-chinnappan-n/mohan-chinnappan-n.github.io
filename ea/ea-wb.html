@@ -94,11 +94,12 @@
  <ul class='collapse list-group' id='step5'>
         <li class='list-group-item'> <a href="#ea-encryption">Data Encryption</a> </li>
   </ul>
- 
  <a  class='btn btn-primary menu-button' data-toggle="collapse"  href="#step6" role="button" aria-expanded="false" aria-controls="step6"> Resources </a>
  <ul class='collapse list-group' id='step6'>
+        <li class='list-group-item'> <a href="#ea-glossary">Glossary</a> </li>
         <li class='list-group-item'> <a href="#ea-resources">EA Docs</a> </li>
   </ul>
+ 
  
 </div>
   <div id="content" class="split split-horizontal">
@@ -457,7 +458,129 @@ Einstein Analytics can bring in data encrypted with Shield Platform Encryption.<
 
 </li>
    </ul> 
+
+<h3 id='ea-glossary'>EA Glossary </h3>
+   <ul class="list-group">
+   <li class="list-group-item">
+      <b>App</b>: An app contains </b>dashboards, lenses, and datasets in any combination that</b> makes sense for sharing your data analyses with colleagues. apps are like folders. they allow users to organize their data projects—private and shared—and to control sharing.
+   </li>
+    <li class="list-group-item"> <b>Dashboard</b>: A dashboard is a curated set of <b>charts, metrics, and tables</b> based on the data in one or more lenses. Dashboard JSON file </li>
+     <li class="list-group-item"> <b>Dashboard JSON</b>: 
+      A dashboard JSON file defines the <b>components</b> that a dashboard contains and describes how they’re <b>connected</b>.
+     </li>
+
+     <li class="list-group-item"> <b>Data Monitor</b>: 
+        The data monitor tool allows you to monitor dataflow and system jobs. You can also use it to start, stop, reschedule, download, and upload dataflows.
+     </li>
+     <li class="list-group-item"> <b>Dataflow </b>: 
+        A dataflow is a set of instructions that specifies what data to extract from Salesforce objects or datasets, how to transform the datasets, and which datasets to make available for querying.
+     </li>
+     <li class="list-group-item"> <b>Dataflow  definition file</b>: 
+        A dataflow definition file is a JSON file that contains transformations that represent the dataflow logic.
+     </li>
+     <li class="list-group-item"> <b>Dataflow Job</b>: 
+            A dataflow job processes the logic in a dataflow. 
+     </li>
+     <li class="list-group-item"> <b>Dataset</b>: 
+      A dataset contains a set of source data, specially formatted and optimized for interactive exploration.
+     </li>
+     <li class="list-group-item"> <b>Dataset Builder</b>: 
+        The dataset builder is a point-and-click user interface that allows you to easily select and extract data from related Salesforce objects to create a single dataset.
+     </li>
+    <li class="list-group-item"> <b>Date</b>: 
+     A date can be represented as a day, month, year, and, optionally, time. You can group, filter, and perform math on dates.
+     </li>
+    <li class="list-group-item"> <b>Designer</b>: 
+        Designer is the interface where you create dashboards. There are two versions: dashboard designer (the new one) and classic designer (the legacy one).
+    </li>
+
+    <li class="list-group-item"> <b>Measure</b>: 
+        A measure is a quantitative value, like revenue and exchange rate. You can do math on measures, such as calculating the total revenue and minimum exchange rate.
+   </li>
  
+    <li class="list-group-item"> <b>Dimension</b>: 
+       A dimension is a qualitative value, like region, product name, and model number. Dimensions are handy for grouping and filtering your data. Unlike measures, you can’t perform math on dimensions.
+    </li>
+    <li class="list-group-item"> <b>Explorer</b>: 
+        Explorer is the interface where you explore datasets and lenses.
+    </li>
+
+
+    <li class="list-group-item"> <b>Extended Metadata (XMD)</b>: 
+        Extended metadata (XMD) allows you to customize the formatting of many dashboard elements in Analytics. 
+    </li>
+    <li class="list-group-item"> <b>External Data</b>: 
+        External data is data that resides outside of Salesforce, such as data from outside applications and spreadsheets. External Data API.<br/>
+        Use External Data API to upload external data files to Analytics to create datasets. 
+    </li>
+
+    <li class="list-group-item"> <b>Lens</b>: 
+        A lens is a particular view into a dataset’s data. It’s where you do exploratory analysis and visualization.
+    </li>
+    <li class="list-group-item"> <b>Metadata file</b>: 
+        A metadata file is a JSON file that describes the structure of an external data file. Predicate
+    </li>
+
+    <li class="list-group-item"> <b>Predicate</b>: 
+        A predicate is a filter condition that defines row-level access to records in a dataset. Salesforce Analytics Query Language (SAQL)
+    </li>
+    <li class="list-group-item"> <b>Salesforce Analytics Query Language (SAQL)</b>: 
+        Use SAQL to access and analyze data in Analytics datasets.
+    </li>
+
+    <li class="list-group-item"> <b>Step</b>: 
+        A step determines the results shown in a widget. Steps either get data <b>dynamically or statically</b>.
+      <br>
+     For example, a step can query a dataset to get the average opportunity amount for each account, or it can retrieve an unchanging, user-defined value.
+    </li>
+
+    <li class="list-group-item"> <b>Transformation</b>: 
+        A transformation refers to the manipulation of data.<br/>
+          You can add transformations to a dataflow to extract data from Salesforce objects or datasets, transform datasets that contain Salesforce or external data, and register datasets.
+    </li>
+ 
+    <li class="list-group-item"> <b>Unit of symbol (for measures)</b>: 
+        A unit symbol represents the unit of a shortened number that appears in a chart or number widget. Analytics uses the following symbols.
+    </li>
+
+    <li class="list-group-item"> <b>Visualization</b>: 
+    A visualization is commonly a chart or graph, such as a bar chart, donut chart, timeline, or heat map. It can also be data in tabular form, such as a comparison table or pivot table. Every visualization has an underlying query, which is how Analytics retrieves information from the source data.
+
+    </li>
+
+
+
+
+
+
+
+
+
+</ul>
+ 
+<table class="table table-bordered table-hover">
+   <tr>
+       <th> Symbol</th>
+       <th>Unit</th>
+       <th>Example</th>
+   </tr>
+<tr><td>   K</td><td> Thousand (10^3)</td><td>  4K = 4,000</td></tr>
+<tr><td>   M</td><td> Million (10^6)</td><td>   4M = 4,000,000</td></tr>
+<tr><td>   B</td><td> Billion (10^9)</td><td>   4B = 4,000,000,000</td></tr>
+<tr><td>   T</td><td> Trillion (10^12)</td><td> 4T = 4,000,000,000,000</td></tr>
+<tr><td>   P</td><td> Quadrillion (10^15)</td><td> 4P = 4,000,000,000,000,000</td></tr>
+<tr><td>   X</td><td> Quintillion (10^18)</td><td> 4X= 4,000,000,000,000,000,000</td></tr>
+<tr><td>   Z</td><td> Sextillion (10^21)</td><td> 4Z = 4,000,000,000,000,000,000,000</td></tr>
+<tr><td>   Y</td><td> Septillion (10^24)</td><td> 4Y = 4,000,000,000,000,000,000,000,000</td></tr>
+<tr><td>   m</td><td> Thousandth (10^-3)</td><td> 4m = 0.004</td></tr>
+<tr><td>   μ</td><td> Millionth (10^-6)</td><td> 4μ = 0.000004</td></tr>
+<tr><td>   n</td><td> Billionth (10^-9)</td><td> 4n = 0.000000004</td></tr>
+<tr><td>   p</td><td> Trillionth (10^-12)</td><td> 4p = 0.000000000004</td></tr>
+<tr><td>   f</td><td> Quadrillionth (10^-15)</td><td> 4f = 0.000000000000004</td></tr>
+<tr><td>   a</td><td> Quintillionth (10^-18)</td><td> 4a = 0.000000000000000004</td></tr>
+<tr><td>   z</td><td> Sextillionth (10^-21)</td><td> 4z = 0.000000000000000000004</td></tr>
+<tr><td>   y</td><td> Septillionth (10^-24)</td><td> 4y = 0.000000000000000000000004</td></tr>
+</table> 
 <!-- -->
    <h3 id='ea-resources'>EA Resources </h3>
    <ul class="list-group">
