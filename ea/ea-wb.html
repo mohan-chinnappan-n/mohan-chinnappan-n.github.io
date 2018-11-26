@@ -60,6 +60,7 @@
     
   <a  class='btn btn-primary menu-button'  data-toggle="collapse" href="#step2" role="button" aria-expanded="false" aria-controls="step2"> Step-2 - Key Features </a>
       <ul class='collapse list-group' id='step2'>
+         <li class='list-group-item'> <a href="#recipe-or-dataflow">Recipe or Dataflow</a> </li>
         <li class='list-group-item'> <a href="#recipe-editor">Recipe Editor</a> </li>
         <li class='list-group-item'> <a href="#take-action">Take Action</a> </li>
         <li class='list-group-item'> <a href="#build-app">Build App</a> </li>
@@ -84,9 +85,18 @@
         <li class='list-group-item'> <a href="#ea-training-inter-adv">Intermediate to Advanced</a> </li>
   </ul>
  
- 
- <a  class='btn btn-primary menu-button' data-toggle="collapse"  href="#step4" role="button" aria-expanded="false" aria-controls="step4"> Resources </a>
+ <a  class='btn btn-primary menu-button' data-toggle="collapse"  href="#step4" role="button" aria-expanded="false" aria-controls="step4"> Sync </a>
  <ul class='collapse list-group' id='step4'>
+        <li class='list-group-item'> <a href="#ea-datasync">Data Sync</a> </li>
+  </ul>
+ 
+  <a  class='btn btn-primary menu-button' data-toggle="collapse"  href="#step5" role="button" aria-expanded="false" aria-controls="step5"> Encryption </a>
+ <ul class='collapse list-group' id='step5'>
+        <li class='list-group-item'> <a href="#ea-encryption">Data Encryption</a> </li>
+  </ul>
+ 
+ <a  class='btn btn-primary menu-button' data-toggle="collapse"  href="#step6" role="button" aria-expanded="false" aria-controls="step6"> Resources </a>
+ <ul class='collapse list-group' id='step6'>
         <li class='list-group-item'> <a href="#ea-resources">EA Docs</a> </li>
   </ul>
  
@@ -100,7 +110,7 @@ Analytics collects and organizes your data in <b>datasets, lenses, dashboards, a
 <h3>Analytics Assets</h3>
 <ul class="list-group">
     <li class="list-group-item"> <b>Dataset</b> contains a set of source data, specially formatted and optimized for interactive exploration.</li>
-    <li class="list-group-item"> <b>Lens</b> is a particular view into a dataset’s data. It’s where you do exploratory analysis and visualization.j</li>
+    <li class="list-group-item"> <b>Lens</b> is a particular view into a dataset’s data. It’s where you do exploratory analysis and visualization.</li>
     <li class="list-group-item"> <b>Dashboard</b> is a curated set of charts, metrics, and tables based on the data in one or more lenses.</li>
     <li class="list-group-item"><b>App</b> is a purpose-built set of analytics and answers about a specific area of your business. With apps, you can provide pathways through your data, plus powerful tools for spontaneous, deep explorations. After creating dashboards, lenses, and datasets, organize apps to present dashboards in relevant order, and then share apps with appropriate groups.</li>
 </ul>
@@ -157,6 +167,12 @@ Analytics collects and organizes your data in <b>datasets, lenses, dashboards, a
 
 </ul>
 <!-- -->
+
+<h3 id='recipe-or-dataflow'> Dataflow or Recipe</h3>
+
+
+<iframe class="video-modal-player" src="https://play.vidyard.com/fhUuuy4auL5uRxe5Q6au9r.html?autoplay=1" width="100%" height="100%"></iframe>
+
 
 <h3 id='recipe-editor'> Recipe Editor</h3>
 <div class="hub-container">
@@ -405,7 +421,43 @@ Analytics collects and organizes your data in <b>datasets, lenses, dashboards, a
     </li>
 </ul>
 
+   <h3 id='ea-datasync'>EA Data Sync </h3>
+   <ul class="list-group">
+        <li class="list-group-item">Syncs Salesforce data incrementally by default, meaning that only data that’s changed gets synced.</li>
+       <li class="list-group-item">
+         HOW TO: From Setup, enter <b>Analytics</b> in the Quick Find box, then select Settings.  Select <b>Enable Data Sync and Connections</b>, and then click <b>Save</b>.
+       <br/>
+           After you enable data sync and connections, make sure that you run data sync before your dataflows next run. Dataflows with sfdcDigest nodes fail until data sync has run and completed for the first tim
+ 
 
+       <li class="list-group-item">
+     Up to 100 objects can be synced. For extracting more than 100 objects in your dataflows, contact Salesforce Customer Support before you enable data sync.
+    <br/>
+     Data Sync only performs one sync per object. Keep this in mind if you need to perform multiple syncs from the same object. For example, if you need to sync both filtered and unfiltered data from an object.
+    </li>
+   </ul> 
+    <h3 id='ea-encryption'>EA Data Encryption </h3>
+   <ul class="list-group">
+        <li class="list-group-item"> Extends encryption capabilities to the data at rest that is stored on the Salesforce file system.</li>
+       <li class="list-group-item"> Einstein Analytics Encryption services are built natively into the Einstein Analytics platform. The solution applies strong, probabilistic encryption on data stored at rest. Platform encryption is based on the Advanced Encryption Standard (AES) with 256-bit keys using CTR mode for every write.
+    </li>
+        <li class="list-group-item"> Your org must have a Shield Platform Encryption tenant secret. (Einstein Analytics Encryption uses PE key management, so it’s not necessary to encrypt objects and fields in core Salesforce.)</li>
+
+ <li class="list-group-item">When using Einstein Analytics with your encryption-enabled instance, data read from and written to disk is automatically encrypted with the unique key for your account.
+
+ <hr/>
+<img src="https://resources.help.salesforce.com/images/d5aef8837c16a6ecfa73498155c6ba3c.png" alt="">
+<br/>
+ The Einstein Analytics Encryption solution is designed to have at most a minimal performance impact on your Einstein Analytics application experience.
+<br/>
+The keys are different for Shield Platform Encryption and Einstein Analytics Encryption. Although Shield and Einstein Analytics use the same key management technology, they use different keys.
+<br/>
+Einstein Analytics can bring in data encrypted with Shield Platform Encryption.<br/>
+ Einstein Analytics reads platform encrypted data in the same way that any user reads platform encrypted data. The data is then written and encrypted in Einstein Analytics. It is not required that data be encrypted with Shield Platform Encryption to be encrypted in Einstein Analytics. <b>It is only required that a Tenant Secret exist for the org.</b>
+
+</li>
+   </ul> 
+ 
 <!-- -->
    <h3 id='ea-resources'>EA Resources </h3>
    <ul class="list-group">
