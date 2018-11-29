@@ -443,6 +443,12 @@ Analytics collects and organizes your data in <b>datasets, lenses, dashboards, a
        <li class="list-group-item"> Einstein Analytics Encryption services are built natively into the Einstein Analytics platform. The solution applies strong, probabilistic encryption on data stored at rest. Platform encryption is based on the Advanced Encryption Standard (AES) with 256-bit keys using CTR mode for every write.
     </li>
         <li class="list-group-item"> Your org must have a Shield Platform Encryption tenant secret. (Einstein Analytics Encryption uses PE key management, so it’s not necessary to encrypt objects and fields in core Salesforce.)</li>
+        <li class="list-group-item"> 
+             Make sure that your have <b>Manage Encryption Keys </b> enabled for your profile <br/>
+             Demo showing how to enable this: 
+             <img src="https://github.com/mohan-chinnappan-n/Shield-setup/raw/master/demo/Shield_setup-2.gif" height='600' alt="">
+        </li>
+
 
  <li class="list-group-item">When using Einstein Analytics with your encryption-enabled instance, data read from and written to disk is automatically encrypted with the unique key for your account.
 
