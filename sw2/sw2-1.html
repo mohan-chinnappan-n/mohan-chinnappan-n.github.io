@@ -9,13 +9,7 @@
 <script src="https://mohan-chinnappan-n.github.io/sfdc/gs/js/split.js"></script>
 <link rel="stylesheet" href="https://mohan-chinnappan-n.github.io/sfdc/gs/css/split.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.js"></script>
-<style>
- img {
-  border-radius:10px;
-  border-color: #efe;
- }
-</style>
-
+<link rel="stylesheet" href="css/book.css">
 </head>
 <body>
 
@@ -50,6 +44,7 @@
         <li class="list-group-item"> <a href="#software2.0">What is Sofware 2.0?</a> </li> 
          <li class="list-group-item"> <a href="#Transitions">Transitions to Software 2.0</a> </li> 
          <li class="list-group-item"> <a href="#benefits">Benefits of Software 2.0</a> </li> 
+         <li class="list-group-item"> <a href="#limitations">Limitations of Software 2.0</a> </li> 
          <li class="list-group-item"> <a href="#references">References</a> </li> 
     </ol>
  </div>
@@ -129,6 +124,18 @@
     -  Every iteration of a typical neural net forward pass takes exactly the same amount of FLOPS.
 - **Constant Memory Use**
     -  there is no dynamically allocated memory anywhere so there is also little possibility of swapping to disk, or memory leaks that you have to hunt down in your code.
+
+- **Highly portable**
+    -  A sequence of matrix multiplies is significantly easier to run on arbitrary computational configurations compared to classical binaries or scripts.
+- **Very Agile**
+    -  we can take our network, remove half of the channels, retrain, and there — it runs exactly at twice the speed and works a bit worse.Conversely, if you happen to get more data/compute, you can immediately make your program work better just by adding more channels and retraining.
+
+- **Modules can meld into an optimal whole**
+    - two Software 2.0 modules that were originally trained separately interact, we can easily backpropagate through the whole.  
+
+<h3 id='limitations'> Limitations</h3>
+-  At the end of the optimization, we are left with large networks that work well, but it’s **very hard to tell how**.
+
 
 
 
