@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Software 2.0</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+<link rel="stylesheet" href="https://mohan-chinnappan-n.github.io/css/navbar-blue.css">
+<script src="https://mohan-chinnappan-n.github.io/sfdc/gs/js/split.js"></script>
+<link rel="stylesheet" href="https://mohan-chinnappan-n.github.io/sfdc/gs/css/split.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.js"></script>
+<style>
+ img {
+  border-radius:10px;
+  border-color: #efe;
+ }
+</style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation" style='margin-bottom:0px;'>
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="javascript:void(0)">Software 2.0</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+
+ <div class="split split-horizontal" id="menu">
+    <h3  class='slds-text-heading--medium'>Software 2.0 </h3> 
+    <ol class="list-group">
+        <li class="list-group-item"> <a href="#software2.0">What is Sofware 2.0?</a> </li> 
+         <li class="list-group-item"> <a href="#Transitions">Transitions to Software 2.0</a> </li> 
+         <li class="list-group-item"> <a href="#benefits">Benefits of Software 2.0</a> </li> 
+         <li class="list-group-item"> <a href="#references">References</a> </li> 
+    </ol>
+ </div>
+ <div class="split split-horizontal" id="content">
+        <div id="software2.0">
+            <h3  class=''>Software 2.0 </h3> 
+<div class='md'>  
+ - Neural networks represent the beginning of a fundamental shift in how we write software. They are Software 2.0.
+
+<table class="table table-bordered table-hover table-stripped">
+    <tr>
+        <th>Software 1.0</th>
+        <th>Software 2.0</th>
+    </tr>
+   <tr>
+       <td> explicit instructions to the computer written by a programmer</td>
+       <td>more abstract, human unfriendly language, such as the weights of a neural network</td>
+   </tr>
+
+   <tr>
+       <td></td>
+       <td> <ol>
+         <li>write a rough skeleton of the code (e.g. a neural net architecture), that <b>identifies a subset of program space to search</b></li>
+    <li> use the computational resources at our disposal to <b>search this space for a program that works</b> </li>
+<li>this search process can be made efficient with backpropagation and stochastic gradient descent.</li>
+</td>
+
+<tr>
+    <td></td>
+    <td>
+    <ul>
+        <li>it is significantly easier to collect the data (or more generally, identify a desirable behavior) than to explicitly write the program. 2 Teams:</li>
+        <li>
+            <ol>
+                <li>manually curate, maintain, massage, clean and label datasets</li>
+                <li>each labeled example literally programs the final system because the dataset gets compiled into Software 2.0 code via the optimization.</li>
+            </ol>
+          </li>
+    </ul>
+   </td>
+</tr>
+   </tr>
+</table>
+<img src='https://cdn-images-1.medium.com/max/2000/1*5NG3U8MsaTqmQpjkr_-UOw.png' height='400'/>
+
+<h3 id='Transitions'> Transitions</h3>
+- **Visual Recognition** 
+    - From: machine learning sprinkled on top at the end (e.g., an SVM).
+    - To:  obtaining large datasets (e.g. ImageNet) &  **searching in the space of Convolutional Neural Network (CNN)** architectures. 
+
+- **Speech Recognition** 
+    - From:   lot of preprocessing, gaussian mixture models and hidden markov models 
+    - To:  entirely of neural net 
+
+- **Speech Synthesis** 
+    - From:   various stitching mechanisms
+    - To:   large ConvNets (e.g. WaveNet) that produce raw audio signal outputs.
+
+- **Machine Translation** 
+    - From:    phrase-based statistical techniques 
+    - To:    neural networks  - single model translates from any source language to any target language, and in weakly supervised (or entirely unsupervised) settings.
+
+- **Games** 
+    - From:   hand-coded - like hand-coded Go playing programs
+    - To:   a ConvNet that looks at the raw state of the board and plays a move - AlphaGo Zero
+
+- **Databases** 
+    - From:   Generic data structures like B-Tree index, Hash-index, BitMMap index
+    - To:   core components of a data management system with a neural network, outperforming cache-optimized B-Trees by up to 70% in speed while saving an order-of-magnitude in memory.
+
+<h3 id='benefits'> Benefits</h3>
+- **Computationally homogeneous**
+    -  Neural Network is made of only 2 operations: matrix multiplication and thresholding at zero (ReLU). 
+- **Simple to bake into silicon**
+    -  since the instruction set of a neural network is relatively small, it is significantly easier to implement these networks much closer to silicon, e.g. with custom ASICs, neuromorphic chips, and so on. <br/>Small, inexpensive chips could come with a pretrained ConvNet, a speech recognizer, and a WaveNet speech synthesis network all integrated in a small protobrain that you can attach to stuff.
+- **Constant Running time**
+    -  Every iteration of a typical neural net forward pass takes exactly the same amount of FLOPS.
+- **Constant Memory Use**
+    -  there is no dynamically allocated memory anywhere so there is also little possibility of swapping to disk, or memory leaks that you have to hunt down in your code.
+
+
+
+</div>
+
+
+        </div>
+
+        <div id="references">
+            <h3  class=''>References</h3> 
+
+  <div class="md">
+ - [ Sofware 2.0 - Andrej Karpathy](https://medium.com/@karpathy/software-2-0-a64152b37c35)
+ - [ Google Paper - The Case for Learned Index Structures](https://arxiv.org/pdf/1712.01208.pdf)
+ <hr/>  
+<iframe allowfullscreen height="400" width="800" src="https://www.youtube.com/embed/zywIvINSlaI?autoplay=0"></iframe>
+
+
+</div>
+
+        </div>
+ 
+
+ </div>
+
+<script src="js/book.js"></script>
+
+    
+</body>
+</html>
