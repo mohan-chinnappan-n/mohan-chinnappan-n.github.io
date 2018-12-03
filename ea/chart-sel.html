@@ -34,6 +34,11 @@
 	  stroke-width: 2px;
 	}
 
+    #cimg {
+      display:none;
+
+    }
+
     </style>
 
   </head>
@@ -58,7 +63,7 @@
         </ul>
         <ul class="nav navbar-nav">
           <li ><a href="/">Main</a></li>
-          <li ><a target="_blank" href="../sfdc-ecosystem.html">Details</a></li>
+          <li ><button  id='showCharts' class='btn btn-success' style='margin-top:10px;' > Charts</button></li>
         </ul>
 
         <div class="inner-addon right-addon navbar-form navbar-right">
@@ -80,13 +85,23 @@
 
 <!-- load the d3.js library -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.js"></script>
+
+<img id='cimg'  src="https://mohan-chinnappan-n.github.io/sfdc/img/ea2/chosing-chart-type.jpg" alt="">
 <div class="row">
    <div class="col-md-8"> <span id='tree'></span> </div>
    <div class="col-md-4"> <div id='link'></div>
 </div>
-
 <script src='js/chart-data.js'></script>
 <script src='js/training.js'></script>
+<script>
+ (function() {
+   $('#showCharts').click( function() {
+         $('#cimg').toggle(); 
+   });
+ }    
+ )();
+
+</script>
   </body>
 </html>
 
