@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id='title'></title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
+
+<link rel="stylesheet" href="https://mohan-chinnappan-n.github.io/css/navbar-blue.css">
+<script src="https://mohan-chinnappan-n.github.io/sfdc/gs/js/split.js"></script>
+<link rel="stylesheet" href="https://mohan-chinnappan-n.github.io/sfdc/gs/css/split.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.js"></script>
+<link rel="stylesheet" href="https://mohan-chinnappan-n.github.io/sw2/css/book.css">
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation" style='margin-bottom:0px;'>
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" id='appName' href="javascript:void(0)"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/home">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li ><a href="/">Main</a></li>
+      </ul>
+
+    </div>
+    <!-- /.navbar-collapse -->
+  </nav>
+
+ <div class="split split-horizontal" id="menu">
+    <h3  class='slds-text-heading--medium' id='mainTopic'></h3> 
+    <ol class="list-group">
+        <li class="list-group-item"> <a href="#whatis lis">What is Learned Index Structures?</a> </li> 
+        <li class="list-group-item"> <a href="#btree modeling">B-tree Modeling</a> </li> 
+        <li class="list-group-item"> <a href="#hashmap modeling">Hash Map Modeling</a> </li> 
+        <li class="list-group-item"> <a href="#bloomfilter modeling">Bloom Filter Modeling</a> </li> 
+        <li class="list-group-item"> <a href="#paper">Google Paper: The Case for Learned Index Structures</a> </li> 
+ 
+        <li class="list-group-item"> <a href="#references">References</a> </li> 
+         <li class="list-group-item"> <a href="#btree">Btree Animation</a> </li> 
+         <li class="list-group-item"> <a href="#binarysearch">Binary Search Tree Animation</a> </li> 
+    </ol>
+ </div>
+ <div class="split split-horizontal" id="content">
+        <div id="whatis lis">
+            <h3  id='contentTitle'></h3> 
+<div class='md'>  
+ -  all existing index structures (B-tree, Hash, BitMap) can be replaced with other types of models, including deep-learning models 
+
+<table class="table table-bordered table-hover table-stripped">
+    <tr>
+        <th>Index Type</th>
+        <th>Can be seen as</th>
+    </tr>
+   <tr>
+       <td> B-Tree Index - Range Index Structure : <br/> given a key, they <b>predict</b> the location of a value within a key-sorted set</td>
+       <td>model to map a key to the position of a record within a sorted array. Best for high cardinality columns.
+          <img src="img/btree-1.png" height='250' alt="">
+
+    </td>
+   </tr>
+   <tr>
+       <td> Hash Index </td>
+       <td>model to map a key to the position of a record within a sorted array </td>
+   </tr>
+   <tr>
+       <td>BitMap Index</td>
+       <td>model to indicate if a data record exists or not. Best for columns with lots of duplicate values (low cardinality)
+        <img src="img/bitmap-1.jpg" alt="">
+         DBMS decompresses the bitmap into the RAM data buffers so it can be rapidly scanned for matching values.
+ A modification to a bitmap index requires a great deal more work on behalf of the system than a modification to a b-tree index. In addition, the concurrency for modifications on bitmap indexes is dreadful.
+      </td>
+   </tr>
+
+
+
+</table>
+
+<h3 id='btree modeling'> B-tree Modeling</h3>
+<img src="img/btree-2.png" height='500' alt="">
+<img src="img/btree-model-1.png" height='400' alt="">
+<img src="img/btree-model-2.png" height='400' alt="">
+
+<h3 id='hashmap modeling'> Hash Map Modeling</h3>
+<img src="img/hashmap-model-1.png" height='400' alt="">
+
+<h3 id='bloomfilter modeling'> Bloom Filter Modeling</h3>
+<img src="img/bloomfilter-model-1.png" height='400' alt="">
+<img src="img/bloomfilterb-model-2.png" height='400' alt="">
+
+<h3 id='LIF'>The Learning Index Framework (LIF)</h3>
+- The LIF can be regarded as an index synthesis system; given an index specification, LIF generates different
+index configurations, optimizes them, and tests them automatically. While LIF can learn simple models
+on-the-fly (e.g., linear regression models), it relies on Tensorflow for more complex models (e.g., NN).
+<img src="img/staged-model-1.png" height='500' alt="">
+</div>
+
+
+        </div>
+
+
+ <object id='paper'   data="https://arxiv.org/pdf/1712.01208.pdf" type="application/pdf" style="width: 100%; height: 800px;">
+<p>It appears you don't have a PDF plugin for this browser</p>
+</object>
+ 
+        <div id="references">
+            <h3  class=''>References</h3> 
+
+  <div class="md">
+ - [ Sofware 2.0 - Andrej Karpathy](https://medium.com/@karpathy/software-2-0-a64152b37c35)
+ - [ Google Paper - The Case for Learned Index Structures](https://arxiv.org/pdf/1712.01208.pdf)
+ - [ Data Structure Visualizations](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+ - [Difference between b-tree and bitmap index tips](http://www.dba-oracle.com/t_difference_between_btree_and_bitmap_index.htm)
+ - [A case for B-tree index structures](http://databasearchitects.blogspot.com/2017/12/the-case-for-b-tree-index-structures.html)
+ <hr/> 
+
+<iframe allowfullscreen height="400" width="800" src="https://www.youtube.com/embed/mkIHC7xMSRQ?autoplay=0"></iframe>
+
+<iframe allowfullscreen height="400" width="800" src="https://www.youtube.com/embed/NaqJO7rrXy0?autoplay=0"></iframe>
+<img id='btree' src="img/btree-1.gif" height='600'  alt="">
+<img id='binarysearch' src="img/bin-search-1.gif" height='600'  alt="">
+
+
+</div>
+
+        </div>
+ 
+
+ </div>
+<script>
+var config = {
+    title: "Learned Index Structures"
+}
+</script>
+ 
+<script src="../sw2/js/book.js?v=101"></script>
+
+  
+</script>
+    
+</body>
+</html>
