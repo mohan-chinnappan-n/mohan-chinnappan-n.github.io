@@ -1,5 +1,4 @@
-<hr/>
-# Notes
+<span id='person-accounts'></span>
 <hr/>
 ## Person Accounts
 Person accounts store information about individual people by combining certain  **Account and Contact fields** into a single record.
