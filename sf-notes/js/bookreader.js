@@ -11,7 +11,7 @@ function readTextFile(file) {
                   if (item.trim().length !== 0) { 
                   // iframe
                   var elMd = document.createElement('iframe');
-                  elMd.setAttribute('src','./reader.html?f=' +item);
+                  elMd.setAttribute('src','reader.html?f=' +item);
                   elMd.setAttribute('width','100%');
                   elMd.setAttribute('height','100%');
                   elMd.setAttribute('id',item);
