@@ -34,3 +34,8 @@ Such indexes can be primary, whereby the rows of the table are stored in as clos
 Such indexes are effective in an OLTP write-optimized environment but **do not perform well in a read-optimized world**.
 
 -  In a read-optimized DBMS one can explore storing data using only these read-optimized structures, and not support write-optimized ones at all.
+
+---
+# Resources
+
+- [C-Store: A Column-oriented DBMS](http://db.csail.mit.edu/projects/cstore/vldb.pdf)

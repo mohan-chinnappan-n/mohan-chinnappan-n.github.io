@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id='title'>Relational Database</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
+     <link rel="stylesheet" href="https://mohan-chinnappan-n.github.io/css/navbar-blue.css">
+     <link rel="stylesheet" href="../css/remark.css">
+
+  <style>
+  img {
+   border-radius: 10px;
+   border-color:#efe;
+  }
+ </style>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation" style='margin-bottom:0px;margin-bottom:-70px;;'>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" id='appName' href="javascript:void(0)"></a>
+    </div>
+</nav>
+
+<textarea id="source"></textarea>
+<script src="js/slidereader.js?v=103"></script>
+<script>
+var rand = Math.floor(Math.random() * 100);
+var query = location.search.substr(1);
+var result = {};
+query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+});
+
+var config = {
+    title: result.t || 'Title Here',
+    slidefile: result.f || "./md/rel.md"
+}
+readTextFile(config.slidefile + '?v='  + rand);
+</script>
+<script src="js/book.js?v=103"></script>
+
+<script src="../js/remark/remark.js"></script>
+<script> var hljs = remark.highlighter.engine; </script>
+<script src="../js/remark/remark.language.js"></script>
+<script>
+      var slideshow = remark.create({
+          highlightStyle: 'monokai',
+          highlightLanguage: 'remark',
+          highlightLines: true
+        }) ;
+</script>
+
+
+</body>
+</html>
