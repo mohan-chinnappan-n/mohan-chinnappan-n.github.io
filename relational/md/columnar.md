@@ -39,3 +39,8 @@ Such indexes are effective in an OLTP write-optimized environment but **do not p
 # Resources
 
 - [C-Store: A Column-oriented DBMS](http://db.csail.mit.edu/projects/cstore/vldb.pdf)
+- [Column-Stores For Wide and Sparse Data](http://db.csail.mit.edu/projects/cstore/abadicidr07.pdf)
+- [Integrating Compression and Execution in
+Column-Oriented Database Systems](http://db.csail.mit.edu/projects/cstore/abadisigmod06.pdf)
+- [MIT C-Store](http://db.csail.mit.edu/projects/cstore/)
+- [Performance Tradeoffs in Read-Optimized Databases](http://db.csail.mit.edu/projects/cstore/VLDB06.pdf)
