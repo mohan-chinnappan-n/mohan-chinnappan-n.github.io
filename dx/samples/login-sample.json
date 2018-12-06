@@ -1,0 +1,14 @@
+{
+  "org40": {
+    "loginUrl": "https://login.salesforce.com",
+    "username": "username",
+    "password": "password",
+    "securityToken": "st"
+  },
+  "fsc_1": {
+    "loginUrl": "https://login.salesforce.com",
+    "username": "un",
+    "password": "pwd",
+    "securityToken": "st"
+  }
+}
