@@ -412,9 +412,36 @@ sfdx mohanc:md:describe -u username -i ObjectList.txt > org-md.csv
             
  
        </section>
+
        <section>
            <h4 style='font-size:25px;'>Model export Usage - Demo</h4>
             <img style="border-radius:10px;border-color:#eef;" height='500' src="img/dx-model-export-1.gif" alt="">
+       </section>
+
+
+       <section>
+           <h4 style='font-size:25px;'>How to get ERD for the given SObjects list</h4>
+            <pre style='font-size:20px;'>
+<code>
+## ---- how to draw ER Diagram for the given SObjects along with model export for them ----
+## SObjects list is comma-separated as shown below:
+### If you have dot program installed in your OS, ERD will be drawn in svg format :
+sfdx mohanc:md:describe -s Contact,Account -e contact-account3.svg > contact-account.csv
+
+### If you do NOT have dot program installed in your OS, ERD will be drawn in dot format :
+sfdx mohanc:md:describe -s Contact,Account -e contact-account3.dot > contact-account.csv
+### You can use our online dot-viewer to view the ERD:
+open https://mohan-chinnappan-n.github.io/viz/viz.html  
+### Click Open button in this app to load the dot file into this app
+</code>
+           </pre>
+<a style='font-size:20px;' target='_blank' href="https://mohan-chinnappan-n.github.io/viz/viz.html">Viewer App for DOT files</a>            
+ 
+       </section>
+ 
+       <section>
+           <h4 style='font-size:25px;'>How to get ERD for the given SObjects list - Demo</h4>
+             <img style="border-radius:10px;border-color:#eef;" height='500' src="img/dx-model-export-erd-3.gif" alt="">
        </section>
 
 
