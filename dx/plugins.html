@@ -388,6 +388,37 @@
  
        </section>
 
+       <section>
+           <h4 style='font-size:25px;'>Model export Usage</h4>
+            <pre style='font-size:20px;'>
+<code> ## for scratch-org:
+sfdx mohanc:md:describe -s RecordType
+## for scratch-org / sandbox / PROD
+# For Sandbox/DE/PROD: Establish connection with:
+#   In case of sandbox  use :    sfdx force:auth:web:login -r https://test.salesforce.com
+#   In case of  PROD or DE use : sfdx force:auth:web:login -r https://login.salesforce.com
+## for DE or sandbox or PROD, when you do not want to use OAUTH2:
+# Sample login.json :https://mohan-chinnappan-n.github.io/dx/samples/login-sample.json
+# sfdx mohanc:md:describe -s RecordType -l login.json -o org40
+
+## ---- For full org metadata export: scratch org ----
+sfdx mohanc:md:describeGlobal   > ObjectList.txt
+sfdx mohanc:md:describe  -i ObjectList.txt
+## For full org metadata export: sandbox/DE/PROD org
+sfdx mohanc:md:describeGlobal -u username   > ObjectList.txt
+sfdx mohanc:md:describe -u username -i ObjectList.txt > org-md.csv
+      </code>
+           </pre>
+            
+ 
+       </section>
+       <section>
+           <h4 style='font-size:25px;'>Model export Usage - Demo</h4>
+            <img style="border-radius:10px;border-color:#eef;" src="img/dx-model-export-1.gif" alt="">
+       </section>
+
+
+ 
         <section>
            <h4>jq filter</h4>
            <img style="border-radius:10px;border-color:#eef;" height='500' src="img/data.jq-1.png" alt="">
