@@ -426,10 +426,13 @@ sfdx mohanc:md:describe -u username -i ObjectList.txt > org-md.csv
 ## ---- how to draw ER Diagram for the given SObjects along with model export for them ----
 ## SObjects list is comma-separated as shown below:
 ### If you have dot program installed in your OS, ERD will be drawn in svg format :
-sfdx mohanc:md:describe -s Contact,Account -e contact-account3.svg > contact-account.csv
+sfdx mohanc:md:describe -s Contact,Account -e contact-account.svg > contact-account.csv
+
+### for Sandbox/DE/PROD
+sfdx mohanc:md:describe  -u USERNAME -s Contact,Account -e contact-account.svg > contact-account.csv
 
 ### If you do NOT have dot program installed in your OS, ERD will be drawn in dot format :
-sfdx mohanc:md:describe -s Contact,Account -e contact-account3.dot > contact-account.csv
+sfdx mohanc:md:describe -s Contact,Account -e contact-account.dot > contact-account.csv
 ### You can use our online dot-viewer to view the ERD:
 open https://mohan-chinnappan-n.github.io/viz/viz.html  
 ### Click Open button in this app to load the dot file into this app
