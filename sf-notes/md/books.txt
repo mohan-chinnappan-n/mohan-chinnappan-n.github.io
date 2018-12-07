@@ -4,3 +4,4 @@ shield.md
 skews.md
 std-profiles.md
 entitlement.md
+lightning-lookup.md
