@@ -50,14 +50,15 @@
 <script>
 var config = {
     title: "Salesforce Notes",
-    bookfile: "./md/books.txt?v=100"
+    bookfile: "./md/books.txt"
 }
 // read the TOC
-readTextFile(config.bookfile);
+readTextFile(config.bookfile + '?v=' + Math.floor(Math.random() * 1000) );;
+
 
 </script>
 
-<script src="../sw2/js/book.js?v=103"></script>
+<script src="https://mohan-chinnappan-n.github.io/sw2/js/book.js?v=103"></script>
     
 </body>
 </html>

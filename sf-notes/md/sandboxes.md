@@ -23,5 +23,7 @@ When you create a Full sandbox, you also have to decide **how much field trackin
 
 ### References:
 - [Sandbox Types and Templates ](https://help.salesforce.com/articleView?id=create_test_instance.htm&type=5)
+
 - [Understand Salesforce Application Lifecycle Management](https://trailhead.salesforce.com/en/content/learn/modules/application-lifecycle-and-development-models/understand-what-application-lifecycle-management-is)
--[Change Set: Plan for Changes to Your Org ](https://trailhead.salesforce.com/content/learn/modules/declarative-change-set-development/plan-for-changes-to-your-org)
+
+- [Change Set: Plan for Changes to Your Org ](https://trailhead.salesforce.com/content/learn/modules/declarative-change-set-development/plan-for-changes-to-your-org)

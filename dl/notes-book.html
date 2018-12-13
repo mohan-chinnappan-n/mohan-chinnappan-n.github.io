@@ -50,14 +50,14 @@
 <script>
 var config = {
     title: "Deep Learning Notes",
-    bookfile: "./md/books.txt?v100"
+    bookfile: "./md/books.txt"
 }
 // read the TOC
-readTextFile(config.bookfile);
+readTextFile(config.bookfile + '?v=' + Math.floor(Math.random() * 1000) );;
 
 </script>
 
-<script src="../sw2/js/book.js?v=103"></script>
+<script src="../sw2/js/book.js?v=105"></script>
     
 </body>
 </html>

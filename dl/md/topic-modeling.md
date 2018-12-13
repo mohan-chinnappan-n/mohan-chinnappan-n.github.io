@@ -62,9 +62,12 @@ DOCS
 
 - Each document is considered as collection of topics in certain proportion
 - Each topic is a collection of keywords in certain proportion
+- Topic is collection of dominant keywords - by just looking at the keywords you can identify what the topic is all about
 
 
 ### References 
+
 -[Topic Modeling with Gensim (Python)](https://www.machinelearningplus.com/nlp/topic-modeling-gensim-python/) 
 
+-[Introduction to Latent Dirichlet Allocation](http://blog.echen.me/2011/08/22/introduction-to-latent-dirichlet-allocation/)
 

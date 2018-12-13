@@ -20,4 +20,4 @@ If you do have a compelling reason for assigning ownership to a small number of 
 - Keep them out of public groups that could be used as the source for sharing rules
 
 ### References
-- [Ownership Data Skew](https://developer.salesforce.com/docs/atlas.en-us.draes.meta/draes/draes_group_membership_data_skew.htm)
+<a href="https://developer.salesforce.com/docs/atlas.en-us.draes.meta/draes/draes_group_membership_data_skew.htm" target='_new'>Ownership Skew</a>

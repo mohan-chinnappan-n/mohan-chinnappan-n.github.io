@@ -15,4 +15,8 @@ Vitamin D3 (10,000 IUs)
 Vitamin K2 (MK7) 100mcg (make sure this one is natural)
 (to enhance effectiveness, take cod liver oil) 
 
+### Magnesium
+[Why magnesium is so good for you](https://www.youtube.com/watch?v=oZYXBYAHhN8)
+[Calcium & Magnesium Absorption Basics ](https://www.youtube.com/watch?v=ApxLTx5M45I)
+[Dr. John Bergman How To Lower Blood Pressure Naturally](https://www.youtube.com/watch?v=GizDuANT9BE)
 
