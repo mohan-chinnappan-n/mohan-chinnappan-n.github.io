@@ -1,0 +1,4 @@
+"attributes","Id","NamespacePrefix","Description","TableEnumOrId","IsActive"
+"{""type"":""BusinessProcess"",""url"":""/services/data/v39.0/sobjects/BusinessProcess/0191U000000CeBFQA0""}","0191U000000CeBFQA0","FinServ",,"Opportunity",true
+"{""type"":""BusinessProcess"",""url"":""/services/data/v39.0/sobjects/BusinessProcess/0191U000000CeBGQA0""}","0191U000000CeBGQA0","FinServ",,"Opportunity",true
+"{""type"":""BusinessProcess"",""url"":""/services/data/v39.0/sobjects/BusinessProcess/0191U000000CeBHQA0""}","0191U000000CeBHQA0","FinServ","Consumer lead","Lead",true
