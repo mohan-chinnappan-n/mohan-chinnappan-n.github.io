@@ -1,0 +1,3 @@
+"attributes","Id","DeveloperName","MasterLabel","Language","NamespacePrefix","Label","QualifiedApiName","FinServ__LeadRecordTypeNamespace__c","FinServ__LeadRecordType__c"
+"{""type"":""FinServ__ReferralRecordTypeMapper__mdt"",""url"":""/services/data/v39.0/sobjects/FinServ__ReferralRecordTypeMapper__mdt/m0D1U000000Gmz5UAC""}","m0D1U000000Gmz5UAC","Business_Referral","Business Referral","en_US","FinServ","Business Referral","FinServ__Business_Referral","Industries","BusinessReferral"
+"{""type"":""FinServ__ReferralRecordTypeMapper__mdt"",""url"":""/services/data/v39.0/sobjects/FinServ__ReferralRecordTypeMapper__mdt/m0D1U000000Gmz6UAC""}","m0D1U000000Gmz6UAC","Referral","Referral","en_US","FinServ","Referral","FinServ__Referral","Industries","Referral"

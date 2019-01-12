@@ -1,0 +1,2 @@
+"attributes","Id","DeveloperName","MasterLabel","Language","NamespacePrefix","Label","QualifiedApiName","FinServ__AccountRecordTypeNamespace__c","FinServ__AccountRecordType__c"
+"{""type"":""FinServ__GroupRecordTypeMapper__mdt"",""url"":""/services/data/v39.0/sobjects/FinServ__GroupRecordTypeMapper__mdt/m061U0000004CozQAE""}","m061U0000004CozQAE","Household","Household","en_US","FinServ","Household","FinServ__Household","Industries","IndustriesHousehold"
