@@ -5,3 +5,4 @@ skews.md
 std-profiles.md
 entitlement.md
 lightning-lookup.md
+lightning-scheduler.md
