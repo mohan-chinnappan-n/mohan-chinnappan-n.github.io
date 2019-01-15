@@ -1,0 +1,41 @@
+"attributes","Id","SobjectType","Name","DeveloperName","IsPersonType","NamespacePrefix","BusinessProcessId"
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008ervQAA""}","0121U0000008ervQAA","FinServ__FinancialAccount__c","Auto Loan","AutoLoan",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erkQAA""}","0121U0000008erkQAA","FinServ__FinancialAccount__c","Bank Account","BankingAccount",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erwQAA""}","0121U0000008erwQAA","FinServ__FinancialAccount__c","Checking Account","CheckingAccount",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008ersQAA""}","0121U0000008ersQAA","FinServ__FinancialAccount__c","Credit Card","CreditCard",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008ereQAA""}","0121U0000008ereQAA","FinServ__FinancialAccount__c","General Account","General",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008ertQAA""}","0121U0000008ertQAA","FinServ__FinancialAccount__c","HELOC","HELOC",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erfQAA""}","0121U0000008erfQAA","FinServ__FinancialAccount__c","Insurance Policy","InsurancePolicy",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008ergQAA""}","0121U0000008ergQAA","FinServ__FinancialAccount__c","Investment Account","InvestmentAccount",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erqQAA""}","0121U0000008erqQAA","FinServ__FinancialAccount__c","Loan Account","LoanAccount",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008errQAA""}","0121U0000008errQAA","FinServ__FinancialAccount__c","Mortgage","Mortgage",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008eruQAA""}","0121U0000008eruQAA","FinServ__FinancialAccount__c","Savings Account","SavingsAccount",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erxQAA""}","0121U0000008erxQAA","FinServ__FinancialAccount__c","Treasury Service","TreasuryService",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erlQAA""}","0121U0000008erlQAA","FinServ__ReciprocalRole__c","Account Role","AccountRole",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008ermQAA""}","0121U0000008ermQAA","FinServ__ReciprocalRole__c","Contact Role","ContactRole",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erWQAQ""}","0121U0000008erWQAQ","FinServ__BillingStatement__c","Credit","Credit",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erXQAQ""}","0121U0000008erXQAQ","FinServ__BillingStatement__c","Debit","Debit",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erYQAQ""}","0121U0000008erYQAQ","FinServ__ChargesAndFees__c","Credit","Credit",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erZQAQ""}","0121U0000008erZQAQ","FinServ__ChargesAndFees__c","Debit","Debit",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008eriQAA""}","0121U0000008eriQAA","FinServ__FinancialAccountRole__c","Account Role","AccountRole",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erjQAA""}","0121U0000008erjQAA","FinServ__FinancialAccountRole__c","Contact Role","ContactRole",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008eraQAA""}","0121U0000008eraQAA","FinServ__AssetsAndLiabilities__c","Liability","Liability",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erbQAA""}","0121U0000008erbQAA","FinServ__AssetsAndLiabilities__c","Asset","NonfinancialAsset",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erUQAQ""}","0121U0000008erUQAQ","Account","Business","IndustriesBusiness",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erSQAQ""}","0121U0000008erSQAQ","Account","Household","IndustriesHousehold",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erVQAQ""}","0121U0000008erVQAQ","Account","Individual","IndustriesIndividual",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erRQAQ""}","0121U0000008erRQAQ","Account","Institution","IndustriesInstitution",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erTQAQ""}","0121U0000008erTQAQ","Account","Person Account","PersonAccount",true,,
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erLQAQ""}","0121U0000008erLQAQ","Contact","Business","IndustriesBusiness",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008ercQAA""}","0121U0000008ercQAA","Contact","Individual","IndustriesIndividual",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erdQAA""}","0121U0000008erdQAA","Event","Advisor Event","AdvisorEvent",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erhQAA""}","0121U0000008erhQAA","Event","Client Associate Event","ClientAssociateEvent",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008eryQAA""}","0121U0000008eryQAA","Lead","Business Referral","BusinessReferral",false,"FinServ","0191U000000CeBHQA0"
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erNQAQ""}","0121U0000008erNQAQ","Lead","General","General",false,"FinServ","0191U000000CeBHQA0"
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erOQAQ""}","0121U0000008erOQAQ","Lead","Person Referral","Referral",false,"FinServ","0191U000000CeBHQA0"
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erMQAQ""}","0121U0000008erMQAQ","Lead","Retirement Planning","RetirementPlanning",false,"FinServ","0191U000000CeBHQA0"
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erpQAA""}","0121U0000008erpQAA","Opportunity","General","General",false,"FinServ","0191U000000CeBFQA0"
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erPQAQ""}","0121U0000008erPQAQ","Opportunity","Retirement Planning","RetirementPlanning",false,"FinServ","0191U000000CeBGQA0"
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008erQQAQ""}","0121U0000008erQQAQ","Opportunity","Opportunity (Wallet Share)","WalletShareOpportunity",false,"FinServ","0191U000000CeBGQA0"
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008ernQAA""}","0121U0000008ernQAA","Task","Advisor Task","AdvisorTask",false,"FinServ",
+"{""type"":""RecordType"",""url"":""/services/data/v39.0/sobjects/RecordType/0121U0000008eroQAA""}","0121U0000008eroQAA","Task","Client Associate Task","ClientAssociateTask",false,"FinServ",

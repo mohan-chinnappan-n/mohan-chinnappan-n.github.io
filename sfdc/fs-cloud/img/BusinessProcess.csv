@@ -1,12 +1,12 @@
-Label,Name,Nillable,Picklistvalues,Referenceto,Relationshipname,Type,Unique,Updateable
-Business Process ID,Id,FALSE,--,--,null,id,FALSE,FALSE
-Name,Name,FALSE,--,--,null,string,FALSE,TRUE
-Namespace Prefix,NamespacePrefix,TRUE,--,--,null,string,FALSE,FALSE
-Description,Description,TRUE,--,--,null,string,FALSE,TRUE
-Entity Enumeration Or ID,TableEnumOrId,FALSE,"[ ""Case"" , ""Lead"" , ""Opportunity"" , ""Solution"" ]",--,null,picklist,FALSE,FALSE
-Active,IsActive,FALSE,--,--,null,boolean,FALSE,TRUE
-Created By ID,CreatedById,FALSE,--,"[ ""User"" ]",CreatedBy,reference,FALSE,FALSE
-Created Date,CreatedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-Last Modified By ID,LastModifiedById,FALSE,--,"[ ""User"" ]",LastModifiedBy,reference,FALSE,FALSE
-Last Modified Date,LastModifiedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-System Modstamp,SystemModstamp,FALSE,--,--,null,datetime,FALSE,FALSE
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"BusinessProcess","Business Process","Id","Business Process ID","id",18,false,"[]",,false,false,,"[]",false
+"BusinessProcess","Business Process","Name","Name","string",80,false,"[]",,false,true,,"[]",false
+"BusinessProcess","Business Process","NamespacePrefix","Namespace Prefix","string",15,true,"[]",,false,false,,"[]",false
+"BusinessProcess","Business Process","Description","Description","string",255,true,"[]",,false,true,,"[]",false
+"BusinessProcess","Business Process","TableEnumOrId","Entity Enumeration Or ID","picklist",40,false,"[]",,false,false,,"[null,null,null,null]",false
+"BusinessProcess","Business Process","IsActive","Active","boolean",0,false,"[]",,false,true,,"[]",false
+"BusinessProcess","Business Process","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"BusinessProcess","Business Process","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"BusinessProcess","Business Process","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"BusinessProcess","Business Process","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"BusinessProcess","Business Process","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
