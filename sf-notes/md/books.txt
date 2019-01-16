@@ -6,3 +6,4 @@ std-profiles.md
 entitlement.md
 lightning-lookup.md
 lightning-scheduler.md
+fsc-recordtype-mapping.md
