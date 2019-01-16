@@ -1,0 +1,41 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"ContentVersion","Content Version","Id","ContentVersion ID","id",18,false,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","ContentDocumentId","ContentDocument ID","reference",18,false,"[""ContentDocument""]","ContentDocument",false,false,,"[]",false
+"ContentVersion","Content Version","IsLatest","Is Latest","boolean",0,false,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","ContentUrl","Content URL","url",1333,true,"[]",,false,true,,"[]",false
+"ContentVersion","Content Version","VersionNumber","Version Number","string",20,true,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","Title","Title","string",255,false,"[]",,false,true,,"[]",false
+"ContentVersion","Content Version","Description","Description","textarea",1000,true,"[]",,false,true,,"[]",false
+"ContentVersion","Content Version","ReasonForChange","Reason For Change","string",1000,true,"[]",,false,true,,"[]",false
+"ContentVersion","Content Version","SharingOption","Prevent others from sharing and unsharing","picklist",40,false,"[]",,false,true,,"[""Freeze Sharing Off"",""Freeze Sharing On""]",false
+"ContentVersion","Content Version","PathOnClient","Path On Client","string",500,true,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","RatingCount","Rating Count","int",0,true,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","IsDeleted","Is Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","ContentModifiedDate","Content Modified Date","datetime",0,true,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","ContentModifiedById","User ID","reference",18,true,"[""User""]","ContentModifiedBy",false,false,,"[]",false
+"ContentVersion","Content Version","PositiveRatingCount","Positive Rating Count","int",0,true,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","NegativeRatingCount","Negative Rating Count","int",0,true,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","FeaturedContentBoost","Featured Content Boost","int",0,true,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","FeaturedContentDate","Featured Content Date","date",0,true,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","OwnerId","Owner ID","reference",18,false,"[""User""]","Owner",false,true,,"[]",false
+"ContentVersion","Content Version","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"ContentVersion","Content Version","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"ContentVersion","Content Version","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","TagCsv","Tags","textarea",2000,true,"[]",,false,true,,"[]",false
+"ContentVersion","Content Version","FileType","File Type","string",20,false,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","PublishStatus","Publish Status","picklist",40,false,"[]",,false,false,,"[""Upload Interrupted"",""Public"",""Private Library""]",false
+"ContentVersion","Content Version","VersionData","Version Data","base64",0,true,"[]",,false,true,,"[]",false
+"ContentVersion","Content Version","ContentSize","Size","int",0,true,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","FileExtension","File Extension","string",40,true,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","FirstPublishLocationId","First Publish Location ID","reference",18,true,"[""Account"",""Asset"",""Campaign"",""Case"",""CollaborationGroup"",""Contact"",""ContentWorkspace"",""Contract"",""Dashboard"",""DashboardComponent"",""EmailMessage"",""EmailTemplate"",""Event"",""FinServ__AccountAccountRelation__c"",""FinServ__Alert__c"",""FinServ__AssetsAndLiabilities__c"",""FinServ__B2CLeadCompanyNameConfig__c"",""FinServ__BillingStatement__c"",""FinServ__Card__c"",""FinServ__ChargesAndFees__c"",""FinServ__ContactContactRelation__c"",""FinServ__Education__c"",""FinServ__Employment__c"",""FinServ__FinancialAccountRole__c"",""FinServ__FinancialAccountTransaction__c"",""FinServ__FinancialAccount__c"",""FinServ__FinancialGoal__c"",""FinServ__FinancialHolding__c"",""FinServ__IdentificationDocument__c"",""FinServ__IndustriesAppConfig__c"",""FinServ__LifeEvent__c"",""FinServ__ReciprocalRole__c"",""FinServ__Revenue__c"",""FinServ__RollupByLookupConfig__c"",""FinServ__RollupByLookupFilterCriteria__c"",""FinServ__Securities__c"",""FinServ__UsePersonAccount__c"",""FinServ__WealthAppConfig__c"",""FinServ__individualExcludedFields__c"",""Lead"",""Opportunity"",""Order"",""OrderItem"",""Organization"",""OutgoingEmail"",""Product2"",""ProfileSkill"",""ProfileSkillEndorsement"",""ProfileSkillUser"",""Quote"",""Report"",""Site"",""Solution"",""Task"",""Topic"",""User"",""WorkBadgeDefinition""]","FirstPublishLocation",false,false,,"[]",false
+"ContentVersion","Content Version","Origin","Content Origin","picklist",40,false,"[]",,false,false,,"[""Content"",""Chatter""]",false
+"ContentVersion","Content Version","ContentLocation","Content Location","picklist",40,false,"[]",,false,false,,"[""Salesforce"",""External"",""Social Customer Service""]",false
+"ContentVersion","Content Version","TextPreview","Text Preview","string",255,true,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","ExternalDocumentInfo1","External Document Info1","string",1000,true,"[]",,false,true,,"[]",false
+"ContentVersion","Content Version","ExternalDocumentInfo2","External Document Info2","string",1000,true,"[]",,false,true,,"[]",false
+"ContentVersion","Content Version","ExternalDataSourceId","External Data Source ID","reference",18,true,"[""ExternalDataSource""]","ExternalDataSource",false,true,,"[]",false
+"ContentVersion","Content Version","Checksum","Checksum","string",50,true,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","IsMajorVersion","Major Version","boolean",0,false,"[]",,false,false,,"[]",false
+"ContentVersion","Content Version","IsAssetEnabled","Asset File Enabled","boolean",0,false,"[]",,false,false,,"[]",false
