@@ -7,3 +7,4 @@ entitlement.md
 lightning-lookup.md
 lightning-scheduler.md
 fsc-recordtype-mapping.md
+fsc-account-add.md
