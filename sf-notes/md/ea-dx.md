@@ -1,0 +1,10 @@
+## EA  support in DX
+
+### Docs
+<a target="_blank" href="https://analytics-sfdx-df18.herokuapp.com/">Analytics CLI Plugin - Quick start Guide</a> 
+
+### Videos
+<iframe id="vidyard_iframe_9uurushfdrsTmNs9dVYXWR" class="vidyard_iframe" src="//play.vidyard.com/9uurushfdrsTmNs9dVYXWR?v=3.1&amp;type=inline&amp;hide_html5_playlist=1&amp;video_id=&amp;_=1547759970664&amp;referring_url=https%253A%252F%252Fwww.google.com%252F&amp;" width="100%" height="100%" title="Video" aria-label="Video" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;"></iframe>
+
+
+

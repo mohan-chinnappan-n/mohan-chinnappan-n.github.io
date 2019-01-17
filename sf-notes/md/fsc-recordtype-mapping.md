@@ -3,6 +3,13 @@
 
 ### Configure Custom Record Types for Groups
 
+#### Group:
+
+A group gives insight into a customer’s financial circles, such as a household with its family members and professional connections. 
+A group provides an overall view of its members by rolling up their information. You can extend a group with custom fields and more.
+
+#### Steps:
+
 First create custom record types on <b>Account</b>, based on the <b>household</b> record type. 
 Configure the record type mapping for the custom group record types, then assign the record types to the user profiles that will use them.
 
