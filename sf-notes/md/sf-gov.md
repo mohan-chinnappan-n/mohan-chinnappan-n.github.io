@@ -86,5 +86,9 @@ Trailhead on Governance Basis</a>
 ### Slides and Videos
 - <a target="_blank" href="md/jb-slides-1.html"> Salesforce Platform: Governance and the Social Enterprise</a>
 
+### Blogs
+- <a target="_blank" href="https://www.salesforce.com/uk/blog/authors/james-burns">Jim Burns Blog</a>
+
+
 </body>
 </html>
