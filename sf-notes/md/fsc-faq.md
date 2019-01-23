@@ -21,11 +21,11 @@
  - Evaluate Method (A or B):
 
     A.  Start with new FSC Org
-       - Migrate to old (sales + service) org
+       - Migrate from old (sales + service) org to this new FSC Org
        - Easier method
 
     B. Upgrade Current Org with FSC
-      -  Since you have current users in the system. This can make this path harder
+      -  Since you have current users in the system -  can make this path harder
 <hr/>
 ####  How to turn on/off detailed error messages in FSC
  - Custom Settings > Industries Application Config > Manage > Edit > Show Detailed Error Messages
