@@ -29,14 +29,16 @@ Configure the record type mapping for the custom group record types, then assign
     Don’t change the automatically set label.
     Enter Account Type as Account record type name.
     Enter the record type’s namespace.
-9 Save your changes.
+
+
+9. Save your changes.
 
 Follow the instructions in Assign Record Types and Page Layouts in the Enhanced Profile User Interface to assign the new record types to the Personal Banker and Advisor profiles.
 When advisors and personal bankers create a group, this custom record type is available to use.
 
-
-<img src='md/rt-cmt-1.png'/>
-<img src='md/rt-cmt-2.png'/>
+<img width="800" src='md/rt-cmt-1.png'/>
+<hr/>
+<img width="800" src='md/rt-cmt-2.png'/>
 #
 ### Reference
 
