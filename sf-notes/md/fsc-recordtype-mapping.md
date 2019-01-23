@@ -34,6 +34,10 @@ Configure the record type mapping for the custom group record types, then assign
 Follow the instructions in Assign Record Types and Page Layouts in the Enhanced Profile User Interface to assign the new record types to the Personal Banker and Advisor profiles.
 When advisors and personal bankers create a group, this custom record type is available to use.
 
+
+<img src='md/rt-cmt-1.png'/>
+<img src='md/rt-cmt-2.png'/>
+#
 ### Reference
 
 <a target='_new' href="https://developer.salesforce.com/docs/atlas.en-us.financial_services_cloud_admin_guide.meta/financial_services_cloud_admin_guide/fsc_admin_config_group_custom_record.htm">
