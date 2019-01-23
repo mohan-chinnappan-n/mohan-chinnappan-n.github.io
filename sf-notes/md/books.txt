@@ -9,5 +9,6 @@ lightning-scheduler.md
 fsc-recordtype-mapping.md
 fsc-account-add.md
 fsc-custom-triggers.md
+fsc-faq.md
 ea-dx.md
 sf-gov.md
