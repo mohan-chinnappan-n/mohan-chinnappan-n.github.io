@@ -10,5 +10,6 @@ fsc-recordtype-mapping.md
 fsc-account-add.md
 fsc-custom-triggers.md
 fsc-faq.md
+fsc-groups.md
 ea-dx.md
 sf-gov.md
