@@ -10,7 +10,7 @@
 <hr/>
 #### Data Loading tips
    - Disable Rollup during the large data load
- ![FSC Disable Rollup](md/fsc-disable-rollups.png)
+   <img src="md/fsc-disable-rollups.png" alt="">
 
 
 <hr/>
