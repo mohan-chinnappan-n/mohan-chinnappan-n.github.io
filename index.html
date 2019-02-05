@@ -478,13 +478,18 @@
  
         ;
         $('#sf-menu-content .divider').html("<button class='btn btn-info' style='height:.5px;width:300px;'></button>");
-        $('#toggle-sf-content').click(function() {
+
+        function toggleSF() {
             $('#sf-menu-content-list').html(
               $('#sf-menu-content').html()
             )
             $('#sf-menu-content-list').toggle();
- 
+        }
+        $('#toggle-sf-content').click(function() {
+           toggleSF();
         });
+
+        toggleSF();
     });
   </script>
 
