@@ -26,12 +26,12 @@
   }
 
   .gutter.gutter-horizontal {
-    background-image: url('https://nathancahill.github.io/Split.js/grips/vertical.png');
+    background-image: url('https://mohan-chinnappan-n.github.io/sfdc/gs/css/vertical.png');
     cursor: ew-resize;
   }
 
   .gutter.gutter-vertical {
-    background-image: url('https://nathancahill.github.io/Split.js/grips/horizontal.png');
+    background-image: url('https://mohan-chinnappan-n.github.io/sfdc/gs/css/horizontal.png');
     cursor: ns-resize;
   }
 
