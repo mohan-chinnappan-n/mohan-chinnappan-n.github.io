@@ -149,7 +149,8 @@
                 </li>
                 <li>
                   <b>Indexes can't be used</b>: when multiple WHERE filters are being used in SOQL,
-                   indexes cannot be used even though the fields in the WHERE clause can be indexed.
+                   indexes cannot be used even though the fields in the WHERE clause can be indexed. 
+<a href="https://developer.salesforce.com/docs/atlas.en-us.salesforce_large_data_volumes_bp.meta/salesforce_large_data_volumes_bp/ldv_deployments_techniques_using_soql_and_sosl.htm">Ref</a>
                    <br/>
                    <b>Solution</b>: decompose the single query into multiple queries, each of which should have one WHERE filter, and then combine the results.
 
