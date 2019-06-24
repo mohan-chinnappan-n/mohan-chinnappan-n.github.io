@@ -6,7 +6,7 @@
 
 ``` java
 
-Database.executeBatch(new FinServ.GroupAssignmentBatchable(), 100); 
+Database.executeBatch(new FinServ.GroupAssignmentBatchable(), numRecordsinBatch); 
 
 ```
 
