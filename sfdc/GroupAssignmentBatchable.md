@@ -46,9 +46,10 @@ If the start method of the batch class returns a Database.QueryLocator,
 
  If set to a higher value, Salesforce chunks the records returned by the QueryLocator into smaller batches of up to 200 records. 
 
- In case of GroupAssignmentBatchable the batch record size will 200 to 2k records since start(...) returns a QueryLocator.
+ In case of GroupAssignmentBatchable the batch record size will 200 to 2k records since:
+ its start(...) method returns a QueryLocator.
 
- 
+
 
 Iterable:
 
