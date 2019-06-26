@@ -2,7 +2,7 @@
 
 ### Resources
 
-[img/sfdc-mt.pdf](slides: Salesforce Multitenant Architecture: How We Do the Magic We Do)
+1. [slides Salesforce Multitenant Architecture: How We Do the Magic We Do)(img/sfdc-mt.pdf)
 
-[https://www.youtube.com/watch?v=Tuy_O37H3O8](video: Salesforce Multi Tenant Architecture: How We Do the Magic We Do
-)
+2. [video: Salesforce Multi Tenant Architecture: How We Do the Magic We Do](https://www.youtube.com/watch?v=Tuy_O37H3O8)
+
