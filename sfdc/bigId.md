@@ -31,18 +31,23 @@ BigID uses machine learning to automate how companies track and secure sensitive
 
 
 - Scan for identifablility
+
 BigID’s proprietary scanning technology locates sensitive data and provides a score to measure data’s identifiability.
 
 - Data Inventory
+
  A data inventory is built after the scan that determines the residency of the organization’s identities to make sure that the correct regulations apply. 
 
 - Holistic Map
+
 The scanning process can give a quick snapshot of stored data or help build a more holistic map of stored data. 
 
 - Classification
+
 After the scan, data is classified appropriately to apply the correct security control or decide about compliance, encrypted storage, deletion, archiving, etc. 
 
 - Consent
+
 BigId alsomanages consent of customers and employees, as well as enforces their rights over the personal data and thus allowing organizations to search, identify, segment, and amend personal data as necessary.
 
 
