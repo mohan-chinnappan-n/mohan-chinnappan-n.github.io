@@ -21,7 +21,7 @@ Companies need to move from manual and survey-based compliance to data-centric a
 
 BigID uses machine learning to automate how companies track and secure sensitive data to avoid breaches and non-compliance with data protection regulations.Helps companies meet emerging privacy and data protection regulations like the GDPR. 
 
-- Competitors 
+### Competitors 
 
  IBM, OneTrust, Trustarc 
 
