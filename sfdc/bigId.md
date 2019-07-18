@@ -3,10 +3,11 @@
 Advanced privacy automation technology
 
 
-- Area
- Global data protection market  (estimate: $14.1B by 2025)
+### Area
 
-- Problem
+Global data protection market  (estimate: $14.1B by 2025)
+
+###  Problem
 
 Most of the data that companies collect contains personal identifiable information (PII). 
 PII was initially restricted to credentials and payment card information but the expanding definition means the problem has only got worse. 
@@ -21,6 +22,7 @@ Companies need to move from manual and survey-based compliance to data-centric a
 BigID uses machine learning to automate how companies track and secure sensitive data to avoid breaches and non-compliance with data protection regulations.Helps companies meet emerging privacy and data protection regulations like the GDPR. 
 
 - Competitors 
+
  IBM, OneTrust, Trustarc 
 
 <hr/>
@@ -88,7 +90,7 @@ BigID supports unstructured files in Windows shares, Exchange, Gdrive, Box, AWS 
 
 ## Integration
 
-BigID has integrations with Collibra, ASG, SAP, Salesforce’s SFDC, Microsoft, Ionic, Immuta, ServiceNow, NetSuite, Workday, Zendesk, Jira, ServiceNow, SurveyMonkey, and others.
+BigID has integrations with Collibra, ASG, SAP, **Salesforce’s SFDC**, Microsoft, Ionic, Immuta, ServiceNow, NetSuite, Workday, Zendesk, Jira, ServiceNow, SurveyMonkey, and others.
 
 Cloud-native architecture allows the deployment of BigID in any Kubernetes environment with automated lateral scaling that supports hybrid deployments for both on premise and in the cloud. 
 
