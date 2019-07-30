@@ -533,6 +533,48 @@
 <span id="vidyard_ugqkiEdpRCob38NbtfXXTF" class="vidyard_player"><span id="vidyard_span_ugqkiEdpRCob38NbtfXXTF" style="display: block; margin: auto; position: relative; width: 800px; height: 500px;"><iframe id="vidyard_iframe_ugqkiEdpRCob38NbtfXXTF" class="vidyard_iframe" src="//play.vidyard.com/ugqkiEdpRCob38NbtfXXTF?disable_popouts=0&amp;hide_html5_playlist=1&amp;v=3.1.1&amp;vyetoken=1c2c1bf7-b4c5-4920-95db-b4108a99b953&amp;type=inline&amp;email=mchinnappan%40salesforce.com&amp;referring_url=http%253A%252F%252Fpages.mail.salesforce.com%252F&amp;" title="Video" aria-label="Video" scrolling="no" allowtransparency="true" allowfullscreen="" allow="autoplay" style="opacity: 1; background-color: transparent; position: absolute; right: 0px; top: 0px;" width="100%" height="100%" frameborder="0"></iframe></span></span>
 </section>
 
+<section>
+    <h4>Microsoft add-in framework</h4>
+    <ul style='font-size:30px;'>
+        <li> <a target='_blank' href="https://docs.microsoft.com/en-us/outlook/add-ins/">Outlook add-ins</a> :  Salesforce integration with Outlook is built on this</li>
+       <li>Outlook add-ins are integrations built by third parties into Outlook by using our web-based platform. </li>
+<li>Consist of a manifest, which describes how the add-in integrates into Outlook (for example, a button or a task pane), and JavaScript/HTML code, which makes up the UI and business logic of the add-in.</li>
+<li>Can be acquired from AppSource or sideloaded by end-users or administrators.</li>
+<li>Do not have any code physically installed on the user's device or Outlook client. F</li>
+<li>Outlook reads the manifest and hooks up the specified controls in the UI, and then loads the JavaScript and HTML. The web components all run in the context of a browser in a sandbox.</li>
+<li>The Outlook items that support add-ins include email messages, meeting requests, responses and cancellations, and appointments.</li>
+<li>Outlook add-ins are supported in Outlook 2013 or later on Windows, Outlook 2016 or later on Mac </li>
+    </ul>
+</section>
+
+<section>
+    <h4> Outlook add-in  features</h4>
+    <ul style='font-size:30px;'>
+     <li>Supported: messages or appointments while composing or reading</li>
+      <li>Unsupported: Outlook does not activate add-ins if the current message item, in a compose or read form, is one of the following:
+      <ul>
+          <li>In a <a>shared mailbox</a>, in another user's mailbox, in an archive mailbox, or in a public folder.  </li>
+<li>Protected by Information Rights Management (IRM) or encrypted in other ways for protection. A digitally signed message is an example since digital signing relies on one of these mechanisms.</li>
+<li>A delivery report or notification that has the message class IPM.Report.*, including delivery and Non-Delivery Report (NDR) reports, and read, non-read, and delay notifications.</li>
+<li>A draft (does not have a sender assigned to it), or in the Outlook Drafts folder.</li>
+<li>A .msg or .eml file which is an attachment to another message.</li>
+<li>A .msg or .eml file opened from the file system.</li>
+<li>Using a custom form.</li>
+      </ul>
+     </li>
+    </ul>
+</section>
+
+<section>
+    <h4> Sample Outlook addin</h4>
+    <ul style='font-size:30px;'>
+            <li><img src='img/outlook-addin-1.png'></li>
+      </ul>
+     </li>
+    </ul>
+</section>
+
+
 
 <section>
     <h4>Salesforce Inbox: References</h4>
