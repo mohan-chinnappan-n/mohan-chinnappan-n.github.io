@@ -175,6 +175,8 @@
                    <li>Storable Actions
                     <pre>
                     <code>
+                      // API version of 44.0 or higher, you must annotate the Apex method with @AuraEnabled(cacheable=true)
+                      // Note: the annotated method must only get data. It can’t mutate (create/update) data.
                       var action = component.get("c.getItems");
                       // A storable action is a server action whose response is stored in the client cache
                       // so that subsequent requests for the same server method
@@ -229,10 +231,14 @@
               </a>
             </li>
             <li>
-
               <a href="https://developer.salesforce.com/blogs/developer-relations/2017/03/lightning-components-best-practices-caching-data-storable-actions.html">
                 Lightning Components Best Practices: Caching Data with Storable Actions
               </a>
+            </li>
+            <li>
+
+            <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/controllers_server_apex_auraenabled_annotation.htm">
+              cacheable=true annotation for API 44 and above</a>
             </li>
           </ul>
         </section>
