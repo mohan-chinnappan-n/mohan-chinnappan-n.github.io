@@ -1,0 +1,16 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"Producer","Producer","Id","Producer ID","id",18,false,"[]",,false,false,,"[]",false
+"Producer","Producer","OwnerId","Owner ID","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"Producer","Producer","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"Producer","Producer","Name","Producer Identifier","string",255,false,"[]",,false,true,,"[]",false
+"Producer","Producer","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Producer","Producer","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"Producer","Producer","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Producer","Producer","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"Producer","Producer","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"Producer","Producer","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Producer","Producer","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Producer","Producer","InternalUserId","User ID","reference",18,true,"[""User""]","InternalUser",false,true,,"[]",false
+"Producer","Producer","AccountId","Account ID","reference",18,true,"[""Account""]","Account",false,true,,"[]",false
+"Producer","Producer","Type","Type","picklist",40,true,"[]",,false,true,,"[""Independent Agent(Contractor)"",""Captive Agent"",""Partner Agent"",""Partner/Reseller""]",false
+"Producer","Producer","ContactId","Contact ID","reference",18,true,"[""Contact""]","Contact",false,true,,"[]",false
