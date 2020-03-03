@@ -1,0 +1,26 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"InsurancePolicyParticipant","Insurance Policy Participant","Id","Insurance Policy Participant ID","id",18,false,"[]",,false,false,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","Name","Name","string",255,false,"[]",,false,false,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","InsurancePolicyId","Insurance Policy ID","reference",18,false,"[""InsurancePolicy""]","InsurancePolicy",false,true,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","SourceSystemIdentifier","Source System ID","string",255,true,"[]",,true,true,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","Role","Role","multipicklist",4099,false,"[]",,false,true,,"[""Driver"",""Owner"",""Member"",""Household Member"",""Beneficiary"",""Subscriber"",""HealthPlan Member"",""LifePlan Member"",""Agreement Payer"",""Insured"",""Other""]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","PrimaryParticipantAccountId","Account ID","reference",18,true,"[""Account""]","PrimaryParticipantAccount",false,true,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","PrimaryParticipantContactId","Contact ID","reference",18,true,"[""Contact""]","PrimaryParticipantContact",false,true,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","RelatedParticipantAccountId","Account ID","reference",18,true,"[""Account""]","RelatedParticipantAccount",false,true,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","RelatedParticipantContactId","Contact ID","reference",18,true,"[""Contact""]","RelatedParticipantContact",false,true,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","BeneficiarySharePercentage","Beneficiary Share Percentage","percent",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","RelationshipToInsured","Relationship to Insured","picklist",40,true,"[]",,false,true,,"[""Aunt"",""Brother"",""Brother-in-law"",""Cousin"",""Daughter"",""Daughter-in-law"",""Ex-husband"",""Ex-wife"",""Father"",""Father-in-law"",""Granddaughter"",""Grandfather"",""Grandmother"",""Grandson"",""Half Sister"",""Have one parent in common"",""Husband"",""Mother"",""Mother-in-law"",""Nephew"",""Niece"",""Sister"",""Sister-in-law"",""Son"",""Son-in-law"",""Step Brother"",""Step Daughter"",""Step Father"",""Step Mother"",""Step Sister"",""Step Son"",""Uncle"",""Wife""]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","IsMinorBeneficiary","Minor Beneficiary","boolean",0,false,"[]",,false,true,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","LegalGuardianId","Account ID","reference",18,true,"[""Account""]","LegalGuardian",false,true,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","EffectiveDate","Effective Date","datetime",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","ExpirationDate","Expiration Date","datetime",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","IsActiveParticipant","Active Participant","boolean",0,false,"[]",,false,true,,"[]",false
+"InsurancePolicyParticipant","Insurance Policy Participant","SourceSystem","Source System","string",255,true,"[]",,false,true,,"[]",false

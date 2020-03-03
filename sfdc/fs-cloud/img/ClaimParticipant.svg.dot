@@ -1,0 +1,117 @@
+
+        digraph "Salesforce+ ERD" {  
+            graph [  
+              rankdir="RL"  
+              bgcolor="#efeffd"  
+              label="Salesforce ERD "  
+              labeljust="r"  
+              nodesep="0.18"  
+              ranksep="0.46"        
+              fontname="Courier"  
+              fontsize="9"  
+            ];  
+            node [  
+              fontname="Courier"  
+              fontsize="11"  
+              shape="plaintext"  
+              color="#99ccff"  
+            ];  
+            edge [ arrowsize="0.8"   ];
+        
+            ClaimParticipant [shape=none, margin=0, label=<
+                <table border="1" cellborder="1" cellspacing="0" bgcolor="#ffeeff" >   
+                  <tr><td colspan="3" bgcolor="lightblue"><b>ClaimParticipant</b></td></tr>
+             <tr>
+                                        <td  bgcolor="#99ccff" port="Id" align="left">
+                                           <b>Id</b>
+                                        </td><td>id(18)</td></tr> <tr>
+                                         <td port="IsDeleted" align="left">
+                                         IsDeleted
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="Name" align="left">
+                                         Name
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="LastModifiedById" align="left">
+                                         LastModifiedById
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="LastViewedDate" align="left">
+                                         LastViewedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LastReferencedDate" align="left">
+                                         LastReferencedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="ClaimId" align="left">
+                                         ClaimId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="ParticipantAccountId" align="left">
+                                         ParticipantAccountId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="ParticipantContactId" align="left">
+                                         ParticipantContactId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="Roles" align="left">
+                                         Roles
+                                       </td><td>multipicklist(4099)</td></tr> <tr>
+                                         <td port="SourceSystemIdentifier" align="left">
+                                         SourceSystemIdentifier
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="SourceSystem" align="left">
+                                         SourceSystem
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="IsInjured" align="left">
+                                         IsInjured
+                                       </td><td>boolean</td></tr>            
+                </table>
+                >
+                  URL="#"
+                  tooltip=" ClaimParticipant "
+                ];
+            
+                            "ClaimParticipant" : "LastModifiedById": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LastModifiedBy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "ClaimParticipant" : "ClaimId": w -> 
+                                  "Claim" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Claim"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "ClaimParticipant" : "ParticipantAccountId": w -> 
+                                  "Account" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="ParticipantAccount"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "ClaimParticipant" : "ParticipantContactId": w -> 
+                                  "Contact" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="ParticipantContact"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      }

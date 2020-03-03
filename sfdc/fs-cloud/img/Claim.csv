@@ -1,0 +1,55 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"Claim","Claim","Id","Claim ID","id",18,false,"[]",,false,false,,"[]",false
+"Claim","Claim","OwnerId","Owner ID","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"Claim","Claim","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"Claim","Claim","Name","Claim Number","string",255,false,"[]",,false,true,,"[]",false
+"Claim","Claim","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Claim","Claim","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"Claim","Claim","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Claim","Claim","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"Claim","Claim","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"Claim","Claim","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Claim","Claim","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Claim","Claim","PolicyNumberId","Insurance Policy ID","reference",18,true,"[""InsurancePolicy""]","PolicyNumber",false,true,,"[]",false
+"Claim","Claim","AccountId","Account ID","reference",18,true,"[""Account""]","Account",false,true,,"[]",false
+"Claim","Claim","CaseId","Case ID","reference",18,true,"[""Case""]","Case",false,true,,"[]",false
+"Claim","Claim","InsuredAssetId","Insurance Policy Asset ID","reference",18,true,"[""InsurancePolicyAsset""]","InsuredAsset",false,true,,"[]",false
+"Claim","Claim","SourceSystem","Source System","string",255,true,"[]",,false,true,,"[]",false
+"Claim","Claim","Status","Status","picklist",40,true,"[]",,false,true,,"[""Initial"",""Active"",""Closed"",""Compromised/Settled"",""Coverage Confirmed"",""Coverage Evaluation"",""Denied"",""Disallowed"",""Discontinued"",""Granted"",""In Dispute"",""Inactive"",""Abandoned"",""Notified"",""Nullified"",""Open"",""Other"",""Paid-in Full"",""Pending"",""Premium Payments on the coverage are suspended"",""Rejected"",""Rejected Coverage Not Provided"",""Reopened"",""Settled"",""Under Evaluation"",""Under Negotiation""]",false
+"Claim","Claim","ClaimType","Claim Type","picklist",40,true,"[]",,false,true,,"[""Home"",""Auto"",""Life"",""Annuity""]",false
+"Claim","Claim","EstimatedAmount","Estimated Amount","currency",0,true,"[]",,false,true,,"[]",false
+"Claim","Claim","ActualAmount","Actual Amount","currency",0,true,"[]",,false,true,,"[]",false
+"Claim","Claim","ApprovedAmount","Approved Amount","currency",0,true,"[]",,false,true,,"[]",false
+"Claim","Claim","InitiationDate","Initiation Date","datetime",0,true,"[]",,false,true,,"[]",false
+"Claim","Claim","LossDate","Loss Date","datetime",0,true,"[]",,false,true,,"[]",false
+"Claim","Claim","FinalizedDate","Finalized Date","datetime",0,true,"[]",,false,true,,"[]",false
+"Claim","Claim","AssessmentDate","Assessment Date","datetime",0,true,"[]",,false,true,,"[]",false
+"Claim","Claim","Summary","Summary","textarea",32000,true,"[]",,false,true,,"[]",false
+"Claim","Claim","ClaimReason","Claim Reason","string",255,true,"[]",,false,true,,"[]",false
+"Claim","Claim","RenewalChannel","Renewal Channel","picklist",40,true,"[]",,false,true,,"[""Web"",""Phone"",""Mobile"",""Chatbot""]",false
+"Claim","Claim","IsClosed","Closed","boolean",0,false,"[]",,false,false,,"[]",false
+"Claim","Claim","Severity","Severity","picklist",40,true,"[]",,false,true,,"[""High"",""Medium"",""Low""]",false
+"Claim","Claim","LossType","Loss Type","picklist",40,true,"[]",,false,true,,"[""Partial Loss"",""Repairs"",""Replacement""]",false
+"Claim","Claim","ClaimReasonType","Claim Reason Type","picklist",40,true,"[]",,false,true,,"[""Natural Disaster"",""Accident""]",false
+"Claim","Claim","IsInhabitable","Inhabitable","boolean",0,false,"[]",,false,true,,"[]",false
+"Claim","Claim","IsDrivable","Drivable","boolean",0,false,"[]",,false,true,,"[]",false
+"Claim","Claim","IncidentSiteStreet","Incident Site Street","textarea",255,true,"[]",,false,true,,"[]",false
+"Claim","Claim","IncidentSiteCity","Incident Site City","string",40,true,"[]",,false,true,,"[]",false
+"Claim","Claim","IncidentSiteState","Incident Site State","string",80,true,"[]",,false,true,,"[]",false
+"Claim","Claim","IncidentSitePostalCode","Incident Site Postal Code","string",20,true,"[]",,false,true,,"[]",false
+"Claim","Claim","IncidentSiteCountry","Incident Site Country","string",80,true,"[]",,false,true,,"[]",false
+"Claim","Claim","IncidentSiteLatitude","Incident Site Latitude","double",0,true,"[]",,false,true,,"[]",false
+"Claim","Claim","IncidentSiteLongitude","Incident Site Longitude","double",0,true,"[]",,false,true,,"[]",false
+"Claim","Claim","IncidentSiteGeocodeAccuracy","Incident Site Geocode Accuracy","picklist",255,true,"[]",,false,true,,"[""Address"",""NearAddress"",""Block"",""Street"",""ExtendedZip"",""Zip"",""Neighborhood"",""City"",""County"",""State"",""Unknown""]",false
+"Claim","Claim","IncidentSite","Incident Site","address",0,true,"[]",,false,false,,"[]",false
+"Claim","Claim","IsAuthoritiesNotified","Authorities Notified","boolean",0,false,"[]",,false,true,,"[]",false
+"Claim","Claim","ReportingAuthority","Reporting Authority","string",100,true,"[]",,false,true,,"[]",false
+"Claim","Claim","ReportNumber","Report Number","string",100,true,"[]",,false,true,,"[]",false
+"Claim","Claim","ReportDate","Report Date","datetime",0,true,"[]",,false,true,,"[]",false
+"Claim","Claim","RepairShop","Repair Shop","string",100,true,"[]",,false,true,,"[]",false
+"Claim","Claim","VisitDate","Visit Date","datetime",0,true,"[]",,false,true,,"[]",false
+"Claim","Claim","SourceSystemIdentifier","Source System Identifier","string",255,true,"[]",,true,true,,"[]",false
+"Claim","Claim","RepairShopLocation","Repair Shop Location","textarea",32000,true,"[]",,false,true,,"[]",false
+"Claim","Claim","VisitSite","Visit Site","textarea",32000,true,"[]",,false,true,,"[]",false
+"Claim","Claim","FnolChannel","FNOL Channel","picklist",40,true,"[]",,false,true,,"[""Web"",""Phone"",""Mobile"",""Chatbot""]",false
+"Claim","Claim","SourceId","Source ID","reference",18,true,"[""BusinessMilestone"",""PersonLifeEvent""]","Source",false,true,,"[]",false

@@ -98,3 +98,5 @@
 "FinServ__FinancialAccount__c","Financial Account","FinServ__OverdraftProtection__c","Overdraft Protection","boolean",0,false,"[]",,false,true,,"[]",false
 "FinServ__FinancialAccount__c","Financial Account","FinServ__ServiceType__c","Service Type","picklist",255,true,"[]",,false,true,,"[""Merchant Services"",""Lockbox"",""Positive Pay"",""Business Bill Pay"",""Wire Transfer"",""ACH"",""Account Analysis"",""Remote Deposit Capture"",""Purchase Cards"",""Credit Cards"",""Zero Balance Account"",""Bill Presentment"",""Controlled Disbursement"",""Sweep to Repo"",""Sweep to Line""]",false
 "FinServ__FinancialAccount__c","Financial Account","FinServ__TargetLimit__c","Target Limit","double",0,true,"[]",,false,true,,"[]",false
+"FinServ__FinancialAccount__c","Financial Account","FinServ__ClosureReason__c","Closure Reason","picklist",255,true,"[]",,false,true,,"[""Account Maintenance Fees"",""Account no longer needed"",""Moved out of the country"",""Not able to maintain account"",""Others""]",false
+"FinServ__FinancialAccount__c","Financial Account","FinServ__NextStatementDate__c","Next Statement Date","date",0,true,"[]",,false,true,,"[]",false

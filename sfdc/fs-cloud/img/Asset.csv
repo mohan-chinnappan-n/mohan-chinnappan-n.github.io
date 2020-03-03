@@ -1,32 +1,32 @@
-Label,Name,Nillable,Picklistvalues,Referenceto,Relationshipname,Type,Unique,Updateable
-Asset ID,Id,FALSE,--,--,null,id,FALSE,FALSE
-Contact ID,ContactId,TRUE,--,"[ ""Contact"" ]",Contact,reference,FALSE,TRUE
-Account ID,AccountId,TRUE,--,"[ ""Account"" ]",Account,reference,FALSE,TRUE
-Parent Asset ID,ParentId,TRUE,--,"[ ""Asset"" ]",Parent,reference,FALSE,TRUE
-Root Asset ID,RootAssetId,TRUE,--,"[ ""Asset"" ]",RootAsset,reference,FALSE,FALSE
-Product ID,Product2Id,TRUE,--,"[ ""Product2"" ]",Product2,reference,FALSE,TRUE
-Product Code,ProductCode,TRUE,--,--,null,string,FALSE,FALSE
-Competitor Asset,IsCompetitorProduct,FALSE,--,--,null,boolean,FALSE,TRUE
-Created Date,CreatedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-Created By ID,CreatedById,FALSE,--,"[ ""User"" ]",CreatedBy,reference,FALSE,FALSE
-Last Modified Date,LastModifiedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-Last Modified By ID,LastModifiedById,FALSE,--,"[ ""User"" ]",LastModifiedBy,reference,FALSE,FALSE
-System Modstamp,SystemModstamp,FALSE,--,--,null,datetime,FALSE,FALSE
-Deleted,IsDeleted,FALSE,--,--,null,boolean,FALSE,FALSE
-Asset Name,Name,FALSE,--,--,null,string,FALSE,TRUE
-Serial Number,SerialNumber,TRUE,--,--,null,string,FALSE,TRUE
-Install Date,InstallDate,TRUE,--,--,null,date,FALSE,TRUE
-Purchase Date,PurchaseDate,TRUE,--,--,null,date,FALSE,TRUE
-Usage End Date,UsageEndDate,TRUE,--,--,null,date,FALSE,TRUE
-Status,Status,TRUE,"[ ""Purchased"" , ""Shipped"" , ""Installed"" , ""Registered"" , ""Obsolete"" ]",--,null,picklist,FALSE,TRUE
-Price,Price,TRUE,--,--,null,currency,FALSE,TRUE
-Quantity,Quantity,TRUE,--,--,null,double,FALSE,TRUE
-Description,Description,TRUE,--,--,null,textarea,FALSE,TRUE
-Owner ID,OwnerId,FALSE,--,"[ ""User"" ]",Owner,reference,FALSE,TRUE
-Asset Provided By ID,AssetProvidedById,TRUE,--,"[ ""Account"" ]",AssetProvidedBy,reference,FALSE,TRUE
-Asset Serviced By ID,AssetServicedById,TRUE,--,"[ ""Account"" ]",AssetServicedBy,reference,FALSE,TRUE
-Internal Asset,IsInternal,FALSE,--,--,null,boolean,FALSE,TRUE
-Asset Level,AssetLevel,TRUE,--,--,null,int,FALSE,FALSE
-Product SKU,StockKeepingUnit,TRUE,--,--,null,string,FALSE,FALSE
-Last Viewed Date,LastViewedDate,TRUE,--,--,null,datetime,FALSE,FALSE
-Last Referenced Date,LastReferencedDate,TRUE,--,--,null,datetime,FALSE,FALSE
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"Asset","Asset","Id","Asset ID","id",18,false,"[]",,false,false,,"[]",false
+"Asset","Asset","ContactId","Contact ID","reference",18,true,"[""Contact""]","Contact",false,true,,"[]",false
+"Asset","Asset","AccountId","Account ID","reference",18,true,"[""Account""]","Account",false,true,,"[]",false
+"Asset","Asset","ParentId","Parent Asset ID","reference",18,true,"[""Asset""]","Parent",false,true,,"[]",false
+"Asset","Asset","RootAssetId","Root Asset ID","reference",18,true,"[""Asset""]","RootAsset",false,false,,"[]",false
+"Asset","Asset","Product2Id","Product ID","reference",18,true,"[""Product2""]","Product2",false,true,,"[]",false
+"Asset","Asset","ProductCode","Product Code","string",255,true,"[]",,false,false,,"[]",false
+"Asset","Asset","IsCompetitorProduct","Competitor Asset","boolean",0,false,"[]",,false,true,,"[]",false
+"Asset","Asset","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Asset","Asset","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"Asset","Asset","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Asset","Asset","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"Asset","Asset","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"Asset","Asset","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"Asset","Asset","Name","Asset Name","string",255,false,"[]",,false,true,,"[]",false
+"Asset","Asset","SerialNumber","Serial Number","string",80,true,"[]",,false,true,,"[]",false
+"Asset","Asset","InstallDate","Install Date","date",0,true,"[]",,false,true,,"[]",false
+"Asset","Asset","PurchaseDate","Purchase Date","date",0,true,"[]",,false,true,,"[]",false
+"Asset","Asset","UsageEndDate","Usage End Date","date",0,true,"[]",,false,true,,"[]",false
+"Asset","Asset","Status","Status","picklist",40,true,"[]",,false,true,,"[""Purchased"",""Shipped"",""Installed"",""Registered"",""Obsolete""]",false
+"Asset","Asset","Price","Price","currency",0,true,"[]",,false,true,,"[]",false
+"Asset","Asset","Quantity","Quantity","double",0,true,"[]",,false,true,,"[]",false
+"Asset","Asset","Description","Description","textarea",32000,true,"[]",,false,true,,"[]",false
+"Asset","Asset","OwnerId","Owner ID","reference",18,false,"[""User""]","Owner",false,true,,"[]",false
+"Asset","Asset","AssetProvidedById","Asset Provided By ID","reference",18,true,"[""Account""]","AssetProvidedBy",false,true,,"[]",false
+"Asset","Asset","AssetServicedById","Asset Serviced By ID","reference",18,true,"[""Account""]","AssetServicedBy",false,true,,"[]",false
+"Asset","Asset","IsInternal","Internal Asset","boolean",0,false,"[]",,false,true,,"[]",false
+"Asset","Asset","AssetLevel","Asset Level","int",0,true,"[]",,false,false,,"[]",false
+"Asset","Asset","StockKeepingUnit","Product SKU","string",180,true,"[]",,false,false,,"[]",false
+"Asset","Asset","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Asset","Asset","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false

@@ -1,0 +1,18 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"ClaimParticipant","Claim Participant","Id","Claim Participant ID","id",18,false,"[]",,false,false,,"[]",false
+"ClaimParticipant","Claim Participant","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"ClaimParticipant","Claim Participant","Name","Name","string",255,false,"[]",,false,false,,"[]",false
+"ClaimParticipant","Claim Participant","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"ClaimParticipant","Claim Participant","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"ClaimParticipant","Claim Participant","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"ClaimParticipant","Claim Participant","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"ClaimParticipant","Claim Participant","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"ClaimParticipant","Claim Participant","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"ClaimParticipant","Claim Participant","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"ClaimParticipant","Claim Participant","ClaimId","Claim ID","reference",18,false,"[""Claim""]","Claim",false,true,,"[]",false
+"ClaimParticipant","Claim Participant","ParticipantAccountId","Account ID","reference",18,true,"[""Account""]","ParticipantAccount",false,true,,"[]",false
+"ClaimParticipant","Claim Participant","ParticipantContactId","Contact ID","reference",18,true,"[""Contact""]","ParticipantContact",false,true,,"[]",false
+"ClaimParticipant","Claim Participant","Roles","Roles","multipicklist",4099,false,"[]",,false,true,,"[""Involved Driver"",""Witness"",""Plaintiff"",""Internal Medical Approver"",""Claim Legal Expert"",""Opponent Third Party"",""Defendant"",""Claimant"",""Claim Adjuster"",""Victim"",""Claim Representative"",""Claimee"",""Claim Expert"",""Claim Payer"",""Loss Adjuster"",""Inpatient"",""Outpatient"",""Loss Notification Authority"",""Claim Recorder"",""Claim Leader"",""Claim Follower"",""Claim Declarer"",""Patient""]",false
+"ClaimParticipant","Claim Participant","SourceSystemIdentifier","Source System Identifier","string",255,true,"[]",,true,true,,"[]",false
+"ClaimParticipant","Claim Participant","SourceSystem","Source System","string",255,true,"[]",,false,true,,"[]",false
+"ClaimParticipant","Claim Participant","IsInjured","Injured","boolean",0,false,"[]",,false,true,,"[]",false

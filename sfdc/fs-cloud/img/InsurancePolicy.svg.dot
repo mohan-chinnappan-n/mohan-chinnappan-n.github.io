@@ -1,0 +1,330 @@
+
+        digraph "Salesforce+ ERD" {  
+            graph [  
+              rankdir="RL"  
+              bgcolor="#efeffd"  
+              label="Salesforce ERD "  
+              labeljust="r"  
+              nodesep="0.18"  
+              ranksep="0.46"        
+              fontname="Courier"  
+              fontsize="9"  
+            ];  
+            node [  
+              fontname="Courier"  
+              fontsize="11"  
+              shape="plaintext"  
+              color="#99ccff"  
+            ];  
+            edge [ arrowsize="0.8"   ];
+        
+            InsurancePolicy [shape=none, margin=0, label=<
+                <table border="1" cellborder="1" cellspacing="0" bgcolor="#ffeeff" >   
+                  <tr><td colspan="3" bgcolor="lightblue"><b>InsurancePolicy</b></td></tr>
+             <tr>
+                                        <td  bgcolor="#99ccff" port="Id" align="left">
+                                           <b>Id</b>
+                                        </td><td>id(18)</td></tr> <tr>
+                                         <td port="OwnerId" align="left">
+                                         OwnerId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="IsDeleted" align="left">
+                                         IsDeleted
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="Name" align="left">
+                                         Name
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="LastModifiedById" align="left">
+                                         LastModifiedById
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="LastViewedDate" align="left">
+                                         LastViewedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LastReferencedDate" align="left">
+                                         LastReferencedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="NameInsuredId" align="left">
+                                         NameInsuredId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="PolicyName" align="left">
+                                         PolicyName
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="SourceSystem" align="left">
+                                         SourceSystem
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="EffectiveDate" align="left">
+                                         EffectiveDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="ExpirationDate" align="left">
+                                         ExpirationDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="PremiumAmount" align="left">
+                                         PremiumAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="PaymentDueDate" align="left">
+                                         PaymentDueDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="CancellationDate" align="left">
+                                         CancellationDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="CancellationReason" align="left">
+                                         CancellationReason
+                                       </td><td>textarea(32000)</td></tr> <tr>
+                                         <td port="RenewalDate" align="left">
+                                         RenewalDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="FinalRenewalDate" align="left">
+                                         FinalRenewalDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="PolicyDescription" align="left">
+                                         PolicyDescription
+                                       </td><td>textarea(32000)</td></tr> <tr>
+                                         <td port="Status" align="left">
+                                         Status
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="ChangeType" align="left">
+                                         ChangeType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="Substatus" align="left">
+                                         Substatus
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="PremiumFrequency" align="left">
+                                         PremiumFrequency
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="PlanTier" align="left">
+                                         PlanTier
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="AuditTerm" align="left">
+                                         AuditTerm
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="ChangeSubtype" align="left">
+                                         ChangeSubtype
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="PolicyType" align="left">
+                                         PolicyType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="PlanType" align="left">
+                                         PlanType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="PriorPolicyId" align="left">
+                                         PriorPolicyId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="ProductId" align="left">
+                                         ProductId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="ParentPolicyId" align="left">
+                                         ParentPolicyId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="PreviousRenewalDate" align="left">
+                                         PreviousRenewalDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="RenewalChannel" align="left">
+                                         RenewalChannel
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="FnolChannel" align="left">
+                                         FnolChannel
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="ProducerId" align="left">
+                                         ProducerId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="IsActive" align="left">
+                                         IsActive
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="ServicingOfficeStreet" align="left">
+                                         ServicingOfficeStreet
+                                       </td><td>textarea(255)</td></tr> <tr>
+                                         <td port="ServicingOfficeCity" align="left">
+                                         ServicingOfficeCity
+                                       </td><td>string(40)</td></tr> <tr>
+                                         <td port="ServicingOfficeState" align="left">
+                                         ServicingOfficeState
+                                       </td><td>string(80)</td></tr> <tr>
+                                         <td port="ServicingOfficePostalCode" align="left">
+                                         ServicingOfficePostalCode
+                                       </td><td>string(20)</td></tr> <tr>
+                                         <td port="ServicingOfficeCountry" align="left">
+                                         ServicingOfficeCountry
+                                       </td><td>string(80)</td></tr> <tr>
+                                         <td port="ServicingOfficeLatitude" align="left">
+                                         ServicingOfficeLatitude
+                                       </td><td>double</td></tr> <tr>
+                                         <td port="ServicingOfficeLongitude" align="left">
+                                         ServicingOfficeLongitude
+                                       </td><td>double</td></tr> <tr>
+                                         <td port="ServicingOfficeGeocodeAccuracy" align="left">
+                                         ServicingOfficeGeocodeAccuracy
+                                       </td><td>picklist(255)</td></tr> <tr>
+                                         <td port="ServicingOffice" align="left">
+                                         ServicingOffice
+                                       </td><td>address</td></tr> <tr>
+                                         <td port="HasAnyAutoCoverage" align="left">
+                                         HasAnyAutoCoverage
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="IsLoanEligibile" align="left">
+                                         IsLoanEligibile
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="TaxesSurcharges" align="left">
+                                         TaxesSurcharges
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="CashSurrenderValue" align="left">
+                                         CashSurrenderValue
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="IsRenewedPolicy" align="left">
+                                         IsRenewedPolicy
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="SourceOpportunityId" align="left">
+                                         SourceOpportunityId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="GrossWrittenPremium" align="left">
+                                         GrossWrittenPremium
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="CancellationReasonType" align="left">
+                                         CancellationReasonType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="SaleDate" align="left">
+                                         SaleDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="SourceQuoteId" align="left">
+                                         SourceQuoteId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="Discount" align="left">
+                                         Discount
+                                       </td><td>double</td></tr> <tr>
+                                         <td port="PreviousPremium" align="left">
+                                         PreviousPremium
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="UniversalPolicyNumber" align="left">
+                                         UniversalPolicyNumber
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="DateRenewed" align="left">
+                                         DateRenewed
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="SourceSystemIdentifier" align="left">
+                                         SourceSystemIdentifier
+                                       </td><td>string(255)</td></tr>            
+                </table>
+                >
+                  URL="#"
+                  tooltip=" InsurancePolicy "
+                ];
+            
+                            "InsurancePolicy" : "OwnerId": w -> 
+                                  "Group" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Owner"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "InsurancePolicy" : "OwnerId": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Owner"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "InsurancePolicy" : "LastModifiedById": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LastModifiedBy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "InsurancePolicy" : "NameInsuredId": w -> 
+                                  "Account" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="NameInsured"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "InsurancePolicy" : "PriorPolicyId": w -> 
+                                  "InsurancePolicy" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#3e7ab7"
+                                           label="PriorPolicy"
+                                           fontname="Arial"
+                                           fontsize="12"
+                                          ];
+                      
+                            "InsurancePolicy" : "ProductId": w -> 
+                                  "Product2" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Product"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "InsurancePolicy" : "ParentPolicyId": w -> 
+                                  "InsurancePolicy" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#3e7ab7"
+                                           label="ParentPolicy"
+                                           fontname="Arial"
+                                           fontsize="12"
+                                          ];
+                      
+                            "InsurancePolicy" : "ProducerId": w -> 
+                                  "Producer" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Producer"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "InsurancePolicy" : "SourceOpportunityId": w -> 
+                                  "Opportunity" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="SourceOpportunity"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "InsurancePolicy" : "SourceQuoteId": w -> 
+                                  "Quote" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="SourceQuote"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      }

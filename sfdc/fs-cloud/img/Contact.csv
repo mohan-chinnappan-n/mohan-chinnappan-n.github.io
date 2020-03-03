@@ -63,6 +63,7 @@
 "Contact","Contact","PhotoUrl","Photo URL","url",255,true,"[]",,false,false,,"[]",false
 "Contact","Contact","Jigsaw","Data.com Key","string",20,true,"[]",,false,true,,"[]",false
 "Contact","Contact","JigsawContactId","Jigsaw Contact ID","string",20,true,"[]","JigsawContact",false,false,,"[]",false
+"Contact","Contact","IndividualId","Individual ID","reference",18,true,"[""Individual""]","Individual",false,true,,"[]",false
 "Contact","Contact","FinServ__AgeAsText__c","Age As Text","string",1300,true,"[]",,false,false,,"[]",false
 "Contact","Contact","FinServ__Age__c","Age","double",0,true,"[]",,false,false,,"[]",false
 "Contact","Contact","FinServ__AnnualIncome__c","Annual Income","currency",0,true,"[]",,false,true,,"[]",false

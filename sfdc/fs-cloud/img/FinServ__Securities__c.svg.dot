@@ -1,0 +1,117 @@
+
+        digraph "Salesforce+ ERD" {  
+            graph [  
+              rankdir="RL"  
+              bgcolor="#efeffd"  
+              label="Salesforce ERD "  
+              labeljust="r"  
+              nodesep="0.18"  
+              ranksep="0.46"        
+              fontname="Courier"  
+              fontsize="9"  
+            ];  
+            node [  
+              fontname="Courier"  
+              fontsize="11"  
+              shape="plaintext"  
+              color="#99ccff"  
+            ];  
+            edge [ arrowsize="0.8"   ];
+        
+            FinServ__Securities__c [shape=none, margin=0, label=<
+                <table border="1" cellborder="1" cellspacing="0" bgcolor="#ffeeff" >   
+                  <tr><td colspan="3" bgcolor="lightblue"><b>FinServ__Securities__c</b></td></tr>
+             <tr>
+                                        <td  bgcolor="#99ccff" port="Id" align="left">
+                                           <b>Id</b>
+                                        </td><td>id(18)</td></tr> <tr>
+                                         <td port="OwnerId" align="left">
+                                         OwnerId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="IsDeleted" align="left">
+                                         IsDeleted
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="Name" align="left">
+                                         Name
+                                       </td><td>string(80)</td></tr> <tr>
+                                         <td port="LastModifiedById" align="left">
+                                         LastModifiedById
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="LastViewedDate" align="left">
+                                         LastViewedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LastReferencedDate" align="left">
+                                         LastReferencedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="FinServ__CUSIP__c" align="left">
+                                         FinServ__CUSIP__c
+                                       </td><td>string(9)</td></tr> <tr>
+                                         <td port="FinServ__Exchange__c" align="left">
+                                         FinServ__Exchange__c
+                                       </td><td>picklist(255)</td></tr> <tr>
+                                         <td port="FinServ__LastUpdated__c" align="left">
+                                         FinServ__LastUpdated__c
+                                       </td><td>date</td></tr> <tr>
+                                         <td port="FinServ__Price__c" align="left">
+                                         FinServ__Price__c
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="FinServ__SecuritiesName__c" align="left">
+                                         FinServ__SecuritiesName__c
+                                       </td><td>string(150)</td></tr> <tr>
+                                         <td port="FinServ__SecurityId__c" align="left">
+                                         FinServ__SecurityId__c
+                                       </td><td>string(32)</td></tr> <tr>
+                                         <td port="FinServ__SourceSystemId__c" align="left">
+                                         FinServ__SourceSystemId__c
+                                       </td><td>string(100)</td></tr> <tr>
+                                         <td port="FinServ__AssetCategoryName__c" align="left">
+                                         FinServ__AssetCategoryName__c
+                                       </td><td>picklist(255)</td></tr> <tr>
+                                         <td port="FinServ__AssetCategory__c" align="left">
+                                         FinServ__AssetCategory__c
+                                       </td><td>picklist(255)</td></tr> <tr>
+                                         <td port="FinServ__AssetClass__c" align="left">
+                                         FinServ__AssetClass__c
+                                       </td><td>picklist(255)</td></tr>            
+                </table>
+                >
+                  URL="#"
+                  tooltip=" FinServ__Securities__c "
+                ];
+            
+                            "FinServ__Securities__c" : "OwnerId": w -> 
+                                  "Group" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Owner"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "FinServ__Securities__c" : "OwnerId": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Owner"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "FinServ__Securities__c" : "LastModifiedById": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LastModifiedBy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      }

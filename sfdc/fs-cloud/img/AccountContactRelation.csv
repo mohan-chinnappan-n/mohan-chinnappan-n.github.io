@@ -1,0 +1,20 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"AccountContactRelation","Account Contact Relationship","Id","Account Contact Relationship ID","id",18,false,"[]",,false,false,,"[]",false
+"AccountContactRelation","Account Contact Relationship","AccountId","Account ID","reference",18,false,"[""Account""]","Account",false,false,,"[]",false
+"AccountContactRelation","Account Contact Relationship","ContactId","Contact ID","reference",18,false,"[""Contact""]","Contact",false,false,,"[]",false
+"AccountContactRelation","Account Contact Relationship","Roles","Roles","multipicklist",4099,true,"[]",,false,true,,"[""Client"",""Dependent"",""Domestic Partner"",""Spouse"",""Grantor"",""Beneficiary"",""Board Member"",""Employee"",""Trustee"",""Other""]",false
+"AccountContactRelation","Account Contact Relationship","IsDirect","Direct","boolean",0,false,"[]",,false,false,,"[]",false
+"AccountContactRelation","Account Contact Relationship","IsActive","Active","boolean",0,false,"[]",,false,true,,"[]",false
+"AccountContactRelation","Account Contact Relationship","StartDate","Start Date","date",0,true,"[]",,false,true,,"[]",false
+"AccountContactRelation","Account Contact Relationship","EndDate","End Date","date",0,true,"[]",,false,true,,"[]",false
+"AccountContactRelation","Account Contact Relationship","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"AccountContactRelation","Account Contact Relationship","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"AccountContactRelation","Account Contact Relationship","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"AccountContactRelation","Account Contact Relationship","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"AccountContactRelation","Account Contact Relationship","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"AccountContactRelation","Account Contact Relationship","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"AccountContactRelation","Account Contact Relationship","FinServ__Primary__c","Primary Member","boolean",0,false,"[]",,false,true,,"[]",false
+"AccountContactRelation","Account Contact Relationship","FinServ__Rollups__c","Roll-Ups","multipicklist",4099,true,"[]",,false,true,,"[""All"",""Tasks"",""Events"",""Financial Accounts"",""Assets and Liabilities"",""Financial Goals"",""Referrals"",""Opportunities""]",false
+"AccountContactRelation","Account Contact Relationship","FinServ__SourceSystemId__c","Source System ID","string",100,true,"[]",,false,true,,"[]",true
+"AccountContactRelation","Account Contact Relationship","FinServ__IncludeInGroup__c","Include in Primary Group","boolean",0,false,"[]",,false,true,,"[]",false
+"AccountContactRelation","Account Contact Relationship","FinServ__PrimaryGroup__c","Primary Group","boolean",0,false,"[]",,false,true,,"[]",false

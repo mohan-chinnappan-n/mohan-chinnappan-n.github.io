@@ -1,0 +1,288 @@
+
+        digraph "Salesforce+ ERD" {  
+            graph [  
+              rankdir="RL"  
+              bgcolor="#efeffd"  
+              label="Salesforce ERD "  
+              labeljust="r"  
+              nodesep="0.18"  
+              ranksep="0.46"        
+              fontname="Courier"  
+              fontsize="9"  
+            ];  
+            node [  
+              fontname="Courier"  
+              fontsize="11"  
+              shape="plaintext"  
+              color="#99ccff"  
+            ];  
+            edge [ arrowsize="0.8"   ];
+        
+            Claim [shape=none, margin=0, label=<
+                <table border="1" cellborder="1" cellspacing="0" bgcolor="#ffeeff" >   
+                  <tr><td colspan="3" bgcolor="lightblue"><b>Claim</b></td></tr>
+             <tr>
+                                        <td  bgcolor="#99ccff" port="Id" align="left">
+                                           <b>Id</b>
+                                        </td><td>id(18)</td></tr> <tr>
+                                         <td port="OwnerId" align="left">
+                                         OwnerId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="IsDeleted" align="left">
+                                         IsDeleted
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="Name" align="left">
+                                         Name
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="LastModifiedById" align="left">
+                                         LastModifiedById
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="LastViewedDate" align="left">
+                                         LastViewedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LastReferencedDate" align="left">
+                                         LastReferencedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="PolicyNumberId" align="left">
+                                         PolicyNumberId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="AccountId" align="left">
+                                         AccountId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="CaseId" align="left">
+                                         CaseId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="InsuredAssetId" align="left">
+                                         InsuredAssetId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="SourceSystem" align="left">
+                                         SourceSystem
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="Status" align="left">
+                                         Status
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="ClaimType" align="left">
+                                         ClaimType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="EstimatedAmount" align="left">
+                                         EstimatedAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="ActualAmount" align="left">
+                                         ActualAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="ApprovedAmount" align="left">
+                                         ApprovedAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="InitiationDate" align="left">
+                                         InitiationDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LossDate" align="left">
+                                         LossDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="FinalizedDate" align="left">
+                                         FinalizedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="AssessmentDate" align="left">
+                                         AssessmentDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="Summary" align="left">
+                                         Summary
+                                       </td><td>textarea(32000)</td></tr> <tr>
+                                         <td port="ClaimReason" align="left">
+                                         ClaimReason
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="RenewalChannel" align="left">
+                                         RenewalChannel
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="IsClosed" align="left">
+                                         IsClosed
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="Severity" align="left">
+                                         Severity
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="LossType" align="left">
+                                         LossType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="ClaimReasonType" align="left">
+                                         ClaimReasonType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="IsInhabitable" align="left">
+                                         IsInhabitable
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="IsDrivable" align="left">
+                                         IsDrivable
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="IncidentSiteStreet" align="left">
+                                         IncidentSiteStreet
+                                       </td><td>textarea(255)</td></tr> <tr>
+                                         <td port="IncidentSiteCity" align="left">
+                                         IncidentSiteCity
+                                       </td><td>string(40)</td></tr> <tr>
+                                         <td port="IncidentSiteState" align="left">
+                                         IncidentSiteState
+                                       </td><td>string(80)</td></tr> <tr>
+                                         <td port="IncidentSitePostalCode" align="left">
+                                         IncidentSitePostalCode
+                                       </td><td>string(20)</td></tr> <tr>
+                                         <td port="IncidentSiteCountry" align="left">
+                                         IncidentSiteCountry
+                                       </td><td>string(80)</td></tr> <tr>
+                                         <td port="IncidentSiteLatitude" align="left">
+                                         IncidentSiteLatitude
+                                       </td><td>double</td></tr> <tr>
+                                         <td port="IncidentSiteLongitude" align="left">
+                                         IncidentSiteLongitude
+                                       </td><td>double</td></tr> <tr>
+                                         <td port="IncidentSiteGeocodeAccuracy" align="left">
+                                         IncidentSiteGeocodeAccuracy
+                                       </td><td>picklist(255)</td></tr> <tr>
+                                         <td port="IncidentSite" align="left">
+                                         IncidentSite
+                                       </td><td>address</td></tr> <tr>
+                                         <td port="IsAuthoritiesNotified" align="left">
+                                         IsAuthoritiesNotified
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="ReportingAuthority" align="left">
+                                         ReportingAuthority
+                                       </td><td>string(100)</td></tr> <tr>
+                                         <td port="ReportNumber" align="left">
+                                         ReportNumber
+                                       </td><td>string(100)</td></tr> <tr>
+                                         <td port="ReportDate" align="left">
+                                         ReportDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="RepairShop" align="left">
+                                         RepairShop
+                                       </td><td>string(100)</td></tr> <tr>
+                                         <td port="VisitDate" align="left">
+                                         VisitDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="SourceSystemIdentifier" align="left">
+                                         SourceSystemIdentifier
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="RepairShopLocation" align="left">
+                                         RepairShopLocation
+                                       </td><td>textarea(32000)</td></tr> <tr>
+                                         <td port="VisitSite" align="left">
+                                         VisitSite
+                                       </td><td>textarea(32000)</td></tr> <tr>
+                                         <td port="FnolChannel" align="left">
+                                         FnolChannel
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="SourceId" align="left">
+                                         SourceId
+                                       </td><td>reference(18)</td></tr>            
+                </table>
+                >
+                  URL="#"
+                  tooltip=" Claim "
+                ];
+            
+                            "Claim" : "OwnerId": w -> 
+                                  "Group" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Owner"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Claim" : "OwnerId": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Owner"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Claim" : "LastModifiedById": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LastModifiedBy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Claim" : "PolicyNumberId": w -> 
+                                  "InsurancePolicy" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="PolicyNumber"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Claim" : "AccountId": w -> 
+                                  "Account" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Account"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Claim" : "CaseId": w -> 
+                                  "Case" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Case"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Claim" : "InsuredAssetId": w -> 
+                                  "InsurancePolicyAsset" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="InsuredAsset"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Claim" : "SourceId": w -> 
+                                  "BusinessMilestone" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Source"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Claim" : "SourceId": w -> 
+                                  "PersonLifeEvent" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Source"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      }

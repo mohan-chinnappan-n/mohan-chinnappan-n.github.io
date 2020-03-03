@@ -1,0 +1,177 @@
+
+        digraph "Salesforce+ ERD" {  
+            graph [  
+              rankdir="RL"  
+              bgcolor="#efeffd"  
+              label="Salesforce ERD "  
+              labeljust="r"  
+              nodesep="0.18"  
+              ranksep="0.46"        
+              fontname="Courier"  
+              fontsize="9"  
+            ];  
+            node [  
+              fontname="Courier"  
+              fontsize="11"  
+              shape="plaintext"  
+              color="#99ccff"  
+            ];  
+            edge [ arrowsize="0.8"   ];
+        
+            InsurancePolicyParticipant [shape=none, margin=0, label=<
+                <table border="1" cellborder="1" cellspacing="0" bgcolor="#ffeeff" >   
+                  <tr><td colspan="3" bgcolor="lightblue"><b>InsurancePolicyParticipant</b></td></tr>
+             <tr>
+                                        <td  bgcolor="#99ccff" port="Id" align="left">
+                                           <b>Id</b>
+                                        </td><td>id(18)</td></tr> <tr>
+                                         <td port="IsDeleted" align="left">
+                                         IsDeleted
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="Name" align="left">
+                                         Name
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="LastModifiedById" align="left">
+                                         LastModifiedById
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="LastViewedDate" align="left">
+                                         LastViewedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LastReferencedDate" align="left">
+                                         LastReferencedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="InsurancePolicyId" align="left">
+                                         InsurancePolicyId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="SourceSystemIdentifier" align="left">
+                                         SourceSystemIdentifier
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="Role" align="left">
+                                         Role
+                                       </td><td>multipicklist(4099)</td></tr> <tr>
+                                         <td port="PrimaryParticipantAccountId" align="left">
+                                         PrimaryParticipantAccountId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="PrimaryParticipantContactId" align="left">
+                                         PrimaryParticipantContactId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="RelatedParticipantAccountId" align="left">
+                                         RelatedParticipantAccountId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="RelatedParticipantContactId" align="left">
+                                         RelatedParticipantContactId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="BeneficiarySharePercentage" align="left">
+                                         BeneficiarySharePercentage
+                                       </td><td>percent</td></tr> <tr>
+                                         <td port="RelationshipToInsured" align="left">
+                                         RelationshipToInsured
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="IsMinorBeneficiary" align="left">
+                                         IsMinorBeneficiary
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="LegalGuardianId" align="left">
+                                         LegalGuardianId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="EffectiveDate" align="left">
+                                         EffectiveDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="ExpirationDate" align="left">
+                                         ExpirationDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="IsActiveParticipant" align="left">
+                                         IsActiveParticipant
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="SourceSystem" align="left">
+                                         SourceSystem
+                                       </td><td>string(255)</td></tr>            
+                </table>
+                >
+                  URL="#"
+                  tooltip=" InsurancePolicyParticipant "
+                ];
+            
+                            "InsurancePolicyParticipant" : "LastModifiedById": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LastModifiedBy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "InsurancePolicyParticipant" : "InsurancePolicyId": w -> 
+                                  "InsurancePolicy" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="InsurancePolicy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "InsurancePolicyParticipant" : "PrimaryParticipantAccountId": w -> 
+                                  "Account" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="PrimaryParticipantAccount"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "InsurancePolicyParticipant" : "PrimaryParticipantContactId": w -> 
+                                  "Contact" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="PrimaryParticipantContact"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "InsurancePolicyParticipant" : "RelatedParticipantAccountId": w -> 
+                                  "Account" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="RelatedParticipantAccount"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "InsurancePolicyParticipant" : "RelatedParticipantContactId": w -> 
+                                  "Contact" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="RelatedParticipantContact"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "InsurancePolicyParticipant" : "LegalGuardianId": w -> 
+                                  "Account" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LegalGuardian"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      }

@@ -1,34 +1,37 @@
-Label,Name,Nillable,Picklistvalues,Referenceto,Relationshipname,Type,Unique,Updateable
-Case ID,Id,FALSE,--,--,null,id,FALSE,FALSE
-Deleted,IsDeleted,FALSE,--,--,null,boolean,FALSE,FALSE
-Case Number,CaseNumber,FALSE,--,--,null,string,FALSE,FALSE
-Contact ID,ContactId,TRUE,--,"[ ""Contact"" ]",Contact,reference,FALSE,TRUE
-Account ID,AccountId,TRUE,--,"[ ""Account"" ]",Account,reference,FALSE,TRUE
-Parent Case ID,ParentId,TRUE,--,"[ ""Case"" ]",Parent,reference,FALSE,TRUE
-Name,SuppliedName,TRUE,--,--,null,string,FALSE,TRUE
-Email Address,SuppliedEmail,TRUE,--,--,null,email,FALSE,TRUE
-Phone,SuppliedPhone,TRUE,--,--,null,string,FALSE,TRUE
-Company,SuppliedCompany,TRUE,--,--,null,string,FALSE,TRUE
-Case Type,Type,TRUE,"[ ""Problem"" , ""Feature Request"" , ""Question"" ]",--,null,picklist,FALSE,TRUE
-Status,Status,TRUE,"[ ""On Hold"" , ""Escalated"" , ""Closed"" , ""New"" ]",--,null,picklist,FALSE,TRUE
-Case Reason,Reason,TRUE,"[ ""User didn't attend training"" , ""Complex functionality"" , ""Existing problem"" , ""Instructions not clear"" , ""New problem"" ]",--,null,picklist,FALSE,TRUE
-Case Origin,Origin,TRUE,"[ ""Email"" , ""Phone"" , ""Web"" ]",--,null,picklist,FALSE,TRUE
-Subject,Subject,TRUE,--,--,null,string,FALSE,TRUE
-Priority,Priority,TRUE,"[ ""High"" , ""Medium"" , ""Low"" ]",--,null,picklist,FALSE,TRUE
-Description,Description,TRUE,--,--,null,textarea,FALSE,TRUE
-Closed,IsClosed,FALSE,--,--,null,boolean,FALSE,FALSE
-Closed Date,ClosedDate,TRUE,--,--,null,datetime,FALSE,FALSE
-Escalated,IsEscalated,FALSE,--,--,null,boolean,FALSE,TRUE
-Owner ID,OwnerId,FALSE,--,"[ ""Group"", ""User"" ]",Owner,reference,FALSE,TRUE
-Created Date,CreatedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-Created By ID,CreatedById,FALSE,--,"[ ""User"" ]",CreatedBy,reference,FALSE,FALSE
-Last Modified Date,LastModifiedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-Last Modified By ID,LastModifiedById,FALSE,--,"[ ""User"" ]",LastModifiedBy,reference,FALSE,FALSE
-System Modstamp,SystemModstamp,FALSE,--,--,null,datetime,FALSE,FALSE
-Contact Phone,ContactPhone,TRUE,--,--,null,phone,FALSE,FALSE
-Contact Mobile,ContactMobile,TRUE,--,--,null,phone,FALSE,FALSE
-Contact Email,ContactEmail,TRUE,--,--,null,email,FALSE,FALSE
-Contact Fax,ContactFax,TRUE,--,--,null,phone,FALSE,FALSE
-Last Viewed Date,LastViewedDate,TRUE,--,--,null,datetime,FALSE,FALSE
-Last Referenced Date,LastReferencedDate,TRUE,--,--,null,datetime,FALSE,FALSE
-Financial Account,FinServ__FinancialAccount__c,TRUE,--,"[ ""FinServ__FinancialAccount__c"" ]",FinServ__FinancialAccount__r,reference,FALSE,TRUE
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"Case","Case","Id","Case ID","id",18,false,"[]",,false,false,,"[]",false
+"Case","Case","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"Case","Case","MasterRecordId","Master Record ID","reference",18,true,"[""Case""]","MasterRecord",false,false,,"[]",false
+"Case","Case","CaseNumber","Case Number","string",30,false,"[]",,false,false,,"[]",false
+"Case","Case","ContactId","Contact ID","reference",18,true,"[""Contact""]","Contact",false,true,,"[]",false
+"Case","Case","AccountId","Account ID","reference",18,true,"[""Account""]","Account",false,true,,"[]",false
+"Case","Case","SourceId","Source ID","reference",18,true,"[""BusinessMilestone"",""EmailMessage"",""InsurancePolicy"",""PersonLifeEvent""]","Source",false,true,,"[]",false
+"Case","Case","ParentId","Parent Case ID","reference",18,true,"[""Case""]","Parent",false,true,,"[]",false
+"Case","Case","SuppliedName","Name","string",80,true,"[]",,false,true,,"[]",false
+"Case","Case","SuppliedEmail","Email Address","email",80,true,"[]",,false,true,,"[]",false
+"Case","Case","SuppliedPhone","Phone","string",40,true,"[]",,false,true,,"[]",false
+"Case","Case","SuppliedCompany","Company","string",80,true,"[]",,false,true,,"[]",false
+"Case","Case","Type","Case Type","picklist",40,true,"[]",,false,true,,"[""Problem"",""Feature Request"",""Question""]",false
+"Case","Case","Status","Status","picklist",40,true,"[]",,false,true,,"[""On Hold"",""Escalated"",""Closed"",""New""]",false
+"Case","Case","Reason","Case Reason","picklist",40,true,"[]",,false,true,,"[""User didn't attend training"",""Complex functionality"",""Existing problem"",""Instructions not clear"",""New problem""]",false
+"Case","Case","Origin","Case Origin","picklist",40,true,"[]",,false,true,,"[""Email"",""Phone"",""Web""]",false
+"Case","Case","Subject","Subject","string",255,true,"[]",,false,true,,"[]",false
+"Case","Case","Priority","Priority","picklist",40,true,"[]",,false,true,,"[""High"",""Medium"",""Low""]",false
+"Case","Case","Description","Description","textarea",32000,true,"[]",,false,true,,"[]",false
+"Case","Case","IsClosed","Closed","boolean",0,false,"[]",,false,false,,"[]",false
+"Case","Case","ClosedDate","Closed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Case","Case","IsEscalated","Escalated","boolean",0,false,"[]",,false,true,,"[]",false
+"Case","Case","OwnerId","Owner ID","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"Case","Case","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Case","Case","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"Case","Case","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Case","Case","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"Case","Case","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"Case","Case","ContactPhone","Contact Phone","phone",40,true,"[]",,false,false,,"[]",false
+"Case","Case","ContactMobile","Contact Mobile","phone",40,true,"[]",,false,false,,"[]",false
+"Case","Case","ContactEmail","Contact Email","email",80,true,"[]",,false,false,,"[]",false
+"Case","Case","ContactFax","Contact Fax","phone",40,true,"[]",,false,false,,"[]",false
+"Case","Case","Comments","Internal Comments","textarea",4000,true,"[]",,false,true,,"[]",false
+"Case","Case","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Case","Case","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Case","Case","FinServ__FinancialAccount__c","Financial Account","reference",18,true,"[""FinServ__FinancialAccount__c""]","FinServ__FinancialAccount__r",false,true,,"[]",false

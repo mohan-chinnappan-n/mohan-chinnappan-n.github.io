@@ -89,10 +89,12 @@
 "Account","Account","PersonLastCUUpdateDate","Last Stay-in-Touch Save Date","datetime",0,true,"[]",,false,false,,"[]",false
 "Account","Account","PersonEmailBouncedReason","Email Bounced Reason","string",255,true,"[]",,false,true,,"[]",false
 "Account","Account","PersonEmailBouncedDate","Email Bounced Date","datetime",0,true,"[]",,false,true,,"[]",false
+"Account","Account","PersonIndividualId","Individual ID","reference",18,true,"[""Individual""]","PersonIndividual",false,true,,"[]",false
 "Account","Account","Jigsaw","Data.com Key","string",20,true,"[]",,false,true,,"[]",false
 "Account","Account","JigsawCompanyId","Jigsaw Company ID","string",20,true,"[]","JigsawCompany",false,false,,"[]",false
 "Account","Account","AccountSource","Account Source","picklist",40,true,"[]",,false,true,,"[""Advertisement"",""Customer Event"",""Employee Referral"",""Google AdWords"",""Other"",""Partner"",""Purchased List"",""Trade Show"",""Webinar"",""Website""]",false
 "Account","Account","SicDesc","SIC Description","string",80,true,"[]",,false,true,,"[]",false
+"Account","Account","OperatingHoursId","Operating Hour ID","reference",18,true,"[""OperatingHours""]","OperatingHours",false,true,,"[]",false
 "Account","Account","FinServ__AUM__c","AUM","currency",0,true,"[]",,false,false,,"[]",false
 "Account","Account","FinServ__ClientCategory__c","Category","picklist",255,true,"[]",,false,true,,"[""Platinum"",""Gold"",""Silver"",""Bronze""]",false
 "Account","Account","FinServ__FinancialInterests__c","Financial Interests","multipicklist",4099,true,"[]",,false,true,,"[""Municipal Bonds"",""Fixed Income"",""Energy"",""Technology"",""Retirement"",""College Planning""]",false

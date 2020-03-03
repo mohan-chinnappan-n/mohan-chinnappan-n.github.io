@@ -1,0 +1,156 @@
+
+        digraph "Salesforce+ ERD" {  
+            graph [  
+              rankdir="RL"  
+              bgcolor="#efeffd"  
+              label="Salesforce ERD "  
+              labeljust="r"  
+              nodesep="0.18"  
+              ranksep="0.46"        
+              fontname="Courier"  
+              fontsize="9"  
+            ];  
+            node [  
+              fontname="Courier"  
+              fontsize="11"  
+              shape="plaintext"  
+              color="#99ccff"  
+            ];  
+            edge [ arrowsize="0.8"   ];
+        
+            FinServ__ContactContactRelation__c [shape=none, margin=0, label=<
+                <table border="1" cellborder="1" cellspacing="0" bgcolor="#ffeeff" >   
+                  <tr><td colspan="3" bgcolor="lightblue"><b>FinServ__ContactContactRelation__c</b></td></tr>
+             <tr>
+                                        <td  bgcolor="#99ccff" port="Id" align="left">
+                                           <b>Id</b>
+                                        </td><td>id(18)</td></tr> <tr>
+                                         <td port="OwnerId" align="left">
+                                         OwnerId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="IsDeleted" align="left">
+                                         IsDeleted
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="Name" align="left">
+                                         Name
+                                       </td><td>string(80)</td></tr> <tr>
+                                         <td port="LastModifiedById" align="left">
+                                         LastModifiedById
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="FinServ__Active__c" align="left">
+                                         FinServ__Active__c
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="FinServ__Contact__c" align="left">
+                                         FinServ__Contact__c
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="FinServ__EndDate__c" align="left">
+                                         FinServ__EndDate__c
+                                       </td><td>date</td></tr> <tr>
+                                         <td port="FinServ__ExternalId__c" align="left">
+                                         FinServ__ExternalId__c
+                                       </td><td>string(64)</td></tr> <tr>
+                                         <td port="FinServ__InverseRelationship__c" align="left">
+                                         FinServ__InverseRelationship__c
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="FinServ__RelatedContact__c" align="left">
+                                         FinServ__RelatedContact__c
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="FinServ__Role__c" align="left">
+                                         FinServ__Role__c
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="FinServ__SourceSystemId__c" align="left">
+                                         FinServ__SourceSystemId__c
+                                       </td><td>string(100)</td></tr> <tr>
+                                         <td port="FinServ__StartDate__c" align="left">
+                                         FinServ__StartDate__c
+                                       </td><td>date</td></tr>            
+                </table>
+                >
+                  URL="#"
+                  tooltip=" FinServ__ContactContactRelation__c "
+                ];
+            
+                            "FinServ__ContactContactRelation__c" : "OwnerId": w -> 
+                                  "Group" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Owner"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "FinServ__ContactContactRelation__c" : "OwnerId": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Owner"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "FinServ__ContactContactRelation__c" : "LastModifiedById": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LastModifiedBy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "FinServ__ContactContactRelation__c" : "FinServ__Contact__c": w -> 
+                                  "Contact" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="FinServ__Contact__r"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "FinServ__ContactContactRelation__c" : "FinServ__InverseRelationship__c": w -> 
+                                  "FinServ__ContactContactRelation__c" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#3e7ab7"
+                                           label="FinServ__InverseRelationship__r"
+                                           fontname="Arial"
+                                           fontsize="12"
+                                          ];
+                      
+                            "FinServ__ContactContactRelation__c" : "FinServ__RelatedContact__c": w -> 
+                                  "Contact" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="FinServ__RelatedContact__r"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "FinServ__ContactContactRelation__c" : "FinServ__Role__c": w -> 
+                                  "FinServ__ReciprocalRole__c" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="FinServ__Role__r"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      }

@@ -1,0 +1,150 @@
+
+        digraph "Salesforce+ ERD" {  
+            graph [  
+              rankdir="RL"  
+              bgcolor="#efeffd"  
+              label="Salesforce ERD "  
+              labeljust="r"  
+              nodesep="0.18"  
+              ranksep="0.46"        
+              fontname="Courier"  
+              fontsize="9"  
+            ];  
+            node [  
+              fontname="Courier"  
+              fontsize="11"  
+              shape="plaintext"  
+              color="#99ccff"  
+            ];  
+            edge [ arrowsize="0.8"   ];
+        
+            InsurancePolicyCoverage [shape=none, margin=0, label=<
+                <table border="1" cellborder="1" cellspacing="0" bgcolor="#ffeeff" >   
+                  <tr><td colspan="3" bgcolor="lightblue"><b>InsurancePolicyCoverage</b></td></tr>
+             <tr>
+                                        <td  bgcolor="#99ccff" port="Id" align="left">
+                                           <b>Id</b>
+                                        </td><td>id(18)</td></tr> <tr>
+                                         <td port="IsDeleted" align="left">
+                                         IsDeleted
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="Name" align="left">
+                                         Name
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="LastModifiedById" align="left">
+                                         LastModifiedById
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="LastViewedDate" align="left">
+                                         LastViewedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LastReferencedDate" align="left">
+                                         LastReferencedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="InsurancePolicyId" align="left">
+                                         InsurancePolicyId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="CategoryCode" align="left">
+                                         CategoryCode
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="LimitRange" align="left">
+                                         LimitRange
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="LimitAmount" align="left">
+                                         LimitAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="LimitDate" align="left">
+                                         LimitDate
+                                       </td><td>date</td></tr> <tr>
+                                         <td port="LimitPercentage" align="left">
+                                         LimitPercentage
+                                       </td><td>percent</td></tr> <tr>
+                                         <td port="PremiumAmount" align="left">
+                                         PremiumAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="DeductibleAmount" align="left">
+                                         DeductibleAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="Category" align="left">
+                                         Category
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="CategoryGroup" align="left">
+                                         CategoryGroup
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="CategoryGroupType" align="left">
+                                         CategoryGroupType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="Discount" align="left">
+                                         Discount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="BenefitPaymentFrequency" align="left">
+                                         BenefitPaymentFrequency
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="EffectiveDate" align="left">
+                                         EffectiveDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="ExpirationDate" align="left">
+                                         ExpirationDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="IncomeOptionType" align="left">
+                                         IncomeOptionType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="DeathBenefitOptionType" align="left">
+                                         DeathBenefitOptionType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="InsurancePolicyAssetId" align="left">
+                                         InsurancePolicyAssetId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="SourceSystemIdentifier" align="left">
+                                         SourceSystemIdentifier
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="SourceSystem" align="left">
+                                         SourceSystem
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="CoverageName" align="left">
+                                         CoverageName
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="Description" align="left">
+                                         Description
+                                       </td><td>textarea(32000)</td></tr>            
+                </table>
+                >
+                  URL="#"
+                  tooltip=" InsurancePolicyCoverage "
+                ];
+            
+                            "InsurancePolicyCoverage" : "LastModifiedById": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LastModifiedBy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "InsurancePolicyCoverage" : "InsurancePolicyId": w -> 
+                                  "InsurancePolicy" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="InsurancePolicy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "InsurancePolicyCoverage" : "InsurancePolicyAssetId": w -> 
+                                  "InsurancePolicyAsset" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="InsurancePolicyAsset"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      }

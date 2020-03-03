@@ -1,0 +1,25 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"InsuranceProfile","Insurance Profile","Id","Insurance Profile ID","id",18,false,"[]",,false,false,,"[]",false
+"InsuranceProfile","Insurance Profile","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"InsuranceProfile","Insurance Profile","Name","Name","string",255,false,"[]",,false,false,,"[]",false
+"InsuranceProfile","Insurance Profile","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"InsuranceProfile","Insurance Profile","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"InsuranceProfile","Insurance Profile","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"InsuranceProfile","Insurance Profile","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"InsuranceProfile","Insurance Profile","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"InsuranceProfile","Insurance Profile","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"InsuranceProfile","Insurance Profile","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"InsuranceProfile","Insurance Profile","ContactId","Contact ID","reference",18,false,"[""Contact""]","Contact",false,true,,"[]",false
+"InsuranceProfile","Insurance Profile","MajorCitationCount","Major Citation Count","int",0,true,"[]",,false,true,,"[]",false
+"InsuranceProfile","Insurance Profile","MinorCitationCount","Minor Citation Count","int",0,true,"[]",,false,true,,"[]",false
+"InsuranceProfile","Insurance Profile","IsAlcoholAbuser","Alcohol Abuse","boolean",0,false,"[]",,false,true,,"[]",false
+"InsuranceProfile","Insurance Profile","IsDrugAbuser","Drug Abuse","boolean",0,false,"[]",,false,true,,"[]",false
+"InsuranceProfile","Insurance Profile","IsHighRiskOccupation","High Risk Occupation","boolean",0,false,"[]",,false,true,,"[]",false
+"InsuranceProfile","Insurance Profile","IsGoodDriver","Good Driver","boolean",0,false,"[]",,false,true,,"[]",false
+"InsuranceProfile","Insurance Profile","IsGoodStudent","Good Student","boolean",0,false,"[]",,false,true,,"[]",false
+"InsuranceProfile","Insurance Profile","IsAlcoholConsumer","Consumes Alcohol","boolean",0,false,"[]",,false,true,,"[]",false
+"InsuranceProfile","Insurance Profile","IsTobaccoConsumer","Consumes Tobacco","boolean",0,false,"[]",,false,true,,"[]",false
+"InsuranceProfile","Insurance Profile","NumberOfAccidents","Number of Accidents","int",0,true,"[]",,false,true,,"[]",false
+"InsuranceProfile","Insurance Profile","IsLicenseSuspended","License suspended","boolean",0,false,"[]",,false,true,,"[]",false
+"InsuranceProfile","Insurance Profile","SourceSystemIdentifier","Source System Identifier","string",255,true,"[]",,true,true,,"[]",false
+"InsuranceProfile","Insurance Profile","SourceSystem","Source System","string",255,true,"[]",,false,true,,"[]",false

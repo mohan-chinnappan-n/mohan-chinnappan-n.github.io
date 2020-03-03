@@ -1,0 +1,19 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"IdentityDocument","Identity Document","Id","Identity Document ID","id",18,false,"[]",,false,false,,"[]",false
+"IdentityDocument","Identity Document","OwnerId","Owner ID","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"IdentityDocument","Identity Document","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"IdentityDocument","Identity Document","Name","Document Number","string",255,false,"[]",,false,true,,"[]",false
+"IdentityDocument","Identity Document","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"IdentityDocument","Identity Document","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"IdentityDocument","Identity Document","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"IdentityDocument","Identity Document","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"IdentityDocument","Identity Document","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"IdentityDocument","Identity Document","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"IdentityDocument","Identity Document","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"IdentityDocument","Identity Document","RelatedLegalEntityId","Related Legal Entity ID","reference",18,false,"[""Account"",""Contact""]","RelatedLegalEntity",false,true,,"[]",false
+"IdentityDocument","Identity Document","IdDocumentType","Document Type","picklist",40,true,"[]",,false,true,,"[]",false
+"IdentityDocument","Identity Document","IssueDate","Issue Date","date",0,true,"[]",,false,true,,"[]",false
+"IdentityDocument","Identity Document","IssuingAuthority","Issuing Authority/Country","string",255,true,"[]",,false,true,,"[]",false
+"IdentityDocument","Identity Document","ExpirationDate","Expiration Date","date",0,true,"[]",,false,true,,"[]",false
+"IdentityDocument","Identity Document","VerifiedById","User ID","reference",18,true,"[""User""]","VerifiedBy",false,true,,"[]",false
+"IdentityDocument","Identity Document","VerifiedOn","Verified On","datetime",0,true,"[]",,false,true,,"[]",false

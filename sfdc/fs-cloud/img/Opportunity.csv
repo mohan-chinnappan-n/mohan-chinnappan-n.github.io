@@ -31,6 +31,8 @@
 "Opportunity","Opportunity","FiscalQuarter","Fiscal Quarter","int",0,true,"[]",,false,false,,"[]",false
 "Opportunity","Opportunity","FiscalYear","Fiscal Year","int",0,true,"[]",,false,false,,"[]",false
 "Opportunity","Opportunity","Fiscal","Fiscal Period","string",6,true,"[]",,false,false,,"[]",false
+"Opportunity","Opportunity","ContactId","Contact ID","reference",18,true,"[""Contact""]",,false,false,,"[]",false
+"Opportunity","Opportunity","SourceId","Source ID","reference",18,true,"[""BusinessMilestone"",""PersonLifeEvent""]","Source",false,true,,"[]",false
 "Opportunity","Opportunity","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
 "Opportunity","Opportunity","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
 "Opportunity","Opportunity","SyncedQuoteId","Quote ID","reference",18,true,"[""Quote""]","SyncedQuote",false,true,,"[]",false

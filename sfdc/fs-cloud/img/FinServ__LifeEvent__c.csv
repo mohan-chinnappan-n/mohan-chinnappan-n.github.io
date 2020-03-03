@@ -1,0 +1,17 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"FinServ__LifeEvent__c","Life Event","Id","Record ID","id",18,false,"[]",,false,false,,"[]",false
+"FinServ__LifeEvent__c","Life Event","OwnerId","Owner ID","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"FinServ__LifeEvent__c","Life Event","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"FinServ__LifeEvent__c","Life Event","Name","Life Event Name","string",80,false,"[]",,false,false,,"[]",false
+"FinServ__LifeEvent__c","Life Event","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"FinServ__LifeEvent__c","Life Event","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"FinServ__LifeEvent__c","Life Event","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"FinServ__LifeEvent__c","Life Event","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"FinServ__LifeEvent__c","Life Event","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"FinServ__LifeEvent__c","Life Event","FinServ__Client__c","Client","reference",18,true,"[""Account""]","FinServ__Client__r",false,true,,"[]",false
+"FinServ__LifeEvent__c","Life Event","FinServ__DiscussionNote__c","Discussion Note","textarea",255,true,"[]",,false,true,,"[]",false
+"FinServ__LifeEvent__c","Life Event","FinServ__EventDate__c","Event Date","date",0,true,"[]",,false,true,,"[]",false
+"FinServ__LifeEvent__c","Life Event","FinServ__EventType__c","Event Type","picklist",255,true,"[]",,false,true,,"[""New Baby"",""New Job"",""New Home"",""College"",""New Business"",""Retirement""]",false
+"FinServ__LifeEvent__c","Life Event","FinServ__FinancialGoal__c","Financial Goal","reference",18,true,"[""FinServ__FinancialGoal__c""]","FinServ__FinancialGoal__r",false,true,,"[]",false
+"FinServ__LifeEvent__c","Life Event","FinServ__GoalType__c","Goal Type","picklist",255,true,"[]",,false,true,,"[""Saving for College"",""Saving for Retirement""]",false
+"FinServ__LifeEvent__c","Life Event","FinServ__SourceSystemId__c","Source System ID","string",100,true,"[]",,false,true,,"[]",true

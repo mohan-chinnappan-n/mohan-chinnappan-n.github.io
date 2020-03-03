@@ -1,0 +1,381 @@
+
+        digraph "Salesforce+ ERD" {  
+            graph [  
+              rankdir="RL"  
+              bgcolor="#efeffd"  
+              label="Salesforce ERD "  
+              labeljust="r"  
+              nodesep="0.18"  
+              ranksep="0.46"        
+              fontname="Courier"  
+              fontsize="9"  
+            ];  
+            node [  
+              fontname="Courier"  
+              fontsize="11"  
+              shape="plaintext"  
+              color="#99ccff"  
+            ];  
+            edge [ arrowsize="0.8"   ];
+        
+            Lead [shape=none, margin=0, label=<
+                <table border="1" cellborder="1" cellspacing="0" bgcolor="#ffeeff" >   
+                  <tr><td colspan="3" bgcolor="lightblue"><b>Lead</b></td></tr>
+             <tr>
+                                        <td  bgcolor="#99ccff" port="Id" align="left">
+                                           <b>Id</b>
+                                        </td><td>id(18)</td></tr> <tr>
+                                         <td port="IsDeleted" align="left">
+                                         IsDeleted
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="MasterRecordId" align="left">
+                                         MasterRecordId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="LastName" align="left">
+                                         LastName
+                                       </td><td>string(80)</td></tr> <tr>
+                                         <td port="FirstName" align="left">
+                                         FirstName
+                                       </td><td>string(40)</td></tr> <tr>
+                                         <td port="Salutation" align="left">
+                                         Salutation
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="MiddleName" align="left">
+                                         MiddleName
+                                       </td><td>string(40)</td></tr> <tr>
+                                         <td port="Suffix" align="left">
+                                         Suffix
+                                       </td><td>string(40)</td></tr> <tr>
+                                         <td port="Name" align="left">
+                                         Name
+                                       </td><td>string(121)</td></tr> <tr>
+                                         <td port="RecordTypeId" align="left">
+                                         RecordTypeId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="Title" align="left">
+                                         Title
+                                       </td><td>string(128)</td></tr> <tr>
+                                         <td port="Company" align="left">
+                                         Company
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="Street" align="left">
+                                         Street
+                                       </td><td>textarea(255)</td></tr> <tr>
+                                         <td port="City" align="left">
+                                         City
+                                       </td><td>string(40)</td></tr> <tr>
+                                         <td port="State" align="left">
+                                         State
+                                       </td><td>string(80)</td></tr> <tr>
+                                         <td port="PostalCode" align="left">
+                                         PostalCode
+                                       </td><td>string(20)</td></tr> <tr>
+                                         <td port="Country" align="left">
+                                         Country
+                                       </td><td>string(80)</td></tr> <tr>
+                                         <td port="Latitude" align="left">
+                                         Latitude
+                                       </td><td>double</td></tr> <tr>
+                                         <td port="Longitude" align="left">
+                                         Longitude
+                                       </td><td>double</td></tr> <tr>
+                                         <td port="GeocodeAccuracy" align="left">
+                                         GeocodeAccuracy
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="Address" align="left">
+                                         Address
+                                       </td><td>address</td></tr> <tr>
+                                         <td port="Phone" align="left">
+                                         Phone
+                                       </td><td>phone(40)</td></tr> <tr>
+                                         <td port="MobilePhone" align="left">
+                                         MobilePhone
+                                       </td><td>phone(40)</td></tr> <tr>
+                                         <td port="Fax" align="left">
+                                         Fax
+                                       </td><td>phone(40)</td></tr> <tr>
+                                         <td port="Email" align="left">
+                                         Email
+                                       </td><td>email(80)</td></tr> <tr>
+                                         <td port="Website" align="left">
+                                         Website
+                                       </td><td>url(255)</td></tr> <tr>
+                                         <td port="PhotoUrl" align="left">
+                                         PhotoUrl
+                                       </td><td>url(255)</td></tr> <tr>
+                                         <td port="Description" align="left">
+                                         Description
+                                       </td><td>textarea(32000)</td></tr> <tr>
+                                         <td port="LeadSource" align="left">
+                                         LeadSource
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="Status" align="left">
+                                         Status
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="Industry" align="left">
+                                         Industry
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="Rating" align="left">
+                                         Rating
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="AnnualRevenue" align="left">
+                                         AnnualRevenue
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="NumberOfEmployees" align="left">
+                                         NumberOfEmployees
+                                       </td><td>int</td></tr> <tr>
+                                         <td port="OwnerId" align="left">
+                                         OwnerId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="HasOptedOutOfEmail" align="left">
+                                         HasOptedOutOfEmail
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="IsConverted" align="left">
+                                         IsConverted
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="ConvertedDate" align="left">
+                                         ConvertedDate
+                                       </td><td>date</td></tr> <tr>
+                                         <td port="ConvertedAccountId" align="left">
+                                         ConvertedAccountId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="ConvertedContactId" align="left">
+                                         ConvertedContactId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="ConvertedOpportunityId" align="left">
+                                         ConvertedOpportunityId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="IsUnreadByOwner" align="left">
+                                         IsUnreadByOwner
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="LastModifiedById" align="left">
+                                         LastModifiedById
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="LastActivityDate" align="left">
+                                         LastActivityDate
+                                       </td><td>date</td></tr> <tr>
+                                         <td port="DoNotCall" align="left">
+                                         DoNotCall
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="HasOptedOutOfFax" align="left">
+                                         HasOptedOutOfFax
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="LastViewedDate" align="left">
+                                         LastViewedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LastReferencedDate" align="left">
+                                         LastReferencedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LastTransferDate" align="left">
+                                         LastTransferDate
+                                       </td><td>date</td></tr> <tr>
+                                         <td port="Jigsaw" align="left">
+                                         Jigsaw
+                                       </td><td>string(20)</td></tr> <tr>
+                                         <td port="JigsawContactId" align="left">
+                                         JigsawContactId
+                                       </td><td>string(20)</td></tr> <tr>
+                                         <td port="EmailBouncedReason" align="left">
+                                         EmailBouncedReason
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="EmailBouncedDate" align="left">
+                                         EmailBouncedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="IndividualId" align="left">
+                                         IndividualId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="FinServ__CreatedFromLead__c" align="left">
+                                         FinServ__CreatedFromLead__c
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="FinServ__Employer__c" align="left">
+                                         FinServ__Employer__c
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="FinServ__ConversionDateTime__c" align="left">
+                                         FinServ__ConversionDateTime__c
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="FinServ__CreatedByMe__c" align="left">
+                                         FinServ__CreatedByMe__c
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="FinServ__ExpressedInterest__c" align="left">
+                                         FinServ__ExpressedInterest__c
+                                       </td><td>picklist(255)</td></tr> <tr>
+                                         <td port="FinServ__Household__c" align="left">
+                                         FinServ__Household__c
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="FinServ__PotentialValue__c" align="left">
+                                         FinServ__PotentialValue__c
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="FinServ__ReferredByContact__c" align="left">
+                                         FinServ__ReferredByContact__c
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="FinServ__ReferredByUser__c" align="left">
+                                         FinServ__ReferredByUser__c
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="FinServ__ReferrerScore__c" align="left">
+                                         FinServ__ReferrerScore__c
+                                       </td><td>double</td></tr> <tr>
+                                         <td port="FinServ__RelatedAccount__c" align="left">
+                                         FinServ__RelatedAccount__c
+                                       </td><td>reference(18)</td></tr>            
+                </table>
+                >
+                  URL="#"
+                  tooltip=" Lead "
+                ];
+            
+                            "Lead" : "MasterRecordId": w -> 
+                                  "Lead" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#3e7ab7"
+                                           label="_"
+                                           fontname="Arial"
+                                           fontsize="12"
+                                          ];
+                      
+                            "Lead" : "RecordTypeId": w -> 
+                                  "RecordType" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="RecordType"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Lead" : "OwnerId": w -> 
+                                  "Group" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Owner"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Lead" : "OwnerId": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Owner"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Lead" : "ConvertedAccountId": w -> 
+                                  "Account" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="ConvertedAccount"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Lead" : "ConvertedContactId": w -> 
+                                  "Contact" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="ConvertedContact"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Lead" : "ConvertedOpportunityId": w -> 
+                                  "Opportunity" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="ConvertedOpportunity"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Lead" : "LastModifiedById": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LastModifiedBy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Lead" : "IndividualId": w -> 
+                                  "Individual" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Individual"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Lead" : "FinServ__Household__c": w -> 
+                                  "Account" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="FinServ__Household__r"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Lead" : "FinServ__ReferredByContact__c": w -> 
+                                  "Contact" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="FinServ__ReferredByContact__r"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Lead" : "FinServ__ReferredByUser__c": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="FinServ__ReferredByUser__r"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "Lead" : "FinServ__RelatedAccount__c": w -> 
+                                  "Account" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="FinServ__RelatedAccount__r"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      }

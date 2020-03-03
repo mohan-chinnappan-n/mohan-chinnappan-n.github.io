@@ -1,0 +1,65 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"InsurancePolicy","Insurance Policy","Id","Insurance Policy ID","id",18,false,"[]",,false,false,,"[]",false
+"InsurancePolicy","Insurance Policy","OwnerId","Owner ID","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"InsurancePolicy","Insurance Policy","Name","Policy Number","string",255,false,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"InsurancePolicy","Insurance Policy","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"InsurancePolicy","Insurance Policy","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"InsurancePolicy","Insurance Policy","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"InsurancePolicy","Insurance Policy","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"InsurancePolicy","Insurance Policy","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"InsurancePolicy","Insurance Policy","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"InsurancePolicy","Insurance Policy","NameInsuredId","Account ID","reference",18,false,"[""Account""]","NameInsured",false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","PolicyName","Policy Name","string",255,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","SourceSystem","Source System","string",255,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","EffectiveDate","Effective Date","datetime",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","ExpirationDate","Expiration Date","datetime",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","PremiumAmount","Premium Amount","currency",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","PaymentDueDate","Payment Due Date","datetime",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","CancellationDate","Cancellation Date","datetime",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","CancellationReason","Cancellation Reason","textarea",32000,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","RenewalDate","Renewal Date","datetime",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","FinalRenewalDate","Final Renewal Date","datetime",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","PolicyDescription","Policy Description","textarea",32000,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","Status","Status","picklist",40,true,"[]",,false,true,,"[""Initial"",""Applied"",""Cancelled"",""Customer Rejected"",""Draft"",""Final"",""Full Life Ending"",""Hypothetical"",""In Force"",""In Force-change pending"",""In Force with temporary coverage"",""Agreement Premature endings"",""Insurer Rejected"",""Lapsed"",""Negotiation End"",""Not Taken Up"",""Offered"",""Quote Abandoned"",""Quoted"",""Replaced by customer application"",""Replaced by insurer counter offer"",""Suspended"",""Terminated"",""Under negotiation""]",false
+"InsurancePolicy","Insurance Policy","ChangeType","Change Type","picklist",40,true,"[]",,false,true,,"[""Life-Event"",""House Renovation""]",false
+"InsurancePolicy","Insurance Policy","Substatus","Substatus","picklist",40,true,"[]",,false,true,,"[""Draft"",""Final"",""Negotiation End"",""Not Taken Up"",""Quote Abandoned""]",false
+"InsurancePolicy","Insurance Policy","PremiumFrequency","Premium Frequency","picklist",40,true,"[]",,false,true,,"[""Monthly"",""Semi-Monthly(twice a month)"",""Quarterly"",""Semi Annual(twice a year)"",""Annually""]",false
+"InsurancePolicy","Insurance Policy","PlanTier","Plan Tier","picklist",40,true,"[]",,false,true,,"[""Silver"",""Gold"",""Platinum""]",false
+"InsurancePolicy","Insurance Policy","AuditTerm","Audit Term","picklist",40,true,"[]",,false,true,,"[""Monthly"",""Semi-Monthly(twice a month)"",""Quarterly"",""Semi Annual(twice a year)"",""Annually""]",false
+"InsurancePolicy","Insurance Policy","ChangeSubtype","Change Subtype","picklist",40,true,"[]",,false,true,,"[""Child Birth"",""Marriage""]",false
+"InsurancePolicy","Insurance Policy","PolicyType","Policy Type","picklist",40,true,"[]",,false,true,,"[""Home"",""Auto"",""Life"",""Annuity"",""Earthquake"",""Business Interruption"",""Commercial Auto"",""Commercial Property"",""Workers Compensation""]",false
+"InsurancePolicy","Insurance Policy","PlanType","Plan Type","picklist",40,true,"[]",,false,true,,"[""Single Life"",""Joint Last-to-Die"",""Joint First-to-Die""]",false
+"InsurancePolicy","Insurance Policy","PriorPolicyId","Insurance Policy ID","reference",18,true,"[""InsurancePolicy""]","PriorPolicy",false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","ProductId","Product ID","reference",18,true,"[""Product2""]","Product",false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","ParentPolicyId","Insurance Policy ID","reference",18,true,"[""InsurancePolicy""]","ParentPolicy",false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","PreviousRenewalDate","Previous Renewal Date","datetime",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","RenewalChannel","Renewal Channel","picklist",40,true,"[]",,false,true,,"[""Web"",""Phone"",""Mobile"",""Chatbot""]",false
+"InsurancePolicy","Insurance Policy","FnolChannel","FNOL Channel","picklist",40,true,"[]",,false,true,,"[""Web"",""Phone"",""Mobile"",""Chatbot""]",false
+"InsurancePolicy","Insurance Policy","ProducerId","Producer ID","reference",18,true,"[""Producer""]","Producer",false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","IsActive","Active","boolean",0,false,"[]",,false,false,,"[]",false
+"InsurancePolicy","Insurance Policy","ServicingOfficeStreet","Servicing Office Street","textarea",255,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","ServicingOfficeCity","Servicing Office City","string",40,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","ServicingOfficeState","Servicing Office State","string",80,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","ServicingOfficePostalCode","Servicing Office Postal Code","string",20,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","ServicingOfficeCountry","Servicing Office Country","string",80,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","ServicingOfficeLatitude","Servicing Office Latitude","double",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","ServicingOfficeLongitude","Servicing Office Longitude","double",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","ServicingOfficeGeocodeAccuracy","Servicing Office Geocode Accuracy","picklist",255,true,"[]",,false,true,,"[""Address"",""NearAddress"",""Block"",""Street"",""ExtendedZip"",""Zip"",""Neighborhood"",""City"",""County"",""State"",""Unknown""]",false
+"InsurancePolicy","Insurance Policy","ServicingOffice","Servicing Office","address",0,true,"[]",,false,false,,"[]",false
+"InsurancePolicy","Insurance Policy","HasAnyAutoCoverage","Has Any Auto coverage","boolean",0,false,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","IsLoanEligibile","Eligibile for loan","boolean",0,false,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","TaxesSurcharges","Taxes and Surcharges","currency",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","CashSurrenderValue","Cash Surrender Value","currency",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","IsRenewedPolicy","Renewed Policy","boolean",0,false,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","SourceOpportunityId","Opportunity ID","reference",18,true,"[""Opportunity""]","SourceOpportunity",false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","GrossWrittenPremium","Gross Written Premium","currency",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","CancellationReasonType","Cancellation Reason Type","picklist",40,true,"[]",,false,true,,"[""Cancelled at Request of the Finance Company"",""Cancelled by Underwriter or Plan Administrator"",""Corporate Officer NonElection"",""Court Release"",""Coverage Placed Elsewhere"",""Duplicate Coverage"",""Failure to Comply with Terms and Conditions (ex. Audit Failure)"",""Failure to Pay Deductible"",""Insured's Request"",""Misrepresentation of Information on Application"",""Non-Payment"",""Not Taken"",""Other"",""Revocation of Voluntary Market Acceptance"",""Rewritten"",""Substantial Change in Risk"",""Underwriting Reasons""]",false
+"InsurancePolicy","Insurance Policy","SaleDate","Sale Date","datetime",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","SourceQuoteId","Quote ID","reference",18,true,"[""Quote""]","SourceQuote",false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","Discount","Discount","double",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","PreviousPremium","Previous Premium","currency",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","UniversalPolicyNumber","Universal Policy Number","string",255,true,"[]",,true,true,,"[]",false
+"InsurancePolicy","Insurance Policy","DateRenewed","Date Renewed","datetime",0,true,"[]",,false,true,,"[]",false
+"InsurancePolicy","Insurance Policy","SourceSystemIdentifier","Source System Identifier","string",255,true,"[]",,true,true,,"[]",false

@@ -1,0 +1,16 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"InsurancePolicyAsset","Insurance Policy Asset","Id","Insurance Policy Asset ID","id",18,false,"[]",,false,false,,"[]",false
+"InsurancePolicyAsset","Insurance Policy Asset","OwnerId","Owner ID","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"InsurancePolicyAsset","Insurance Policy Asset","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"InsurancePolicyAsset","Insurance Policy Asset","Name","Name","string",255,false,"[]",,false,false,,"[]",false
+"InsurancePolicyAsset","Insurance Policy Asset","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"InsurancePolicyAsset","Insurance Policy Asset","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"InsurancePolicyAsset","Insurance Policy Asset","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"InsurancePolicyAsset","Insurance Policy Asset","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"InsurancePolicyAsset","Insurance Policy Asset","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"InsurancePolicyAsset","Insurance Policy Asset","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"InsurancePolicyAsset","Insurance Policy Asset","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"InsurancePolicyAsset","Insurance Policy Asset","InsurancePolicyId","Insurance Policy ID","reference",18,false,"[""InsurancePolicy""]","InsurancePolicy",false,true,,"[]",false
+"InsurancePolicyAsset","Insurance Policy Asset","CustomerPropertyId","Customer Property ID","reference",18,false,"[""CustomerProperty""]","CustomerProperty",false,true,,"[]",false
+"InsurancePolicyAsset","Insurance Policy Asset","SourceSystemIdentifier","Source System Identifier","string",255,true,"[]",,true,true,,"[]",false
+"InsurancePolicyAsset","Insurance Policy Asset","SourceSystem","Source System","string",255,true,"[]",,false,true,,"[]",false

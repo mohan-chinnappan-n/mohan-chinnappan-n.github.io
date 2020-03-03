@@ -1,0 +1,32 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"PersonLifeEvent","Person Life Event","Id","Person Life Event ID","id",18,false,"[]",,false,false,,"[]",false
+"PersonLifeEvent","Person Life Event","OwnerId","Owner ID","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"PersonLifeEvent","Person Life Event","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"PersonLifeEvent","Person Life Event","Name","Event Name","string",255,false,"[]",,false,true,,"[]",false
+"PersonLifeEvent","Person Life Event","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"PersonLifeEvent","Person Life Event","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"PersonLifeEvent","Person Life Event","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"PersonLifeEvent","Person Life Event","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"PersonLifeEvent","Person Life Event","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"PersonLifeEvent","Person Life Event","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"PersonLifeEvent","Person Life Event","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"PersonLifeEvent","Person Life Event","PrimaryPersonId","Contact ID","reference",18,false,"[""Contact""]","PrimaryPerson",false,false,,"[]",false
+"PersonLifeEvent","Person Life Event","EventDate","Event Date","datetime",0,false,"[]",,false,true,,"[]",false
+"PersonLifeEvent","Person Life Event","EventDescription","Event Description","textarea",32000,true,"[]",,false,true,,"[]",false
+"PersonLifeEvent","Person Life Event","IsTentative","Tentative","boolean",0,false,"[]",,false,true,,"[]",false
+"PersonLifeEvent","Person Life Event","RelatedPersonId","Contact ID","reference",18,true,"[""Contact""]","RelatedPerson",false,true,,"[]",false
+"PersonLifeEvent","Person Life Event","EventType","Event Type","picklist",40,false,"[]",,false,false,,"[""Birth"",""Graduation"",""Job"",""Marriage"",""Relocation"",""Car"",""Home"",""Baby"",""Diagnosis"",""Retirement""]",false
+"PersonLifeEvent","Person Life Event","SourceSystemIdentifier","Source System Identifier","string",255,true,"[]",,true,true,,"[]",false
+"PersonLifeEvent","Person Life Event","SourceSystem","Source System","string",255,true,"[]",,false,true,,"[]",false
+"PersonLifeEvent","Person Life Event","EventLocationStreet","Event Location Street","textarea",255,true,"[]",,false,true,,"[]",false
+"PersonLifeEvent","Person Life Event","EventLocationCity","Event Location City","string",40,true,"[]",,false,true,,"[]",false
+"PersonLifeEvent","Person Life Event","EventLocationState","Event Location State","string",80,true,"[]",,false,true,,"[]",false
+"PersonLifeEvent","Person Life Event","EventLocationPostalCode","Event Location Postal Code","string",20,true,"[]",,false,true,,"[]",false
+"PersonLifeEvent","Person Life Event","EventLocationCountry","Event Location Country","string",80,true,"[]",,false,true,,"[]",false
+"PersonLifeEvent","Person Life Event","EventLocationLatitude","Event Location Latitude","double",0,true,"[]",,false,true,,"[]",false
+"PersonLifeEvent","Person Life Event","EventLocationLongitude","Event Location Longitude","double",0,true,"[]",,false,true,,"[]",false
+"PersonLifeEvent","Person Life Event","EventLocationGeocodeAccuracy","Event Location Geocode Accuracy","picklist",255,true,"[]",,false,true,,"[""Address"",""NearAddress"",""Block"",""Street"",""ExtendedZip"",""Zip"",""Neighborhood"",""City"",""County"",""State"",""Unknown""]",false
+"PersonLifeEvent","Person Life Event","EventLocation","Event Location","address",0,true,"[]",,false,false,,"[]",false
+"PersonLifeEvent","Person Life Event","IsExpired","Expired","boolean",0,false,"[]",,false,true,,"[]",false
+"PersonLifeEvent","Person Life Event","ExpirationDate","Expiration Date","datetime",0,true,"[]",,false,true,,"[]",false
+"PersonLifeEvent","Person Life Event","ExpirationDescription","Expiration Description","textarea",32000,true,"[]",,false,true,,"[]",false

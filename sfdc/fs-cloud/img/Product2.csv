@@ -1,20 +1,21 @@
-Label,Name,Nillable,Picklistvalues,Referenceto,Relationshipname,Type,Unique,Updateable
-Product ID,Id,FALSE,--,--,null,id,FALSE,FALSE
-Product Name,Name,FALSE,--,--,null,string,FALSE,TRUE
-Product Code,ProductCode,TRUE,--,--,null,string,FALSE,TRUE
-Product Description,Description,TRUE,--,--,null,textarea,FALSE,TRUE
-Active,IsActive,FALSE,--,--,null,boolean,FALSE,TRUE
-Created Date,CreatedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-Created By ID,CreatedById,FALSE,--,"[ ""User"" ]",CreatedBy,reference,FALSE,FALSE
-Last Modified Date,LastModifiedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-Last Modified By ID,LastModifiedById,FALSE,--,"[ ""User"" ]",LastModifiedBy,reference,FALSE,FALSE
-System Modstamp,SystemModstamp,FALSE,--,--,null,datetime,FALSE,FALSE
-Product Family,Family,TRUE,"[ ""None"" ]",--,null,picklist,FALSE,TRUE
-External Data Source ID,ExternalDataSourceId,TRUE,--,"[ ""ExternalDataSource"" ]",null,reference,FALSE,TRUE
-External ID,ExternalId,TRUE,--,--,null,string,FALSE,TRUE
-Display URL,DisplayUrl,TRUE,--,--,null,url,FALSE,TRUE
-Quantity Unit Of Measure,QuantityUnitOfMeasure,TRUE,"[ ""Each"" ]",--,null,picklist,FALSE,TRUE
-Deleted,IsDeleted,FALSE,--,--,null,boolean,FALSE,FALSE
-Last Viewed Date,LastViewedDate,TRUE,--,--,null,datetime,FALSE,FALSE
-Last Referenced Date,LastReferencedDate,TRUE,--,--,null,datetime,FALSE,FALSE
-Product SKU,StockKeepingUnit,TRUE,--,--,null,string,FALSE,TRUE
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"Product2","Product","Id","Product ID","id",18,false,"[]",,false,false,,"[]",false
+"Product2","Product","Name","Product Name","string",255,false,"[]",,false,true,,"[]",false
+"Product2","Product","ProductCode","Product Code","string",255,true,"[]",,false,true,,"[]",false
+"Product2","Product","Description","Product Description","textarea",4000,true,"[]",,false,true,,"[]",false
+"Product2","Product","IsActive","Active","boolean",0,false,"[]",,false,true,,"[]",false
+"Product2","Product","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Product2","Product","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"Product2","Product","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Product2","Product","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"Product2","Product","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"Product2","Product","Family","Product Family","picklist",40,true,"[]",,false,true,,"[""None""]",false
+"Product2","Product","ExternalDataSourceId","External Data Source ID","reference",18,true,"[""ExternalDataSource""]",,false,true,,"[]",false
+"Product2","Product","ExternalId","External ID","string",255,true,"[]",,false,true,,"[]",false
+"Product2","Product","DisplayUrl","Display URL","url",1000,true,"[]",,false,true,,"[]",false
+"Product2","Product","QuantityUnitOfMeasure","Quantity Unit Of Measure","picklist",40,true,"[]",,false,true,,"[""Each""]",false
+"Product2","Product","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"Product2","Product","IsArchived","Archived","boolean",0,false,"[]",,false,false,,"[]",false
+"Product2","Product","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Product2","Product","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Product2","Product","StockKeepingUnit","Product SKU","string",180,true,"[]",,false,true,,"[]",false

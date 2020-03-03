@@ -1,0 +1,16 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"Location","Location","Id","Location ID","id",18,false,"[]",,false,false,,"[]",false
+"Location","Location","OwnerId","Owner ID","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"Location","Location","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"Location","Location","Name","Location Name","string",255,false,"[]",,false,true,,"[]",false
+"Location","Location","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Location","Location","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"Location","Location","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Location","Location","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"Location","Location","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"Location","Location","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Location","Location","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Location","Location","LocationType","Location Type","picklist",40,false,"[]",,false,true,,"[]",false
+"Location","Location","IsMobile","Mobile Location","boolean",0,false,"[]",,false,true,,"[]",false
+"Location","Location","IsInventoryLocation","Inventory Location","boolean",0,false,"[]",,false,true,,"[]",false
+"Location","Location","RootLocationId","Root Location ID","reference",18,true,"[""Location""]","RootLocation",false,false,,"[]",false

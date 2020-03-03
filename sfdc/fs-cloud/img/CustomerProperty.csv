@@ -1,0 +1,70 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"CustomerProperty","Customer Property","Id","Customer Property ID","id",18,false,"[]",,false,false,,"[]",false
+"CustomerProperty","Customer Property","OwnerId","Owner ID","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"CustomerProperty","Customer Property","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"CustomerProperty","Customer Property","Name","Name","string",255,false,"[]",,false,false,,"[]",false
+"CustomerProperty","Customer Property","RecordTypeId","Record Type ID","reference",18,true,"[""RecordType""]","RecordType",false,true,,"[]",false
+"CustomerProperty","Customer Property","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"CustomerProperty","Customer Property","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"CustomerProperty","Customer Property","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"CustomerProperty","Customer Property","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"CustomerProperty","Customer Property","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"CustomerProperty","Customer Property","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"CustomerProperty","Customer Property","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"CustomerProperty","Customer Property","PrimaryOwnerId","Account ID","reference",18,false,"[""Account""]","PrimaryOwner",false,true,,"[]",false
+"CustomerProperty","Customer Property","SourceSystemIdentifier","Source System Identifier","string",255,true,"[]",,true,true,,"[]",false
+"CustomerProperty","Customer Property","YearBuilt","Year Built","int",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","PurchaseDate","Purchase Date","date",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","LotArea","Lot Area","string",100,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","BuiltUpArea","Built-Up Area","string",100,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","FloorCount","Number of Floors","int",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","BedroomCount","Number of Bedrooms","double",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","BathroomCount","Number of Bathrooms","double",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","KitchenCount","Number of Kitchens","double",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","RoofType","Roof Type","picklist",40,true,"[]",,false,true,,"[""Solar Tiles"",""Asphalt Shingles"",""Metal Roofing"",""Stone-coated steel"",""Slate"",""Rubber Slate"",""Clay and concrete tiles"",""Green roof"",""Built-up roofing""]",false
+"CustomerProperty","Customer Property","GarageType","Garage Type","picklist",40,true,"[]",,false,true,,"[""Attached"",""Basement"",""Built-In"",""Carport""]",false
+"CustomerProperty","Customer Property","IsBasementIncluded","Includes Basement","boolean",0,false,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","FoundationType","Foundation Type","picklist",40,true,"[]",,false,true,,"[""Basement"",""Crawlspace"",""Pier and Beam"",""Slab""]",false
+"CustomerProperty","Customer Property","LeasePeriod","Lease Period","int",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","AssetId","Asset ID","reference",18,true,"[""Asset""]","Asset",false,true,,"[]",false
+"CustomerProperty","Customer Property","IsChimneyIncluded","Includes Chimney","boolean",0,false,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","DwellingType","Dwelling Type","picklist",40,true,"[]",,false,true,,"[""Duplex"",""High rise multiple units"",""Low rise multiple units"",""Single Family Detached Four Square"",""Single Family Detached Ranch"",""Single Family Row Home""]",false
+"CustomerProperty","Customer Property","CeilingType","Ceiling Type","picklist",40,true,"[]",,false,true,,"[""Conventional"",""Beam"",""Shed"",""Cove"",""Coffered"",""Tray"",""Suspended""]",false
+"CustomerProperty","Customer Property","FloorType","Floor Type","picklist",40,true,"[]",,false,true,,"[""Ceramic Tile"",""Porcelain Tile"",""Floating wood tile"",""Carpet"",""Hardwood"",""Engineered wood"",""Bamboo"",""Cork"",""Stone"",""Vinyl""]",false
+"CustomerProperty","Customer Property","ConstructionClass","Construction Class","picklist",40,true,"[]",,false,true,,"[""Average/Standard Builders Grade"",""Basic"",""Custom"",""Custom/Luxury"",""Designer"",""Economy"",""Economy/Standard"",""Luxury"",""Minimum"",""Standard/Custom"",""Superior""]",false
+"CustomerProperty","Customer Property","GrossVehicleWeight","Gross Vehicle Weight","int",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","IsSwimmingPoolIncluded","Includes Swimming Pool","boolean",0,false,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","GarageSpaceCount","Number of Parking Spaces in Garage","int",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","MakeYear","Make Year","int",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","ModelName","Model Name","string",255,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","EngineDisplacementVolume","Engine Displacement Volume","int",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","FuelType","Fuel Type","picklist",40,true,"[]",,false,true,,"[""Biodiesel"",""Ethanol"",""Petrol"",""Diesel"",""Hybrid"",""Electric"",""Other""]",false
+"CustomerProperty","Customer Property","TransmissionType","Transmission Type","picklist",40,true,"[]",,false,true,,"[""Five Gear Manual"",""Four Gear Automatic"",""Four Gear Manual"",""Six Gear Manual""]",false
+"CustomerProperty","Customer Property","PassengerSeatCapacity","Passenger Seat Capacity","int",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","LoadCapacity","Load Capacity","string",255,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","FactoryPrice","Factory Price","currency",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","OdometerReading","Odometer Reading","int",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","FairMarketValue","Fair Market Value","currency",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","PurchasePrice","Purchase Price","currency",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","Vin","VIN","string",255,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","RegistrationNumber","Registration Number","string",255,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","Description","Description","textarea",32000,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","RegistrationType","Registration Type","picklist",40,true,"[]",,false,true,,"[""Antique"",""Combo"",""Apportioned"",""Commercial"",""SUB""]",false
+"CustomerProperty","Customer Property","PrimaryUse","Primary Use","picklist",40,true,"[]",,false,true,,"[""Personal"",""Work"",""Business""]",false
+"CustomerProperty","Customer Property","FinancingType","Financing Type","picklist",40,true,"[]",,false,true,,"[""Standard Loan"",""Commercial hire purchase"",""Finance Lease"",""Novated Lease"",""Operating Lease"",""Chattel Mortgage""]",false
+"CustomerProperty","Customer Property","AnnualMileage","Expected Annual Mileage","int",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","DaysDrivenTowork","Days Driven to Work (One Way)","int",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","MilesDrivenToWork","Miles Driven to Work (One way)","int",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","IsPassedSmogCheck","Passed Smog Check","boolean",0,false,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","LienHolderName","Lien Holder Name","string",255,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","Make","Make","string",255,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","Street","Street","textarea",255,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","City","City","string",40,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","State","State","string",80,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","PostalCode","Postal Code","string",20,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","Country","Country","string",80,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","Latitude","Latitude","double",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","Longitude","Longitude","double",0,true,"[]",,false,true,,"[]",false
+"CustomerProperty","Customer Property","GeocodeAccuracy","Geocode Accuracy","picklist",255,true,"[]",,false,true,,"[""Address"",""NearAddress"",""Block"",""Street"",""ExtendedZip"",""Zip"",""Neighborhood"",""City"",""County"",""State"",""Unknown""]",false
+"CustomerProperty","Customer Property","Address","Address","address",0,true,"[]",,false,false,,"[]",false
+"CustomerProperty","Customer Property","SourceSystem","Source System","string",255,true,"[]",,false,true,,"[]",false
