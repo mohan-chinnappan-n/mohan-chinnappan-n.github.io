@@ -1,0 +1,13 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"FinServ__RollupByLookupFilterCriteria__c","Rollup By Lookup Filter Criteria","Id","Record ID","id",18,false,"[]",,false,false,,"[]",false
+"FinServ__RollupByLookupFilterCriteria__c","Rollup By Lookup Filter Criteria","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"FinServ__RollupByLookupFilterCriteria__c","Rollup By Lookup Filter Criteria","Name","Rollup By Lookup Filter Criteria Name","string",80,false,"[]",,false,false,,"[]",false
+"FinServ__RollupByLookupFilterCriteria__c","Rollup By Lookup Filter Criteria","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"FinServ__RollupByLookupFilterCriteria__c","Rollup By Lookup Filter Criteria","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"FinServ__RollupByLookupFilterCriteria__c","Rollup By Lookup Filter Criteria","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"FinServ__RollupByLookupFilterCriteria__c","Rollup By Lookup Filter Criteria","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"FinServ__RollupByLookupFilterCriteria__c","Rollup By Lookup Filter Criteria","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"FinServ__RollupByLookupFilterCriteria__c","Rollup By Lookup Filter Criteria","FinServ__RollupByLookupConfig__c","Parent Configuration","reference",18,false,"[""FinServ__RollupByLookupConfig__c""]","FinServ__RollupByLookupConfig__r",false,false,,"[]",false
+"FinServ__RollupByLookupFilterCriteria__c","Rollup By Lookup Filter Criteria","FinServ__FieldName__c","Field Name","string",255,false,"[]",,false,true,,"[]",false
+"FinServ__RollupByLookupFilterCriteria__c","Rollup By Lookup Filter Criteria","FinServ__FieldValue__c","Field Value","string",255,false,"[]",,false,true,,"[]",false
+"FinServ__RollupByLookupFilterCriteria__c","Rollup By Lookup Filter Criteria","FinServ__Operator__c","Operator","picklist",255,true,"[]",,false,true,,"[""greater than"",""equals"",""greater than or equal to"",""contains"",""not equal to"",""less than"",""less than or equal to"",""not contains"",""not like"",""starts with"",""ends with"",""IN""]",false
