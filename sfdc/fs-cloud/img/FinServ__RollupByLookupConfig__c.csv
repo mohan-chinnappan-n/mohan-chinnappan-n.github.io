@@ -1,0 +1,25 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","Id","Record ID","id",18,false,"[]",,false,false,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","OwnerId","Owner ID","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","Name","Rollup By Lookup Configuration Name","string",80,true,"[]",,false,true,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","FinServ__Active__c","Active","boolean",0,false,"[]",,false,true,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","FinServ__FromField__c","Field To Roll Up From","string",100,false,"[]",,false,true,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","FinServ__FromObject__c","From Object","string",100,false,"[]",,false,true,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","FinServ__FromRecordType__c","From Record Type","string",100,true,"[]",,false,true,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","FinServ__LookupField__c","Lookup Field","string",100,false,"[]",,false,true,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","FinServ__Namespace__c","Namespace","picklist",255,true,"[]",,false,true,,"[""Industries""]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","FinServ__ProcessType__c","Process Type","picklist",255,true,"[]",,false,true,,"[""Realtime"",""Async"",""Batch""]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","FinServ__RollupOperation__c","Rollup Operation","picklist",255,true,"[]",,false,true,,"[""Sum"",""Max"",""Min"",""Avg"",""Count""]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","FinServ__ToField__c","Field To Roll Up To","string",100,false,"[]",,false,true,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","FinServ__ToObject__c","To Object","string",100,false,"[]",,false,true,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","FinServ__UpdateOnChange__c","Fields Triggering Update","string",255,true,"[]",,false,true,,"[]",false
+"FinServ__RollupByLookupConfig__c","Rollup By Lookup Configuration","FinServ__WhereClause__c","Where Clause","textarea",255,true,"[]",,false,true,"A sample expression for the Where Clause is: (1 OR 2) AND 3.
+Here the numbers correspond to the filter criterias defined in the child object RollUpByLookupFilterCriteria.","[]",false
