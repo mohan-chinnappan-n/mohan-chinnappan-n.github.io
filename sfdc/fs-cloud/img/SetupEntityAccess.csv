@@ -1,6 +1,6 @@
-Label,Name,Nillable,Picklistvalues,Referenceto,Relationshipname,Type,Unique,Updateable
-SetupEntityAccess ID,Id,FALSE,--,--,null,id,FALSE,FALSE
-Parent ID,ParentId,FALSE,--,"[ ""PermissionSet"" ]",Parent,reference,FALSE,FALSE
-Setup Entity ID,SetupEntityId,FALSE,--,"[ ""ApexClass"", ""ApexPage"", ""ConnectedApplication"", ""CustomPermission"", ""ExternalDataSource"", ""NamedCredential"" ]",null,reference,FALSE,FALSE
-Setup Entity Type,SetupEntityType,TRUE,"[ ""ApexClass"" , ""ApexPage"" , ""ConnectedApplication"" , ""ConnectedApplication"" , ""CustomPermission"" , ""ExternalDataSource"" , ""NamedCredential"" , ""TabSet"" ]",--,null,picklist,FALSE,FALSE
-System Modstamp,SystemModstamp,FALSE,--,--,null,datetime,FALSE,FALSE
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"SetupEntityAccess","Setup Entity Access","Id","SetupEntityAccess ID","id",18,false,"[]",,false,false,,"[]",false
+"SetupEntityAccess","Setup Entity Access","ParentId","Parent ID","reference",18,false,"[""PermissionSet""]","Parent",false,false,,"[]",false
+"SetupEntityAccess","Setup Entity Access","SetupEntityId","Setup Entity ID","reference",18,false,"[""ApexClass"",""ApexPage"",""ConnectedApplication"",""CustomPermission"",""ExternalDataSource"",""NamedCredential""]",,false,false,,"[]",false
+"SetupEntityAccess","Setup Entity Access","SetupEntityType","Setup Entity Type","picklist",40,true,"[]",,false,false,,"[null,null,null,null,null,null,null,null,null]",false
+"SetupEntityAccess","Setup Entity Access","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false

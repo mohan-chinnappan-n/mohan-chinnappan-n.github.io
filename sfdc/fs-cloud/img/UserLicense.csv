@@ -1,12 +1,12 @@
-Label,Name,Nillable,Picklistvalues,Referenceto,Relationshipname,Type,Unique,Updateable
-User License ID,Id,FALSE,--,--,null,id,FALSE,FALSE
-License Def. ID,LicenseDefinitionKey,FALSE,--,--,null,string,FALSE,FALSE
-Total Licenses,TotalLicenses,FALSE,--,--,null,int,FALSE,FALSE
-Status,Status,FALSE,"[ ""Active"" , ""Disabled"" ]",--,null,picklist,FALSE,FALSE
-Used Licenses,UsedLicenses,FALSE,--,--,null,int,FALSE,FALSE
-Used Licenses Last Updated,UsedLicensesLastUpdated,FALSE,--,--,null,datetime,FALSE,FALSE
-Name,Name,FALSE,--,--,null,string,FALSE,FALSE
-Master Label,MasterLabel,FALSE,--,--,null,string,FALSE,FALSE
-Created Date,CreatedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-Last Modified Date,LastModifiedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-System Modstamp,SystemModstamp,FALSE,--,--,null,datetime,FALSE,FALSE
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"UserLicense","User License","Id","User License ID","id",18,false,"[]",,false,false,,"[]",false
+"UserLicense","User License","LicenseDefinitionKey","License Def. ID","string",40,false,"[]",,false,false,,"[]",false
+"UserLicense","User License","TotalLicenses","Total Licenses","int",0,false,"[]",,false,false,,"[]",false
+"UserLicense","User License","Status","Status","picklist",40,false,"[]",,false,false,,"[""Active"",""Disabled""]",false
+"UserLicense","User License","UsedLicenses","Used Licenses","int",0,false,"[]",,false,false,,"[]",false
+"UserLicense","User License","UsedLicensesLastUpdated","Used Licenses Last Updated","datetime",0,false,"[]",,false,false,,"[]",false
+"UserLicense","User License","Name","Name","string",40,false,"[]",,false,false,,"[]",false
+"UserLicense","User License","MasterLabel","Master Label","string",80,false,"[]",,false,false,,"[]",false
+"UserLicense","User License","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"UserLicense","User License","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"UserLicense","User License","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false

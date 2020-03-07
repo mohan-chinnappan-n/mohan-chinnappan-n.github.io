@@ -1,17 +1,17 @@
-Label,Name,Nillable,Picklistvalues,Referenceto,Relationshipname,Type,Unique,Updateable
-Role ID,Id,FALSE,--,--,null,id,FALSE,FALSE
-Name,Name,FALSE,--,--,null,string,FALSE,TRUE
-Parent Role ID,ParentRoleId,TRUE,--,"[ ""UserRole"" ]",null,reference,FALSE,TRUE
-Description,RollupDescription,TRUE,--,--,null,string,FALSE,TRUE
-Opportunity Access Level for Account Owner,OpportunityAccessForAccountOwner,FALSE,"[ ""None"" , ""Read"" , ""Edit"" ]",--,null,picklist,FALSE,TRUE
-Case Access Level for Account Owner,CaseAccessForAccountOwner,TRUE,"[ ""None"" , ""Read"" , ""Edit"" ]",--,null,picklist,FALSE,TRUE
-Contact Access Level for Account Owner,ContactAccessForAccountOwner,TRUE,"[ ""None"" , ""Read"" , ""Edit"" ]",--,null,picklist,FALSE,FALSE
-User ID,ForecastUserId,TRUE,--,"[ ""User"" ]",null,reference,FALSE,TRUE
-May Forecast Manager Share,MayForecastManagerShare,FALSE,--,--,null,boolean,FALSE,FALSE
-Last Modified Date,LastModifiedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-Last Modified By ID,LastModifiedById,FALSE,--,"[ ""User"" ]",LastModifiedBy,reference,FALSE,FALSE
-System Modstamp,SystemModstamp,FALSE,--,--,null,datetime,FALSE,FALSE
-Developer Name,DeveloperName,TRUE,--,--,null,string,FALSE,TRUE
-Account ID,PortalAccountId,TRUE,--,"[ ""Account"" ]",null,reference,FALSE,FALSE
-Portal Type,PortalType,TRUE,"[ ""None"" , ""CustomerPortal"" , ""Partner"" ]",--,null,picklist,FALSE,FALSE
-User ID,PortalAccountOwnerId,TRUE,--,"[ ""User"" ]",null,reference,FALSE,FALSE
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"UserRole","Role","Id","Role ID","id",18,false,"[]",,false,false,,"[]",false
+"UserRole","Role","Name","Name","string",80,false,"[]",,false,true,,"[]",false
+"UserRole","Role","ParentRoleId","Parent Role ID","reference",18,true,"[""UserRole""]",,false,true,,"[]",false
+"UserRole","Role","RollupDescription","Description","string",80,true,"[]",,false,true,,"[]",false
+"UserRole","Role","OpportunityAccessForAccountOwner","Opportunity Access Level for Account Owner","picklist",40,false,"[]",,false,true,,"[""Private"",""Read Only"",""Read/Write""]",false
+"UserRole","Role","CaseAccessForAccountOwner","Case Access Level for Account Owner","picklist",40,true,"[]",,false,true,,"[""Private"",""Read Only"",""Read/Write""]",false
+"UserRole","Role","ContactAccessForAccountOwner","Contact Access Level for Account Owner","picklist",40,true,"[]",,false,false,,"[""Private"",""Read Only"",""Read/Write""]",false
+"UserRole","Role","ForecastUserId","User ID","reference",18,true,"[""User""]",,false,true,,"[]",false
+"UserRole","Role","MayForecastManagerShare","May Forecast Manager Share","boolean",0,false,"[]",,false,false,,"[]",false
+"UserRole","Role","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"UserRole","Role","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"UserRole","Role","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"UserRole","Role","DeveloperName","Developer Name","string",80,true,"[]",,false,true,,"[]",false
+"UserRole","Role","PortalAccountId","Account ID","reference",18,true,"[""Account""]",,false,false,,"[]",false
+"UserRole","Role","PortalType","Portal Type","picklist",40,true,"[]",,false,false,,"[""None"",""Customer Portal"",""Partner Portal""]",false
+"UserRole","Role","PortalAccountOwnerId","User ID","reference",18,true,"[""User""]",,false,false,,"[]",false

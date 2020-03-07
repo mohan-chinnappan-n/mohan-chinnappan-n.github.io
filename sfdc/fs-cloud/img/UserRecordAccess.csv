@@ -1,10 +1,10 @@
-Label,Name,Nillable,Picklistvalues,Referenceto,Relationshipname,Type,Unique,Updateable
-User Record Access ID,Id,FALSE,--,--,null,id,FALSE,FALSE
-User ID,UserId,FALSE,--,"[ ""User"" ]",null,reference,FALSE,FALSE
-Record ID,RecordId,FALSE,--,--,null,picklist,FALSE,FALSE
-Has Read Access,HasReadAccess,FALSE,--,--,null,boolean,FALSE,FALSE
-Has Edit Access,HasEditAccess,FALSE,--,--,null,boolean,FALSE,FALSE
-Has Delete Access,HasDeleteAccess,FALSE,--,--,null,boolean,FALSE,FALSE
-Has Transfer Access,HasTransferAccess,FALSE,--,--,null,boolean,FALSE,FALSE
-Has All Access,HasAllAccess,FALSE,--,--,null,boolean,FALSE,FALSE
-Maximum Access Level,MaxAccessLevel,TRUE,"[ ""None"" , ""Read"" , ""Edit"" , ""Delete"" , ""Transfer"" , ""All"" ]",--,null,picklist,FALSE,FALSE
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"UserRecordAccess","User Record Access","Id","User Record Access ID","id",18,false,"[]",,false,false,,"[]",false
+"UserRecordAccess","User Record Access","UserId","User ID","reference",18,false,"[""User""]",,false,false,,"[]",false
+"UserRecordAccess","User Record Access","RecordId","Record ID","picklist",40,false,"[]",,false,false,,"[]",false
+"UserRecordAccess","User Record Access","HasReadAccess","Has Read Access","boolean",0,false,"[]",,false,false,,"[]",false
+"UserRecordAccess","User Record Access","HasEditAccess","Has Edit Access","boolean",0,false,"[]",,false,false,,"[]",false
+"UserRecordAccess","User Record Access","HasDeleteAccess","Has Delete Access","boolean",0,false,"[]",,false,false,,"[]",false
+"UserRecordAccess","User Record Access","HasTransferAccess","Has Transfer Access","boolean",0,false,"[]",,false,false,,"[]",false
+"UserRecordAccess","User Record Access","HasAllAccess","Has All Access","boolean",0,false,"[]",,false,false,,"[]",false
+"UserRecordAccess","User Record Access","MaxAccessLevel","Maximum Access Level","picklist",40,true,"[]",,false,false,,"[""Private"",""Read Only"",""Read/Write"",""Delete"",""Read/Write/Transfer"",""Owner""]",false

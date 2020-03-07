@@ -1,9 +1,9 @@
-Label,Name,Nillable,Picklistvalues,Referenceto,Relationshipname,Type,Unique,Updateable
-Custom Object Share ID,Id,FALSE,--,--,null,id,FALSE,FALSE
-Parent ID,ParentId,FALSE,--,"[ ""FinServ__AccountAccountRelation__c"" ]",Parent,reference,FALSE,FALSE
-User/Group ID,UserOrGroupId,FALSE,--,"[ ""Group"", ""User"" ]",UserOrGroup,reference,FALSE,FALSE
-Custom Object Access,AccessLevel,FALSE,"[ ""Read"" , ""Edit"" , ""All"" ]",--,null,picklist,FALSE,TRUE
-Row Cause,RowCause,TRUE,"[ ""Owner"" , ""Manual"" , ""Rule"" , ""ImplicitChild"" , ""ImplicitParent"" , ""ImplicitPerson"" , ""Team"" , ""Territory"" , ""TerritoryManual"" , ""TerritoryRule"" , ""Territory2Forecast"" ]",--,null,picklist,FALSE,FALSE
-Last Modified Date,LastModifiedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-Last Modified By ID,LastModifiedById,FALSE,--,"[ ""User"" ]",LastModifiedBy,reference,FALSE,FALSE
-Deleted,IsDeleted,FALSE,--,--,null,boolean,FALSE,FALSE
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"FinServ__AccountAccountRelation__Share","Share: Account-Account Relationship","Id","Custom Object Share ID","id",18,false,"[]",,false,false,,"[]",false
+"FinServ__AccountAccountRelation__Share","Share: Account-Account Relationship","ParentId","Parent ID","reference",18,false,"[""FinServ__AccountAccountRelation__c""]","Parent",false,false,,"[]",false
+"FinServ__AccountAccountRelation__Share","Share: Account-Account Relationship","UserOrGroupId","User/Group ID","reference",18,false,"[""Group"",""User""]","UserOrGroup",false,false,,"[]",false
+"FinServ__AccountAccountRelation__Share","Share: Account-Account Relationship","AccessLevel","Custom Object Access","picklist",40,false,"[]",,false,true,,"[""Read Only"",""Read/Write"",""Owner""]",false
+"FinServ__AccountAccountRelation__Share","Share: Account-Account Relationship","RowCause","Row Cause","picklist",40,true,"[]",,false,false,,"[""Owner"",""Manual Sharing"",""Sharing Rule"",""Account Sharing"",""Associated record owner or sharing"",""Person Contact"",""Sales Team"",""Territory Assignment Rule"",""Territory Manual"",""Territory Manual"",""Territory Sharing Rule"",""Territory assignment for forecasting and reporting"",""Guest User Sharing Rule"",""Associated guest user sharing"",""Associated Guest User Sharing"",""Survey Sharing Rule""]",false
+"FinServ__AccountAccountRelation__Share","Share: Account-Account Relationship","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"FinServ__AccountAccountRelation__Share","Share: Account-Account Relationship","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"FinServ__AccountAccountRelation__Share","Share: Account-Account Relationship","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
