@@ -1,206 +1,262 @@
-Label,Name,Nillable,Picklistvalues,Referenceto,Relationshipname,Type,Unique,Updateable
-PermissionSet ID,Id,FALSE,--,--,null,id,FALSE,FALSE
-Permission Set Name,Name,FALSE,--,--,null,string,FALSE,TRUE
-Permission Set Label,Label,FALSE,--,--,null,string,FALSE,TRUE
-License ID,LicenseId,TRUE,--,"[ ""PermissionSetLicense"", ""UserLicense"" ]",License,reference,FALSE,FALSE
-Profile ID,ProfileId,TRUE,--,"[ ""Profile"" ]",Profile,reference,FALSE,FALSE
-Is Owned By Profile,IsOwnedByProfile,FALSE,--,--,null,boolean,FALSE,FALSE
-Is Custom,IsCustom,FALSE,--,--,null,boolean,FALSE,FALSE
-Send Email,PermissionsEmailSingle,FALSE,--,--,null,boolean,FALSE,TRUE
-Mass Email,PermissionsEmailMass,FALSE,--,--,null,boolean,FALSE,TRUE
-Edit Tasks,PermissionsEditTask,FALSE,--,--,null,boolean,FALSE,TRUE
-Edit Events,PermissionsEditEvent,FALSE,--,--,null,boolean,FALSE,TRUE
-Export Reports,PermissionsExportReport,FALSE,--,--,null,boolean,FALSE,TRUE
-Import Personal Contacts,PermissionsImportPersonal,FALSE,--,--,null,boolean,FALSE,TRUE
-Weekly Data Export,PermissionsDataExport,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Users,PermissionsManageUsers,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Public List Views,PermissionsEditPublicFilters,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Public Classic Email Templates,PermissionsEditPublicTemplates,FALSE,--,--,null,boolean,FALSE,TRUE
-Modify All Data,PermissionsModifyAllData,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Cases,PermissionsManageCases,FALSE,--,--,null,boolean,FALSE,TRUE
-Mass Edits from Lists,PermissionsMassInlineEdit,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Published Solutions,PermissionsManageSolutions,FALSE,--,--,null,boolean,FALSE,TRUE
-Customize Application,PermissionsCustomizeApplication,FALSE,--,--,null,boolean,FALSE,TRUE
-Edit Read Only Fields,PermissionsEditReadonlyFields,FALSE,--,--,null,boolean,FALSE,TRUE
-Run Reports,PermissionsRunReports,FALSE,--,--,null,boolean,FALSE,TRUE
-View Setup and Configuration,PermissionsViewSetup,FALSE,--,--,null,boolean,FALSE,TRUE
-Transfer Record,PermissionsTransferAnyEntity,FALSE,--,--,null,boolean,FALSE,TRUE
-Report Builder,PermissionsNewReportBuilder,FALSE,--,--,null,boolean,FALSE,TRUE
-Activate Contracts,PermissionsActivateContract,FALSE,--,--,null,boolean,FALSE,TRUE
-Activate Orders,PermissionsActivateOrder,FALSE,--,--,null,boolean,FALSE,TRUE
-Import Leads,PermissionsImportLeads,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Leads,PermissionsManageLeads,FALSE,--,--,null,boolean,FALSE,TRUE
-Transfer Leads,PermissionsTransferAnyLead,FALSE,--,--,null,boolean,FALSE,TRUE
-View All Data,PermissionsViewAllData,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Public Documents,PermissionsEditPublicDocuments,FALSE,--,--,null,boolean,FALSE,TRUE
-View Encrypted Data,PermissionsViewEncryptedData,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Letterheads,PermissionsEditBrandTemplates,FALSE,--,--,null,boolean,FALSE,TRUE
-Edit HTML Templates,PermissionsEditHtmlTemplates,FALSE,--,--,null,boolean,FALSE,TRUE
-Chatter Internal User,PermissionsChatterInternalUser,FALSE,--,--,null,boolean,FALSE,TRUE
-Delete Activated Contracts,PermissionsDeleteActivatedContract,FALSE,--,--,null,boolean,FALSE,TRUE
-Invite Customers To Chatter,PermissionsChatterInviteExternalUsers,FALSE,--,--,null,boolean,FALSE,TRUE
-Send Stay-in-Touch Requests,PermissionsSendSitRequests,FALSE,--,--,null,boolean,FALSE,TRUE
-Override Forecasts,PermissionsOverrideForecasts,FALSE,--,--,null,boolean,FALSE,TRUE
-View All Forecasts,PermissionsViewAllForecasts,FALSE,--,--,null,boolean,FALSE,TRUE
-Api Only User,PermissionsApiUserOnly,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Connected Apps,PermissionsManageRemoteAccess,FALSE,--,--,null,boolean,FALSE,TRUE
-Drag-and-Drop Dashboard Builder,PermissionsCanUseNewDashboardBuilder,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Categories,PermissionsManageCategories,FALSE,--,--,null,boolean,FALSE,TRUE
-Convert Leads,PermissionsConvertLeads,FALSE,--,--,null,boolean,FALSE,TRUE
-Password Never Expires,PermissionsPasswordNeverExpires,FALSE,--,--,null,boolean,FALSE,TRUE
-Use Team Reassignment Wizards,PermissionsUseTeamReassignWizards,FALSE,--,--,null,boolean,FALSE,TRUE
-Edit Activated Orders,PermissionsEditActivatedOrders,FALSE,--,--,null,boolean,FALSE,TRUE
-Download AppExchange Packages,PermissionsInstallPackaging,FALSE,--,--,null,boolean,FALSE,TRUE
-Upload AppExchange Packages,PermissionsPublishPackaging,FALSE,--,--,null,boolean,FALSE,TRUE
-Create and Own New Chatter Groups,PermissionsChatterOwnGroups,FALSE,--,--,null,boolean,FALSE,TRUE
-Edit Opportunity Product Sales Price,PermissionsEditOppLineItemUnitPrice,FALSE,--,--,null,boolean,FALSE,TRUE
-Create AppExchange Packages,PermissionsCreatePackaging,FALSE,--,--,null,boolean,FALSE,TRUE
-Bulk API Hard Delete,PermissionsBulkApiHardDelete,FALSE,--,--,null,boolean,FALSE,TRUE
-Deploy Change Sets,PermissionsInboundMigrationToolsUser,FALSE,--,--,null,boolean,FALSE,TRUE
-Import Solutions,PermissionsSolutionImport,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Call Centers,PermissionsManageCallCenters,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Synonyms,PermissionsManageSynonyms,FALSE,--,--,null,boolean,FALSE,TRUE
-Create and Upload Change Sets,PermissionsOutboundMigrationToolsUser,FALSE,--,--,null,boolean,FALSE,TRUE
-View Content in Portals,PermissionsViewContent,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Email Client Configurations,PermissionsManageEmailClientConfig,FALSE,--,--,null,boolean,FALSE,TRUE
-Send Outbound Messages,PermissionsEnableNotifications,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Data Integrations,PermissionsManageDataIntegrations,FALSE,--,--,null,boolean,FALSE,TRUE
-Create Content Deliveries,PermissionsDistributeFromPersWksp,FALSE,--,--,null,boolean,FALSE,TRUE
-View Data Categories,PermissionsViewDataCategories,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Data Categories,PermissionsManageDataCategories,FALSE,--,--,null,boolean,FALSE,TRUE
-Author Apex,PermissionsAuthorApex,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Mobile Configurations,PermissionsManageMobile,FALSE,--,--,null,boolean,FALSE,TRUE
-API Enabled,PermissionsApiEnabled,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Custom Report Types,PermissionsManageCustomReportTypes,FALSE,--,--,null,boolean,FALSE,TRUE
-Edit Case Comments,PermissionsEditCaseComments,FALSE,--,--,null,boolean,FALSE,TRUE
-Transfer Cases,PermissionsTransferAnyCase,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Salesforce CRM Content,PermissionsContentAdministrator,FALSE,--,--,null,boolean,FALSE,TRUE
-Create Libraries,PermissionsCreateWorkspaces,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Content Permissions,PermissionsManageContentPermissions,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Content Properties,PermissionsManageContentProperties,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage record types and layouts for Files,PermissionsManageContentTypes,FALSE,--,--,null,boolean,FALSE,TRUE
-Schedule Dashboards,PermissionsScheduleJob,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Lightning Sync,PermissionsManageExchangeConfig,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Reporting Snapshots,PermissionsManageAnalyticSnapshots,FALSE,--,--,null,boolean,FALSE,TRUE
-Schedule Reports,PermissionsScheduleReports,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Business Hours Holidays,PermissionsManageBusinessHourHolidays,FALSE,--,--,null,boolean,FALSE,TRUE
-Show Custom Sidebar On All Pages,PermissionsCustomSidebarOnAllPages,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Flow,PermissionsManageInteraction,FALSE,--,--,null,boolean,FALSE,TRUE
-View My Team's Dashboards,PermissionsViewMyTeamsDashboards,FALSE,--,--,null,boolean,FALSE,TRUE
-Moderate Chatter,PermissionsModerateChatter,FALSE,--,--,null,boolean,FALSE,TRUE
-Reset User Passwords and Unlock Users,PermissionsResetPasswords,FALSE,--,--,null,boolean,FALSE,TRUE
-Require Flow User Feature License,PermissionsFlowUFLRequired,FALSE,--,--,null,boolean,FALSE,TRUE
-Insert System Field Values for Chatter Feeds,PermissionsCanInsertFeedSystemFields,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Email Templates,PermissionsEmailTemplateManagement,FALSE,--,--,null,boolean,FALSE,TRUE
-Email Administration,PermissionsEmailAdministration,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Chatter Messages and Direct Messages,PermissionsManageChatterMessages,FALSE,--,--,null,boolean,FALSE,TRUE
-Email-Based Identity Verification Option,PermissionsAllowEmailIC,FALSE,--,--,null,boolean,FALSE,TRUE
-Create Public Links,PermissionsChatterFileLink,FALSE,--,--,null,boolean,FALSE,TRUE
-Two-Factor Authentication for User Interface Logins,PermissionsForceTwoFactor,FALSE,--,--,null,boolean,FALSE,TRUE
-View Event Log Files,PermissionsViewEventLogFiles,FALSE,--,--,null,boolean,FALSE,TRUE
-Create and Set Up Communities,PermissionsManageNetworks,FALSE,--,--,null,boolean,FALSE,TRUE
-Use Case Feed,PermissionsViewCaseInteraction,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Auth. Providers,PermissionsManageAuthProviders,FALSE,--,--,null,boolean,FALSE,TRUE
-Run Flows,PermissionsRunFlow,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Quotas,PermissionsManageQuotas,FALSE,--,--,null,boolean,FALSE,TRUE
-Create and Customize Dashboards,PermissionsCreateCustomizeDashboards,FALSE,--,--,null,boolean,FALSE,TRUE
-Create Dashboard Folders,PermissionsCreateDashboardFolders,FALSE,--,--,null,boolean,FALSE,TRUE
-View Dashboards in Public Folders,PermissionsViewPublicDashboards,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Dashboards in Public Folders,PermissionsManageDashbdsInPubFolders,FALSE,--,--,null,boolean,FALSE,TRUE
-Create and Customize Reports,PermissionsCreateCustomizeReports,FALSE,--,--,null,boolean,FALSE,TRUE
-Create Report Folders,PermissionsCreateReportFolders,FALSE,--,--,null,boolean,FALSE,TRUE
-View Reports in Public Folders,PermissionsViewPublicReports,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Reports in Public Folders,PermissionsManageReportsInPubFolders,FALSE,--,--,null,boolean,FALSE,TRUE
-Edit My Dashboards,PermissionsEditMyDashboards,FALSE,--,--,null,boolean,FALSE,TRUE
-Edit My Reports,PermissionsEditMyReports,FALSE,--,--,null,boolean,FALSE,TRUE
-View All Users,PermissionsViewAllUsers,FALSE,--,--,null,boolean,FALSE,TRUE
-Connect Organization to Environment Hub,PermissionsConnectOrgToEnvironmentHub,FALSE,--,--,null,boolean,FALSE,TRUE
-Create and Customize List Views,PermissionsCreateCustomizeFilters,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Communities,PermissionsGovernNetworks,FALSE,--,--,null,boolean,FALSE,TRUE
-Sales Console,PermissionsSalesConsole,FALSE,--,--,null,boolean,FALSE,TRUE
-Two-Factor Authentication for API Logins,PermissionsTwoFactorApi,FALSE,--,--,null,boolean,FALSE,TRUE
-Delete Topics,PermissionsDeleteTopics,FALSE,--,--,null,boolean,FALSE,TRUE
-Edit Topics,PermissionsEditTopics,FALSE,--,--,null,boolean,FALSE,TRUE
-Create Topics,PermissionsCreateTopics,FALSE,--,--,null,boolean,FALSE,TRUE
-Assign Topics,PermissionsAssignTopics,FALSE,--,--,null,boolean,FALSE,TRUE
-Use Identity Features,PermissionsIdentityEnabled,FALSE,--,--,null,boolean,FALSE,TRUE
-Use Identity Connect,PermissionsIdentityConnect,FALSE,--,--,null,boolean,FALSE,TRUE
-Access Libraries,PermissionsContentWorkspaces,FALSE,--,--,null,boolean,FALSE,TRUE
-Create custom Badge Definitions,PermissionsCreateWorkBadgeDefinition,FALSE,--,--,null,boolean,FALSE,TRUE
-Access Custom Mobile Apps,PermissionsCustomMobileAppsAccess,FALSE,--,--,null,boolean,FALSE,TRUE
-View Help Link,PermissionsViewHelpLink,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Profiles and Permission Sets,PermissionsManageProfilesPermissionsets,FALSE,--,--,null,boolean,FALSE,TRUE
-Assign Permission Sets,PermissionsAssignPermissionSets,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Roles,PermissionsManageRoles,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage IP Addresses,PermissionsManageIpAddresses,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Sharing,PermissionsManageSharing,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Internal Users,PermissionsManageInternalUsers,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Password Policies,PermissionsManagePasswordPolicies,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Login Access Policies,PermissionsManageLoginAccessPolicies,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Custom Permissions,PermissionsManageCustomPermissions,FALSE,--,--,null,boolean,FALSE,TRUE
-Verify Answers to Chatter Questions,PermissionsCanVerifyComment,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Unlisted Groups,PermissionsManageUnlistedGroups,FALSE,--,--,null,boolean,FALSE,TRUE
-Create and Edit Analytics Dashboards,PermissionsInsightsAppDashboardEditor,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Two-Factor Authentication in API,PermissionsManageTwoFactor,FALSE,--,--,null,boolean,FALSE,TRUE
-Use Analytics,PermissionsInsightsAppUser,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Analytics,PermissionsInsightsAppAdmin,FALSE,--,--,null,boolean,FALSE,TRUE
-Edit Analytics Dataflows,PermissionsInsightsAppEltEditor,FALSE,--,--,null,boolean,FALSE,TRUE
-Upload External Data to Analytics,PermissionsInsightsAppUploadUser,FALSE,--,--,null,boolean,FALSE,TRUE
-Create Analytics Apps,PermissionsInsightsCreateApplication,FALSE,--,--,null,boolean,FALSE,TRUE
-Lightning Experience User,PermissionsLightningExperienceUser,FALSE,--,--,null,boolean,FALSE,TRUE
-Configure Custom Recommendations,PermissionsConfigCustomRecs,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Macros Users Can't Undo,PermissionsSubmitMacrosAllowed,FALSE,--,--,null,boolean,FALSE,TRUE
-Run Macros on Multiple Records,PermissionsBulkMacrosAllowed,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Session Permission Set Activations,PermissionsManageSessionPermissionSets,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Analytics Templated Apps,PermissionsManageTemplatedApp,FALSE,--,--,null,boolean,FALSE,TRUE
-Use Analytics Templated Apps,PermissionsUseTemplatedApp,FALSE,--,--,null,boolean,FALSE,TRUE
-Send announcement emails,PermissionsSendAnnouncementEmails,FALSE,--,--,null,boolean,FALSE,TRUE
-Edit My Own Posts,PermissionsChatterEditOwnPost,FALSE,--,--,null,boolean,FALSE,TRUE
-Edit Posts on Records I Own,PermissionsChatterEditOwnRecordPost,FALSE,--,--,null,boolean,FALSE,TRUE
-Download Analytics Data,PermissionsWaveTabularDownload,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Sandboxes,PermissionsManageSandboxes,FALSE,--,--,null,boolean,FALSE,TRUE
-Use Einstein Activity Capture,PermissionsAutomaticActivityCapture,FALSE,--,--,null,boolean,FALSE,TRUE
-Import Custom Objects,PermissionsImportCustomObjects,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Two-Factor Authentication in User Interface,PermissionsDelegatedTwoFactor,FALSE,--,--,null,boolean,FALSE,TRUE
-Allow Inclusion of Code Snippets from UI,PermissionsChatterComposeUiCodesnippet,FALSE,--,--,null,boolean,FALSE,TRUE
-Select Files from Salesforce,PermissionsSelectFilesFromSalesforce,FALSE,--,--,null,boolean,FALSE,TRUE
-Moderate Community Users,PermissionsModerateNetworkUsers,FALSE,--,--,null,boolean,FALSE,TRUE
-Merge Topics,PermissionsMergeTopics,FALSE,--,--,null,boolean,FALSE,TRUE
-Subscribe to Reports,PermissionsSubscribeToLightningReports,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage All Private Reports and Dashboards,PermissionsManagePvtRptsAndDashbds,FALSE,--,--,null,boolean,FALSE,TRUE
-Lightning Login User,PermissionsAllowLightningLogin,FALSE,--,--,null,boolean,FALSE,TRUE
-Campaign Influence,PermissionsCampaignInfluence2,FALSE,--,--,null,boolean,FALSE,TRUE
-Access to view Data Assessment,PermissionsViewDataAssessment,FALSE,--,--,null,boolean,FALSE,TRUE
-Remove People from Direct Messages,PermissionsRemoveDirectMessageMembers,FALSE,--,--,null,boolean,FALSE,TRUE
-Can Approve Feed Post and Comment,PermissionsCanApproveFeedPost,FALSE,--,--,null,boolean,FALSE,TRUE
-Add People to Direct Messages,PermissionsAddDirectMessageMembers,FALSE,--,--,null,boolean,FALSE,TRUE
-View and Edit Converted Leads,PermissionsAllowViewEditConvertedLeads,FALSE,--,--,null,boolean,FALSE,TRUE
-Remove Logos from Accounts,PermissionsSocialInsightsLogoAdmin,FALSE,--,--,null,boolean,FALSE,TRUE
-Show Company Name as Community Role,PermissionsShowCompanyNameAsUserBadge,FALSE,--,--,null,boolean,FALSE,TRUE
-Access Community Management,PermissionsAccessCMC,FALSE,--,--,null,boolean,FALSE,TRUE
-View Health Check,PermissionsViewHealthCheck,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Health Check,PermissionsManageHealthCheck,FALSE,--,--,null,boolean,FALSE,TRUE
-Create and Update Second-Generation Packages,PermissionsPackaging2,FALSE,--,--,null,boolean,FALSE,TRUE
-Manage Certificates,PermissionsManageCertificates,FALSE,--,--,null,boolean,FALSE,TRUE
-Report Builder (Lightning Experience),PermissionsCreateReportInLightning,FALSE,--,--,null,boolean,FALSE,TRUE
-Hide Option to Switch to Salesforce Classic,PermissionsPreventClassicExperience,FALSE,--,--,null,boolean,FALSE,TRUE
-Hide the Seen By List,PermissionsHideReadByList,FALSE,--,--,null,boolean,FALSE,TRUE
-Allow sending of List Emails,PermissionsListEmailSend,FALSE,--,--,null,boolean,FALSE,TRUE
-Pin Posts in Feeds,PermissionsFeedPinning,FALSE,--,--,null,boolean,FALSE,TRUE
-Allow Access to Customized Actions,PermissionsUseWebLink,FALSE,--,--,null,boolean,FALSE,TRUE
-View All Activities,PermissionsViewAllActivities,FALSE,--,--,null,boolean,FALSE,TRUE
-Subscribe to Reports: Add Recipients,PermissionsSubscribeReportToOtherUsers,FALSE,--,--,null,boolean,FALSE,TRUE
-Lightning Console User,PermissionsLightningConsoleAllowedForUser,FALSE,--,--,null,boolean,FALSE,TRUE
-Subscribe to Reports: Set Running User,PermissionsSubscribeReportsRunAsUser,FALSE,--,--,null,boolean,FALSE,TRUE
-Subscribe to Dashboards,PermissionsSubscribeToLightningDashboards,FALSE,--,--,null,boolean,FALSE,TRUE
-Apex REST Services,PermissionsApexRestServices,FALSE,--,--,null,boolean,FALSE,TRUE
-Show App Launcher in Communities,PermissionsEnableCommunityAppLauncher,FALSE,--,--,null,boolean,FALSE,TRUE
-Description,Description,TRUE,--,--,null,string,FALSE,TRUE
-Created Date,CreatedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-Created By ID,CreatedById,FALSE,--,"[ ""User"" ]",CreatedBy,reference,FALSE,FALSE
-Last Modified Date,LastModifiedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-Last Modified By ID,LastModifiedById,FALSE,--,"[ ""User"" ]",LastModifiedBy,reference,FALSE,FALSE
-System Modstamp,SystemModstamp,FALSE,--,--,null,datetime,FALSE,FALSE
-Namespace Prefix,NamespacePrefix,TRUE,--,--,null,string,FALSE,FALSE
-Session Activation Required,HasActivationRequired,FALSE,--,--,null,boolean,FALSE,TRUE
-" ToolSet v0.7.0 Copyright © 2015 salesforce.com, inc. All rights reserved ",,,,,,,,
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"PermissionSet","Permission Set","Id","PermissionSet ID","id",18,false,"[]",,false,false,,"[]",false
+"PermissionSet","Permission Set","Name","Permission Set Name","string",80,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","Label","Permission Set Label","string",80,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","LicenseId","License ID","reference",18,true,"[""PermissionSetLicense"",""UserLicense""]","License",false,false,,"[]",false
+"PermissionSet","Permission Set","ProfileId","Profile ID","reference",18,true,"[""Profile""]","Profile",false,false,,"[]",false
+"PermissionSet","Permission Set","IsOwnedByProfile","Is Owned By Profile","boolean",0,false,"[]",,false,false,,"[]",false
+"PermissionSet","Permission Set","IsCustom","Is Custom","boolean",0,false,"[]",,false,false,,"[]",false
+"PermissionSet","Permission Set","PermissionsEmailSingle","Send Email","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEmailMass","Mass Email","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEditTask","Edit Tasks","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEditEvent","Edit Events","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsExportReport","Export Reports","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsImportPersonal","Import Personal Contacts","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsDataExport","Weekly Data Export","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageUsers","Manage Users","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEditPublicFilters","Manage Public List Views","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEditPublicTemplates","Manage Public Classic Email Templates","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsModifyAllData","Modify All Data","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageCases","Manage Cases","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsMassInlineEdit","Mass Edits from Lists","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageSolutions","Manage Published Solutions","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCustomizeApplication","Customize Application","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEditReadonlyFields","Edit Read Only Fields","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsRunReports","Run Reports","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewSetup","View Setup and Configuration","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsTransferAnyEntity","Transfer Record","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsNewReportBuilder","Report Builder","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsActivateContract","Activate Contracts","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsActivateOrder","Activate Orders","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsImportLeads","Import Leads","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageLeads","Manage Leads","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsTransferAnyLead","Transfer Leads","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewAllData","View All Data","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEditPublicDocuments","Manage Public Documents","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewEncryptedData","View Encrypted Data","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEditBrandTemplates","Manage Letterheads","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEditHtmlTemplates","Edit HTML Templates","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsChatterInternalUser","Chatter Internal User","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsDeleteActivatedContract","Delete Activated Contracts","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsChatterInviteExternalUsers","Invite Customers To Chatter","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsSendSitRequests","Send Stay-in-Touch Requests","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsOverrideForecasts","Override Forecasts","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewAllForecasts","View All Forecasts","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsApiUserOnly","Api Only User","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageRemoteAccess","Manage Connected Apps","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCanUseNewDashboardBuilder","Drag-and-Drop Dashboard Builder","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageCategories","Manage Categories","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsConvertLeads","Convert Leads","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsPasswordNeverExpires","Password Never Expires","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsUseTeamReassignWizards","Use Team Reassignment Wizards","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEditActivatedOrders","Edit Activated Orders","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsInstallPackaging","Download AppExchange Packages","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsPublishPackaging","Upload AppExchange Packages","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsChatterOwnGroups","Create and Own New Chatter Groups","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEditOppLineItemUnitPrice","Edit Opportunity Product Sales Price","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCreatePackaging","Create AppExchange Packages","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsBulkApiHardDelete","Bulk API Hard Delete","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsInboundMigrationToolsUser","Deploy Change Sets","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsSolutionImport","Import Solutions","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageCallCenters","Manage Call Centers","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageSynonyms","Manage Synonyms","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsOutboundMigrationToolsUser","Create and Upload Change Sets","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewContent","View Content in Portals","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageEmailClientConfig","Manage Email Client Configurations","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEnableNotifications","Send Outbound Messages","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageDataIntegrations","Manage Data Integrations","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsDistributeFromPersWksp","Create Content Deliveries","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewDataCategories","View Data Categories in Setup","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageDataCategories","Manage Data Categories","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsAuthorApex","Author Apex","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageMobile","Manage Mobile Configurations","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsApiEnabled","API Enabled","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageCustomReportTypes","Manage Custom Report Types","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEditCaseComments","Edit Case Comments","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsTransferAnyCase","Transfer Cases","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsContentAdministrator","Manage Salesforce CRM Content","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCreateWorkspaces","Create Libraries","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageContentPermissions","Manage Content Permissions","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageContentProperties","Manage Content Properties","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageContentTypes","Manage record types and layouts for Files","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsScheduleJob","Schedule Dashboards","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageExchangeConfig","Manage Lightning Sync","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageAnalyticSnapshots","Manage Reporting Snapshots","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsScheduleReports","Schedule Reports","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageBusinessHourHolidays","Manage Business Hours Holidays","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageDynamicDashboards","Manage Dynamic Dashboards","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCustomSidebarOnAllPages","Show Custom Sidebar On All Pages","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageInteraction","Manage Flow","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewMyTeamsDashboards","View My Team's Dashboards","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsModerateChatter","Moderate Chatter","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsResetPasswords","Reset User Passwords and Unlock Users","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsFlowUFLRequired","Require Flow User Feature License","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCanInsertFeedSystemFields","Insert System Field Values for Chatter Feeds","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsActivitiesAccess","Access Activities","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEmailTemplateManagement","Manage Email Templates","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEmailAdministration","Email Administration","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageChatterMessages","Manage Chatter Messages and Direct Messages","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsAllowEmailIC","Email-Based Identity Verification Option","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsChatterFileLink","Create Public Links","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsForceTwoFactor","Two-Factor Authentication for User Interface Logins","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewEventLogFiles","View Event Log Files","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageNetworks","Create and Set Up Communities","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewCaseInteraction","Use Case Feed","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageAuthProviders","Manage Auth. Providers","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsRunFlow","Run Flows","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageQuotas","Manage Quotas","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCreateCustomizeDashboards","Create and Customize Dashboards","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCreateDashboardFolders","Create Dashboard Folders","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewPublicDashboards","View Dashboards in Public Folders","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageDashbdsInPubFolders","Manage Dashboards in Public Folders","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCreateCustomizeReports","Create and Customize Reports","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCreateReportFolders","Create Report Folders","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewPublicReports","View Reports in Public Folders","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageReportsInPubFolders","Manage Reports in Public Folders","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEditMyDashboards","Edit My Dashboards","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEditMyReports","Edit My Reports","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewAllUsers","View All Users","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsConnectOrgToEnvironmentHub","Connect Organization to Environment Hub","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCreateCustomizeFilters","Create and Customize List Views","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsContentHubUser","Files Connect Cloud","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsGovernNetworks","Manage Communities","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsSalesConsole","Sales Console","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsTwoFactorApi","Two-Factor Authentication for API Logins","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsDeleteTopics","Delete Topics","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEditTopics","Edit Topics","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCreateTopics","Create Topics","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsAssignTopics","Assign Topics","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsIdentityEnabled","Use Identity Features","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsIdentityConnect","Use Identity Connect","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsContentWorkspaces","Access Libraries","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCreateWorkBadgeDefinition","Create custom Badge Definitions","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCustomMobileAppsAccess","Access Custom Mobile Apps","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewHelpLink","View Help Link","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageProfilesPermissionsets","Manage Profiles and Permission Sets","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsAssignPermissionSets","Assign Permission Sets","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageRoles","Manage Roles","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageIpAddresses","Manage IP Addresses","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageSharing","Manage Sharing","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageInternalUsers","Manage Internal Users","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManagePasswordPolicies","Manage Password Policies","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageLoginAccessPolicies","Manage Login Access Policies","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageCustomPermissions","Manage Custom Permissions","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCanVerifyComment","Verify Answers to Chatter Questions","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageUnlistedGroups","Manage Unlisted Groups","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsStdAutomaticActivityCapture","Use Einstein Activity Capture Standard","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsInsightsAppDashboardEditor","Create and Edit Analytics Dashboards","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageTwoFactor","Manage Two-Factor Authentication in API","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsInsightsAppUser","Use Analytics","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsInsightsAppAdmin","Manage Analytics","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsInsightsAppEltEditor","Edit Analytics Dataflows","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsInsightsAppUploadUser","Upload External Data to Analytics","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsInsightsCreateApplication","Create Analytics Apps","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsLightningExperienceUser","Lightning Experience User","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsConfigCustomRecs","Configure Custom Recommendations","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsSubmitMacrosAllowed","Manage Macros Users Can't Undo","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsBulkMacrosAllowed","Run Macros on Multiple Records","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageSessionPermissionSets","Manage Session Permission Set Activations","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageTemplatedApp","Manage Analytics Templated Apps","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsUseTemplatedApp","Use Analytics Templated Apps","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsSendAnnouncementEmails","Send announcement emails","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsChatterEditOwnPost","Edit My Own Posts","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsChatterEditOwnRecordPost","Edit Posts on Records I Own","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsWaveTabularDownload","Download Analytics Data","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageSandboxes","Manage Sandboxes","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsAutomaticActivityCapture","Use Einstein Activity Capture","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsImportCustomObjects","Import Custom Objects","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsDelegatedTwoFactor","Manage Two-Factor Authentication in User Interface","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsChatterComposeUiCodesnippet","Allow Inclusion of Code Snippets from UI","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsSelectFilesFromSalesforce","Select Files from Salesforce","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsModerateNetworkUsers","Moderate Community Users","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsMergeTopics","Merge Topics","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsSubscribeToLightningReports","Subscribe to Reports","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManagePvtRptsAndDashbds","Manage All Private Reports and Dashboards","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsAllowLightningLogin","Lightning Login User","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCampaignInfluence2","Campaign Influence","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewDataAssessment","Access to view Data Assessment","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsRemoveDirectMessageMembers","Remove People from Direct Messages","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCanApproveFeedPost","Can Approve Feed Post and Comment","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsAddDirectMessageMembers","Add People to Direct Messages","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsAllowViewEditConvertedLeads","View and Edit Converted Leads","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsSocialInsightsLogoAdmin","Remove Logos from Accounts","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsShowCompanyNameAsUserBadge","Show Company Name as Community Role","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsAccessCMC","Access Community Management","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewHealthCheck","View Health Check","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageHealthCheck","Manage Health Check","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsPackaging2","Create and Update Second-Generation Packages","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageCertificates","Manage Certificates","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCreateReportInLightning","Report Builder (Lightning Experience)","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsPreventClassicExperience","Hide Option to Switch to Salesforce Classic","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsHideReadByList","Hide the Seen By List","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsListEmailSend","Allow sending of List Emails","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsFeedPinning","Pin Posts in Feeds","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsChangeDashboardColors","Change Dashboard Colors","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageRecommendationStrategies","Manage Next Best Action Strategies","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManagePropositions","Manage Next Best Action Recommendations","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCloseConversations","Close Conversation Threads","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsSubscribeReportRolesGrps","Subscribe to Reports: Send to Groups and Roles","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsSubscribeDashboardRolesGrps","Subscribe to Dashboards: Send to Groups and Roles","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsUseWebLink","Allow Access to Customized Actions","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsHasUnlimitedNBAExecutions","User Has Unlimited Next Best Action Strategy Executions","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewOnlyEmbeddedAppUser","Access to View-Only Licensed Templates and Apps","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewAllActivities","View All Activities","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsSubscribeReportToOtherUsers","Subscribe to Reports: Add Recipients","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsLightningConsoleAllowedForUser","Lightning Console User","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsSubscribeReportsRunAsUser","Subscribe to Reports: Set Running User","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsSubscribeToLightningDashboards","Subscribe to Dashboards","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsSubscribeDashboardToOtherUsers","Subscribe to Dashboards: Add Recipients","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsInstallAnalyticsTemplatedApp","Install Analytics Templated Apps","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCreateLtngTempInPub","Manage Public Lightning Email Templates","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsAppointmentBookingUserAccess","Enables the Appointment Booking feature","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsTransactionalEmailSend","Send Non-Commercial Email","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewPrivateStaticResources","View Private Static Resources","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCreateLtngTempFolder","Create Folders for Lightning Email Templates","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsApexRestServices","Apex REST Services","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsEnableCommunityAppLauncher","Show App Launcher in Communities","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsActionPlansUserAccess","Permission to access the Action Plans feature","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsGiveRecognitionBadge","Give Recognition Badges in Lightning Communities","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsLightningSchedulerUserAccess","Let a user be included in appointments in Lightning Scheduler.","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsLtngPromoReserved01UserPerm","Remain in Salesforce Classic","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageSubscriptions","Manage Analytics Subscriptions","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsWaveManagePrivateAssetsUser","Manage Analytics Private Assets","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsFSCInsurancePlatformUser","Access Insurance Objects","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCanEditDataPrepRecipe","Edit Dataset Recipes","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsAddAnalyticsRemoteConnections","Add Analytics Remote Connections","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageSurveys","Manage Surveys","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsRecordVisibilityAPI","Enable RecordVisibility API","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewRoles","View Roles and Role Hierarchy","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCanManageMaps","Manage Analytics Custom Maps","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsLMOutboundMessagingUserPerm","Agent Initiated Outbound Messaging","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsModifyDataClassification","Modify Data Classification","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsPrivacyDataAccess","Allow user to access privacy data","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsQueryAllFiles","Query All Files","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsModifyMetadata","Modify Metadata Through Metadata API Functions","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageCMS","Manage CMS Workspaces and Channels","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsSandboxTestingInCommunityApp","Enables testing a sandbox community in the Mobile Publisher for Community Cloud app.","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewFlowUsageAndFlowEventData","View Flow Usage and Flow Event Data","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsCanEditPrompts","Manage Prompts","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewUserPII","View User Records with PII","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsManageHubConnections","Connect Org to Customer 360 Data Manager","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsIndustryMilestonePlatformUser","Access Life Events or Business Milestones Component","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsFSCInsuranceCmpLexOnlyAccess","Access Insurance Lightning Components","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsFSCInsuranceCmpCmtyAccess","Access Insurance Lightning Components","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsB2BMarketingAnalyticsUser","Create B2B Marketing Analytics Apps","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsTraceXdsQueries","Access Tracer for External Data Sources","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewAllCustomSettings","View All Custom Settings","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsViewAllForeignKeyNames","View All Lookup Record Names","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsAddWaveNotificationRecipients","Notification Emails: Add Recipients","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsHeadlessCMSAccess","Enable Salesforce CMS Integration","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsConsentApiUpdate","Update Consent Preferences Using REST API","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsMortgageUserAccess","User license to access Mortgage in Financial Services Cloud.","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionsDocumentChecklistUserAccess","User license to access the Document Checklist features.","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","Description","Description","string",255,true,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"PermissionSet","Permission Set","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"PermissionSet","Permission Set","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"PermissionSet","Permission Set","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"PermissionSet","Permission Set","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"PermissionSet","Permission Set","NamespacePrefix","Namespace Prefix","string",15,true,"[]",,false,false,,"[]",false
+"PermissionSet","Permission Set","HasActivationRequired","Session Activation Required","boolean",0,false,"[]",,false,true,,"[]",false
+"PermissionSet","Permission Set","PermissionSetGroupId","PermissionSetGroup ID","reference",18,true,"[""PermissionSetGroup""]","PermissionSetGroup",false,false,,"[]",false
+"PermissionSet","Permission Set","Type","Permission Set Type","picklist",255,true,"[]",,false,false,,"[null,null,null,null,null,null]",false
