@@ -1,0 +1,16 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"EventLogFile","Event Log File","Id","Event Log File ID","id",18,false,"[]",,false,false,,"[]",false
+"EventLogFile","Event Log File","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"EventLogFile","Event Log File","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"EventLogFile","Event Log File","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"EventLogFile","Event Log File","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"EventLogFile","Event Log File","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"EventLogFile","Event Log File","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"EventLogFile","Event Log File","EventType","Event Type","picklist",255,false,"[]",,false,false,,"[""API"",""Apex Callout"",""Apex Execution"",""Apex REST API"",""Apex SOAP"",""Apex Trigger"",""Apex Unexpected Exception"",""Asynchronous Report Run"",""Concurrent Long Running Apex Limit"",""Continuation Callout"",""External Cross-Org Callout"",""External Custom Apex Callout"",""External OData Callout"",""Bulk API"",""Change Set Operation"",""Console"",""Content Distribution"",""Content Document Link"",""Content Transfer"",""Dashboard"",""Document Attachment Downloads"",""Insecure External Assets"",""Knowledge Article View"",""Lightning Error"",""Lightning Interaction"",""Lightning Page View"",""Lightning Performance"",""Login"",""Login As"",""Logout"",""Metadata API Operation"",""Multiblock Report"",""Package Install"",""Queued Execution"",""Report"",""Report Export"",""Rest API"",""Sandbox"",""Search"",""Search Click"",""Sites"",""Platform Encryption"",""Time-Based Workflow"",""Transaction Security"",""UI Tracking"",""URI"",""Visualforce Request"",""Wave Change"",""Wave Interaction"",""Wave Performance""]",false
+"EventLogFile","Event Log File","LogDate","Log Date","datetime",0,false,"[]",,false,false,,"[]",false
+"EventLogFile","Event Log File","LogFileLength","Log File Length","double",0,false,"[]",,false,false,,"[]",false
+"EventLogFile","Event Log File","LogFileContentType","Log File Content Type","string",255,false,"[]",,false,false,,"[]",false
+"EventLogFile","Event Log File","ApiVersion","API Version","double",0,false,"[]",,false,false,,"[]",false
+"EventLogFile","Event Log File","LogFileFieldNames","Log File Field Names","string",1333,true,"[]",,false,false,,"[]",false
+"EventLogFile","Event Log File","LogFileFieldTypes","Log File Field Types","string",1333,true,"[]",,false,false,,"[]",false
+"EventLogFile","Event Log File","LogFile","Log File","base64",0,false,"[]",,false,false,,"[]",false
