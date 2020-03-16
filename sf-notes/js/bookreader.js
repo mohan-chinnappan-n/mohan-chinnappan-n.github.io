@@ -1,4 +1,5 @@
 // bookreader.js
+// author: mohan chinnappan
 function readTextFile(file) {
     var rawFile = new XMLHttpRequest();
     rawFile.open("GET", file, false);
