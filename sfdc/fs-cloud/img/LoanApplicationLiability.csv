@@ -1,0 +1,26 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"LoanApplicationLiability","Loan Application Liability","Id","Loan Application Liability ID","id",18,false,"[]",,false,false,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","OwnerId","Owner ID","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","Name","Name","string",255,false,"[]",,false,true,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","LoanApplicationId","Residential Loan Application ID","reference",18,true,"[""ResidentialLoanApplication""]","LoanApplication",false,true,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","LoanApplicationAssetId","Loan Application Asset ID","reference",18,true,"[""LoanApplicationAsset""]","LoanApplicationAsset",false,true,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","AccountType","Account Type","picklist",40,true,"[]",,false,true,,"[""Revolving"",""Installment"",""Open 30-Day"",""Lease"",""Other""]",false
+"LoanApplicationLiability","Loan Application Liability","LoanType","Real Estate Loan Type","picklist",40,true,"[]",,false,true,,"[""Conventional"",""Federal Housing Authority"",""Veterans Affairs"",""USDA or Rural Housing Service"",""Other""]",false
+"LoanApplicationLiability","Loan Application Liability","OtherLiabilityType","Other Liability or Expense Type","picklist",40,true,"[]",,false,true,,"[""Alimony"",""Child Support"",""Separate Maintenance"",""Job Related Expenses"",""Other""]",false
+"LoanApplicationLiability","Loan Application Liability","CreditorName","Creditor Name","string",255,true,"[]",,false,true,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","AccountNumber","Account Number","string",255,true,"[]",,false,true,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","MonthlyPaymentAmount","Monthly Payment","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","UnpaidBalanceAmount","Unpaid Balance","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","ShouldBePaidInFull","Paid in Full","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","IsJointLiability","Joint Liability","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","CreditLimitAmount","Credit Limit","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationLiability","Loan Application Liability","LiabilityClass","Liability Class","picklist",40,true,"[]",,false,true,,"[""Financial"",""Real Estate"",""Other""]",false
+"LoanApplicationLiability","Loan Application Liability","LiabilityExtIdentifier","Loan Application Liability External ID","string",255,true,"[]",,true,true,,"[]",false

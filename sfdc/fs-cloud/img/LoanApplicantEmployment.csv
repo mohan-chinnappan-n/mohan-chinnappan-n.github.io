@@ -1,0 +1,42 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"LoanApplicantEmployment","Loan Applicant Employment","Id","Loan Applicant Employment ID","id",18,false,"[]",,false,false,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","OwnerId","Owner ID","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","Name","Name","string",255,false,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","LoanApplicationId","Residential Loan Application ID","reference",18,true,"[""ResidentialLoanApplication""]","LoanApplication",false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","LoanApplicantId","Loan Applicant ID","reference",18,false,"[""LoanApplicant""]","LoanApplicant",false,false,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","EmployerName","Employer Name","string",255,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","EmployerStreet","Employer Street","textarea",255,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","EmployerCity","Employer City","string",40,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","EmployerState","Employer State","string",80,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","EmployerPostalCode","Employer Postal Code","string",20,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","EmployerCountry","Employer Country","string",80,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","EmployerLatitude","Employer Latitude","double",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","EmployerLongitude","Employer Longitude","double",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","EmployerGeocodeAccuracy","Employer Geocode Accuracy","picklist",255,true,"[]",,false,true,,"[""Address"",""NearAddress"",""Block"",""Street"",""ExtendedZip"",""Zip"",""Neighborhood"",""City"",""County"",""State"",""Unknown""]",false
+"LoanApplicantEmployment","Loan Applicant Employment","EmployerAddress","Employer Address","address",0,true,"[]",,false,false,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","IsSelfEmployed","Self-Employed","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","CurrentJobYearCount","Years at Current Job","int",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","CurrentJobAdditionalMonthCount","Additional Months at Current Job","int",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","IsRelToTransactionParty","Employed by Party to Transaction","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","JobTitle","Job Title or Type of Business","string",255,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","EmployerPhone","Employer Phone","phone",40,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","IsLessThanQuarterShare","Owns Less Than 25%","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","StartDate","Start Date","date",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","EndDate","End Date","date",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","MonthlyIncome","Monthly Income","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","MonthlyBaseIncomeAmount","Monthly Base Income","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","MonthlyOvertimeAmount","Monthly Overtime","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","MonthlyBonusAmount","Monthly Bonus","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","MonthlyCommissionAmount","Monthly Commission","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","MonthlyMilitaryEntlAmt","Monthly Military Entitlement","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","MonthlyOtherIncomeAmount","Other Monthly Income","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","MonthlyTotalIncomeAmount","Total Monthly Income","currency",0,true,"[]",,false,false,,"[]",false
+"LoanApplicantEmployment","Loan Applicant Employment","EmploymentExtIdentifier","Loan Applicant Employment External ID","string",255,true,"[]",,true,true,,"[]",false

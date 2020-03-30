@@ -1,0 +1,62 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"ResidentialLoanApplication","Residential Loan Application","Id","Residential Loan Application ID","id",18,false,"[]",,false,false,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","OwnerId","Owner ID","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","Name","Name","string",255,false,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","OpportunityId","Opportunity ID","reference",18,true,"[""Opportunity""]","Opportunity",false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","MortgageProgramType","Mortgage Program Type","picklist",255,true,"[]",,false,true,,"[""Conventional"",""Veterans Affairs"",""Federal Housing Authority"",""USDA or Rural Housing Service"",""Other""]",false
+"ResidentialLoanApplication","Residential Loan Application","OtherMortgageProgramType","Other Mortgage Program Type Description","string",255,true,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","OtherAmortizationType","Other Amortization Type Description","string",255,true,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","LoanPurpose","Loan Purpose","picklist",255,true,"[]",,false,true,,"[""Purchase"",""Refinance"",""Other""]",false
+"ResidentialLoanApplication","Residential Loan Application","OtherLoanPurpose","Other Loan Purpose","string",255,true,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","IsBorrowerCommPropState","Borrower Lives in Community Property State","boolean",0,false,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","IsPropertyCommPropState","Property in Community Property State","boolean",0,false,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","IsContractConversion","Conversion of Contract for Deed or Land Contract","boolean",0,false,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","IsRenovation","Renovation","boolean",0,false,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","IsConstructionConversion","Construction-Conversion or Construction-to-Permanent","boolean",0,false,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","IsSingleClosing","Single Closing","boolean",0,false,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","ImprovementCost","Cost of Construction or Improvement","currency",0,true,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","LotAcquiredDate","Date Acquired","datetime",0,true,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","LotOriginalCost","Original Cost","currency",0,true,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","RefinanceType","Refinance Type","picklist",40,true,"[]",,false,true,,"[""No Cash Out"",""Limited Cash Out"",""Cash Out""]",false
+"ResidentialLoanApplication","Residential Loan Application","RefinanceProgramType","Refinance Program Type","picklist",40,true,"[]",,false,true,,"[""Full Documentation"",""Interest Rate Reduction"",""Streamlined without Appraisal"",""Other""]",false
+"ResidentialLoanApplication","Residential Loan Application","OtherRefinanceProgType","Other Refinance Program Type","string",255,true,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","IsEnergyRelImprovement","Energy-Related Improvement","boolean",0,false,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","IsSubjectToPriorityLien","Subject to Priority Lien","boolean",0,false,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","ProjectType","Project Type","picklist",40,true,"[]",,false,true,,"[""Condominium"",""Cooperative"",""Planned Unit Development(PUD)"",""Property is not located in a project""]",false
+"ResidentialLoanApplication","Residential Loan Application","MortgageLienType","Mortgage Lien Type","picklist",40,true,"[]",,false,true,,"[""First Lien"",""Subordinate Lien""]",false
+"ResidentialLoanApplication","Residential Loan Application","MonthsBeforeFirstAdj","Initial Period Prior to First Adjustment in months","double",0,true,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","MonthsBetweenAdjustments","Subsequent Adjustment Period in months","double",0,true,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","IsBalloon","Balloon","boolean",0,false,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","BalloonTermMonths","Balloon Term Months","double",0,true,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","IsInterestOnly","Interest Only","boolean",0,false,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","IntOnlyTermMonthCount","Interest-Only Term Months","double",0,true,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","IsNegativeAmortization","Allows Negative Amortization","boolean",0,false,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","HasPrepaymentPenalty","Penalty for Prepayment","boolean",0,false,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","PrepayPenaltyTermMonth","Prepayment Penalty Term Months","double",0,true,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","IsTempIntRateBuydown","Temporary Interest Rate Buydown","boolean",0,false,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","InitialBuydownRate","Initial Buydown Rate","double",0,true,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","HasOtherLoanFeature","Other Loan Feature","boolean",0,false,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","OtherLoanFeature","Other Loan Feature Description","string",255,true,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","EstateHoldType","Lender's Lien Type","picklist",40,true,"[]",,false,true,,"[""Fee Simple"",""Leasehold""]",false
+"ResidentialLoanApplication","Residential Loan Application","LeaseHoldExpirationDate","Leasehold Expiration","datetime",0,true,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","TitleType","Title Hold Method","picklist",40,true,"[]",,false,true,,"[""Joint Tenancy with Right of Survivorship"",""Tenancy in Common"",""Tenancy by the Entirety"",""Sole Ownership"",""Life Estate"",""Other""]",false
+"ResidentialLoanApplication","Residential Loan Application","TrustTitleType","Title Held in Trust","picklist",40,true,"[]",,false,true,,"[""Title Will be Held by an Inter Vivos (Living) Trust"",""Title Will be Held by a Land Trust""]",false
+"ResidentialLoanApplication","Residential Loan Application","NativeLandTenure","Indian Country Land Tenure","picklist",40,true,"[]",,false,true,,"[""Fee Simple (On a Reservation)"",""Individual Trust Land (Allotted/Restricted)"",""Tribal Trust Land (On a Reservation)"",""Tribal Trust Land (Off Reservation)"",""Alaska Native Corporation Land""]",false
+"ResidentialLoanApplication","Residential Loan Application","InterestRate","Interest Rate","double",0,true,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","AmortizationTerm","Loan Duration in Months","double",0,true,"[]",,false,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","AmortizationType","Amortization Type","picklist",40,true,"[]",,false,true,,"[""Adjustable Rate"",""Fixed Rate"",""Other""]",false
+"ResidentialLoanApplication","Residential Loan Application","ApplicationExtIdentifier","External Application ID","string",255,true,"[]",,true,true,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","TotalFinancialAssetAmount","Total Financial Assets","currency",0,true,"[]",,false,false,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","TotalOtherAssetAmount","Total Other Assets","currency",0,true,"[]",,false,false,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","TotalFinLiabilityMonthlyAmt","Total Monthly Financial Liabilities","currency",0,true,"[]",,false,false,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","TotalOtherFinLiabilityMonthlyAmt","Total Monthly Other Liabilities","currency",0,true,"[]",,false,false,,"[]",false
+"ResidentialLoanApplication","Residential Loan Application","Status","Application Status","picklist",40,true,"[]",,false,true,,"[""New"",""Pending"",""Completed""]",false
+"ResidentialLoanApplication","Residential Loan Application","AccountId","Account ID","reference",18,true,"[""Account""]","Account",false,true,,"[]",false

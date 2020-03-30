@@ -1,0 +1,28 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"LoanApplicantAddress","Loan Applicant Address","Id","Loan Applicant Address ID","id",18,false,"[]",,false,false,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","Name","Name","string",255,false,"[]",,false,true,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","LoanApplicationId","Residential Loan Application ID","reference",18,true,"[""ResidentialLoanApplication""]","LoanApplication",false,true,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","LoanApplicantId","Loan Applicant ID","reference",18,false,"[""LoanApplicant""]","LoanApplicant",false,false,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","ResidencyType","Residence Type","picklist",40,true,"[]",,false,true,,"[""Former Residence"",""Present Address"",""Mailing Address""]",false
+"LoanApplicantAddress","Loan Applicant Address","ResidenceStreet","Residence Street","textarea",255,true,"[]",,false,true,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","ResidenceCity","Residence City","string",40,true,"[]",,false,true,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","ResidenceState","Residence State","string",80,true,"[]",,false,true,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","ResidencePostalCode","Residence Postal Code","string",20,true,"[]",,false,true,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","ResidenceCountry","Residence Country","string",80,true,"[]",,false,true,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","ResidenceLatitude","Residence Latitude","double",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","ResidenceLongitude","Residence Longitude","double",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","ResidenceGeocodeAccuracy","Residence Geocode Accuracy","picklist",255,true,"[]",,false,true,,"[""Address"",""NearAddress"",""Block"",""Street"",""ExtendedZip"",""Zip"",""Neighborhood"",""City"",""County"",""State"",""Unknown""]",false
+"LoanApplicantAddress","Loan Applicant Address","ResidenceAddress","Residence Address","address",0,true,"[]",,false,false,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","AddressOwnership","Residence Status","picklist",40,true,"[]",,false,true,,"[""Own"",""Rent"",""Live Rent-Free""]",false
+"LoanApplicantAddress","Loan Applicant Address","ResidenceYearCount","Years in Residence","int",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","ResidenceAdditionalMonthCount","Additional Months in Residence","int",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","MonthlyRentPayment","Monthly Rent Payment","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantAddress","Loan Applicant Address","AddressExtIdentifier","Loan Applicant Address External ID","string",255,true,"[]",,true,true,,"[]",false

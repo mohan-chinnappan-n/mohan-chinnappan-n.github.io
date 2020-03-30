@@ -1,0 +1,31 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"LoanApplicationProperty","Loan Application Property","Id","Loan Application Property ID","id",18,false,"[]",,false,false,,"[]",false
+"LoanApplicationProperty","Loan Application Property","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationProperty","Loan Application Property","Name","Name","string",255,false,"[]",,false,true,,"[]",false
+"LoanApplicationProperty","Loan Application Property","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationProperty","Loan Application Property","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"LoanApplicationProperty","Loan Application Property","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationProperty","Loan Application Property","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"LoanApplicationProperty","Loan Application Property","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationProperty","Loan Application Property","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationProperty","Loan Application Property","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationProperty","Loan Application Property","LoanApplicationId","Residential Loan Application ID","reference",18,false,"[""ResidentialLoanApplication""]","LoanApplication",false,false,,"[]",false
+"LoanApplicationProperty","Loan Application Property","UnitsFinancedCount","Total Units to be Financed","int",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationProperty","Loan Application Property","LoanPurposeType","Loan Purpose","picklist",255,true,"[]",,false,true,,"[""Purchase"",""Refinance"",""Other""]",false
+"LoanApplicationProperty","Loan Application Property","PropertyUseType","Occupancy Type","picklist",40,true,"[]",,false,true,,"[""Primary Residence"",""Secondary Residence"",""Investment Property"",""FHA Secondary Residence""]",false
+"LoanApplicationProperty","Loan Application Property","PropertyStreet","Real Estate Street","textarea",255,true,"[]",,false,true,,"[]",false
+"LoanApplicationProperty","Loan Application Property","PropertyCity","Real Estate City","string",40,true,"[]",,false,true,,"[]",false
+"LoanApplicationProperty","Loan Application Property","PropertyState","Real Estate State","string",80,true,"[]",,false,true,,"[]",false
+"LoanApplicationProperty","Loan Application Property","PropertyPostalCode","Real Estate Postal Code","string",20,true,"[]",,false,true,,"[]",false
+"LoanApplicationProperty","Loan Application Property","PropertyCountry","Real Estate Country","string",80,true,"[]",,false,true,,"[]",false
+"LoanApplicationProperty","Loan Application Property","PropertyLatitude","Real Estate Latitude","double",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationProperty","Loan Application Property","PropertyLongitude","Real Estate Longitude","double",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationProperty","Loan Application Property","PropertyGeocodeAccuracy","Real Estate Geocode Accuracy","picklist",255,true,"[]",,false,true,,"[""Address"",""NearAddress"",""Block"",""Street"",""ExtendedZip"",""Zip"",""Neighborhood"",""City"",""County"",""State"",""Unknown""]",false
+"LoanApplicationProperty","Loan Application Property","PropertyAddress","Property Address","address",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationProperty","Loan Application Property","RequestedLoanAmount","Loan Amount","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationProperty","Loan Application Property","PropertyValue","Property Market Value","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationProperty","Loan Application Property","IsMixedUseProperty","Mixed-Use Property","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicationProperty","Loan Application Property","IsManufacturedHome","Manufactured Home","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicationProperty","Loan Application Property","ExpMonthlyRentalIncome","Expected Monthly Rental Income","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationProperty","Loan Application Property","ExpNetMonthlyRentalInc","Expected Net Monthly Rental Income","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationProperty","Loan Application Property","PropertyExtIdentifier","Loan Application Property External ID","string",255,true,"[]",,true,true,,"[]",false

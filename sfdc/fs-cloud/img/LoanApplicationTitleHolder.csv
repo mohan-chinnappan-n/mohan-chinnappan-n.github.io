@@ -1,0 +1,15 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"LoanApplicationTitleHolder","Loan Application Title Holder","Id","Loan Application Title Holder ID","id",18,false,"[]",,false,false,,"[]",false
+"LoanApplicationTitleHolder","Loan Application Title Holder","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationTitleHolder","Loan Application Title Holder","Name","Name","string",255,false,"[]",,false,true,,"[]",false
+"LoanApplicationTitleHolder","Loan Application Title Holder","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationTitleHolder","Loan Application Title Holder","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"LoanApplicationTitleHolder","Loan Application Title Holder","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationTitleHolder","Loan Application Title Holder","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"LoanApplicationTitleHolder","Loan Application Title Holder","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationTitleHolder","Loan Application Title Holder","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationTitleHolder","Loan Application Title Holder","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationTitleHolder","Loan Application Title Holder","LoanApplicationId","Residential Loan Application ID","reference",18,false,"[""ResidentialLoanApplication""]","LoanApplication",false,false,,"[]",false
+"LoanApplicationTitleHolder","Loan Application Title Holder","TitleHolderName","Title Holder Name","string",255,true,"[]",,false,true,,"[]",false
+"LoanApplicationTitleHolder","Loan Application Title Holder","IsCurrentTitleHolder","Current Title Holder","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicationTitleHolder","Loan Application Title Holder","TitleHolderExtIdentifier","Loan Application Title Holder External ID","string",255,true,"[]",,true,true,,"[]",false

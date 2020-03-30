@@ -1,0 +1,39 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"LoanApplicant","Loan Applicant","Id","Loan Applicant ID","id",18,false,"[]",,false,false,,"[]",false
+"LoanApplicant","Loan Applicant","OwnerId","Owner ID","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"LoanApplicant","Loan Applicant","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"LoanApplicant","Loan Applicant","Name","Name","string",255,false,"[]",,false,true,,"[]",false
+"LoanApplicant","Loan Applicant","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicant","Loan Applicant","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"LoanApplicant","Loan Applicant","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicant","Loan Applicant","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"LoanApplicant","Loan Applicant","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicant","Loan Applicant","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicant","Loan Applicant","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicant","Loan Applicant","LoanApplicationId","Residential Loan Application ID","reference",18,false,"[""ResidentialLoanApplication""]","LoanApplication",false,false,,"[]",false
+"LoanApplicant","Loan Applicant","ContactId","Contact ID","reference",18,true,"[""Contact""]","Contact",false,true,,"[]",false
+"LoanApplicant","Loan Applicant","BorrowerType","Borrower Type","picklist",255,true,"[]",,false,true,,"[""Borrower"",""Co-Borrower""]",false
+"LoanApplicant","Loan Applicant","CitizenshipStatus","Citizenship Status","picklist",40,true,"[]",,false,true,,"[""U.S. Citizen"",""Permanent Resident Alien"",""Non-Permanent Resident Alien""]",false
+"LoanApplicant","Loan Applicant","HasMilitaryService","Military Service","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicant","Loan Applicant","IsActiveMilitary","Currently on Active Military Duty","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicant","Loan Applicant","MaritalStatus","Marital Status","picklist",40,true,"[]",,false,true,,"[""Married"",""Separated"",""Unmarried""]",false
+"LoanApplicant","Loan Applicant","DependentCount","Number of Dependents","int",0,true,"[]",,false,true,,"[]",false
+"LoanApplicant","Loan Applicant","DependentsAge","Dependents' Ages","string",255,true,"[]",,false,true,,"[]",false
+"LoanApplicant","Loan Applicant","IsJointCredit","Joint Credit","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicant","Loan Applicant","MilitaryTourExpirationMonth","Military Tour Expiration Month","int",0,true,"[]",,false,true,,"[]",false
+"LoanApplicant","Loan Applicant","MilitaryTourExpirationYear","Military Tour Expiration Year","int",0,true,"[]",,false,true,,"[]",false
+"LoanApplicant","Loan Applicant","WasActiveMilitary","Past Military Service","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicant","Loan Applicant","EthnicityType","Ethnicity","picklist",40,true,"[]",,false,true,,"[""Hispanic or Latino"",""Not Hispanic or Latino"",""I do not wish to provide this information""]",false
+"LoanApplicant","Loan Applicant","RaceType","Race","multipicklist",4099,true,"[]",,false,true,,"[""American Indian or Alaska Native"",""Asian"",""Black or African American"",""Native Hawaiian or Other Pacific Islander"",""White"",""I do not wish to provide this information""]",false
+"LoanApplicant","Loan Applicant","GenderType","Gender","picklist",40,true,"[]",,false,true,,"[""Female"",""Male"",""I do not wish to provide this information""]",false
+"LoanApplicant","Loan Applicant","ApplicantExtIdentifier","Applicant External ID","string",255,true,"[]",,true,true,,"[]",false
+"LoanApplicant","Loan Applicant","WasNonActivatedService","Non-Activated Reserve or National Guard","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicant","Loan Applicant","IsSurvivingMilitarySpouse","Surviving Military Spouse","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicant","Loan Applicant","PreferredLanguage","Preferred Language for Communication","picklist",40,true,"[]",,false,true,,"[""English"",""Chinese"",""Korean"",""Spanish"",""Tagalog"",""Vietnamese"",""Other"",""I do not wish to respond""]",false
+"LoanApplicant","Loan Applicant","EthnicitySubType","Ethnicity Origin","multipicklist",4099,true,"[]",,false,true,,"[""Mexican"",""Puerto Rican"",""Cuban"",""Other""]",false
+"LoanApplicant","Loan Applicant","OtherEthnicitySubType","Other Ethnicity Origin Description","string",255,true,"[]",,false,true,,"[]",false
+"LoanApplicant","Loan Applicant","AsianRaceSubType","Asian Race","multipicklist",4099,true,"[]",,false,true,,"[""Asian Indian"",""Chinese"",""Filipino"",""Japanese"",""Korean"",""Vietnamese"",""Other""]",false
+"LoanApplicant","Loan Applicant","OtherAsianRaceSubType","Other Asian Race","string",255,true,"[]",,false,true,,"[]",false
+"LoanApplicant","Loan Applicant","PacIslandSubType","Pacific Islander Race","multipicklist",4099,true,"[]",,false,true,,"[""Native Hawaiian"",""Guamanian or Chamorro"",""Samoan"",""Other""]",false
+"LoanApplicant","Loan Applicant","OtherPacIslandSubType","Other Pacific Islander Race","string",255,true,"[]",,false,true,,"[]",false
+"LoanApplicant","Loan Applicant","TribeName","Name of Enrolled or Principal Tribe","string",255,true,"[]",,false,true,,"[]",false

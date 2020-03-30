@@ -1,0 +1,34 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"LoanApplicantDeclaration","Loan Applicant Declaration","Id","Loan Application Declaration ID","id",18,false,"[]",,false,false,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","OwnerId","Owner ID","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","Name","Name","string",255,false,"[]",,false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","LoanApplicationId","Residential Loan Application ID","reference",18,true,"[""ResidentialLoanApplication""]","LoanApplication",false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","LoanApplicantId","Loan Applicant ID","reference",18,false,"[""LoanApplicant""]","LoanApplicant",false,false,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","HasOutstandingJudgement","Outstanding Judgements","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","HasDeclaredBankruptcy","Declared Bankruptcy","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","IsRelatedToSeller","Relationship or Affiliation with Seller","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","HasUndisclAddlPropApp","Undisclosed Loan on Other Property","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","HasUndisclAddlCreditApp","Undisclosed New Credit","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","IsSubjectToPriorityLien","Property Subject to Priority Clean Energy Lien","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","IsCoSignerUndisclDebt","Co-Signer or Guarantor on Undisclosed Loan or Debt","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","HasDeedSurrender","Surrendered Deed in Lieu of Foreclosure","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","HasPastShortSale","Short Sale","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","IsPrimaryResidence","Primary Residence","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","HasOwnershipInterest","Ownership Interest","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","PriorPropertyUsageType","Prior Ownership Type","picklist",40,true,"[]",,false,true,,"[""Primary Residence"",""Secondary Residence"",""Second Home"",""Investment Property""]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","PriorPropertyTitleType","Prior Ownership Title Type","picklist",40,true,"[]",,false,true,,"[""Yourself"",""Joint With Spouse"",""Joint With Other Than Spouse""]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","HasBorrowedMoney","Borrowing Money","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","BorrowedAmount","Amount Borrowed","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","IsPresentlyDelinquent","Delinquent or in Default on Debt","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","IsPartyToLawsuit","Party to Lawsuit","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","HasPropertyForeclosed","Foreclosed Property","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","BankruptcyType","Bankruptcy Type","multipicklist",4099,true,"[]",,false,true,,"[""Chapter 7"",""Chapter 11"",""Chapter 12"",""Chapter 13""]",false
+"LoanApplicantDeclaration","Loan Applicant Declaration","DeclarationExtIdentifier","Loan Applicant Declaration External ID","string",255,true,"[]",,true,true,,"[]",false

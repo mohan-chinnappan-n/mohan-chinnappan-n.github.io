@@ -1,0 +1,52 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"LoanApplicationFinancial","Loan Application Financial","Id","Loan Application Financial ID","id",18,false,"[]",,false,false,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","Name","Name","string",255,false,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","LoanApplicationId","Residential Loan Application ID","reference",18,false,"[""ResidentialLoanApplication""]","LoanApplication",false,false,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","PurchasePriceAmount","Purchase Price","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","RemodelAndRepairsAmount","Cost of Alterations, Improvements, and Repairs","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","LandAcquiredSeparatelyAmount","Cost of Land Acquired Separately","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","OutstandingLoanAmount","Total Outstanding Mortgage Amount","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","BorrowerClosingCostAmt","Borrower Closing Costs","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","DiscountPointCostAmount","Cost of Discount Points Purchased by Borrower","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","LoanAmount","Total Mortgage Loan","currency",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","TotalCashDueFromBorrower","Total Due From Borrower","currency",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","EstFirstMortgagePmtAmt","Proposed Monthly First Mortgage Payment","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","EstSubordinateLienPmtAmt","Proposed Monthly Subordinate Liens Payment","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","EstHomeownersInsPmtAmt","Proposed Monthly Homeowners Insurance Payment","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","EstSuppPropertyInsPmtAmt","Proposed Monthly Supplemental Property Insurance Payment","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","EstPropertyTaxesPmtAmt","Proposed Monthly Property Tax Payment","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","EstMortgageInsPmtAmt","Proposed Monthly Mortgage Insurance Payment","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","EstOtherDuesPaymentAmt","Proposed Monthly Dues Payment","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","EstOtherPaymentAmt","Proposed Other Monthly Payment","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","TotalEstPaymentAmt","Proposed Total Monthly Payment","currency",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","TotalDebtPaidOffAmount","Total Credit Card and Other Debt Paid Off","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","LoanExclFinMortInsAmt","Loan Amount Excluding Financed Mortgage Insurance","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","FinancedMortgageInsAmt","Total Financed Mortgage Insurance","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","TotalMortgageLoansAmount","Total Mortgage Loans","currency",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","CreditFromSeller","Closing Costs Paid by Seller","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","OtherCredit","Other Credits","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","TotalCredit","Total Credits","currency",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","OtherNewMortgageLoanAmt","Other New Mortgage Loans","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","TotalMortgageLoanAndCreditAmt","Total Mortgage Loans and Credits","currency",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","CashFromOrToBorrowerAmt","Cash To or From Borrower","currency",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","HasHoEducation","Homeowner Education","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","HoEducationFormat","Homeownership Education Format","picklist",40,true,"[]",,false,true,,"[""Attended Workshop in Person"",""Completed Web-Based Workshop""]",false
+"LoanApplicationFinancial","Loan Application Financial","HudApprovedProvIdentifier","Housing Counseling Agency ID","string",255,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","CounselingAgencyProvName","Housing Counseling Provider Name","string",255,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","HoEducationCompletedDate","Homeownership Education Completion Date","datetime",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","EdCompletedBorrowerName","Borrowers Who Completed Homeownership Education","string",255,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","HasCompletedCounseling","Housing Counseling","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","HousingCounselingFormat","Housing Counseling Format","picklist",40,true,"[]",,false,true,,"[""Face-to-Face"",""Telephone"",""Internet""]",false
+"LoanApplicationFinancial","Loan Application Financial","HudApprAgencyIdentifier","Housing Counseling Agency ID","string",255,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","CounselingAgencyName","Housing Counseling Provider Name","string",255,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","CounselingCompletionDate","Housing Counseling Completion Date","datetime",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","CounselingComplBorrName","Borrowers Who Completed Counseling","string",255,true,"[]",,false,true,,"[]",false
+"LoanApplicationFinancial","Loan Application Financial","FinancialExtIdentifier","Loan Application Financial External ID","string",255,true,"[]",,true,true,,"[]",false

@@ -1,0 +1,35 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"LoanApplicationAsset","Loan Application Asset","Id","Loan Application Asset ID","id",18,false,"[]",,false,false,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","OwnerId","Owner ID","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","Name","Name","string",255,false,"[]",,false,true,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","LoanApplicationId","Residential Loan Application ID","reference",18,true,"[""ResidentialLoanApplication""]","LoanApplication",false,true,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","AccountType","Account Type","picklist",40,true,"[]",,false,true,,"[""Checking"",""Money Market"",""Certificate of Deposit"",""Mutual Fund"",""Stocks"",""Stock Options"",""Bonds"",""Retirement"",""Bridge Loan Proceeds"",""Individual Development Account"",""Trust Account"",""Cash Value of Life Insurance""]",false
+"LoanApplicationAsset","Loan Application Asset","AssetType","Asset Type","picklist",40,true,"[]",,false,true,,"[""Earnest Money"",""Proceeds from Sale of Non-Real Estate Asset"",""Proceeds from Real Estate Property to be sold on or before closing"",""Sweat Equity"",""Employer Assistance"",""Rent Credit"",""Secured Borrowed Funds"",""Trade Equity"",""Unsecured Borrowed Funds"",""Other""]",false
+"LoanApplicationAsset","Loan Application Asset","AccountNumber","Financial Account Number","string",255,true,"[]",,false,true,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","CashOrMarketValue","Cash or Market Value","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","FinancialInstitutionName","Financial Institution","string",255,true,"[]",,false,true,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","GrossMonthlyRentalIncome","Gross Rental Income from Real Estate","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","RealEstateStreet","Real Estate Street","textarea",255,true,"[]",,false,true,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","RealEstateCity","Real Estate City","string",40,true,"[]",,false,true,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","RealEstateState","Real Estate State","string",80,true,"[]",,false,true,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","RealEstatePostalCode","Real Estate Postal Code","string",20,true,"[]",,false,true,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","RealEstateCountry","Real Estate Country","string",80,true,"[]",,false,true,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","RealEstateLatitude","Real Estate Latitude","double",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","RealEstateLongitude","Real Estate Longitude","double",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","RealEstateGeocodeAccuracy","Real Estate Geocode Accuracy","picklist",255,true,"[]",,false,true,,"[""Address"",""NearAddress"",""Block"",""Street"",""ExtendedZip"",""Zip"",""Neighborhood"",""City"",""County"",""State"",""Unknown""]",false
+"LoanApplicationAsset","Loan Application Asset","RealEstateAddress","Real Estate Address","address",0,true,"[]",,false,false,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","DispositionType","Real Estate Status","picklist",40,true,"[]",,false,true,,"[""Sold"",""Pending Sale"",""Retained""]",false
+"LoanApplicationAsset","Loan Application Asset","PresentMarketValue","Real Estate Value","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","NetMonthlyRentalIncome","Net Real Estate Rental Income","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","RealEstateMonthlyExpense","Other Monthly Real Estate Expenses","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","IsJointAsset","Joint Asset","boolean",0,false,"[]",,false,true,,"[]",false
+"LoanApplicationAsset","Loan Application Asset","AssetClass","Asset Class","picklist",40,true,"[]",,false,true,,"[""Financial"",""Real Estate"",""Other""]",false
+"LoanApplicationAsset","Loan Application Asset","AssetExtIdentifier","Loan Application Asset External ID","string",255,true,"[]",,true,true,,"[]",false

@@ -1,0 +1,14 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"LoanApplicantAsset","Loan Applicant Asset","Id","Loan Applicant Asset ID","id",18,false,"[]",,false,false,,"[]",false
+"LoanApplicantAsset","Loan Applicant Asset","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantAsset","Loan Applicant Asset","Name","Name","string",255,false,"[]",,false,false,,"[]",false
+"LoanApplicantAsset","Loan Applicant Asset","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantAsset","Loan Applicant Asset","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"LoanApplicantAsset","Loan Applicant Asset","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantAsset","Loan Applicant Asset","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"LoanApplicantAsset","Loan Applicant Asset","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantAsset","Loan Applicant Asset","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicantAsset","Loan Applicant Asset","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicantAsset","Loan Applicant Asset","LoanApplicantId","Loan Applicant ID","reference",18,false,"[""LoanApplicant""]","LoanApplicant",false,false,,"[]",false
+"LoanApplicantAsset","Loan Applicant Asset","LoanApplicationAssetId","Loan Application Asset ID","reference",18,false,"[""LoanApplicationAsset""]","LoanApplicationAsset",false,false,,"[]",false
+"LoanApplicantAsset","Loan Applicant Asset","Role","Role","picklist",40,true,"[]",,false,true,,"[""Co-Holder"",""Primary""]",false

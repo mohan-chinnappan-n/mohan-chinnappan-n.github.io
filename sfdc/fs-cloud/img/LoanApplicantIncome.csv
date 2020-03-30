@@ -1,0 +1,17 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"LoanApplicantIncome","Loan Applicant Income","Id","Loan Applicant Income ID","id",18,false,"[]",,false,false,,"[]",false
+"LoanApplicantIncome","Loan Applicant Income","OwnerId","Owner ID","reference",18,false,"[""Group"",""User""]","Owner",false,true,,"[]",false
+"LoanApplicantIncome","Loan Applicant Income","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantIncome","Loan Applicant Income","Name","Name","string",255,false,"[]",,false,true,,"[]",false
+"LoanApplicantIncome","Loan Applicant Income","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantIncome","Loan Applicant Income","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"LoanApplicantIncome","Loan Applicant Income","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantIncome","Loan Applicant Income","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"LoanApplicantIncome","Loan Applicant Income","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"LoanApplicantIncome","Loan Applicant Income","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicantIncome","Loan Applicant Income","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"LoanApplicantIncome","Loan Applicant Income","LoanApplicationId","Residential Loan Application ID","reference",18,true,"[""ResidentialLoanApplication""]","LoanApplication",false,true,,"[]",false
+"LoanApplicantIncome","Loan Applicant Income","LoanApplicantId","Loan Applicant ID","reference",18,false,"[""LoanApplicant""]","LoanApplicant",false,false,,"[]",false
+"LoanApplicantIncome","Loan Applicant Income","IncomeSourceType","Income Source Type","picklist",40,true,"[]",,false,true,,"[""Alimony"",""Automobile Allowance"",""Boarder Income"",""Capital Gains"",""Child Support"",""Disability"",""Foster Care"",""Housing or Parsonage"",""Interest and Dividends"",""Mortgage Credit Certificate"",""Mortgage Differential Payments"",""Notes Receivable"",""Public Assistance"",""Retirement"",""Royalty Payments"",""Separate Maintenance"",""Social Security"",""Trust"",""Unemployment Benefits"",""VA Compensation"",""Other""]",false
+"LoanApplicantIncome","Loan Applicant Income","MonthlyIncomeAmount","Monthly Income","currency",0,true,"[]",,false,true,,"[]",false
+"LoanApplicantIncome","Loan Applicant Income","IncomeExtIdentifier","Loan Applicant Income External ID","string",255,true,"[]",,true,true,,"[]",false
