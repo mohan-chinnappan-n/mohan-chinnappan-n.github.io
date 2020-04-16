@@ -1,0 +1,11 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"EventBusSubscriber","Platform Event Subscription","Id","Event ID","id",18,false,"[]",,false,false,,"[]",false
+"EventBusSubscriber","Platform Event Subscription","ExternalId","External ID","string",255,true,"[]",,false,false,,"[]",false
+"EventBusSubscriber","Platform Event Subscription","Name","Subscriber Name","string",80,true,"[]",,false,false,,"[]",false
+"EventBusSubscriber","Platform Event Subscription","Type","Type","string",80,true,"[]",,false,false,,"[]",false
+"EventBusSubscriber","Platform Event Subscription","Topic","Topic","string",80,true,"[]",,false,false,,"[]",false
+"EventBusSubscriber","Platform Event Subscription","Position","Position","int",0,true,"[]",,false,false,,"[]",false
+"EventBusSubscriber","Platform Event Subscription","Tip","Tip","int",0,true,"[]",,false,false,,"[]",false
+"EventBusSubscriber","Platform Event Subscription","Retries","Retry Attempts","int",0,true,"[]",,false,false,,"[]",false
+"EventBusSubscriber","Platform Event Subscription","LastError","Last Error Message","string",255,true,"[]",,false,false,,"[]",false
+"EventBusSubscriber","Platform Event Subscription","Status","Status","picklist",255,true,"[]",,false,false,,"[""Running"",""Suspended"",""Expired"",""Error""]",false
