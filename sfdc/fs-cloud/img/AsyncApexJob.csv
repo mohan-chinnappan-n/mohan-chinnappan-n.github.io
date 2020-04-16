@@ -1,16 +1,16 @@
-Label,Name,Nillable,Picklistvalues,Referenceto,Relationshipname,Type,Unique,Updateable
-Apex Job ID,Id,FALSE,--,--,null,id,FALSE,FALSE
-Created Date,CreatedDate,FALSE,--,--,null,datetime,FALSE,FALSE
-Created By ID,CreatedById,FALSE,--,"[ ""User"" ]",CreatedBy,reference,FALSE,FALSE
-Job Type,JobType,FALSE,"[ ""Future"" , ""SharingRecalculation"" , ""ScheduledApex"" , ""BatchApex"" , ""BatchApexWorker"" , ""TestRequest"" , ""TestWorker"" , ""ApexToken"" , ""Queueable"" ]",--,null,picklist,FALSE,FALSE
-Class ID,ApexClassId,TRUE,--,"[ ""ApexClass"" ]",ApexClass,reference,FALSE,FALSE
-Status,Status,FALSE,"[ ""Queued"" , ""Processing"" , ""Aborted"" , ""Completed"" , ""Failed"" , ""Preparing"" , ""Holding"" ]",--,null,picklist,FALSE,FALSE
-Batches Processed,JobItemsProcessed,FALSE,--,--,null,int,FALSE,FALSE
-Total Batches,TotalJobItems,TRUE,--,--,null,int,FALSE,FALSE
-Failures,NumberOfErrors,TRUE,--,--,null,int,FALSE,FALSE
-Completion Date,CompletedDate,TRUE,--,--,null,datetime,FALSE,FALSE
-Apex Method,MethodName,TRUE,--,--,null,string,FALSE,FALSE
-Status Detail,ExtendedStatus,TRUE,--,--,null,string,FALSE,FALSE
-Apex Job ID,ParentJobId,TRUE,--,"[ ""AsyncApexJob"" ]",null,reference,FALSE,FALSE
-Last ID processed and committed,LastProcessed,TRUE,--,--,null,string,FALSE,FALSE
-Offset of last ID processed and committed,LastProcessedOffset,TRUE,--,--,null,int,FALSE,FALSE
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"AsyncApexJob","Apex Job","Id","Apex Job ID","id",18,false,"[]",,false,false,,"[]",false
+"AsyncApexJob","Apex Job","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"AsyncApexJob","Apex Job","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"AsyncApexJob","Apex Job","JobType","Job Type","picklist",40,false,"[]",,false,false,,"[""Future"",""Sharing Recalculation"",""Scheduled Apex"",""Batch Apex"",""Batch Apex Worker"",""Test Request"",""Test Worker"",""Apex Token"",""Queueable""]",false
+"AsyncApexJob","Apex Job","ApexClassId","Class ID","reference",18,true,"[""ApexClass""]","ApexClass",false,false,,"[]",false
+"AsyncApexJob","Apex Job","Status","Status","picklist",40,false,"[]",,false,false,,"[""Queued"",""Processing"",""Aborted"",""Completed"",""Failed"",""Preparing"",""Holding""]",false
+"AsyncApexJob","Apex Job","JobItemsProcessed","Batches Processed","int",0,false,"[]",,false,false,,"[]",false
+"AsyncApexJob","Apex Job","TotalJobItems","Total Batches","int",0,true,"[]",,false,false,,"[]",false
+"AsyncApexJob","Apex Job","NumberOfErrors","Failures","int",0,true,"[]",,false,false,,"[]",false
+"AsyncApexJob","Apex Job","CompletedDate","Completion Date","datetime",0,true,"[]",,false,false,,"[]",false
+"AsyncApexJob","Apex Job","MethodName","Apex Method","string",255,true,"[]",,false,false,,"[]",false
+"AsyncApexJob","Apex Job","ExtendedStatus","Status Detail","string",255,true,"[]",,false,false,,"[]",false
+"AsyncApexJob","Apex Job","ParentJobId","Apex Job ID","reference",18,true,"[""AsyncApexJob""]",,false,false,,"[]",false
+"AsyncApexJob","Apex Job","LastProcessed","Last ID processed and committed","string",15,true,"[]",,false,false,,"[]",false
+"AsyncApexJob","Apex Job","LastProcessedOffset","Offset of last ID processed and committed","int",0,true,"[]",,false,false,,"[]",false
