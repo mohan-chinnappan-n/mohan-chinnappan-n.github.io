@@ -1,0 +1,14 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"IdeaComment","Idea Comment","Id","Idea Comment ID","id",18,false,"[]",,false,false,,"[]",false
+"IdeaComment","Idea Comment","IdeaId","Idea ID","reference",18,false,"[""Idea""]","Idea",false,false,,"[]",false
+"IdeaComment","Idea Comment","CommunityId","Zone ID","reference",18,true,"[""Community""]",,false,false,,"[]",false
+"IdeaComment","Idea Comment","CommentBody","Comment Body","textarea",4000,true,"[]",,false,true,,"[]",false
+"IdeaComment","Idea Comment","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"IdeaComment","Idea Comment","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"IdeaComment","Idea Comment","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"IdeaComment","Idea Comment","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"IdeaComment","Idea Comment","IsHtml","IsHtml","boolean",0,false,"[]",,false,false,,"[]",false
+"IdeaComment","Idea Comment","CreatorFullPhotoUrl","Url of Creator's Profile Photo","string",255,true,"[]",,false,false,,"[]",false
+"IdeaComment","Idea Comment","CreatorSmallPhotoUrl","Url of Creator's Thumbnail Photo","string",255,true,"[]",,false,false,,"[]",false
+"IdeaComment","Idea Comment","CreatorName","Name of Creator","string",121,true,"[]",,false,false,,"[]",false
+"IdeaComment","Idea Comment","UpVotes","Up Votes","int",0,true,"[]",,false,false,,"[]",false

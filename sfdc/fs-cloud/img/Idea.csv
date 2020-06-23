@@ -1,0 +1,27 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"Idea","Idea","Id","Idea ID","id",18,false,"[]",,false,false,,"[]",false
+"Idea","Idea","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"Idea","Idea","Title","Title","string",255,false,"[]",,false,true,,"[]",false
+"Idea","Idea","RecordTypeId","Record Type ID","reference",18,true,"[""RecordType""]","RecordType",false,false,,"[]",false
+"Idea","Idea","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Idea","Idea","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"Idea","Idea","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Idea","Idea","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"Idea","Idea","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"Idea","Idea","LastViewedDate","Last Viewed Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Idea","Idea","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Idea","Idea","CommunityId","Zone ID","reference",18,false,"[""Community""]","Community",false,false,,"[]",false
+"Idea","Idea","Body","Idea Body","textarea",32000,true,"[]",,false,true,,"[]",false
+"Idea","Idea","NumComments","Number of Comments","int",0,true,"[]",,false,false,,"[]",false
+"Idea","Idea","VoteScore","Vote Score","double",0,true,"[]",,false,false,,"[]",false
+"Idea","Idea","VoteTotal","Vote Total","double",0,true,"[]",,false,false,,"[]",false
+"Idea","Idea","Categories","Categories","multipicklist",4099,true,"[]",,false,true,,"[]",false
+"Idea","Idea","Status","Status","picklist",40,true,"[]",,false,true,,"[]",false
+"Idea","Idea","LastCommentDate","Last Idea Comment Date","datetime",0,true,"[]",,false,false,,"[]",false
+"Idea","Idea","LastCommentId","Idea Comment ID","reference",18,true,"[""IdeaComment""]","LastComment",false,false,,"[]",false
+"Idea","Idea","ParentIdeaId","Idea ID","reference",18,true,"[""Idea""]","ParentIdea",false,false,,"[]",false
+"Idea","Idea","IsHtml","IsHtml","boolean",0,false,"[]",,false,false,,"[]",false
+"Idea","Idea","IsMerged","Is Merged","boolean",0,false,"[]",,false,false,,"[]",false
+"Idea","Idea","CreatorFullPhotoUrl","Url of Creator's Profile Photo","string",255,true,"[]",,false,false,,"[]",false
+"Idea","Idea","CreatorSmallPhotoUrl","Url of Creator's Thumbnail Photo","string",255,true,"[]",,false,false,,"[]",false
+"Idea","Idea","CreatorName","Name of Creator","string",121,true,"[]",,false,false,,"[]",false
