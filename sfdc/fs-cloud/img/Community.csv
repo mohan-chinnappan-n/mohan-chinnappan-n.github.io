@@ -1,0 +1,12 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"Community","Zone","Id","Zone ID","id",18,false,"[]",,false,false,,"[]",false
+"Community","Zone","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"Community","Zone","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Community","Zone","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"Community","Zone","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"Community","Zone","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"Community","Zone","Name","Name","string",80,false,"[]",,false,false,,"[]",false
+"Community","Zone","Description","Description","textarea",1000,true,"[]",,false,false,,"[]",false
+"Community","Zone","IsActive","Active","boolean",0,false,"[]",,false,false,,"[]",false
+"Community","Zone","IsPublished","Show In Portal","boolean",0,false,"[]",,false,false,,"[]",false
+"Community","Zone","NetworkId","Network ID","reference",18,true,"[""Network""]","Network",false,false,,"[]",false
