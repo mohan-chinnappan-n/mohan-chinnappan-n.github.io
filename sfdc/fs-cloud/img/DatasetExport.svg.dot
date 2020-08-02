@@ -1,0 +1,72 @@
+
+        digraph "Salesforce+ ERD" {  
+            graph [  
+              rankdir="RL"  
+              bgcolor="#efeffd"  
+              label="Salesforce ERD "  
+              labeljust="r"  
+              nodesep="0.18"  
+              ranksep="0.46"        
+              fontname="Courier"  
+              fontsize="9"  
+            ];  
+            node [  
+              fontname="Courier"  
+              fontsize="11"  
+              shape="plaintext"  
+              color="#99ccff"  
+            ];  
+            edge [ arrowsize="0.8"   ];
+        
+            DatasetExport [shape=none, margin=0, label=<
+                <table border="1" cellborder="1" cellspacing="0" bgcolor="#ffeeff" >   
+                  <tr><td colspan="3" bgcolor="lightblue"><b>DatasetExport</b></td></tr>
+             <tr>
+                                        <td  bgcolor="#99ccff" port="Id" align="left">
+                                           <b>Id</b>
+                                        </td><td>id(18)</td></tr> <tr>
+                                         <td port="IsDeleted" align="left">
+                                         IsDeleted
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="LastModifiedById" align="left">
+                                         LastModifiedById
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="PublisherType" align="left">
+                                         PublisherType
+                                       </td><td>picklist(255)</td></tr> <tr>
+                                         <td port="MetadataLength" align="left">
+                                         MetadataLength
+                                       </td><td>int</td></tr> <tr>
+                                         <td port="CompressedMetadataLength" align="left">
+                                         CompressedMetadataLength
+                                       </td><td>int</td></tr> <tr>
+                                         <td port="Status" align="left">
+                                         Status
+                                       </td><td>picklist(255)</td></tr> <tr>
+                                         <td port="Owner" align="left">
+                                         Owner
+                                       </td><td>string(18)</td></tr> <tr>
+                                         <td port="PublisherInfo" align="left">
+                                         PublisherInfo
+                                       </td><td>string(1000)</td></tr> <tr>
+                                         <td port="Metadata" align="left">
+                                         Metadata
+                                       </td><td>base64</td></tr>            
+                </table>
+                >
+                  URL="#"
+                  tooltip=" DatasetExport "
+                ];
+            
+                            "DatasetExport" : "LastModifiedById": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LastModifiedBy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      }

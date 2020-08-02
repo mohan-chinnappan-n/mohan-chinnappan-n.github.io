@@ -1,0 +1,15 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"DatasetExport","Dataset Export","Id","Dataset Export ID","id",18,false,"[]",,false,false,,"[]",false
+"DatasetExport","Dataset Export","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"DatasetExport","Dataset Export","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"DatasetExport","Dataset Export","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"DatasetExport","Dataset Export","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"DatasetExport","Dataset Export","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"DatasetExport","Dataset Export","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"DatasetExport","Dataset Export","PublisherType","Publisher Type","picklist",255,false,"[]",,false,false,,"[]",false
+"DatasetExport","Dataset Export","MetadataLength","Metadata Length","int",0,true,"[]",,false,false,,"[]",false
+"DatasetExport","Dataset Export","CompressedMetadataLength","Compressed Metadata Length","int",0,true,"[]",,false,false,,"[]",false
+"DatasetExport","Dataset Export","Status","Status","picklist",255,false,"[]",,false,false,,"[]",false
+"DatasetExport","Dataset Export","Owner","Owner","string",18,true,"[]",,false,false,,"[]",false
+"DatasetExport","Dataset Export","PublisherInfo","Publisher Info","string",1000,false,"[]",,true,false,,"[]",false
+"DatasetExport","Dataset Export","Metadata","Metadata","base64",0,true,"[]",,false,false,,"[]",false

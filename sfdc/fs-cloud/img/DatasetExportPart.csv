@@ -1,0 +1,14 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"DatasetExportPart","Dataset Export Part","Id","Dataset Export Part ID","id",18,false,"[]",,false,false,,"[]",false
+"DatasetExportPart","Dataset Export Part","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"DatasetExportPart","Dataset Export Part","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"DatasetExportPart","Dataset Export Part","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"DatasetExportPart","Dataset Export Part","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"DatasetExportPart","Dataset Export Part","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"DatasetExportPart","Dataset Export Part","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"DatasetExportPart","Dataset Export Part","DatasetExportId","Dataset Export ID","reference",18,false,"[""DatasetExport""]","DatasetExport",false,false,,"[]",false
+"DatasetExportPart","Dataset Export Part","DataFileLength","Data File Length","int",0,false,"[]",,false,false,,"[]",false
+"DatasetExportPart","Dataset Export Part","CompressedDataFileLength","Compressed Data File Length","int",0,false,"[]",,false,false,,"[]",false
+"DatasetExportPart","Dataset Export Part","PartNumber","Part Number","int",0,false,"[]",,false,false,,"[]",false
+"DatasetExportPart","Dataset Export Part","Owner","Owner","string",18,false,"[]",,false,false,,"[]",false
+"DatasetExportPart","Dataset Export Part","DataFile","Data File","base64",0,false,"[]",,false,false,,"[]",false
