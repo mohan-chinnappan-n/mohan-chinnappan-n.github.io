@@ -1,0 +1,28 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"InsightsExternalData","External Data","Id","External Data ID","id",18,false,"[]",,false,false,,"[]",false
+"InsightsExternalData","External Data","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"InsightsExternalData","External Data","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"InsightsExternalData","External Data","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"InsightsExternalData","External Data","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"InsightsExternalData","External Data","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"InsightsExternalData","External Data","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"InsightsExternalData","External Data","EdgemartAlias","Dataset Alias","string",255,false,"[]",,false,true,,"[]",false
+"InsightsExternalData","External Data","EdgemartContainer","Dataset Location","string",255,true,"[]",,false,true,,"[]",false
+"InsightsExternalData","External Data","Format","Data File Format","picklist",255,false,"[]",,false,true,,"[""CSV"",""EBIN""]",false
+"InsightsExternalData","External Data","Operation","Dataset Operation","picklist",255,false,"[]",,false,true,,"[""Overwrite"",""Append"",""Upsert"",""Delete""]",false
+"InsightsExternalData","External Data","Action","Requested Action","picklist",255,false,"[]",,false,true,,"[""None"",""Process"",""Abort"",""Delete""]",false
+"InsightsExternalData","External Data","Status","Status","picklist",255,false,"[]",,false,true,,"[""New"",""Queued"",""In Progress"",""Failed"",""Completed"",""CompletedWithWarnings"",""Not Processed""]",false
+"InsightsExternalData","External Data","IsIndependentParts","Each file part can be processed independently.","boolean",0,false,"[]",,false,true,,"[]",false
+"InsightsExternalData","External Data","IsDependentOnLastUpload","Upload dependent on last upload to dataset.","boolean",0,false,"[]",,false,true,,"[]",false
+"InsightsExternalData","External Data","MetaDataLength","Metadata Length","int",0,true,"[]",,false,true,,"[]",false
+"InsightsExternalData","External Data","CompressedMetadataLength","Compressed Metadata Length","int",0,true,"[]",,false,true,,"[]",false
+"InsightsExternalData","External Data","NotificationSent","Notification Sent For","picklist",255,true,"[]",,false,true,,"[""Always"",""On failure"",""On warnings or errors"",""Never"",""On success"",""On warnings"",""On success or failures"",""On warnings or success""]",false
+"InsightsExternalData","External Data","NotificationEmail","Notification Email","string",255,true,"[]",,false,true,,"[]",false
+"InsightsExternalData","External Data","EdgemartLabel","Dataset Name","string",255,true,"[]",,false,true,,"[]",false
+"InsightsExternalData","External Data","Dataflow","Dataflow","string",18,true,"[]",,false,true,,"[]",false
+"InsightsExternalData","External Data","SubmittedDate","Submitted Date","datetime",0,true,"[]",,false,true,,"[]",false
+"InsightsExternalData","External Data","FileName","File Name","string",255,true,"[]",,false,true,,"[]",false
+"InsightsExternalData","External Data","Target","Upload target","picklist",255,true,"[]",,false,true,,"[]",false
+"InsightsExternalData","External Data","Description","Dataset Description","textarea",1000,true,"[]",,false,true,,"[]",false
+"InsightsExternalData","External Data","StatusMessage","Status Message","textarea",32000,true,"[]",,false,true,,"[]",false
+"InsightsExternalData","External Data","MetadataJson","Metadata JSON","base64",0,true,"[]",,false,true,,"[]",false

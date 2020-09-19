@@ -1,0 +1,111 @@
+
+        digraph "Salesforce+ ERD" {  
+            graph [  
+              rankdir="RL"  
+              bgcolor="#efeffd"  
+              label="Salesforce ERD "  
+              labeljust="r"  
+              nodesep="0.18"  
+              ranksep="0.46"        
+              fontname="Courier"  
+              fontsize="9"  
+            ];  
+            node [  
+              fontname="Courier"  
+              fontsize="11"  
+              shape="plaintext"  
+              color="#99ccff"  
+            ];  
+            edge [ arrowsize="0.8"   ];
+        
+            InsightsExternalData [shape=none, margin=0, label=<
+                <table border="1" cellborder="1" cellspacing="0" bgcolor="#ffeeff" >   
+                  <tr><td colspan="3" bgcolor="lightblue"><b>InsightsExternalData</b></td></tr>
+             <tr>
+                                        <td  bgcolor="#99ccff" port="Id" align="left">
+                                           <b>Id</b>
+                                        </td><td>id(18)</td></tr> <tr>
+                                         <td port="IsDeleted" align="left">
+                                         IsDeleted
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="LastModifiedById" align="left">
+                                         LastModifiedById
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="EdgemartAlias" align="left">
+                                         EdgemartAlias
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="EdgemartContainer" align="left">
+                                         EdgemartContainer
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="Format" align="left">
+                                         Format
+                                       </td><td>picklist(255)</td></tr> <tr>
+                                         <td port="Operation" align="left">
+                                         Operation
+                                       </td><td>picklist(255)</td></tr> <tr>
+                                         <td port="Action" align="left">
+                                         Action
+                                       </td><td>picklist(255)</td></tr> <tr>
+                                         <td port="Status" align="left">
+                                         Status
+                                       </td><td>picklist(255)</td></tr> <tr>
+                                         <td port="IsIndependentParts" align="left">
+                                         IsIndependentParts
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="IsDependentOnLastUpload" align="left">
+                                         IsDependentOnLastUpload
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="MetaDataLength" align="left">
+                                         MetaDataLength
+                                       </td><td>int</td></tr> <tr>
+                                         <td port="CompressedMetadataLength" align="left">
+                                         CompressedMetadataLength
+                                       </td><td>int</td></tr> <tr>
+                                         <td port="NotificationSent" align="left">
+                                         NotificationSent
+                                       </td><td>picklist(255)</td></tr> <tr>
+                                         <td port="NotificationEmail" align="left">
+                                         NotificationEmail
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="EdgemartLabel" align="left">
+                                         EdgemartLabel
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="Dataflow" align="left">
+                                         Dataflow
+                                       </td><td>string(18)</td></tr> <tr>
+                                         <td port="SubmittedDate" align="left">
+                                         SubmittedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="FileName" align="left">
+                                         FileName
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="Target" align="left">
+                                         Target
+                                       </td><td>picklist(255)</td></tr> <tr>
+                                         <td port="Description" align="left">
+                                         Description
+                                       </td><td>textarea(1000)</td></tr> <tr>
+                                         <td port="StatusMessage" align="left">
+                                         StatusMessage
+                                       </td><td>textarea(32000)</td></tr> <tr>
+                                         <td port="MetadataJson" align="left">
+                                         MetadataJson
+                                       </td><td>base64</td></tr>            
+                </table>
+                >
+                  URL="#"
+                  tooltip=" InsightsExternalData "
+                ];
+            
+                            "InsightsExternalData" : "LastModifiedById": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LastModifiedBy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      }
