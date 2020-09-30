@@ -1,0 +1,13 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"InsightsExternalDataPart","External Data Part","Id","External Data Part ID","id",18,false,"[]",,false,false,,"[]",false
+"InsightsExternalDataPart","External Data Part","IsDeleted","Deleted","boolean",0,false,"[]",,false,false,,"[]",false
+"InsightsExternalDataPart","External Data Part","CreatedDate","Created Date","datetime",0,false,"[]",,false,false,,"[]",false
+"InsightsExternalDataPart","External Data Part","CreatedById","Created By ID","reference",18,false,"[""User""]","CreatedBy",false,false,,"[]",false
+"InsightsExternalDataPart","External Data Part","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"InsightsExternalDataPart","External Data Part","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false
+"InsightsExternalDataPart","External Data Part","SystemModstamp","System Modstamp","datetime",0,false,"[]",,false,false,,"[]",false
+"InsightsExternalDataPart","External Data Part","InsightsExternalDataId","Data File ID","reference",18,false,"[""InsightsExternalData""]","InsightsExternalData",false,true,,"[]",false
+"InsightsExternalDataPart","External Data Part","PartNumber","Data Part Number","int",0,false,"[]",,false,true,,"[]",false
+"InsightsExternalDataPart","External Data Part","DataLength","Data Part Length","int",0,true,"[]",,false,true,,"[]",false
+"InsightsExternalDataPart","External Data Part","CompressedDataLength","Compressed File Part Length","int",0,true,"[]",,false,true,,"[]",false
+"InsightsExternalDataPart","External Data Part","DataFile","Data Part","base64",0,true,"[]",,false,true,,"[]",false
