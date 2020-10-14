@@ -115,7 +115,19 @@
           <h4 style='font-size:30px;'>sfdx-mohanc-plugins</h4>
       <ul style="font-size:30px;">
           <li>install: <code>sfdx plugins:install sfdx-mohanc-plugins</code></li>
-          <li>usage: <code> sfdx mohanc:projectFile:gen </code> </li>
+           <li> If you have error in  installing, run these commands in the terminal: <br/>
+
+            <pre>
+
+               $ export NODE_JQ_SKIP_INSTALL_BINARY=true
+               $ npm install node-jq
+               $ sfdx plugins:install sfdx-mohanc-plugins
+            </pre>
+           </li>
+          <li>to update:
+               <pre>$ sfdx update</pre></li>
+  
+          <li><hr/>sample usage: <code> sfdx mohanc:projectFile:gen </code> </li>
           <li>purpose: <ul><li> Creates project json files for the given sfdx-project.json </li>
                 <li> Creates deploy.sh to run the source:push in sequence </li>
            </li>
