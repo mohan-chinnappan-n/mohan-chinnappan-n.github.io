@@ -1,0 +1,7 @@
+"sobjectName","sobjectLabel","name","label","type","length","nillable","referenceTo","relationshipName","unique","updateable","inlineHelpText","picklistValues","externalId"
+"UserLogin","User Login","Id","User Login ID","id",18,false,"[]",,false,false,,"[]",false
+"UserLogin","User Login","UserId","User ID","reference",18,true,"[""User""]",,false,false,,"[]",false
+"UserLogin","User Login","IsFrozen","Is Frozen","boolean",0,false,"[]",,false,true,,"[]",false
+"UserLogin","User Login","IsPasswordLocked","Is Password Locked","boolean",0,false,"[]",,false,true,,"[]",false
+"UserLogin","User Login","LastModifiedDate","Last Modified Date","datetime",0,false,"[]",,false,false,,"[]",false
+"UserLogin","User Login","LastModifiedById","Last Modified By ID","reference",18,false,"[""User""]","LastModifiedBy",false,false,,"[]",false

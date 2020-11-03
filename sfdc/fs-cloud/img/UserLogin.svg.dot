@@ -1,0 +1,69 @@
+
+        digraph "Salesforce+ ERD" {  
+            graph [  
+              rankdir="RL"  
+              bgcolor="#efeffd"  
+              label="Salesforce ERD "  
+              labeljust="r"  
+              nodesep="0.18"  
+              ranksep="0.46"        
+              fontname="Courier"  
+              fontsize="9"  
+            ];  
+            node [  
+              fontname="Courier"  
+              fontsize="11"  
+              shape="plaintext"  
+              color="#99ccff"  
+            ];  
+            edge [ arrowsize="0.8"   ];
+        
+            UserLogin [shape=none, margin=0, label=<
+                <table border="1" cellborder="1" cellspacing="0" bgcolor="#ffeeff" >   
+                  <tr><td colspan="3" bgcolor="lightblue"><b>UserLogin</b></td></tr>
+             <tr>
+                                        <td  bgcolor="#99ccff" port="Id" align="left">
+                                           <b>Id</b>
+                                        </td><td>id(18)</td></tr> <tr>
+                                         <td port="UserId" align="left">
+                                         UserId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="IsFrozen" align="left">
+                                         IsFrozen
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="IsPasswordLocked" align="left">
+                                         IsPasswordLocked
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="LastModifiedById" align="left">
+                                         LastModifiedById
+                                       </td><td>reference(18)</td></tr>            
+                </table>
+                >
+                  URL="#"
+                  tooltip=" UserLogin "
+                ];
+            
+                            "UserLogin" : "UserId": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label=""
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "UserLogin" : "LastModifiedById": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LastModifiedBy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      }
