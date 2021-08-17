@@ -1,0 +1,177 @@
+
+        digraph "Salesforce+ ERD" {  
+            graph [  
+              rankdir="RL"  
+              bgcolor="#efeffd"  
+              label="Salesforce ERD "  
+              labeljust="r"  
+              nodesep="0.18"  
+              ranksep="0.46"        
+              fontname="Courier"  
+              fontsize="9"  
+            ];  
+            node [  
+              fontname="Courier"  
+              fontsize="11"  
+              shape="plaintext"  
+              color="#99ccff"  
+            ];  
+            edge [ arrowsize="0.8"   ];
+        
+            LoanApplicantDeclaration [shape=none, margin=0, label=<
+                <table border="1" cellborder="1" cellspacing="0" bgcolor="#ffeeff" >   
+                  <tr><td colspan="3" bgcolor="lightblue"><b>LoanApplicantDeclaration</b></td></tr>
+             <tr>
+                                        <td  bgcolor="#99ccff" port="Id" align="left">
+                                           <b>Id</b>
+                                        </td><td>id(18)</td></tr> <tr>
+                                         <td port="OwnerId" align="left">
+                                         OwnerId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="IsDeleted" align="left">
+                                         IsDeleted
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="Name" align="left">
+                                         Name
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="LastModifiedById" align="left">
+                                         LastModifiedById
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="LastViewedDate" align="left">
+                                         LastViewedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LastReferencedDate" align="left">
+                                         LastReferencedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LoanApplicationId" align="left">
+                                         LoanApplicationId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="LoanApplicantId" align="left">
+                                         LoanApplicantId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="HasOutstandingJudgement" align="left">
+                                         HasOutstandingJudgement
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="HasDeclaredBankruptcy" align="left">
+                                         HasDeclaredBankruptcy
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="IsRelatedToSeller" align="left">
+                                         IsRelatedToSeller
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="HasUndisclAddlPropApp" align="left">
+                                         HasUndisclAddlPropApp
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="HasUndisclAddlCreditApp" align="left">
+                                         HasUndisclAddlCreditApp
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="IsSubjectToPriorityLien" align="left">
+                                         IsSubjectToPriorityLien
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="IsCoSignerUndisclDebt" align="left">
+                                         IsCoSignerUndisclDebt
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="HasDeedSurrender" align="left">
+                                         HasDeedSurrender
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="HasPastShortSale" align="left">
+                                         HasPastShortSale
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="IsPrimaryResidence" align="left">
+                                         IsPrimaryResidence
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="HasOwnershipInterest" align="left">
+                                         HasOwnershipInterest
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="PriorPropertyUsageType" align="left">
+                                         PriorPropertyUsageType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="PriorPropertyTitleType" align="left">
+                                         PriorPropertyTitleType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="HasBorrowedMoney" align="left">
+                                         HasBorrowedMoney
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="BorrowedAmount" align="left">
+                                         BorrowedAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="IsPresentlyDelinquent" align="left">
+                                         IsPresentlyDelinquent
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="IsPartyToLawsuit" align="left">
+                                         IsPartyToLawsuit
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="HasPropertyForeclosed" align="left">
+                                         HasPropertyForeclosed
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="BankruptcyType" align="left">
+                                         BankruptcyType
+                                       </td><td>multipicklist(4099)</td></tr> <tr>
+                                         <td port="DeclarationExtIdentifier" align="left">
+                                         DeclarationExtIdentifier
+                                       </td><td>string(255)</td></tr>            
+                </table>
+                >
+                  URL="#"
+                  tooltip=" LoanApplicantDeclaration "
+                ];
+            
+                            "LoanApplicantDeclaration" : "OwnerId": w -> 
+                                  "Group" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Owner"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "LoanApplicantDeclaration" : "OwnerId": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Owner"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "LoanApplicantDeclaration" : "LastModifiedById": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LastModifiedBy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "LoanApplicantDeclaration" : "LoanApplicationId": w -> 
+                                  "ResidentialLoanApplication" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LoanApplication"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "LoanApplicantDeclaration" : "LoanApplicantId": w -> 
+                                  "LoanApplicant" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LoanApplicant"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      }

@@ -1,0 +1,168 @@
+
+        digraph "Salesforce+ ERD" {  
+            graph [  
+              rankdir="RL"  
+              bgcolor="#efeffd"  
+              label="Salesforce ERD "  
+              labeljust="r"  
+              nodesep="0.18"  
+              ranksep="0.46"        
+              fontname="Courier"  
+              fontsize="9"  
+            ];  
+            node [  
+              fontname="Courier"  
+              fontsize="11"  
+              shape="plaintext"  
+              color="#99ccff"  
+            ];  
+            edge [ arrowsize="0.8"   ];
+        
+            LoanApplicationAsset [shape=none, margin=0, label=<
+                <table border="1" cellborder="1" cellspacing="0" bgcolor="#ffeeff" >   
+                  <tr><td colspan="3" bgcolor="lightblue"><b>LoanApplicationAsset</b></td></tr>
+             <tr>
+                                        <td  bgcolor="#99ccff" port="Id" align="left">
+                                           <b>Id</b>
+                                        </td><td>id(18)</td></tr> <tr>
+                                         <td port="OwnerId" align="left">
+                                         OwnerId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="IsDeleted" align="left">
+                                         IsDeleted
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="Name" align="left">
+                                         Name
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="LastModifiedById" align="left">
+                                         LastModifiedById
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="LastViewedDate" align="left">
+                                         LastViewedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LastReferencedDate" align="left">
+                                         LastReferencedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LoanApplicationId" align="left">
+                                         LoanApplicationId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="AccountType" align="left">
+                                         AccountType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="AssetType" align="left">
+                                         AssetType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="AccountNumber" align="left">
+                                         AccountNumber
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="CashOrMarketValue" align="left">
+                                         CashOrMarketValue
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="FinancialInstitutionName" align="left">
+                                         FinancialInstitutionName
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="GrossMonthlyRentalIncome" align="left">
+                                         GrossMonthlyRentalIncome
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="RealEstateStreet" align="left">
+                                         RealEstateStreet
+                                       </td><td>textarea(255)</td></tr> <tr>
+                                         <td port="RealEstateCity" align="left">
+                                         RealEstateCity
+                                       </td><td>string(40)</td></tr> <tr>
+                                         <td port="RealEstateState" align="left">
+                                         RealEstateState
+                                       </td><td>string(80)</td></tr> <tr>
+                                         <td port="RealEstatePostalCode" align="left">
+                                         RealEstatePostalCode
+                                       </td><td>string(20)</td></tr> <tr>
+                                         <td port="RealEstateCountry" align="left">
+                                         RealEstateCountry
+                                       </td><td>string(80)</td></tr> <tr>
+                                         <td port="RealEstateLatitude" align="left">
+                                         RealEstateLatitude
+                                       </td><td>double</td></tr> <tr>
+                                         <td port="RealEstateLongitude" align="left">
+                                         RealEstateLongitude
+                                       </td><td>double</td></tr> <tr>
+                                         <td port="RealEstateGeocodeAccuracy" align="left">
+                                         RealEstateGeocodeAccuracy
+                                       </td><td>picklist(255)</td></tr> <tr>
+                                         <td port="RealEstateAddress" align="left">
+                                         RealEstateAddress
+                                       </td><td>address</td></tr> <tr>
+                                         <td port="DispositionType" align="left">
+                                         DispositionType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="PresentMarketValue" align="left">
+                                         PresentMarketValue
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="NetMonthlyRentalIncome" align="left">
+                                         NetMonthlyRentalIncome
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="RealEstateMonthlyExpense" align="left">
+                                         RealEstateMonthlyExpense
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="IsJointAsset" align="left">
+                                         IsJointAsset
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="AssetClass" align="left">
+                                         AssetClass
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="AssetExtIdentifier" align="left">
+                                         AssetExtIdentifier
+                                       </td><td>string(255)</td></tr>            
+                </table>
+                >
+                  URL="#"
+                  tooltip=" LoanApplicationAsset "
+                ];
+            
+                            "LoanApplicationAsset" : "OwnerId": w -> 
+                                  "Group" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Owner"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "LoanApplicationAsset" : "OwnerId": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Owner"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "LoanApplicationAsset" : "LastModifiedById": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LastModifiedBy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "LoanApplicationAsset" : "LoanApplicationId": w -> 
+                                  "ResidentialLoanApplication" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LoanApplication"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      }

@@ -11,4 +11,4 @@
 "LoanApplicantLiability","Loan Applicant Liability","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
 "LoanApplicantLiability","Loan Applicant Liability","LoanApplicantId","Loan Applicant ID","reference",18,false,"[""LoanApplicant""]","LoanApplicant",false,false,,"[]",false
 "LoanApplicantLiability","Loan Applicant Liability","LoanApplicationLiabilityId","Loan Application Liability ID","reference",18,false,"[""LoanApplicationLiability""]","LoanApplicationLiability",false,false,,"[]",false
-"LoanApplicantLiability","Loan Applicant Liability","Role","Role","picklist",40,true,"[]",,false,true,,"[""Co-Holder"",""Primary""]",false
+"LoanApplicantLiability","Loan Applicant Liability","Role","Role","picklist",40,true,"[]",,false,false,,"[""Co-Holder"",""Primary""]",false

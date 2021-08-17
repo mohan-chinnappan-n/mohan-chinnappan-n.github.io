@@ -1,0 +1,153 @@
+
+        digraph "Salesforce+ ERD" {  
+            graph [  
+              rankdir="RL"  
+              bgcolor="#efeffd"  
+              label="Salesforce ERD "  
+              labeljust="r"  
+              nodesep="0.18"  
+              ranksep="0.46"        
+              fontname="Courier"  
+              fontsize="9"  
+            ];  
+            node [  
+              fontname="Courier"  
+              fontsize="11"  
+              shape="plaintext"  
+              color="#99ccff"  
+            ];  
+            edge [ arrowsize="0.8"   ];
+        
+            LoanApplicationLiability [shape=none, margin=0, label=<
+                <table border="1" cellborder="1" cellspacing="0" bgcolor="#ffeeff" >   
+                  <tr><td colspan="3" bgcolor="lightblue"><b>LoanApplicationLiability</b></td></tr>
+             <tr>
+                                        <td  bgcolor="#99ccff" port="Id" align="left">
+                                           <b>Id</b>
+                                        </td><td>id(18)</td></tr> <tr>
+                                         <td port="OwnerId" align="left">
+                                         OwnerId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="IsDeleted" align="left">
+                                         IsDeleted
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="Name" align="left">
+                                         Name
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="LastModifiedById" align="left">
+                                         LastModifiedById
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="LastViewedDate" align="left">
+                                         LastViewedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LastReferencedDate" align="left">
+                                         LastReferencedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LoanApplicationId" align="left">
+                                         LoanApplicationId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="LoanApplicationAssetId" align="left">
+                                         LoanApplicationAssetId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="AccountType" align="left">
+                                         AccountType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="LoanType" align="left">
+                                         LoanType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="OtherLiabilityType" align="left">
+                                         OtherLiabilityType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="CreditorName" align="left">
+                                         CreditorName
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="AccountNumber" align="left">
+                                         AccountNumber
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="MonthlyPaymentAmount" align="left">
+                                         MonthlyPaymentAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="UnpaidBalanceAmount" align="left">
+                                         UnpaidBalanceAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="ShouldBePaidInFull" align="left">
+                                         ShouldBePaidInFull
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="IsJointLiability" align="left">
+                                         IsJointLiability
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="CreditLimitAmount" align="left">
+                                         CreditLimitAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="LiabilityClass" align="left">
+                                         LiabilityClass
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="LiabilityExtIdentifier" align="left">
+                                         LiabilityExtIdentifier
+                                       </td><td>string(255)</td></tr>            
+                </table>
+                >
+                  URL="#"
+                  tooltip=" LoanApplicationLiability "
+                ];
+            
+                            "LoanApplicationLiability" : "OwnerId": w -> 
+                                  "Group" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Owner"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "LoanApplicationLiability" : "OwnerId": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Owner"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "LoanApplicationLiability" : "LastModifiedById": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LastModifiedBy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "LoanApplicationLiability" : "LoanApplicationId": w -> 
+                                  "ResidentialLoanApplication" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LoanApplication"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "LoanApplicationLiability" : "LoanApplicationAssetId": w -> 
+                                  "LoanApplicationAsset" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LoanApplicationAsset"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      }

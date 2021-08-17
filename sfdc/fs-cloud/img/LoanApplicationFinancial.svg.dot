@@ -1,0 +1,195 @@
+
+        digraph "Salesforce+ ERD" {  
+            graph [  
+              rankdir="RL"  
+              bgcolor="#efeffd"  
+              label="Salesforce ERD "  
+              labeljust="r"  
+              nodesep="0.18"  
+              ranksep="0.46"        
+              fontname="Courier"  
+              fontsize="9"  
+            ];  
+            node [  
+              fontname="Courier"  
+              fontsize="11"  
+              shape="plaintext"  
+              color="#99ccff"  
+            ];  
+            edge [ arrowsize="0.8"   ];
+        
+            LoanApplicationFinancial [shape=none, margin=0, label=<
+                <table border="1" cellborder="1" cellspacing="0" bgcolor="#ffeeff" >   
+                  <tr><td colspan="3" bgcolor="lightblue"><b>LoanApplicationFinancial</b></td></tr>
+             <tr>
+                                        <td  bgcolor="#99ccff" port="Id" align="left">
+                                           <b>Id</b>
+                                        </td><td>id(18)</td></tr> <tr>
+                                         <td port="IsDeleted" align="left">
+                                         IsDeleted
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="Name" align="left">
+                                         Name
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="LastModifiedById" align="left">
+                                         LastModifiedById
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="LastViewedDate" align="left">
+                                         LastViewedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LastReferencedDate" align="left">
+                                         LastReferencedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LoanApplicationId" align="left">
+                                         LoanApplicationId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="PurchasePriceAmount" align="left">
+                                         PurchasePriceAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="RemodelAndRepairsAmount" align="left">
+                                         RemodelAndRepairsAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="LandAcquiredSeparatelyAmount" align="left">
+                                         LandAcquiredSeparatelyAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="OutstandingLoanAmount" align="left">
+                                         OutstandingLoanAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="BorrowerClosingCostAmt" align="left">
+                                         BorrowerClosingCostAmt
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="DiscountPointCostAmount" align="left">
+                                         DiscountPointCostAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="LoanAmount" align="left">
+                                         LoanAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="TotalCashDueFromBorrower" align="left">
+                                         TotalCashDueFromBorrower
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="EstFirstMortgagePmtAmt" align="left">
+                                         EstFirstMortgagePmtAmt
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="EstSubordinateLienPmtAmt" align="left">
+                                         EstSubordinateLienPmtAmt
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="EstHomeownersInsPmtAmt" align="left">
+                                         EstHomeownersInsPmtAmt
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="EstSuppPropertyInsPmtAmt" align="left">
+                                         EstSuppPropertyInsPmtAmt
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="EstPropertyTaxesPmtAmt" align="left">
+                                         EstPropertyTaxesPmtAmt
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="EstMortgageInsPmtAmt" align="left">
+                                         EstMortgageInsPmtAmt
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="EstOtherDuesPaymentAmt" align="left">
+                                         EstOtherDuesPaymentAmt
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="EstOtherPaymentAmt" align="left">
+                                         EstOtherPaymentAmt
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="TotalEstPaymentAmt" align="left">
+                                         TotalEstPaymentAmt
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="TotalDebtPaidOffAmount" align="left">
+                                         TotalDebtPaidOffAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="LoanExclFinMortInsAmt" align="left">
+                                         LoanExclFinMortInsAmt
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="FinancedMortgageInsAmt" align="left">
+                                         FinancedMortgageInsAmt
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="TotalMortgageLoansAmount" align="left">
+                                         TotalMortgageLoansAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="CreditFromSeller" align="left">
+                                         CreditFromSeller
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="OtherCredit" align="left">
+                                         OtherCredit
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="TotalCredit" align="left">
+                                         TotalCredit
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="OtherNewMortgageLoanAmt" align="left">
+                                         OtherNewMortgageLoanAmt
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="TotalMortgageLoanAndCreditAmt" align="left">
+                                         TotalMortgageLoanAndCreditAmt
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="CashFromOrToBorrowerAmt" align="left">
+                                         CashFromOrToBorrowerAmt
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="HasHoEducation" align="left">
+                                         HasHoEducation
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="HoEducationFormat" align="left">
+                                         HoEducationFormat
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="HudApprovedProvIdentifier" align="left">
+                                         HudApprovedProvIdentifier
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="CounselingAgencyProvName" align="left">
+                                         CounselingAgencyProvName
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="HoEducationCompletedDate" align="left">
+                                         HoEducationCompletedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="EdCompletedBorrowerName" align="left">
+                                         EdCompletedBorrowerName
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="HasCompletedCounseling" align="left">
+                                         HasCompletedCounseling
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="HousingCounselingFormat" align="left">
+                                         HousingCounselingFormat
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="HudApprAgencyIdentifier" align="left">
+                                         HudApprAgencyIdentifier
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="CounselingAgencyName" align="left">
+                                         CounselingAgencyName
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="CounselingCompletionDate" align="left">
+                                         CounselingCompletionDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="CounselingComplBorrName" align="left">
+                                         CounselingComplBorrName
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="FinancialExtIdentifier" align="left">
+                                         FinancialExtIdentifier
+                                       </td><td>string(255)</td></tr>            
+                </table>
+                >
+                  URL="#"
+                  tooltip=" LoanApplicationFinancial "
+                ];
+            
+                            "LoanApplicationFinancial" : "LastModifiedById": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LastModifiedBy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "LoanApplicationFinancial" : "LoanApplicationId": w -> 
+                                  "ResidentialLoanApplication" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LoanApplication"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      }

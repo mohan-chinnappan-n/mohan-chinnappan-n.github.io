@@ -1,0 +1,192 @@
+
+        digraph "Salesforce+ ERD" {  
+            graph [  
+              rankdir="RL"  
+              bgcolor="#efeffd"  
+              label="Salesforce ERD "  
+              labeljust="r"  
+              nodesep="0.18"  
+              ranksep="0.46"        
+              fontname="Courier"  
+              fontsize="9"  
+            ];  
+            node [  
+              fontname="Courier"  
+              fontsize="11"  
+              shape="plaintext"  
+              color="#99ccff"  
+            ];  
+            edge [ arrowsize="0.8"   ];
+        
+            LoanApplicant [shape=none, margin=0, label=<
+                <table border="1" cellborder="1" cellspacing="0" bgcolor="#ffeeff" >   
+                  <tr><td colspan="3" bgcolor="lightblue"><b>LoanApplicant</b></td></tr>
+             <tr>
+                                        <td  bgcolor="#99ccff" port="Id" align="left">
+                                           <b>Id</b>
+                                        </td><td>id(18)</td></tr> <tr>
+                                         <td port="OwnerId" align="left">
+                                         OwnerId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="IsDeleted" align="left">
+                                         IsDeleted
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="Name" align="left">
+                                         Name
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="LastModifiedById" align="left">
+                                         LastModifiedById
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="LastViewedDate" align="left">
+                                         LastViewedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LastReferencedDate" align="left">
+                                         LastReferencedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LoanApplicationId" align="left">
+                                         LoanApplicationId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="ContactId" align="left">
+                                         ContactId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="BorrowerType" align="left">
+                                         BorrowerType
+                                       </td><td>picklist(255)</td></tr> <tr>
+                                         <td port="CitizenshipStatus" align="left">
+                                         CitizenshipStatus
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="HasMilitaryService" align="left">
+                                         HasMilitaryService
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="IsActiveMilitary" align="left">
+                                         IsActiveMilitary
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="MaritalStatus" align="left">
+                                         MaritalStatus
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="DependentCount" align="left">
+                                         DependentCount
+                                       </td><td>int</td></tr> <tr>
+                                         <td port="DependentsAge" align="left">
+                                         DependentsAge
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="IsJointCredit" align="left">
+                                         IsJointCredit
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="MilitaryTourExpirationMonth" align="left">
+                                         MilitaryTourExpirationMonth
+                                       </td><td>int</td></tr> <tr>
+                                         <td port="MilitaryTourExpirationYear" align="left">
+                                         MilitaryTourExpirationYear
+                                       </td><td>int</td></tr> <tr>
+                                         <td port="WasActiveMilitary" align="left">
+                                         WasActiveMilitary
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="EthnicityType" align="left">
+                                         EthnicityType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="RaceType" align="left">
+                                         RaceType
+                                       </td><td>multipicklist(4099)</td></tr> <tr>
+                                         <td port="GenderType" align="left">
+                                         GenderType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="ApplicantExtIdentifier" align="left">
+                                         ApplicantExtIdentifier
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="WasNonActivatedService" align="left">
+                                         WasNonActivatedService
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="IsSurvivingMilitarySpouse" align="left">
+                                         IsSurvivingMilitarySpouse
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="PreferredLanguage" align="left">
+                                         PreferredLanguage
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="EthnicitySubType" align="left">
+                                         EthnicitySubType
+                                       </td><td>multipicklist(4099)</td></tr> <tr>
+                                         <td port="OtherEthnicitySubType" align="left">
+                                         OtherEthnicitySubType
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="AsianRaceSubType" align="left">
+                                         AsianRaceSubType
+                                       </td><td>multipicklist(4099)</td></tr> <tr>
+                                         <td port="OtherAsianRaceSubType" align="left">
+                                         OtherAsianRaceSubType
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="PacIslandSubType" align="left">
+                                         PacIslandSubType
+                                       </td><td>multipicklist(4099)</td></tr> <tr>
+                                         <td port="OtherPacIslandSubType" align="left">
+                                         OtherPacIslandSubType
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="TribeName" align="left">
+                                         TribeName
+                                       </td><td>string(255)</td></tr>            
+                </table>
+                >
+                  URL="#"
+                  tooltip=" LoanApplicant "
+                ];
+            
+                            "LoanApplicant" : "OwnerId": w -> 
+                                  "Group" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Owner"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "LoanApplicant" : "OwnerId": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Owner"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "LoanApplicant" : "LastModifiedById": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LastModifiedBy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "LoanApplicant" : "LoanApplicationId": w -> 
+                                  "ResidentialLoanApplication" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LoanApplication"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "LoanApplicant" : "ContactId": w -> 
+                                  "Contact" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="Contact"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      }

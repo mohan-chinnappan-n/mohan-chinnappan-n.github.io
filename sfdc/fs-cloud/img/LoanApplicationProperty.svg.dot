@@ -1,0 +1,132 @@
+
+        digraph "Salesforce+ ERD" {  
+            graph [  
+              rankdir="RL"  
+              bgcolor="#efeffd"  
+              label="Salesforce ERD "  
+              labeljust="r"  
+              nodesep="0.18"  
+              ranksep="0.46"        
+              fontname="Courier"  
+              fontsize="9"  
+            ];  
+            node [  
+              fontname="Courier"  
+              fontsize="11"  
+              shape="plaintext"  
+              color="#99ccff"  
+            ];  
+            edge [ arrowsize="0.8"   ];
+        
+            LoanApplicationProperty [shape=none, margin=0, label=<
+                <table border="1" cellborder="1" cellspacing="0" bgcolor="#ffeeff" >   
+                  <tr><td colspan="3" bgcolor="lightblue"><b>LoanApplicationProperty</b></td></tr>
+             <tr>
+                                        <td  bgcolor="#99ccff" port="Id" align="left">
+                                           <b>Id</b>
+                                        </td><td>id(18)</td></tr> <tr>
+                                         <td port="IsDeleted" align="left">
+                                         IsDeleted
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="Name" align="left">
+                                         Name
+                                       </td><td>string(255)</td></tr> <tr>
+                                         <td port="LastModifiedById" align="left">
+                                         LastModifiedById
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="LastViewedDate" align="left">
+                                         LastViewedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LastReferencedDate" align="left">
+                                         LastReferencedDate
+                                       </td><td>datetime</td></tr> <tr>
+                                         <td port="LoanApplicationId" align="left">
+                                         LoanApplicationId
+                                       </td><td>reference(18)</td></tr> <tr>
+                                         <td port="UnitsFinancedCount" align="left">
+                                         UnitsFinancedCount
+                                       </td><td>int</td></tr> <tr>
+                                         <td port="LoanPurposeType" align="left">
+                                         LoanPurposeType
+                                       </td><td>picklist(255)</td></tr> <tr>
+                                         <td port="PropertyUseType" align="left">
+                                         PropertyUseType
+                                       </td><td>picklist(40)</td></tr> <tr>
+                                         <td port="PropertyStreet" align="left">
+                                         PropertyStreet
+                                       </td><td>textarea(255)</td></tr> <tr>
+                                         <td port="PropertyCity" align="left">
+                                         PropertyCity
+                                       </td><td>string(40)</td></tr> <tr>
+                                         <td port="PropertyState" align="left">
+                                         PropertyState
+                                       </td><td>string(80)</td></tr> <tr>
+                                         <td port="PropertyPostalCode" align="left">
+                                         PropertyPostalCode
+                                       </td><td>string(20)</td></tr> <tr>
+                                         <td port="PropertyCountry" align="left">
+                                         PropertyCountry
+                                       </td><td>string(80)</td></tr> <tr>
+                                         <td port="PropertyLatitude" align="left">
+                                         PropertyLatitude
+                                       </td><td>double</td></tr> <tr>
+                                         <td port="PropertyLongitude" align="left">
+                                         PropertyLongitude
+                                       </td><td>double</td></tr> <tr>
+                                         <td port="PropertyGeocodeAccuracy" align="left">
+                                         PropertyGeocodeAccuracy
+                                       </td><td>picklist(255)</td></tr> <tr>
+                                         <td port="PropertyAddress" align="left">
+                                         PropertyAddress
+                                       </td><td>address</td></tr> <tr>
+                                         <td port="RequestedLoanAmount" align="left">
+                                         RequestedLoanAmount
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="PropertyValue" align="left">
+                                         PropertyValue
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="IsMixedUseProperty" align="left">
+                                         IsMixedUseProperty
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="IsManufacturedHome" align="left">
+                                         IsManufacturedHome
+                                       </td><td>boolean</td></tr> <tr>
+                                         <td port="ExpMonthlyRentalIncome" align="left">
+                                         ExpMonthlyRentalIncome
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="ExpNetMonthlyRentalInc" align="left">
+                                         ExpNetMonthlyRentalInc
+                                       </td><td>currency</td></tr> <tr>
+                                         <td port="PropertyExtIdentifier" align="left">
+                                         PropertyExtIdentifier
+                                       </td><td>string(255)</td></tr>            
+                </table>
+                >
+                  URL="#"
+                  tooltip=" LoanApplicationProperty "
+                ];
+            
+                            "LoanApplicationProperty" : "LastModifiedById": w -> 
+                                  "User" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LastModifiedBy"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      
+                            "LoanApplicationProperty" : "LoanApplicationId": w -> 
+                                  "ResidentialLoanApplication" : "Id" 
+                                           : e 
+                                          [arrowhead=none 
+                                           dir=back 
+                                           arrowtail=crowodot 
+                                           color="#ff99cc"
+                                           label="LoanApplication"
+                                           fontname="Monaco"
+                                           fontsize="9"
+                                          ];
+                      }

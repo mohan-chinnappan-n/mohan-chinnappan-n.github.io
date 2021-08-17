@@ -11,4 +11,4 @@
 "LoanApplicantAsset","Loan Applicant Asset","LastReferencedDate","Last Referenced Date","datetime",0,true,"[]",,false,false,,"[]",false
 "LoanApplicantAsset","Loan Applicant Asset","LoanApplicantId","Loan Applicant ID","reference",18,false,"[""LoanApplicant""]","LoanApplicant",false,false,,"[]",false
 "LoanApplicantAsset","Loan Applicant Asset","LoanApplicationAssetId","Loan Application Asset ID","reference",18,false,"[""LoanApplicationAsset""]","LoanApplicationAsset",false,false,,"[]",false
-"LoanApplicantAsset","Loan Applicant Asset","Role","Role","picklist",40,true,"[]",,false,true,,"[""Co-Holder"",""Primary""]",false
+"LoanApplicantAsset","Loan Applicant Asset","Role","Role","picklist",40,true,"[]",,false,false,,"[""Co-Holder"",""Primary""]",false
