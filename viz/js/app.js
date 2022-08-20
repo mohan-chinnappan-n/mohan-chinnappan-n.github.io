@@ -41,21 +41,28 @@
       qresult.f = 'unix';
     }
 
-    // set the select box with requested file
-    document.getElementById('samples').value = qresult.f;
 
-    // reading the resource
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET",   './data/' + qresult.f + '.dot', false);
-    rawFile.onreadystatechange = function () {
-        if(rawFile.readyState === 4) {
-            if(rawFile.status === 200 || rawFile.status == 0) {
-                var fileContent = rawFile.responseText;
-                editor.setValue(fileContent);
-            }
-        }
+    if (qresult.d) {
+      editor.setValue(atob(qresult.d));
     }
-    rawFile.send(null);
+    else {
+
+      // set the select box with requested file
+      document.getElementById('samples').value = qresult.f;
+
+      // reading the resource
+      var rawFile = new XMLHttpRequest();
+      rawFile.open("GET",   './data/' + qresult.f + '.dot', false);
+      rawFile.onreadystatechange = function () {
+          if(rawFile.readyState === 4) {
+              if(rawFile.status === 200 || rawFile.status == 0) {
+                  var fileContent = rawFile.responseText;
+                  editor.setValue(fileContent);
+              }
+          }
+      }
+      rawFile.send(null);
+    }
 
 
 
