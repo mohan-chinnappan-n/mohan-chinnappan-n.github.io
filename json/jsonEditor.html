@@ -118,7 +118,7 @@
  
 <script>
 
-    var jsonObj = {
+    let jsonObj = {
     "browsers": ["Chrome", "Safari", "Firefox"],
     "chrome_is_best": true,
     "pollution": null,
@@ -133,42 +133,49 @@
           var item = part.split("=");
           qresult[item[0]] = decodeURIComponent(item[1]);
     });
-   console.log(qresult.f);
-    if (qresult.f === undefined) {
-      qresult.f = 'browsers';
+
+    //------------ can be called with this parameter d 
+    if (qresult.d) { // got it via query param d
+      jsonObj =  JSON.parse(atob(qresult.d));
     }
-    if (qresult.c === undefined) {
-      qresult.c = 0;
-    }
+    else {
+      console.log(qresult.f);
+      if (qresult.f === undefined) {
+        qresult.f = 'browsers';
+      }
+      if (qresult.c === undefined) {
+        qresult.c = 0;
+      }
 
     // set the select box with requested file
    // document.getElementById('samples').value = qresult.f;
 
-    // reading the resource
-    var rawFile = new XMLHttpRequest();
-    var baseURI='../sfdc/img/fsc/'
-    var fileUrl = baseURI + qresult.f + '.json';
-    console.log(fileUrl);
-    rawFile.open("GET",  fileUrl, false);
-    rawFile.onreadystatechange = function () {
-        if(rawFile.readyState === 4) {
-            if(rawFile.status === 200 || rawFile.status == 0) {
-              if (qresult.c == 1) {
-                jsonObj = JSON.parse(rawFile.responseText
-                  .replace(/&quot;/g,'\'')
-                  .replace(/&amp;/g,'')
-                  .replace(/&#39;/g, '\'')
-                  .replace(/&#92;/g,'')
-                
-                );
-              } else {
-                jsonObj = JSON.parse(rawFile.responseText);
+      // reading the resource
+      var rawFile = new XMLHttpRequest();
+      var baseURI='../sfdc/img/fsc/'
+      var fileUrl = baseURI + qresult.f + '.json';
+      console.log(fileUrl);
+      rawFile.open("GET",  fileUrl, false);
+      rawFile.onreadystatechange = function () {
+          if(rawFile.readyState === 4) {
+              if(rawFile.status === 200 || rawFile.status == 0) {
+                if (qresult.c == 1) {
+                  jsonObj = JSON.parse(rawFile.responseText
+                    .replace(/&quot;/g,'\'')
+                    .replace(/&amp;/g,'')
+                    .replace(/&#39;/g, '\'')
+                    .replace(/&#92;/g,'')
+                  
+                  );
+                } else {
+                  jsonObj = JSON.parse(rawFile.responseText);
+                }
               }
-            }
-        }
-    }
+          }
+      }
     rawFile.send(null);
     document.getElementById('fileselected').textContent = qresult.f;
+  }
 
 
 
