@@ -45,6 +45,11 @@
     if (qresult.d) {
       editor.setValue(atob(qresult.d));
     }
+    else if (qresult.c) {
+     // editor.setValue(atob(qresult.c));   
+     navigator.clipboard.readText() .then((clipText) =>  editor.setValue(clipText)); 
+     // alert(atob(qresult.c));
+    }
     else {
 
       // set the select box with requested file
