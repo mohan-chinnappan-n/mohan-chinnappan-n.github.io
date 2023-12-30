@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <title>New Year Greetings</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4d6c3; /* Set your desired background color */
+        }
+
+        #greetings {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff; /* Set your desired background color for the card */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const friendName = getParameterByName('friend');
+            const yourName = getParameterByName('you');
+            const year = getParameterByName('year');
+
+
+            document.getElementById('friendName').innerText = friendName || 'Friend';
+            document.getElementById('yourName').innerText = yourName || 'Your Name';
+            const yearElements = document.getElementsByClassName('year');
+            for (const ele of yearElements) {
+                ele.innerText = year || '2024';
+            }
+           
+ 
+        });
+    </script>
+</head>
+<body>
+    <div id="greetings">
+        <h1>Happy New Year  <span class='year'></span></h1>
+         
+        <p>Dear <span id="friendName"></span>,</p>
+        <p>May the upcoming year, <span class='year'></span>, bring you joy, prosperity, and countless opportunities for personal and professional fulfillment. May it be filled with new adventures, exciting challenges, and moments of pure happiness.
+
+        </p>
+        <p>Warmest wishes,</p>
+
+        <p><span id="yourName"></span></p>
+
+        <img src="https://mohan-chinnappan-n5.github.io/img/9.jpg" alt="New Year Greetings Image">
+    </div>
+</body>
+</html>
