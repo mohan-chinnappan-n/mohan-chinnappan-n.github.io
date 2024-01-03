@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Content</title>
+
+    <style>
+        pre {
+            width: 720px; /* Set your desired width */
+            height: 400px; /* Set your desired height */
+            overflow: auto; /* Enable scrollbars when content exceeds the specified height */
+            padding: 10px; /* Add padding for better styling */
+            white-space: pre-wrap; /* Allow text to wrap */
+        }
+    </style>
+</head>
+<body>
+
+<h2>Iframe Content</h2>
+
+
+<pre>
+Inside an iframe, the Document.referrer will initially be set to the same value as the href of the parent window's Window.location.
+
+The document.referrer property in JavaScript provides the URL of the document that loaded the current document. However, its usage can be limited and may not always contain the expected value. Specifically, in some cases, it may be empty or not provide the information you need.
+
+In the context of cross-document communication, such as between a parent window and an iframe, it's often more reliable to use the postMessage API, as demonstrated in this example. This method allows for secure communication between documents and can be more explicit in terms of specifying the target origin.
+
+Using document.referrer in this context might not be suitable because:
+
+Security Concerns: The document.referrer value is set by the browser and can be controlled by the user or may be blocked for security reasons.
+
+Limited Information: The referrer may not always be available or might not contain the information you need, especially if the documents are on different domains.
+
+If you have control over both the parent and iframe documents and they are on the same domain, you might consider using the window.parent reference directly. However, be cautious about the security implications of cross-origin communication.
+
+For secure and explicit communication between documents, especially across origins, using postMessage is generally recommended. It provides a more controlled and secure way for documents to communicate with each other.
+
+Referrer Policy: https://infosec.mozilla.org/guidelines/web_security.html#referrer-policy
+
+Referer and Referrer-Policy best practices: https://web.dev/articles/referrer-best-practices
+</pre>
+
+
+<img src="https://web.dev/static/articles/referrer-best-practices/image/http-request-including-r-9ebf692a22831_1920.jpg" alt="">
+<img src="https://web.dev/static/articles/referrer-best-practices/image/urls-paths-mapped-diff-5b35e579c46d7_1920.jpg" alt="">
+<!-- Display received message from the main application -->
+<p id="messageDisplay"></p>
+
+
+<script>
+
+console.log(document.referrer);
+// Add event listener to receive messages from the main application
+window.addEventListener('message', function(event) {
+    // Display the received message
+    document.getElementById('messageDisplay').innerText = 'Received Message: ' + event.data;
+});
+</script>
+
+</body>
+</html>
